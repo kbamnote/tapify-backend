@@ -30,6 +30,32 @@ if (strlen($vcardName) < 2) {
 try {
     $pdo = getDB();
 
+    // Check if we should create a new user for this vCard (Admin feature)
+    $customerEmail = trim($input['customer_email'] ?? '');
+    $customerPassword = $input['customer_password'] ?? '';
+    $customerName = sanitize($input['customer_name'] ?? '');
+
+    if ($customerEmail && $customerPassword && $_SESSION['user_role'] === 'admin') {
+        // 1. Check if user already exists
+        $stmt = $pdo->prepare("SELECT id FROM users WHERE email = ?");
+        $stmt->execute([$customerEmail]);
+        $existingUser = $stmt->fetch();
+
+        if ($existingUser) {
+            $userId = $existingUser['id'];
+        } else {
+            // 2. Create new user
+            $hashedPass = hashPassword($customerPassword);
+            $stmt = $pdo->prepare("INSERT INTO users (name, email, password, role, status) VALUES (?, ?, ?, 'user', 1)");
+            $stmt->execute([$customerName ?: $vcardName, $customerEmail, $hashedPass]);
+            $userId = $pdo->lastInsertId();
+
+            // 3. Create default subscription
+            $stmt = $pdo->prepare("INSERT INTO subscriptions (user_id, plan_name, vcards_limit, stores_limit, status) VALUES (?, 'Free Plan', 5, 1, 'active')");
+            $stmt->execute([$userId]);
+        }
+    }
+
     // Check user's vCard limit
     $stmt = $pdo->prepare("
         SELECT s.vcards_limit, COUNT(v.id) AS current_count
@@ -43,7 +69,7 @@ try {
     $sub = $stmt->fetch();
 
     if ($sub && $sub['current_count'] >= $sub['vcards_limit']) {
-        sendError('You have reached your vCards limit (' . $sub['vcards_limit'] . '). Please upgrade your plan.', 403);
+        sendError('The selected user has reached their vCards limit (' . $sub['vcards_limit'] . ').', 403);
     }
 
     // Generate URL alias if not provided
@@ -106,6 +132,7 @@ try {
 
     sendSuccess('vCard created successfully!', [
         'vcard_id' => $vcardId,
+        'user_id' => $userId,
         'url_alias' => $urlAlias,
         'preview_url' => SITE_URL . '/' . $urlAlias
     ]);
