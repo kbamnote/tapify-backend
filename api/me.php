@@ -33,14 +33,15 @@ try {
         sendError('User not found', 404);
     }
 
-    // Get vCard count
-    $stmt = $pdo->prepare("SELECT COUNT(*) AS total FROM vcards WHERE user_id = ?");
+    // Get primary vCard
+    $stmt = $pdo->prepare("SELECT id, url_alias, vcard_name, view_count, status FROM vcards WHERE user_id = ? LIMIT 1");
     $stmt->execute([$userId]);
-    $vcardCount = $stmt->fetch()['total'];
+    $vcard = $stmt->fetch();
 
+    $user['vcard'] = $vcard;
     $user['vcards_count'] = (int)$vcardCount;
 
-    sendSuccess('User retrieved', ['user' => $user]);
+    sendSuccess('User retrieved', ['user' => $user, 'vcard' => $vcard]);
 
 } catch (Exception $e) {
     sendError('Failed to get user: ' . $e->getMessage(), 500);

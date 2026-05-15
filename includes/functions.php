@@ -108,6 +108,23 @@ function requireAuth() {
 }
 
 /**
+ * Check if current user is an admin
+ */
+function isAdmin() {
+    return isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'admin';
+}
+
+/**
+ * Require admin role
+ */
+function requireAdmin() {
+    requireAuth();
+    if (!isAdmin()) {
+        sendError('Access denied. Admin privileges required.', 403);
+    }
+}
+
+/**
  * Get current logged in user details
  */
 function getCurrentUser() {
