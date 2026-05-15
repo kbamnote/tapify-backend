@@ -6,61 +6,55 @@
  * REAL Hostinger credentials pre-filled for Abid
  */
 
-// Helper to get env var safely
-function get_env_var($key, $default = null) {
-    return getenv($key) ?: ($_ENV[$key] ?? ($_SERVER[$key] ?? $default));
-}
-
-// === DATABASE CREDENTIALS ===
-define('DB_HOST', get_env_var('DB_HOST') ?: get_env_var('MYSQLHOST') ?: 'localhost');
-define('DB_PORT', get_env_var('DB_PORT') ?: get_env_var('MYSQLPORT') ?: '3306');
-define('DB_NAME', get_env_var('DB_NAME') ?: get_env_var('MYSQLDATABASE') ?: 'u125734122_tapify');
-define('DB_USER', get_env_var('DB_USER') ?: get_env_var('MYSQLUSER') ?: 'u125734122_tapify');
-define('DB_PASS', get_env_var('DB_PASS') ?: get_env_var('MYSQLPASSWORD') ?: 'World@2018#');
-define('DB_CHARSET', 'utf8mb4');
-
 // === SITE CONFIGURATION ===
-// Use Railway domain if available, otherwise fallback to Hostinger testing URL
-define('SITE_URL', getenv('SITE_URL') ?: 'https://testing.mrprintworld.com');
+define('SITE_URL', getenv('SITE_URL') ?: 'https://tapify-backend-production.up.railway.app');
 define('SITE_NAME', 'Tapify');
 define('UPLOAD_PATH', __DIR__ . '/../uploads/');
 define('UPLOAD_URL', SITE_URL . '/backend/uploads/');
 
 // === SECURITY ===
-define('JWT_SECRET', getenv('JWT_SECRET') ?: 'tapify-secret-key-change-this-12345');
-define('SESSION_LIFETIME', 86400 * 30); // 30 days
+define('JWT_SECRET', getenv('JWT_SECRET') ?: 'tapify-secret-key-12345');
+define('JWT_ALGO', 'HS256');
+define('TOKEN_EXPIRY', 86400 * 7);
 
-// Error reporting (turn off in production)
+// Error reporting
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
-// Set timezone
 date_default_timezone_set('Asia/Kolkata');
 
 /**
  * Database Connection (PDO)
  */
 function getDB() {
-    static $pdo = null;
+    $host = getenv('DB_HOST');
+    $port = getenv('DB_PORT');
+    $database = getenv('DB_DATABASE');
+    $username = getenv('DB_USERNAME');
+    $password = getenv('DB_PASSWORD');
 
-    if ($pdo === null) {
-        try {
-            $dsn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=" . DB_CHARSET;
-            $options = [
+    $dsn = "mysql:host={$host};port={$port};dbname={$database};charset=utf8mb4";
+
+    try {
+        $pdo = new PDO(
+            $dsn,
+            $username,
+            $password,
+            [
+                PDO::ATTR_TIMEOUT => 10,
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                 PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                PDO::ATTR_EMULATE_PREPARES => false,
-            ];
-            $pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
-        } catch (PDOException $e) {
-            die(json_encode([
-                'success' => false,
-                'message' => 'Database connection failed (Host: ' . DB_HOST . '): ' . $e->getMessage()
-            ]));
-        }
-    }
+                PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+            ]
+        );
 
-    return $pdo;
+        return $pdo;
+
+    } catch (PDOException $e) {
+        die(json_encode([
+            "success" => false,
+            "message" => "Database connection failed (Host: {$host}): " . $e->getMessage()
+        ]));
+    }
 }
 
 // CORS Headers
