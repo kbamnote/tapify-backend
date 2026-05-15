@@ -54,7 +54,7 @@ function getDB() {
         } catch (PDOException $e) {
             die(json_encode([
                 'success' => false,
-                'message' => 'Database connection failed: ' . $e->getMessage()
+                'message' => 'Database connection failed (Host: ' . DB_HOST . '): ' . $e->getMessage()
             ]));
         }
     }
