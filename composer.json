@@ -3,6 +3,6 @@
     "description": "Tapify Backend API",
     "type": "project",
     "require": {
-        "php": ">=7.4"
+        "php": "8.1.*"
     }
 }
