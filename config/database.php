@@ -7,10 +7,10 @@
  */
 
 // === DATABASE CREDENTIALS (Dynamic for Railway/Hostinger) ===
-define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
-define('DB_NAME', getenv('DB_NAME') ?: 'u125734122_tapify');
-define('DB_USER', getenv('DB_USER') ?: 'u125734122_tapify');
-define('DB_PASS', getenv('DB_PASS') ?: 'World@2018#');
+define('DB_HOST', getenv('DB_HOST') ?: getenv('MYSQLHOST') ?: 'localhost');
+define('DB_NAME', getenv('DB_NAME') ?: getenv('MYSQLDATABASE') ?: 'u125734122_tapify');
+define('DB_USER', getenv('DB_USER') ?: getenv('MYSQLUSER') ?: 'u125734122_tapify');
+define('DB_PASS', getenv('DB_PASS') ?: getenv('MYSQLPASSWORD') ?: 'World@2018#');
 define('DB_CHARSET', 'utf8mb4');
 
 // === SITE CONFIGURATION ===
