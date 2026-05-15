@@ -1,0 +1,8 @@
+# Tapify Backend - Git Ignore
+config/database.php
+config/email.php
+uploads/*
+!uploads/.htaccess
+.vscode/
+*.log
+.DS_Store
