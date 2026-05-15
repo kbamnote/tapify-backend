@@ -8,7 +8,7 @@ require_once __DIR__ . '/config/database.php';
 
 $alias = trim($_GET['alias'] ?? '');
 if (empty($alias)) {
-    header('Location: ../frontend/index.html');
+    header('Location: /');
     exit;
 }
 
@@ -99,10 +99,10 @@ $templateMap = [
 ];
 
 $templateName = $templateMap[$templateId] ?? 'default';
-$templatePath = __DIR__ . "/../frontend/templates/$templateName.php";
+$templatePath = __DIR__ . "/templates/$templateName.php";
 
 if (!file_exists($templatePath)) {
-    $templatePath = __DIR__ . '/../frontend/templates/default.php';
+    $templatePath = __DIR__ . '/templates/default.php';
     $templateName = 'default';
 }
 

@@ -57,11 +57,27 @@ function getDB() {
     }
 }
 
+// === CORS & SESSIONS ===
+// Set session cookie params for cross-domain compatibility
+ini_set('session.cookie_samesite', 'None');
+ini_set('session.cookie_secure', 'True');
+ini_set('session.cookie_httponly', 'True');
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 // CORS Headers
-header('Content-Type: application/json; charset=utf-8');
-header('Access-Control-Allow-Origin: *');
+$origin = $_SERVER['HTTP_ORIGIN'] ?? '*';
+header("Access-Control-Allow-Origin: $origin");
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type, Authorization');
+header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
+header('Access-Control-Allow-Credentials: true');
+
+// Handle preflight OPTIONS requests
+if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+    exit;
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     http_response_code(200);

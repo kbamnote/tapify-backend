@@ -8,7 +8,7 @@ require_once __DIR__ . '/config/database.php';
 
 $alias = trim($_GET['alias'] ?? '');
 if (empty($alias)) {
-    header('Location: ../frontend/index.html');
+    header('Location: /');
     exit;
 }
 
@@ -66,7 +66,7 @@ header('Content-Type: text/html; charset=utf-8');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= htmlspecialchars($store['store_name']) ?></title>
     <meta name="description" content="<?= htmlspecialchars($store['tagline'] ?? '') ?>">
-    <link rel="icon" type="image/png" href="<?= $store['favicon_image'] ? imgUrl($store['favicon_image']) : '/frontend/images/tapify-logo-gold.png' ?>">
+    <link rel="icon" type="image/png" href="<?= $store['favicon_image'] ? imgUrl($store['favicon_image']) : '/images/tapify-logo-gold.png' ?>">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
