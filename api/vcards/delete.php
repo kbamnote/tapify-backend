@@ -25,9 +25,14 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
-    // Verify ownership
-    $stmt = $pdo->prepare("SELECT id, vcard_name FROM vcards WHERE id = ? AND user_id = ? LIMIT 1");
-    $stmt->execute([$vcardId, $userId]);
+    // Verify ownership (Admins can delete any card)
+    if (isAdmin()) {
+        $stmt = $pdo->prepare("SELECT id, vcard_name FROM vcards WHERE id = ? LIMIT 1");
+        $stmt->execute([$vcardId]);
+    } else {
+        $stmt = $pdo->prepare("SELECT id, vcard_name FROM vcards WHERE id = ? AND user_id = ? LIMIT 1");
+        $stmt->execute([$vcardId, $userId]);
+    }
     $vcard = $stmt->fetch();
 
     if (!$vcard) {
@@ -35,8 +40,13 @@ try {
     }
 
     // Delete (CASCADE will delete related records)
-    $stmt = $pdo->prepare("DELETE FROM vcards WHERE id = ? AND user_id = ?");
-    $stmt->execute([$vcardId, $userId]);
+    if (isAdmin()) {
+        $stmt = $pdo->prepare("DELETE FROM vcards WHERE id = ?");
+        $stmt->execute([$vcardId]);
+    } else {
+        $stmt = $pdo->prepare("DELETE FROM vcards WHERE id = ? AND user_id = ?");
+        $stmt->execute([$vcardId, $userId]);
+    }
 
     sendSuccess('"' . $vcard['vcard_name'] . '" deleted successfully');
 

@@ -26,8 +26,14 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
-    $stmt = $pdo->prepare("UPDATE vcards SET status = ? WHERE id = ? AND user_id = ?");
-    $stmt->execute([$status ? 1 : 0, $vcardId, $userId]);
+    // Update (Admins can toggle any card)
+    if (isAdmin()) {
+        $stmt = $pdo->prepare("UPDATE vcards SET status = ? WHERE id = ?");
+        $stmt->execute([$status ? 1 : 0, $vcardId]);
+    } else {
+        $stmt = $pdo->prepare("UPDATE vcards SET status = ? WHERE id = ? AND user_id = ?");
+        $stmt->execute([$status ? 1 : 0, $vcardId, $userId]);
+    }
 
     if ($stmt->rowCount() === 0) {
         sendError('vCard not found', 404);

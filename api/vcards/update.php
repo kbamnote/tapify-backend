@@ -25,9 +25,14 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
-    // Verify ownership
-    $stmt = $pdo->prepare("SELECT id, url_alias FROM vcards WHERE id = ? AND user_id = ? LIMIT 1");
-    $stmt->execute([$vcardId, $userId]);
+    // Verify ownership (Admins can update any card)
+    if (isAdmin()) {
+        $stmt = $pdo->prepare("SELECT id, url_alias FROM vcards WHERE id = ? LIMIT 1");
+        $stmt->execute([$vcardId]);
+    } else {
+        $stmt = $pdo->prepare("SELECT id, url_alias FROM vcards WHERE id = ? AND user_id = ? LIMIT 1");
+        $stmt->execute([$vcardId, $userId]);
+    }
     $existing = $stmt->fetch();
 
     if (!$existing) {

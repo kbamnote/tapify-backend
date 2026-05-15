@@ -19,9 +19,14 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
-    // Get vCard (only if belongs to current user)
-    $stmt = $pdo->prepare("SELECT * FROM vcards WHERE id = ? AND user_id = ? LIMIT 1");
-    $stmt->execute([$vcardId, $userId]);
+    // Get vCard (Admins can see any card, users only their own)
+    if (isAdmin()) {
+        $stmt = $pdo->prepare("SELECT * FROM vcards WHERE id = ? LIMIT 1");
+        $stmt->execute([$vcardId]);
+    } else {
+        $stmt = $pdo->prepare("SELECT * FROM vcards WHERE id = ? AND user_id = ? LIMIT 1");
+        $stmt->execute([$vcardId, $userId]);
+    }
     $vcard = $stmt->fetch();
 
     if (!$vcard) {
