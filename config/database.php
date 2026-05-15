@@ -13,6 +13,7 @@ function get_env_var($key, $default = null) {
 
 // === DATABASE CREDENTIALS ===
 define('DB_HOST', get_env_var('DB_HOST') ?: get_env_var('MYSQLHOST') ?: 'localhost');
+define('DB_PORT', get_env_var('DB_PORT') ?: get_env_var('MYSQLPORT') ?: '3306');
 define('DB_NAME', get_env_var('DB_NAME') ?: get_env_var('MYSQLDATABASE') ?: 'u125734122_tapify');
 define('DB_USER', get_env_var('DB_USER') ?: get_env_var('MYSQLUSER') ?: 'u125734122_tapify');
 define('DB_PASS', get_env_var('DB_PASS') ?: get_env_var('MYSQLPASSWORD') ?: 'World@2018#');
