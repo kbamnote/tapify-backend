@@ -39,7 +39,6 @@ try {
     $vcard = $stmt->fetch();
 
     $user['vcard'] = $vcard;
-    $user['vcards_count'] = (int)$vcardCount;
 
     sendSuccess('User retrieved', ['user' => $user, 'vcard' => $vcard]);
 
