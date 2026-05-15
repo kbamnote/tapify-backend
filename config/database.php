@@ -26,11 +26,16 @@ date_default_timezone_set('Asia/Kolkata');
  * Database Connection (PDO)
  */
 function getDB() {
-    $host = getenv('DB_HOST');
-    $port = getenv('DB_PORT');
-    $database = getenv('DB_DATABASE');
-    $username = getenv('DB_USERNAME');
-    $password = getenv('DB_PASSWORD');
+    // Railway defaults or custom variables
+    $host = getenv('DB_HOST') ?: getenv('MYSQLHOST');
+    $port = getenv('DB_PORT') ?: getenv('MYSQLPORT');
+    $database = getenv('DB_DATABASE') ?: getenv('MYSQLDATABASE');
+    $username = getenv('DB_USERNAME') ?: getenv('MYSQLUSER');
+    $password = getenv('DB_PASSWORD') ?: getenv('MYSQLPASSWORD');
+
+    // Default to localhost if nothing found (for local testing)
+    $host = $host ?: 'localhost';
+    $port = $port ?: '3306';
 
     $dsn = "mysql:host={$host};port={$port};dbname={$database};charset=utf8mb4";
 
