@@ -10,7 +10,7 @@ echo "<h2>Tapify Database Importer</h2>";
 
 try {
     $pdo = getDB();
-    echo "<p>Debug: Attempting to connect to host: " . DB_HOST . "</p>";
+    echo "<p>Debug: Attempting to connect to host: " . getenv('DB_HOST') . "</p>";
     echo "<p style='color:green'>✅ Connected to database successfully.</p>";
 
     $sqlFile = __DIR__ . '/database.sql';
