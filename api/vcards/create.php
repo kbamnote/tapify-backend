@@ -35,7 +35,10 @@ try {
     $customerPassword = $input['customer_password'] ?? '';
     $customerName = sanitize($input['customer_name'] ?? '');
 
-    if ($customerEmail && $customerPassword && $_SESSION['user_role'] === 'admin') {
+    if ($customerEmail && $_SESSION['user_role'] === 'admin') {
+        if (empty($customerPassword) || strlen($customerPassword) < 6) {
+            sendError('Customer password is required (minimum 6 characters) when customer email is provided');
+        }
         // 1. Check if user already exists
         $stmt = $pdo->prepare("SELECT id FROM users WHERE email = ?");
         $stmt->execute([$customerEmail]);
