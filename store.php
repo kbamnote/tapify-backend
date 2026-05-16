@@ -74,13 +74,11 @@ $templateId = !empty($store['template_id']) ? $store['template_id'] : 'default';
 
 if (array_key_exists($templateId, $templateMap)) {
     $templateFile = $templateMap[$templateId];
-    $templatePath = __DIR__ . '/../frontend/webStore_templates/' . $templateFile;
+    $templatePath = __DIR__ . '/webStore_templates/' . $templateFile;
     if (file_exists($templatePath)) {
         header('Content-Type: text/html; charset=utf-8');
         include $templatePath;
         exit;
-    } else {
-        die("DEBUG: Template file not found at " . htmlspecialchars($templatePath));
     }
 }
 
