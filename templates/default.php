@@ -21,9 +21,9 @@ $bgColor = $vcard['bg_color'] ?? '#ffffff';
     <style>
         :root { --primary: <?= $primaryColor ?>; --bg: <?= $bgColor ?>; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); min-height: 100vh; color: #1a2035; }
+        body { font-family: 'Poppins', sans-serif; background: #f3f4f6; min-height: 100vh; color: #1a2035; }
         .vcard-container { max-width: 480px; margin: 0 auto; background: var(--bg); min-height: 100vh; box-shadow: 0 0 60px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
-        .cover-section { height: 220px; background: linear-gradient(135deg, var(--primary), #a855f7); position: relative; overflow: hidden; }
+        .cover-section { height: 220px; background: var(--primary); position: relative; overflow: hidden; }
         .cover-section img { width: 100%; height: 100%; object-fit: cover; }
         .profile-section { text-align: center; margin-top: -60px; padding: 0 25px 25px; position: relative; z-index: 5; }
         .profile-photo { width: 130px; height: 130px; border-radius: 50%; border: 5px solid white; box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: white; margin: 0 auto 15px; overflow: hidden; }

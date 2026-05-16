@@ -88,17 +88,28 @@ if (empty($fullName)) $fullName = $vcard['vcard_name'];
 // === TEMPLATE ROUTING ===
 $templateId = $vcard['template_id'] ?? 'vcard1';
 
+// Base map for specific popular ones
 $templateMap = [
     'vcard1' => 'default',
-    'vcard2' => 'modern',
     'vcard16' => 'lawyer',
     'vcard17' => 'doctor',
     'vcard18' => 'restaurant',
     'vcard19' => 'real-estate',
-    'vcard20' => 'fitness',
 ];
 
-$templateName = $templateMap[$templateId] ?? 'default';
+// If not in specific map, distribute all 42 IDs across available designs
+if (!isset($templateMap[$templateId])) {
+    $numId = (int)str_replace('vcard', '', $templateId);
+    if ($numId > 0) {
+        $designs = ['default', 'lawyer', 'doctor', 'restaurant', 'real-estate'];
+        $templateName = $designs[$numId % count($designs)];
+    } else {
+        $templateName = 'default';
+    }
+} else {
+    $templateName = $templateMap[$templateId];
+}
+
 $templatePath = __DIR__ . "/templates/$templateName.php";
 
 if (!file_exists($templatePath)) {

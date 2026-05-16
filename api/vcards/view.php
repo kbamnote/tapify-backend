@@ -52,9 +52,36 @@ try {
     $vcard['social_links'] = $stmt->fetchAll();
 
     // Get testimonials
-    $stmt = $pdo->prepare("SELECT * FROM vcard_testimonials WHERE vcard_id = ? ORDER BY created_at DESC");
-    $stmt->execute([$vcardId]);
-    $vcard['testimonials'] = $stmt->fetchAll();
+    $vcard['testimonials'] = [];
+    try {
+        $stmt = $pdo->prepare("SELECT * FROM vcard_testimonials WHERE vcard_id = ? ORDER BY id DESC");
+        $stmt->execute([$vcardId]);
+        $vcard['testimonials'] = $stmt->fetchAll();
+    } catch (Exception $e) {}
+
+    // Get blogs
+    $vcard['blogs'] = [];
+    try {
+        $stmt = $pdo->prepare("SELECT * FROM vcard_blogs WHERE vcard_id = ? ORDER BY id DESC");
+        $stmt->execute([$vcardId]);
+        $vcard['blogs'] = $stmt->fetchAll();
+    } catch (Exception $e) {}
+
+    // Get custom links
+    $vcard['custom_links'] = [];
+    try {
+        $stmt = $pdo->prepare("SELECT * FROM vcard_custom_links WHERE vcard_id = ? ORDER BY id");
+        $stmt->execute([$vcardId]);
+        $vcard['custom_links'] = $stmt->fetchAll();
+    } catch (Exception $e) {}
+
+    // Get galleries
+    $vcard['galleries'] = [];
+    try {
+        $stmt = $pdo->prepare("SELECT * FROM vcard_galleries WHERE vcard_id = ? ORDER BY id");
+        $stmt->execute([$vcardId]);
+        $vcard['galleries'] = $stmt->fetchAll();
+    } catch (Exception $e) {}
 
     sendSuccess('vCard loaded', ['vcard' => $vcard]);
 
