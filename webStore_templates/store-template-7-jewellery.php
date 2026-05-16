@@ -11,49 +11,65 @@
 // 5. $categories array mein categories add karein
 // ========================================================
 
-// ---- SHOP INFORMATION ----
-$shop_name      = 'Aapki Shop Ka Naam';
-$shop_tagline   = 'Aapka Tagline Ya Slogan';
-$logo           = 'images/logo.jpg';
-$banner_image   = 'images/banner.jpg';
-$whatsapp_no    = '919999999999';  // Country code + number (no + or spaces)
-$phone          = '+91 99999 99999';
-$email          = 'shop@email.com';
-$address        = 'Aapka Pata, Shehar, State, PIN';
-$currency       = '₹';  // Currency symbol
+// ---- SHOP INFORMATION (DYNAMIC) ----
+$shop_name      = isset($store['store_name']) ? htmlspecialchars($store['store_name']) : 'Aapki Shop Ka Naam';
+$shop_tagline   = isset($store['tagline']) ? htmlspecialchars($store['tagline']) : 'Aapka Tagline Ya Slogan';
+$logo           = !empty($store['logo_image']) ? imgUrl($store['logo_image']) : 'images/logo.jpg';
+$banner_image   = !empty($store['cover_image']) ? imgUrl($store['cover_image']) : 'images/banner.jpg';
+$whatsapp_no    = isset($store['whatsapp_number']) ? $store['whatsapp_number'] : '919999999999';
+$phone          = isset($store['phone']) ? $store['phone'] : '+91 99999 99999';
+$email          = isset($store['email']) ? $store['email'] : 'shop@email.com';
+$address        = isset($store['address']) ? $store['address'] : 'Aapka Pata, Shehar, State, PIN';
+$currency       = isset($store['currency_symbol']) ? $store['currency_symbol'] : '₹';
 
-// ---- CATEGORIES ----
-$categories = [
-  ['id' => 1, 'name' => 'Category 1', 'image' => 'images/cat1.jpg'],
-  ['id' => 2, 'name' => 'Category 2', 'image' => 'images/cat2.jpg'],
-  ['id' => 3, 'name' => 'Category 3', 'image' => 'images/cat3.jpg'],
-  ['id' => 4, 'name' => 'Category 4', 'image' => 'images/cat4.jpg'],
-];
+// ---- CATEGORIES (DYNAMIC) ----
+if (isset($categories) && !empty($categories)) {
+    foreach ($categories as &$cat) {
+        if (!isset($cat['image'])) $cat['image'] = !empty($cat['image_url']) ? imgUrl($cat['image_url']) : 'images/cat-placeholder.jpg';
+    }
+} else {
+    $categories = [
+        ['id' => 1, 'name' => 'Category 1', 'image' => 'images/cat1.jpg'],
+        ['id' => 2, 'name' => 'Category 2', 'image' => 'images/cat2.jpg'],
+        ['id' => 3, 'name' => 'Category 3', 'image' => 'images/cat3.jpg'],
+        ['id' => 4, 'name' => 'Category 4', 'image' => 'images/cat4.jpg'],
+    ];
+}
 
-// ---- PRODUCTS ----
-$products = [
-  [
-    'id'          => 1,
-    'name'        => 'Product 1 Ka Naam',
-    'description' => 'Product ki description yahan likhein.',
-    'price'       => 999,
-    'sale_price'  => 799,
-    'image'       => 'images/product1.jpg',
-    'category_id' => 1,
-    'in_stock'    => true,
-  ],
-  [
-    'id'          => 2,
-    'name'        => 'Product 2 Ka Naam',
-    'description' => 'Product ki description.',
-    'price'       => 1499,
-    'sale_price'  => 1199,
-    'image'       => 'images/product2.jpg',
-    'category_id' => 1,
-    'in_stock'    => true,
-  ],
-  // Aur products add karein is tarah...
-];
+// ---- PRODUCTS (DYNAMIC) ----
+if (isset($products) && !empty($products)) {
+    foreach ($products as &$product) {
+        $product['sale_price'] = $product['discount_price'];
+        if (!isset($product['image'])) {
+            $product['image'] = !empty($product['image_url']) ? imgUrl($product['image_url']) : 'images/product-placeholder.jpg';
+        } else {
+            $product['image'] = imgUrl($product['image']);
+        }
+    }
+} else {
+    $products = [
+        [
+            'id'          => 1,
+            'name'        => 'Product 1 Ka Naam',
+            'description' => 'Product ki description yahan likhein.',
+            'price'       => 999,
+            'sale_price'  => 799,
+            'image'       => 'images/product1.jpg',
+            'category_id' => 1,
+            'in_stock'    => true,
+        ],
+        [
+            'id'          => 2,
+            'name'        => 'Product 2 Ka Naam',
+            'description' => 'Product ki description.',
+            'price'       => 1499,
+            'sale_price'  => 1199,
+            'image'       => 'images/product2.jpg',
+            'category_id' => 1,
+            'in_stock'    => true,
+        ],
+    ];
+}
 
 // ---- TEMPLATE INFO ----
 $template_id  = 7;
