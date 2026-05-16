@@ -85,36 +85,28 @@ function imgUrl($path, $default = '') {
 $fullName = trim(($vcard['first_name'] ?? '') . ' ' . ($vcard['last_name'] ?? ''));
 if (empty($fullName)) $fullName = $vcard['vcard_name'];
 
-// === TEMPLATE ROUTING ===
-$templateId = $vcard['template_id'] ?? 'vcard1';
+// === TEMPLATE ROUTING (1:1 — each template_id → templates/vcard{N}.php) ===
+$templateId = !empty($vcard['template_id']) ? trim($vcard['template_id']) : 'vcard1';
 
-// Base map for specific popular ones
-$templateMap = [
-    'vcard1' => 'default',
-    'vcard16' => 'lawyer',
-    'vcard17' => 'doctor',
-    'vcard18' => 'restaurant',
-    'vcard19' => 'real-estate',
-];
-
-// If not in specific map, distribute all 42 IDs across available designs
-if (!isset($templateMap[$templateId])) {
-    $numId = (int)str_replace('vcard', '', $templateId);
-    if ($numId > 0) {
-        $designs = ['default', 'lawyer', 'doctor', 'restaurant', 'real-estate'];
-        $templateName = $designs[$numId % count($designs)];
-    } else {
-        $templateName = 'default';
-    }
-} else {
-    $templateName = $templateMap[$templateId];
+// Normalize: allow "vcard16" only; strip unsafe characters
+if (!preg_match('/^vcard([1-9]|[1-3][0-9]|4[0-2])$/', $templateId)) {
+    $templateId = 'vcard1';
 }
 
-$templatePath = __DIR__ . "/templates/$templateName.php";
+$templatePath = __DIR__ . '/templates/' . $templateId . '.php';
 
-if (!file_exists($templatePath)) {
-    $templatePath = __DIR__ . '/templates/default.php';
-    $templateName = 'default';
+if (!is_file($templatePath)) {
+    http_response_code(500);
+    header('Content-Type: text/html; charset=utf-8');
+    $safeId = htmlspecialchars($templateId);
+    die('<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
+        . '<title>Template Missing</title>'
+        . '<style>body{font-family:Poppins,sans-serif;text-align:center;padding:50px;background:#f3f4f6}'
+        . '.box{background:#fff;padding:40px;border-radius:16px;max-width:400px;margin:0 auto;box-shadow:0 10px 40px rgba(0,0,0,.08)}'
+        . 'h1{color:#ef4444}code{background:#f3f4f6;padding:2px 8px;border-radius:6px}</style></head><body>'
+        . '<div class="box"><h1>Template Unavailable</h1>'
+        . "<p>The template file <code>{$safeId}.php</code> was not found on the server.</p>"
+        . '<p><a href="/" style="color:#8338ec">Go Home</a></p></div></body></html>');
 }
 
 header('Content-Type: text/html; charset=utf-8');
