@@ -3,6 +3,9 @@
  * LAWYER TEMPLATE - Professional Dark with Gold Accents
  * Best for: Lawyers, Consultants, Financial Advisors
  */
+$primaryColor = $vcard['primary_color'] ?? '#C9A765';
+$bgColor = $vcard['bg_color'] ?? '#0f0f1e';
+$darkColor = $vcard['secondary_color'] ?? '#1a1a2e';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root { --primary: #C9A765; --dark: #1a1a2e; --bg: #0f0f1e; }
+        :root { --primary: <?= $primaryColor ?>; --dark: <?= $darkColor ?>; --bg: <?= $bgColor ?>; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Poppins', sans-serif; background: #000; min-height: 100vh; color: #e5e7eb; }
         .vcard-container { max-width: 480px; margin: 0 auto; background: var(--bg); min-height: 100vh; box-shadow: 0 0 80px rgba(201,167,101,0.2); position: relative; }

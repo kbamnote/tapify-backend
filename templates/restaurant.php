@@ -3,6 +3,10 @@
  * RESTAURANT TEMPLATE - Warm Food Theme
  * Best for: Restaurants, Cafes, Food Businesses, Chefs
  */
+$primaryColor = $vcard['primary_color'] ?? '#d97706';
+$bgColor = $vcard['bg_color'] ?? '#fffbeb';
+$primaryDark = $vcard['secondary_color'] ?? '#b45309';
+$accentColor = '#fef3c7'; // Keep accent fixed or use another variable
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root { --primary: #d97706; --primary-dark: #b45309; --accent: #fef3c7; }
+        :root { --primary: <?= $primaryColor ?>; --primary-dark: <?= $primaryDark ?>; --accent: <?= $accentColor ?>; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #fef3c7, #fed7aa); min-height: 100vh; color: #292524; }
         .vcard-container { max-width: 480px; margin: 0 auto; background: #fffbeb; min-height: 100vh; box-shadow: 0 0 60px rgba(217,119,6,0.2); }

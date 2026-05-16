@@ -3,6 +3,9 @@
  * REAL ESTATE TEMPLATE - Luxury Elegant
  * Best for: Real Estate Agents, Brokers, Property Consultants
  */
+$primaryColor = $vcard['primary_color'] ?? '#0f172a';
+$bgColor = $vcard['bg_color'] ?? '#f8fafc';
+$accentColor = $vcard['secondary_color'] ?? '#b8860b';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root { --primary: #0f172a; --accent: #b8860b; --bg: #f8fafc; }
+        :root { --primary: <?= $primaryColor ?>; --accent: <?= $accentColor ?>; --bg: <?= $bgColor ?>; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Montserrat', sans-serif; background: #e2e8f0; min-height: 100vh; color: #0f172a; }
         .vcard-container { max-width: 480px; margin: 0 auto; background: white; min-height: 100vh; box-shadow: 0 0 80px rgba(15,23,42,0.15); }

@@ -3,6 +3,9 @@
  * DOCTOR TEMPLATE - Clean Medical Theme
  * Best for: Doctors, Dentists, Hospitals, Clinics
  */
+$primaryColor = $vcard['primary_color'] ?? '#00a8e8';
+$bgColor = $vcard['bg_color'] ?? '#f0f9ff';
+$primaryDark = $vcard['secondary_color'] ?? '#0077b6';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root { --primary: #00a8e8; --primary-dark: #0077b6; --bg: #f0f9ff; }
+        :root { --primary: <?= $primaryColor ?>; --primary-dark: <?= $primaryDark ?>; --bg: <?= $bgColor ?>; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Poppins', sans-serif; background: linear-gradient(135deg, #e0f2fe, #bae6fd); min-height: 100vh; color: #1e3a5f; }
         .vcard-container { max-width: 480px; margin: 0 auto; background: white; min-height: 100vh; box-shadow: 0 0 60px rgba(0,168,232,0.15); }
