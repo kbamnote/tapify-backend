@@ -52,7 +52,7 @@ try {
     $products = $stmt->fetchAll();
     foreach ($products as &$p) {
         $p['price'] = $p['price'] !== null ? (float)$p['price'] : null;
-        if ($p['image']) $p['image_url'] = SITE_URL . '/' . $p['image'];
+        if ($p['image']) $p['image_url'] = imgUrl($p['image']);
     }
     $vcard['products'] = $products;
 
@@ -76,7 +76,7 @@ try {
         $stmt->execute([$vcardId]);
         $blogs = $stmt->fetchAll();
         foreach ($blogs as &$b) {
-            if ($b['image']) $b['image_url'] = SITE_URL . '/' . $b['image'];
+            if ($b['image']) $b['image_url'] = imgUrl($b['image']);
         }
         $vcard['blogs'] = $blogs;
     } catch (Exception $e) {
@@ -89,7 +89,7 @@ try {
         $stmt->execute([$vcardId]);
         $testimonials = $stmt->fetchAll();
         foreach ($testimonials as &$t) {
-            if ($t['image']) $t['image_url'] = SITE_URL . '/' . $t['image'];
+            if ($t['image']) $t['image_url'] = imgUrl($t['image']);
         }
         $vcard['testimonials'] = $testimonials;
     } catch (Exception $e) {
@@ -106,7 +106,7 @@ try {
             $imgStmt->execute([$g['id']]);
             $images = $imgStmt->fetchAll();
             foreach ($images as &$img) {
-                $img['public_url'] = SITE_URL . '/' . $img['image_url'];
+                $img['public_url'] = imgUrl($img['image_url']);
             }
             $g['images'] = $images;
         }
@@ -116,9 +116,9 @@ try {
     }
 
     // Convert images to full URLs
-    if ($vcard['cover_image']) $vcard['cover_image_url'] = SITE_URL . '/' . $vcard['cover_image'];
-    if ($vcard['profile_image']) $vcard['profile_image_url'] = SITE_URL . '/' . $vcard['profile_image'];
-    if ($vcard['favicon_image']) $vcard['favicon_image_url'] = SITE_URL . '/' . $vcard['favicon_image'];
+    if ($vcard['cover_image']) $vcard['cover_image_url'] = imgUrl($vcard['cover_image']);
+    if ($vcard['profile_image']) $vcard['profile_image_url'] = imgUrl($vcard['profile_image']);
+    if ($vcard['favicon_image']) $vcard['favicon_image_url'] = imgUrl($vcard['favicon_image']);
 
     // Convert booleans
     $boolFields = ['display_inquiry_form', 'display_qr_section', 'display_download_qr', 'display_add_contact',

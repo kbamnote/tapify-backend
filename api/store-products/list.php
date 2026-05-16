@@ -30,7 +30,12 @@ try {
         $p['is_featured'] = (bool)$p['is_featured'];
         $p['in_stock'] = (bool)$p['in_stock'];
         $p['status'] = (bool)$p['status'];
-        if ($p['image']) $p['image_url'] = SITE_URL . '/' . $p['image'];
+        // If image is already a full URL (Cloudinary), use as-is; otherwise build from SITE_URL
+        if ($p['image']) {
+            $p['image_url'] = (strpos($p['image'], 'http') === 0)
+                ? $p['image']
+                : SITE_URL . '/' . $p['image'];
+        }
     }
 
     sendSuccess('Products loaded', [

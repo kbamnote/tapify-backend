@@ -19,7 +19,7 @@ try {
     if (!$user) sendError('User not found', 404);
 
     $user['email_verified'] = (bool)$user['email_verified'];
-    if ($user['avatar']) $user['avatar_url'] = SITE_URL . '/' . $user['avatar'];
+    if ($user['avatar']) $user['avatar_url'] = imgUrl($user['avatar']);
     if ($user['last_login']) $user['last_login_formatted'] = date('d M Y, h:i A', strtotime($user['last_login']));
     $user['created_at_formatted'] = date('d M Y', strtotime($user['created_at']));
     $user['member_since'] = date('M Y', strtotime($user['created_at']));

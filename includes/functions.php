@@ -289,3 +289,15 @@ function uploadToCloudinary($file) {
         return ['success' => false, 'message' => $result['error']['message'] ?? 'Cloudinary upload failed'];
     }
 }
+
+/**
+ * Resolve an image path to a full public URL.
+ * - If $path is already an absolute URL (Cloudinary / http), return as-is.
+ * - Otherwise prepend SITE_URL to treat as a legacy local path.
+ * Returns null if $path is empty.
+ */
+function imgUrl($path) {
+    if (!$path) return null;
+    if (strpos($path, 'http') === 0) return $path; // already absolute (Cloudinary)
+    return SITE_URL . '/' . ltrim($path, '/');
+}

@@ -30,7 +30,7 @@ try {
     foreach ($categories as &$c) {
         $c['product_count'] = (int)$c['product_count'];
         $c['status'] = (bool)$c['status'];
-        if ($c['image']) $c['image_url'] = SITE_URL . '/' . $c['image'];
+        if ($c['image']) $c['image_url'] = imgUrl($c['image']);
     }
 
     sendSuccess('Categories loaded', ['categories' => $categories]);

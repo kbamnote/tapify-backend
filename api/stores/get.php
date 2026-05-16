@@ -33,9 +33,9 @@ try {
     $store['show_categories'] = (bool)$store['show_categories'];
     $store['show_featured'] = (bool)$store['show_featured'];
 
-    if ($store['logo_image']) $store['logo_url'] = SITE_URL . '/' . $store['logo_image'];
-    if ($store['cover_image']) $store['cover_url'] = SITE_URL . '/' . $store['cover_image'];
-    if ($store['favicon_image']) $store['favicon_url'] = SITE_URL . '/' . $store['favicon_image'];
+    $store['logo_url']    = imgUrl($store['logo_image']);
+    $store['cover_url']   = imgUrl($store['cover_image']);
+    $store['favicon_url'] = imgUrl($store['favicon_image']);
 
     $store['preview_url'] = SITE_URL . '/' . $store['url_alias'];
 

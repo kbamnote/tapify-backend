@@ -53,7 +53,7 @@ try {
         $store['view_count'] = (int)$store['view_count'];
         $store['order_count'] = (int)$store['order_count'];
         if ($store['logo_image']) {
-            $store['logo_url'] = SITE_URL . '/' . $store['logo_image'];
+            $store['logo_url'] = imgUrl($store['logo_image']);
         }
     }
 
