@@ -38,19 +38,14 @@ try {
     $stmt->execute([$storeId, $userId]);
     if (!$stmt->fetch()) sendError('Access denied', 403);
 
-    // Build path
-    $subDir = "store_$storeId/$type/";
-    $uploadDir = UPLOAD_PATH . $subDir;
-    if (!is_dir($uploadDir)) {
-        if (!mkdir($uploadDir, 0755, true)) sendError('Cannot create directory');
+    // --- CLOUDINARY UPLOAD ---
+    $uploadResult = uploadToCloudinary($file);
+    if (!$uploadResult['success']) {
+        sendError('Cloudinary Upload Failed: ' . $uploadResult['message']);
     }
 
-    $newName = uniqid() . '_' . time() . '.' . $ext;
-    $newPath = $uploadDir . $newName;
-    $relativePath = 'backend/uploads/' . $subDir . $newName;
-    $publicUrl = SITE_URL . '/' . $relativePath;
-
-    if (!move_uploaded_file($file['tmp_name'], $newPath)) sendError('Save failed');
+    $relativePath = $uploadResult['url']; // Store full secure URL
+    $publicUrl = $uploadResult['url'];
 
     // Update DB based on type
     $oldImage = null;

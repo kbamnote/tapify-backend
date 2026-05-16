@@ -226,3 +226,66 @@ function uploadFile($file, $allowedTypes = ['jpg','jpeg','png','gif','webp']) {
 
     return ['success' => false, 'message' => 'Upload failed'];
 }
+ 
+/**
+ * Upload image to Cloudinary
+ */
+function uploadToCloudinary($file) {
+    if (!isset($file['tmp_name']) || empty($file['tmp_name'])) {
+        return ['success' => false, 'message' => 'No file uploaded'];
+    }
+ 
+    $cloudName = CLOUDINARY_CLOUD_NAME;
+    $apiKey = CLOUDINARY_API_KEY;
+    $apiSecret = CLOUDINARY_API_SECRET;
+    $timestamp = time();
+ 
+    // Create signature
+    // For unsigned upload, we don't need signature, but for signed upload (more secure) we do.
+    // Let's use signed upload.
+    $params = [
+        'timestamp' => $timestamp
+    ];
+    ksort($params);
+    $signStr = "";
+    foreach($params as $k => $v) {
+        $signStr .= "$k=$v&";
+    }
+    $signStr = rtrim($signStr, '&') . $apiSecret;
+    $signature = sha1($signStr);
+ 
+    $url = "https://api.cloudinary.com/v1_1/$cloudName/image/upload";
+ 
+    $postData = [
+        'file' => new CURLFile($file['tmp_name'], $file['type'], $file['name']),
+        'api_key' => $apiKey,
+        'timestamp' => $timestamp,
+        'signature' => $signature
+    ];
+ 
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+ 
+    $response = curl_exec($ch);
+    $err = curl_error($ch);
+    curl_close($ch);
+ 
+    if ($err) {
+        return ['success' => false, 'message' => 'Cloudinary Error: ' . $err];
+    }
+ 
+    $result = json_decode($response, true);
+    if (isset($result['secure_url'])) {
+        return [
+            'success' => true,
+            'url' => $result['secure_url'],
+            'public_id' => $result['public_id']
+        ];
+    } else {
+        return ['success' => false, 'message' => $result['error']['message'] ?? 'Cloudinary upload failed'];
+    }
+}

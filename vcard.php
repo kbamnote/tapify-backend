@@ -79,7 +79,9 @@ try {
 }
 
 function imgUrl($path, $default = '') {
-    return $path ? '/' . $path : $default;
+    if (empty($path)) return $default;
+    if (strpos($path, 'http') === 0) return $path;
+    return '/' . ltrim($path, '/');
 }
 
 $fullName = trim(($vcard['first_name'] ?? '') . ' ' . ($vcard['last_name'] ?? ''));

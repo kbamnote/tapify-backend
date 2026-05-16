@@ -73,25 +73,14 @@ try {
     $stmt->execute([$vcardId, $userId]);
     if (!$stmt->fetch()) sendError('Access denied', 403);
 
-    // Build upload directory
-    $subDir = "vcard_$vcardId/$type/";
-    $uploadDir = UPLOAD_PATH . $subDir;
-    if (!is_dir($uploadDir)) {
-        if (!mkdir($uploadDir, 0755, true)) {
-            sendError('Failed to create upload directory');
-        }
+    // --- CLOUDINARY UPLOAD ---
+    $uploadResult = uploadToCloudinary($file);
+    if (!$uploadResult['success']) {
+        sendError('Cloudinary Upload Failed: ' . $uploadResult['message']);
     }
 
-    // Generate unique filename
-    $newName = uniqid() . '_' . time() . '.' . $ext;
-    $newPath = $uploadDir . $newName;
-    $relativePath = 'backend/uploads/' . $subDir . $newName;
-    $publicUrl = SITE_URL . '/' . $relativePath;
-
-    // Move file
-    if (!move_uploaded_file($file['tmp_name'], $newPath)) {
-        sendError('Failed to save file');
-    }
+    $relativePath = $uploadResult['url']; // Store full secure URL
+    $publicUrl = $uploadResult['url'];
 
     // Update database based on type
     $oldImageToDelete = null;

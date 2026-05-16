@@ -24,18 +24,14 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
-    $subDir = "avatars/";
-    $uploadDir = UPLOAD_PATH . $subDir;
-    if (!is_dir($uploadDir)) {
-        if (!mkdir($uploadDir, 0755, true)) sendError('Cannot create directory');
+    // --- CLOUDINARY UPLOAD ---
+    $uploadResult = uploadToCloudinary($file);
+    if (!$uploadResult['success']) {
+        sendError('Cloudinary Upload Failed: ' . $uploadResult['message']);
     }
 
-    $newName = "user_{$userId}_" . time() . '.' . $ext;
-    $newPath = $uploadDir . $newName;
-    $relativePath = 'backend/uploads/' . $subDir . $newName;
-    $publicUrl = SITE_URL . '/' . $relativePath;
-
-    if (!move_uploaded_file($file['tmp_name'], $newPath)) sendError('Save failed');
+    $relativePath = $uploadResult['url']; // Store full secure URL
+    $publicUrl = $uploadResult['url'];
 
     // Get old avatar to delete
     $stmt = $pdo->prepare("SELECT avatar FROM users WHERE id = ?");

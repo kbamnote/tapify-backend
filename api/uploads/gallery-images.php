@@ -35,7 +35,8 @@ try {
 
     // Add public URL
     foreach ($images as &$img) {
-        $img['public_url'] = SITE_URL . '/' . $img['image_url'];
+        $url = $img['image_url'];
+        $img['public_url'] = (strpos($url, 'http') === 0) ? $url : SITE_URL . '/' . ltrim($url, '/');
     }
 
     sendSuccess('Images loaded', [

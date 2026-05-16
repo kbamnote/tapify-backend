@@ -11,6 +11,11 @@ define('SITE_URL', getenv('SITE_URL') ?: 'https://tapify-backend-production.up.r
 define('SITE_NAME', 'Tapify');
 define('UPLOAD_PATH', __DIR__ . '/../uploads/');
 define('UPLOAD_URL', SITE_URL . '/backend/uploads/');
+ 
+// === CLOUDINARY CONFIGURATION ===
+define('CLOUDINARY_CLOUD_NAME', getenv('CLOUDINARY_CLOUD_NAME') ?: 'dpawkimbc');
+define('CLOUDINARY_API_KEY', getenv('CLOUDINARY_API_KEY') ?: '222713572894261');
+define('CLOUDINARY_API_SECRET', getenv('CLOUDINARY_API_SECRET') ?: 'ywysF7LQEMa1kuZUQORCbUdCGi0');
 
 // === SECURITY ===
 define('JWT_SECRET', getenv('JWT_SECRET') ?: 'tapify-secret-key-12345');

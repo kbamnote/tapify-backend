@@ -50,7 +50,9 @@ try {
 }
 
 function imgUrl($path) {
-    return $path ? '/' . $path : '';
+    if (empty($path)) return '';
+    if (strpos($path, 'http') === 0) return $path;
+    return '/' . ltrim($path, '/');
 }
 
 $primaryColor = $store['primary_color'] ?? '#25D366';
