@@ -59,6 +59,30 @@ $primaryColor = $store['primary_color'] ?? '#25D366';
 $secondaryColor = $store['secondary_color'] ?? '#128C7E';
 $currency = $store['currency_symbol'] ?? '₹';
 
+$templateMap = [
+    'store_template_1' => 'store-template-1-beauty-product.php',
+    'store_template_2' => 'store-template-2-e-commerce.php',
+    'store_template_3' => 'store-template-3-restaurant.php',
+    'store_template_4' => 'store-template-4-grocery.php',
+    'store_template_5' => 'store-template-5-cloth-store.php',
+    'store_template_6' => 'store-template-6-home-decor.php',
+    'store_template_7' => 'store-template-7-jewellery.php',
+    'store_template_8' => 'store-template-8-travel.php'
+];
+
+$templateId = !empty($store['template_id']) ? $store['template_id'] : 'default';
+
+if (array_key_exists($templateId, $templateMap)) {
+    $templateFile = $templateMap[$templateId];
+    $templatePath = __DIR__ . '/../frontend/webStore_templates/' . $templateFile;
+    if (file_exists($templatePath)) {
+        header('Content-Type: text/html; charset=utf-8');
+        include $templatePath;
+        exit;
+    }
+}
+
+// Fallback to default template (original built-in design)
 header('Content-Type: text/html; charset=utf-8');
 ?>
 <!DOCTYPE html>
