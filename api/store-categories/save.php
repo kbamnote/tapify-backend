@@ -19,8 +19,13 @@ try {
     $userId = getCurrentUserId();
 
     // Verify store ownership
-    $stmt = $pdo->prepare("SELECT id FROM whatsapp_stores WHERE id = ? AND user_id = ? LIMIT 1");
-    $stmt->execute([$storeId, $userId]);
+    if (isAdmin()) {
+        $stmt = $pdo->prepare("SELECT id FROM whatsapp_stores WHERE id = ? LIMIT 1");
+        $stmt->execute([$storeId]);
+    } else {
+        $stmt = $pdo->prepare("SELECT id FROM whatsapp_stores WHERE id = ? AND user_id = ? LIMIT 1");
+        $stmt->execute([$storeId, $userId]);
+    }
     if (!$stmt->fetch()) sendError('Access denied', 403);
 
     if ($catId > 0) {

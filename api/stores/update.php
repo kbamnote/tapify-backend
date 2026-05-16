@@ -22,8 +22,13 @@ try {
     $userId = getCurrentUserId();
 
     // Verify ownership
-    $stmt = $pdo->prepare("SELECT id, url_alias FROM whatsapp_stores WHERE id = ? AND user_id = ? LIMIT 1");
-    $stmt->execute([$id, $userId]);
+    if (isAdmin()) {
+        $stmt = $pdo->prepare("SELECT id, url_alias FROM whatsapp_stores WHERE id = ? LIMIT 1");
+        $stmt->execute([$id]);
+    } else {
+        $stmt = $pdo->prepare("SELECT id, url_alias FROM whatsapp_stores WHERE id = ? AND user_id = ? LIMIT 1");
+        $stmt->execute([$id, $userId]);
+    }
     $existing = $stmt->fetch();
     if (!$existing) sendError('Store not found or access denied', 403);
 
@@ -74,9 +79,14 @@ try {
     if (empty($updates)) sendError('No valid fields to update');
 
     $values[] = $id;
-    $values[] = $userId;
 
-    $sql = "UPDATE whatsapp_stores SET " . implode(', ', $updates) . " WHERE id = ? AND user_id = ?";
+    if (isAdmin()) {
+        $sql = "UPDATE whatsapp_stores SET " . implode(', ', $updates) . " WHERE id = ?";
+    } else {
+        $values[] = $userId;
+        $sql = "UPDATE whatsapp_stores SET " . implode(', ', $updates) . " WHERE id = ? AND user_id = ?";
+    }
+
     $stmt = $pdo->prepare($sql);
     $stmt->execute($values);
 

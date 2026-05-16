@@ -16,8 +16,13 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
-    $stmt = $pdo->prepare("SELECT * FROM whatsapp_stores WHERE id = ? AND user_id = ? LIMIT 1");
-    $stmt->execute([$id, $userId]);
+    if (isAdmin()) {
+        $stmt = $pdo->prepare("SELECT * FROM whatsapp_stores WHERE id = ? LIMIT 1");
+        $stmt->execute([$id]);
+    } else {
+        $stmt = $pdo->prepare("SELECT * FROM whatsapp_stores WHERE id = ? AND user_id = ? LIMIT 1");
+        $stmt->execute([$id, $userId]);
+    }
     $store = $stmt->fetch();
 
     if (!$store) sendError('Store not found', 404);

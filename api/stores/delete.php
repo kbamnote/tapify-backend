@@ -19,8 +19,13 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
-    $stmt = $pdo->prepare("DELETE FROM whatsapp_stores WHERE id = ? AND user_id = ?");
-    $stmt->execute([$id, $userId]);
+    if (isAdmin()) {
+        $stmt = $pdo->prepare("DELETE FROM whatsapp_stores WHERE id = ?");
+        $stmt->execute([$id]);
+    } else {
+        $stmt = $pdo->prepare("DELETE FROM whatsapp_stores WHERE id = ? AND user_id = ?");
+        $stmt->execute([$id, $userId]);
+    }
 
     if ($stmt->rowCount() === 0) sendError('Store not found', 404);
 
