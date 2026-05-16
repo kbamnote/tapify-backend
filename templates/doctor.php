@@ -3,9 +3,9 @@
  * DOCTOR TEMPLATE - Clean Medical Theme
  * Best for: Doctors, Dentists, Hospitals, Clinics
  */
-$primaryColor = $vcard['primary_color'] ?? '#00a8e8';
-$bgColor = $vcard['bg_color'] ?? '#f0f9ff';
-$primaryDark = $vcard['secondary_color'] ?? '#0077b6';
+$primaryColor = !empty($vcard['primary_color']) ? $vcard['primary_color'] : '#00a8e8';
+$bgColor = !empty($vcard['bg_color']) ? $vcard['bg_color'] : '#f0f9ff';
+$primaryDark = !empty($vcard['secondary_color']) ? $vcard['secondary_color'] : '#0077b6';
 ?>
 <!DOCTYPE html>
 <html lang="en">

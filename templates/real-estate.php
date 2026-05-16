@@ -3,9 +3,9 @@
  * REAL ESTATE TEMPLATE - Luxury Elegant
  * Best for: Real Estate Agents, Brokers, Property Consultants
  */
-$primaryColor = $vcard['primary_color'] ?? '#0f172a';
-$bgColor = $vcard['bg_color'] ?? '#f8fafc';
-$accentColor = $vcard['secondary_color'] ?? '#b8860b';
+$primaryColor = !empty($vcard['primary_color']) ? $vcard['primary_color'] : '#0f172a';
+$bgColor = !empty($vcard['bg_color']) ? $vcard['bg_color'] : '#f8fafc';
+$accentColor = !empty($vcard['secondary_color']) ? $vcard['secondary_color'] : '#b8860b';
 ?>
 <!DOCTYPE html>
 <html lang="en">

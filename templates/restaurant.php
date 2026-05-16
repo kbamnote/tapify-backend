@@ -3,9 +3,9 @@
  * RESTAURANT TEMPLATE - Warm Food Theme
  * Best for: Restaurants, Cafes, Food Businesses, Chefs
  */
-$primaryColor = $vcard['primary_color'] ?? '#d97706';
-$bgColor = $vcard['bg_color'] ?? '#fffbeb';
-$primaryDark = $vcard['secondary_color'] ?? '#b45309';
+$primaryColor = !empty($vcard['primary_color']) ? $vcard['primary_color'] : '#d97706';
+$bgColor = !empty($vcard['bg_color']) ? $vcard['bg_color'] : '#fffbeb';
+$primaryDark = !empty($vcard['secondary_color']) ? $vcard['secondary_color'] : '#b45309';
 $accentColor = '#fef3c7'; // Keep accent fixed or use another variable
 ?>
 <!DOCTYPE html>

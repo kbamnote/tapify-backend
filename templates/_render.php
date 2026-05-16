@@ -6,9 +6,9 @@ $theme = $TAPIFY_THEME;
 $layout = $theme['layout'] ?? 'classic';
 $isDark = !empty($theme['dark']);
 
-$primary = $vcard['primary_color'] ?? ($theme['primary'] ?? '#8338ec');
-$secondary = $vcard['secondary_color'] ?? ($theme['secondary'] ?? '#a855f7');
-$bg = $vcard['bg_color'] ?? ($theme['bg'] ?? '#ffffff');
+$primary = !empty($vcard['primary_color']) ? $vcard['primary_color'] : ($theme['primary'] ?? '#8338ec');
+$secondary = !empty($vcard['secondary_color']) ? $vcard['secondary_color'] : ($theme['secondary'] ?? '#a855f7');
+$bg = !empty($vcard['bg_color']) ? $vcard['bg_color'] : ($theme['bg'] ?? '#ffffff');
 $surface = $theme['surface'] ?? ($isDark ? '#1f2937' : '#f9fafb');
 $text = $isDark ? '#f3f4f6' : '#1a2035';
 $muted = $isDark ? '#9ca3af' : '#6b7280';

@@ -30,9 +30,9 @@ if (($theme['layout'] ?? '') === 'legacy' && !empty($theme['legacy'])) {
         return;
     }
     $TAPIFY_THEME['layout'] = 'classic';
-    $TAPIFY_THEME['primary'] = $vcard['primary_color'] ?? '#8338ec';
-    $TAPIFY_THEME['secondary'] = $vcard['secondary_color'] ?? '#a855f7';
-    $TAPIFY_THEME['bg'] = $vcard['bg_color'] ?? '#ffffff';
+    $TAPIFY_THEME['primary'] = !empty($vcard['primary_color']) ? $vcard['primary_color'] : '#8338ec';
+    $TAPIFY_THEME['secondary'] = !empty($vcard['secondary_color']) ? $vcard['secondary_color'] : '#a855f7';
+    $TAPIFY_THEME['bg'] = !empty($vcard['bg_color']) ? $vcard['bg_color'] : '#ffffff';
     $TAPIFY_THEME['surface'] = '#f9fafb';
     $TAPIFY_THEME['font'] = 'poppins';
 }

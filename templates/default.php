@@ -3,8 +3,8 @@
  * DEFAULT TEMPLATE - Purple gradient
  * Used as fallback for vcard1, vcard2 and any unknown templates
  */
-$primaryColor = $vcard['primary_color'] ?? '#8338ec';
-$bgColor = $vcard['bg_color'] ?? '#ffffff';
+$primaryColor = !empty($vcard['primary_color']) ? $vcard['primary_color'] : '#8338ec';
+$bgColor = !empty($vcard['bg_color']) ? $vcard['bg_color'] : '#ffffff';
 ?>
 <!DOCTYPE html>
 <html lang="en">

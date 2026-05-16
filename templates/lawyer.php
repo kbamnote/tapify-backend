@@ -3,9 +3,9 @@
  * LAWYER TEMPLATE - Professional Dark with Gold Accents
  * Best for: Lawyers, Consultants, Financial Advisors
  */
-$primaryColor = $vcard['primary_color'] ?? '#C9A765';
-$bgColor = $vcard['bg_color'] ?? '#0f0f1e';
-$darkColor = $vcard['secondary_color'] ?? '#1a1a2e';
+$primaryColor = !empty($vcard['primary_color']) ? $vcard['primary_color'] : '#C9A765';
+$bgColor = !empty($vcard['bg_color']) ? $vcard['bg_color'] : '#0f0f1e';
+$darkColor = !empty($vcard['secondary_color']) ? $vcard['secondary_color'] : '#1a1a2e';
 ?>
 <!DOCTYPE html>
 <html lang="en">
