@@ -18,60 +18,65 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     sendError('Only POST allowed', 405);
 }
 
-$vcardId = (int)($_POST['vcard_id'] ?? 0);
-$type = $_POST['type'] ?? '';
-$targetId = (int)($_POST['target_id'] ?? 0);
-
-$validTypes = ['cover', 'profile', 'favicon', 'product', 'blog', 'testimonial', 'gallery'];
-if (!in_array($type, $validTypes)) {
-    sendError('Invalid type. Must be: ' . implode(', ', $validTypes));
-}
-
-if (!$vcardId) sendError('vCard ID required');
-if (!isset($_FILES['file']) || $_FILES['file']['error'] !== UPLOAD_ERR_OK) {
-    $errMsgs = [
-        UPLOAD_ERR_INI_SIZE => 'File too large (server limit)',
-        UPLOAD_ERR_FORM_SIZE => 'File too large (form limit)',
-        UPLOAD_ERR_PARTIAL => 'File partially uploaded',
-        UPLOAD_ERR_NO_FILE => 'No file uploaded',
-        UPLOAD_ERR_NO_TMP_DIR => 'Server temp dir missing',
-        UPLOAD_ERR_CANT_WRITE => 'Server cannot write',
-    ];
-    $errCode = $_FILES['file']['error'] ?? UPLOAD_ERR_NO_FILE;
-    sendError($errMsgs[$errCode] ?? 'Upload error');
-}
-
-$file = $_FILES['file'];
-
-// Validate file type
-$allowedExts = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
-$ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
-if (!in_array($ext, $allowedExts)) {
-    sendError('Invalid file type. Allowed: ' . implode(', ', $allowedExts));
-}
-
-// Validate MIME type
-$allowedMimes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
-$finfo = finfo_open(FILEINFO_MIME_TYPE);
-$mime = finfo_file($finfo, $file['tmp_name']);
-finfo_close($finfo);
-if (!in_array($mime, $allowedMimes)) {
-    sendError('Invalid image format');
-}
-
-// Size limit: 5MB
-if ($file['size'] > 5 * 1024 * 1024) {
-    sendError('File too large. Max 5MB');
-}
-
-try {
-    $pdo = getDB();
-    $userId = getCurrentUserId();
-
-    // Verify vCard ownership
-    $stmt = $pdo->prepare("SELECT id FROM vcards WHERE id = ? AND user_id = ? LIMIT 1");
-    $stmt->execute([$vcardId, $userId]);
-    if (!$stmt->fetch()) sendError('Access denied', 403);
+    $vcardId = (int)($_POST['vcard_id'] ?? 0);
+    $type = $_POST['type'] ?? '';
+    $targetId = (int)($_POST['target_id'] ?? 0);
+ 
+    if (!$vcardId) {
+        logActivity('UPLOAD_ERROR', "vCard ID missing or zero");
+        sendError('vCard ID required');
+    }
+ 
+    $validTypes = ['cover', 'profile', 'favicon', 'product', 'blog', 'testimonial', 'gallery'];
+    if (!in_array($type, $validTypes)) {
+        sendError('Invalid type. Must be: ' . implode(', ', $validTypes));
+    }
+ 
+    if (!isset($_FILES['file']) || $_FILES['file']['error'] !== UPLOAD_ERR_OK) {
+        // ... existing error messages ...
+        sendError('Upload error');
+    }
+ 
+    $file = $_FILES['file'];
+ 
+    // Validate file type
+    $allowedExts = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+    $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
+    if (!in_array($ext, $allowedExts)) {
+        sendError('Invalid file type. Allowed: ' . implode(', ', $allowedExts));
+    }
+ 
+    // Validate MIME type
+    $allowedMimes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+    $finfo = finfo_open(FILEINFO_MIME_TYPE);
+    $mime = finfo_file($finfo, $file['tmp_name']);
+    finfo_close($finfo);
+    if (!in_array($mime, $allowedMimes)) {
+        sendError('Invalid image format');
+    }
+ 
+    // size limit: 5MB
+    if ($file['size'] > 5 * 1024 * 1024) {
+        sendError('File too large. Max 5MB');
+    }
+ 
+    try {
+        $pdo = getDB();
+        $userId = getCurrentUserId();
+ 
+        // Verify vCard ownership OR Admin status
+        if (isAdmin()) {
+            $stmt = $pdo->prepare("SELECT id FROM vcards WHERE id = ? LIMIT 1");
+            $stmt->execute([$vcardId]);
+        } else {
+            $stmt = $pdo->prepare("SELECT id FROM vcards WHERE id = ? AND user_id = ? LIMIT 1");
+            $stmt->execute([$vcardId, $userId]);
+        }
+ 
+        if (!$stmt->fetch()) {
+            logActivity('UPLOAD_ACCESS_DENIED', "User $userId tried to upload to vCard $vcardId");
+            sendError('Access denied', 403);
+        }
 
     // --- CLOUDINARY UPLOAD ---
     $uploadResult = uploadToCloudinary($file);

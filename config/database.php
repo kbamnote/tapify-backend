@@ -69,8 +69,9 @@ function getDB() {
 
 // === CORS & SESSIONS ===
 // Set session cookie params for cross-domain compatibility
+$isSecure = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
 ini_set('session.cookie_samesite', 'None');
-ini_set('session.cookie_secure', 'True');
+ini_set('session.cookie_secure', $isSecure ? 'True' : 'False');
 ini_set('session.cookie_httponly', 'True');
 
 if (session_status() === PHP_SESSION_NONE) {
