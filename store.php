@@ -79,6 +79,8 @@ if (array_key_exists($templateId, $templateMap)) {
         header('Content-Type: text/html; charset=utf-8');
         include $templatePath;
         exit;
+    } else {
+        die("DEBUG: Template file not found at " . htmlspecialchars($templatePath));
     }
 }
 
