@@ -69,9 +69,13 @@ function getDB() {
 
 // === CORS & SESSIONS ===
 // Set session cookie params for cross-domain compatibility
-$isSecure = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on';
+// Railway uses a reverse proxy — trust X-Forwarded-Proto for HTTPS detection
+$isSecure = (
+    (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ||
+    (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
+);
 ini_set('session.cookie_samesite', 'None');
-ini_set('session.cookie_secure', $isSecure ? 'True' : 'False');
+ini_set('session.cookie_secure', 'True'); // Always True — Railway always serves HTTPS
 ini_set('session.cookie_httponly', 'True');
 
 if (session_status() === PHP_SESSION_NONE) {
