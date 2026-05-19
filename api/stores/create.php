@@ -7,7 +7,7 @@
 require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../includes/functions.php';
 
-requireAuth();
+requireAdmin();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     sendError('Only POST allowed', 405);
