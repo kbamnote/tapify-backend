@@ -40,7 +40,7 @@ try {
         'min_order_amount', 'delivery_charge', 'cod_available',
         'show_search', 'show_categories', 'show_featured',
         'order_message_template', 'primary_color', 'secondary_color',
-        'template_id'
+        'template_id', 'user_id'
     ];
 
     $updates = [];
@@ -48,6 +48,12 @@ try {
 
     foreach ($input as $key => $val) {
         if (in_array($key, $allowed)) {
+            if ($key === 'user_id') {
+                if (!isAdmin()) {
+                    continue;
+                }
+                $val = (int)$val;
+            }
             // Special handling
             if ($key === 'url_alias') {
                 $newAlias = sanitize($val);

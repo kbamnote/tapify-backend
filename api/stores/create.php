@@ -45,6 +45,11 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
+    // Admin feature: assign to a specific user
+    if (isAdmin() && !empty($input['user_id'])) {
+        $userId = (int)$input['user_id'];
+    }
+
     // Check URL uniqueness across both vcards and stores
     $stmt = $pdo->prepare("SELECT id FROM whatsapp_stores WHERE url_alias = ? LIMIT 1");
     $stmt->execute([$urlAlias]);

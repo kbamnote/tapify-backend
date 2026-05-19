@@ -21,16 +21,26 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
-    if ($status === null) {
-        // Toggle current status
-        $stmt = $pdo->prepare("UPDATE whatsapp_stores SET status = NOT status WHERE id = ? AND user_id = ?");
-        $stmt->execute([$id, $userId]);
+    if (isAdmin()) {
+        if ($status === null) {
+            $stmt = $pdo->prepare("UPDATE whatsapp_stores SET status = NOT status WHERE id = ?");
+            $stmt->execute([$id]);
+        } else {
+            $stmt = $pdo->prepare("UPDATE whatsapp_stores SET status = ? WHERE id = ?");
+            $stmt->execute([$status, $id]);
+        }
     } else {
-        $stmt = $pdo->prepare("UPDATE whatsapp_stores SET status = ? WHERE id = ? AND user_id = ?");
-        $stmt->execute([$status, $id, $userId]);
+        if ($status === null) {
+            // Toggle current status
+            $stmt = $pdo->prepare("UPDATE whatsapp_stores SET status = NOT status WHERE id = ? AND user_id = ?");
+            $stmt->execute([$id, $userId]);
+        } else {
+            $stmt = $pdo->prepare("UPDATE whatsapp_stores SET status = ? WHERE id = ? AND user_id = ?");
+            $stmt->execute([$status, $id, $userId]);
+        }
     }
 
-    if ($stmt->rowCount() === 0) sendError('Store not found', 404);
+    if ($stmt->rowCount() === 0) sendError('Store not found or access denied', 404);
 
     sendSuccess('Status updated');
 } catch (Exception $e) {
