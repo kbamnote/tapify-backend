@@ -86,7 +86,15 @@ try {
                 'show_instagram', 'show_iframes', 'show_newsletter', 'status'])) {
                 $params[$field] = $input[$field] ? 1 : 0;
             } else {
-                $params[$field] = $input[$field];
+                if ($input[$field] === '' && in_array($field, [
+                    'dob', 'location_url', 'made_by_url', 'banner_url', 'alternate_email', 'alternate_phone',
+                    'primary_color', 'secondary_color', 'bg_color', 'cards_bg_color', 'button_text_color',
+                    'label_text_color', 'description_text_color', 'social_icon_color'
+                ])) {
+                    $params[$field] = null;
+                } else {
+                    $params[$field] = $input[$field];
+                }
             }
         }
     }
