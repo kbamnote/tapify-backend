@@ -52,7 +52,7 @@ try {
                 if (!isAdmin()) {
                     continue;
                 }
-                $val = (int)$val;
+                $val = empty($val) ? $userId : (int)$val;
             }
             // Special handling
             if ($key === 'url_alias') {
