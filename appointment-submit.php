@@ -27,7 +27,7 @@ if (empty($appointmentDate)) sendError('Date required');
 if (empty($appointmentTime)) sendError('Time required');
 
 if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $appointmentDate)) sendError('Invalid date');
-if (!preg_match('/^\d{2}:\d{2}/', $appointmentTime)) sendError('Invalid time');
+// Removed strict time format check to allow ranges like "10:00 AM - 12:00 PM"
 
 if (strtotime($appointmentDate) < strtotime(date('Y-m-d'))) {
     sendError('Cannot book for past dates');
@@ -35,6 +35,20 @@ if (strtotime($appointmentDate) < strtotime(date('Y-m-d'))) {
 
 try {
     $pdo = getDB();
+
+    // Check if slot exists in user's availability
+    $stmt = $pdo->prepare("SELECT id FROM vcard_appointment_slots WHERE vcard_id = ? AND available_date = ? AND time_slot = ?");
+    $stmt->execute([$vcardId, $appointmentDate, $appointmentTime]);
+    if (!$stmt->fetch()) {
+        sendError('The selected time slot is not available');
+    }
+
+    // Check if slot is already booked by another customer
+    $stmt = $pdo->prepare("SELECT id FROM vcard_appointments WHERE vcard_id = ? AND appointment_date = ? AND appointment_time = ? AND status != 'cancelled'");
+    $stmt->execute([$vcardId, $appointmentDate, $appointmentTime]);
+    if ($stmt->fetch()) {
+        sendError('The selected time slot has already been booked');
+    }
 
     // Get vCard info for email
     $stmt = $pdo->prepare("SELECT id, vcard_name FROM vcards WHERE id = ? AND status = 1 LIMIT 1");

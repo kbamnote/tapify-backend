@@ -214,11 +214,13 @@
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
             <div class="form-group">
                 <label>Date *</label>
-                <input type="date" name="date" required min="<?= date('Y-m-d') ?>">
+                <input type="date" name="date" id="appointment-date" required min="<?= date('Y-m-d') ?>" onchange="fetchAvailableSlots(this.value, <?= $vcardId ?>)">
             </div>
             <div class="form-group">
                 <label>Time *</label>
-                <input type="time" name="time" required>
+                <select name="time" id="appointment-time" required disabled style="width:100%;padding:10px 14px;border:1.5px solid #e5e7eb;border-radius:10px;font-family:inherit;font-size:0.9rem;background:white">
+                    <option value="">Select date first</option>
+                </select>
             </div>
         </div>
         <div class="form-group">

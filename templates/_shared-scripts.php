@@ -127,6 +127,42 @@ async function submitAppointment(event) {
     }
 }
 
+async function fetchAvailableSlots(date, vcardId) {
+    const timeSelect = document.getElementById('appointment-time');
+    if (!date) {
+        timeSelect.innerHTML = '<option value="">Select date first</option>';
+        timeSelect.disabled = true;
+        return;
+    }
+
+    timeSelect.innerHTML = '<option value="">Loading slots...</option>';
+    timeSelect.disabled = true;
+
+    try {
+        const response = await fetch(`/api/appointments/slots_public.php?vcard_id=${vcardId}&date=${date}`);
+        const result = await response.json();
+        
+        if (result.success) {
+            if (result.data.length > 0) {
+                timeSelect.innerHTML = '<option value="">Select a time</option>';
+                result.data.forEach(slot => {
+                    const option = document.createElement('option');
+                    option.value = slot;
+                    option.textContent = slot;
+                    timeSelect.appendChild(option);
+                });
+                timeSelect.disabled = false;
+            } else {
+                timeSelect.innerHTML = '<option value="">No slots available for this date</option>';
+            }
+        } else {
+            timeSelect.innerHTML = '<option value="">Failed to load slots</option>';
+        }
+    } catch (err) {
+        timeSelect.innerHTML = '<option value="">Error loading slots</option>';
+    }
+}
+
 function showToast(msg, type = 'success') {
     const old = document.querySelector('.toast');
     if (old) old.remove();
