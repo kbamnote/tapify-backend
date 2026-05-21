@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Ensure accurate tracking in the DB
         const payload = {
-            store_id: storeId,
+            store_id: parseInt(storeId, 10),
             customer_name: name,
             customer_phone: phone,
             items: [{ name: productName, price: productPrice, qty: 1 }],
@@ -105,16 +105,20 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         
         // Post the order to the backend
-        fetch('/store-order-submit.php', {
+        fetch('/backend/store-order-submit.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
         }).then(res => {
             orderModal.hide();
+            submitBtn.innerHTML = '<i class="fab fa-whatsapp" style="font-size: 1.1rem; margin-right: 6px;"></i> Send Order to WhatsApp';
+            submitBtn.disabled = false;
             window.location.href = waUrl;
         }).catch(err => {
             console.error('Failed to submit order to DB', err);
             orderModal.hide();
+            submitBtn.innerHTML = '<i class="fab fa-whatsapp" style="font-size: 1.1rem; margin-right: 6px;"></i> Send Order to WhatsApp';
+            submitBtn.disabled = false;
             window.location.href = waUrl;
         });
     });
