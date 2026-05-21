@@ -244,5 +244,6 @@ $(document).ready(function(){
 });
 </script>
 
+<?php include_once __DIR__ . '/../includes/store-checkout-modal.php'; ?>
 </body>
 </html>
