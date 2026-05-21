@@ -143,8 +143,12 @@ async function fetchAvailableSlots(date, vcardId) {
         const result = await response.json();
         
         if (result.success) {
+            const dateObj = new Date(date);
+            const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const dayName = dayNames[dateObj.getUTCDay()];
+            
             if (result.data.length > 0) {
-                timeSelect.innerHTML = '<option value="">Select a time</option>';
+                timeSelect.innerHTML = `<option value="">Select time for ${dayName}</option>`;
                 result.data.forEach(slot => {
                     const option = document.createElement('option');
                     option.value = slot.value || slot;
