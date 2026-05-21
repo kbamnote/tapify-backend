@@ -51,7 +51,13 @@ try {
         $created_by  = getCurrentUserId();
 
         if (!$category_id) {
-            sendError('category_id is required', 400);
+            $stmtCat = $pdo->query("SELECT id FROM design_categories ORDER BY sort_order ASC, id ASC LIMIT 1");
+            $firstCat = $stmtCat->fetchColumn();
+            if ($firstCat) {
+                $category_id = (int)$firstCat;
+            } else {
+                sendError('Please create at least one Category in the Categories tab first!', 400);
+            }
         }
         if (!$title) {
             sendError('title is required', 400);
