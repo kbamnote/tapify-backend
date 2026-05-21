@@ -1,6 +1,7 @@
 <?php
 header('Content-Type: application/json');
 require_once __DIR__ . '/../../../config/database.php';
+ini_set('display_errors', 0); // Override database.php config for JSON APIs
 require_once __DIR__ . '/../../../includes/functions.php';
 
 requireAdmin();
@@ -18,13 +19,15 @@ $url = null;
 
 // Try Cloudinary first
 try {
-    $result = uploadToCloudinary($_FILES['image']);
-    if ($result && !empty($result['url'])) {
-        $url = $result['url'];
-    } elseif ($result && !empty($result['secure_url'])) {
-        $url = $result['secure_url'];
+    if (defined('CLOUDINARY_CLOUD_NAME') && defined('CLOUDINARY_API_KEY')) {
+        $result = uploadToCloudinary($_FILES['image']);
+        if ($result && !empty($result['url'])) {
+            $url = $result['url'];
+        } elseif ($result && !empty($result['secure_url'])) {
+            $url = $result['secure_url'];
+        }
     }
-} catch (Exception $e) {
+} catch (Throwable $e) {
     // Cloudinary failed — will fall back to local upload below
     $url = null;
 }
@@ -38,7 +41,7 @@ if (!$url) {
         } elseif (is_string($localResult)) {
             $url = $localResult;
         }
-    } catch (Exception $e) {
+    } catch (Throwable $e) {
         sendError('Image upload failed: ' . $e->getMessage(), 500);
     }
 }
