@@ -74,6 +74,12 @@ $isSecure = (
     (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ||
     (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
 );
+
+// Persistent session for 1 year
+$lifetime = 60 * 60 * 24 * 365;
+ini_set('session.gc_maxlifetime', $lifetime);
+ini_set('session.cookie_lifetime', $lifetime);
+
 ini_set('session.cookie_samesite', 'None');
 ini_set('session.cookie_secure', 'True'); // Always True — Railway always serves HTTPS
 ini_set('session.cookie_httponly', 'True');
