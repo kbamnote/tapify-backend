@@ -42,7 +42,10 @@ try {
         $title       = isset($input['title'])       ? trim($input['title'])             : '';
         $description = isset($input['description']) ? trim($input['description'])       : '';
         $image_url   = isset($input['image_url'])   ? trim($input['image_url'])         : '';
-        $tags        = isset($input['tags'])        ? trim($input['tags'])              : '';
+        $tags = '';
+        if (isset($input['tags'])) {
+            $tags = is_array($input['tags']) ? implode(',', $input['tags']) : trim($input['tags']);
+        }
         $is_active   = isset($input['is_active'])   ? (int)(bool)$input['is_active']   : 1;
         $sort_order  = isset($input['sort_order'])  ? (int) $input['sort_order']        : 0;
         $created_by  = getCurrentUserId();
