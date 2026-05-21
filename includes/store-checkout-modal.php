@@ -8,6 +8,10 @@
       </div>
       <div class="modal-body" style="padding: 24px;">
         <p style="color: #6b7280; font-size: 0.95rem; margin-bottom: 20px;">Please enter your details to proceed with your WhatsApp order.</p>
+        <?php
+          $basePath = rtrim(dirname($_SERVER['SCRIPT_NAME']), '/\\');
+          $submitUrl = $basePath . '/store-order-submit.php';
+        ?>
         <form id="whatsappOrderForm">
           <input type="hidden" id="waOrderStoreId" value="<?php echo isset($store['id']) ? $store['id'] : 0; ?>">
           <input type="hidden" id="waOrderProductName" value="">
@@ -104,8 +108,8 @@ document.addEventListener('DOMContentLoaded', function() {
             total_amount: productPrice
         };
         
-        // Post the order to the backend
-        fetch('/backend/store-order-submit.php', {
+        // Post the order to the backend dynamically
+        fetch('<?php echo $submitUrl; ?>', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
