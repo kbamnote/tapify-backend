@@ -109,17 +109,26 @@ document.addEventListener('DOMContentLoaded', function() {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
-        }).then(res => {
-            orderModal.hide();
-            submitBtn.innerHTML = '<i class="fab fa-whatsapp" style="font-size: 1.1rem; margin-right: 6px;"></i> Send Order to WhatsApp';
-            submitBtn.disabled = false;
-            window.location.href = waUrl;
+        })
+        .then(res => res.json().catch(() => ({ success: false, message: 'Invalid server response' })))
+        .then(data => {
+            if (data && data.success) {
+                // Success! Now redirect to WhatsApp
+                orderModal.hide();
+                submitBtn.innerHTML = '<i class="fab fa-whatsapp" style="font-size: 1.1rem; margin-right: 6px;"></i> Send Order to WhatsApp';
+                submitBtn.disabled = false;
+                window.location.href = waUrl;
+            } else {
+                // API Failed
+                alert("Order failed to save: " + (data.message || "Unknown error"));
+                submitBtn.innerHTML = '<i class="fab fa-whatsapp" style="font-size: 1.1rem; margin-right: 6px;"></i> Send Order to WhatsApp';
+                submitBtn.disabled = false;
+            }
         }).catch(err => {
             console.error('Failed to submit order to DB', err);
-            orderModal.hide();
+            alert("Network error: Could not connect to the server.");
             submitBtn.innerHTML = '<i class="fab fa-whatsapp" style="font-size: 1.1rem; margin-right: 6px;"></i> Send Order to WhatsApp';
             submitBtn.disabled = false;
-            window.location.href = waUrl;
         });
     });
 });
