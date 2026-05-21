@@ -19,21 +19,21 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
     $vcardId = (int)($_POST['vcard_id'] ?? 0);
+    $storeId = (int)($_POST['store_id'] ?? 0);
     $type = $_POST['type'] ?? '';
     $targetId = (int)($_POST['target_id'] ?? 0);
  
-    if (!$vcardId) {
-        logActivity('UPLOAD_ERROR', "vCard ID missing or zero");
-        sendError('vCard ID required');
+    if (!$vcardId && !$storeId) {
+        logActivity('UPLOAD_ERROR', "vCard ID or Store ID missing or zero");
+        sendError('vCard ID or Store ID required');
     }
  
-    $validTypes = ['cover', 'profile', 'favicon', 'product', 'blog', 'testimonial', 'gallery'];
+    $validTypes = ['cover', 'profile', 'favicon', 'product', 'blog', 'testimonial', 'gallery', 'logo'];
     if (!in_array($type, $validTypes)) {
         sendError('Invalid type. Must be: ' . implode(', ', $validTypes));
     }
  
     if (!isset($_FILES['file']) || $_FILES['file']['error'] !== UPLOAD_ERR_OK) {
-        // ... existing error messages ...
         sendError('Upload error');
     }
  
@@ -64,18 +64,33 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         $pdo = getDB();
         $userId = getCurrentUserId();
  
-        // Verify vCard ownership OR Admin status
-        if (isAdmin()) {
-            $stmt = $pdo->prepare("SELECT id FROM vcards WHERE id = ? LIMIT 1");
-            $stmt->execute([$vcardId]);
+        if ($storeId) {
+            // Verify store ownership
+            if (isAdmin()) {
+                $stmt = $pdo->prepare("SELECT id FROM whatsapp_stores WHERE id = ? LIMIT 1");
+                $stmt->execute([$storeId]);
+            } else {
+                $stmt = $pdo->prepare("SELECT id FROM whatsapp_stores WHERE id = ? AND user_id = ? LIMIT 1");
+                $stmt->execute([$storeId, $userId]);
+            }
+            if (!$stmt->fetch()) {
+                logActivity('UPLOAD_ACCESS_DENIED', "User $userId tried to upload to Store $storeId");
+                sendError('Access denied', 403);
+            }
         } else {
-            $stmt = $pdo->prepare("SELECT id FROM vcards WHERE id = ? AND user_id = ? LIMIT 1");
-            $stmt->execute([$vcardId, $userId]);
-        }
- 
-        if (!$stmt->fetch()) {
-            logActivity('UPLOAD_ACCESS_DENIED', "User $userId tried to upload to vCard $vcardId");
-            sendError('Access denied', 403);
+            // Verify vCard ownership OR Admin status
+            if (isAdmin()) {
+                $stmt = $pdo->prepare("SELECT id FROM vcards WHERE id = ? LIMIT 1");
+                $stmt->execute([$vcardId]);
+            } else {
+                $stmt = $pdo->prepare("SELECT id FROM vcards WHERE id = ? AND user_id = ? LIMIT 1");
+                $stmt->execute([$vcardId, $userId]);
+            }
+     
+            if (!$stmt->fetch()) {
+                logActivity('UPLOAD_ACCESS_DENIED', "User $userId tried to upload to vCard $vcardId");
+                sendError('Access denied', 403);
+            }
         }
 
     // --- CLOUDINARY UPLOAD ---
@@ -93,12 +108,21 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     switch ($type) {
         case 'cover':
             // Get old image to delete
-            $stmt = $pdo->prepare("SELECT cover_image FROM vcards WHERE id = ?");
-            $stmt->execute([$vcardId]);
-            $oldImageToDelete = $stmt->fetch()['cover_image'] ?? null;
+            if ($storeId) {
+                $stmt = $pdo->prepare("SELECT cover_image FROM whatsapp_stores WHERE id = ?");
+                $stmt->execute([$storeId]);
+                $oldImageToDelete = $stmt->fetch()['cover_image'] ?? null;
 
-            $stmt = $pdo->prepare("UPDATE vcards SET cover_image = ? WHERE id = ?");
-            $stmt->execute([$relativePath, $vcardId]);
+                $stmt = $pdo->prepare("UPDATE whatsapp_stores SET cover_image = ? WHERE id = ?");
+                $stmt->execute([$relativePath, $storeId]);
+            } else {
+                $stmt = $pdo->prepare("SELECT cover_image FROM vcards WHERE id = ?");
+                $stmt->execute([$vcardId]);
+                $oldImageToDelete = $stmt->fetch()['cover_image'] ?? null;
+
+                $stmt = $pdo->prepare("UPDATE vcards SET cover_image = ? WHERE id = ?");
+                $stmt->execute([$relativePath, $vcardId]);
+            }
             break;
 
         case 'profile':
@@ -111,12 +135,32 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             break;
 
         case 'favicon':
-            $stmt = $pdo->prepare("SELECT favicon_image FROM vcards WHERE id = ?");
-            $stmt->execute([$vcardId]);
-            $oldImageToDelete = $stmt->fetch()['favicon_image'] ?? null;
+            if ($storeId) {
+                $stmt = $pdo->prepare("SELECT favicon_image FROM whatsapp_stores WHERE id = ?");
+                $stmt->execute([$storeId]);
+                $oldImageToDelete = $stmt->fetch()['favicon_image'] ?? null;
 
-            $stmt = $pdo->prepare("UPDATE vcards SET favicon_image = ? WHERE id = ?");
-            $stmt->execute([$relativePath, $vcardId]);
+                $stmt = $pdo->prepare("UPDATE whatsapp_stores SET favicon_image = ? WHERE id = ?");
+                $stmt->execute([$relativePath, $storeId]);
+            } else {
+                $stmt = $pdo->prepare("SELECT favicon_image FROM vcards WHERE id = ?");
+                $stmt->execute([$vcardId]);
+                $oldImageToDelete = $stmt->fetch()['favicon_image'] ?? null;
+
+                $stmt = $pdo->prepare("UPDATE vcards SET favicon_image = ? WHERE id = ?");
+                $stmt->execute([$relativePath, $vcardId]);
+            }
+            break;
+
+        case 'logo':
+            if ($storeId) {
+                $stmt = $pdo->prepare("SELECT logo_image FROM whatsapp_stores WHERE id = ?");
+                $stmt->execute([$storeId]);
+                $oldImageToDelete = $stmt->fetch()['logo_image'] ?? null;
+
+                $stmt = $pdo->prepare("UPDATE whatsapp_stores SET logo_image = ? WHERE id = ?");
+                $stmt->execute([$relativePath, $storeId]);
+            }
             break;
 
         case 'product':
