@@ -36,11 +36,26 @@ if (strtotime($appointmentDate) < strtotime(date('Y-m-d'))) {
 try {
     $pdo = getDB();
 
-    // Check if slot exists in user's availability
-    $stmt = $pdo->prepare("SELECT id FROM vcard_appointment_slots WHERE vcard_id = ? AND available_date = ? AND time_slot = ?");
-    $stmt->execute([$vcardId, $appointmentDate, $appointmentTime]);
-    if (!$stmt->fetch()) {
-        sendError('The selected time slot is not available');
+    // 1. Check if slot falls within weekly schedule availability
+    $dayOfWeek = (int)date('w', strtotime($appointmentDate));
+    $stmt = $pdo->prepare("SELECT start_time, end_time FROM vcard_weekly_schedule WHERE vcard_id = ? AND day_of_week = ?");
+    $stmt->execute([$vcardId, $dayOfWeek]);
+    $ranges = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+    $isValidTime = false;
+    $requestedTS = strtotime($appointmentTime);
+    foreach ($ranges as $range) {
+        $startTS = strtotime($range['start_time']);
+        $endTS = strtotime($range['end_time']);
+        // A slot is valid if its start time >= schedule start and its end time (start + 30 mins) <= schedule end
+        if ($requestedTS >= $startTS && ($requestedTS + 1800) <= $endTS) {
+            $isValidTime = true;
+            break;
+        }
+    }
+    
+    if (!$isValidTime) {
+        sendError('The selected time slot is not available in the schedule');
     }
 
     // Check if slot is already booked by another customer

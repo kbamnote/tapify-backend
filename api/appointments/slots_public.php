@@ -20,18 +20,50 @@ if (!$vcardId || empty($date)) {
 try {
     $pdo = getDB();
 
-    // Get all defined slots for this date
-    $stmt = $pdo->prepare("SELECT time_slot FROM vcard_appointment_slots WHERE vcard_id = ? AND available_date = ? ORDER BY time_slot");
-    $stmt->execute([$vcardId, $date]);
-    $all_slots = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    // 1. Determine day of week (0=Sun, 1=Mon, ..., 6=Sat)
+    $dayOfWeek = (int)date('w', strtotime($date));
 
-    // Get all booked slots for this date (excluding cancelled)
+    // 2. Fetch schedule ranges for this day
+    $stmt = $pdo->prepare("SELECT start_time, end_time FROM vcard_weekly_schedule WHERE vcard_id = ? AND day_of_week = ? ORDER BY start_time");
+    $stmt->execute([$vcardId, $dayOfWeek]);
+    $ranges = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    // 3. Generate 30-min slots
+    $generated_slots = [];
+    foreach ($ranges as $range) {
+        $startTS = strtotime($range['start_time']);
+        $endTS = strtotime($range['end_time']);
+        
+        while ($startTS + 1800 <= $endTS) {
+            $generated_slots[] = date('H:i', $startTS); // 24-hour format
+            $startTS += 1800; // Add 30 minutes
+        }
+    }
+    
+    // Sort and remove duplicates if overlapping ranges were created
+    $generated_slots = array_unique($generated_slots);
+    sort($generated_slots);
+
+    // 4. Get booked slots for this date
     $stmt = $pdo->prepare("SELECT appointment_time FROM vcard_appointments WHERE vcard_id = ? AND appointment_date = ? AND status != 'cancelled'");
     $stmt->execute([$vcardId, $date]);
-    $booked_slots = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    
+    $booked_slots = [];
+    while ($row = $stmt->fetch()) {
+        // appointment_time might be "10:00" or "10:00:00" or "10:00 AM". Let's parse it to H:i
+        $booked_slots[] = date('H:i', strtotime($row['appointment_time']));
+    }
 
-    // Filter out booked slots
-    $available_slots = array_values(array_diff($all_slots, $booked_slots));
+    // 5. Filter out booked slots
+    $available_slots = [];
+    foreach ($generated_slots as $slot) {
+        if (!in_array($slot, $booked_slots)) {
+            $available_slots[] = [
+                'value' => $slot,
+                'label' => date('h:i A', strtotime($slot))
+            ];
+        }
+    }
 
     echo json_encode(['success' => true, 'data' => $available_slots]);
 

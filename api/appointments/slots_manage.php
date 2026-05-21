@@ -1,9 +1,9 @@
 <?php
 /**
- * TAPIFY - Manage Availability Slots (Admin)
- * GET /api/appointments/slots_manage.php?vcard_id=1&date=YYYY-MM-DD
- * POST /api/appointments/slots_manage.php (action=add, vcard_id, date, time_slot)
- * POST /api/appointments/slots_manage.php (action=delete, id, vcard_id)
+ * TAPIFY - Manage Weekly Schedule Slots (Admin)
+ * GET /api/appointments/slots_manage.php?vcard_id=1
+ * POST /api/appointments/slots_manage.php
+ * Body: { action: 'save_week', vcard_id: 10, schedule: [ { day: 1, start: '09:00', end: '17:00' }, ... ] }
  */
 
 require_once __DIR__ . '/../../config/database.php';
@@ -19,25 +19,15 @@ $pdo = getDB();
 try {
     if ($method === 'GET') {
         $vcardId = (int)($_GET['vcard_id'] ?? 0);
-        $date = sanitize($_GET['date'] ?? '');
         
         // Verify ownership
         $stmt = $pdo->prepare("SELECT id FROM vcards WHERE id = ? AND user_id = ?");
         $stmt->execute([$vcardId, $userId]);
         if (!$stmt->fetch()) sendError('Access denied', 403);
 
-        $query = "SELECT * FROM vcard_appointment_slots WHERE vcard_id = ?";
-        $params = [$vcardId];
-        
-        if (!empty($date)) {
-            $query .= " AND available_date = ?";
-            $params[] = $date;
-        }
-        $query .= " ORDER BY available_date DESC, time_slot ASC";
-        
-        $stmt = $pdo->prepare($query);
-        $stmt->execute($params);
-        sendSuccess('Slots fetched', $stmt->fetchAll());
+        $stmt = $pdo->prepare("SELECT * FROM vcard_weekly_schedule WHERE vcard_id = ? ORDER BY day_of_week, start_time");
+        $stmt->execute([$vcardId]);
+        sendSuccess('Schedule fetched', $stmt->fetchAll());
     } 
     else if ($method === 'POST') {
         $input = getInput();
@@ -49,28 +39,34 @@ try {
         $stmt->execute([$vcardId, $userId]);
         if (!$stmt->fetch()) sendError('Access denied', 403);
 
-        if ($action === 'add') {
-            $date = sanitize($input['date'] ?? '');
-            $timeSlot = sanitize($input['time_slot'] ?? '');
+        if ($action === 'save_week') {
+            $schedule = $input['schedule'] ?? [];
+            if (!is_array($schedule)) sendError('Invalid schedule format');
             
-            if (empty($date) || empty($timeSlot)) sendError('Date and time slot are required');
-            
-            // Check if already exists
-            $stmt = $pdo->prepare("SELECT id FROM vcard_appointment_slots WHERE vcard_id = ? AND available_date = ? AND time_slot = ?");
-            $stmt->execute([$vcardId, $date, $timeSlot]);
-            if ($stmt->fetch()) sendError('This time slot already exists for this date');
-            
-            $stmt = $pdo->prepare("INSERT INTO vcard_appointment_slots (vcard_id, available_date, time_slot) VALUES (?, ?, ?)");
-            $stmt->execute([$vcardId, $date, $timeSlot]);
-            sendSuccess('Slot added', ['id' => $pdo->lastInsertId()]);
+            $pdo->beginTransaction();
+            try {
+                // Delete existing schedule
+                $stmt = $pdo->prepare("DELETE FROM vcard_weekly_schedule WHERE vcard_id = ?");
+                $stmt->execute([$vcardId]);
+                
+                // Insert new schedule
+                $stmt = $pdo->prepare("INSERT INTO vcard_weekly_schedule (vcard_id, day_of_week, start_time, end_time) VALUES (?, ?, ?, ?)");
+                foreach ($schedule as $slot) {
+                    $day = (int)$slot['day'];
+                    if ($day >= 0 && $day <= 6 && !empty($slot['start']) && !empty($slot['end'])) {
+                        $startDb = date('H:i:s', strtotime($slot['start']));
+                        $endDb = date('H:i:s', strtotime($slot['end']));
+                        $stmt->execute([$vcardId, $day, $startDb, $endDb]);
+                    }
+                }
+                
+                $pdo->commit();
+                sendSuccess('Schedule saved successfully');
+            } catch (Exception $e) {
+                $pdo->rollBack();
+                sendError('Database error while saving schedule');
+            }
         } 
-        else if ($action === 'delete') {
-            $id = (int)($input['id'] ?? 0);
-            
-            $stmt = $pdo->prepare("DELETE FROM vcard_appointment_slots WHERE id = ? AND vcard_id = ?");
-            $stmt->execute([$id, $vcardId]);
-            sendSuccess('Slot deleted');
-        }
         else {
             sendError('Invalid action');
         }
