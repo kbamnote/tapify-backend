@@ -129,12 +129,16 @@ async function submitAppointment(event) {
 
 async function fetchAvailableSlots(date, vcardId) {
     const timeSelect = document.getElementById('appointment-time');
+    const timeContainer = document.getElementById('time-container');
+    
     if (!date) {
         timeSelect.innerHTML = '<option value="">Select date first</option>';
         timeSelect.disabled = true;
+        if (timeContainer) timeContainer.style.display = 'none';
         return;
     }
 
+    if (timeContainer) timeContainer.style.display = 'block';
     timeSelect.innerHTML = '<option value="">Loading slots...</option>';
     timeSelect.disabled = true;
 
