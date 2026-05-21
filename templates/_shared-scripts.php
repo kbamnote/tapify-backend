@@ -147,8 +147,8 @@ async function fetchAvailableSlots(date, vcardId) {
                 timeSelect.innerHTML = '<option value="">Select a time</option>';
                 result.data.forEach(slot => {
                     const option = document.createElement('option');
-                    option.value = slot;
-                    option.textContent = slot;
+                    option.value = slot.value || slot;
+                    option.textContent = slot.label || slot;
                     timeSelect.appendChild(option);
                 });
                 timeSelect.disabled = false;
