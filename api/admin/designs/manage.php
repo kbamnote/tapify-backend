@@ -17,7 +17,7 @@ try {
 
         $sql = "SELECT d.*, dc.name AS category_name
                 FROM designs d
-                JOIN design_categories dc ON dc.id = d.category_id";
+                LEFT JOIN design_categories dc ON dc.id = d.category_id";
         $params = [];
 
         if ($category_id) {

@@ -13,7 +13,7 @@ try {
     $pdo = getDB();
 
     $stmt = $pdo->prepare(
-        "SELECT id, name, slug, icon, bg_color, text_color, sort_order
+        "SELECT id, name, slug, icon, bg_color, text_color, image_url, sort_order
          FROM design_categories
          WHERE is_active = 1
          ORDER BY sort_order ASC, id ASC"
