@@ -36,6 +36,7 @@ try {
         $text_color = isset($input['text_color']) ? trim($input['text_color'])       : '#000000';
         $sort_order = isset($input['sort_order']) ? (int) $input['sort_order']       : 0;
         $is_active  = isset($input['is_active'])  ? (int) (bool) $input['is_active'] : 1;
+        $image_url  = isset($input['image_url'])  ? trim($input['image_url'])        : '';
 
         if (!$name) {
             sendError('Category name is required', 400);
@@ -53,18 +54,18 @@ try {
             $stmt = $pdo->prepare(
                 "UPDATE design_categories
                  SET name = ?, slug = ?, icon = ?, bg_color = ?, text_color = ?,
-                     sort_order = ?, is_active = ?
+                     sort_order = ?, is_active = ?, image_url = ?
                  WHERE id = ?"
             );
-            $stmt->execute([$name, $slug, $icon, $bg_color, $text_color, $sort_order, $is_active, $id]);
+            $stmt->execute([$name, $slug, $icon, $bg_color, $text_color, $sort_order, $is_active, $image_url, $id]);
             sendSuccess('Category updated', ['id' => $id]);
         } else {
             // INSERT new
             $stmt = $pdo->prepare(
-                "INSERT INTO design_categories (name, slug, icon, bg_color, text_color, sort_order, is_active)
-                 VALUES (?, ?, ?, ?, ?, ?, ?)"
+                "INSERT INTO design_categories (name, slug, icon, bg_color, text_color, sort_order, is_active, image_url)
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
             );
-            $stmt->execute([$name, $slug, $icon, $bg_color, $text_color, $sort_order, $is_active]);
+            $stmt->execute([$name, $slug, $icon, $bg_color, $text_color, $sort_order, $is_active, $image_url]);
             $newId = (int) $pdo->lastInsertId();
             sendSuccess('Category created', ['id' => $newId]);
         }
