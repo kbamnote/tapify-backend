@@ -17,6 +17,9 @@ define('CLOUDINARY_CLOUD_NAME', getenv('CLOUDINARY_CLOUD_NAME') ?: 'dpawkimbc');
 define('CLOUDINARY_API_KEY', getenv('CLOUDINARY_API_KEY') ?: '222713572894261');
 define('CLOUDINARY_API_SECRET', getenv('CLOUDINARY_API_SECRET') ?: 'ywysF7LQEMa1kuZUQORCbUdCGi0');
 
+// === AI CONFIGURATION ===
+define('OPENROUTER_API_KEY', getenv('OPENROUTER_API_KEY') ?: '');
+
 // === SECURITY ===
 define('JWT_SECRET', getenv('JWT_SECRET') ?: 'tapify-secret-key-12345');
 define('JWT_ALGO', 'HS256');
