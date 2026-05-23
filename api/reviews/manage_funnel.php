@@ -42,19 +42,22 @@ try {
             exit;
         }
 
-        if (empty($slug)) {
-            $slug = 'review-' . uniqid();
-        }
-
         // Check if funnel already exists for user
-        $stmt = $pdo->prepare("SELECT id FROM review_funnels WHERE user_id = ?");
+        $stmt = $pdo->prepare("SELECT id, slug FROM review_funnels WHERE user_id = ?");
         $stmt->execute([$userId]);
         $existing = $stmt->fetch();
 
         if ($existing) {
+            // Keep the existing slug so printed QR codes don't break
+            $finalSlug = !empty($input['slug']) ? $input['slug'] : $existing['slug'];
+            
             $stmt = $pdo->prepare("UPDATE review_funnels SET google_review_url = ?, slug = ? WHERE user_id = ?");
-            $stmt->execute([$googleUrl, $slug, $userId]);
+            $stmt->execute([$googleUrl, $finalSlug, $userId]);
+            $slug = $finalSlug;
         } else {
+            if (empty($slug)) {
+                $slug = 'review-' . uniqid();
+            }
             $stmt = $pdo->prepare("INSERT INTO review_funnels (user_id, slug, google_review_url) VALUES (?, ?, ?)");
             $stmt->execute([$userId, $slug, $googleUrl]);
         }
