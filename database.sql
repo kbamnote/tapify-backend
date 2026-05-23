@@ -323,3 +323,51 @@ SET FOREIGN_KEY_CHECKS=1;
 -- DONE! Database setup complete
 -- Login: admin@tapify.com / admin123
 -- ====================================================
+
+-- ====================================================
+-- TABLE: review_funnels (Google Review Links)
+-- ====================================================
+DROP TABLE IF EXISTS `review_funnels`;
+CREATE TABLE `review_funnels` (
+  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `user_id` INT(11) UNSIGNED NOT NULL,
+  `slug` VARCHAR(100) NOT NULL UNIQUE,
+  `google_review_url` VARCHAR(500) NOT NULL,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `idx_user_id` (`user_id`),
+  CONSTRAINT `fk_funnel_user` FOREIGN KEY (`user_id`) REFERENCES `users`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ====================================================
+-- TABLE: funnel_reviews (1-3 star private reviews)
+-- ====================================================
+DROP TABLE IF EXISTS `funnel_reviews`;
+CREATE TABLE `funnel_reviews` (
+  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `funnel_id` INT(11) UNSIGNED NOT NULL,
+  `rating` INT(1) NOT NULL,
+  `feedback_text` TEXT DEFAULT NULL,
+  `media_url` VARCHAR(255) DEFAULT NULL,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `idx_funnel_id` (`funnel_id`),
+  CONSTRAINT `fk_review_funnel` FOREIGN KEY (`funnel_id`) REFERENCES `review_funnels`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ====================================================
+-- TABLE: funnel_analytics (Scans and redirects)
+-- ====================================================
+DROP TABLE IF EXISTS `funnel_analytics`;
+CREATE TABLE `funnel_analytics` (
+  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `funnel_id` INT(11) UNSIGNED NOT NULL,
+  `event_type` ENUM('scan', 'redirect') NOT NULL,
+  `ip_address` VARCHAR(45) DEFAULT NULL,
+  `user_agent` TEXT DEFAULT NULL,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `idx_funnel_id` (`funnel_id`),
+  CONSTRAINT `fk_analytics_funnel` FOREIGN KEY (`funnel_id`) REFERENCES `review_funnels`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
