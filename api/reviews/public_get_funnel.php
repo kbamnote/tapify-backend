@@ -32,7 +32,7 @@ try {
     $funnel = $stmt->fetch();
 
     if (!$funnel) {
-        echo json_encode(['success' => false, 'message' => 'Funnel not found']);
+        echo json_encode(['success' => false, 'message' => 'Funnel not found for slug: ' . $slug]);
         exit;
     }
 
