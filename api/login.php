@@ -34,7 +34,7 @@ try {
     $user = $stmt->fetch();
 
     if (!$user) {
-        sendError('Invalid email or password', 401);
+        sendError('Email not found in database', 401);
     }
 
     if ($user['status'] != 1) {
@@ -43,7 +43,7 @@ try {
 
     // Verify password
     if (!verifyPassword($password, $user['password'])) {
-        sendError('Invalid email or password', 401);
+        sendError('Password verification failed', 401);
     }
 
     // Update last login
