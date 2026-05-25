@@ -164,23 +164,22 @@ for ($i = 19; $i <= 28; $i++) {
     $num = str_pad($i, 2, '0', STR_PAD_LEFT);
     $file = $templatesDir . "/vcard{$num}.php";
     
-    if (!file_exists($file)) {
-        // Simple scaffold based on vcard01, but we change the template number
-        $newContent = str_replace('vcard01', "vcard{$num}", $baseTemplate);
-        $newContent = str_replace('carousel01', "carousel{$num}", $newContent);
-        
-        // If theme info exists, we could inject custom CSS variables here
-        if (isset($themes["vcard{$num}"])) {
-            $t = $themes["vcard{$num}"];
-            $primary = $t['colors']['primary'] ?? '#000';
-            $secondary = $t['colors']['secondary'] ?? '#333';
-            $newContent = preg_replace('/--primary:[^;]+;/', "--primary:{$primary};", $newContent);
-            $newContent = preg_replace('/--secondary:[^;]+;/', "--secondary:{$secondary};", $newContent);
-        }
-        
-        file_put_contents($file, $newContent);
-        $success[] = "Created vcard{$num}.php";
+    // We want to OVERWRITE the legacy 8-line bootstrap files for 19-28
+    // Simple scaffold based on vcard01, but we change the template number
+    $newContent = str_replace('vcard01', "vcard{$num}", $baseTemplate);
+    $newContent = str_replace('carousel01', "carousel{$num}", $newContent);
+    
+    // If theme info exists, we could inject custom CSS variables here
+    if (isset($themes["vcard{$num}"])) {
+        $t = $themes["vcard{$num}"];
+        $primary = $t['colors']['primary'] ?? '#000';
+        $secondary = $t['colors']['secondary'] ?? '#333';
+        $newContent = preg_replace('/--primary:[^;]+;/', "--primary:{$primary};", $newContent);
+        $newContent = preg_replace('/--secondary:[^;]+;/', "--secondary:{$secondary};", $newContent);
     }
+    
+    file_put_contents($file, $newContent);
+    $success[] = "Generated full standalone vcard{$num}.php";
 }
 
 echo "Success:\n" . implode("\n", $success) . "\n";
