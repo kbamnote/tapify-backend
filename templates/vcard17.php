@@ -99,13 +99,33 @@ body{background:var(--bg);font-family:'Lato',sans-serif;color:var(--text);}
 .footer{text-align:center;padding:14px;font-size:10px;letter-spacing:2px;color:var(--sub);}
 .footer span{color:var(--rose);}
 .fade-in-section{opacity:0;transform:translateY(20px);transition:all .6s ease;}.fade-in-section.visible{opacity:1;transform:none;}
+.gal-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(120px, 1fr));gap:10px;padding:0 22px 20px;}
+.gal-item{width:100%;height:120px;border-radius:12px;overflow:hidden;border:1px solid var(--border);}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s;}
+.gal-item:hover img{transform:scale(1.05);}
 </style>
 </head>
 <body>
 <div class="desk"><div class="heart h1"><i class="fas fa-heart"></i></div><div class="heart h2"><i class="fas fa-heart"></i></div><div class="heart h3"><i class="fas fa-heart"></i></div><div class="petals-desk"><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div></div></div>
 <div class="wrap">
   <div class="banner">
-    <img src="<?= $coverImg ?>" alt="">
+    <?php if (($vcard['cover_type'] ?? 'image') === 'video' && !empty($vcard['cover_image'])): ?>
+        <?php
+        $videoUrl = $vcard['cover_image'];
+        if (strpos($videoUrl, 'youtube.com') !== false || strpos($videoUrl, 'youtu.be') !== false) {
+            preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i', $videoUrl, $match);
+            $ytId = $match[1] ?? '';
+            echo '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/'.$ytId.'?autoplay=1&mute=1&loop=1&playlist='.$ytId.'&controls=0&showinfo=0&rel=0" frameborder="0" allow="autoplay; encrypted-media" style="object-fit:cover;pointer-events:none;"></iframe>';
+        } elseif (strpos($videoUrl, 'instagram.com') !== false) {
+            $embedUrl = rtrim($videoUrl, '/') . '/embed';
+            echo '<iframe width="100%" height="100%" src="'.$embedUrl.'" frameborder="0" allowtransparency="true" style="object-fit:cover;"></iframe>';
+        } else {
+            echo '<video src="'.imgUrl($videoUrl).'" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"></video>';
+        }
+        ?>
+    <?php else: ?>
+        <img src="<?= $coverImg ?>" alt="">
+    <?php endif; ?>
     <div class="b-over"></div>
     <div class="b-content">
       <div class="b-brand"><?= htmlspecialchars($vcard['company'] ?? $fullName) ?></div>
@@ -175,6 +195,66 @@ body{background:var(--bg);font-family:'Lato',sans-serif;color:var(--text);}
     <div class="c-dots" id="carousel17-dots"></div>
   </div>
   <?php endif; ?>
+  <?php if (!empty($products)): ?>
+  <div class="sec fade-in-section"><div class="sec-h">Products</div></div>
+  <div class="car-wrap fade-in-section" id="carousel17_prod">
+    <div class="car-track" id="carousel17_prod-track">
+      <?php foreach ($products as $prd): ?>
+      <div class="c-card">
+        <?php if (!empty($prd['image'])): ?><img src="<?= imgUrl($prd['image']) ?>" alt="<?= htmlspecialchars($prd['name']) ?>"><?php endif; ?>
+        <div class="c-body">
+          <div class="c-title"><?= htmlspecialchars($prd['name']) ?></div>
+          <?php if ($prd['price'] !== null): ?><div style="font-size:11px;font-weight:700;color:var(--rose2);margin-bottom:2px;"><?= htmlspecialchars($prd['currency'] ?: 'INR') ?> <?= number_format((float)$prd['price'], 2) ?></div><?php endif; ?>
+          <?php if (!empty($prd['description'])): ?><div class="c-desc"><?= htmlspecialchars($prd['description']) ?></div><?php endif; ?>
+        </div>
+      </div>
+      <?php endforeach; ?>
+    </div>
+    <div class="c-arrows"><div class="c-arr" id="carousel17_prod-prev"><i class="fas fa-chevron-left"></i></div><div class="c-arr" id="carousel17_prod-next"><i class="fas fa-chevron-right"></i></div></div>
+    <div class="c-dots" id="carousel17_prod-dots"></div>
+  </div>
+  <?php endif; ?>
+  <?php if (!empty($galleries)): ?>
+  <div class="sec fade-in-section"><div class="sec-h">Gallery</div></div>
+  <div class="gal-wrap fade-in-section">
+    <?php foreach ($galleries as $g): ?>
+      <?php if (!empty($g['images'])): ?>
+      <div class="gal-grid">
+        <?php foreach ($g['images'] as $img): ?>
+        <div class="gal-item"><a href="/<?= htmlspecialchars($img['image_url']) ?>" target="_blank"><img src="/<?= htmlspecialchars($img['image_url']) ?>" alt="Gallery Image"></a></div>
+        <?php endforeach; ?>
+      </div>
+      <?php endif; ?>
+    <?php endforeach; ?>
+  </div>
+  <?php endif; ?>
+  <?php if (!empty($testimonials)): ?>
+  <div class="sec fade-in-section"><div class="sec-h">Testimonials</div></div>
+  <div class="car-wrap fade-in-section" id="carousel17_test">
+    <div class="car-track" id="carousel17_test-track">
+      <?php foreach ($testimonials as $t): ?>
+      <div class="c-card" style="padding:16px;background:var(--cream);border-color:var(--rose2);">
+        <div style="color:#f59e0b;font-size:12px;margin-bottom:8px;"><?= str_repeat('★', $t['rating']) . str_repeat('☆', 5 - $t['rating']) ?></div>
+        <div style="font-size:13px;font-style:italic;color:var(--text);margin-bottom:12px;line-height:1.5;">"<?= htmlspecialchars($t['message']) ?>"</div>
+        <div style="font-size:11px;font-weight:700;color:var(--rose);"><?= htmlspecialchars($t['name']) ?></div>
+        <?php if (!empty($t['designation'])): ?><div style="font-size:9px;color:var(--sub);"><?= htmlspecialchars($t['designation']) ?></div><?php endif; ?>
+      </div>
+      <?php endforeach; ?>
+    </div>
+    <div class="c-arrows"><div class="c-arr" id="carousel17_test-prev"><i class="fas fa-chevron-left"></i></div><div class="c-arr" id="carousel17_test-next"><i class="fas fa-chevron-right"></i></div></div>
+    <div class="c-dots" id="carousel17_test-dots"></div>
+  </div>
+  <?php endif; ?>
+  <?php if (!empty($vcard['show_instagram']) && !empty($insta_feed)): ?>
+  <div class="sec fade-in-section"><div class="sec-h">Instagram Feed</div></div>
+  <div class="gal-grid fade-in-section">
+      <?php foreach ($insta_feed as $insta): ?>
+      <div class="gal-item" style="border:none;height:150px;">
+          <iframe src="<?= htmlspecialchars($insta['embed_url']) ?>" width="100%" height="100%" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+      </div>
+      <?php endforeach; ?>
+  </div>
+  <?php endif; ?>
   <div class="qr-blk fade-in-section">
     <div class="qr-box"><img src="<?= $qrUrl ?>" alt="QR Code"></div>
     <div class="qr-info"><h4>Plan Your Day</h4><p>Scan to book a free wedding consultation.</p></div>
@@ -208,6 +288,8 @@ function initCarousel(id){
   setInterval(()=>goTo(idx+1),4000);
 }
 initCarousel('carousel17');
+initCarousel('carousel17_prod');
+initCarousel('carousel17_test');
 </script>
 <?php if (!empty($vcard['custom_js'])): ?><script><?= $vcard['custom_js'] ?></script><?php endif; ?>
 <?php include __DIR__ . '/_shared-scripts.php'; ?>

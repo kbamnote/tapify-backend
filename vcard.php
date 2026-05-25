@@ -44,7 +44,7 @@ try {
     $stmt->execute([$vcardId]);
     $socialLinks = $stmt->fetchAll();
 
-    $customLinks = $blogs = $testimonials = $galleries = [];
+    $customLinks = $blogs = $testimonials = $galleries = $iframes = $insta_feed = [];
     try {
         $stmt = $pdo->prepare("SELECT * FROM vcard_custom_links WHERE vcard_id = ? ORDER BY display_order, id");
         $stmt->execute([$vcardId]);
@@ -72,6 +72,18 @@ try {
             $imgStmt->execute([$g['id']]);
             $g['images'] = $imgStmt->fetchAll();
         }
+    } catch (Exception $e) {}
+
+    try {
+        $stmt = $pdo->prepare("SELECT * FROM vcard_iframes WHERE vcard_id = ? ORDER BY id");
+        $stmt->execute([$vcardId]);
+        $iframes = $stmt->fetchAll();
+    } catch (Exception $e) {}
+
+    try {
+        $stmt = $pdo->prepare("SELECT * FROM vcard_instagram_feeds WHERE vcard_id = ? ORDER BY display_order, id");
+        $stmt->execute([$vcardId]);
+        $insta_feed = $stmt->fetchAll();
     } catch (Exception $e) {}
 
 } catch (Exception $e) {
