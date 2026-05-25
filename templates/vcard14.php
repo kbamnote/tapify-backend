@@ -107,7 +107,23 @@ body{background:var(--bg);font-family:'Nunito',sans-serif;color:var(--text);}
 <div class="desk"><div class="mandala m1"></div><div class="mandala m2"></div><div class="leaf l1">🌿</div><div class="leaf l2">🍃</div><div class="leaf l3">☘️</div></div>
 <div class="wrap">
   <div class="banner">
-    <img src="<?= $coverImg ?>" alt="">
+    <?php if (($vcard['cover_type'] ?? 'image') === 'video' && !empty($vcard['cover_image'])): ?>
+        <?php
+        $videoUrl = $vcard['cover_image'];
+        if (strpos($videoUrl, 'youtube.com') !== false || strpos($videoUrl, 'youtu.be') !== false) {
+            preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i', $videoUrl, $match);
+            $ytId = $match[1] ?? '';
+            echo '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/'.$ytId.'?autoplay=1&mute=1&loop=1&playlist='.$ytId.'&controls=0&showinfo=0&rel=0" frameborder="0" allow="autoplay; encrypted-media" style="object-fit:cover;pointer-events:none;"></iframe>';
+        } elseif (strpos($videoUrl, 'instagram.com') !== false) {
+            $embedUrl = rtrim($videoUrl, '/') . '/embed';
+            echo '<iframe width="100%" height="100%" src="'.$embedUrl.'" frameborder="0" allowtransparency="true" style="object-fit:cover;"></iframe>';
+        } else {
+            echo '<video src="'.imgUrl($videoUrl).'" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;"></video>';
+        }
+        ?>
+    <?php else: ?>
+        <img src="<?= htmlspecialchars($coverImg) ?>" alt="Cover">
+    <?php endif; ?>
     <div class="b-over"></div>
     <div class="b-content">
       <div class="b-studio"><?= htmlspecialchars($vcard['company'] ?? $fullName) ?></div>
