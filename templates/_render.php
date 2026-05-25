@@ -213,6 +213,7 @@ echo file_get_contents(__DIR__ . '/_theme-layouts.css');
         <?php if (empty($vcard['remove_branding'])): ?>
         <p>Powered by <a href="/">Tapify</a></p>
         <?php endif; ?>
+        <p style="margin-top:3px;opacity:0.6;">A unit of <strong>Mr Print World</strong></p>
         <p class="footer-year">© <?= date('Y') ?></p>
     </div>
 </div>

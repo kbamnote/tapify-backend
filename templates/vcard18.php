@@ -255,6 +255,7 @@ body{background:var(--bg);font-family:'Plus Jakarta Sans',sans-serif;color:var(-
   <?php if (empty($vcard['remove_branding'])): ?>
   <div class="footer">Powered by <span>Tapify</span> · Dental Edition</div>
   <?php endif; ?>
+  <div style="text-align:center;font-size:0.7rem;padding:0 16px 14px;color:inherit;opacity:0.6;">A unit of <strong>Mr Print World</strong></div>
 </div>
 <?php if (!empty($vcard['custom_css'])): ?><style><?= $vcard['custom_css'] ?></style><?php endif; ?>
 <script>

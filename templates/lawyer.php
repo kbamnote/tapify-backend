@@ -141,6 +141,7 @@ $darkColor = !empty($vcard['secondary_color']) ? $vcard['secondary_color'] : '#1
     <div class="vcard-footer">
         <div class="view-counter"><i class="fas fa-eye"></i> <?= number_format((int)$vcard['view_count']) ?> Profile Views</div>
         <p>Powered by <a href="/">Tapify</a></p>
+        <p style="margin-top:3px;opacity:0.6;">A unit of <strong>Mr Print World</strong></p>
         <p style="margin-top:5px;font-size:0.7rem;">© <?= date('Y') ?> All Rights Reserved</p>
     </div>
 </div>

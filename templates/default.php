@@ -142,6 +142,7 @@ $bgColor = !empty($vcard['bg_color']) ? $vcard['bg_color'] : '#ffffff';
     <div class="vcard-footer">
         <div class="view-counter"><i class="fas fa-eye"></i> <?= number_format((int)$vcard['view_count']) ?> views</div>
         <p>Powered by <a href="/">Tapify</a></p>
+        <p style="margin-top:3px;opacity:0.6;">A unit of <strong>Mr Print World</strong></p>
         <p style="margin-top:5px;font-size:0.7rem;">© <?= date('Y') ?></p>
     </div>
 </div>
