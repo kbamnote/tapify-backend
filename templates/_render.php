@@ -29,7 +29,24 @@ $fonts = [
 ];
 $fontKey = $theme['font'] ?? 'poppins';
 $fontQuery = $fonts[$fontKey] ?? $fonts['poppins'];
-$headingFont = in_array($fontKey, ['playfair', 'cormorant', 'merriweather', 'lora'], true) ? "'{$fontKey}', serif" : "'Poppins', sans-serif";
+
+// CSS font-family values for each font key
+$fontFamilyMap = [
+    'poppins'      => "'Poppins', sans-serif",
+    'inter'        => "'Inter', sans-serif",
+    'montserrat'   => "'Montserrat', sans-serif",
+    'raleway'      => "'Raleway', sans-serif",
+    'playfair'     => "'Playfair Display', serif",
+    'lora'         => "'Lora', serif",
+    'oswald'       => "'Oswald', sans-serif",
+    'merriweather' => "'Merriweather', serif",
+    'cormorant'    => "'Cormorant Garamond', serif",
+    'nunito'       => "'Nunito', sans-serif",
+    'open-sans'    => "'Open Sans', sans-serif",
+    'roboto'       => "'Roboto', sans-serif",
+];
+$bodyFont    = $fontFamilyMap[$fontKey] ?? "'Poppins', sans-serif";
+$headingFont = $bodyFont; // headings use same theme font; layouts can override via CSS
 
 $coverH = match ($layout) {
     'luxury', 'legacy', 'photo' => '280px',
@@ -64,6 +81,23 @@ $saveLabel = match ($layout) {
     'retail' => 'Shop Now',
     default => 'Save to Contacts',
 };
+
+// Build cover media HTML (image or video)
+$coverMediaHtml = '';
+if (($vcard['cover_type'] ?? 'image') === 'video' && !empty($vcard['cover_image'])) {
+    $cvUrl = $vcard['cover_image'];
+    if (strpos($cvUrl, 'youtube.com') !== false || strpos($cvUrl, 'youtu.be') !== false) {
+        preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i', $cvUrl, $_m);
+        $_ytId = $_m[1] ?? '';
+        $coverMediaHtml = '<iframe width="100%" height="100%" src="https://www.youtube.com/embed/'.$_ytId.'?autoplay=1&mute=1&loop=1&playlist='.$_ytId.'&controls=1&showinfo=0&rel=0&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="width:100%;height:100%;object-fit:cover;display:block;border:none;"></iframe>';
+    } elseif (strpos($cvUrl, 'instagram.com') !== false) {
+        $coverMediaHtml = '<iframe width="100%" height="100%" src="'.htmlspecialchars(rtrim($cvUrl,'/').'/embed').'" frameborder="0" allowtransparency="true" style="width:100%;height:100%;object-fit:cover;display:block;border:none;"></iframe>';
+    } else {
+        $coverMediaHtml = '<video src="'.htmlspecialchars(imgUrl($cvUrl)).'" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>';
+    }
+} elseif (!empty($vcard['cover_image'])) {
+    $coverMediaHtml = '<img src="'.htmlspecialchars(imgUrl($vcard['cover_image'])).'" alt="Cover">';
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,6 +118,7 @@ $saveLabel = match ($layout) {
             --text: <?= htmlspecialchars($text) ?>;
             --muted: <?= htmlspecialchars($muted) ?>;
             --cover-h: <?= $coverH ?>;
+            --font-body: <?= $bodyFont ?>;
             --font-heading: <?= $headingFont ?>;
         }
 <?php
@@ -99,24 +134,24 @@ echo file_get_contents(__DIR__ . '/_theme-layouts.css');
     <?php if ($layout === 'split'): ?>
     <div class="split-header">
         <div class="split-cover cover-section">
-            <?php if ($vcard['cover_image']): ?><img src="<?= imgUrl($vcard['cover_image']) ?>" alt="Cover"><?php endif; ?>
+            <?= $coverMediaHtml ?>
         </div>
         <div class="split-profile profile-section">
     <?php elseif ($layout === 'sidebar'): ?>
     <div class="sidebar-accent"></div>
-    <div class="cover-section"><?php if ($vcard['cover_image']): ?><img src="<?= imgUrl($vcard['cover_image']) ?>" alt="Cover"><?php endif; ?></div>
+    <div class="cover-section"><?= $coverMediaHtml ?></div>
     <div class="profile-section">
     <?php elseif ($layout === 'minimal' || $layout === 'bio-light' || $layout === 'bio-dark'): ?>
     <div class="cover-section cover-minimal"></div>
     <div class="profile-section profile-minimal">
     <?php elseif ($layout === 'social' || $layout === 'social-grid'): ?>
     <div class="social-hero">
-        <div class="cover-section"><?php if ($vcard['cover_image']): ?><img src="<?= imgUrl($vcard['cover_image']) ?>" alt="Cover"><?php endif; ?></div>
+        <div class="cover-section"><?= $coverMediaHtml ?></div>
     </div>
     <div class="profile-section">
     <?php else: ?>
     <div class="cover-section">
-        <?php if ($vcard['cover_image']): ?><img src="<?= imgUrl($vcard['cover_image']) ?>" alt="Cover"><?php endif; ?>
+        <?= $coverMediaHtml ?>
         <?php if ($layout === 'luxury'): ?>
         <div class="top-badge"><span class="agent-badge">Premium</span><span class="luxury-tag"><?= htmlspecialchars($vcard['occupation'] ?: 'Professional') ?></span></div>
         <?php endif; ?>

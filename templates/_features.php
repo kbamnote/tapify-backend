@@ -124,6 +124,62 @@
 </div>
 <?php endif; ?>
 
+<?php if (($vcard['show_appointments'] ?? 1)): ?>
+<div class="tf-sec fade-in-section">
+  <div class="tf-sec-title"><i class="fas fa-calendar-check"></i> Book Appointment</div>
+  <form class="tf-form" onsubmit="submitAppointment(event)">
+    <input type="hidden" name="vcard_id" value="<?= $vcardId ?>">
+    <div class="tf-form-group">
+      <label>Your Name *</label>
+      <input type="text" name="name" required placeholder="Your name">
+    </div>
+    <div class="tf-form-2col">
+      <div class="tf-form-group">
+        <label>Phone *</label>
+        <input type="tel" name="phone" required placeholder="9876543210">
+      </div>
+      <div class="tf-form-group">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="optional">
+      </div>
+    </div>
+    <?php if (!empty($services)): ?>
+    <div class="tf-form-group">
+      <label>Service</label>
+      <select name="service">
+        <option value="">Choose a service</option>
+        <?php foreach ($services as $s): ?>
+          <option value="<?= htmlspecialchars($s['name']) ?>"><?= htmlspecialchars($s['name']) ?></option>
+        <?php endforeach; ?>
+      </select>
+    </div>
+    <?php else: ?>
+    <div class="tf-form-group">
+      <label>Service / Reason</label>
+      <input type="text" name="service" placeholder="What service do you need?">
+    </div>
+    <?php endif; ?>
+    <div class="tf-form-group">
+      <label>Date *</label>
+      <input type="date" name="date" id="appointment-date" required min="<?= date('Y-m-d') ?>" onchange="fetchAvailableSlots(this.value, <?= $vcardId ?>)">
+    </div>
+    <div class="tf-form-group" id="time-container" style="display:none;">
+      <label id="time-label">Available Times *</label>
+      <select name="time" id="appointment-time" required disabled>
+        <option value="">Select date first</option>
+      </select>
+    </div>
+    <div class="tf-form-group">
+      <label>Notes</label>
+      <textarea name="notes" rows="2" placeholder="Any specific requirements..."></textarea>
+    </div>
+    <button type="submit" class="tf-submit-btn">
+      <i class="fas fa-calendar-plus"></i> Book Appointment
+    </button>
+  </form>
+</div>
+<?php endif; ?>
+
 <?php if (!empty($testimonials)): ?>
 <div class="tf-sec fade-in-section">
   <div class="tf-sec-title"><i class="fas fa-quote-left"></i> What People Say</div>
@@ -248,62 +304,6 @@ if (!empty($instaItems)):
     </div>
     <button type="submit" class="tf-submit-btn">
       <i class="fas fa-paper-plane"></i> Send Message
-    </button>
-  </form>
-</div>
-<?php endif; ?>
-
-<?php if (($vcard['show_appointments'] ?? 1)): ?>
-<div class="tf-sec fade-in-section">
-  <div class="tf-sec-title"><i class="fas fa-calendar-check"></i> Book Appointment</div>
-  <form class="tf-form" onsubmit="submitAppointment(event)">
-    <input type="hidden" name="vcard_id" value="<?= $vcardId ?>">
-    <div class="tf-form-group">
-      <label>Your Name *</label>
-      <input type="text" name="name" required placeholder="Your name">
-    </div>
-    <div class="tf-form-2col">
-      <div class="tf-form-group">
-        <label>Phone *</label>
-        <input type="tel" name="phone" required placeholder="9876543210">
-      </div>
-      <div class="tf-form-group">
-        <label>Email</label>
-        <input type="email" name="email" placeholder="optional">
-      </div>
-    </div>
-    <?php if (!empty($services)): ?>
-    <div class="tf-form-group">
-      <label>Service</label>
-      <select name="service">
-        <option value="">Choose a service</option>
-        <?php foreach ($services as $s): ?>
-          <option value="<?= htmlspecialchars($s['name']) ?>"><?= htmlspecialchars($s['name']) ?></option>
-        <?php endforeach; ?>
-      </select>
-    </div>
-    <?php else: ?>
-    <div class="tf-form-group">
-      <label>Service / Reason</label>
-      <input type="text" name="service" placeholder="What service do you need?">
-    </div>
-    <?php endif; ?>
-    <div class="tf-form-group">
-      <label>Date *</label>
-      <input type="date" name="date" id="appointment-date" required min="<?= date('Y-m-d') ?>" onchange="fetchAvailableSlots(this.value, <?= $vcardId ?>)">
-    </div>
-    <div class="tf-form-group" id="time-container" style="display:none;">
-      <label id="time-label">Available Times *</label>
-      <select name="time" id="appointment-time" required disabled>
-        <option value="">Select date first</option>
-      </select>
-    </div>
-    <div class="tf-form-group">
-      <label>Notes</label>
-      <textarea name="notes" rows="2" placeholder="Any specific requirements..."></textarea>
-    </div>
-    <button type="submit" class="tf-submit-btn">
-      <i class="fas fa-calendar-plus"></i> Book Appointment
     </button>
   </form>
 </div>
