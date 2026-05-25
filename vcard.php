@@ -88,11 +88,12 @@ $fullName = trim(($vcard['first_name'] ?? '') . ' ' . ($vcard['last_name'] ?? ''
 if (empty($fullName)) $fullName = $vcard['vcard_name'];
 
 // === TEMPLATE ROUTING (1:1 — each template_id → templates/vcard{N}.php) ===
-$templateId = !empty($vcard['template_id']) ? trim($vcard['template_id']) : 'vcard1';
+$templateId = !empty($vcard['template_id']) ? trim($vcard['template_id']) : 'vcard01';
 
-// Normalize: allow "vcard16" only; strip unsafe characters
-if (!preg_match('/^vcard([1-9]|[1-3][0-9]|4[0-2])$/', $templateId)) {
-    $templateId = 'vcard1';
+// Normalize: allow vcard01–vcard28 (new) or vcard1–vcard42 (legacy); strip unsafe characters
+if (!preg_match('/^vcard(0[1-9]|[12][0-9]|28)$/', $templateId) &&
+    !preg_match('/^vcard([1-9]|[1-3][0-9]|4[0-2])$/', $templateId)) {
+    $templateId = 'vcard01';
 }
 
 $templatePath = __DIR__ . '/templates/' . $templateId . '.php';
