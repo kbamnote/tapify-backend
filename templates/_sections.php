@@ -41,6 +41,11 @@
             </a>
         <?php endforeach; ?>
     </div>
+    <?php if (!empty($storeUrl)): ?>
+    <a href="<?= htmlspecialchars($storeUrl) ?>" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:12px;background:rgba(128,128,128,.07);border:1.5px solid rgba(128,128,128,.15);text-decoration:none;color:inherit;font-size:13px;font-weight:600;margin-top:12px;transition:background .2s;">
+        <i class="fas fa-store"></i> View More Products
+    </a>
+    <?php endif; ?>
 </div>
 <?php endif; ?>
 

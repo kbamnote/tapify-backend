@@ -86,6 +86,17 @@ try {
         $insta_feed = $stmt->fetchAll();
     } catch (Exception $e) {}
 
+    // WhatsApp Store for this user (used for "View More Products" button)
+    $storeUrl = null;
+    try {
+        $stmt = $pdo->prepare("SELECT url_alias FROM whatsapp_stores WHERE user_id = ? AND status = 1 ORDER BY id LIMIT 1");
+        $stmt->execute([$vcard['user_id']]);
+        $storeRow = $stmt->fetch();
+        if ($storeRow) {
+            $storeUrl = 'https://' . $_SERVER['HTTP_HOST'] . '/' . $storeRow['url_alias'];
+        }
+    } catch (Exception $e) {}
+
 } catch (Exception $e) {
     die('Error: ' . htmlspecialchars($e->getMessage()));
 }

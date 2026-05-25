@@ -1,7 +1,7 @@
 <?php
 /**
  * _features.php — Shared feature sections for standalone templates
- * Renders: Products, Galleries, Testimonials, Iframes, Instagram Feed
+ * Renders: Products, Galleries, Testimonials, Iframes, Instagram Feed, Inquiry Form, Appointment Booking
  * Included by vcard01–18 (except vcard17 which has its own layout for most features)
  */
 ?>
@@ -39,6 +39,38 @@
 .tf-insta-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
 .tf-insta-item{border-radius:12px;overflow:hidden;min-height:150px;}
 .tf-insta-raw{padding:0 4px;}
+/* ── View More Products button ── */
+.tf-more-btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:12px;background:rgba(128,128,128,.08);border:1.5px solid rgba(128,128,128,.2);text-decoration:none;color:inherit;font-size:13px;font-weight:600;margin-top:12px;transition:background .2s,transform .2s;}
+.tf-more-btn:hover{background:rgba(128,128,128,.15);transform:translateY(-1px);}
+.tf-more-btn i{font-size:14px;}
+/* ── Social Connect ── */
+.tf-social-grid{display:flex;flex-wrap:wrap;gap:10px;}
+.tf-soc{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:17px;text-decoration:none;color:#fff;transition:transform .25s,box-shadow .25s;}
+.tf-soc:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(0,0,0,.2);}
+.tf-soc-Facebook,.tf-soc-facebook{background:#1877F2;}
+.tf-soc-Instagram,.tf-soc-instagram{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285AEB 90%);}
+.tf-soc-Twitter,.tf-soc-twitter,.tf-soc-X,.tf-soc-x-twitter{background:#000;}
+.tf-soc-LinkedIn,.tf-soc-linkedin{background:#0A66C2;}
+.tf-soc-WhatsApp,.tf-soc-whatsapp{background:#25D366;}
+.tf-soc-YouTube,.tf-soc-youtube{background:#FF0000;}
+.tf-soc-TikTok,.tf-soc-tiktok{background:#010101;}
+.tf-soc-Pinterest,.tf-soc-pinterest{background:#E60023;}
+.tf-soc-Snapchat,.tf-soc-snapchat{background:#FFFC00;color:#000 !important;}
+.tf-soc-GitHub,.tf-soc-github{background:#333;}
+.tf-soc-Spotify,.tf-soc-spotify{background:#1DB954;}
+.tf-soc-Behance,.tf-soc-behance{background:#1769FF;}
+.tf-soc-Dribbble,.tf-soc-dribbble{background:#EA4C89;}
+/* ── Forms (Inquiry & Appointment) ── */
+.tf-form{display:flex;flex-direction:column;gap:12px;}
+.tf-form-group{display:flex;flex-direction:column;gap:5px;}
+.tf-form-group label{font-size:11px;font-weight:600;opacity:.7;letter-spacing:.3px;}
+.tf-form-group input,.tf-form-group textarea,.tf-form-group select{width:100%;padding:10px 14px;border:1.5px solid rgba(128,128,128,.2);border-radius:10px;font-family:inherit;font-size:13px;background:rgba(128,128,128,.06);color:inherit;outline:none;transition:border-color .2s;}
+.tf-form-group input:focus,.tf-form-group textarea:focus,.tf-form-group select:focus{border-color:rgba(128,128,128,.5);}
+.tf-form-group select option{background:#1a1a2e;color:#fff;}
+.tf-form-2col{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.tf-submit-btn{width:100%;padding:13px;border:none;border-radius:12px;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;letter-spacing:.5px;background:rgba(128,128,128,.15);color:inherit;border:1.5px solid rgba(128,128,128,.25);transition:opacity .2s;}
+.tf-submit-btn:hover{opacity:.8;}
+.tf-submit-btn:disabled{opacity:.5;cursor:not-allowed;}
 </style>
 
 <?php if (!empty($products)): ?>
@@ -64,6 +96,11 @@
     </a>
     <?php endforeach; ?>
   </div>
+  <?php if (!empty($storeUrl)): ?>
+  <a href="<?= htmlspecialchars($storeUrl) ?>" target="_blank" class="tf-more-btn">
+    <i class="fas fa-store"></i> View More Products
+  </a>
+  <?php endif; ?>
 </div>
 <?php endif; ?>
 
@@ -161,5 +198,113 @@ if (!empty($instaItems)):
   ?>
   <script async src="https://www.instagram.com/embed.js"></script>
   <?php endif; ?>
+</div>
+<?php endif; ?>
+
+<?php if (!empty($socialLinks)): ?>
+<div class="tf-sec fade-in-section">
+  <div class="tf-sec-title"><i class="fas fa-share-nodes"></i> Connect</div>
+  <div class="tf-social-grid">
+    <?php
+    $tfIconMap = [
+      'Facebook'=>'fa-facebook-f','Instagram'=>'fa-instagram','Twitter'=>'fa-twitter',
+      'X'=>'fa-x-twitter','LinkedIn'=>'fa-linkedin-in','WhatsApp'=>'fa-whatsapp',
+      'YouTube'=>'fa-youtube','TikTok'=>'fa-tiktok','Pinterest'=>'fa-pinterest-p',
+      'Snapchat'=>'fa-snapchat-ghost','GitHub'=>'fa-github','Spotify'=>'fa-spotify',
+      'Behance'=>'fa-behance','Dribbble'=>'fa-dribbble',
+    ];
+    foreach ($socialLinks as $sl):
+      $tfIcon = $tfIconMap[$sl['platform']] ?? 'fa-globe';
+      $tfType = str_replace(' ','-', $sl['platform'] ?? '');
+    ?>
+    <a href="<?= htmlspecialchars($sl['url']) ?>" target="_blank" class="tf-soc tf-soc-<?= htmlspecialchars($tfType) ?>" title="<?= htmlspecialchars($sl['platform']) ?>">
+      <i class="fab <?= $tfIcon ?>"></i>
+    </a>
+    <?php endforeach; ?>
+  </div>
+</div>
+<?php endif; ?>
+
+<?php if (($vcard['display_inquiry_form'] ?? 1)): ?>
+<div class="tf-sec fade-in-section">
+  <div class="tf-sec-title"><i class="fas fa-paper-plane"></i> Get in Touch</div>
+  <form class="tf-form" onsubmit="submitInquiry(event)">
+    <input type="hidden" name="vcard_id" value="<?= $vcardId ?>">
+    <div class="tf-form-group">
+      <label>Name *</label>
+      <input type="text" name="name" required placeholder="Your name">
+    </div>
+    <div class="tf-form-group">
+      <label>Email *</label>
+      <input type="email" name="email" required placeholder="you@example.com">
+    </div>
+    <div class="tf-form-group">
+      <label>Phone</label>
+      <input type="tel" name="phone" placeholder="+91 9876543210">
+    </div>
+    <div class="tf-form-group">
+      <label>Message *</label>
+      <textarea name="message" rows="3" required placeholder="Your message..."></textarea>
+    </div>
+    <button type="submit" class="tf-submit-btn">
+      <i class="fas fa-paper-plane"></i> Send Message
+    </button>
+  </form>
+</div>
+<?php endif; ?>
+
+<?php if (($vcard['show_appointments'] ?? 1)): ?>
+<div class="tf-sec fade-in-section">
+  <div class="tf-sec-title"><i class="fas fa-calendar-check"></i> Book Appointment</div>
+  <form class="tf-form" onsubmit="submitAppointment(event)">
+    <input type="hidden" name="vcard_id" value="<?= $vcardId ?>">
+    <div class="tf-form-group">
+      <label>Your Name *</label>
+      <input type="text" name="name" required placeholder="Your name">
+    </div>
+    <div class="tf-form-2col">
+      <div class="tf-form-group">
+        <label>Phone *</label>
+        <input type="tel" name="phone" required placeholder="9876543210">
+      </div>
+      <div class="tf-form-group">
+        <label>Email</label>
+        <input type="email" name="email" placeholder="optional">
+      </div>
+    </div>
+    <?php if (!empty($services)): ?>
+    <div class="tf-form-group">
+      <label>Service</label>
+      <select name="service">
+        <option value="">Choose a service</option>
+        <?php foreach ($services as $s): ?>
+          <option value="<?= htmlspecialchars($s['name']) ?>"><?= htmlspecialchars($s['name']) ?></option>
+        <?php endforeach; ?>
+      </select>
+    </div>
+    <?php else: ?>
+    <div class="tf-form-group">
+      <label>Service / Reason</label>
+      <input type="text" name="service" placeholder="What service do you need?">
+    </div>
+    <?php endif; ?>
+    <div class="tf-form-group">
+      <label>Date *</label>
+      <input type="date" name="date" id="appointment-date" required min="<?= date('Y-m-d') ?>" onchange="fetchAvailableSlots(this.value, <?= $vcardId ?>)">
+    </div>
+    <div class="tf-form-group" id="time-container" style="display:none;">
+      <label id="time-label">Available Times *</label>
+      <select name="time" id="appointment-time" required disabled>
+        <option value="">Select date first</option>
+      </select>
+    </div>
+    <div class="tf-form-group">
+      <label>Notes</label>
+      <textarea name="notes" rows="2" placeholder="Any specific requirements..."></textarea>
+    </div>
+    <button type="submit" class="tf-submit-btn">
+      <i class="fas fa-calendar-plus"></i> Book Appointment
+    </button>
+  </form>
 </div>
 <?php endif; ?>

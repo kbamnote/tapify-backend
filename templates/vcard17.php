@@ -103,6 +103,19 @@ body{background:var(--bg);font-family:'Lato',sans-serif;color:var(--text);}
 .gal-item{width:100%;height:120px;border-radius:12px;overflow:hidden;border:1px solid var(--border);}
 .gal-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s;}
 .gal-item:hover img{transform:scale(1.05);}
+/* ── Inquiry & Appointment Forms ── */
+.v17-form-sec{padding:0 22px 22px;}
+.v17-form-title{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;color:var(--rose);margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.v17-form-title::after{content:'';flex:1;height:1px;background:var(--border);}
+.v17-form-title i{font-size:12px;}
+.v17-form{display:flex;flex-direction:column;gap:12px;}
+.v17-fg{display:flex;flex-direction:column;gap:5px;}
+.v17-fg label{font-size:11px;font-weight:600;color:var(--sub);}
+.v17-fg input,.v17-fg textarea,.v17-fg select{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:10px;font-family:inherit;font-size:13px;background:var(--cream);color:var(--text);outline:none;transition:border-color .2s;}
+.v17-fg input:focus,.v17-fg textarea:focus,.v17-fg select:focus{border-color:var(--rose2);}
+.v17-submit-btn{width:100%;padding:13px;border:none;border-radius:12px;font-size:13px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,var(--rose),var(--rose2));color:#fff;letter-spacing:.5px;transition:opacity .2s;}
+.v17-submit-btn:hover{opacity:.88;}
+.v17-submit-btn:disabled{opacity:.5;cursor:not-allowed;}
 </style>
 </head>
 <body>
@@ -214,6 +227,13 @@ body{background:var(--bg);font-family:'Lato',sans-serif;color:var(--text);}
     <div class="c-arrows"><div class="c-arr" id="carousel17_prod-prev"><i class="fas fa-chevron-left"></i></div><div class="c-arr" id="carousel17_prod-next"><i class="fas fa-chevron-right"></i></div></div>
     <div class="c-dots" id="carousel17_prod-dots"></div>
   </div>
+  <?php if (!empty($storeUrl)): ?>
+  <div style="padding:0 22px 18px;">
+    <a href="<?= htmlspecialchars($storeUrl) ?>" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:12px;background:var(--cream);border:1.5px solid var(--border);text-decoration:none;color:var(--rose);font-size:13px;font-weight:700;transition:background .2s;">
+      <i class="fas fa-store"></i> View More Products
+    </a>
+  </div>
+  <?php endif; ?>
   <?php endif; ?>
   <?php if (!empty($galleries)): ?>
   <div class="sec fade-in-section"><div class="sec-h">Gallery</div></div>
@@ -290,6 +310,74 @@ body{background:var(--bg);font-family:'Lato',sans-serif;color:var(--text);}
     <?php endforeach; ?>
   </div>
   <?php endif; ?>
+  <?php if (!empty($socialLinks)): ?>
+  <div class="v17-form-sec fade-in-section">
+    <div class="v17-form-title"><i class="fas fa-share-nodes"></i> Connect</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;">
+      <?php
+      $v17IconMap=['Facebook'=>'fa-facebook-f','Instagram'=>'fa-instagram','Twitter'=>'fa-twitter','X'=>'fa-x-twitter','LinkedIn'=>'fa-linkedin-in','WhatsApp'=>'fa-whatsapp','YouTube'=>'fa-youtube','TikTok'=>'fa-tiktok','Pinterest'=>'fa-pinterest-p','Snapchat'=>'fa-snapchat-ghost','GitHub'=>'fa-github','Spotify'=>'fa-spotify','Behance'=>'fa-behance','Dribbble'=>'fa-dribbble'];
+      $v17BgMap=['Facebook'=>'#1877F2','Instagram'=>'radial-gradient(circle at 30% 107%,#fdf497,#fd5949 45%,#d6249f 60%,#285AEB 90%)','Twitter'=>'#000','X'=>'#000','LinkedIn'=>'#0A66C2','WhatsApp'=>'#25D366','YouTube'=>'#FF0000','TikTok'=>'#010101','Pinterest'=>'#E60023','Snapchat'=>'#FFFC00','GitHub'=>'#333','Spotify'=>'#1DB954','Behance'=>'#1769FF','Dribbble'=>'#EA4C89'];
+      foreach ($socialLinks as $sl):
+        $v17Ic = $v17IconMap[$sl['platform']] ?? 'fa-globe';
+        $v17Bg = $v17BgMap[$sl['platform']] ?? 'var(--rose)';
+        $v17Color = $sl['platform'] === 'Snapchat' ? '#000' : '#fff';
+      ?>
+      <a href="<?= htmlspecialchars($sl['url']) ?>" target="_blank" title="<?= htmlspecialchars($sl['platform']) ?>" style="width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:17px;text-decoration:none;color:<?= $v17Color ?>;background:<?= $v17Bg ?>;transition:transform .25s;">
+        <i class="fab <?= $v17Ic ?>"></i>
+      </a>
+      <?php endforeach; ?>
+    </div>
+  </div>
+  <?php endif; ?>
+
+  <?php if (($vcard['display_inquiry_form'] ?? 1)): ?>
+  <div class="v17-form-sec fade-in-section">
+    <div class="v17-form-title"><i class="fas fa-paper-plane"></i> Get in Touch</div>
+    <form class="v17-form" onsubmit="submitInquiry(event)">
+      <input type="hidden" name="vcard_id" value="<?= $vcardId ?>">
+      <div class="v17-fg"><label>Name *</label><input type="text" name="name" required placeholder="Your name"></div>
+      <div class="v17-fg"><label>Email *</label><input type="email" name="email" required placeholder="you@example.com"></div>
+      <div class="v17-fg"><label>Phone</label><input type="tel" name="phone" placeholder="+91 9876543210"></div>
+      <div class="v17-fg"><label>Message *</label><textarea name="message" rows="3" required placeholder="Your message..."></textarea></div>
+      <button type="submit" class="v17-submit-btn"><i class="fas fa-paper-plane"></i> Send Message</button>
+    </form>
+  </div>
+  <?php endif; ?>
+
+  <?php if (($vcard['show_appointments'] ?? 1)): ?>
+  <div class="v17-form-sec fade-in-section">
+    <div class="v17-form-title"><i class="fas fa-calendar-check"></i> Book Appointment</div>
+    <form class="v17-form" onsubmit="submitAppointment(event)">
+      <input type="hidden" name="vcard_id" value="<?= $vcardId ?>">
+      <div class="v17-fg"><label>Your Name *</label><input type="text" name="name" required placeholder="Your name"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div class="v17-fg"><label>Phone *</label><input type="tel" name="phone" required placeholder="9876543210"></div>
+        <div class="v17-fg"><label>Email</label><input type="email" name="email" placeholder="optional"></div>
+      </div>
+      <?php if (!empty($services)): ?>
+      <div class="v17-fg">
+        <label>Service</label>
+        <select name="service">
+          <option value="">Choose a service</option>
+          <?php foreach ($services as $s): ?>
+            <option value="<?= htmlspecialchars($s['name']) ?>"><?= htmlspecialchars($s['name']) ?></option>
+          <?php endforeach; ?>
+        </select>
+      </div>
+      <?php else: ?>
+      <div class="v17-fg"><label>Service / Reason</label><input type="text" name="service" placeholder="What service do you need?"></div>
+      <?php endif; ?>
+      <div class="v17-fg"><label>Date *</label><input type="date" name="date" id="appointment-date" required min="<?= date('Y-m-d') ?>" onchange="fetchAvailableSlots(this.value, <?= $vcardId ?>)"></div>
+      <div class="v17-fg" id="time-container" style="display:none;">
+        <label id="time-label">Available Times *</label>
+        <select name="time" id="appointment-time" required disabled><option value="">Select date first</option></select>
+      </div>
+      <div class="v17-fg"><label>Notes</label><textarea name="notes" rows="2" placeholder="Any specific requirements..."></textarea></div>
+      <button type="submit" class="v17-submit-btn"><i class="fas fa-calendar-plus"></i> Book Appointment</button>
+    </form>
+  </div>
+  <?php endif; ?>
+
   <div class="qr-blk fade-in-section">
     <div class="qr-box"><img src="<?= $qrUrl ?>" alt="QR Code"></div>
     <div class="qr-info"><h4>Plan Your Day</h4><p>Scan to book a free wedding consultation.</p></div>
