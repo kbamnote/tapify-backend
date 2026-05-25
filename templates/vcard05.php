@@ -160,6 +160,7 @@ body{background:var(--bg);font-family:'Raleway',sans-serif;color:var(--white);ov
     </div>
   </div>
   <?php endif; ?>
+<?php include __DIR__ . '/_features.php'; ?>
   <div class="qr-block fade-in-section">
     <div class="qr-box"><img src="<?= $qrUrl ?>" alt="QR Code" width="72" height="72"></div>
     <div class="qr-txt"><h4>Reserve a Table</h4><p>Scan to save contact or make a reservation.</p></div>

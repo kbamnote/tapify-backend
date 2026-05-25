@@ -102,14 +102,38 @@
             <div class="gallery-name"><?= htmlspecialchars($g['name']) ?></div>
             <div class="gallery-images">
                 <?php foreach ($g['images'] as $img): ?>
-                    <div class="gallery-img" onclick="window.open('/<?= htmlspecialchars($img['image_url']) ?>', '_blank')">
-                        <img src="/<?= htmlspecialchars($img['image_url']) ?>" alt="">
+                    <div class="gallery-img" onclick="window.open('<?= imgUrl($img['image_url']) ?>', '_blank')">
+                        <img src="<?= imgUrl($img['image_url']) ?>" alt="" loading="lazy">
                     </div>
                 <?php endforeach; ?>
             </div>
         </div>
         <?php endif; ?>
     <?php endforeach; ?>
+</div>
+<?php endif; ?>
+
+<?php if (!empty($iframes)): ?>
+<div class="section">
+    <h3 class="section-title"><i class="fas fa-code"></i> Embedded Content</h3>
+    <?php foreach ($iframes as $fr): ?>
+        <div style="border-radius:12px;overflow:hidden;margin-bottom:12px;border:1px solid rgba(128,128,128,.15);">
+            <iframe src="<?= htmlspecialchars($fr['url']) ?>" width="100%" height="320" frameborder="0" allowfullscreen loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" style="display:block;"></iframe>
+        </div>
+    <?php endforeach; ?>
+</div>
+<?php endif; ?>
+
+<?php if (!empty($insta_feed)): ?>
+<div class="section">
+    <h3 class="section-title"><i class="fab fa-instagram"></i> Instagram</h3>
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;">
+        <?php foreach ($insta_feed as $insta): ?>
+        <div style="border-radius:12px;overflow:hidden;height:150px;">
+            <iframe src="<?= htmlspecialchars($insta['embed_url']) ?>" width="100%" height="150" frameborder="0" scrolling="no" allowtransparency="true" loading="lazy" style="display:block;"></iframe>
+        </div>
+        <?php endforeach; ?>
+    </div>
 </div>
 <?php endif; ?>
 

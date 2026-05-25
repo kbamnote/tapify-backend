@@ -202,6 +202,7 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);}
     <div class="c-dots" id="carousel13-dots"></div>
   </div>
   <?php endif; ?>
+<?php include __DIR__ . '/_features.php'; ?>
   <div class="qr-blk fade-in-section">
     <div class="qr-box"><img src="<?= $qrUrl ?>" alt="QR Code"></div>
     <div class="qr-info"><h4>View Portfolio</h4><p>Scan to explore our full project portfolio and services.</p></div>

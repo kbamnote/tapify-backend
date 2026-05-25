@@ -235,6 +235,7 @@ body{background:var(--bg);font-family:'Plus Jakarta Sans',sans-serif;color:var(-
     <div class="carousel-dots" id="carousel18-dots"></div>
   </div>
   <?php endif; ?>
+<?php include __DIR__ . '/_features.php'; ?>
   <div class="qr-block fade-in-section">
     <div class="qr-box"><img src="<?= $qrUrl ?>" alt="QR Code"></div>
     <div class="qr-txt"><h4>Book Appointment</h4><p>Scan to book a dental appointment or save my contact instantly.</p></div>

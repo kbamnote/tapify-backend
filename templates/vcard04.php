@@ -165,6 +165,7 @@ body{background:var(--bg);font-family:'Jost',sans-serif;color:var(--text);overfl
     </div>
   </div>
   <?php endif; ?>
+<?php include __DIR__ . '/_features.php'; ?>
   <div class="qr-section fade-in-section">
     <div class="qr-box"><img src="<?= $qrUrl ?>" alt="QR Code" width="72" height="72"></div>
     <div class="qr-txt"><h4>Scan &amp; Connect</h4><p>Scan to save contact or explore listings.</p></div>

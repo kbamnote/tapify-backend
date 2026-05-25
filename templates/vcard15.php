@@ -192,6 +192,7 @@ body{background:var(--bg);font-family:'Plus Jakarta Sans',sans-serif;color:var(-
       <div class="c-dots" id="carousel15-dots"></div>
     </div>
     <?php endif; ?>
+<?php include __DIR__ . '/_features.php'; ?>
     <div class="qr-blk fade-in-section">
       <div class="qr-box"><img src="<?= $qrUrl ?>" alt="QR Code"></div>
       <div class="qr-info"><h4>Free Audit</h4><p>Scan for a free digital marketing audit of your brand.</p></div>

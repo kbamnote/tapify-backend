@@ -212,6 +212,8 @@ body{background:var(--navy);font-family:'Montserrat',sans-serif;color:var(--whit
   </div>
   <?php endif; ?>
 
+<?php include __DIR__ . '/_features.php'; ?>
+
   <div class="qr-section fade-in-section">
     <img src="<?= $qrUrl ?>" alt="QR Code">
     <div><h4>Scan &amp; Connect</h4><p>Scan to save contact or share this card instantly.</p></div>

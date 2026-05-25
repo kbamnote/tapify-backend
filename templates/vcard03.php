@@ -154,6 +154,7 @@ body{background:var(--bg);font-family:'Syne',sans-serif;color:var(--white);overf
       </div>
     </div>
     <?php endif; ?>
+<?php include __DIR__ . '/_features.php'; ?>
     <div class="qr-area fade-in-section">
       <img src="<?= $qrUrl ?>" alt="QR Code" width="80" height="80" style="background:#fff;padding:5px;border-radius:8px;">
       <div><h4>Scan &amp; Connect</h4><p>Scan to save contact or explore portfolio.</p></div>

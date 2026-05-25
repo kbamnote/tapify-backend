@@ -172,6 +172,7 @@ body{background:var(--bg);font-family:'Nunito',sans-serif;color:var(--text);over
     </div>
   </div>
   <?php endif; ?>
+<?php include __DIR__ . '/_features.php'; ?>
   <div class="qr-block fade-in-section">
     <div class="qr-box"><img src="<?= $qrUrl ?>" alt="QR Code" width="72" height="72"></div>
     <div class="qr-txt"><h4>Book Your Glow</h4><p>Scan to save contact or book an appointment.</p></div>

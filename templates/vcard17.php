@@ -222,7 +222,7 @@ body{background:var(--bg);font-family:'Lato',sans-serif;color:var(--text);}
       <?php if (!empty($g['images'])): ?>
       <div class="gal-grid">
         <?php foreach ($g['images'] as $img): ?>
-        <div class="gal-item"><a href="/<?= htmlspecialchars($img['image_url']) ?>" target="_blank"><img src="/<?= htmlspecialchars($img['image_url']) ?>" alt="Gallery Image"></a></div>
+        <div class="gal-item"><a href="<?= imgUrl($img['image_url']) ?>" target="_blank"><img src="<?= imgUrl($img['image_url']) ?>" alt="Gallery Image" loading="lazy"></a></div>
         <?php endforeach; ?>
       </div>
       <?php endif; ?>
@@ -246,14 +246,24 @@ body{background:var(--bg);font-family:'Lato',sans-serif;color:var(--text);}
     <div class="c-dots" id="carousel17_test-dots"></div>
   </div>
   <?php endif; ?>
-  <?php if (!empty($vcard['show_instagram']) && !empty($insta_feed)): ?>
+  <?php if (!empty($insta_feed)): ?>
   <div class="sec fade-in-section"><div class="sec-h">Instagram Feed</div></div>
   <div class="gal-grid fade-in-section">
       <?php foreach ($insta_feed as $insta): ?>
       <div class="gal-item" style="border:none;height:150px;">
-          <iframe src="<?= htmlspecialchars($insta['embed_url']) ?>" width="100%" height="100%" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+          <iframe src="<?= htmlspecialchars($insta['embed_url']) ?>" width="100%" height="100%" frameborder="0" scrolling="no" allowtransparency="true" loading="lazy"></iframe>
       </div>
       <?php endforeach; ?>
+  </div>
+  <?php endif; ?>
+  <?php if (!empty($iframes)): ?>
+  <div class="sec fade-in-section"><div class="sec-h">Embedded Content</div></div>
+  <div class="fade-in-section" style="padding:0 22px;">
+    <?php foreach ($iframes as $fr): ?>
+    <div style="border-radius:12px;overflow:hidden;margin-bottom:12px;background:var(--cream);border:1px solid var(--border);">
+      <iframe src="<?= htmlspecialchars($fr['url']) ?>" width="100%" height="320" frameborder="0" allowfullscreen loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" style="display:block;"></iframe>
+    </div>
+    <?php endforeach; ?>
   </div>
   <?php endif; ?>
   <div class="qr-blk fade-in-section">

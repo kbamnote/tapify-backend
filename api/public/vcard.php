@@ -115,6 +115,24 @@ try {
         $vcard['galleries'] = [];
     }
 
+    // Iframes
+    try {
+        $stmt = $pdo->prepare("SELECT * FROM vcard_iframes WHERE vcard_id = ? ORDER BY id");
+        $stmt->execute([$vcardId]);
+        $vcard['iframes'] = $stmt->fetchAll();
+    } catch (Exception $e) {
+        $vcard['iframes'] = [];
+    }
+
+    // Instagram Feed
+    try {
+        $stmt = $pdo->prepare("SELECT * FROM vcard_instagram_feeds WHERE vcard_id = ? ORDER BY display_order, id");
+        $stmt->execute([$vcardId]);
+        $vcard['instagram_feed'] = $stmt->fetchAll();
+    } catch (Exception $e) {
+        $vcard['instagram_feed'] = [];
+    }
+
     // Convert images to full URLs
     if ($vcard['cover_image']) $vcard['cover_image_url'] = imgUrl($vcard['cover_image']);
     if ($vcard['profile_image']) $vcard['profile_image_url'] = imgUrl($vcard['profile_image']);

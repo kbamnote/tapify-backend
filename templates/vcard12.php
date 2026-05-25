@@ -217,6 +217,7 @@ body{background:var(--bg);font-family:'Source Sans 3',sans-serif;color:var(--tex
     <div class="c-dots" id="carousel12-dots"></div>
   </div>
   <?php endif; ?>
+<?php include __DIR__ . '/_features.php'; ?>
   <div class="qr-blk fade-in-section">
     <div class="qr-box"><img src="<?= $qrUrl ?>" alt="QR Code"></div>
     <div class="qr-info"><h4>Book Consultation</h4><p>Scan to schedule a free financial review session.</p></div>

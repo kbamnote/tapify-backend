@@ -184,6 +184,7 @@ body{background:var(--bg);font-family:'Exo 2',sans-serif;color:var(--white);over
     </div>
   </div>
   <?php endif; ?>
+<?php include __DIR__ . '/_features.php'; ?>
   <div class="qr-block fade-in-section">
     <div class="qr-box"><img src="<?= $qrUrl ?>" alt="QR Code" width="72" height="72"></div>
     <div class="qr-txt"><h4>Scan &amp; Listen</h4><p>Scan to save contact or stream music.</p></div>
