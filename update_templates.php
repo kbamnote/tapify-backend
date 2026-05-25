@@ -113,18 +113,25 @@ HTML;
   </div>
   <?php endif; ?>
 
-  <?php if (!empty(\$vcard['show_iframes']) && !empty(\$iframes)): ?>
+  <?php if (!empty(\$iframes)): ?>
   <div class="sec fade-in-section"><div class="sec-h" style="padding:0 22px 14px;font-weight:bold;font-size:18px;">Featured Videos</div></div>
   <div class="gal-grid fade-in-section">
       <?php foreach (\$iframes as \$iframe): ?>
       <div class="gal-item" style="border:none;height:180px;">
-          <iframe src="<?= htmlspecialchars(\$iframe['url']) ?>" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>
+          <?php 
+          \$url = \$iframe['url'] ?? '';
+          if (strpos(\$url, '<iframe') !== false) {
+              echo \$url;
+          } else {
+              echo '<iframe src="'.htmlspecialchars(\$url).'" width="100%" height="100%" frameborder="0" allowfullscreen></iframe>';
+          }
+          ?>
       </div>
       <?php endforeach; ?>
   </div>
   <?php endif; ?>
 
-  <?php if (!empty(\$vcard['show_instagram']) && !empty(\$insta_feed)): ?>
+  <?php if (!empty(\$insta_feed)): ?>
   <div class="sec fade-in-section"><div class="sec-h" style="padding:0 22px 14px;font-weight:bold;font-size:18px;">Instagram Feed</div></div>
   <div class="gal-grid fade-in-section">
       <?php foreach (\$insta_feed as \$insta): ?>
