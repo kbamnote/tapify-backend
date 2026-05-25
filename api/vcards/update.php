@@ -41,7 +41,7 @@ try {
 
     // Whitelist of allowed fields to update
     $allowedFields = [
-        'url_alias', 'vcard_name', 'occupation', 'description', 'cover_type', 'cover_color',
+        'url_alias', 'vcard_name', 'occupation', 'description', 'cover_type', 'cover_color', 'cover_image',
         'template_id', 'first_name', 'last_name', 'email', 'phone', 'phone_country_code',
         'alternate_email', 'alternate_phone', 'location', 'location_url', 'location_type',
         'dob', 'company', 'job_title', 'made_by', 'made_by_url', 'default_language',
