@@ -32,6 +32,14 @@
 .tf-testi-msg{font-size:13px;font-style:italic;margin-bottom:8px;line-height:1.65;opacity:.85;}
 .tf-testi-author{font-size:11px;font-weight:700;}
 .tf-testi-meta{font-size:10px;opacity:.55;margin-top:2px;}
+/* ── Business Hours ── */
+.tf-hours-list{border-radius:12px;overflow:hidden;border:1px solid rgba(128,128,128,.12);}
+.tf-hours-row{display:flex;justify-content:space-between;align-items:center;padding:11px 16px;font-size:13px;border-bottom:1px solid rgba(128,128,128,.07);}
+.tf-hours-row:last-child{border-bottom:none;}
+.tf-hours-row.tf-closed{opacity:.45;}
+.tf-hours-day{font-weight:600;}
+.tf-hours-time{font-size:12px;opacity:.8;}
+.tf-hours-closed{font-size:12px;font-style:italic;opacity:.5;}
 /* ── Iframes ── */
 .tf-iframe-wrap{position:relative;width:100%;border-radius:12px;overflow:hidden;margin-bottom:12px;background:rgba(128,128,128,.05);border:1px solid rgba(128,128,128,.1);}
 .tf-iframe-wrap iframe{width:100%;border:none;display:block;}
@@ -121,6 +129,24 @@
       </div>
     <?php endif; ?>
   <?php endforeach; ?>
+</div>
+<?php endif; ?>
+
+<?php if (!empty($businessHours)): ?>
+<div class="tf-sec fade-in-section">
+  <div class="tf-sec-title"><i class="fas fa-clock"></i> Business Hours</div>
+  <div class="tf-hours-list">
+    <?php foreach ($businessHours as $bh): ?>
+    <div class="tf-hours-row <?= $bh['is_open'] ? '' : 'tf-closed' ?>">
+      <span class="tf-hours-day"><?= ucfirst(strtolower($bh['day_name'])) ?></span>
+      <?php if ($bh['is_open']): ?>
+        <span class="tf-hours-time"><?= htmlspecialchars($bh['open_time'] . ' – ' . $bh['close_time']) ?></span>
+      <?php else: ?>
+        <span class="tf-hours-closed">Closed</span>
+      <?php endif; ?>
+    </div>
+    <?php endforeach; ?>
+  </div>
 </div>
 <?php endif; ?>
 
