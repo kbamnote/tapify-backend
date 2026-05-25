@@ -246,22 +246,46 @@ body{background:var(--bg);font-family:'Lato',sans-serif;color:var(--text);}
     <div class="c-dots" id="carousel17_test-dots"></div>
   </div>
   <?php endif; ?>
-  <?php if (!empty($insta_feed)): ?>
+  <?php
+  $v17_insta = [];
+  foreach ($insta_feed as $_i) {
+      if (!empty($_i['embed_url']) && preg_match('#^https?://#i', $_i['embed_url'])) {
+          $v17_insta[] = ['type' => 'iframe', 'src' => $_i['embed_url']];
+      } elseif (!empty($_i['tag'])) {
+          if (preg_match('#https?://(?:www\.)?instagram\.com/(p|reel|tv)/([A-Za-z0-9_-]+)#', $_i['tag'], $_m)) {
+              $v17_insta[] = ['type' => 'iframe', 'src' => 'https://www.instagram.com/' . $_m[1] . '/' . $_m[2] . '/embed/'];
+          } elseif (strlen($_i['tag']) > 20) {
+              $v17_insta[] = ['type' => 'html', 'html' => $_i['tag']];
+          }
+      }
+  }
+  if (!empty($v17_insta)):
+  ?>
   <div class="sec fade-in-section"><div class="sec-h">Instagram Feed</div></div>
-  <div class="gal-grid fade-in-section">
-      <?php foreach ($insta_feed as $insta): ?>
-      <div class="gal-item" style="border:none;height:150px;">
-          <iframe src="<?= htmlspecialchars($insta['embed_url']) ?>" width="100%" height="100%" frameborder="0" scrolling="no" allowtransparency="true" loading="lazy"></iframe>
+  <div class="fade-in-section" style="padding:0 22px;">
+    <?php foreach ($v17_insta as $_item): ?>
+      <?php if ($_item['type'] === 'iframe'): ?>
+      <div style="border-radius:12px;overflow:hidden;margin-bottom:10px;height:300px;border:1px solid var(--border);">
+          <iframe src="<?= htmlspecialchars($_item['src']) ?>" width="100%" height="300" frameborder="0" scrolling="no" allowtransparency="true" loading="lazy" style="display:block;"></iframe>
       </div>
-      <?php endforeach; ?>
+      <?php else: ?>
+      <div style="margin-bottom:10px;"><?= $_item['html'] ?></div>
+      <?php endif; ?>
+    <?php endforeach; ?>
+    <?php if (!empty(array_filter($v17_insta, fn($i) => $i['type'] === 'html'))): ?>
+    <script async src="https://www.instagram.com/embed.js"></script>
+    <?php endif; ?>
   </div>
   <?php endif; ?>
-  <?php if (!empty($iframes)): ?>
+  <?php
+  $v17_iframes = array_filter($iframes, fn($fr) => !empty($fr['url']) && preg_match('#^https?://#i', $fr['url']));
+  if (!empty($v17_iframes)):
+  ?>
   <div class="sec fade-in-section"><div class="sec-h">Embedded Content</div></div>
   <div class="fade-in-section" style="padding:0 22px;">
-    <?php foreach ($iframes as $fr): ?>
+    <?php foreach ($v17_iframes as $fr): ?>
     <div style="border-radius:12px;overflow:hidden;margin-bottom:12px;background:var(--cream);border:1px solid var(--border);">
-      <iframe src="<?= htmlspecialchars($fr['url']) ?>" width="100%" height="320" frameborder="0" allowfullscreen loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" style="display:block;"></iframe>
+      <iframe src="<?= htmlspecialchars($fr['url']) ?>" width="100%" height="320" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="display:block;"></iframe>
     </div>
     <?php endforeach; ?>
   </div>

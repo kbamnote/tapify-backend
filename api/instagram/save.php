@@ -12,8 +12,15 @@ try {
     $pdo = getDB();
     
     $embedUrl = null;
-    if (preg_match('/src="([^"]+)"/', $data['tag'], $matches)) {
+    $rawTag = $data['tag'] ?? '';
+
+    // Try to extract src from an <iframe> embed tag
+    if (preg_match('/src=["\']([^"\']+)["\']/', $rawTag, $matches)) {
         $embedUrl = $matches[1];
+    }
+    // Accept a direct Instagram post/reel/tv URL — convert to embed URL
+    elseif (preg_match('#https?://(?:www\.)?instagram\.com/(p|reel|tv)/([A-Za-z0-9_-]+)#', $rawTag, $matches)) {
+        $embedUrl = 'https://www.instagram.com/' . $matches[1] . '/' . $matches[2] . '/embed/';
     }
     
     $type = $data['type'] ?? 'post';

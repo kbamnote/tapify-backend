@@ -113,27 +113,49 @@
 </div>
 <?php endif; ?>
 
-<?php if (!empty($iframes)): ?>
+<?php
+$_validIframes = array_filter($iframes ?? [], fn($fr) => !empty($fr['url']) && preg_match('#^https?://#i', $fr['url']));
+if (!empty($_validIframes)):
+?>
 <div class="section">
     <h3 class="section-title"><i class="fas fa-code"></i> Embedded Content</h3>
-    <?php foreach ($iframes as $fr): ?>
+    <?php foreach ($_validIframes as $fr): ?>
         <div style="border-radius:12px;overflow:hidden;margin-bottom:12px;border:1px solid rgba(128,128,128,.15);">
-            <iframe src="<?= htmlspecialchars($fr['url']) ?>" width="100%" height="320" frameborder="0" allowfullscreen loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" style="display:block;"></iframe>
+            <iframe src="<?= htmlspecialchars($fr['url']) ?>" width="100%" height="320" frameborder="0" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="display:block;"></iframe>
         </div>
     <?php endforeach; ?>
 </div>
 <?php endif; ?>
 
-<?php if (!empty($insta_feed)): ?>
+<?php
+$_instaItems = [];
+foreach ($insta_feed ?? [] as $_insta) {
+    if (!empty($_insta['embed_url']) && preg_match('#^https?://#i', $_insta['embed_url'])) {
+        $_instaItems[] = ['type' => 'iframe', 'src' => $_insta['embed_url']];
+    } elseif (!empty($_insta['tag'])) {
+        if (preg_match('#https?://(?:www\.)?instagram\.com/(p|reel|tv)/([A-Za-z0-9_-]+)#', $_insta['tag'], $_m)) {
+            $_instaItems[] = ['type' => 'iframe', 'src' => 'https://www.instagram.com/' . $_m[1] . '/' . $_m[2] . '/embed/'];
+        } elseif (strlen($_insta['tag']) > 20) {
+            $_instaItems[] = ['type' => 'html', 'html' => $_insta['tag']];
+        }
+    }
+}
+if (!empty($_instaItems)):
+?>
 <div class="section">
     <h3 class="section-title"><i class="fab fa-instagram"></i> Instagram</h3>
-    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;">
-        <?php foreach ($insta_feed as $insta): ?>
-        <div style="border-radius:12px;overflow:hidden;height:150px;">
-            <iframe src="<?= htmlspecialchars($insta['embed_url']) ?>" width="100%" height="150" frameborder="0" scrolling="no" allowtransparency="true" loading="lazy" style="display:block;"></iframe>
+    <?php foreach ($_instaItems as $_item): ?>
+        <?php if ($_item['type'] === 'iframe'): ?>
+        <div style="border-radius:12px;overflow:hidden;margin-bottom:10px;height:300px;">
+            <iframe src="<?= htmlspecialchars($_item['src']) ?>" width="100%" height="300" frameborder="0" scrolling="no" allowtransparency="true" loading="lazy" style="display:block;"></iframe>
         </div>
-        <?php endforeach; ?>
-    </div>
+        <?php else: ?>
+        <div style="margin-bottom:10px;"><?= $_item['html'] ?></div>
+        <?php endif; ?>
+    <?php endforeach; ?>
+    <?php if (!empty(array_filter($_instaItems, fn($i) => $i['type'] === 'html'))): ?>
+    <script async src="https://www.instagram.com/embed.js"></script>
+    <?php endif; ?>
 </div>
 <?php endif; ?>
 

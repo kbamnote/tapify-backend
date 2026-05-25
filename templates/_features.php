@@ -37,8 +37,8 @@
 .tf-iframe-wrap iframe{width:100%;border:none;display:block;}
 /* ── Instagram ── */
 .tf-insta-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
-.tf-insta-item{border-radius:12px;overflow:hidden;height:150px;}
-.tf-insta-item iframe{width:100%;height:100%;border:none;display:block;}
+.tf-insta-item{border-radius:12px;overflow:hidden;min-height:150px;}
+.tf-insta-raw{padding:0 4px;}
 </style>
 
 <?php if (!empty($products)): ?>
@@ -54,7 +54,7 @@
       <?php endif; ?>
       <div class="tf-prod-info">
         <div class="tf-prod-name"><?= htmlspecialchars($p['name']) ?></div>
-        <?php if ($p['price'] !== null && $p['price'] !== ''): ?>
+        <?php if (isset($p['price']) && $p['price'] !== null && $p['price'] !== ''): ?>
         <div class="tf-prod-price"><?= htmlspecialchars($p['currency'] ?: 'INR') ?> <?= number_format((float)$p['price'], 2) ?></div>
         <?php endif; ?>
         <?php if (!empty($p['description'])): ?>
@@ -108,26 +108,58 @@
 </div>
 <?php endif; ?>
 
-<?php if (!empty($iframes)): ?>
+<?php
+// Only render iframes section if at least one has a valid URL
+$validIframes = array_filter($iframes, fn($fr) => !empty($fr['url']) && preg_match('#^https?://#i', $fr['url']));
+if (!empty($validIframes)):
+?>
 <div class="tf-sec fade-in-section">
   <div class="tf-sec-title"><i class="fas fa-code"></i> Embedded Content</div>
-  <?php foreach ($iframes as $fr): ?>
+  <?php foreach ($validIframes as $fr): ?>
   <div class="tf-iframe-wrap">
-    <iframe src="<?= htmlspecialchars($fr['url']) ?>" height="320" allowfullscreen loading="lazy" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
+    <iframe src="<?= htmlspecialchars($fr['url']) ?>" height="320" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
   </div>
   <?php endforeach; ?>
 </div>
 <?php endif; ?>
 
-<?php if (!empty($insta_feed)): ?>
+<?php
+// Build renderable instagram items: prefer embed_url (iframe), fall back to raw tag HTML
+$instaItems = [];
+foreach ($insta_feed as $insta) {
+    if (!empty($insta['embed_url']) && preg_match('#^https?://#i', $insta['embed_url'])) {
+        $instaItems[] = ['type' => 'iframe', 'src' => $insta['embed_url']];
+    } elseif (!empty($insta['tag'])) {
+        // Check if tag itself is a direct Instagram URL → build embed URL
+        if (preg_match('#https?://(?:www\.)?instagram\.com/(p|reel|tv)/([A-Za-z0-9_-]+)#', $insta['tag'], $m)) {
+            $instaItems[] = ['type' => 'iframe', 'src' => 'https://www.instagram.com/' . $m[1] . '/' . $m[2] . '/embed/'];
+        } elseif (strlen($insta['tag']) > 20) {
+            // Raw HTML embed (blockquote format)
+            $instaItems[] = ['type' => 'html', 'html' => $insta['tag']];
+        }
+    }
+}
+if (!empty($instaItems)):
+?>
 <div class="tf-sec fade-in-section">
   <div class="tf-sec-title"><i class="fab fa-instagram"></i> Instagram</div>
-  <div class="tf-insta-grid">
-    <?php foreach ($insta_feed as $insta): ?>
-    <div class="tf-insta-item">
-      <iframe src="<?= htmlspecialchars($insta['embed_url']) ?>" scrolling="no" allowtransparency="true" loading="lazy"></iframe>
+  <?php foreach ($instaItems as $item): ?>
+    <?php if ($item['type'] === 'iframe'): ?>
+    <div class="tf-insta-grid" style="margin-bottom:10px;">
+      <div class="tf-insta-item" style="height:300px;grid-column:1/-1;">
+        <iframe src="<?= htmlspecialchars($item['src']) ?>" width="100%" height="300" frameborder="0" scrolling="no" allowtransparency="true" loading="lazy" style="display:block;"></iframe>
+      </div>
     </div>
-    <?php endforeach; ?>
-  </div>
+    <?php else: ?>
+    <div class="tf-insta-raw"><?= $item['html'] ?></div>
+    <?php endif; ?>
+  <?php endforeach; ?>
+  <?php
+  // Inject Instagram embed.js once if any raw blockquote embeds exist
+  $hasRaw = array_filter($instaItems, fn($i) => $i['type'] === 'html');
+  if (!empty($hasRaw)):
+  ?>
+  <script async src="https://www.instagram.com/embed.js"></script>
+  <?php endif; ?>
 </div>
 <?php endif; ?>
