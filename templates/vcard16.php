@@ -4,7 +4,7 @@
  * Interior Designer — Warm Terracotta theme
  * Standalone template — variables injected by vcard.php router
  */
-$cardUrl = 'https://'.$_SERVER['HTTP_HOST'].'/'.($vcard['url_alias'] ?? $vcardId);
+$cardUrl = 'https://tapify-backend-production.up.railway.app/'.($vcard['url_alias'] ?? $vcardId);
 $waPhone = preg_replace('/\D/', '', $vcard['phone'] ?? '');
 $locationUrl = !empty($vcard['location_url']) ? $vcard['location_url'] : 'https://maps.google.com/?q='.urlencode($vcard['location'] ?? '');
 $profileImg = !empty($vcard['profile_image']) ? imgUrl($vcard['profile_image']) : 'https://ui-avatars.com/api/?name='.urlencode($fullName).'&size=200&background=cccccc&color=333333';
@@ -19,7 +19,7 @@ $platformIcons = ['linkedin-in'=>'fa-linkedin-in','instagram'=>'fa-instagram','x
 <title><?= htmlspecialchars($fullName) ?> | <?= htmlspecialchars($vcard['job_title'] ?? 'Interior Designer') ?></title>
 <link rel="icon" href="<?= $vcard['favicon_image'] ? imgUrl($vcard['favicon_image']) : '/images/tapify-logo-green.png' ?>">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{--bg:#f9f6f1;--white:#fff;--terr:#c17f5c;--terr2:#e8a07a;--dark:#2a1f14;--warm:#f2ece4;--text:#4a3728;--sub:#9a8070;--border:#e8ddd5;}

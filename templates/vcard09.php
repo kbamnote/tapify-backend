@@ -4,7 +4,7 @@
  * Beauty Salon — Pink/Rose Gold theme
  * Standalone template — variables injected by vcard.php router
  */
-$cardUrl = 'https://'.$_SERVER['HTTP_HOST'].'/'.($vcard['url_alias'] ?? $vcardId);
+$cardUrl = 'https://tapify-backend-production.up.railway.app/'.($vcard['url_alias'] ?? $vcardId);
 $waPhone = preg_replace('/\D/', '', $vcard['phone'] ?? '');
 $locationUrl = !empty($vcard['location_url']) ? $vcard['location_url'] : 'https://maps.google.com/?q='.urlencode($vcard['location'] ?? '');
 $profileImg = !empty($vcard['profile_image']) ? imgUrl($vcard['profile_image']) : 'https://ui-avatars.com/api/?name='.urlencode($fullName).'&size=200&background=cccccc&color=333333';
@@ -19,7 +19,7 @@ $platformIcons = ['linkedin-in'=>'fa-linkedin-in','instagram'=>'fa-instagram','x
 <title><?= htmlspecialchars($fullName) ?> | <?= htmlspecialchars($vcard['occupation'] ?? 'Digital Card') ?></title>
 <link rel="icon" href="<?= $vcard['favicon_image'] ? imgUrl($vcard['favicon_image']) : '/images/tapify-logo-green.png' ?>">
 <link href="https://fonts.googleapis.com/css2?family=Gilda+Display&family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{--bg:#fff0f6;--white:#fff;--pink:#e8a0c0;--rose:#c97088;--blush:#fce4ec;--dark:#4a1a2c;--text:#7a4060;--sub:#b08090;--border:#f4c0d8;--card:#fff8fc;}

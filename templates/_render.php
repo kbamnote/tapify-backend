@@ -108,7 +108,7 @@ if (($vcard['cover_type'] ?? 'image') === 'video' && !empty($vcard['cover_image'
     <meta name="description" content="<?= htmlspecialchars(strip_tags($vcard['description'] ?? '')) ?>">
     <link rel="icon" type="image/png" href="<?= $vcard['favicon_image'] ? imgUrl($vcard['favicon_image']) : '/images/tapify-logo-green.png' ?>">
     <link href="https://fonts.googleapis.com/css2?family=<?= $fontQuery ?>&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" rel="stylesheet">
     <style>
         :root {
             --primary: <?= htmlspecialchars($primary) ?>;
