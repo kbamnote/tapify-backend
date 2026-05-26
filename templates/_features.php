@@ -289,18 +289,22 @@ if (!empty($instaItems)):
   <div class="tf-social-grid">
     <?php
     $tfIconMap = [
-      'Facebook'=>'fa-facebook-f','Instagram'=>'fa-instagram','Twitter'=>'fa-twitter',
-      'X'=>'fa-x-twitter','LinkedIn'=>'fa-linkedin-in','WhatsApp'=>'fa-whatsapp',
-      'YouTube'=>'fa-youtube','TikTok'=>'fa-tiktok','Pinterest'=>'fa-pinterest-p',
-      'Snapchat'=>'fa-snapchat-ghost','GitHub'=>'fa-github','Spotify'=>'fa-spotify',
-      'Behance'=>'fa-behance','Dribbble'=>'fa-dribbble',
+      'facebook'  => 'fab fa-facebook-f',  'instagram' => 'fab fa-instagram',
+      'twitter'   => 'fab fa-twitter',      'x'         => 'fab fa-x-twitter',
+      'linkedin'  => 'fab fa-linkedin-in',  'whatsapp'  => 'fab fa-whatsapp',
+      'youtube'   => 'fab fa-youtube',      'tiktok'    => 'fab fa-tiktok',
+      'pinterest' => 'fab fa-pinterest-p',  'snapchat'  => 'fab fa-snapchat-ghost',
+      'github'    => 'fab fa-github',       'spotify'   => 'fab fa-spotify',
+      'behance'   => 'fab fa-behance',      'dribbble'  => 'fab fa-dribbble',
+      'telegram'  => 'fab fa-telegram',
     ];
     foreach ($socialLinks as $sl):
-      $tfIcon = $tfIconMap[$sl['platform']] ?? 'fa-globe';
-      $tfType = str_replace(' ','-', $sl['platform'] ?? '');
+      $tfPlatformKey = strtolower($sl['platform'] ?? '');
+      $tfIcon = $tfIconMap[$tfPlatformKey] ?? 'fas fa-link';
+      $tfType = $tfPlatformKey;
     ?>
     <a href="<?= htmlspecialchars($sl['url']) ?>" target="_blank" class="tf-soc tf-soc-<?= htmlspecialchars($tfType) ?>" title="<?= htmlspecialchars($sl['platform']) ?>">
-      <i class="fab <?= $tfIcon ?>"></i>
+      <i class="<?= $tfIcon ?>"></i>
     </a>
     <?php endforeach; ?>
   </div>

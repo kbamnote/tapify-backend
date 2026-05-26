@@ -128,9 +128,21 @@ body.body-dark { background: #030712; }
     color: #fff; font-size: 1.3rem; text-decoration: none; background: var(--primary); transition: transform 0.25s;
 }
 .social-icon:hover { transform: scale(1.08); }
-.social-Facebook { background: #1877F2; } .social-Instagram { background: linear-gradient(45deg,#f09433,#dc2743); }
-.social-Twitter { background: #1DA1F2; } .social-LinkedIn { background: #0077B5; }
-.social-WhatsApp { background: #25D366; } .social-YouTube { background: #FF0000; }
+.social-facebook  { background: #1877F2; }
+.social-instagram { background: linear-gradient(45deg,#f09433,#e1306c,#dc2743); }
+.social-twitter   { background: #1DA1F2; }
+.social-x         { background: #000000; }
+.social-linkedin  { background: #0077B5; }
+.social-whatsapp  { background: #25D366; }
+.social-youtube   { background: #FF0000; }
+.social-tiktok    { background: #010101; }
+.social-pinterest { background: #E60023; }
+.social-snapchat  { background: #FFFC00; color: #000; }
+.social-github    { background: #333333; }
+.social-spotify   { background: #1DB954; }
+.social-behance   { background: #1769FF; }
+.social-dribbble  { background: #EA4C89; }
+.social-telegram  { background: #0088CC; }
 .inquiry-form { background: var(--surface); border-radius: 14px; padding: 18px; }
 .form-group { margin-bottom: 12px; }
 .form-group label { display: block; font-size: 0.82rem; font-weight: 600; margin-bottom: 5px; color: var(--text); }

@@ -196,11 +196,21 @@ echo file_get_contents(__DIR__ . '/_theme-layouts.css');
         <h3 class="section-title"><i class="fas fa-share-nodes"></i> Follow</h3>
         <div class="social-grid social-grid-large">
             <?php
-            $iconMap = ['Facebook'=>'fab fa-facebook-f','Instagram'=>'fab fa-instagram','Twitter'=>'fab fa-twitter','LinkedIn'=>'fab fa-linkedin-in','WhatsApp'=>'fab fa-whatsapp','YouTube'=>'fab fa-youtube'];
+            $iconMap = [
+                'facebook'  => 'fab fa-facebook-f',  'instagram' => 'fab fa-instagram',
+                'twitter'   => 'fab fa-twitter',      'x'         => 'fab fa-x-twitter',
+                'linkedin'  => 'fab fa-linkedin-in',  'whatsapp'  => 'fab fa-whatsapp',
+                'youtube'   => 'fab fa-youtube',      'tiktok'    => 'fab fa-tiktok',
+                'pinterest' => 'fab fa-pinterest-p',  'snapchat'  => 'fab fa-snapchat-ghost',
+                'github'    => 'fab fa-github',       'spotify'   => 'fab fa-spotify',
+                'behance'   => 'fab fa-behance',      'dribbble'  => 'fab fa-dribbble',
+                'telegram'  => 'fab fa-telegram',
+            ];
             foreach ($socialLinks as $sl):
-                $iconClass = $iconMap[$sl['platform']] ?? 'fas fa-link';
+                $platformKey = strtolower($sl['platform'] ?? '');
+                $iconClass = $iconMap[$platformKey] ?? 'fas fa-link';
             ?>
-            <a href="<?= htmlspecialchars($sl['url']) ?>" target="_blank" class="social-icon social-<?= htmlspecialchars($sl['platform']) ?>"><i class="<?= $iconClass ?>"></i></a>
+            <a href="<?= htmlspecialchars($sl['url']) ?>" target="_blank" class="social-icon social-<?= htmlspecialchars($platformKey) ?>"><i class="<?= $iconClass ?>"></i></a>
             <?php endforeach; ?>
         </div>
     </div>
