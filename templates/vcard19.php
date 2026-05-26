@@ -125,8 +125,20 @@ body{background:#111827;font-family:'Inter',sans-serif;min-height:100vh;display:
 
   <!-- BANNER -->
   <div class="banner">
-    <?php if (($vcard['cover_type'] ?? '') === 'video'): ?>
-    <iframe class="banner-video" src="<?= htmlspecialchars($coverImg) ?>" frameborder="0" allow="autoplay; muted" allowfullscreen></iframe>
+    <?php if (($vcard['cover_type'] ?? '') === 'video' && !empty($vcard['cover_image'])): ?>
+    <?php
+    $videoUrl = $vcard['cover_image'];
+    if (strpos($videoUrl, 'youtube.com') !== false || strpos($videoUrl, 'youtu.be') !== false) {
+        preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ \s]{11})/i', $videoUrl, $match);
+        $ytId = $match[1] ?? '';
+        echo '<iframe style="width:100%;height:100%;display:block;border:none;" src="https://www.youtube.com/embed/'.$ytId.'?autoplay=1&mute=1&loop=1&playlist='.$ytId.'&controls=1&showinfo=0&rel=0&playsinline=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+    } elseif (strpos($videoUrl, 'instagram.com') !== false) {
+        $embedUrl = rtrim($videoUrl, '/') . '/embed';
+        echo '<iframe style="width:100%;height:100%;display:block;border:none;" src="'.htmlspecialchars($embedUrl).'" frameborder="0" allowtransparency="true"></iframe>';
+    } else {
+        echo '<video src="'.htmlspecialchars(imgUrl($videoUrl)).'" autoplay loop muted playsinline style="width:100%;height:100%;object-fit:cover;display:block;"></video>';
+    }
+    ?>
     <?php else: ?>
     <img class="banner-bg" src="<?= htmlspecialchars($coverImg) ?>" alt="Cover">
     <?php endif; ?>
