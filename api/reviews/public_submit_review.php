@@ -19,6 +19,8 @@ try {
     $funnelId = $_POST['funnel_id'] ?? null;
     $rating = $_POST['rating'] ?? null;
     $feedbackText = $_POST['feedback_text'] ?? '';
+    $customerName = $_POST['customer_name'] ?? '';
+    $customerPhone = $_POST['customer_phone'] ?? '';
 
     if (!$funnelId || !$rating) {
         echo json_encode(['success' => false, 'message' => 'Funnel ID and Rating are required']);
@@ -27,32 +29,55 @@ try {
 
     $mediaUrl = null;
 
-    // Handle File Upload
+    // Handle File Upload via Cloudinary
     if (isset($_FILES['media']) && $_FILES['media']['error'] === UPLOAD_ERR_OK) {
-        $uploadDir = __DIR__ . '/../../uploads/reviews/';
-        if (!is_dir($uploadDir)) {
-            mkdir($uploadDir, 0755, true);
-        }
-
         $fileInfo = pathinfo($_FILES['media']['name']);
         $ext = strtolower($fileInfo['extension']);
         $allowedExts = ['jpg', 'jpeg', 'png', 'gif', 'mp4', 'mov', 'webm'];
 
         if (in_array($ext, $allowedExts)) {
-            $fileName = uniqid('review_') . '.' . $ext;
-            $destination = $uploadDir . $fileName;
+            $cloudName   = CLOUDINARY_CLOUD_NAME;
+            $apiKey      = CLOUDINARY_API_KEY;
+            $apiSecret   = CLOUDINARY_API_SECRET;
+            $timestamp   = time();
+            $publicId    = 'reviews/review_' . uniqid();
 
-            if (move_uploaded_file($_FILES['media']['tmp_name'], $destination)) {
-                // Generate absolute URL for the database (assuming typical setup)
-                $scheme = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? "https" : "http";
-                $host = $_SERVER['HTTP_HOST'];
-                $mediaUrl = "$scheme://$host/tapify-backend/uploads/reviews/$fileName";
+            // Build Cloudinary signature
+            $paramsToSign = "public_id={$publicId}&timestamp={$timestamp}";
+            $signature = sha1($paramsToSign . $apiSecret);
+
+            // Determine resource type
+            $resourceType = in_array($ext, ['mp4', 'mov', 'webm']) ? 'video' : 'image';
+
+            // Upload to Cloudinary via cURL
+            $uploadUrl = "https://api.cloudinary.com/v1_1/{$cloudName}/{$resourceType}/upload";
+
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $uploadUrl);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, [
+                'file'      => new CURLFile($_FILES['media']['tmp_name'], $_FILES['media']['type'], $_FILES['media']['name']),
+                'public_id' => $publicId,
+                'timestamp' => $timestamp,
+                'api_key'   => $apiKey,
+                'signature' => $signature,
+            ]);
+
+            $response = curl_exec($ch);
+            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            curl_close($ch);
+
+            if ($httpCode === 200) {
+                $cloudData = json_decode($response, true);
+                $mediaUrl  = $cloudData['secure_url'] ?? null;
             }
+            // If upload fails, we continue without media (don't block the review)
         }
     }
 
-    $stmt = $pdo->prepare("INSERT INTO funnel_reviews (funnel_id, rating, feedback_text, media_url) VALUES (?, ?, ?, ?)");
-    $stmt->execute([$funnelId, $rating, $feedbackText, $mediaUrl]);
+    $stmt = $pdo->prepare("INSERT INTO funnel_reviews (funnel_id, rating, feedback_text, customer_name, customer_phone, media_url) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->execute([$funnelId, $rating, $feedbackText, $customerName, $customerPhone, $mediaUrl]);
 
     echo json_encode(['success' => true, 'message' => 'Review submitted securely']);
 
