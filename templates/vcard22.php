@@ -287,7 +287,7 @@ body{background:#075985;font-family:'Poppins',sans-serif;min-height:100vh;displa
   <?php if (empty($vcard['remove_branding'])): ?>
   <div class="footer">Powered by <span>Tapify</span></div>
   <?php endif; ?>
-  <div style="text-align:center;font-size:0.7rem;padding:0 16px 14px;opacity:0.5;">A unit of <strong>Mr Print World</strong></div>
+  <div style="text-align:center;font-size:0.7rem;padding:0 16px 14px;opacity:0.5;">An innovative Product From : <strong>Mr Print World Pvt Ltd.</strong></div>
 
 </div><!-- .card-wrap -->
 

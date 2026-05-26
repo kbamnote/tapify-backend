@@ -245,7 +245,7 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);ove
   <?php if (empty($vcard['remove_branding'])): ?>
   <div class="footer">Powered by <a href="https://tapify.in" target="_blank">Tapify</a></div>
   <?php endif; ?>
-  <div style="text-align:center;font-size:0.7rem;padding:0 16px 14px;color:inherit;opacity:0.6;">A unit of <strong>Mr Print World</strong></div>
+  <div style="text-align:center;font-size:0.7rem;padding:0 16px 14px;color:inherit;opacity:0.6;">An innovative Product From : <strong>Mr Print World Pvt Ltd.</strong></div>
 </div>
 
 <script>
