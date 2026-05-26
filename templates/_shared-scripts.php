@@ -63,6 +63,30 @@ async function shareCard() {
     }
 }
 
+function toggleFab() {
+    document.querySelector('.fab-container').classList.toggle('active');
+}
+
+function openWhatsAppModal() {
+    document.getElementById('waModal').style.display = 'flex';
+}
+
+function closeWhatsAppModal() {
+    document.getElementById('waModal').style.display = 'none';
+    document.getElementById('waNumber').value = '';
+}
+
+function sendWhatsApp() {
+    const number = document.getElementById('waNumber').value.replace(/\D/g, '');
+    if (!number) {
+        showToast('Please enter a valid number', 'error');
+        return;
+    }
+    const message = encodeURIComponent(`Check out ${VCARD_DATA.name}'s digital business card:\n${VCARD_DATA.url}`);
+    window.open(`https://wa.me/${number}?text=${message}`, '_blank');
+    closeWhatsAppModal();
+}
+
 async function submitInquiry(event) {
     event.preventDefault();
     const form = event.target;

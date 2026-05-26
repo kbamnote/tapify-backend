@@ -126,6 +126,28 @@ echo file_get_contents(__DIR__ . '/_theme-base.css');
 echo file_get_contents(__DIR__ . '/_theme-layouts.css');
 ?>
         <?= $vcard['custom_css'] ?? '' ?>
+        
+        /* FAB Styles */
+        .fab-container { position: fixed; bottom: 25px; right: 25px; z-index: 9999; display: flex; flex-direction: column; align-items: center; }
+        .fab-options { display: flex; flex-direction: column; gap: 12px; margin-bottom: 15px; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s ease; }
+        .fab-container.active .fab-options { opacity: 1; visibility: visible; transform: translateY(0); }
+        .fab-option { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 20px; text-decoration: none; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.2s; }
+        .fab-option:hover { transform: scale(1.1); color: white; }
+        .fab-wa { background-color: #25D366; }
+        .fab-share { background-color: var(--primary); }
+        .fab-main { width: 55px; height: 55px; border-radius: 50%; background-color: var(--primary); color: white; border: none; font-size: 24px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.3); transition: transform 0.3s ease; display: flex; align-items: center; justify-content: center; }
+        .fab-container.active .fab-main { transform: rotate(45deg); }
+        
+        /* WhatsApp Modal */
+        .wa-modal { display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); align-items: center; justify-content: center; }
+        .wa-modal-content { background-color: var(--surface); color: var(--text); padding: 25px; border-radius: 16px; width: 90%; max-width: 350px; position: relative; box-shadow: 0 10px 30px rgba(0,0,0,0.3); font-family: var(--font-body); }
+        .wa-close { position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; color: var(--muted); line-height: 1; }
+        .wa-modal-content h3 { margin: 0 0 10px 0; font-size: 18px; font-weight: 600; }
+        .wa-modal-content p { font-size: 13px; color: var(--muted); margin: 0 0 15px 0; line-height: 1.4; }
+        .wa-input { width: 100%; padding: 12px 15px; border: 1px solid var(--muted); border-radius: 8px; margin-bottom: 15px; font-size: 15px; background: var(--bg); color: var(--text); box-sizing: border-box; outline: none; }
+        .wa-input:focus { border-color: var(--primary); }
+        .wa-btn { width: 100%; padding: 12px; background-color: #25D366; color: white; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer; transition: background 0.2s; display: flex; align-items: center; justify-content: center; gap: 8px; }
+        .wa-btn:hover { background-color: #1ebd5a; }
     </style>
 </head>
 <body class="<?= $isDark ? 'body-dark' : '' ?>">
@@ -223,10 +245,36 @@ echo file_get_contents(__DIR__ . '/_theme-layouts.css');
         <?php if (empty($vcard['remove_branding'])): ?>
         <p>Powered by <a href="/">Tapify</a></p>
         <?php endif; ?>
-        <p style="margin-top:3px;opacity:0.6;">A unit of <strong>Mr Print World</strong></p>
+        <p style="margin-top:3px;opacity:0.6;">An innovative Product From : <strong>Mr Print World Pvt Ltd.</strong></p>
         <p class="footer-year">© <?= date('Y') ?></p>
     </div>
 </div>
+
+    <!-- FAB (Floating Action Button) -->
+    <div class="fab-container">
+        <div class="fab-options">
+            <a href="javascript:void(0)" onclick="openWhatsAppModal()" class="fab-option fab-wa" title="Share via WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="javascript:shareCard()" class="fab-option fab-share" title="Share">
+                <i class="fas fa-share-alt"></i>
+            </a>
+        </div>
+        <button class="fab-main" onclick="toggleFab()">
+            <i class="fas fa-plus"></i>
+        </button>
+    </div>
+
+    <!-- WhatsApp Share Modal -->
+    <div id="waModal" class="wa-modal">
+        <div class="wa-modal-content">
+            <span class="wa-close" onclick="closeWhatsAppModal()">&times;</span>
+            <h3>Share via WhatsApp</h3>
+            <p>Enter WhatsApp number with country code (e.g., 919876543210) to share your profile link.</p>
+            <input type="tel" id="waNumber" placeholder="919876543210" class="wa-input">
+            <button onclick="sendWhatsApp()" class="wa-btn"><i class="fab fa-whatsapp"></i> Send on WhatsApp</button>
+        </div>
+    </div>
 
 <?php include __DIR__ . '/_shared-scripts.php'; ?>
 <?= $vcard['custom_js'] ?? '' ?>

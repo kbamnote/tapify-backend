@@ -87,7 +87,7 @@ try {
         FROM vcard_appointments a
         LEFT JOIN vcards v ON v.id = a.vcard_id
         $where
-        ORDER BY a.appointment_date ASC, a.appointment_time ASC
+        ORDER BY a.appointment_date DESC, a.appointment_time DESC
     ");
     $stmt->execute($params);
     $appointments = $stmt->fetchAll(PDO::FETCH_ASSOC);
