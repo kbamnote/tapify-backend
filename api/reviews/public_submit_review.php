@@ -78,6 +78,22 @@ try {
 
     $stmt = $pdo->prepare("INSERT INTO funnel_reviews (funnel_id, rating, feedback_text, customer_name, customer_phone, media_url) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->execute([$funnelId, $rating, $feedbackText, $customerName, $customerPhone, $mediaUrl]);
+    $reviewId = $pdo->lastInsertId();
+
+    // === PUSH NOTIFICATIONS ===
+    try {
+        $stmtUser = $pdo->prepare("SELECT user_id FROM review_funnels WHERE id = ?");
+        $stmtUser->execute([$funnelId]);
+        $funnel = $stmtUser->fetch();
+        if ($funnel && file_exists(__DIR__ . '/../../includes/notifications.php')) {
+            require_once __DIR__ . '/../../includes/notifications.php';
+            $title = "New $rating-Star Review";
+            $message = "$customerName left a $rating-star review.";
+            createAndSendNotification($pdo, $funnel['user_id'], $title, $message, 'review', $reviewId, '/reviews', null);
+        }
+    } catch (Exception $e) {
+        error_log('Push notification failed: ' . $e->getMessage());
+    }
 
     echo json_encode(['success' => true, 'message' => 'Review submitted securely']);
 

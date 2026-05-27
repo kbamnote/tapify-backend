@@ -34,7 +34,7 @@ try {
     $pdo = getDB();
 
     // Get vCard info for email
-    $stmt = $pdo->prepare("SELECT id, vcard_name FROM vcards WHERE id = ? AND status = 1 LIMIT 1");
+    $stmt = $pdo->prepare("SELECT id, user_id, vcard_name FROM vcards WHERE id = ? AND status = 1 LIMIT 1");
     $stmt->execute([$vcardId]);
     $vcard = $stmt->fetch();
     if (!$vcard) sendError('vCard not found');
@@ -66,6 +66,18 @@ try {
     } catch (Exception $e) {
         // Email failure shouldn't block inquiry save
         error_log('Email notification failed: ' . $e->getMessage());
+    }
+
+    // === PUSH NOTIFICATIONS ===
+    try {
+        if (isset($vcard['user_id']) && file_exists(__DIR__ . '/includes/notifications.php')) {
+            require_once __DIR__ . '/includes/notifications.php';
+            $title = "New Lead Received";
+            $message = "$name has sent an inquiry via your vCard.";
+            createAndSendNotification($pdo, $vcard['user_id'], $title, $message, 'lead', $inquiryId, '/leads', null);
+        }
+    } catch (Exception $e) {
+        error_log('Push notification failed: ' . $e->getMessage());
     }
 
     sendSuccess('Thank you! Your message has been sent.', [

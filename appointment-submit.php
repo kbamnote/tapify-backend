@@ -107,6 +107,22 @@ try {
         error_log('Email notification failed: ' . $e->getMessage());
     }
 
+    // === PUSH NOTIFICATIONS ===
+    try {
+        // Fetch user ID for the vCard owner
+        $stmtUser = $pdo->prepare("SELECT user_id FROM vcards WHERE id = ?");
+        $stmtUser->execute([$vcardId]);
+        $owner = $stmtUser->fetch();
+        if ($owner && file_exists(__DIR__ . '/includes/notifications.php')) {
+            require_once __DIR__ . '/includes/notifications.php';
+            $title = "New Appointment Booked";
+            $message = "You received a new appointment from $customerName for $appointmentTime on $appointmentDate.";
+            createAndSendNotification($pdo, $owner['user_id'], $title, $message, 'appointment', $appointmentId, '/appointments', null);
+        }
+    } catch (Exception $e) {
+        error_log('Push notification failed: ' . $e->getMessage());
+    }
+
     sendSuccess('Appointment booked successfully', ['id' => $appointmentId]);
 
 } catch (Exception $e) {
