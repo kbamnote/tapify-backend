@@ -184,7 +184,8 @@ if (!empty($_instaItems)):
         $iconMap = [
             'facebook'  => 'fab fa-facebook-f',  'instagram' => 'fab fa-instagram',
             'twitter'   => 'fab fa-twitter',      'x'         => 'fab fa-x-twitter',
-            'linkedin'  => 'fab fa-linkedin-in',  'whatsapp'  => 'fab fa-whatsapp',
+            'linkedin'  => 'fab fa-linkedin-in',  'linkedin-in' => 'fab fa-linkedin-in',
+            'whatsapp'  => 'fab fa-whatsapp',
             'youtube'   => 'fab fa-youtube',      'tiktok'    => 'fab fa-tiktok',
             'pinterest' => 'fab fa-pinterest-p',  'snapchat'  => 'fab fa-snapchat-ghost',
             'github'    => 'fab fa-github',       'spotify'   => 'fab fa-spotify',

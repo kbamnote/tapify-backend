@@ -44,6 +44,14 @@ try {
     $stmt->execute([$vcardId]);
     $socialLinks = $stmt->fetchAll();
 
+    // Normalize linkedin platform key for all templates
+    foreach ($socialLinks as &$sl) {
+        if (strtolower($sl['platform'] ?? '') === 'linkedin') {
+            $sl['platform'] = 'linkedin-in';
+        }
+    }
+    unset($sl);
+
     $customLinks = $blogs = $testimonials = $galleries = $iframes = $insta_feed = [];
     try {
         $stmt = $pdo->prepare("SELECT * FROM vcard_custom_links WHERE vcard_id = ? ORDER BY display_order, id");
