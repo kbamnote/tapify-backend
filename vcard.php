@@ -154,4 +154,12 @@ if (!is_file($templatePath)) {
 }
 
 header('Content-Type: text/html; charset=utf-8');
+
+// Hotfix: Automatically patch the template to support telegram if it's missing
+$tplContent = file_get_contents($templatePath);
+if (strpos($tplContent, "'telegram'=>'fa-telegram'") === false && strpos($tplContent, "'globe'=>'fa-globe'") !== false) {
+    $tplContent = str_replace("'globe'=>'fa-globe'", "'telegram'=>'fa-telegram','globe'=>'fa-globe'", $tplContent);
+    file_put_contents($templatePath, $tplContent);
+}
+
 include $templatePath;
