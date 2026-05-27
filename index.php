@@ -51,7 +51,47 @@ try {
         exit;
     }
 
-    // 3. Fallback to 404
+    // 3. Check if it's a Dynamic QR Short Link
+    if (strpos($alias, 'qr/') === 0) {
+        $shortUrl = substr($alias, 3); // remove 'qr/'
+        $stmt = $pdo->prepare("SELECT * FROM dynamic_qrs WHERE short_url = ? LIMIT 1");
+        $stmt->execute([$shortUrl]);
+        $qr = $stmt->fetch();
+        
+        if ($qr) {
+            // Check status
+            if ($qr['status'] == 0) {
+                http_response_code(403);
+                die('<!DOCTYPE html><html><head><title>Inactive QR</title><style>body{font-family:sans-serif;text-align:center;padding:50px;background:#f8f9fa}h1{color:#ef4444;font-size:2rem}</style></head><body><h1>This QR code is inactive or disabled.</h1></body></html>');
+            }
+            
+            // Log scan
+            $ip = $_SERVER['REMOTE_ADDR'] ?? '';
+            $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+            $device = (strpos(strtolower($userAgent), 'mobile') !== false || strpos(strtolower($userAgent), 'android') !== false || strpos(strtolower($userAgent), 'iphone') !== false) ? 'Mobile' : 'Desktop';
+            
+            $browser = 'Unknown';
+            if (strpos($userAgent, 'Edg') !== false) $browser = 'Edge';
+            elseif (strpos($userAgent, 'Chrome') !== false) $browser = 'Chrome';
+            elseif (strpos($userAgent, 'Safari') !== false) $browser = 'Safari';
+            elseif (strpos($userAgent, 'Firefox') !== false) $browser = 'Firefox';
+
+            try {
+                $logStmt = $pdo->prepare("INSERT INTO dynamic_qr_scans (qr_id, ip_address, device_type, browser, scanned_at) VALUES (?, ?, ?, ?, NOW())");
+                $logStmt->execute([$qr['id'], $ip, $device, $browser]);
+            } catch (Exception $e) {}
+
+            // Redirect
+            $dest = $qr['destination_url'];
+            if (!preg_match("~^(?:f|ht)tps?://~i", $dest)) {
+                $dest = "http://" . $dest;
+            }
+            header("Location: " . $dest);
+            exit;
+        }
+    }
+
+    // 4. Fallback to 404
     http_response_code(404);
     die('<!DOCTYPE html><html><head><title>404 Not Found</title><style>body{font-family:sans-serif;text-align:center;padding:50px;background:#f8f9fa}h1{color:#8338ec;font-size:4rem}a{color:#8338ec;text-decoration:none;font-weight:bold}</style></head><body><h1>404</h1><p>The page "'.htmlspecialchars($alias).'" was not found.</p><a href="/">Go Home</a></body></html>');
 
