@@ -15,11 +15,11 @@ function sendExpoPushNotification($token, $title, $body, $data = []) {
 
     $message = [
         'to'        => $token,
-        'sound'     => 'default',
+        'sound'     => 'tapify-notification.mp3', // Android plays custom MP3; iOS ignores unknown sounds and falls back to default
         'title'     => $title,
         'body'      => $body,
         'data'      => $data,
-        'channelId' => 'default', // Required for Android 8+
+        'channelId' => 'tapify_alerts', // Android 8+ — channel carries the sound binding
     ];
 
     $ch = curl_init('https://exp.host/--/api/v2/push/send');
