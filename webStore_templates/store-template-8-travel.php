@@ -891,7 +891,7 @@ function placeOrder(){
     if(addr) msg+='\n*Address:* '+addr;
     if(note) msg+='\n*Notes:* '+note;
   }
-  fetch('/backend/store-order-submit.php',{
+  fetch('/store-order-submit.php',{
     method:'POST',
     headers:{'Content-Type':'application/json'},
     body:JSON.stringify({store_id:STORE_DATA.id,customer_name:name,customer_phone:phone,

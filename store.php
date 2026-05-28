@@ -499,7 +499,7 @@ function placeOrder(event) {
     if (data.notes) message += '\nNotes: ' + data.notes;
 
     // Save order to backend (async, don't wait)
-    fetch('/backend/store-order-submit.php', {
+    fetch('/store-order-submit.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

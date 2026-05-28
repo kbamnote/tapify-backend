@@ -411,7 +411,7 @@ function placeOrder(e) {
         .replace('{items}',items).replace('{total}',STORE_DATA.currency+total.toFixed(2));
     if(d.address) msg+='\nAddress: '+d.address;
     if(d.notes) msg+='\nNotes: '+d.notes;
-    fetch('/backend/store-order-submit.php',{method:'POST',headers:{'Content-Type':'application/json'},
+    fetch('/store-order-submit.php',{method:'POST',headers:{'Content-Type':'application/json'},
         body:JSON.stringify({store_id:STORE_DATA.id,customer_name:d.name,customer_phone:d.phone,
         customer_address:d.address||'',items:cart,subtotal:sub,delivery_charge:STORE_DATA.deliveryFee,
         total_amount:total,notes:d.notes||''})}).catch(()=>{});
