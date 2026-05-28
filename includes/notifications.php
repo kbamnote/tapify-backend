@@ -15,7 +15,7 @@ function sendExpoPushNotification($token, $title, $body, $data = []) {
 
     $message = [
         'to'        => $token,
-        'sound'     => 'tapify-notification.mp3', // Android plays custom MP3; iOS ignores unknown sounds and falls back to default
+        'sound'     => 'notification_sound.mpeg', // Android plays custom sound; iOS ignores unknown sounds and falls back to default
         'title'     => $title,
         'body'      => $body,
         'data'      => $data,
