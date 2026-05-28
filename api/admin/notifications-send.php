@@ -47,22 +47,38 @@ try {
 
     require_once __DIR__ . '/../../includes/notifications.php';
 
-    $sentCount = 0;
+    $totalCount   = 0;
+    $pushedCount  = 0;
+    $pushErrors   = [];
 
     if ($targetUser === 'all') {
         // Broadcast to all users with tokens
         $stmtUsers = $pdo->query("SELECT id, fcm_token FROM users WHERE fcm_token IS NOT NULL AND fcm_token != ''");
         while ($u = $stmtUsers->fetch()) {
-            createAndSendNotification($pdo, $u['id'], $title, $message, 'broadcast', null, $redirectUrl, $imageUrl);
-            $sentCount++;
+            $result = createAndSendNotification($pdo, $u['id'], $title, $message, 'broadcast', null, $redirectUrl, $imageUrl);
+            $totalCount++;
+            if (isset($result['push']['ok']) && $result['push']['ok']) {
+                $pushedCount++;
+            } elseif (isset($result['push']['error'])) {
+                $pushErrors[] = "user {$u['id']}: {$result['push']['error']}";
+            }
         }
     } else {
-        // Send to specific user
-        createAndSendNotification($pdo, (int)$targetUser, $title, $message, 'admin_message', null, $redirectUrl, $imageUrl);
-        $sentCount = 1;
+        $result = createAndSendNotification($pdo, (int)$targetUser, $title, $message, 'admin_message', null, $redirectUrl, $imageUrl);
+        $totalCount = 1;
+        if (isset($result['push']['ok']) && $result['push']['ok']) {
+            $pushedCount = 1;
+        } elseif (isset($result['push']['error'])) {
+            $pushErrors[] = $result['push']['error'];
+        }
     }
 
-    echo json_encode(['success' => true, 'message' => "Notification sent to $sentCount user(s)"]);
+    $msg = "Saved to DB: $totalCount user(s). Push delivered: $pushedCount.";
+    if (!empty($pushErrors)) {
+        $msg .= " Errors: " . implode('; ', $pushErrors);
+    }
+
+    echo json_encode(['success' => true, 'message' => $msg, 'push_errors' => $pushErrors]);
 } catch (Exception $e) {
     echo json_encode(['success' => false, 'message' => $e->getMessage()]);
 }
