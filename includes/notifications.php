@@ -14,6 +14,7 @@ function sendExpoPushNotification($token, $title, $body, $data = []) {
         'title' => $title,
         'body' => $body,
         'data' => $data,
+        'channelId' => 'default', // Required for Android 8+ — matches the channel created in the app
     ];
 
     $ch = curl_init('https://exp.host/--/api/v2/push/send');
