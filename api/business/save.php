@@ -13,14 +13,18 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') sendError('Only POST allowed', 405);
 $input = getInput();
 $userId = getCurrentUserId();
 
-$businessName = sanitize($input['business_name'] ?? '');
-$gstin        = strtoupper(sanitize($input['gstin'] ?? ''));
-$category     = sanitize($input['category'] ?? '');
-$description  = sanitize($input['description'] ?? '');
-$city         = sanitize($input['city'] ?? '');
-$website      = sanitize($input['website'] ?? '');
-$phone        = sanitize($input['phone'] ?? '');
-$listed       = isset($input['listed']) ? (int)(bool)$input['listed'] : 1;
+$businessName  = sanitize($input['business_name'] ?? '');
+$gstin         = strtoupper(sanitize($input['gstin'] ?? ''));
+$panNo         = strtoupper(sanitize($input['pan_no'] ?? ''));
+$category      = sanitize($input['category'] ?? '');
+$description   = sanitize($input['description'] ?? '');
+$city          = sanitize($input['city'] ?? '');
+$address       = sanitize($input['address'] ?? '');
+$website       = sanitize($input['website'] ?? '');
+$phone         = sanitize($input['phone'] ?? '');
+$ownerDob      = sanitize($input['owner_dob'] ?? '');
+$dateOfIncorp  = sanitize($input['date_of_incorp'] ?? '');
+$listed        = isset($input['listed']) ? (int)(bool)$input['listed'] : 1;
 
 // Validation
 if (empty($businessName))           sendError('Business name is required');
@@ -32,9 +36,18 @@ if (!empty($gstin) && !preg_match('/^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}
     sendError('Invalid GSTIN format. Expected: 22AAAAA0000A1Z5 (15 characters)');
 }
 
+// PAN format: 5 uppercase letters + 4 digits + 1 uppercase letter
+if (!empty($panNo) && !preg_match('/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/', $panNo)) {
+    sendError('Invalid PAN format. Expected: ABCDE1234F (10 characters)');
+}
+
 if (!empty($website) && !filter_var($website, FILTER_VALIDATE_URL)) {
     sendError('Invalid website URL. Must start with http:// or https://');
 }
+
+// Normalise dates — accept YYYY-MM-DD or empty/null
+$ownerDob     = !empty($ownerDob)     ? $ownerDob     : null;
+$dateOfIncorp = !empty($dateOfIncorp) ? $dateOfIncorp : null;
 
 try {
     $pdo = getDB();
@@ -47,42 +60,54 @@ try {
     if ($existing) {
         $stmt = $pdo->prepare("
             UPDATE businesses
-            SET business_name = ?,
-                gstin         = ?,
-                category      = ?,
-                description   = ?,
-                city          = ?,
-                website       = ?,
-                phone         = ?,
-                listed        = ?
+            SET business_name  = ?,
+                gstin          = ?,
+                pan_no         = ?,
+                category       = ?,
+                description    = ?,
+                city           = ?,
+                address        = ?,
+                website        = ?,
+                phone          = ?,
+                owner_dob      = ?,
+                date_of_incorp = ?,
+                listed         = ?
             WHERE user_id = ?
         ");
         $stmt->execute([
             $businessName,
-            $gstin       ?: null,
-            $category    ?: null,
-            $description ?: null,
-            $city        ?: null,
-            $website     ?: null,
-            $phone       ?: null,
+            $gstin        ?: null,
+            $panNo        ?: null,
+            $category     ?: null,
+            $description  ?: null,
+            $city         ?: null,
+            $address      ?: null,
+            $website      ?: null,
+            $phone        ?: null,
+            $ownerDob,
+            $dateOfIncorp,
             $listed,
             $userId,
         ]);
     } else {
         $stmt = $pdo->prepare("
             INSERT INTO businesses
-                (user_id, business_name, gstin, category, description, city, website, phone, listed)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                (user_id, business_name, gstin, pan_no, category, description, city, address, website, phone, owner_dob, date_of_incorp, listed)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         ");
         $stmt->execute([
             $userId,
             $businessName,
-            $gstin       ?: null,
-            $category    ?: null,
-            $description ?: null,
-            $city        ?: null,
-            $website     ?: null,
-            $phone       ?: null,
+            $gstin        ?: null,
+            $panNo        ?: null,
+            $category     ?: null,
+            $description  ?: null,
+            $city         ?: null,
+            $address      ?: null,
+            $website      ?: null,
+            $phone        ?: null,
+            $ownerDob,
+            $dateOfIncorp,
             $listed,
         ]);
     }
