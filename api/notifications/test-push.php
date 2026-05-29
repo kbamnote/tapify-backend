@@ -11,26 +11,32 @@ require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../includes/functions.php';
 require_once __DIR__ . '/../../includes/notifications.php';
 
-if (!isLoggedIn()) {
-    echo json_encode(['success' => false, 'message' => 'Not logged in']);
-    exit;
-}
-
 try {
-    $pdo    = getDB();
-    $userId = getCurrentUserId();
+    $pdo = getDB();
 
-    // Fetch stored token
-    $stmt = $pdo->prepare("SELECT fcm_token FROM users WHERE id = ?");
-    $stmt->execute([$userId]);
-    $user = $stmt->fetch();
+    // Allow passing the token directly via ?token= for browser testing.
+    // Falls back to the logged-in user's stored token if no param given.
+    $token = $_GET['token'] ?? null;
 
-    $token = $user['fcm_token'] ?? null;
+    if (empty($token)) {
+        if (!isLoggedIn()) {
+            echo json_encode([
+                'success' => false,
+                'message' => 'Not logged in. Either log in via the app session, or pass ?token=ExponentPushToken[...] in the URL.',
+            ]);
+            exit;
+        }
+        $userId = getCurrentUserId();
+        $stmt = $pdo->prepare("SELECT fcm_token FROM users WHERE id = ?");
+        $stmt->execute([$userId]);
+        $user = $stmt->fetch();
+        $token = $user['fcm_token'] ?? null;
+    }
 
     if (empty($token)) {
         echo json_encode([
             'success' => false,
-            'message' => 'No push token found for your account. Make sure the app ran at least once after login.',
+            'message' => 'No push token found. Pass ?token=ExponentPushToken[...] in the URL, or run the app after login so it saves a token.',
         ]);
         exit;
     }
