@@ -48,6 +48,9 @@ try {
     $stmt = $pdo->prepare("SELECT card_holder_name, card_number, expiry_date, is_active FROM titanium_members WHERE user_id = ? LIMIT 1");
     $stmt->execute([$userId]);
     $titanium = $stmt->fetch();
+    if ($titanium) {
+        $titanium['is_active'] = (bool)$titanium['is_active']; // ensure proper bool, not "0"/"1" string
+    }
     $user['titanium'] = $titanium ?: null;
 
     // Clean response
