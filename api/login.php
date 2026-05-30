@@ -59,6 +59,12 @@ try {
     // Remove password from response
     unset($user['password']);
 
+    // Attach titanium membership (if any)
+    $stmt = $pdo->prepare("SELECT card_holder_name, card_number, expiry_date, is_active FROM titanium_members WHERE user_id = ? LIMIT 1");
+    $stmt->execute([$user['id']]);
+    $titanium = $stmt->fetch();
+    $user['titanium'] = $titanium ?: null;
+
     sendSuccess('Login successful', [
         'user' => $user,
         'session_id' => session_id()
