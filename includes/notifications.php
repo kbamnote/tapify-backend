@@ -68,6 +68,9 @@ function sendExpoPushNotification($token, $title, $body, $data = []) {
  */
 function createAndSendNotification($pdo, $userId, $title, $message, $type, $targetId = null, $redirectUrl = null, $imageUrl = null) {
     try {
+        // Ensure fcm_token column exists (guard against missing migration)
+        try { $pdo->exec("ALTER TABLE users ADD COLUMN fcm_token VARCHAR(255) DEFAULT NULL"); } catch (Exception $e) {}
+
         // 1. Insert into database
         $stmt = $pdo->prepare("INSERT INTO notifications (user_id, title, message, type, target_id, redirect_url, image_url, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())");
         $stmt->execute([$userId, $title, $message, $type, $targetId, $redirectUrl, $imageUrl]);
