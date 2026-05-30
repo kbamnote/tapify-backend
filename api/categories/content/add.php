@@ -8,9 +8,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 try {
     $categoryId = $_POST['category_id'] ?? '';
-    $type = $_POST['type'] ?? ''; // 'text', 'image', 'mixed'
+    $type = $_POST['type'] ?? '';
     $textContent = $_POST['text_content'] ?? null;
-    
+
     if (empty($categoryId) || empty($type)) {
         sendError('Category ID and type are required');
     }
@@ -20,30 +20,44 @@ try {
     }
 
     $imageUrl = null;
-    if (($type === 'image' || $type === 'mixed') && isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
-        $uploadDir = __DIR__ . '/../../../uploads/categories/content/';
-        if (!is_dir($uploadDir)) {
-            mkdir($uploadDir, 0755, true);
+
+    if ($type === 'image' || $type === 'mixed') {
+        if (!isset($_FILES['image']) || $_FILES['image']['error'] !== UPLOAD_ERR_OK) {
+            sendError('Image file is required for this type');
         }
-        
-        $fileInfo = pathinfo($_FILES['image']['name']);
-        $ext = strtolower($fileInfo['extension']);
-        $allowed = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
-        
-        if (!in_array($ext, $allowed)) {
-            sendError('Invalid image format');
+
+        // Try Cloudinary first (persistent storage)
+        try {
+            if (defined('CLOUDINARY_CLOUD_NAME') && defined('CLOUDINARY_API_KEY')) {
+                $result = uploadToCloudinary($_FILES['image']);
+                if (!empty($result['secure_url'])) {
+                    $imageUrl = $result['secure_url'];
+                } elseif (!empty($result['url'])) {
+                    $imageUrl = $result['url'];
+                }
+            }
+        } catch (Throwable $e) {
+            $imageUrl = null;
         }
-        
-        $filename = uniqid('cnt_') . '.' . $ext;
-        $destination = $uploadDir . $filename;
-        
-        if (move_uploaded_file($_FILES['image']['tmp_name'], $destination)) {
-            $imageUrl = '/uploads/categories/content/' . $filename;
-        } else {
-            sendError('Failed to upload image');
+
+        // Fallback to local storage
+        if (!$imageUrl) {
+            $uploadDir = __DIR__ . '/../../../uploads/categories/content/';
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0755, true);
+            }
+            $ext = strtolower(pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION));
+            $allowed = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+            if (!in_array($ext, $allowed)) {
+                sendError('Invalid image format');
+            }
+            $filename = uniqid('cnt_') . '.' . $ext;
+            if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadDir . $filename)) {
+                $imageUrl = '/uploads/categories/content/' . $filename;
+            } else {
+                sendError('Failed to upload image');
+            }
         }
-    } else if ($type === 'image' || $type === 'mixed') {
-        sendError('Image file is required for this type');
     }
 
     if (($type === 'text' || $type === 'mixed') && empty($textContent)) {

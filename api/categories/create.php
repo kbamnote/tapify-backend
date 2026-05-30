@@ -8,36 +8,48 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 try {
     $name = $_POST['name'] ?? '';
-    
+
     if (empty($name)) {
         sendError('Category name is required');
     }
 
-    $imageUrl = '';
-    if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+    if (!isset($_FILES['image']) || $_FILES['image']['error'] !== UPLOAD_ERR_OK) {
+        sendError('Category image is required');
+    }
+
+    $imageUrl = null;
+
+    // Try Cloudinary first (persistent storage)
+    try {
+        if (defined('CLOUDINARY_CLOUD_NAME') && defined('CLOUDINARY_API_KEY')) {
+            $result = uploadToCloudinary($_FILES['image']);
+            if (!empty($result['secure_url'])) {
+                $imageUrl = $result['secure_url'];
+            } elseif (!empty($result['url'])) {
+                $imageUrl = $result['url'];
+            }
+        }
+    } catch (Throwable $e) {
+        $imageUrl = null;
+    }
+
+    // Fallback to local storage
+    if (!$imageUrl) {
         $uploadDir = __DIR__ . '/../../uploads/categories/';
         if (!is_dir($uploadDir)) {
             mkdir($uploadDir, 0755, true);
         }
-        
-        $fileInfo = pathinfo($_FILES['image']['name']);
-        $ext = strtolower($fileInfo['extension']);
+        $ext = strtolower(pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION));
         $allowed = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
-        
         if (!in_array($ext, $allowed)) {
             sendError('Invalid image format');
         }
-        
         $filename = uniqid('cat_') . '.' . $ext;
-        $destination = $uploadDir . $filename;
-        
-        if (move_uploaded_file($_FILES['image']['tmp_name'], $destination)) {
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $uploadDir . $filename)) {
             $imageUrl = '/uploads/categories/' . $filename;
         } else {
             sendError('Failed to upload image');
         }
-    } else {
-        sendError('Category image is required');
     }
 
     $pdo = getDB();
@@ -46,11 +58,7 @@ try {
     $id = $pdo->lastInsertId();
 
     sendSuccess('Category created successfully', [
-        'category' => [
-            'id' => $id,
-            'name' => $name,
-            'image_url' => $imageUrl
-        ]
+        'category' => ['id' => $id, 'name' => $name, 'image_url' => $imageUrl]
     ]);
 } catch (Exception $e) {
     sendError('Failed to create category: ' . $e->getMessage(), 500);
