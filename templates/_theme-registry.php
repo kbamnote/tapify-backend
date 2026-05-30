@@ -53,7 +53,7 @@ return [
     'vcard01' => ['name' => 'Corporate Executive', 'layout' => 'luxury',      'primary' => '#c9a84c', 'secondary' => '#f0c96a', 'bg' => '#0a1628', 'surface' => '#0d1e38', 'font' => 'montserrat', 'dark' => true],
     'vcard02' => ['name' => 'Medical Doctor',       'layout' => 'clinic',      'primary' => '#0d9488', 'secondary' => '#14b8a6', 'bg' => '#f8fafc', 'surface' => '#ffffff', 'font' => 'inter'],
     'vcard03' => ['name' => 'Creative Designer',    'layout' => 'creative',    'primary' => '#7c3aed', 'secondary' => '#e879f9', 'bg' => '#0c0512', 'surface' => '#1a1025', 'font' => 'poppins', 'dark' => true],
-    'vcard04' => ['name' => 'Real Estate',          'layout' => 'designer',    'primary' => '#c87941', 'secondary' => '#8b5e3c', 'bg' => '#fdf8f0', 'surface' => '#f5ece0', 'font' => 'lora'],
+    'vcard04' => ['name' => 'Real Estate',          'layout' => 'legacy',      'legacy' => 'real-estate'],
     'vcard05' => ['name' => 'Restaurant Chef',      'layout' => 'neon',        'primary' => '#c0392b', 'secondary' => '#d4af37', 'bg' => '#1a0a0a', 'surface' => '#221010', 'font' => 'oswald', 'dark' => true],
     'vcard06' => ['name' => 'Fitness Trainer',      'layout' => 'neon',        'primary' => '#f97316', 'secondary' => '#fbbf24', 'bg' => '#0d0d0d', 'surface' => '#181818', 'font' => 'oswald', 'dark' => true],
     'vcard07' => ['name' => 'Tech Developer',       'layout' => 'tech',        'primary' => '#00e5ff', 'secondary' => '#00ff88', 'bg' => '#050d12', 'surface' => '#0a1a22', 'font' => 'inter',  'dark' => true],
