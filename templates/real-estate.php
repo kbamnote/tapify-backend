@@ -36,25 +36,31 @@ $VCDN = 'https://tapifyworld.com/assets/img/vcard35/';
             overflow-x: hidden;
         }
 
-        /* ── Decorative background vectors ── */
-        .re-vec {
-            position: fixed;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.92;
-        }
-        .re-vec-tl  { top: 0;    left: -10px; width: 200px; }
-        .re-vec-bl  { bottom: 0; left: -10px; width: 220px; }
-        .re-vec-tr  { top: 0;    right: -10px; width: 180px; }
-        .re-vec-br  { bottom: 0; right: -10px; width: 200px; }
-        .re-vec-ml  { top: 35%;  left: -15px;  width: 160px; }
-        .re-vec-mr  { top: 30%;  right: -15px; width: 160px; }
-        .re-bg-mid  { top: 50%;  left: 50%;
-                      transform: translate(-50%, -50%);
-                      width: 100vw; min-height: 100vh;
-                      z-index: -1; opacity: 0.07; object-fit: cover; }
+        /* ── Page background city skyline ── */
+        body { background-image: url('<?= $VCDN ?>main-vector-bg-2.png'); background-repeat: no-repeat; background-position: center bottom; background-size: 90% auto; }
 
-        @media (max-width: 600px) { .re-vec { display: none; } }
+        /* GIF overlay effects */
+        .re-gif { position: fixed; pointer-events: none; z-index: 0; }
+        .re-gif1 { top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: .06; }
+        .re-gif2 { top: 0; right: 0; width: 350px; opacity: .12; }
+
+        /* Decorative real estate icons */
+        .rv { position: fixed; pointer-events: none; z-index: 0; opacity: .85; }
+        .rv-l1 { top:  3%; left: calc(50% - 300px); width: 75px; }
+        .rv-l2 { top: 12%; left: calc(50% - 320px); width: 70px; }
+        .rv-l3 { top: 24%; left: calc(50% - 300px); width: 80px; }
+        .rv-l4 { top: 38%; left: calc(50% - 310px); width: 65px; }
+        .rv-l5 { top: 52%; left: calc(50% - 300px); width: 75px; }
+        .rv-l6 { top: 66%; left: calc(50% - 315px); width: 70px; }
+        .rv-l7 { top: 80%; left: calc(50% - 300px); width: 80px; }
+        .rv-r1 { top:  6%; right: calc(50% - 295px); width: 75px; }
+        .rv-r2 { top: 18%; right: calc(50% - 310px); width: 70px; }
+        .rv-r3 { top: 31%; right: calc(50% - 295px); width: 80px; }
+        .rv-r4 { top: 45%; right: calc(50% - 310px); width: 65px; }
+        .rv-r5 { top: 58%; right: calc(50% - 295px); width: 75px; }
+        .rv-r6 { top: 72%; right: calc(50% - 310px); width: 70px; }
+
+        @media (max-width: 820px) { .rv, .re-gif { display: none; } }
 
         /* ── Card container ── */
         .vcard-container {
@@ -478,13 +484,26 @@ $VCDN = 'https://tapifyworld.com/assets/img/vcard35/';
 </head>
 <body>
 
-<!-- ── Decorative background vectors ── -->
-<img src="<?= $VCDN ?>vector-bg-1.png"  class="re-vec re-vec-tl"  alt="">
-<img src="<?= $VCDN ?>vector-bg-3.png"  class="re-vec re-vec-bl"  alt="">
-<img src="<?= $VCDN ?>vector-bg-5.png"  class="re-vec re-vec-tr"  alt="">
-<img src="<?= $VCDN ?>vector-bg-7.png"  class="re-vec re-vec-br"  alt="">
-<img src="<?= $VCDN ?>vector-bg-9.png"  class="re-vec re-vec-ml"  alt="">
-<img src="<?= $VCDN ?>vector-bg-11.png" class="re-vec re-vec-mr"  alt="">
+<!-- GIF background effects -->
+<img src="<?= $VCDN ?>bg-effect-gif1.gif" class="re-gif re-gif1" alt="">
+<img src="<?= $VCDN ?>bg-effect-gif2.gif" class="re-gif re-gif2" alt="">
+
+<!-- Left side icons -->
+<img src="<?= $VCDN ?>vector-bg-1.png"  class="rv rv-l1" alt="">
+<img src="<?= $VCDN ?>vector-bg-3.png"  class="rv rv-l2" alt="">
+<img src="<?= $VCDN ?>vector-bg-5.png"  class="rv rv-l3" alt="">
+<img src="<?= $VCDN ?>vector-bg-7.png"  class="rv rv-l4" alt="">
+<img src="<?= $VCDN ?>vector-bg-9.png"  class="rv rv-l5" alt="">
+<img src="<?= $VCDN ?>vector-bg-11.png" class="rv rv-l6" alt="">
+<img src="<?= $VCDN ?>vector-bg-12.png" class="rv rv-l7" alt="">
+
+<!-- Right side icons -->
+<img src="<?= $VCDN ?>vector-bg-2.png"  class="rv rv-r1" alt="">
+<img src="<?= $VCDN ?>vector-bg-4.png"  class="rv rv-r2" alt="">
+<img src="<?= $VCDN ?>vector-bg-6.png"  class="rv rv-r3" alt="">
+<img src="<?= $VCDN ?>vector-bg-8.png"  class="rv rv-r4" alt="">
+<img src="<?= $VCDN ?>vector-bg-10.png" class="rv rv-r5" alt="">
+<img src="<?= $VCDN ?>vector-bg-13.png" class="rv rv-r6" alt="">
 
 <div class="vcard-container">
 
