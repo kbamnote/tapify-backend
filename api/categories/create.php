@@ -52,13 +52,15 @@ try {
         }
     }
 
+    $parentId = isset($_POST['parent_id']) && $_POST['parent_id'] !== '' ? (int) $_POST['parent_id'] : null;
+
     $pdo = getDB();
-    $stmt = $pdo->prepare("INSERT INTO categories (name, image_url) VALUES (?, ?)");
-    $stmt->execute([$name, $imageUrl]);
+    $stmt = $pdo->prepare("INSERT INTO categories (name, image_url, parent_id) VALUES (?, ?, ?)");
+    $stmt->execute([$name, $imageUrl, $parentId]);
     $id = $pdo->lastInsertId();
 
     sendSuccess('Category created successfully', [
-        'category' => ['id' => $id, 'name' => $name, 'image_url' => $imageUrl]
+        'category' => ['id' => $id, 'name' => $name, 'image_url' => $imageUrl, 'parent_id' => $parentId]
     ]);
 } catch (Exception $e) {
     sendError('Failed to create category: ' . $e->getMessage(), 500);
