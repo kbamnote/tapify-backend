@@ -15,9 +15,11 @@ try {
     if ($method === 'GET') {
         $category_id = isset($_GET['category_id']) ? (int) $_GET['category_id'] : null;
 
-        $sql = "SELECT d.*, dc.name AS category_name
+        $sql = "SELECT d.*, dc.name AS category_name,
+                       cc.name AS content_category_name
                 FROM designs d
-                LEFT JOIN design_categories dc ON dc.id = d.category_id";
+                LEFT JOIN design_categories dc ON dc.id = d.category_id
+                LEFT JOIN categories cc ON cc.id = d.content_category_id";
         $params = [];
 
         if ($category_id) {
@@ -37,11 +39,13 @@ try {
     } elseif ($method === 'POST') {
         $input = json_decode(file_get_contents('php://input'), true);
 
-        $id          = isset($input['id'])          ? (int) $input['id']               : null;
-        $category_id = isset($input['category_id']) ? (int) $input['category_id']      : 0;
-        $title       = isset($input['title'])       ? trim($input['title'])             : '';
-        $description = isset($input['description']) ? trim($input['description'])       : '';
-        $image_url   = isset($input['image_url'])   ? trim($input['image_url'])         : '';
+        $id                  = isset($input['id'])                  ? (int) $input['id']                         : null;
+        $category_id         = isset($input['category_id'])         ? (int) $input['category_id']               : 0;
+        $content_category_id = isset($input['content_category_id']) && $input['content_category_id'] !== '' && $input['content_category_id'] !== null
+                                   ? (int) $input['content_category_id'] : null;
+        $title               = isset($input['title'])               ? trim($input['title'])                      : '';
+        $description         = isset($input['description'])         ? trim($input['description'])                : '';
+        $image_url           = isset($input['image_url'])           ? trim($input['image_url'])                  : '';
         $tags = '';
         if (isset($input['tags'])) {
             $tags = is_array($input['tags']) ? implode(',', $input['tags']) : trim($input['tags']);
@@ -68,18 +72,18 @@ try {
             $stmt = $pdo->prepare(
                 "UPDATE designs
                  SET category_id = ?, title = ?, description = ?, image_url = ?,
-                     tags = ?, is_active = ?, sort_order = ?
+                     tags = ?, is_active = ?, sort_order = ?, content_category_id = ?
                  WHERE id = ?"
             );
-            $stmt->execute([$category_id, $title, $description, $image_url, $tags, $is_active, $sort_order, $id]);
+            $stmt->execute([$category_id, $title, $description, $image_url, $tags, $is_active, $sort_order, $content_category_id, $id]);
             sendSuccess('Design updated', ['id' => $id]);
         } else {
             // INSERT new
             $stmt = $pdo->prepare(
-                "INSERT INTO designs (category_id, title, description, image_url, tags, is_active, sort_order, created_by)
-                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)"
+                "INSERT INTO designs (category_id, title, description, image_url, tags, is_active, sort_order, content_category_id, created_by)
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
             );
-            $stmt->execute([$category_id, $title, $description, $image_url, $tags, $is_active, $sort_order, $created_by]);
+            $stmt->execute([$category_id, $title, $description, $image_url, $tags, $is_active, $sort_order, $content_category_id, $created_by]);
             $newId = (int) $pdo->lastInsertId();
             sendSuccess('Design created', ['id' => $newId]);
         }

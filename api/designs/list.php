@@ -8,16 +8,17 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     sendError('Method not allowed', 405);
 }
 
-$isSavedMode    = isset($_GET['saved']) && $_GET['saved'] == '1';
-$category_id    = isset($_GET['category_id']) ? (int) $_GET['category_id'] : 0;
+$isSavedMode         = isset($_GET['saved']) && $_GET['saved'] == '1';
+$category_id         = isset($_GET['category_id'])         ? (int) $_GET['category_id']         : 0;
+$content_category_id = isset($_GET['content_category_id']) ? (int) $_GET['content_category_id'] : 0;
 
 // Saved mode requires authentication
 if ($isSavedMode) {
     requireAuth();
 }
 
-if (!$isSavedMode && !$category_id) {
-    sendError('category_id or saved=1 is required', 400);
+if (!$isSavedMode && !$category_id && !$content_category_id) {
+    sendError('category_id, content_category_id, or saved=1 is required', 400);
 }
 
 try {
@@ -43,8 +44,19 @@ try {
         // saved_ids for saved mode is just all returned design IDs
         $saved_ids = array_map(fn($d) => (int) $d['id'], $designs);
 
+    } elseif ($content_category_id) {
+        // Return active designs linked to a specific content category
+        $stmt = $pdo->prepare(
+            "SELECT d.*, dc.name AS category_name, dc.icon AS category_icon
+             FROM designs d
+             JOIN design_categories dc ON dc.id = d.category_id
+             WHERE d.is_active = 1 AND d.content_category_id = ?
+             ORDER BY d.sort_order ASC, d.id DESC"
+        );
+        $stmt->execute([$content_category_id]);
+        $designs = $stmt->fetchAll(PDO::FETCH_ASSOC);
     } else {
-        // Return active designs for a specific category
+        // Return active designs for a specific design category
         $stmt = $pdo->prepare(
             "SELECT d.*, dc.name AS category_name, dc.icon AS category_icon
              FROM designs d
