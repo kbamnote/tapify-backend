@@ -109,10 +109,11 @@ body>.position-fixed,body>.estate-bg-animation{max-width:100%!important;}
 <style>@keyframes rzp-rot{to{transform:rotate(360deg)}}@-webkit-keyframes rzp-rot{to{-webkit-transform:rotate(360deg)}}</style>
 <?php if (!empty($vcard["custom_css"])): ?><style><?= $vcard["custom_css"] ?></style><?php endif; ?>
 <style id="tapify-stage2">.our-services-section,.services,.gallery-section,.product-section,.testimonial-section,.business-hour-section,.appointment-section,.contact-us-section{display:none!important;}/* style _features.php block to fit the salon card width */.tf-sec{max-width:560px;margin-left:auto;margin-right:auto;}</style>
+<style id="tapify-desktop-bg">@media(min-width:768px){#waveCanvas{max-width:100vw!important;width:100vw!important;height:100vh!important;left:0!important;top:0!important;background-size:cover!important;background-position:center top!important;background-repeat:no-repeat!important;}}@media(max-width:767px){#waveCanvas{display:none!important;}}</style>
 </head>
 <body>
 
- <canvas id=waveCanvas width=1508 height=5123 style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:center center!important;background-color:rgba(0,0,0,0)!important;background-image:url()!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"></canvas>
+ <canvas id=waveCanvas width=1508 height=5123 style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:center center!important;background-color:rgba(0,0,0,0)!important;background-image:url(/images/templates/salon/salon-bg-desktop.png)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"></canvas>
  <div class="container p-0">
  <div id=passwordModal class="modal fade sf-hidden" role=dialog data-bs-backdrop=static data-bs-keyboard=false>
  
