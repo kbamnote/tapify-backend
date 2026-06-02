@@ -298,127 +298,19 @@ if ($isVid && !empty($cvVal)) {
  </div>
  <div class=services>
  <div class=px-30>
- <div class=row>
- <div class="col-sm-6 mb-sm-0 mb-40 p-3">
- <div class="card-wrapper h-100">
- <a href=javascript:void(0) class=text-decoration-none target>
- <div class="service-card card h-100">
- <div class="card-img mx-auto">
- <img src="/images/templates/salon/salon-026.webp" alt="Skin &amp; Facial Services" class="w-100 h-100 object-fit-cover" loading=lazy>
- </div>
- <div class="card-body text-center">
- <h3 class="card-title text-primary">
- Skin &amp; Facial Services
- </h3>
- <p class="mb-0 text-gray">
- Regular Clean-up Fruit Facial Gold/Platinum Facial Anti-aging Facial De-tan Facial
- </p>
- </div>
- </div>
- </a>
- </div>
- </div>
- <div class="col-sm-6 mb-sm-0 mb-40 p-3">
- <div class="card-wrapper h-100">
- <a href=javascript:void(0) class=text-decoration-none target>
- <div class="service-card card h-100">
- <div class="card-img mx-auto">
- <img src="/images/templates/salon/salon-027.webp" alt="Hair Coloring" class="w-100 h-100 object-fit-cover" loading=lazy>
- </div>
- <div class="card-body text-center">
- <h3 class="card-title text-primary">
- Hair Coloring
- </h3>
- <p class="mb-0 text-gray">
- Global Coloring Highlights/Lowlights Root Touch-up Fashion Colors &amp; Ombre/Balayage
- </p>
- </div>
- </div>
- </a>
- </div>
- </div>
- <div class="col-sm-6 mb-sm-0 mb-40 p-3">
- <div class="card-wrapper h-100">
- <a href=javascript:void(0) class=text-decoration-none target>
- <div class="service-card card h-100">
- <div class="card-img mx-auto">
- <img src="/images/templates/salon/salon-028.webp" alt="Hair Gloss &amp; Shine Treatments" class="w-100 h-100 object-fit-cover" loading=lazy>
- </div>
- <div class="card-body text-center">
- <h3 class="card-title text-primary">
- Hair Gloss &amp; Shine Treatments
- </h3>
- <p class="mb-0 text-gray">
- Semi-permanent treatments to add richness, shine, and a healthy glow to dull hair.
- </p>
- </div>
- </div>
- </a>
- </div>
- </div>
- <div class="col-sm-6 mb-sm-0 mb-40 p-3">
- <div class="card-wrapper h-100">
- <a href=javascript:void(0) class=text-decoration-none target>
- <div class="service-card card h-100">
- <div class="card-img mx-auto">
- <img src="/images/templates/salon/salon-029.webp" alt="Special Occasion Styling" class="w-100 h-100 object-fit-cover" loading=lazy>
- </div>
- <div class="card-body text-center">
- <h3 class="card-title text-primary">
- Special Occasion Styling
- </h3>
- <p class="mb-0 text-gray">
- Elegant updos, curls, and custom looks for weddings, parties, and events.
- </p>
- </div>
- </div>
- </a>
- </div>
- </div>
- <div class="col-sm-6 mb-sm-0 mb-40 p-3">
- <div class="card-wrapper h-100">
- <a href=javascript:void(0) class=text-decoration-none target>
- <div class="service-card card h-100">
- <div class="card-img mx-auto">
- <img src="/images/templates/salon/salon-030.webp" alt="Luxury Hair Spa &amp; Scalp Therapy" class="w-100 h-100 object-fit-cover" loading=lazy>
- </div>
- <div class="card-body text-center">
- <h3 class="card-title text-primary">
- Luxury Hair Spa &amp; Scalp Therapy
- </h3>
- <p class="mb-0 text-gray">
- Deep-conditioning treatments, oil massages, and scalp detoxes for relaxation and rejuvenation.
- </p>
- </div>
- </div>
- </a>
- </div>
- </div>
- <div class="col-sm-6 mb-sm-0 mb-40 p-3">
- <div class="card-wrapper h-100">
- <a href=javascript:void(0) class=text-decoration-none target>
- <div class="service-card card h-100">
- <div class="card-img mx-auto">
- <img src="/images/templates/salon/salon-031.webp" alt="Precision Haircuts &amp; Styling" class="w-100 h-100 object-fit-cover" loading=lazy>
- </div>
- <div class="card-body text-center">
- <h3 class="card-title text-primary">
- Precision Haircuts &amp; Styling
- </h3>
- <p class="mb-0 text-gray">
- Custom cuts and blowouts tailored to face shape, hair texture, and personal style.
- </p>
- </div>
- </div>
- </a>
- </div>
- </div>
+ <div class=row><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg = !empty($sv["image"]) ? imgUrl($sv["image"]) : "/images/templates/salon/salon-026.webp"; ?><div class="col-sm-6 mb-sm-0 mb-40 p-3"><div class="card-wrapper h-100"><a href="javascript:void(0)" class="text-decoration-none"><div class="service-card card h-100"><div class="card-img mx-auto"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></div><div class="card-body text-center"><h3 class="card-title text-primary"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></a></div></div><?php endforeach; ?>
+ 
+ 
+ 
+ 
+ 
+ 
  </div>
  </div>
  </div>
  </div>
  
- <?php $__bh = $businessHours; $businessHours=[]; $vcard["show_appointments"]=0; ?><?php include __DIR__ . "/_features.php"; ?>
+ <?php $__sv = $services; $services=[]; $__bh = $businessHours; $businessHours=[]; $vcard["show_appointments"]=0; ?><?php include __DIR__ . "/_features.php"; ?>
 <div class="qr-code-section position-relative pt-50">
  <div class="position-absolute vector-all vector-bg-4 text-end">
  <img src="/images/templates/salon/salon-032.webp" class=w-100 alt=images>
