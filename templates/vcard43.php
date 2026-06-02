@@ -111,7 +111,7 @@ body>.position-fixed,body>.estate-bg-animation{max-width:100%!important;}
 <style id="tapify-stage2">.our-services-section,.services,.gallery-section,.product-section,.testimonial-section,.contact-us-section{display:none!important;}/* style _features.php block to fit the salon card width */.tf-sec{max-width:560px;margin-left:auto;margin-right:auto;}</style>
 <style id="tapify-desktop-bg">@media(min-width:768px){#waveCanvas{max-width:100vw!important;width:100vw!important;height:100vh!important;left:0!important;top:0!important;background-size:cover!important;background-position:center top!important;background-repeat:no-repeat!important;}}@media(max-width:767px){#waveCanvas{display:none!important;}}</style>
 <style id="tapify-tune">/* subtle wave bg on beige (PNG is dark, show faint) */body{background-color:#e7ded4!important;}@media(min-width:768px){#waveCanvas{opacity:.10!important;background-size:auto 100%!important;background-position:center top!important;background-repeat:repeat-x!important;}}/* social icons in theme brown, not brand blue */.social-icons a,.social-icons a i,.social-icons i,.social-media .social-icons svg{color:#a4866d!important;fill:#a4866d!important;}</style>
-</head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"></head>
 <body>
 
  <canvas id=waveCanvas width=1508 height=5123 style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:center center!important;background-color:rgba(0,0,0,0)!important;background-image:url(/images/templates/salon/salon-bg-desktop.png)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"></canvas>
@@ -310,7 +310,7 @@ if ($isVid && !empty($cvVal)) {
  </div>
  </div>
  
- <?php $__sv = $services; $services=[]; $__bh = $businessHours; $businessHours=[]; $vcard["show_appointments"]=0; ?><?php include __DIR__ . "/_features.php"; ?>
+ <?php $__sv=$services; $__pr=$products; $__ga=$galleries; $__te=$testimonials; $services=[]; $products=[]; $galleries=[]; $testimonials=[]; $__bh = $businessHours; $businessHours=[]; $vcard["show_appointments"]=0; ?><?php include __DIR__ . "/_features.php"; ?>
 <div class="qr-code-section position-relative pt-50">
  <div class="position-absolute vector-all vector-bg-4 text-end">
  <img src="/images/templates/salon/salon-032.webp" class=w-100 alt=images>
@@ -344,112 +344,7 @@ if ($isVid && !empty($cvVal)) {
  </h2>
  </div>
  <div class=px-20>
- <div class="gallery-slider slick-initialized slick-slider">
- <div class="slick-list draggable"><div class=slick-track style=opacity:1;width:6930px;transform:translate3d(-1890px,0px,0px)><div class="slide slick-slide slick-cloned" data-slick-index=-1 aria-hidden=true tabindex=-1 style=width:630px>
- <div class=gallery-img-wrapper>
- <div class=gallery-img>
- <div class="expand-icon pe-none">
- <svg class="svg-inline--fa fa-expand text-primary" aria-hidden=true focusable=false data-prefix=fas data-icon=expand role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 448 512" data-fa-i2svg><path fill=currentColor d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z"></path></svg>
- </div>
- <a href=https://tapifyworld.com//uploads/vcards/gallery/727/Frame-1707480421.jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="578" height="278"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-32)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
- </div>
- </div>
- </div><div class="slide slick-slide" data-slick-index=0 aria-hidden=true tabindex=-1 style=width:630px>
- <div class=gallery-img-wrapper>
- <div class=gallery-img>
- <div class="expand-icon pe-none">
- <svg class="svg-inline--fa fa-expand text-primary" aria-hidden=true focusable=false data-prefix=fas data-icon=expand role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 448 512" data-fa-i2svg><path fill=currentColor d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z"></path></svg>
- </div>
- <a href=https://tapifyworld.com//uploads/vcards/gallery/723/Frame-1707480417.jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="578" height="278"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-33)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
- </div>
- </div>
- </div><div class="slide slick-slide" data-slick-index=1 aria-hidden=true tabindex=-1 style=width:630px>
- <div class=gallery-img-wrapper>
- <div class=gallery-img>
- <div class="expand-icon pe-none">
- <svg class="svg-inline--fa fa-expand text-primary" aria-hidden=true focusable=false data-prefix=fas data-icon=expand role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 448 512" data-fa-i2svg><path fill=currentColor d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z"></path></svg>
- </div>
- <a href=https://tapifyworld.com//uploads/vcards/gallery/724/Frame-1707480418.jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="578" height="278"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-34)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
- </div>
- </div>
- </div><div class="slide slick-slide slick-current slick-active" data-slick-index=2 aria-hidden=false tabindex=0 style=width:630px>
- <div class=gallery-img-wrapper>
- <div class=gallery-img>
- <div class="expand-icon pe-none">
- <svg class="svg-inline--fa fa-expand text-primary" aria-hidden=true focusable=false data-prefix=fas data-icon=expand role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 448 512" data-fa-i2svg><path fill=currentColor d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z"></path></svg>
- </div>
- <a href=https://tapifyworld.com//uploads/vcards/gallery/725/Frame-1707480419.jpg data-lightbox=gallery-images tabindex=0><img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="578" height="278"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-35)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
- </div>
- </div>
- </div><div class="slide slick-slide" data-slick-index=3 aria-hidden=true tabindex=-1 style=width:630px>
- <div class=gallery-img-wrapper>
- <div class=gallery-img>
- <div class="expand-icon pe-none">
- <svg class="svg-inline--fa fa-expand text-primary" aria-hidden=true focusable=false data-prefix=fas data-icon=expand role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 448 512" data-fa-i2svg><path fill=currentColor d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z"></path></svg>
- </div>
- <a href=https://tapifyworld.com//uploads/vcards/gallery/726/Frame-1707480420.jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="578" height="278"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-36)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
- </div>
- </div>
- </div><div class="slide slick-slide" data-slick-index=4 aria-hidden=true tabindex=-1 style=width:630px>
- <div class=gallery-img-wrapper>
- <div class=gallery-img>
- <div class="expand-icon pe-none">
- <svg class="svg-inline--fa fa-expand text-primary" aria-hidden=true focusable=false data-prefix=fas data-icon=expand role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 448 512" data-fa-i2svg><path fill=currentColor d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z"></path></svg>
- </div>
- <a href=https://tapifyworld.com//uploads/vcards/gallery/727/Frame-1707480421.jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="578" height="278"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-32)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
- </div>
- </div>
- </div><div class="slide slick-slide slick-cloned" data-slick-index=5 aria-hidden=true tabindex=-1 style=width:630px>
- <div class=gallery-img-wrapper>
- <div class=gallery-img>
- <div class="expand-icon pe-none">
- <svg class="svg-inline--fa fa-expand text-primary" aria-hidden=true focusable=false data-prefix=fas data-icon=expand role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 448 512" data-fa-i2svg><path fill=currentColor d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z"></path></svg>
- </div>
- <a href=https://tapifyworld.com//uploads/vcards/gallery/723/Frame-1707480417.jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="578" height="278"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-33)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
- </div>
- </div>
- </div><div class="slide slick-slide slick-cloned" data-slick-index=6 aria-hidden=true tabindex=-1 style=width:630px>
- <div class=gallery-img-wrapper>
- <div class=gallery-img>
- <div class="expand-icon pe-none">
- <svg class="svg-inline--fa fa-expand text-primary" aria-hidden=true focusable=false data-prefix=fas data-icon=expand role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 448 512" data-fa-i2svg><path fill=currentColor d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z"></path></svg>
- </div>
- <a href=https://tapifyworld.com//uploads/vcards/gallery/724/Frame-1707480418.jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="578" height="278"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-34)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
- </div>
- </div>
- </div><div class="slide slick-slide slick-cloned" data-slick-index=7 aria-hidden=true tabindex=-1 style=width:630px>
- <div class=gallery-img-wrapper>
- <div class=gallery-img>
- <div class="expand-icon pe-none">
- <svg class="svg-inline--fa fa-expand text-primary" aria-hidden=true focusable=false data-prefix=fas data-icon=expand role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 448 512" data-fa-i2svg><path fill=currentColor d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z"></path></svg>
- </div>
- <a href=https://tapifyworld.com//uploads/vcards/gallery/725/Frame-1707480419.jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="578" height="278"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-35)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
- </div>
- </div>
- </div><div class="slide slick-slide slick-cloned" data-slick-index=8 aria-hidden=true tabindex=-1 style=width:630px>
- <div class=gallery-img-wrapper>
- <div class=gallery-img>
- <div class="expand-icon pe-none">
- <svg class="svg-inline--fa fa-expand text-primary" aria-hidden=true focusable=false data-prefix=fas data-icon=expand role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 448 512" data-fa-i2svg><path fill=currentColor d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z"></path></svg>
- </div>
- <a href=https://tapifyworld.com//uploads/vcards/gallery/726/Frame-1707480420.jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="578" height="278"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-36)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
- </div>
- </div>
- </div><div class="slide slick-slide slick-cloned" data-slick-index=9 aria-hidden=true tabindex=-1 style=width:630px>
- <div class=gallery-img-wrapper>
- <div class=gallery-img>
- <div class="expand-icon pe-none">
- <svg class="svg-inline--fa fa-expand text-primary" aria-hidden=true focusable=false data-prefix=fas data-icon=expand role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 448 512" data-fa-i2svg><path fill=currentColor d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z"></path></svg>
- </div>
- <a href=https://tapifyworld.com//uploads/vcards/gallery/727/Frame-1707480421.jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="578" height="278"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-32)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
- </div>
- </div>
- </div></div></div>
- 
- 
- 
- 
- </div>
+ <div class="gallery-slider"><?php foreach ((isset($__ga)?$__ga:($galleries ?? [])) as $g): foreach (($g["images"] ?? []) as $im): $gi=imgUrl($im["image"] ?? ""); ?><div class="px-2"><div class="gallery-img-wrapper"><div class="gallery-img" style="background-image:url('<?= htmlspecialchars($gi) ?>');background-size:cover;background-position:center;height:280px;border-radius:12px;"></div></div></div><?php endforeach; endforeach; ?></div>
  </div>
  </div>
  
@@ -462,192 +357,7 @@ if ($isVid && !empty($cvVal)) {
  </h2>
  </div>
  <div class=px-20>
- <div class="product-slider slick-initialized slick-slider">
- <div class="slick-list draggable"><div class=slick-track style=opacity:1;width:3150px;transform:translate3d(-1260px,0px,0px)><div class="slick-slide slick-cloned" data-slick-index=-2 aria-hidden=true tabindex=-1 style=width:315px>
- <div class=card-wrapper>
- <a target=_blank class="text-decoration-none fs-6" tabindex=-1>
- <div class="product-card card">
- <div class="product-img card-img">
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="359"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-contain" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-38)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="product-desc card-body d-flex flex-column align-items-center justify-content-between">
- <div class=product-title>
- <h3 class="text-dark text-center">Youthful Eyes Package</h3>
- </div>
- <div class=product-amount>
- <span>₹ 1,500</span>
- </div>
- </div>
- </div>
- </a>
- </div>
- </div><div class="slick-slide slick-cloned" data-slick-index=-1 aria-hidden=true tabindex=-1 style=width:315px>
- <div class=card-wrapper>
- <a target=_blank class="text-decoration-none fs-6" tabindex=-1>
- <div class="product-card card">
- <div class="product-img card-img">
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-contain" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-39)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="product-desc card-body d-flex flex-column align-items-center justify-content-between">
- <div class=product-title>
- <h3 class="text-dark text-center">Lip Contour Care Package</h3>
- </div>
- <div class=product-amount>
- <span>₹ 3,000</span>
- </div>
- </div>
- </div>
- </a>
- </div>
- </div><div class=slick-slide data-slick-index=0 aria-hidden=true tabindex=-1 style=width:315px>
- <div class=card-wrapper>
- <a target=_blank class="text-decoration-none fs-6" tabindex=-1>
- <div class="product-card card">
- <div class="product-img card-img">
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-contain" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-40)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="product-desc card-body d-flex flex-column align-items-center justify-content-between">
- <div class=product-title>
- <h3 class="text-dark text-center">Glow &amp; Radiance Facial Package</h3>
- </div>
- <div class=product-amount>
- <span>₹ 2,500</span>
- </div>
- </div>
- </div>
- </a>
- </div>
- </div><div class=slick-slide data-slick-index=1 aria-hidden=true tabindex=-1 style=width:315px>
- <div class=card-wrapper>
- <a target=_blank class="text-decoration-none fs-6" tabindex=-1>
- <div class="product-card card">
- <div class="product-img card-img">
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="963" height="963"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-contain" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-41)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="product-desc card-body d-flex flex-column align-items-center justify-content-between">
- <div class=product-title>
- <h3 class="text-dark text-center">Body Therapy Package</h3>
- </div>
- <div class=product-amount>
- <span>₹ 3,500</span>
- </div>
- </div>
- </div>
- </a>
- </div>
- </div><div class="slick-slide slick-current slick-active" data-slick-index=2 aria-hidden=false tabindex=0 style=width:315px>
- <div class=card-wrapper>
- <a target=_blank class="text-decoration-none fs-6" tabindex=0>
- <div class="product-card card">
- <div class="product-img card-img">
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="359"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-contain" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-38)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="product-desc card-body d-flex flex-column align-items-center justify-content-between">
- <div class=product-title>
- <h3 class="text-dark text-center">Youthful Eyes Package</h3>
- </div>
- <div class=product-amount>
- <span>₹ 1,500</span>
- </div>
- </div>
- </div>
- </a>
- </div>
- </div><div class="slick-slide slick-active" data-slick-index=3 aria-hidden=false tabindex=0 style=width:315px>
- <div class=card-wrapper>
- <a target=_blank class="text-decoration-none fs-6" tabindex=0>
- <div class="product-card card">
- <div class="product-img card-img">
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-contain" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-39)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="product-desc card-body d-flex flex-column align-items-center justify-content-between">
- <div class=product-title>
- <h3 class="text-dark text-center">Lip Contour Care Package</h3>
- </div>
- <div class=product-amount>
- <span>₹ 3,000</span>
- </div>
- </div>
- </div>
- </a>
- </div>
- </div><div class="slick-slide slick-cloned" data-slick-index=4 aria-hidden=true tabindex=-1 style=width:315px>
- <div class=card-wrapper>
- <a target=_blank class="text-decoration-none fs-6" tabindex=-1>
- <div class="product-card card">
- <div class="product-img card-img">
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1080"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-contain" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-40)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="product-desc card-body d-flex flex-column align-items-center justify-content-between">
- <div class=product-title>
- <h3 class="text-dark text-center">Glow &amp; Radiance Facial Package</h3>
- </div>
- <div class=product-amount>
- <span>₹ 2,500</span>
- </div>
- </div>
- </div>
- </a>
- </div>
- </div><div class="slick-slide slick-cloned" data-slick-index=5 aria-hidden=true tabindex=-1 style=width:315px>
- <div class=card-wrapper>
- <a target=_blank class="text-decoration-none fs-6" tabindex=-1>
- <div class="product-card card">
- <div class="product-img card-img">
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="963" height="963"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-contain" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-41)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="product-desc card-body d-flex flex-column align-items-center justify-content-between">
- <div class=product-title>
- <h3 class="text-dark text-center">Body Therapy Package</h3>
- </div>
- <div class=product-amount>
- <span>₹ 3,500</span>
- </div>
- </div>
- </div>
- </a>
- </div>
- </div><div class="slick-slide slick-cloned" data-slick-index=6 aria-hidden=true tabindex=-1 style=width:315px>
- <div class=card-wrapper>
- <a target=_blank class="text-decoration-none fs-6" tabindex=-1>
- <div class="product-card card">
- <div class="product-img card-img">
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="359"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-contain" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-38)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="product-desc card-body d-flex flex-column align-items-center justify-content-between">
- <div class=product-title>
- <h3 class="text-dark text-center">Youthful Eyes Package</h3>
- </div>
- <div class=product-amount>
- <span>₹ 1,500</span>
- </div>
- </div>
- </div>
- </a>
- </div>
- </div><div class="slick-slide slick-cloned" data-slick-index=7 aria-hidden=true tabindex=-1 style=width:315px>
- <div class=card-wrapper>
- <a target=_blank class="text-decoration-none fs-6" tabindex=-1>
- <div class="product-card card">
- <div class="product-img card-img">
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-contain" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-39)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="product-desc card-body d-flex flex-column align-items-center justify-content-between">
- <div class=product-title>
- <h3 class="text-dark text-center">Lip Contour Care Package</h3>
- </div>
- <div class=product-amount>
- <span>₹ 3,000</span>
- </div>
- </div>
- </div>
- </a>
- </div>
- </div></div></div>
- 
- 
- 
- </div>
+ <div class="product-slider"><?php foreach ((isset($__pr)?$__pr:($products ?? [])) as $p): $pi=!empty($p["image"])?imgUrl($p["image"]):"/images/templates/salon/salon-009.webp"; ?><div class="px-2"><div class="product-card card"><div class="product-img card-img"><img src="<?= htmlspecialchars($pi) ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></div><div class="product-desc card-body d-flex flex-column align-items-center justify-content-between"><div class="product-title"><h3 class="text-dark text-center"><?= htmlspecialchars($p["name"] ?? "") ?></h3></div><?php if(isset($p["price"]) && $p["price"]!==""): ?><div class="product-amount"><span>₹ <?= htmlspecialchars($p["price"]) ?></span></div><?php endif; ?></div></div></div><?php endforeach; ?></div>
  <div class="mt-4 mx-auto d-flex justify-content-center">
  <a class="view-more-btn fs-6 text-decoration-underline fw-4 py-2 ps-3 pe-4 d-inline-flex justify-content-center align-items-center gap-2 position-relative z-2" href=https://tapifyworld.com/products/37/stylish-salon>View More Products
  <svg class="svg-inline--fa fa-arrow-right-long right-arrow-animation" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z"></path></svg></a>
@@ -665,110 +375,7 @@ if ($isVid && !empty($cvVal)) {
  </h2>
  </div>
  <div class=px-20>
- <div class="testimonial-slider slick-initialized slick-slider slick-dotted">
- <div class="slick-list draggable"><div class=slick-track style=opacity:1;width:3150px;transform:translate3d(-630px,0px,0px)><div class="slick-slide slick-cloned" data-slick-index=-1 aria-hidden=true tabindex=-1 style=width:630px>
- <div class="testimonial-card p-0">
- <div class="card-body text-center position-relative">
- <div class=quote-img>
- <img src="/images/templates/salon/salon-036.svg" class=h-100 loading=lazy>
- </div>
- <div class=text-center>
- <p class="text-gray mb-0">
- "Lovely atmosphere, professional team, and I always leave feeling refreshed."
- </p>
- </div>
- </div>
- <div class="d-flex flex-column align-items-center justify-content-center gap-2 profile-desc">
- <div class=card-img>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1167"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-44)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <h6 class="name mb-0 text-decoration-underline">Rahul Verma
- </h6>
- </div>
- </div>
- </div><div class="slick-slide slick-current slick-active" data-slick-index=0 aria-hidden=false tabindex=0 role=tabpanel id=slick-slide20 aria-describedby=slick-slide-control20 style=width:630px>
- <div class="testimonial-card p-0">
- <div class="card-body text-center position-relative">
- <div class=quote-img>
- <img src="/images/templates/salon/salon-036.svg" class=h-100 loading=lazy>
- </div>
- <div class=text-center>
- <p class="text-gray mb-0">
- "Amazing service! The staff is friendly and my hair has never looked better."
- </p>
- </div>
- </div>
- <div class="d-flex flex-column align-items-center justify-content-center gap-2 profile-desc">
- <div class=card-img>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="667" height="1000"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-45)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <h6 class="name mb-0 text-decoration-underline">Riya Mehta
- </h6>
- </div>
- </div>
- </div><div class=slick-slide data-slick-index=1 aria-hidden=true tabindex=-1 role=tabpanel id=slick-slide21 aria-describedby=slick-slide-control21 style=width:630px>
- <div class="testimonial-card p-0">
- <div class="card-body text-center position-relative">
- <div class=quote-img>
- <img src="/images/templates/salon/salon-036.svg" class=h-100 loading=lazy>
- </div>
- <div class=text-center>
- <p class="text-gray mb-0">
- "Lovely atmosphere, professional team, and I always leave feeling refreshed."
- </p>
- </div>
- </div>
- <div class="d-flex flex-column align-items-center justify-content-center gap-2 profile-desc">
- <div class=card-img>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1167"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-44)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <h6 class="name mb-0 text-decoration-underline">Rahul Verma
- </h6>
- </div>
- </div>
- </div><div class="slick-slide slick-cloned" data-slick-index=2 aria-hidden=true tabindex=-1 style=width:630px>
- <div class="testimonial-card p-0">
- <div class="card-body text-center position-relative">
- <div class=quote-img>
- <img src="/images/templates/salon/salon-036.svg" class=h-100 loading=lazy>
- </div>
- <div class=text-center>
- <p class="text-gray mb-0">
- "Amazing service! The staff is friendly and my hair has never looked better."
- </p>
- </div>
- </div>
- <div class="d-flex flex-column align-items-center justify-content-center gap-2 profile-desc">
- <div class=card-img>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="667" height="1000"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-45)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <h6 class="name mb-0 text-decoration-underline">Riya Mehta
- </h6>
- </div>
- </div>
- </div><div class="slick-slide slick-cloned" data-slick-index=3 aria-hidden=true tabindex=-1 style=width:630px>
- <div class="testimonial-card p-0">
- <div class="card-body text-center position-relative">
- <div class=quote-img>
- <img src="/images/templates/salon/salon-036.svg" class=h-100 loading=lazy>
- </div>
- <div class=text-center>
- <p class="text-gray mb-0">
- "Lovely atmosphere, professional team, and I always leave feeling refreshed."
- </p>
- </div>
- </div>
- <div class="d-flex flex-column align-items-center justify-content-center gap-2 profile-desc">
- <div class=card-img>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1167"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-44)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <h6 class="name mb-0 text-decoration-underline">Rahul Verma
- </h6>
- </div>
- </div>
- </div></div></div>
- 
- <ul class=slick-dots role=tablist><li class=slick-active role=presentation><button type=button role=tab id=slick-slide-control20 aria-controls=slick-slide20 aria-label="1 of 2" tabindex=0 aria-selected=true>1</button><li role=presentation><button type=button role=tab id=slick-slide-control21 aria-controls=slick-slide21 aria-label="2 of 2" tabindex=-1>2</button></ul></div>
+ <div class="testimonial-slider"><?php foreach ((isset($__te)?$__te:($testimonials ?? [])) as $t): ?><div class="px-2"><div class="testimonial-card p-0"><div class="card-body text-center position-relative"><div class="text-center"><p class="text-gray mb-0">“<?= htmlspecialchars($t["message"] ?? "") ?>”</p></div></div><div class="d-flex flex-column align-items-center justify-content-center gap-2 profile-desc"><?php if(!empty($t["image"])): ?><div class="card-img" style="width:60px;height:60px;border-radius:50%;overflow:hidden;"><img src="<?= htmlspecialchars(imgUrl($t["image"])) ?>" class="w-100 h-100 object-fit-cover"></div><?php endif; ?><h5 class="fw-6 mb-0"><?= htmlspecialchars($t["author_name"] ?? ($t["author"] ?? "")) ?></h5></div></div></div><?php endforeach; ?></div>
  </div>
  </div>
  
@@ -1164,5 +771,5 @@ if ($isVid && !empty($cvVal)) {
 </div><div class=razorpay-container style=z-index:2147483647;position:fixed;top:0px;display:none;left:0px;height:100%;width:100%;max-height:100dvh;backface-visibility:hidden;overflow-y:visible><style>@keyframes rzp-rot{to{transform:rotate(360deg)}}@-webkit-keyframes rzp-rot{to{-webkit-transform:rotate(360deg)}}</style></div><div class="flatpickr-calendar animate sf-hidden" tabindex=-1></div><div id=lightboxOverlay tabindex=-1 class=lightboxOverlay style=display:none></div><div id=lightbox tabindex=-1 class=lightbox style=display:none></div>"></iframe>
 <?php if (!empty($vcard["custom_js"])): ?><script><?= $vcard["custom_js"] ?></script><?php endif; ?>
 <?php include __DIR__ . "/_shared-scripts.php"; ?>
-</body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script><script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><script>$(function(){$(".product-slider").slick({slidesToShow:2,slidesToScroll:1,arrows:true,dots:true,autoplay:true,autoplaySpeed:3000,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});$(".gallery-slider").slick({slidesToShow:1,slidesToScroll:1,arrows:true,dots:true,autoplay:true,autoplaySpeed:3000,adaptiveHeight:true});$(".testimonial-slider").slick({slidesToShow:1,slidesToScroll:1,arrows:true,dots:true,autoplay:true,autoplaySpeed:4000,adaptiveHeight:true});});</script></body>
 </html>
