@@ -17,7 +17,8 @@ $platformIcons = ['linkedin-in'=>'fa-linkedin-in','linkedin'=>'fa-linkedin-in','
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?= htmlspecialchars($fullName) ?></title>
-<link rel="icon" href="<?= !empty($vcard['favicon_image']) ? imgUrl($vcard['favicon_image']) : '/images/tapify-logo-green.png' ?>">
+<link rel="icon" href="<?= !empty($vcard['favicon_image']) ? imgUrl($vcard['favicon_image']) : '/images/tapify-logo-green.png' ?>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Cormorant+Garamond:wght@400;500;600;700&family=Limelight&display=swap" rel="stylesheet">">
 <link rel=icon href="/images/templates/salon/salon-017.webp" type=image/png>
 <link rel=canonical href=https://tapifyworld.com/stylish-salon>
 <style>:root{--sf-img-32: url("/images/templates/salon/salon-000.webp");--sf-img-33: url("/images/templates/salon/salon-001.webp");--sf-img-34: url("/images/templates/salon/salon-002.webp");--sf-img-35: url("/images/templates/salon/salon-003.webp");--sf-img-36: url("/images/templates/salon/salon-004.webp");--sf-img-38: url("/images/templates/salon/salon-005.webp");--sf-img-39: url("/images/templates/salon/salon-006.webp");--sf-img-40: url("/images/templates/salon/salon-007.webp");--sf-img-41: url("/images/templates/salon/salon-008.webp");--sf-img-44: url("/images/templates/salon/salon-009.webp");--sf-img-45: url("/images/templates/salon/salon-010.webp");--sf-img-47: url("/images/templates/salon/salon-011.webp");--sf-img-48: url("/images/templates/salon/salon-012.webp");--sf-img-49: url("/images/templates/salon/salon-013.webp");--sf-img-50: url("/images/templates/salon/salon-014.webp")}</style>
