@@ -108,7 +108,7 @@ body>.position-fixed,body>.estate-bg-animation{max-width:100%!important;}
 .container{background:#ffffff!important;}.main-content{min-height:0!important;}.profile-section{overflow:hidden!important;}.profile-section .position-absolute img{max-width:100%!important;}</style>
 <style>@keyframes rzp-rot{to{transform:rotate(360deg)}}@-webkit-keyframes rzp-rot{to{-webkit-transform:rotate(360deg)}}</style>
 <?php if (!empty($vcard["custom_css"])): ?><style><?= $vcard["custom_css"] ?></style><?php endif; ?>
-<style id="tapify-stage2">.our-services-section,.services,.gallery-section,.product-section,.testimonial-section,.business-hour-section,.appointment-section,.contact-us-section{display:none!important;}/* style _features.php block to fit the salon card width */.tf-sec{max-width:560px;margin-left:auto;margin-right:auto;}</style>
+<style id="tapify-stage2">.our-services-section,.services,.gallery-section,.product-section,.testimonial-section,.contact-us-section{display:none!important;}/* style _features.php block to fit the salon card width */.tf-sec{max-width:560px;margin-left:auto;margin-right:auto;}</style>
 <style id="tapify-desktop-bg">@media(min-width:768px){#waveCanvas{max-width:100vw!important;width:100vw!important;height:100vh!important;left:0!important;top:0!important;background-size:cover!important;background-position:center top!important;background-repeat:no-repeat!important;}}@media(max-width:767px){#waveCanvas{display:none!important;}}</style>
 <style id="tapify-tune">/* subtle wave bg on beige (PNG is dark, show faint) */body{background-color:#e7ded4!important;}@media(min-width:768px){#waveCanvas{opacity:.10!important;background-size:auto 100%!important;background-position:center top!important;background-repeat:repeat-x!important;}}/* social icons in theme brown, not brand blue */.social-icons a,.social-icons a i,.social-icons i,.social-media .social-icons svg{color:#a4866d!important;fill:#a4866d!important;}</style>
 </head>
@@ -418,7 +418,7 @@ if ($isVid && !empty($cvVal)) {
  </div>
  </div>
  
- <?php include __DIR__ . "/_features.php"; ?>
+ <?php $__bh = $businessHours; $businessHours=[]; $vcard["show_appointments"]=0; ?><?php include __DIR__ . "/_features.php"; ?>
 <div class="qr-code-section position-relative pt-50">
  <div class="position-absolute vector-all vector-bg-4 text-end">
  <img src="/images/templates/salon/salon-032.webp" class=w-100 alt=images>
@@ -1117,11 +1117,7 @@ if ($isVid && !empty($cvVal)) {
  </h2>
  </div>
  <div class=px-30>
- <div class="row justify-content-center">
- <div class=col-sm-6>
- <div class="business-hour-card d-flex gap-2 align-items-center mb-3">
- <div class=time-icon>
- <svg xmlns=http://www.w3.org/2000/svg width=24 height=24 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock">
+ <div class="row justify-content-center"><?php foreach ((isset($__bh) ? $__bh : ($businessHours ?? [])) as $bh): ?><div class="col-sm-6"><div class="business-hour-card d-flex gap-2 align-items-center mb-3"><div class="time-icon"><svg xmlns=http://www.w3.org/2000/svg width=24 height=24 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock">
  <path stroke=none d="M0 0h24v24H0z" fill=none></path>
  <path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3">
  </path>
@@ -1130,134 +1126,14 @@ if ($isVid && !empty($cvVal)) {
  <path d="M4 11h10"></path>
  <path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
  <path d="M18 16.5v1.5l.5 .5"></path>
- </svg>
- </div>
- <div class="d-flex flex-column align-items-start">
- <span class="fs-14 text-gray lh-1 fw-5"> Monday</span>
- <span class="fs-16 fw-5">12:00 AM - 12:00 AM</span>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="business-hour-card d-flex gap-2 align-items-center mb-3">
- <div class=time-icon>
- <svg xmlns=http://www.w3.org/2000/svg width=24 height=24 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock">
- <path stroke=none d="M0 0h24v24H0z" fill=none></path>
- <path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3">
- </path>
- <path d="M16 3v4"></path>
- <path d="M8 3v4"></path>
- <path d="M4 11h10"></path>
- <path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
- <path d="M18 16.5v1.5l.5 .5"></path>
- </svg>
- </div>
- <div class="d-flex flex-column align-items-start">
- <span class="fs-14 text-gray lh-1 fw-5"> Tuesday</span>
- <span class="fs-16 fw-5">12:00 AM - 12:00 AM</span>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="business-hour-card d-flex gap-2 align-items-center mb-3">
- <div class=time-icon>
- <svg xmlns=http://www.w3.org/2000/svg width=24 height=24 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock">
- <path stroke=none d="M0 0h24v24H0z" fill=none></path>
- <path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3">
- </path>
- <path d="M16 3v4"></path>
- <path d="M8 3v4"></path>
- <path d="M4 11h10"></path>
- <path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
- <path d="M18 16.5v1.5l.5 .5"></path>
- </svg>
- </div>
- <div class="d-flex flex-column align-items-start">
- <span class="fs-14 text-gray lh-1 fw-5"> Wednesday</span>
- <span class="fs-16 fw-5">12:00 AM - 12:00 AM</span>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="business-hour-card d-flex gap-2 align-items-center mb-3">
- <div class=time-icon>
- <svg xmlns=http://www.w3.org/2000/svg width=24 height=24 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock">
- <path stroke=none d="M0 0h24v24H0z" fill=none></path>
- <path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3">
- </path>
- <path d="M16 3v4"></path>
- <path d="M8 3v4"></path>
- <path d="M4 11h10"></path>
- <path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
- <path d="M18 16.5v1.5l.5 .5"></path>
- </svg>
- </div>
- <div class="d-flex flex-column align-items-start">
- <span class="fs-14 text-gray lh-1 fw-5"> Thursday</span>
- <span class="fs-16 fw-5">12:00 AM - 12:00 AM</span>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="business-hour-card d-flex gap-2 align-items-center mb-3">
- <div class=time-icon>
- <svg xmlns=http://www.w3.org/2000/svg width=24 height=24 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock">
- <path stroke=none d="M0 0h24v24H0z" fill=none></path>
- <path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3">
- </path>
- <path d="M16 3v4"></path>
- <path d="M8 3v4"></path>
- <path d="M4 11h10"></path>
- <path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
- <path d="M18 16.5v1.5l.5 .5"></path>
- </svg>
- </div>
- <div class="d-flex flex-column align-items-start">
- <span class="fs-14 text-gray lh-1 fw-5"> Friday</span>
- <span class="fs-16 fw-5">12:00 AM - 12:00 AM</span>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="business-hour-card d-flex gap-2 align-items-center mb-3">
- <div class=time-icon>
- <svg xmlns=http://www.w3.org/2000/svg width=24 height=24 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock">
- <path stroke=none d="M0 0h24v24H0z" fill=none></path>
- <path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3">
- </path>
- <path d="M16 3v4"></path>
- <path d="M8 3v4"></path>
- <path d="M4 11h10"></path>
- <path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
- <path d="M18 16.5v1.5l.5 .5"></path>
- </svg>
- </div>
- <div class="d-flex flex-column align-items-start">
- <span class="fs-14 text-gray lh-1 fw-5"> Saturday</span>
- <span class="fs-16 fw-5">12:00 AM - 12:00 AM</span>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="business-hour-card d-flex gap-2 align-items-center mb-3">
- <div class=time-icon>
- <svg xmlns=http://www.w3.org/2000/svg width=24 height=24 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock">
- <path stroke=none d="M0 0h24v24H0z" fill=none></path>
- <path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3">
- </path>
- <path d="M16 3v4"></path>
- <path d="M8 3v4"></path>
- <path d="M4 11h10"></path>
- <path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
- <path d="M18 16.5v1.5l.5 .5"></path>
- </svg>
- </div>
- <div class="d-flex flex-column align-items-start">
- <span class="fs-14 text-gray lh-1 fw-5"> Sunday</span>
- <span class="fs-16 fw-5">12:00 AM - 12:00 AM</span>
- </div>
- </div>
- </div>
+ </svg></div><div class="d-flex flex-column align-items-start"><span class="fs-14 text-gray lh-1 fw-5"> <?= htmlspecialchars(ucfirst(strtolower($bh["day_name"] ?? ""))) ?></span><span class="fs-16 fw-5"><?= !empty($bh["is_open"]) ? htmlspecialchars(trim(($bh["open_time"] ?? "")." - ".($bh["close_time"] ?? ""))) : "Closed" ?></span></div></div></div><?php endforeach; ?>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  </div>
  </div>
  </div>
