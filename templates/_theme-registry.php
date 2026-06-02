@@ -18,22 +18,6 @@ return [
     'vcard10' => ['name' => 'Pro Network', 'layout' => 'floating', 'primary' => '#059669', 'secondary' => '#10b981', 'bg' => '#ecfdf5', 'surface' => '#ffffff', 'font' => 'poppins'],
     'vcard11' => ['name' => 'Portfolio', 'layout' => 'portfolio', 'primary' => '#18181b', 'secondary' => '#71717a', 'bg' => '#fafafa', 'surface' => '#ffffff', 'font' => 'oswald'],
     'vcard12' => ['name' => 'Gym', 'layout' => 'neon', 'primary' => '#dc2626', 'secondary' => '#f97316', 'bg' => '#0a0a0a', 'surface' => '#171717', 'font' => 'oswald', 'dark' => true],
-    'vcard13' => ['name' => 'Hospital', 'layout' => 'legacy', 'legacy' => 'doctor'],
-    'vcard14' => ['name' => 'Event Management', 'layout' => 'festive', 'primary' => '#be185d', 'secondary' => '#ec4899', 'bg' => '#fdf2f8', 'surface' => '#ffffff', 'font' => 'playfair'],
-    'vcard15' => ['name' => 'Salon', 'layout' => 'soft', 'primary' => '#db2777', 'secondary' => '#f472b6', 'bg' => '#fff1f2', 'surface' => '#ffffff', 'font' => 'lora'],
-    'vcard16' => ['name' => 'Lawyer', 'layout' => 'legacy', 'legacy' => 'lawyer'],
-    'vcard17' => ['name' => 'Programmer', 'layout' => 'tech', 'primary' => '#22c55e', 'secondary' => '#16a34a', 'bg' => '#0f172a', 'surface' => '#1e293b', 'font' => 'inter', 'dark' => true],
-    'vcard18' => ['name' => 'CEO/CXO', 'layout' => 'luxury', 'primary' => '#0f172a', 'secondary' => '#b8860b', 'bg' => '#ffffff', 'surface' => '#f8fafc', 'font' => 'cormorant'],
-    'vcard19' => ['name' => 'Fashion Beauty', 'layout' => 'elegant', 'primary' => '#9d174d', 'secondary' => '#f43f5e', 'bg' => '#fff1f2', 'surface' => '#ffffff', 'font' => 'playfair'],
-    'vcard20' => ['name' => 'Culinary Food Services', 'layout' => 'legacy', 'legacy' => 'restaurant'],
-    'vcard21' => ['name' => 'Social Media', 'layout' => 'social', 'primary' => '#e11d48', 'secondary' => '#f472b6', 'bg' => '#fff1f2', 'surface' => '#ffffff', 'font' => 'poppins'],
-    'vcard22' => ['name' => 'Dynamic vCard', 'layout' => 'dynamic', 'primary' => '#8338ec', 'secondary' => '#a855f7', 'bg' => '#ffffff', 'surface' => '#f5f3ff', 'font' => 'poppins'],
-    'vcard23' => ['name' => 'Consulting Services', 'layout' => 'consulting', 'primary' => '#1d4ed8', 'secondary' => '#3b82f6', 'bg' => '#eff6ff', 'surface' => '#ffffff', 'font' => 'montserrat'],
-    'vcard24' => ['name' => 'School Templates', 'layout' => 'education', 'primary' => '#ca8a04', 'secondary' => '#eab308', 'bg' => '#fefce8', 'surface' => '#ffffff', 'font' => 'nunito'],
-    'vcard25' => ['name' => 'Social Services', 'layout' => 'ngo', 'primary' => '#15803d', 'secondary' => '#22c55e', 'bg' => '#f0fdf4', 'surface' => '#ffffff', 'font' => 'open-sans'],
-    'vcard26' => ['name' => 'Retail E-commerce', 'layout' => 'retail', 'primary' => '#7c2d12', 'secondary' => '#ea580c', 'bg' => '#fff7ed', 'surface' => '#ffffff', 'font' => 'poppins'],
-    'vcard27' => ['name' => 'Pet Shop', 'layout' => 'playful', 'primary' => '#a16207', 'secondary' => '#f59e0b', 'bg' => '#fffbeb', 'surface' => '#ffffff', 'font' => 'nunito'],
-    'vcard28' => ['name' => 'Pet Clinic', 'layout' => 'clinic', 'primary' => '#0891b2', 'secondary' => '#06b6d4', 'bg' => '#ecfeff', 'surface' => '#ffffff', 'font' => 'poppins'],
     'vcard29' => ['name' => 'Marriage', 'layout' => 'wedding', 'primary' => '#9f1239', 'secondary' => '#fda4af', 'bg' => '#fff1f2', 'surface' => '#ffffff', 'font' => 'cormorant'],
     'vcard30' => ['name' => 'Taxi Service', 'layout' => 'transport', 'primary' => '#facc15', 'secondary' => '#1f2937', 'bg' => '#111827', 'surface' => '#1f2937', 'font' => 'montserrat', 'dark' => true],
     'vcard31' => ['name' => 'Handyman Services', 'layout' => 'industrial', 'primary' => '#b45309', 'secondary' => '#78350f', 'bg' => '#fef3c7', 'surface' => '#ffffff', 'font' => 'roboto'],
@@ -49,7 +33,7 @@ return [
     'vcard41' => ['name' => 'Social Vcard', 'layout' => 'social-grid', 'primary' => '#6366f1', 'secondary' => '#818cf8', 'bg' => '#eef2ff', 'surface' => '#ffffff', 'font' => 'poppins'],
     'vcard42' => ['name' => 'Social Vcard 2', 'layout' => 'social-stack', 'primary' => '#0ea5e9', 'secondary' => '#38bdf8', 'bg' => '#f0f9ff', 'surface' => '#ffffff', 'font' => 'poppins'],
 
-    // ===== NEW TEMPLATES (vcard01–vcard28) =====
+    // ===== PREMIUM STANDALONE TEMPLATES (vcard01–vcard28) =====
     'vcard01' => ['name' => 'Corporate Executive', 'layout' => 'luxury',      'primary' => '#c9a84c', 'secondary' => '#f0c96a', 'bg' => '#0a1628', 'surface' => '#0d1e38', 'font' => 'montserrat', 'dark' => true],
     'vcard02' => ['name' => 'Medical Doctor',       'layout' => 'clinic',      'primary' => '#0d9488', 'secondary' => '#14b8a6', 'bg' => '#f8fafc', 'surface' => '#ffffff', 'font' => 'inter'],
     'vcard03' => ['name' => 'Creative Designer',    'layout' => 'creative',    'primary' => '#7c3aed', 'secondary' => '#e879f9', 'bg' => '#0c0512', 'surface' => '#1a1025', 'font' => 'poppins', 'dark' => true],
@@ -78,4 +62,7 @@ return [
     'vcard26' => ['name' => 'NGO & Social',         'layout' => 'ngo',         'primary' => '#7c3aed', 'secondary' => '#a78bfa', 'bg' => '#f5f3ff', 'surface' => '#faf5ff', 'font' => 'poppins'],
     'vcard27' => ['name' => 'Coaching Institute',   'layout' => 'consulting',  'primary' => '#2563eb', 'secondary' => '#3b82f6', 'bg' => '#eff6ff', 'surface' => '#f0f9ff', 'font' => 'poppins'],
     'vcard28' => ['name' => 'Electrician & Contractor', 'layout' => 'industrial', 'primary' => '#d97706', 'secondary' => '#f59e0b', 'bg' => '#fffbeb', 'surface' => '#fffdf5', 'font' => 'roboto'],
+
+    // ===== PREMIUM EXACT-DESIGN TEMPLATES (from newTemps, hosted assets) =====
+    'vcard43' => ['name' => 'Stylish Salon', 'layout' => 'standalone', 'primary' => '#a4866d', 'secondary' => '#c9a96e', 'bg' => '#ffffff', 'surface' => '#ffffff', 'font' => 'cormorant'],
 ];

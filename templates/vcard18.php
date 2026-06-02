@@ -172,8 +172,8 @@ body{background:var(--bg);font-family:'Plus Jakarta Sans',sans-serif;color:var(-
       <?php endif; ?>
     </div>
     <div class="doc-name"><?= htmlspecialchars($fullName) ?></div>
-    <?php if (!empty($vcard['tagline'])): ?>
-    <div class="tagline">"<?= htmlspecialchars($vcard['tagline']) ?>"</div>
+    <?php if (!empty($vcard['occupation'])): ?>
+    <div class="tagline">"<?= htmlspecialchars($vcard['occupation']) ?>"</div>
     <?php endif; ?>
     <div class="doc-title"><?= htmlspecialchars($vcard['job_title'] ?? '') ?></div>
     <?php if (!empty($vcard['company']) || !empty($vcard['location'])): ?>
@@ -192,8 +192,8 @@ body{background:var(--bg);font-family:'Plus Jakarta Sans',sans-serif;color:var(-
     </div>
     <?php endif; ?>
   </div>
-  <?php if (!empty($vcard['bio'])): ?>
-  <div class="bio-wrap fade-in-section"><p><?= nl2br(htmlspecialchars($vcard['bio'])) ?></p></div>
+  <?php if (!empty($vcard['description'])): ?>
+  <div class="bio-wrap fade-in-section"><p><?= nl2br(htmlspecialchars($vcard['description'])) ?></p></div>
   <?php endif; ?>
   <div class="section fade-in-section">
     <div class="sec-head"><div class="sec-icon"><i class="fas fa-address-book"></i></div><span class="sec-title">Contact</span></div>

@@ -142,8 +142,8 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);}
         <?php endif; ?>
       </div>
     </div>
-    <?php if (!empty($vcard['tagline'])): ?>
-    <div class="tagline">"<?= htmlspecialchars($vcard['tagline']) ?>"</div>
+    <?php if (!empty($vcard['occupation'])): ?>
+    <div class="tagline">"<?= htmlspecialchars($vcard['occupation']) ?>"</div>
     <?php endif; ?>
     <div class="awards">
       <span class="aw">COA Registered</span>
@@ -161,8 +161,8 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);}
     <a href="<?= htmlspecialchars($vcard['website']) ?>" class="web" target="_blank" rel="noopener"><i class="fas fa-globe"></i> <?= htmlspecialchars(preg_replace('#^https?://#','',$vcard['website'])) ?></a>
     <?php endif; ?>
   </div>
-  <?php if (!empty($vcard['bio'])): ?>
-  <div class="bio fade-in-section"><p><?= nl2br(htmlspecialchars($vcard['bio'])) ?></p></div>
+  <?php if (!empty($vcard['description'])): ?>
+  <div class="bio fade-in-section"><p><?= nl2br(htmlspecialchars($vcard['description'])) ?></p></div>
   <?php endif; ?>
   <div class="sec fade-in-section">
     <div class="sec-h">Contact</div>

@@ -124,7 +124,8 @@ $templateId = !empty($vcard['template_id']) ? trim($vcard['template_id']) : 'vca
 // ?preview=vcard01 overrides template for preview without DB change (no view count bump)
 if (!empty($_GET['preview'])) {
     $previewId = trim($_GET['preview']);
-    if (preg_match('/^vcard(0[1-9]|[12][0-9]|28)$/', $previewId)) {
+    if (preg_match('/^vcard(0[1-9]|[12][0-9]|28)$/', $previewId) ||
+        preg_match('/^vcard([1-9]|[1-3][0-9]|4[0-3])$/', $previewId)) {
         $templateId = $previewId;
         // Undo the view count increment done above
         $pdo->prepare("UPDATE vcards SET view_count = view_count - 1 WHERE id = ?")->execute([$vcardId]);
@@ -133,7 +134,7 @@ if (!empty($_GET['preview'])) {
 
 // Normalize: allow vcard01–vcard28 (new) or vcard1–vcard42 (legacy); strip unsafe characters
 if (!preg_match('/^vcard(0[1-9]|[12][0-9]|28)$/', $templateId) &&
-    !preg_match('/^vcard([1-9]|[1-3][0-9]|4[0-2])$/', $templateId)) {
+    !preg_match('/^vcard([1-9]|[1-3][0-9]|4[0-3])$/', $templateId)) {
     $templateId = 'vcard01';
 }
 
