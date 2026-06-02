@@ -110,6 +110,7 @@ body>.position-fixed,body>.estate-bg-animation{max-width:100%!important;}
 <?php if (!empty($vcard["custom_css"])): ?><style><?= $vcard["custom_css"] ?></style><?php endif; ?>
 <style id="tapify-stage2">.our-services-section,.services,.gallery-section,.product-section,.testimonial-section,.business-hour-section,.appointment-section,.contact-us-section{display:none!important;}/* style _features.php block to fit the salon card width */.tf-sec{max-width:560px;margin-left:auto;margin-right:auto;}</style>
 <style id="tapify-desktop-bg">@media(min-width:768px){#waveCanvas{max-width:100vw!important;width:100vw!important;height:100vh!important;left:0!important;top:0!important;background-size:cover!important;background-position:center top!important;background-repeat:no-repeat!important;}}@media(max-width:767px){#waveCanvas{display:none!important;}}</style>
+<style id="tapify-tune">/* subtle wave bg on beige (PNG is dark, show faint) */body{background-color:#e7ded4!important;}@media(min-width:768px){#waveCanvas{opacity:.10!important;background-size:auto 100%!important;background-position:center top!important;background-repeat:repeat-x!important;}}/* social icons in theme brown, not brand blue */.social-icons a,.social-icons a i,.social-icons i,.social-media .social-icons svg{color:#a4866d!important;fill:#a4866d!important;}</style>
 </head>
 <body>
 
