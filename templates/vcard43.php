@@ -7,7 +7,7 @@ $cardUrl = 'https://tapify-backend-production.up.railway.app/'.($vcard['url_alia
 $waPhone = preg_replace('/\D/', '', $vcard['phone'] ?? '');
 $locationUrl = !empty($vcard['location_url']) ? $vcard['location_url'] : 'https://maps.google.com/?q='.urlencode($vcard['location'] ?? '');
 $profileImg = !empty($vcard['profile_image']) ? imgUrl($vcard['profile_image']) : 'https://ui-avatars.com/api/?name='.urlencode($fullName).'&size=200&background=a4866d&color=ffffff';
-$coverImg = !empty($vcard['cover_image']) ? imgUrl($vcard['cover_image']) : 'https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=800&q=80';
+$coverImg = !empty($vcard['cover_image']) ? imgUrl($vcard['cover_image']) : '/images/templates/salon/salon-009.webp';
 $qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=200x200&data='.urlencode($cardUrl);
 $platformIcons = ['linkedin-in'=>'fa-linkedin-in','linkedin'=>'fa-linkedin-in','instagram'=>'fa-instagram','x-twitter'=>'fa-x-twitter','twitter'=>'fa-x-twitter','facebook'=>'fa-facebook-f','facebook-f'=>'fa-facebook-f','whatsapp'=>'fa-whatsapp','youtube'=>'fa-youtube','spotify'=>'fa-spotify','github'=>'fa-github','tiktok'=>'fa-tiktok','pinterest'=>'fa-pinterest-p','behance'=>'fa-behance','dribbble'=>'fa-dribbble','telegram'=>'fa-telegram','globe'=>'fa-globe'];
 ?>
@@ -105,6 +105,7 @@ body>.position-fixed,body>.estate-bg-animation{max-width:100%!important;}
 .container{background:#ffffff!important;}.main-content{min-height:0!important;}.profile-section{overflow:hidden!important;}.profile-section .position-absolute img{max-width:100%!important;}</style>
 <style>@keyframes rzp-rot{to{transform:rotate(360deg)}}@-webkit-keyframes rzp-rot{to{-webkit-transform:rotate(360deg)}}</style>
 <?php if (!empty($vcard["custom_css"])): ?><style><?= $vcard["custom_css"] ?></style><?php endif; ?>
+<style id="tapify-stage2">.our-services-section,.services,.gallery-section,.product-section,.testimonial-section,.business-hour-section,.appointment-section,.contact-us-section{display:none!important;}/* style _features.php block to fit the salon card width */.tf-sec{max-width:560px;margin-left:auto;margin-right:auto;}</style>
 </head>
 <body>
 
@@ -396,7 +397,8 @@ body>.position-fixed,body>.estate-bg-animation{max-width:100%!important;}
  </div>
  </div>
  
- <div class="qr-code-section position-relative pt-50">
+ <?php include __DIR__ . "/_features.php"; ?>
+<div class="qr-code-section position-relative pt-50">
  <div class="position-absolute vector-all vector-bg-4 text-end">
  <img src="/images/templates/salon/salon-032.webp" class=w-100 alt=images>
  </div>
