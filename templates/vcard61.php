@@ -297,7 +297,473 @@ body{font-family:Poppins}
  <div class="gallery-slider"><?php foreach ((isset($__ga)?$__ga:($galleries ?? [])) as $g): foreach (($g["images"] ?? []) as $im): $gi=imgUrl($im["image_url"] ?? ($im["image"] ?? "")); ?><div class="px-2"><div class="gallery-img-wrapper"><div class="gallery-img" style="background-image:url('<?= htmlspecialchars($gi) ?>');background-size:cover;background-position:center;height:280px;border-radius:12px;"></div></div></div><?php endforeach; endforeach; ?></div>
  </div>
  
- <div class="our-services-section pt-50 position-relative"><div class="section-heading"><h2>Our Services</h2></div><div class="services"><div class="px-30"><div class="row"><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/socialservices/soc-019.webp"; ?><div class="col-sm-6 mb-sm-0 mb-40 p-3"><div class="card-wrapper h-100"><a href="javascript:void(0)" class="text-decoration-none"><div class="service-card card h-100"><div class="card-img mx-auto"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></div><div class="card-body text-center"><h3 class="card-title text-primary"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></a></div></div><?php endforeach; ?></div></div></div></div>
+ <div class="our-services-section pt-50">
+ <div class="bg-vector vector-4 position-absolute vector-12">
+ <img src=/images/templates/socialservices/soc-029.webp alt=profile-bg>
+ </div>
+ <div class="section-heading text-center">
+ <h2 class="text-center mb-0">Our Services</h2>
+ </div>
+ <div class=services>
+ <div class="position-absolute all-bg-img img-3">
+ <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="650" height="635"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-19)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </div>
+ <div class=px-20>
+ <div class=row>
+ <div class="col-sm-6 mb-sm-4 mb-4">
+ <div class="service-card h-100 position-relative">
+ <a href=javascript:void(0) class="text-decoration-none img pe-none" target>
+ <img src="/images/templates/socialservices/soc-030.jpg" class="card-img-top service-new-image" alt="Education Support" loading=lazy>
+ </a>
+ <div class=card-body>
+ <div class=dots-img>
+ <img src=/images/templates/socialservices/soc-031.svg class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ <a href=javascript:void(0) class=text-decoration-none target>
+ <h5 class="card-title title-text text-primary">
+ Education Support</h5>
+ </a>
+ <p class="card-text description-text">
+ Free tuition centers, school enrollment drives, and provision of books, uniforms, and supplies for children in slums and rural areas.</p>
+ </div>
+ </div>
+ </div>
+ <div class="col-sm-6 mb-sm-4 mb-4">
+ <div class="service-card h-100 position-relative">
+ <a href=javascript:void(0) class="text-decoration-none img pe-none" target>
+ <img src="/images/templates/socialservices/soc-032.jpg" class="card-img-top service-new-image" alt="Midday Meals &amp; Nutrition" loading=lazy>
+ </a>
+ <div class=card-body>
+ <div class=dots-img>
+ <img src=/images/templates/socialservices/soc-031.svg class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ <a href=javascript:void(0) class=text-decoration-none target>
+ <h5 class="card-title title-text text-primary">
+ Midday Meals &amp; Nutrition</h5>
+ </a>
+ <p class="card-text description-text">
+ Providing nutritious meals and health supplements to malnourished children.</p>
+ </div>
+ </div>
+ </div>
+ <div class="col-sm-6 mb-sm-4 mb-4">
+ <div class="service-card h-100 position-relative">
+ <a href=javascript:void(0) class="text-decoration-none img pe-none" target>
+ <img src="/images/templates/socialservices/soc-033.jpg" class="card-img-top service-new-image" alt="Healthcare Camps" loading=lazy>
+ </a>
+ <div class=card-body>
+ <div class=dots-img>
+ <img src=/images/templates/socialservices/soc-031.svg class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ <a href=javascript:void(0) class=text-decoration-none target>
+ <h5 class="card-title title-text text-primary">
+ Healthcare Camps</h5>
+ </a>
+ <p class="card-text description-text">
+ Regular medical checkups, vaccinations, and emergency health services.</p>
+ </div>
+ </div>
+ </div>
+ <div class="col-sm-6 mb-sm-4 mb-4">
+ <div class="service-card h-100 position-relative">
+ <a href=javascript:void(0) class="text-decoration-none img pe-none" target>
+ <img src=/images/templates/socialservices/soc-034.jpg class="card-img-top service-new-image" alt="Child Sponsorship Programs" loading=lazy>
+ </a>
+ <div class=card-body>
+ <div class=dots-img>
+ <img src=/images/templates/socialservices/soc-031.svg class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ <a href=javascript:void(0) class=text-decoration-none target>
+ <h5 class="card-title title-text text-primary">
+ Child Sponsorship Programs</h5>
+ </a>
+ <p class="card-text description-text">
+ Pairing donors with individual children to support education and livelihood.</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ 
+ <div class="product-section pt-50 px-20">
+ <div class="bg-vector vector-5 position-absolute text-end">
+ <img src="/images/templates/socialservices/soc-035.webp" alt=profile-bg>
+ </div>
+ <div class="section-heading text-center">
+ <h2 class=mb-0>Products</h2>
+ </div>
+ <div class="product-slider"><?php foreach ((isset($__pr)?$__pr:($products ?? [])) as $p): $pi=!empty($p["image"])?imgUrl($p["image"]):"/images/templates/socialservices/soc-019.webp"; ?><div class="px-2"><div class="product-card card"><div class="product-img card-img"><img src="<?= htmlspecialchars($pi) ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></div><div class="product-desc card-body d-flex flex-column align-items-center justify-content-between"><div class="product-title"><h3 class="text-dark text-center"><?= htmlspecialchars($p["name"] ?? "") ?></h3></div><?php if(isset($p["price"]) && $p["price"]!==""): ?><div class="product-amount"><span>₹ <?= htmlspecialchars($p["price"]) ?></span></div><?php endif; ?></div></div></div><?php endforeach; ?></div>
+ <div class=text-center>
+ <div class="mt-4 text-center view-more d-inline-flex gap-2 align-items-center btn-primary position-relative cursor-pointer">
+ <a class="fs-6 text" href=https://tapifyworld.com/products/27/social-services-template>View More Products</a>
+ <svg class="svg-inline--fa fa-arrow-right right-arrow-animation" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 448 512" data-fa-i2svg><path fill=currentColor d="M438.6 278.6l-160 160C272.4 444.9 264.2 448 256 448s-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L338.8 288H32C14.33 288 .0016 273.7 .0016 256S14.33 224 32 224h306.8l-105.4-105.4c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160C451.1 245.9 451.1 266.1 438.6 278.6z"></path></svg>
+ </div>
+ </div>
+ </div>
+ 
+ <div class="appointment-section pt-50 px-30 position-relative">
+ <div class="position-absolute all-bg-img img-4">
+ <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="650" height="635"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-19)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </div>
+ <div class="bg-vector vector-6 top-0 position-absolute start-0">
+ <img src="/images/templates/socialservices/soc-037.webp" alt=profile-bg>
+ </div>
+ <div class="section-heading text-center">
+ <h2 class=mb-0>Make an Appointment</h2>
+ </div>
+ <div class=appointment>
+ <div class="position-relative p-3">
+ <input class="date appoint-input form-control appointment-input text-start flatpickr-input" placeholder="Pick a Date" id=pickUpDate name=date type=text readonly value>
+ <span class=calendar-icon>
+ <svg width=18 height=18 viewBox="0 0 18 18" fill=none xmlns=http://www.w3.org/2000/svg>
+ <g clip-path=url(#clip0_102_145)>
+ <path d="M14.25 1.5H13.5V0.75C13.5 0.551088 13.421 0.360322 13.2803 0.21967C13.1397 0.0790176 12.9489 0 12.75 0C12.5511 0 12.3603 0.0790176 12.2197 0.21967C12.079 0.360322 12 0.551088 12 0.75V1.5H6V0.75C6 0.551088 5.92098 0.360322 5.78033 0.21967C5.63968 0.0790176 5.44891 0 5.25 0C5.05109 0 4.86032 0.0790176 4.71967 0.21967C4.57902 0.360322 4.5 0.551088 4.5 0.75V1.5H3.75C2.7558 1.50119 1.80267 1.89666 1.09966 2.59966C0.396661 3.30267 0.00119089 4.2558 0 5.25L0 14.25C0.00119089 15.2442 0.396661 16.1973 1.09966 16.9003C1.80267 17.6033 2.7558 17.9988 3.75 18H14.25C15.2442 17.9988 16.1973 17.6033 16.9003 16.9003C17.6033 16.1973 17.9988 15.2442 18 14.25V5.25C17.9988 4.2558 17.6033 3.30267 16.9003 2.59966C16.1973 1.89666 15.2442 1.50119 14.25 1.5ZM1.5 5.25C1.5 4.65326 1.73705 4.08097 2.15901 3.65901C2.58097 3.23705 3.15326 3 3.75 3H14.25C14.8467 3 15.419 3.23705 15.841 3.65901C16.2629 4.08097 16.5 4.65326 16.5 5.25V6H1.5V5.25ZM14.25 16.5H3.75C3.15326 16.5 2.58097 16.2629 2.15901 15.841C1.73705 15.419 1.5 14.8467 1.5 14.25V7.5H16.5V14.25C16.5 14.8467 16.2629 15.419 15.841 15.841C15.419 16.2629 14.8467 16.5 14.25 16.5Z" fill=#00715d></path>
+ <path d="M9 12.375C9.62132 12.375 10.125 11.8713 10.125 11.25C10.125 10.6287 9.62132 10.125 9 10.125C8.37868 10.125 7.875 10.6287 7.875 11.25C7.875 11.8713 8.37868 12.375 9 12.375Z" fill=#00715d></path>
+ <path d="M5.25 12.375C5.87132 12.375 6.375 11.8713 6.375 11.25C6.375 10.6287 5.87132 10.125 5.25 10.125C4.62868 10.125 4.125 10.6287 4.125 11.25C4.125 11.8713 4.62868 12.375 5.25 12.375Z" fill=#00715d></path>
+ <path d="M12.75 12.375C13.3713 12.375 13.875 11.8713 13.875 11.25C13.875 10.6287 13.3713 10.125 12.75 10.125C12.1287 10.125 11.625 10.6287 11.625 11.25C11.625 11.8713 12.1287 12.375 12.75 12.375Z" fill=#00715d></path>
+ </g>
+ <defs>
+ <clippath id=clip0_102_145>
+ <rect width=18 height=18 fill=white>
+ </rect>
+ </clippath>
+ </defs>
+ </svg>
+ </span>
+ </div>
+ <div>
+ <div class="px-3 position-relative">
+ <div id=slotData class=row>
+ </div>
+ <div class="appointment-btn text-center w-100 position-relative">
+ <div class=dots-img>
+ <img src=/images/templates/socialservices/soc-031.svg class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ <button class="appointmentAdd btn btn-primary w-100 d-none sf-hidden">
+ Make an Appointment
+ </button>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div class="modal fade appointment-modal sf-hidden" id=AppointmentModal tabindex=-1 aria-hidden=true>
+ 
+</div>
+ 
+ <div class="testimonial-section pt-50 px-20">
+ <div class="bg-vector vector-7 position-absolute text-end">
+ <img src="/images/templates/socialservices/soc-038.webp" alt=profile-bg>
+ </div>
+ <div class="section-heading text-center">
+ <h2 class=mb-0>Testimonials</h2>
+ </div>
+ <div class="testimonial-slider"><?php foreach ((isset($__te)?$__te:($testimonials ?? [])) as $t): ?><div class="px-2"><div class="testimonial-card p-0"><div class="card-body text-center position-relative"><div class="text-center"><p class="text-gray mb-0">“<?= htmlspecialchars($t["message"] ?? "") ?>”</p></div></div><div class="d-flex flex-column align-items-center justify-content-center gap-2 profile-desc"><?php if(!empty($t["image"])): ?><div class="card-img" style="width:60px;height:60px;border-radius:50%;overflow:hidden;"><img src="<?= htmlspecialchars(imgUrl($t["image"])) ?>" class="w-100 h-100 object-fit-cover"></div><?php endif; ?><h5 class="fw-6 mb-0"><?= htmlspecialchars($t["author_name"] ?? ($t["author"] ?? "")) ?></h5></div></div></div><?php endforeach; ?></div>
+ </div>
+ 
+ 
+ <div class="blog-section pt-50 px-20">
+ <div class="bg-vector vector-8 position-absolute end-0 top-0">
+ <img src=/images/templates/socialservices/soc-041.webp alt=profile-bg>
+ </div>
+ <div class="section-heading text-center">
+ <h2 class=mb-0>Blog</h2>
+ </div>
+ <div class="blog-slider slick-initialized slick-slider slick-dotted"><div class="slick-list draggable"><div class=slick-track style=opacity:1;width:4410px;transform:translate3d(-630px,0px,0px)><div class="slick-slide slick-cloned" data-slick-index=-1 aria-hidden=true tabindex=-1 style=width:630px><div><div class="blog-content bg-none" style=width:100%;display:inline-block>
+ <div class=blog-img>
+ <a href=https://tapifyworld.com/social-services-template/blog/39 tabindex=-1>
+ <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="740" height="423"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-52)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </a>
+ </div>
+ <div class="content position-relative">
+ <div class=dots-img>
+ <img src=/images/templates/socialservices/soc-042.svg class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ <h3 class=text-primary>Why Education is the Strongest Tool Against Child Poverty</h3>
+ <p class=mb-0>
+ A thought piece on the importance of accessible education for every child.
+ </p>
+ <div class="d-flex align-items-center justify-content-end read-more">
+ <a href=https://tapifyworld.com/social-services-template/blog/39 class="d-inline-flex align-items-center justify-content-end gap-2 mt-3" tabindex=-1>
+ Read More
+ <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
+ <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
+ </path>
+ </svg>
+ </a>
+ </div>
+ </div>
+ </div></div></div><div class="slick-slide slick-current slick-active" data-slick-index=0 aria-hidden=false role=tabpanel id=slick-slide30 style=width:630px><div><div class="blog-content bg-none" style=width:100%;display:inline-block>
+ <div class=blog-img>
+ <a href=https://tapifyworld.com/social-services-template/blog/37 tabindex=0>
+ <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="740" height="415"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-54)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </a>
+ </div>
+ <div class="content position-relative">
+ <div class=dots-img>
+ <img src=/images/templates/socialservices/soc-042.svg class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ <h3 class=text-primary>Behind the Scenes: A Day in Our NGO</h3>
+ <p class=mb-0>
+ Give readers a glimpse of your team, operations, and daily efforts. 
+ </p>
+ <div class="d-flex align-items-center justify-content-end read-more">
+ <a href=https://tapifyworld.com/social-services-template/blog/37 class="d-inline-flex align-items-center justify-content-end gap-2 mt-3" tabindex=0>
+ Read More
+ <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
+ <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
+ </path>
+ </svg>
+ </a>
+ </div>
+ </div>
+ </div></div></div><div class=slick-slide data-slick-index=1 aria-hidden=true tabindex=-1 role=tabpanel id=slick-slide31 style=width:630px><div><div class="blog-content bg-none" style=width:100%;display:inline-block>
+ <div class=blog-img>
+ <a href=https://tapifyworld.com/social-services-template/blog/38 tabindex=-1>
+ <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="740" height="415"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-55)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </a>
+ </div>
+ <div class="content position-relative">
+ <div class=dots-img>
+ <img src=/images/templates/socialservices/soc-042.svg class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ <h3 class=text-primary>Behind the Scenes: A Day with Our Field Team</h3>
+ <p class=mb-0>
+ Share real-life impact stories of children helped through your programs.
+ </p>
+ <div class="d-flex align-items-center justify-content-end read-more">
+ <a href=https://tapifyworld.com/social-services-template/blog/38 class="d-inline-flex align-items-center justify-content-end gap-2 mt-3" tabindex=-1>
+ Read More
+ <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
+ <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
+ </path>
+ </svg>
+ </a>
+ </div>
+ </div>
+ </div></div></div><div class=slick-slide data-slick-index=2 aria-hidden=true tabindex=-1 role=tabpanel id=slick-slide32 style=width:630px><div><div class="blog-content bg-none" style=width:100%;display:inline-block>
+ <div class=blog-img>
+ <a href=https://tapifyworld.com/social-services-template/blog/39 tabindex=-1>
+ <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="740" height="423"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-52)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </a>
+ </div>
+ <div class="content position-relative">
+ <div class=dots-img>
+ <img src=/images/templates/socialservices/soc-042.svg class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ <h3 class=text-primary>Why Education is the Strongest Tool Against Child Poverty</h3>
+ <p class=mb-0>
+ A thought piece on the importance of accessible education for every child.
+ </p>
+ <div class="d-flex align-items-center justify-content-end read-more">
+ <a href=https://tapifyworld.com/social-services-template/blog/39 class="d-inline-flex align-items-center justify-content-end gap-2 mt-3" tabindex=-1>
+ Read More
+ <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
+ <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
+ </path>
+ </svg>
+ </a>
+ </div>
+ </div>
+ </div></div></div><div class="slick-slide slick-cloned" data-slick-index=3 aria-hidden=true tabindex=-1 style=width:630px><div><div class="blog-content bg-none" style=width:100%;display:inline-block>
+ <div class=blog-img>
+ <a href=https://tapifyworld.com/social-services-template/blog/37 tabindex=-1>
+ <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="740" height="415"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-54)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </a>
+ </div>
+ <div class="content position-relative">
+ <div class=dots-img>
+ <img src=/images/templates/socialservices/soc-042.svg class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ <h3 class=text-primary>Behind the Scenes: A Day in Our NGO</h3>
+ <p class=mb-0>
+ Give readers a glimpse of your team, operations, and daily efforts. 
+ </p>
+ <div class="d-flex align-items-center justify-content-end read-more">
+ <a href=https://tapifyworld.com/social-services-template/blog/37 class="d-inline-flex align-items-center justify-content-end gap-2 mt-3" tabindex=-1>
+ Read More
+ <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
+ <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
+ </path>
+ </svg>
+ </a>
+ </div>
+ </div>
+ </div></div></div><div class="slick-slide slick-cloned" data-slick-index=4 aria-hidden=true tabindex=-1 style=width:630px><div><div class="blog-content bg-none" style=width:100%;display:inline-block>
+ <div class=blog-img>
+ <a href=https://tapifyworld.com/social-services-template/blog/38 tabindex=-1>
+ <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="740" height="415"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-55)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </a>
+ </div>
+ <div class="content position-relative">
+ <div class=dots-img>
+ <img src=/images/templates/socialservices/soc-042.svg class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ <h3 class=text-primary>Behind the Scenes: A Day with Our Field Team</h3>
+ <p class=mb-0>
+ Share real-life impact stories of children helped through your programs.
+ </p>
+ <div class="d-flex align-items-center justify-content-end read-more">
+ <a href=https://tapifyworld.com/social-services-template/blog/38 class="d-inline-flex align-items-center justify-content-end gap-2 mt-3" tabindex=-1>
+ Read More
+ <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
+ <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
+ </path>
+ </svg>
+ </a>
+ </div>
+ </div>
+ </div></div></div><div class="slick-slide slick-cloned" data-slick-index=5 aria-hidden=true tabindex=-1 style=width:630px><div><div class="blog-content bg-none" style=width:100%;display:inline-block>
+ <div class=blog-img>
+ <a href=https://tapifyworld.com/social-services-template/blog/39 tabindex=-1>
+ <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="740" height="423"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-52)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </a>
+ </div>
+ <div class="content position-relative">
+ <div class=dots-img>
+ <img src=/images/templates/socialservices/soc-042.svg class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ <h3 class=text-primary>Why Education is the Strongest Tool Against Child Poverty</h3>
+ <p class=mb-0>
+ A thought piece on the importance of accessible education for every child.
+ </p>
+ <div class="d-flex align-items-center justify-content-end read-more">
+ <a href=https://tapifyworld.com/social-services-template/blog/39 class="d-inline-flex align-items-center justify-content-end gap-2 mt-3" tabindex=-1>
+ Read More
+ <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
+ <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
+ </path>
+ </svg>
+ </a>
+ </div>
+ </div>
+ </div></div></div></div></div><ul class=slick-dots role=tablist><li class=slick-active role=presentation><button type=button role=tab id=slick-slide-control30 aria-controls=slick-slide30 aria-label="1 of 3" tabindex=0 aria-selected=true>1</button><li role=presentation><button type=button role=tab id=slick-slide-control31 aria-controls=slick-slide31 aria-label="2 of 3" tabindex=-1>2</button><li role=presentation><button type=button role=tab id=slick-slide-control32 aria-controls=slick-slide32 aria-label="3 of 3" tabindex=-1>3</button></ul></div>
+ </div>
+ 
+ <div class="qr-code-section pt-50 px-30">
+ <div class="position-absolute top-0 end-0 all-bg-img img-5">
+ <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="650" height="635"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-19)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </div>
+ <div class="bg-vector vector-10 position-absolute">
+ <img src="/images/templates/socialservices/soc-043.webp" alt=profile-bg>
+ </div>
+ <div class="section-heading mb-40 text-center">
+ <h2 class=mb-0>QR Code</h2>
+ </div>
+ <div class="qr-code mx-auto position-relative overflow-hidden">
+ <div class="d-flex flex-sm-row flex-column gap-3 align-items-center">
+ <div class=qr-code-bg>
+ <div class="qr-code-img text-center" id=qr-code-thirteen>
+ 
+<svg xmlns=http://www.w3.org/2000/svg version=1.1 width=130 height=130 viewBox="0 0 130 130"><rect x=0 y=0 width=130 height=130 fill=#ffffff></rect><g transform=scale(4.483)><g transform=translate(0,0)><path fill-rule=evenodd d="M10 0L10 2L11 2L11 0ZM12 0L12 1L13 1L13 2L12 2L12 4L15 4L15 3L16 3L16 2L17 2L17 1L20 1L20 2L19 2L19 3L17 3L17 4L16 4L16 5L14 5L14 8L12 8L12 7L13 7L13 5L11 5L11 6L10 6L10 4L11 4L11 3L8 3L8 4L9 4L9 5L8 5L8 7L9 7L9 8L6 8L6 9L5 9L5 8L0 8L0 9L2 9L2 10L1 10L1 11L0 11L0 13L1 13L1 14L0 14L0 21L1 21L1 18L2 18L2 19L3 19L3 20L2 20L2 21L3 21L3 20L6 20L6 21L7 21L7 20L6 20L6 19L7 19L7 18L6 18L6 17L7 17L7 16L11 16L11 14L12 14L12 15L13 15L13 14L14 14L14 16L13 16L13 17L14 17L14 19L19 19L19 18L21 18L21 17L18 17L18 16L17 16L17 15L18 15L18 14L20 14L20 12L23 12L23 11L25 11L25 13L22 13L22 14L21 14L21 15L20 15L20 16L21 16L21 15L23 15L23 14L24 14L24 16L23 16L23 17L22 17L22 18L23 18L23 19L22 19L22 20L21 20L21 19L20 19L20 20L19 20L19 21L18 21L18 20L13 20L13 19L12 19L12 21L11 21L11 19L9 19L9 18L12 18L12 17L9 17L9 18L8 18L8 19L9 19L9 20L8 20L8 23L9 23L9 24L8 24L8 29L10 29L10 27L11 27L11 26L12 26L12 28L13 28L13 29L15 29L15 28L17 28L17 29L18 29L18 28L17 28L17 27L16 27L16 26L14 26L14 25L15 25L15 24L17 24L17 25L18 25L18 27L19 27L19 29L20 29L20 28L21 28L21 27L22 27L22 29L27 29L27 28L28 28L28 26L29 26L29 25L28 25L28 23L27 23L27 22L29 22L29 20L28 20L28 19L27 19L27 16L28 16L28 15L27 15L27 14L25 14L25 13L27 13L27 12L28 12L28 11L27 11L27 12L26 12L26 11L25 11L25 9L26 9L26 8L25 8L25 9L24 9L24 8L23 8L23 9L22 9L22 8L21 8L21 9L19 9L19 10L17 10L17 9L18 9L18 8L17 8L17 6L18 6L18 7L19 7L19 8L20 8L20 7L21 7L21 4L20 4L20 3L21 3L21 0L16 0L16 1L15 1L15 2L14 2L14 1L13 1L13 0ZM8 1L8 2L9 2L9 1ZM13 2L13 3L14 3L14 2ZM16 5L16 6L15 6L15 8L16 8L16 6L17 6L17 5ZM18 5L18 6L19 6L19 7L20 7L20 5ZM9 6L9 7L10 7L10 6ZM11 6L11 7L12 7L12 6ZM10 8L10 9L9 9L9 10L8 10L8 9L6 9L6 10L8 10L8 11L9 11L9 12L7 12L7 11L5 11L5 10L4 10L4 9L3 9L3 11L1 11L1 12L3 12L3 13L4 13L4 12L7 12L7 13L5 13L5 14L3 14L3 15L4 15L4 16L2 16L2 18L3 18L3 19L4 19L4 18L5 18L5 17L6 17L6 16L7 16L7 15L8 15L8 13L9 13L9 15L10 15L10 14L11 14L11 13L12 13L12 14L13 14L13 13L12 13L12 12L14 12L14 14L16 14L16 13L15 13L15 12L18 12L18 13L19 13L19 11L23 11L23 10L19 10L19 11L17 11L17 10L16 10L16 9L15 9L15 10L14 10L14 9L13 9L13 10L12 10L12 9L11 9L11 8ZM27 8L27 9L28 9L28 10L29 10L29 9L28 9L28 8ZM10 9L10 11L11 11L11 9ZM13 10L13 11L14 11L14 12L15 12L15 11L16 11L16 10L15 10L15 11L14 11L14 10ZM3 11L3 12L4 12L4 11ZM9 12L9 13L11 13L11 12ZM28 13L28 14L29 14L29 13ZM5 14L5 16L6 16L6 15L7 15L7 14ZM25 15L25 16L24 16L24 17L25 17L25 21L26 21L26 20L27 20L27 19L26 19L26 17L25 17L25 16L27 16L27 15ZM16 16L16 17L15 17L15 18L16 18L16 17L17 17L17 18L18 18L18 17L17 17L17 16ZM28 17L28 18L29 18L29 17ZM23 19L23 20L24 20L24 19ZM9 20L9 23L11 23L11 24L10 24L10 25L9 25L9 27L10 27L10 25L11 25L11 24L14 24L14 22L16 22L16 21L12 21L12 22L10 22L10 20ZM19 21L19 22L20 22L20 21ZM21 21L21 24L24 24L24 21ZM12 22L12 23L13 23L13 22ZM17 22L17 24L18 24L18 25L19 25L19 27L21 27L21 26L25 26L25 25L26 25L26 24L27 24L27 23L25 23L25 25L21 25L21 26L20 26L20 24L19 24L19 23L18 23L18 22ZM22 22L22 23L23 23L23 22ZM12 25L12 26L13 26L13 28L14 28L14 26L13 26L13 25ZM27 25L27 26L28 26L28 25ZM23 27L23 28L24 28L24 27ZM26 27L26 28L27 28L27 27ZM0 0L0 7L7 7L7 0ZM1 1L1 6L6 6L6 1ZM2 2L2 5L5 5L5 2ZM22 0L22 7L29 7L29 0ZM23 1L23 6L28 6L28 1ZM24 2L24 5L27 5L27 2ZM0 22L0 29L7 29L7 22ZM1 23L1 28L6 28L6 23ZM2 24L2 27L5 27L5 24Z" fill=#000000></path></g></g></svg>
+ </div>
+ </div>
+ <div class="text-sm-start text-center">
+ <h5 class=fw-6>Scan to Contact</h5>
+ <p class="fs-14 text-gray mb-0">Point your phone’s camera at the QR code to quickly add our contact information. You can also use the "Add to Contacts" button below for fast saving.</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ 
+ <?php if(!empty($businessHours)): ?><div class="business-hour-section pt-50 px-30 position-relative"><div class="section-heading"><h2>Business Hours</h2></div><div class="px-30"><div class="row justify-content-center"><?php foreach ((isset($__bh)?$__bh:($businessHours ?? [])) as $bh): ?><div class="col-sm-6"><div class="business-hour-card d-flex gap-2 align-items-center mb-3"><div class="time-icon"><i class="bi bi-clock fs-3"></i></div><div class="d-flex flex-column align-items-start"><span class="fs-14 text-gray lh-1 fw-5"><?= htmlspecialchars(ucfirst(strtolower($bh["day_name"] ?? ""))) ?></span><span class="fs-16 fw-5"><?= !empty($bh["is_open"]) ? htmlspecialchars(trim(($bh["open_time"] ?? "")." - ".($bh["close_time"] ?? ""))) : "Closed" ?></span></div></div></div><?php endforeach; ?></div></div></div><?php endif; ?>
+ 
+ 
+ <div class="contact-us-section pt-30 px-30 position-relative">
+ <div class="bg-vector position-absolute top-0 vector-13">
+ <img src=/images/templates/socialservices/soc-045.webp alt=profile-bg>
+ </div>
+ <div class="section-heading text-center">
+ <h2 class=mb-0>Inquiries</h2>
+ </div>
+ <div class=contact-form>
+ <div class=dot-img>
+ <img src=/images/templates/socialservices/soc-042.svg alt=imgaes class=w-100>
+ </div>
+ <form id="enquiryForm" onsubmit="submitInquiry(event)" enctype="multipart/form-data"><input type="hidden" name="vcard_id" value="<?= $vcardId ?>">
+ <div class=row>
+ <div id=enquiryError class="alert alert-danger d-none sf-hidden"></div>
+ <div class=col-12>
+ <div class=mb-3>
+ <input type=text class=form-control name=name placeholder="Your Name" value>
+ </div>
+ </div>
+ <div class=col-12>
+ <div class=mb-3>
+ <input type=email class=form-control name=email placeholder="Email Address" style="background-image:url(/images/templates/socialservices/soc-046.png)!important;background-repeat:no-repeat;background-size:20px;background-position:97%center;cursor:auto" data-temp-mail-org=1 value>
+ </div>
+ </div>
+ <div class=col-12>
+ <div class=mb-3>
+ <input type=tel class=form-control name=phone placeholder="Enter Phone Number." value>
+ </div>
+ </div>
+ <div class=col-12>
+ <div class=mb-3>
+ <textarea class="form-control h-100" name=message placeholder="Type a message here..." rows=4></textarea>
+ </div>
+ </div>
+ <div class=mb-3>
+ 
+ <div class=wrapper-file-input>
+ <div class=input-box id=fileInputTrigger>
+ <h4> <svg class="svg-inline--fa fa-upload me-2" aria-hidden=true focusable=false data-prefix=fas data-icon=upload role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M105.4 182.6c12.5 12.49 32.76 12.5 45.25 .001L224 109.3V352c0 17.67 14.33 32 32 32c17.67 0 32-14.33 32-32V109.3l73.38 73.38c12.49 12.49 32.75 12.49 45.25-.001c12.49-12.49 12.49-32.75 0-45.25l-128-128C272.4 3.125 264.2 0 256 0S239.6 3.125 233.4 9.375L105.4 137.4C92.88 149.9 92.88 170.1 105.4 182.6zM480 352h-160c0 35.35-28.65 64-64 64s-64-28.65-64-64H32c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h448c17.67 0 32-14.33 32-32v-96C512 366.3 497.7 352 480 352zM432 456c-13.2 0-24-10.8-24-24c0-13.2 10.8-24 24-24s24 10.8 24 24C456 445.2 445.2 456 432 456z"></path></svg>Choose File to upload
+ </h4> <input type=file id=attachment name=attachment hidden multiple value class=sf-hidden>
+ </div> <small>Files Supported: JPG, PNG, JPEG</small>
+ </div>
+ <div class=wrapper-file-section>
+ <div class=selected-files id=selectedFilesSection style=display:none>
+ 
+ 
+ </div>
+ </div>
+ </div>
+ <div class="col-12 text-center mt-3">
+ <button class="send-btn btn btn-primary rounded-2 w-100 contact-btn" type=submit>
+ Send Message
+ </button>
+ </div>
+ </div>
+ </form>
+ </div>
+ </div>
+ 
+ 
+ 
+ 
+ <div class=add-to-contact-section>
+ <div class="text-center d-flex align-items-center justify-content-center">
+ <a href=https://tapifyworld.com/add-contact/27 class="add-contact-btn position-relative rounded-2 gap-2 d-flex justify-content-center align-items-center"><svg class="svg-inline--fa fa-address-book" aria-hidden=true focusable=false data-prefix=fas data-icon=address-book role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M384 0H96C60.65 0 32 28.65 32 64v384c0 35.35 28.65 64 64 64h288c35.35 0 64-28.65 64-64V64C448 28.65 419.3 0 384 0zM240 128c35.35 0 64 28.65 64 64s-28.65 64-64 64c-35.34 0-64-28.65-64-64S204.7 128 240 128zM336 384h-192C135.2 384 128 376.8 128 368C128 323.8 163.8 288 208 288h64c44.18 0 80 35.82 80 80C352 376.8 344.8 384 336 384zM496 64H480v96h16C504.8 160 512 152.8 512 144v-64C512 71.16 504.8 64 496 64zM496 192H480v96h16C504.8 288 512 280.8 512 272v-64C512 199.2 504.8 192 496 192zM496 320H480v96h16c8.836 0 16-7.164 16-16v-64C512 327.2 504.8 320 496 320z"></path></svg>
+ &nbsp;Add to contact</a>
+ </div>
+ </div>
+ <div class="modal fade py-3 sf-hidden" id=askContactDetailFormModel tabindex=-1 aria-hidden=true aria-labelledby=askContactDetailFormModelLabel>
+ 
+</div>
+ 
+ 
+ <div class=bottom-bg>
+ <img src="/images/templates/socialservices/soc-047.webp" alt=bottom-bg class=w-100>
+ </div>
+ 
+ <div class="d-flex justify-content-evenly py-2">
+ <div class=text-center>
+ <small class=text-primary>Made By
+ Tapify</small>
+ </div>
+ </div>
+ <div class="btn-section cursor-pointer">
+ <div class=fixed-btn-section>
+ <div class="bars-btn social-services-bars-btn">
+ <img src="/images/templates/socialservices/soc-048.svg" loading=lazy>
+ </div>
+ <div class="sub-btn d-none sf-hidden">
+ 
+ </div>
+ </div>
+ </div>
+ </div>
  </div>
  
  <div class="modal fade sf-hidden" id=newsLatterModal tabindex=-1 aria-labelledby=newsLatterModalLabel aria-hidden=true>
@@ -307,4 +773,4 @@ body{font-family:Poppins}
  <div id=vcard25-shareModel class="modal fade sf-hidden" role=dialog>
  
  </div>
-</div><div class=razorpay-container style=z-index:2147483647;position:fixed;top:0px;display:none;left:0px;height:100%;width:100%;max-height:100dvh;backface-visibility:hidden;overflow-y:visible><style>@keyframes rzp-rot{to{transform:rotate(360deg)}}@-webkit-keyframes rzp-rot{to{-webkit-transform:rotate(360deg)}}</style></div><div class="flatpickr-calendar animate sf-hidden" tabindex=-1></div><div id=lightboxOverlay tabindex=-1 class=lightboxOverlay style=display:none></div><div id=lightbox tabindex=-1 class=lightbox style=display:none></div><iframe name=__privateStripeMetricsController2590 frameborder=0 allowtransparency=true scrolling=no role=presentation allow="payment *" aria-hidden=true tabindex=-1 style=border:none!important;margin:0px!important;padding:0px!important;width:1px!important;min-width:100%!important;overflow:hidden!important;display:block!important;visibility:hidden!important;position:fixed!important;height:1px!important;pointer-events:none!important;user-select:none!important sandbox="allow-popups allow-top-navigation-by-user-activation" srcdoc="<!DOCTYPE html> <html><meta charset=utf-8><meta name=referrer content=no-referrer><body><iframe sandbox=&quot;allow-popups allow-top-navigation-by-user-activation&quot; srcdoc=&quot;<!DOCTYPE html> <html><meta charset=utf-8><title>StripeM-Inner</title><meta name=referrer content=no-referrer>&quot;></iframe>"></iframe<?php $__sv=$services;$__pr=$products;$__ga=$galleries;$__te=$testimonials;$__bh=$businessHours;$services=[];$products=[];$galleries=[];$testimonials=[];$businessHours=[]; ?><?php include __DIR__ . "/_features.php"; ?><script src="https://code.jquery.com/jquery-3.6.0.min.js"></script><script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"><script>jQuery(function($){function ini(s,o){$(s).not(".slick-initialized").slick(o);}ini(".product-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".gallery-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".testimonial-slider",{slidesToShow:1,arrows:false,dots:true,infinite:true});});</script><?php if(!empty($vcard["custom_js"])): ?><script><?= $vcard["custom_js"] ?></script><?php endif; ?><?php include __DIR__ . "/_shared-scripts.php"; ?></body></html>
+</div><div class=razorpay-container style=z-index:2147483647;position:fixed;top:0px;display:none;left:0px;height:100%;width:100%;max-height:100dvh;backface-visibility:hidden;overflow-y:visible><style>@keyframes rzp-rot{to{transform:rotate(360deg)}}@-webkit-keyframes rzp-rot{to{-webkit-transform:rotate(360deg)}}</style></div><div class="flatpickr-calendar animate sf-hidden" tabindex=-1></div><div id=lightboxOverlay tabindex=-1 class=lightboxOverlay style=display:none></div><div id=lightbox tabindex=-1 class=lightbox style=display:none></div>"></iframe<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script><script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"><script src="https://cdn.jsdelivr.net/npm/flatpickr"></script><script>jQuery(function($){$(".product-slider,.gallery-slider,.testimonial-slider").each(function(){if($(this).children().length===0){$(this).closest("[class*=section]").hide();$(this).hide();}});function ini(s,o){$(s).not(".slick-initialized").slick(o);}ini(".product-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".gallery-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".testimonial-slider",{slidesToShow:1,arrows:false,dots:true,infinite:true});if(window.flatpickr){flatpickr("#pickUpDate",{minDate:"today",dateFormat:"Y-m-d"});flatpickr(".flatpickr-input",{minDate:"today",dateFormat:"Y-m-d"});}});</script><?php if(!empty($vcard["custom_js"])): ?><script><?= $vcard["custom_js"] ?></script><?php endif; ?><?php include __DIR__ . "/_shared-scripts.php"; ?></body></html>
