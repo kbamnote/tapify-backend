@@ -65,4 +65,5 @@ return [
 
     // ===== PREMIUM EXACT-DESIGN TEMPLATES (from newTemps, hosted assets) =====
     'vcard43' => ['name' => 'Stylish Salon', 'layout' => 'standalone', 'primary' => '#a4866d', 'secondary' => '#c9a96e', 'bg' => '#ffffff', 'surface' => '#ffffff', 'font' => 'cormorant'],
+    'vcard44' => ['name' => 'Photographer', 'layout' => 'standalone', 'primary' => '#f68338', 'secondary' => '#222222', 'bg' => '#111111', 'surface' => '#1a1a1a', 'font' => 'oswald', 'dark' => true],
 ];
