@@ -9,7 +9,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
 try {
     $pdo = getDB();
 
-    if (isset($_GET['parent_id'])) {
+    if (isset($_GET['all']) && $_GET['all'] == '1') {
+        // Return all categories
+        $stmt = $pdo->query("SELECT * FROM categories ORDER BY parent_id ASC, id DESC");
+    } elseif (isset($_GET['parent_id'])) {
         // Return sub-categories of the given parent
         $parentId = (int) $_GET['parent_id'];
         $stmt = $pdo->prepare("SELECT * FROM categories WHERE parent_id = ? ORDER BY id ASC");
