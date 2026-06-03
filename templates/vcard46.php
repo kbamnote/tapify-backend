@@ -77,39 +77,7 @@ body{font-family:Poppins}
  
 </div>
  <div class="main-content mx-auto w-100 overflow-hidden">
- <div class="banner-section vcard-yt-link-18">
- <div class="banner-img vcard-banner-18 h-auto">
- <div class=youtube-link-18>
- 
- </div>
- </div>
- <div class="d-flex justify-content-end position-absolute top-0 end-0 mx-3 z-index-9 language-btn">
- <div class="language pt-3">
- <ul class="text-decoration-none ps-0">
- <li class="dropdown1 dropdown lang-list">
- <a class="dropdown-toggle lang-head text-decoration-none" data-toggle=dropdown role=button aria-haspopup=true aria-expanded=false>
- EN
- </a>
- <ul class="dropdown-menu top-dropdown lang-hover-list top-100 mt-0 sf-hidden">
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- </ul>
- </li>
- </ul>
- </div>
- </div>
- <div class=overlay></div>
- </div>
+ <div class="banner-section position-relative w-100"><div class="banner-img" style="position:relative;overflow:hidden;height:315px;"><?php $cvType=$vcard["cover_type"]??"image";$cvVal=$vcard["cover_image"]??"";$isVid=($cvType==="video")||preg_match("#youtube\.com|youtu\.be|instagram\.com|\.mp4#i",$cvVal);if($isVid&&!empty($cvVal)){if(preg_match("#(?:youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^\"&?/\s]{11})#i",$cvVal,$mm)){$yt=$mm[1];echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"https://www.youtube.com/embed/".$yt."?autoplay=1&mute=1&loop=1&playlist=".$yt."&controls=0&showinfo=0&rel=0&playsinline=1\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";}elseif(stripos($cvVal,"instagram.com")!==false){echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"".htmlspecialchars(rtrim($cvVal,"/")."/embed")."\" allowtransparency=\"true\"></iframe>";}else{echo "<video src=\"".htmlspecialchars(imgUrl($cvVal))."\" autoplay loop muted playsinline style=\"width:100%;height:100%;object-fit:cover;display:block;\"></video>";}}else{echo "<img src=\"".htmlspecialchars($coverImg)."\" alt=\"".htmlspecialchars($fullName)."\" style=\"width:100%;height:100%;object-fit:cover;display:block;\">";} ?><div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.1),rgba(0,0,0,0.5));"></div></div></div>
  
  <div class=mt-0>
  <div class="pwa-support d-flex align-items-center justify-content-center d-none sf-hidden">
