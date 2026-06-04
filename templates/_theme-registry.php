@@ -10,7 +10,7 @@ return [
     'vcard2'  => ['name' => 'Executive Profile', 'layout' => 'executive', 'primary' => '#1e3a5f', 'secondary' => '#3b82f6', 'bg' => '#f8fafc', 'surface' => '#ffffff', 'font' => 'montserrat'],
     'vcard3'  => ['name' => 'Clean Canvas', 'layout' => 'minimal', 'primary' => '#64748b', 'secondary' => '#94a3b8', 'bg' => '#ffffff', 'surface' => '#f8fafc', 'font' => 'inter'],
     'vcard4'  => ['name' => 'Professional', 'layout' => 'classic', 'primary' => '#2563eb', 'secondary' => '#1d4ed8', 'bg' => '#ffffff', 'surface' => '#f1f5f9', 'font' => 'poppins'],
-    'vcard5'  => ['name' => 'Corporate Connect', 'layout' => 'corporate', 'primary' => '#0f172a', 'secondary' => '#334155', 'bg' => '#f1f5f9', 'surface' => '#ffffff', 'font' => 'inter'],
+    'vcard5'  => ['name' => 'Corporate Connect', 'layout' => 'standalone', 'primary' => '#0f172a', 'secondary' => '#334155', 'bg' => '#f1f5f9', 'surface' => '#ffffff', 'font' => 'inter'],
     'vcard6'  => ['name' => 'Modern Edge', 'layout' => 'bold', 'primary' => '#7c3aed', 'secondary' => '#a855f7', 'bg' => '#faf5ff', 'surface' => '#ffffff', 'font' => 'poppins'],
     'vcard7'  => ['name' => 'Business Beacon', 'layout' => 'wave', 'primary' => '#ea580c', 'secondary' => '#f97316', 'bg' => '#fff7ed', 'surface' => '#ffffff', 'font' => 'raleway'],
     'vcard8'  => ['name' => 'Corporate Classic', 'layout' => 'sidebar', 'primary' => '#1e293b', 'secondary' => '#475569', 'bg' => '#ffffff', 'surface' => '#f8fafc', 'font' => 'merriweather'],
