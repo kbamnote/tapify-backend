@@ -94,6 +94,13 @@ body{background:var(--navy);font-family:'Montserrat',sans-serif;color:var(--whit
 .card-footer a{color:var(--gold);text-decoration:none;font-weight:700;}
 .fade-in-section{opacity:0;transform:translateY(20px);transition:all .6s ease;}
 .fade-in-section.visible{opacity:1;transform:translateY(0);}
+/* Services: big SQUARE carousel cards */
+.svc-card{position:relative;display:block;border-radius:18px;overflow:hidden;text-decoration:none;color:var(--white);background:rgba(201,168,76,.06);border:1px solid rgba(201,168,76,.2);box-shadow:0 8px 24px rgba(0,0,0,.3);}
+.svc-card img{width:100%;aspect-ratio:1/1;height:auto;object-fit:cover;display:block;transition:transform 6s ease;}
+.tf-slide:hover .svc-card img{transform:scale(1.07);}
+.svc-noimg{width:100%;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,.1);font-size:3rem;color:rgba(201,168,76,.4);}
+.svc-info{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 16px;background:linear-gradient(to top,rgba(13,27,42,.92),rgba(13,27,42,.4) 55%,transparent);}
+.svc-name{font-size:16px;font-weight:700;line-height:1.25;color:var(--white);font-family:'Playfair Display',serif;}
 </style>
 <?php if (!empty($vcard['custom_css'])): ?><style><?= $vcard['custom_css'] ?></style><?php endif; ?>
 </head>
@@ -194,20 +201,31 @@ body{background:var(--navy);font-family:'Montserrat',sans-serif;color:var(--whit
   <?php if (!empty($services)): ?>
   <div class="section fade-in-section">
     <div class="section-title">Services</div>
-    <div class="services-scroll">
-      <?php foreach ($services as $srv): ?>
-      <div class="service-card">
-        <?php if (!empty($srv['image'])): ?>
-        <img src="<?= htmlspecialchars(imgUrl($srv['image'])) ?>" alt="<?= htmlspecialchars($srv['name'] ?? '') ?>">
-        <?php endif; ?>
-        <div class="service-card-body">
-          <div class="service-card-title"><?= htmlspecialchars($srv['name'] ?? '') ?></div>
-          <?php if (!empty($srv['description'])): ?>
-          <div class="service-card-desc"><?= htmlspecialchars($srv['description']) ?></div>
+    <div class="tf-carousel" data-carousel>
+      <?php if (count($services) > 1): ?>
+      <button class="tf-arrow tf-arrow-prev" type="button" data-carousel-prev aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+      <button class="tf-arrow tf-arrow-next" type="button" data-carousel-next aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+      <?php endif; ?>
+      <div class="tf-track" data-carousel-track>
+        <?php foreach ($services as $srv): ?>
+        <div class="tf-slide">
+          <?php if (!empty($srv['service_url'])): ?>
+          <a href="<?= htmlspecialchars($srv['service_url']) ?>" target="_blank" class="svc-card">
+          <?php else: ?>
+          <div class="svc-card"<?= !empty($srv['image']) ? ' data-lightbox="'.htmlspecialchars(imgUrl($srv['image'])).'"' : '' ?> style="cursor:<?= !empty($srv['image']) ? 'zoom-in' : 'default' ?>;">
           <?php endif; ?>
+            <?php if (!empty($srv['image'])): ?>
+              <img src="<?= htmlspecialchars(imgUrl($srv['image'])) ?>" alt="<?= htmlspecialchars($srv['name'] ?? '') ?>" loading="lazy">
+            <?php else: ?>
+              <div class="svc-noimg"><i class="fas fa-briefcase"></i></div>
+            <?php endif; ?>
+            <div class="svc-info"><div class="svc-name"><?= htmlspecialchars($srv['name'] ?? '') ?></div></div>
+            <?php if (empty($srv['service_url']) && !empty($srv['image'])): ?><div class="tf-gal-zoom"><i class="fas fa-expand"></i></div><?php endif; ?>
+          <?php if (!empty($srv['service_url'])): ?></a><?php else: ?></div><?php endif; ?>
         </div>
+        <?php endforeach; ?>
       </div>
-      <?php endforeach; ?>
+      <?php if (count($services) > 1): ?><div class="tf-dots" data-carousel-dots></div><?php endif; ?>
     </div>
   </div>
   <?php endif; ?>
