@@ -6,8 +6,39 @@
 ?>
 
 <?php if (count($services) > 0): ?>
+<?php $servicesHaveImages = (bool)array_filter($services, fn($s) => !empty($s['image'])); ?>
 <div class="section">
     <h3 class="section-title"><i class="fas fa-briefcase"></i> Services</h3>
+    <?php if ($servicesHaveImages): ?>
+    <div class="tf-carousel" data-carousel>
+        <?php if (count($services) > 1): ?>
+        <button class="tf-arrow tf-arrow-prev" type="button" data-carousel-prev aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+        <button class="tf-arrow tf-arrow-next" type="button" data-carousel-next aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        <?php endif; ?>
+        <div class="tf-track" data-carousel-track>
+            <?php foreach ($services as $s): ?>
+            <div class="tf-slide">
+                <?php if (!empty($s['service_url'])): ?>
+                <a href="<?= htmlspecialchars($s['service_url']) ?>" target="_blank" class="tf-prod">
+                <?php else: ?>
+                <div class="tf-gal-slide" data-lightbox="<?= htmlspecialchars(imgUrl($s['image'] ?: '')) ?>">
+                <?php endif; ?>
+                    <?php if (!empty($s['image'])): ?>
+                        <img src="<?= imgUrl($s['image']) ?>" alt="<?= htmlspecialchars($s['name']) ?>" class="tf-prod-img" loading="lazy">
+                    <?php else: ?>
+                        <div class="tf-prod-no-img"><i class="fas fa-briefcase"></i></div>
+                    <?php endif; ?>
+                    <div class="tf-prod-info">
+                        <div class="tf-prod-name"><?= htmlspecialchars($s['name']) ?></div>
+                    </div>
+                    <?php if (empty($s['service_url']) && !empty($s['image'])): ?><div class="tf-gal-zoom"><i class="fas fa-expand"></i></div><?php endif; ?>
+                <?php if (!empty($s['service_url'])): ?></a><?php else: ?></div><?php endif; ?>
+            </div>
+            <?php endforeach; ?>
+        </div>
+        <?php if (count($services) > 1): ?><div class="tf-dots" data-carousel-dots></div><?php endif; ?>
+    </div>
+    <?php else: ?>
     <div class="services-list">
         <?php foreach ($services as $s): ?>
             <a href="<?= htmlspecialchars($s['service_url'] ?: '#') ?>" <?= $s['service_url'] ? 'target="_blank"' : '' ?> class="service-item">
@@ -16,6 +47,7 @@
             </a>
         <?php endforeach; ?>
     </div>
+    <?php endif; ?>
 </div>
 <?php endif; ?>
 

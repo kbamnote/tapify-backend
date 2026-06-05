@@ -161,7 +161,7 @@ body{background:var(--bg);font-family:'Lato',sans-serif;color:var(--text);overfl
       <?php foreach ($services as $srv): ?>
       <div class="prac">
         <div class="prac-icon">⚖️</div>
-        <div class="prac-title"><?= htmlspecialchars($srv['title']??'') ?></div>
+        <div class="prac-title"><?= htmlspecialchars($srv['name']??'') ?></div>
         <?php if (!empty($srv['description'])): ?><div class="prac-desc"><?= htmlspecialchars($srv['description']) ?></div><?php endif; ?>
       </div>
       <?php endforeach; ?>

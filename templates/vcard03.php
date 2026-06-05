@@ -148,7 +148,7 @@ body{background:var(--bg);font-family:'Syne',sans-serif;color:var(--white);overf
         <?php foreach ($services as $srv): ?>
         <div class="srv-card">
           <?php if (!empty($srv['image'])): ?><img src="<?= htmlspecialchars(imgUrl($srv['image'])) ?>" alt=""><?php endif; ?>
-          <div class="srv-body"><div class="srv-title"><?= htmlspecialchars($srv['title']??'') ?></div><?php if (!empty($srv['description'])): ?><div class="srv-desc"><?= htmlspecialchars($srv['description']) ?></div><?php endif; ?></div>
+          <div class="srv-body"><div class="srv-title"><?= htmlspecialchars($srv['name']??'') ?></div><?php if (!empty($srv['description'])): ?><div class="srv-desc"><?= htmlspecialchars($srv['description']) ?></div><?php endif; ?></div>
         </div>
         <?php endforeach; ?>
       </div>

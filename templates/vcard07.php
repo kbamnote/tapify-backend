@@ -161,7 +161,7 @@ body{background:var(--bg);font-family:'Space Grotesk',sans-serif;color:var(--whi
     <div class="projects-grid">
       <?php foreach ($services as $srv): ?>
       <div class="proj">
-        <div class="proj-name"><?= htmlspecialchars($srv['title']??'') ?></div>
+        <div class="proj-name"><?= htmlspecialchars($srv['name']??'') ?></div>
         <?php if (!empty($srv['description'])): ?><div class="proj-desc"><?= htmlspecialchars($srv['description']) ?></div><?php endif; ?>
       </div>
       <?php endforeach; ?>

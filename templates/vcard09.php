@@ -164,7 +164,7 @@ body{background:var(--bg);font-family:'Nunito',sans-serif;color:var(--text);over
       <?php foreach ($services as $srv): ?>
       <div class="srv">
         <div class="srv-icon">✨</div>
-        <div class="srv-title"><?= htmlspecialchars($srv['title']??'') ?></div>
+        <div class="srv-title"><?= htmlspecialchars($srv['name']??'') ?></div>
         <?php if (!empty($srv['description'])): ?><div class="srv-desc"><?= htmlspecialchars($srv['description']) ?></div><?php endif; ?>
         <?php if (!empty($srv['price'])): ?><div class="srv-price"><?= htmlspecialchars($srv['price']) ?></div><?php endif; ?>
       </div>

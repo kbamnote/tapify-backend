@@ -208,7 +208,7 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);ove
       <?php foreach ($services as $srv): ?>
       <div class="srv">
         <div class="srv-icon"><i class="fas fa-check-circle"></i></div>
-        <div class="srv-title"><?= htmlspecialchars($srv['title'] ?? '') ?></div>
+        <div class="srv-title"><?= htmlspecialchars($srv['name'] ?? '') ?></div>
         <?php if (!empty($srv['description'])): ?>
         <div class="srv-desc"><?= htmlspecialchars($srv['description']) ?></div>
         <?php endif; ?>

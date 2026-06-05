@@ -200,6 +200,7 @@ CREATE TABLE `vcard_services` (
   `name` VARCHAR(200) NOT NULL,
   `service_url` VARCHAR(500) DEFAULT NULL,
   `icon` VARCHAR(255) DEFAULT NULL,
+  `image` VARCHAR(255) DEFAULT NULL,
   `display_order` INT(11) DEFAULT 0,
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),

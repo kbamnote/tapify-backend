@@ -159,7 +159,7 @@ body{background:var(--bg);font-family:'Barlow',sans-serif;color:var(--white);ove
       <?php foreach ($services as $srv): ?>
       <div class="prog">
         <div class="prog-icon">🏋️</div>
-        <div class="prog-title"><?= htmlspecialchars($srv['title']??'') ?></div>
+        <div class="prog-title"><?= htmlspecialchars($srv['name']??'') ?></div>
         <?php if (!empty($srv['description'])): ?><div class="prog-desc"><?= htmlspecialchars($srv['description']) ?></div><?php endif; ?>
       </div>
       <?php endforeach; ?>

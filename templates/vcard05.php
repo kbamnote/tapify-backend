@@ -154,7 +154,7 @@ body{background:var(--bg);font-family:'Raleway',sans-serif;color:var(--white);ov
       <?php foreach ($services as $srv): ?>
       <div class="menu-card">
         <?php if (!empty($srv['image'])): ?><img src="<?= htmlspecialchars(imgUrl($srv['image'])) ?>" alt=""><?php endif; ?>
-        <div class="menu-body"><div class="menu-title"><?= htmlspecialchars($srv['title']??'') ?></div><?php if (!empty($srv['description'])): ?><div class="menu-desc"><?= htmlspecialchars($srv['description']) ?></div><?php endif; ?></div>
+        <div class="menu-body"><div class="menu-title"><?= htmlspecialchars($srv['name']??'') ?></div><?php if (!empty($srv['description'])): ?><div class="menu-desc"><?= htmlspecialchars($srv['description']) ?></div><?php endif; ?></div>
       </div>
       <?php endforeach; ?>
     </div>

@@ -198,10 +198,10 @@ body{background:var(--navy);font-family:'Montserrat',sans-serif;color:var(--whit
       <?php foreach ($services as $srv): ?>
       <div class="service-card">
         <?php if (!empty($srv['image'])): ?>
-        <img src="<?= htmlspecialchars(imgUrl($srv['image'])) ?>" alt="<?= htmlspecialchars($srv['title'] ?? '') ?>">
+        <img src="<?= htmlspecialchars(imgUrl($srv['image'])) ?>" alt="<?= htmlspecialchars($srv['name'] ?? '') ?>">
         <?php endif; ?>
         <div class="service-card-body">
-          <div class="service-card-title"><?= htmlspecialchars($srv['title'] ?? '') ?></div>
+          <div class="service-card-title"><?= htmlspecialchars($srv['name'] ?? '') ?></div>
           <?php if (!empty($srv['description'])): ?>
           <div class="service-card-desc"><?= htmlspecialchars($srv['description']) ?></div>
           <?php endif; ?>
