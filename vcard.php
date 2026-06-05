@@ -36,6 +36,20 @@ try {
     $stmt->execute([$vcardId]);
     $services = $stmt->fetchAll();
 
+    // Category-based services (category -> items with image + name)
+    $serviceCategories = [];
+    try {
+        $stmt = $pdo->prepare("SELECT * FROM vcard_service_categories WHERE vcard_id = ? ORDER BY display_order, id");
+        $stmt->execute([$vcardId]);
+        $serviceCategories = $stmt->fetchAll();
+        foreach ($serviceCategories as &$sc) {
+            $itStmt = $pdo->prepare("SELECT * FROM vcard_service_items WHERE category_id = ? ORDER BY display_order, id");
+            $itStmt->execute([$sc['id']]);
+            $sc['items'] = $itStmt->fetchAll();
+        }
+        unset($sc);
+    } catch (Exception $e) {}
+
     $stmt = $pdo->prepare("SELECT * FROM vcard_products WHERE vcard_id = ? ORDER BY display_order, id");
     $stmt->execute([$vcardId]);
     $products = $stmt->fetchAll();

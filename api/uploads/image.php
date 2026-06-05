@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
         sendError('vCard ID or Store ID required');
     }
  
-    $validTypes = ['cover', 'profile', 'favicon', 'product', 'service', 'blog', 'testimonial', 'gallery', 'logo'];
+    $validTypes = ['cover', 'profile', 'favicon', 'product', 'service', 'service_item', 'blog', 'testimonial', 'gallery', 'logo'];
     if (!in_array($type, $validTypes)) {
         sendError('Invalid type. Must be: ' . implode(', ', $validTypes));
     }
@@ -185,6 +185,24 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
                     $oldImageToDelete = $row['image'];
                     $stmt = $pdo->prepare("UPDATE vcard_services SET image = ? WHERE id = ? AND vcard_id = ?");
                     $stmt->execute([$relativePath, $targetId, $vcardId]);
+                }
+            }
+            break;
+
+        case 'service_item':
+            if ($targetId > 0) {
+                // Verify the item belongs to a category under this vCard
+                $stmt = $pdo->prepare("
+                    SELECT si.image FROM vcard_service_items si
+                    JOIN vcard_service_categories sc ON sc.id = si.category_id
+                    WHERE si.id = ? AND sc.vcard_id = ?
+                ");
+                $stmt->execute([$targetId, $vcardId]);
+                $row = $stmt->fetch();
+                if ($row) {
+                    $oldImageToDelete = $row['image'];
+                    $stmt = $pdo->prepare("UPDATE vcard_service_items SET image = ? WHERE id = ?");
+                    $stmt->execute([$relativePath, $targetId]);
                 }
             }
             break;

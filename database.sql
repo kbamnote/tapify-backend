@@ -209,6 +209,34 @@ CREATE TABLE `vcard_services` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ====================================================
+-- TABLE: vcard_service_categories  (category-based services)
+-- ====================================================
+DROP TABLE IF EXISTS `vcard_service_items`;
+DROP TABLE IF EXISTS `vcard_service_categories`;
+CREATE TABLE `vcard_service_categories` (
+  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `vcard_id` INT(11) UNSIGNED NOT NULL,
+  `name` VARCHAR(200) NOT NULL,
+  `display_order` INT(11) DEFAULT 0,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `idx_vcard_id` (`vcard_id`),
+  CONSTRAINT `fk_svccat_vcard` FOREIGN KEY (`vcard_id`) REFERENCES `vcards`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE `vcard_service_items` (
+  `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `category_id` INT(11) UNSIGNED NOT NULL,
+  `name` VARCHAR(200) NOT NULL,
+  `image` VARCHAR(255) DEFAULT NULL,
+  `display_order` INT(11) DEFAULT 0,
+  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `idx_category_id` (`category_id`),
+  CONSTRAINT `fk_svcitem_cat` FOREIGN KEY (`category_id`) REFERENCES `vcard_service_categories`(`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- ====================================================
 -- TABLE: vcard_products
 -- ====================================================
 DROP TABLE IF EXISTS `vcard_products`;

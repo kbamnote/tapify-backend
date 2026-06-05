@@ -67,6 +67,8 @@
 .tf-submit-btn:disabled{opacity:.5;cursor:not-allowed;}
 </style>
 
+<?php include __DIR__ . '/_service-categories.php'; ?>
+
 <?php if (!empty($products)): ?>
 <div class="tf-sec fade-in-section">
   <div class="tf-sec-title"><i class="fas fa-shopping-bag"></i> Products</div>
