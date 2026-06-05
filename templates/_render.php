@@ -170,7 +170,7 @@ echo file_get_contents(__DIR__ . '/_theme-layouts.css');
         <h1 class="profile-name"><?= htmlspecialchars($fullName) ?></h1>
         <?php if (!empty($vcard['occupation'])): ?><p class="profile-title"><?= htmlspecialchars($vcard['occupation']) ?></p><?php endif; ?>
         <?php if (!empty($vcard['company'])): ?><p class="profile-company"><i class="fas fa-building"></i> <?= htmlspecialchars($vcard['company']) ?></p><?php endif; ?>
-        <?php if (!empty($vcard['description'])): ?><div class="profile-desc"><?= $vcard['description'] ?></div><?php endif; ?>
+        <?php if (!empty($vcard['description'])): ?><div class="profile-desc"><?= renderDescription($vcard['description']) ?></div><?php endif; ?>
 
         <a href="javascript:saveContact()" class="save-contact-btn"><i class="fas fa-user-plus"></i> <?= htmlspecialchars($saveLabel) ?></a>
     </div>

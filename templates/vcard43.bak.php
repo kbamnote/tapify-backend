@@ -198,7 +198,7 @@ if ($isVid && !empty($cvVal)) {
  </div>
  
  <div class="mb-0 text-center fs-14 pt-40 profile-desc px-30 position-relative">
- <p><?= nl2br(htmlspecialchars($vcard['description'] ?? '')) ?></p>
+ <p><?= renderDescription($vcard['description'] ?? '') ?></p>
  </div>
  <div class="social-media d-flex flex-wrap justify-content-center pt-40 px-30 position-relative">
  <div class="position-absolute vector-all vector-bg-1">

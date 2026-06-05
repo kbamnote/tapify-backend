@@ -141,7 +141,7 @@ body{background:var(--bg);font-family:'Jost',sans-serif;color:var(--text);overfl
     <?php endif; ?>
   </div>
   <?php if (!empty($vcard['description'])): ?>
-  <div class="about-strip fade-in-section"><p><?= nl2br(htmlspecialchars($vcard['description'])) ?></p></div>
+  <div class="about-strip fade-in-section"><p><?= renderDescription($vcard['description']) ?></p></div>
   <?php endif; ?>
   <div class="section fade-in-section">
     <div class="sec-h">Contact</div>

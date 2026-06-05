@@ -22,24 +22,34 @@
 <?php if (count($products) > 0): ?>
 <div class="section">
     <h3 class="section-title"><i class="fas fa-shopping-bag"></i> Products</h3>
-    <div class="products-grid">
-        <?php foreach ($products as $p): ?>
-            <a href="<?= htmlspecialchars($p['product_url'] ?: '#') ?>" <?= $p['product_url'] ? 'target="_blank"' : '' ?> class="product-card">
-                <div class="product-image">
+    <div class="tf-carousel" data-carousel>
+        <?php if (count($products) > 1): ?>
+        <button class="tf-arrow tf-arrow-prev" type="button" data-carousel-prev aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+        <button class="tf-arrow tf-arrow-next" type="button" data-carousel-next aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+        <?php endif; ?>
+        <div class="tf-track" data-carousel-track>
+            <?php foreach ($products as $p): ?>
+            <div class="tf-slide">
+                <a href="<?= htmlspecialchars($p['product_url'] ?: '#') ?>" <?= $p['product_url'] ? 'target="_blank"' : '' ?> class="tf-prod">
                     <?php if (!empty($p['image'])): ?>
-                        <img src="<?= imgUrl($p['image']) ?>" alt="<?= htmlspecialchars($p['name']) ?>">
+                        <img src="<?= imgUrl($p['image']) ?>" alt="<?= htmlspecialchars($p['name']) ?>" class="tf-prod-img" loading="lazy">
                     <?php else: ?>
-                        <i class="fas fa-image" style="font-size:2rem;"></i>
+                        <div class="tf-prod-no-img"><i class="fas fa-image"></i></div>
                     <?php endif; ?>
-                </div>
-                <div class="product-info">
-                    <div class="product-name"><?= htmlspecialchars($p['name']) ?></div>
-                    <?php if ($p['price'] !== null): ?>
-                        <div class="product-price"><?= htmlspecialchars($p['currency'] ?: 'INR') ?> <?= number_format((float)$p['price'], 2) ?></div>
-                    <?php endif; ?>
-                </div>
-            </a>
-        <?php endforeach; ?>
+                    <div class="tf-prod-info">
+                        <div class="tf-prod-name"><?= htmlspecialchars($p['name']) ?></div>
+                        <?php if ($p['price'] !== null): ?>
+                            <div class="tf-prod-price"><?= htmlspecialchars($p['currency'] ?: 'INR') ?> <?= number_format((float)$p['price'], 2) ?></div>
+                        <?php endif; ?>
+                        <?php if (!empty($p['description'])): ?>
+                            <div class="tf-prod-desc"><?= htmlspecialchars($p['description']) ?></div>
+                        <?php endif; ?>
+                    </div>
+                </a>
+            </div>
+            <?php endforeach; ?>
+        </div>
+        <?php if (count($products) > 1): ?><div class="tf-dots" data-carousel-dots></div><?php endif; ?>
     </div>
     <?php if (!empty($storeUrl)): ?>
     <a href="<?= htmlspecialchars($storeUrl) ?>" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:12px;background:rgba(128,128,128,.07);border:1.5px solid rgba(128,128,128,.15);text-decoration:none;color:inherit;font-size:13px;font-weight:600;margin-top:12px;transition:background .2s;">
@@ -104,13 +114,23 @@
     <?php foreach ($galleries as $g): ?>
         <?php if (count($g['images']) > 0): ?>
         <div class="gallery">
-            <div class="gallery-name"><?= htmlspecialchars($g['name']) ?></div>
-            <div class="gallery-images">
-                <?php foreach ($g['images'] as $img): ?>
-                    <div class="gallery-img" onclick="window.open('<?= imgUrl($img['image_url']) ?>', '_blank')">
-                        <img src="<?= imgUrl($img['image_url']) ?>" alt="" loading="lazy">
+            <?php if (!empty($g['name'])): ?><div class="gallery-name" style="font-size:12px;font-weight:600;opacity:.6;margin-bottom:8px;"><?= htmlspecialchars($g['name']) ?></div><?php endif; ?>
+            <div class="tf-carousel" data-carousel style="margin-bottom:14px;">
+                <?php if (count($g['images']) > 1): ?>
+                <button class="tf-arrow tf-arrow-prev" type="button" data-carousel-prev aria-label="Previous"><i class="fas fa-chevron-left"></i></button>
+                <button class="tf-arrow tf-arrow-next" type="button" data-carousel-next aria-label="Next"><i class="fas fa-chevron-right"></i></button>
+                <?php endif; ?>
+                <div class="tf-track" data-carousel-track>
+                    <?php foreach ($g['images'] as $img): ?>
+                    <div class="tf-slide">
+                        <div class="tf-gal-slide" data-lightbox="<?= htmlspecialchars(imgUrl($img['image_url'])) ?>">
+                            <img src="<?= imgUrl($img['image_url']) ?>" alt="<?= htmlspecialchars($g['name'] ?? 'Gallery') ?>" loading="lazy">
+                            <div class="tf-gal-zoom"><i class="fas fa-expand"></i></div>
+                        </div>
                     </div>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </div>
+                <?php if (count($g['images']) > 1): ?><div class="tf-dots" data-carousel-dots></div><?php endif; ?>
             </div>
         </div>
         <?php endif; ?>

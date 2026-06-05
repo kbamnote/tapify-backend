@@ -115,6 +115,38 @@ function imgUrl($path, $default = '') {
     return '/' . ltrim($path, '/');
 }
 
+/**
+ * Render a rich-text description safely.
+ * The description is authored in a contenteditable editor and stored as HTML,
+ * so escaping it (htmlspecialchars) would show literal <p> tags. Instead we
+ * whitelist-sanitize: keep basic formatting tags, strip scripts/handlers.
+ */
+if (!function_exists('renderDescription')):
+function renderDescription($html) {
+    $html = (string)($html ?? '');
+    if ($html === '') return '';
+
+    // If the content has no HTML tags at all, treat it as plain text (preserve line breaks).
+    if (strip_tags($html) === $html) {
+        return nl2br(htmlspecialchars($html));
+    }
+
+    // Remove dangerous elements entirely (including their content).
+    $html = preg_replace('#<\s*(script|style|iframe|object|embed|form|input|textarea|button|link|meta)\b[^>]*>.*?<\s*/\s*\1\s*>#is', '', $html);
+    $html = preg_replace('#<\s*(script|style|iframe|object|embed|form|input|textarea|button|link|meta)\b[^>]*/?>#is', '', $html);
+
+    // Strip inline event handlers (onclick, onerror, …) and javascript: URLs.
+    $html = preg_replace('#\son\w+\s*=\s*("[^"]*"|\'[^\']*\'|[^\s>]+)#i', '', $html);
+    $html = preg_replace('#(href|src)\s*=\s*("|\')\s*javascript:[^"\']*("|\')#i', '$1=$2#$3', $html);
+
+    // Keep only a safe whitelist of formatting tags.
+    $allowed = '<p><br><b><strong><i><em><u><s><ul><ol><li><a><span><h1><h2><h3><h4><blockquote><div>';
+    $html = strip_tags($html, $allowed);
+
+    return $html;
+}
+endif;
+
 $fullName = trim(($vcard['first_name'] ?? '') . ' ' . ($vcard['last_name'] ?? ''));
 if (empty($fullName)) $fullName = $vcard['vcard_name'];
 

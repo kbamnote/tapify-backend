@@ -177,7 +177,7 @@ body{background:#e9c46a;font-family:'Nunito',sans-serif;min-height:100vh;display
   <?php if (!empty($vcard['description'])): ?>
   <div class="bio-section fade-in">
     <div class="bio-box">
-      <div class="bio-text"><?= nl2br(htmlspecialchars($vcard['description'])) ?></div>
+      <div class="bio-text"><?= renderDescription($vcard['description']) ?></div>
     </div>
   </div>
   <?php endif; ?>

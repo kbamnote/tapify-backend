@@ -130,7 +130,7 @@ body{background:var(--bg);font-family:'Syne',sans-serif;color:var(--white);overf
     </div>
     <?php endif; ?>
     <?php if (!empty($vcard['description'])): ?>
-    <div class="bio-box fade-in-section"><p><?= nl2br(htmlspecialchars($vcard['description'])) ?></p></div>
+    <div class="bio-box fade-in-section"><p><?= renderDescription($vcard['description']) ?></p></div>
     <?php endif; ?>
     <div class="fade-in-section">
       <div class="sec-h">// Contact</div>

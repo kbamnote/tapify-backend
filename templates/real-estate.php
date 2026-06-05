@@ -539,7 +539,7 @@ $VCDN = 'https://tapifyworld.com/assets/img/vcard35/';
             <p class="profile-company"><i class="fas fa-building"></i> <?= htmlspecialchars($vcard['company']) ?></p>
         <?php endif; ?>
         <?php if (!empty($vcard['description'])): ?>
-            <div class="profile-desc"><?= $vcard['description'] ?></div>
+            <div class="profile-desc"><?= renderDescription($vcard['description'] ?? '') ?></div>
         <?php endif; ?>
         <a href="javascript:saveContact()" class="save-contact-btn">
             <i class="fas fa-bookmark"></i> Add to Contact

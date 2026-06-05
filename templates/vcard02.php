@@ -167,7 +167,7 @@ body{background:var(--bg);font-family:'DM Sans',sans-serif;color:var(--text);ove
 
   <?php if (!empty($vcard['description'])): ?>
   <div class="about-card fade-in-section">
-    <p><?= nl2br(htmlspecialchars($vcard['description'])) ?></p>
+    <p><?= renderDescription($vcard['description']) ?></p>
   </div>
   <?php endif; ?>
 

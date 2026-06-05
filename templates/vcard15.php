@@ -152,7 +152,7 @@ body{background:var(--bg);font-family:'Plus Jakarta Sans',sans-serif;color:var(-
       <?php endif; ?>
     </div>
     <?php if (!empty($vcard['description'])): ?>
-    <div class="bio fade-in-section"><p><?= nl2br(htmlspecialchars($vcard['description'])) ?></p></div>
+    <div class="bio fade-in-section"><p><?= renderDescription($vcard['description']) ?></p></div>
     <?php endif; ?>
     <div class="sec fade-in-section">
       <div class="sec-h">Contact</div>

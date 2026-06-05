@@ -2,6 +2,7 @@
 // Mock-data harness to render vcard43.php and catch PHP errors (no DB needed)
 error_reporting(E_ALL); ini_set('display_errors','1');
 function imgUrl($p,$d=''){ if(empty($p))return $d; if(strpos($p,'http')===0)return $p; return '/'.ltrim($p,'/'); }
+if (!function_exists('renderDescription')) { function renderDescription($html){ $html=(string)($html??''); if($html==='')return ''; if(strip_tags($html)===$html)return nl2br(htmlspecialchars($html)); return strip_tags($html,'<p><br><b><strong><i><em><u><s><ul><ol><li><a><span><h1><h2><h3><h4><blockquote><div>'); } }
 $vcardId=1;
 $fullName='Christopher Print World';
 $vcard=[

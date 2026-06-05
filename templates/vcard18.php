@@ -193,7 +193,7 @@ body{background:var(--bg);font-family:'Plus Jakarta Sans',sans-serif;color:var(-
     <?php endif; ?>
   </div>
   <?php if (!empty($vcard['description'])): ?>
-  <div class="bio-wrap fade-in-section"><p><?= nl2br(htmlspecialchars($vcard['description'])) ?></p></div>
+  <div class="bio-wrap fade-in-section"><p><?= renderDescription($vcard['description']) ?></p></div>
   <?php endif; ?>
   <div class="section fade-in-section">
     <div class="sec-head"><div class="sec-icon"><i class="fas fa-address-book"></i></div><span class="sec-title">Contact</span></div>
