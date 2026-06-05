@@ -7,7 +7,7 @@
  */
 
 // === SITE CONFIGURATION ===
-define('SITE_URL', getenv('SITE_URL') ?: 'https://tapify-backend-production.up.railway.app');
+define('SITE_URL', getenv('SITE_URL') ?: 'https://app.tapify.co.in');
 define('SITE_NAME', 'Tapify');
 define('UPLOAD_PATH', __DIR__ . '/../uploads/');
 define('UPLOAD_URL', SITE_URL . '/backend/uploads/');

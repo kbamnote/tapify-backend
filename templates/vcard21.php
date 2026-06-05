@@ -3,7 +3,7 @@
  * Tapify vCard Template: vcard21
  * Fashion Designer theme — Dark Editorial + Gold + Pink
  */
-$cardUrl = 'https://tapify-backend-production.up.railway.app/'.($vcard['url_alias'] ?? $vcardId);
+$cardUrl = 'https://app.tapify.co.in/'.($vcard['url_alias'] ?? $vcardId);
 $waPhone = preg_replace('/\D/', '', $vcard['phone'] ?? '');
 $locationUrl = !empty($vcard['location_url']) ? $vcard['location_url'] : 'https://maps.google.com/?q='.urlencode($vcard['location'] ?? '');
 $profileImg = !empty($vcard['profile_image']) ? imgUrl($vcard['profile_image']) : 'https://ui-avatars.com/api/?name='.urlencode($fullName).'&size=200&background=0c0c0c&color=c9a96e';
