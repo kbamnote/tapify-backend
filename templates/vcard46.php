@@ -1,6 +1,6 @@
 <?php
 /** Tapify vCard Template: vcard46 — auto-generated from imagesCEOCXO (hosted assets). */
-$cardUrl='https://app.tapify.co.in/'.($vcard['url_alias'] ?? $vcardId);
+$cardUrl=PUBLIC_URL.'/'.($vcard['url_alias'] ?? $vcardId);
 $waPhone=preg_replace('/\D/','',$vcard['phone'] ?? '');
 $locationUrl=!empty($vcard['location_url'])?$vcard['location_url']:'https://maps.google.com/?q='.urlencode($vcard['location'] ?? '');
 $profileImg=!empty($vcard['profile_image'])?imgUrl($vcard['profile_image']):'https://ui-avatars.com/api/?name='.urlencode($fullName).'&size=200&background=1e3a5f&color=ffffff';

@@ -3,7 +3,7 @@
  * Tapify vCard Template: vcard19
  * CA & Accountant theme — Dark Navy + Gold
  */
-$cardUrl = 'https://app.tapify.co.in/'.($vcard['url_alias'] ?? $vcardId);
+$cardUrl = PUBLIC_URL.'/'.($vcard['url_alias'] ?? $vcardId);
 $waPhone = preg_replace('/\D/', '', $vcard['phone'] ?? '');
 $locationUrl = !empty($vcard['location_url']) ? $vcard['location_url'] : 'https://maps.google.com/?q='.urlencode($vcard['location'] ?? '');
 $profileImg = !empty($vcard['profile_image']) ? imgUrl($vcard['profile_image']) : 'https://ui-avatars.com/api/?name='.urlencode($fullName).'&size=200&background=555555&color=ffffff';

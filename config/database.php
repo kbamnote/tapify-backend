@@ -7,7 +7,10 @@
  */
 
 // === SITE CONFIGURATION ===
+// SITE_URL = backend origin (serves assets, uploads, API). Keep on app.* subdomain.
 define('SITE_URL', getenv('SITE_URL') ?: 'https://app.tapify.co.in');
+// PUBLIC_URL = public-facing domain used in share links and QR codes.
+define('PUBLIC_URL', getenv('PUBLIC_URL') ?: 'https://tapify.co.in');
 define('SITE_NAME', 'Tapify');
 define('UPLOAD_PATH', __DIR__ . '/../uploads/');
 define('UPLOAD_URL', SITE_URL . '/backend/uploads/');
