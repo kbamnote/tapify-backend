@@ -241,7 +241,7 @@ if (!empty($validIframes)):
   <div class="tf-sec-title"><i class="fas fa-code"></i> Embedded Content</div>
   <?php foreach ($validIframes as $fr): ?>
   <div class="tf-iframe-wrap">
-    <iframe src="<?= htmlspecialchars($fr['url']) ?>" height="320" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+    <iframe src="<?= htmlspecialchars(embeddableMapUrl($fr['url'])) ?>" height="320" allowfullscreen loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
   </div>
   <?php endforeach; ?>
 </div>

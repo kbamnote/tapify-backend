@@ -301,3 +301,55 @@ function imgUrl($path) {
     if (strpos($path, 'http') === 0) return $path; // already absolute (Cloudinary)
     return SITE_URL . '/' . ltrim($path, '/');
 }
+
+/**
+ * Make a Google Maps URL safe to embed in an <iframe>.
+ *
+ * Regular Google Maps links (maps.google.com, /maps/place/..., goo.gl/maps,
+ * a plain "share" link) send X-Frame-Options/CSP frame-ancestors, so the
+ * browser shows "www.google.com refused to connect" when they are framed.
+ * Only the embed form works. This converts common share/place links into an
+ * embeddable URL (no API key needed). Non-Google URLs are returned untouched.
+ */
+if (!function_exists('embeddableMapUrl')):
+function embeddableMapUrl($url) {
+    $url = trim($url);
+    if ($url === '') return $url;
+
+    // Already an embeddable form — leave as-is.
+    if (stripos($url, '/maps/embed') !== false || stripos($url, 'output=embed') !== false) {
+        return $url;
+    }
+
+    // Only rewrite Google Maps links; anything else passes through.
+    if (!preg_match('#https?://([a-z0-9.-]*\.)?(google\.[a-z.]+|goo\.gl|maps\.app\.goo\.gl)#i', $url)) {
+        return $url;
+    }
+
+    $query = '';
+
+    // 1) Coordinates from the "@lat,lng" segment.
+    if (preg_match('/@(-?\d+\.\d+),(-?\d+\.\d+)/', $url, $m)) {
+        $query = $m[1] . ',' . $m[2];
+    }
+    // 2) Coordinates from the data "!3dlat!4dlng" segment.
+    elseif (preg_match('/!3d(-?\d+\.\d+)!4d(-?\d+\.\d+)/', $url, $m)) {
+        $query = $m[1] . ',' . $m[2];
+    }
+    // 3) Place name from "/maps/place/<name>/".
+    elseif (preg_match('#/maps/place/([^/@?]+)#', $url, $m)) {
+        $query = urldecode($m[1]);
+    }
+    // 4) A "q=" / "query=" parameter.
+    elseif (preg_match('/[?&](?:q|query)=([^&]+)/', $url, $m)) {
+        $query = urldecode($m[1]);
+    }
+    // 5) Short link (goo.gl / maps.app.goo.gl) we can't parse — leave as-is so
+    //    at least the manual embed URL still works; framing a short link fails.
+    else {
+        return $url;
+    }
+
+    return 'https://maps.google.com/maps?q=' . rawurlencode($query) . '&z=15&output=embed';
+}
+endif;
