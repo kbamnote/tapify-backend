@@ -2,6 +2,29 @@
    VCARD EDIT PAGE - JavaScript
    ========================================== */
 
+function getLoginPath() {
+    return (window.location.pathname.includes('/admin/') || window.location.pathname.includes('/dashboard/'))
+        ? '../login.html'
+        : 'login.html';
+}
+
+/** Switch main sidebar section (e.g. vcard-templates, dynamic-vcard) */
+function goToSubNavTab(tabKey) {
+    const item = document.querySelector(`.sub-nav-item[data-tab="${tabKey}"]`);
+    if (item) item.click();
+}
+
+const PUBLIC_VCARD_BASE = 'https://app.tapify.co.in/';
+
+function selectTemplateCardById(templateId) {
+    const templateIdx = templates.findIndex(t => t.id === templateId);
+    document.querySelectorAll('.template-card').forEach(c => c.classList.remove('selected'));
+    if (templateIdx >= 0) {
+        const card = document.querySelector(`.template-card[data-template="${templateIdx}"]`);
+        if (card) card.classList.add('selected');
+    }
+}
+
 // ===== TAB SWITCHING =====
 document.querySelectorAll('.sub-nav-item').forEach(item => {
     item.addEventListener('click', () => {
@@ -90,7 +113,7 @@ function triggerFileInput(id) {
     document.getElementById(id).click();
 }
 
-const UPLOAD_API = '../backend/api/uploads/';
+const UPLOAD_API = 'https://app.tapify.co.in/api/uploads/';
 
 document.querySelectorAll('input[type="file"]').forEach(input => {
     input.addEventListener('change', async (e) => {
@@ -158,7 +181,7 @@ document.querySelectorAll('input[type="file"]').forEach(input => {
             });
 
             if (response.status === 401) {
-                window.location.href = 'login.html';
+                window.location.href = getLoginPath();
                 return;
             }
 
@@ -317,36 +340,97 @@ document.querySelectorAll('.btn-group-toggle .btn-toggle').forEach(btn => {
     });
 });
 
-// ===== TEMPLATES (28 Premium Templates) =====
+// ===== TEMPLATES (54 Templates: 28 Premium + 26 Classic Series) =====
 const templates = [
-    { id: 'vcard01', name: 'Corporate Executive',      category: 'Corporate',     image: 'https://tapifyworld.com/assets/img/templates/vcard-01.png', demoUrl: '../frontend/templates/template-01-corporate-executive.html' },
-    { id: 'vcard02', name: 'Medical Doctor',           category: 'Medical',       image: 'https://tapifyworld.com/assets/img/templates/vcard-02.png', demoUrl: '../frontend/templates/template-02-medical-doctor.html' },
-    { id: 'vcard03', name: 'Creative Designer',        category: 'Design',        image: 'https://tapifyworld.com/assets/img/templates/vcard-03.png', demoUrl: '../frontend/templates/template-03-creative-designer.html' },
-    { id: 'vcard04', name: 'Real Estate',              category: 'Property',      image: 'https://tapifyworld.com/assets/img/templates/vcard-04.png', demoUrl: '../frontend/templates/template-04-real-estate.html' },
-    { id: 'vcard05', name: 'Restaurant Chef',          category: 'Food',          image: 'https://tapifyworld.com/assets/img/templates/vcard-05.png', demoUrl: '../frontend/templates/template-05-restaurant-chef.html' },
-    { id: 'vcard06', name: 'Fitness Trainer',          category: 'Fitness',       image: 'https://tapifyworld.com/assets/img/templates/vcard-06.png', demoUrl: '../frontend/templates/template-06-fitness-trainer.html' },
-    { id: 'vcard07', name: 'Tech Developer',           category: 'Tech',          image: 'https://tapifyworld.com/assets/img/templates/vcard-07.png', demoUrl: '../frontend/templates/template-07-tech-developer.html' },
-    { id: 'vcard08', name: 'Lawyer & Legal',           category: 'Legal',         image: 'https://tapifyworld.com/assets/img/templates/vcard-08.png', demoUrl: '../frontend/templates/template-08-lawyer-legal.html' },
-    { id: 'vcard09', name: 'Beauty Salon',             category: 'Beauty',        image: 'https://tapifyworld.com/assets/img/templates/vcard-09.png', demoUrl: '../frontend/templates/template-09-beauty-salon.html' },
-    { id: 'vcard10', name: 'Musician & Artist',        category: 'Music',         image: 'https://tapifyworld.com/assets/img/templates/vcard-10.png', demoUrl: '../frontend/templates/template-10-musician-artist.html' },
-    { id: 'vcard11', name: 'Photographer',             category: 'Photography',   image: 'https://tapifyworld.com/assets/img/templates/vcard-11.png', demoUrl: '../frontend/templates/template-11-photographer.html' },
-    { id: 'vcard12', name: 'Financial Advisor',        category: 'Finance',       image: 'https://tapifyworld.com/assets/img/templates/vcard-12.png', demoUrl: '../frontend/templates/template-12-financial-advisor.html' },
-    { id: 'vcard13', name: 'Architect',                category: 'Architecture',  image: 'https://tapifyworld.com/assets/img/templates/vcard-13.png', demoUrl: '../frontend/templates/template-13-architect.html' },
-    { id: 'vcard14', name: 'Yoga & Wellness',          category: 'Wellness',      image: 'https://tapifyworld.com/assets/img/templates/vcard-14.png', demoUrl: '../frontend/templates/template-14-yoga-wellness.html' },
-    { id: 'vcard15', name: 'Digital Marketing',        category: 'Marketing',     image: 'https://tapifyworld.com/assets/img/templates/vcard-15.png', demoUrl: '../frontend/templates/template-15-digital-marketing.html' },
-    { id: 'vcard16', name: 'Interior Designer',        category: 'Design',        image: 'https://tapifyworld.com/assets/img/templates/vcard-16.png', demoUrl: '../frontend/templates/template-16-interior-designer.html' },
-    { id: 'vcard17', name: 'Wedding Planner',          category: 'Wedding',       image: 'https://tapifyworld.com/assets/img/templates/vcard-17.png', demoUrl: '../frontend/templates/template-17-wedding-planner.html' },
-    { id: 'vcard18', name: 'Dentist',                  category: 'Medical',       image: 'https://tapifyworld.com/assets/img/templates/vcard-18.png', demoUrl: '../frontend/templates/template-18-dentist.html' },
-    { id: 'vcard19', name: 'CA & Accountant',          category: 'Finance',       image: 'https://tapifyworld.com/assets/img/templates/vcard-19.png', demoUrl: '../frontend/templates/template-19-ca-accountant.html' },
-    { id: 'vcard20', name: 'School Teacher',           category: 'Education',     image: 'https://tapifyworld.com/assets/img/templates/vcard-20.png', demoUrl: '../frontend/templates/template-20-school-teacher.html' },
-    { id: 'vcard21', name: 'Fashion Designer',         category: 'Fashion',       image: 'https://tapifyworld.com/assets/img/templates/vcard-21.png', demoUrl: '../frontend/templates/template-21-fashion-designer.html' },
-    { id: 'vcard22', name: 'Travel Agent',             category: 'Travel',        image: 'https://tapifyworld.com/assets/img/templates/vcard-22.png', demoUrl: '../frontend/templates/template-22-travel-agent.html' },
-    { id: 'vcard23', name: 'Automobile Dealer',        category: 'Automobile',    image: 'https://tapifyworld.com/assets/img/templates/vcard-23.png', demoUrl: '../frontend/templates/template-23-automobile-dealer.html' },
-    { id: 'vcard24', name: 'Event Planner',            category: 'Events',        image: 'https://tapifyworld.com/assets/img/templates/vcard-24.png', demoUrl: '../frontend/templates/template-24-event-planner.html' },
-    { id: 'vcard25', name: 'Pharma & Medical',         category: 'Medical',       image: 'https://tapifyworld.com/assets/img/templates/vcard-25.png', demoUrl: '../frontend/templates/template-25-pharma-medical.html' },
-    { id: 'vcard26', name: 'NGO & Social',             category: 'NGO',           image: 'https://tapifyworld.com/assets/img/templates/vcard-26.png', demoUrl: '../frontend/templates/template-26-ngo-social.html' },
-    { id: 'vcard27', name: 'Coaching Institute',       category: 'Education',     image: 'https://tapifyworld.com/assets/img/templates/vcard-27.png', demoUrl: '../frontend/templates/template-27-coaching-institute.html' },
-    { id: 'vcard28', name: 'Electrician & Contractor', category: 'Services',      image: 'https://tapifyworld.com/assets/img/templates/vcard-28.png', demoUrl: '../frontend/templates/template-28-electrician-contractor.html' }
+    { id: 'vcard01', name: 'Corporate Executive', category: 'Corporate', image: 'https://tapifyworld.com/assets/img/templates/vcard-01.png', demoUrl: '../templates/template-01-corporate-executive.html' },
+    { id: 'vcard02', name: 'Medical Doctor', category: 'Medical', image: 'https://tapifyworld.com/assets/img/templates/vcard-02.png', demoUrl: '../templates/template-02-medical-doctor.html' },
+    { id: 'vcard03', name: 'Creative Designer', category: 'Design', image: 'https://tapifyworld.com/assets/img/templates/vcard-03.png', demoUrl: '../templates/template-03-creative-designer.html' },
+    { id: 'vcard04', name: 'Real Estate', category: 'Property', image: 'https://tapifyworld.com/assets/img/templates/vcard-04.png', demoUrl: '../templates/template-04-real-estate.html' },
+    { id: 'vcard05', name: 'Restaurant Chef', category: 'Food', image: 'https://tapifyworld.com/assets/img/templates/vcard-05.png', demoUrl: '../templates/template-05-restaurant-chef.html' },
+    { id: 'vcard06', name: 'Fitness Trainer', category: 'Fitness', image: 'https://tapifyworld.com/assets/img/templates/vcard-06.png', demoUrl: '../templates/template-06-fitness-trainer.html' },
+    { id: 'vcard07', name: 'Tech Developer', category: 'Tech', image: 'https://tapifyworld.com/assets/img/templates/vcard-07.png', demoUrl: '../templates/template-07-tech-developer.html' },
+    { id: 'vcard08', name: 'Lawyer & Legal', category: 'Legal', image: 'https://tapifyworld.com/assets/img/templates/vcard-08.png', demoUrl: '../templates/template-08-lawyer-legal.html' },
+    { id: 'vcard09', name: 'Beauty Salon', category: 'Beauty', image: 'https://tapifyworld.com/assets/img/templates/vcard-09.png', demoUrl: '../templates/template-09-beauty-salon.html' },
+    { id: 'vcard10', name: 'Musician & Artist', category: 'Music', image: 'https://tapifyworld.com/assets/img/templates/vcard-10.png', demoUrl: '../templates/vcard10-pro-network.html' },
+    { id: 'vcard11', name: 'Photographer', category: 'Photography', image: 'https://tapifyworld.com/assets/img/templates/vcard-11.png', demoUrl: '../templates/vcard11-portfolio.html' },
+    { id: 'vcard12', name: 'Financial Advisor', category: 'Finance', image: 'https://tapifyworld.com/assets/img/templates/vcard-12.png', demoUrl: '../templates/vcard12-gym.html' },
+    { id: 'vcard13', name: 'Architect', category: 'Architecture', image: 'https://tapifyworld.com/assets/img/templates/vcard-13.png', demoUrl: '../templates/template-13-architect.html' },
+    { id: 'vcard14', name: 'Yoga & Wellness', category: 'Wellness', image: 'https://tapifyworld.com/assets/img/templates/vcard-14.png', demoUrl: '../templates/template-14-yoga-wellness.html' },
+    { id: 'vcard15', name: 'Digital Marketing', category: 'Marketing', image: 'https://tapifyworld.com/assets/img/templates/vcard-15.png', demoUrl: '../templates/template-15-digital-marketing.html' },
+    { id: 'vcard16', name: 'Interior Designer', category: 'Design', image: 'https://tapifyworld.com/assets/img/templates/vcard-16.png', demoUrl: '../templates/template-16-interior-designer.html' },
+    { id: 'vcard17', name: 'Wedding Planner', category: 'Wedding', image: 'https://tapifyworld.com/assets/img/templates/vcard-17.png', demoUrl: '../templates/template-17-wedding-planner.html' },
+    { id: 'vcard18', name: 'Dentist', category: 'Medical', image: 'https://tapifyworld.com/assets/img/templates/vcard-18.png', demoUrl: '../templates/template-18-dentist.html' },
+    { id: 'vcard19', name: 'CA & Accountant', category: 'Finance', image: 'https://tapifyworld.com/assets/img/templates/vcard-19.png', demoUrl: '../templates/template-19-ca-accountant.html' },
+    { id: 'vcard20', name: 'School Teacher', category: 'Education', image: 'https://tapifyworld.com/assets/img/templates/vcard-20.png', demoUrl: '../templates/template-20-school-teacher.html' },
+    { id: 'vcard21', name: 'Fashion Designer', category: 'Fashion', image: 'https://tapifyworld.com/assets/img/templates/vcard-21.png', demoUrl: '../templates/template-21-fashion-designer.html' },
+    { id: 'vcard22', name: 'Travel Agent', category: 'Travel', image: 'https://tapifyworld.com/assets/img/templates/vcard-22.png', demoUrl: '../templates/template-22-travel-agent.html' },
+    { id: 'vcard23', name: 'Automobile Dealer', category: 'Automobile', image: 'https://tapifyworld.com/assets/img/templates/vcard-23.png', demoUrl: '../templates/template-23-automobile-dealer.html' },
+    { id: 'vcard24', name: 'Event Planner', category: 'Events', image: 'https://tapifyworld.com/assets/img/templates/vcard-24.png', demoUrl: '../templates/template-24-event-planner.html' },
+    { id: 'vcard25', name: 'Pharma & Medical', category: 'Medical', image: 'https://tapifyworld.com/assets/img/templates/vcard-25.png', demoUrl: '../templates/template-25-pharma-medical.html' },
+    { id: 'vcard26', name: 'NGO & Social', category: 'NGO', image: 'https://tapifyworld.com/assets/img/templates/vcard-26.png', demoUrl: '../templates/template-26-ngo-social.html' },
+    { id: 'vcard27', name: 'Coaching Institute', category: 'Education', image: 'https://tapifyworld.com/assets/img/templates/vcard-27.png', demoUrl: '../templates/template-27-coaching-institute.html' },
+    { id: 'vcard28', name: 'Electrician & Contractor', category: 'Services', image: 'https://tapifyworld.com/assets/img/templates/vcard-28.png', demoUrl: '../templates/template-28-electrician-contractor.html' },
+    // ===== Classic Series (vcard1–12, vcard29–42) =====
+    { id: 'vcard1',  name: 'Simple Contact',       category: 'Corporate',     isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v1.png',  demoUrl: '../templates/vcard1-simple-contact.html' },
+    { id: 'vcard2',  name: 'Executive Profile',    category: 'Corporate',     isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v2.png',  demoUrl: '../templates/vcard2-executive-profile.html' },
+    { id: 'vcard3',  name: 'Clean Canvas',         category: 'Minimal',       isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v3.png',  demoUrl: '../templates/vcard3-clean-canvas.html' },
+    { id: 'vcard4',  name: 'Professional',         category: 'Corporate',     isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v4.png',  demoUrl: '../templates/vcard4-professional.html' },
+    { id: 'vcard6',  name: 'Modern Edge',          category: 'Creative',      isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v6.png',  demoUrl: '../templates/vcard6-modern-edge.html' },
+    { id: 'vcard7',  name: 'Business Beacon',      category: 'Corporate',     isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v7.png',  demoUrl: '../templates/vcard7-business-beacon.html' },
+    { id: 'vcard8',  name: 'Corporate Classic',    category: 'Corporate',     isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v8.png',  demoUrl: '../templates/vcard8-corporate-classic.html' },
+    { id: 'vcard9',  name: 'Corporate Identity',   category: 'Corporate',     isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v9.png',  demoUrl: '../templates/vcard9-corporate-identity.html' },
+    { id: 'vcard10', name: 'Pro Network',          category: 'Networking',    isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v10.png', demoUrl: '../templates/vcard10-pro-network.html' },
+    { id: 'vcard11', name: 'Portfolio',            category: 'Portfolio',     isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v11.png', demoUrl: '../templates/vcard11-portfolio.html' },
+    { id: 'vcard12', name: 'Gym & Fitness',        category: 'Fitness',       isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v12.png', demoUrl: '../templates/vcard12-gym.html' },
+    { id: 'vcard29', name: 'Marriage Bureau',      category: 'Wedding',       isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v29.png', demoUrl: '../templates/vcard29-marriage.html' },
+    { id: 'vcard30', name: 'Taxi Service',         category: 'Transport',     isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v30.png', demoUrl: '../templates/vcard30-taxi-service.html' },
+    { id: 'vcard31', name: 'Handyman Services',    category: 'Services',      isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v31.png', demoUrl: '../templates/vcard31-handyman-services.html' },
+    { id: 'vcard32', name: 'Interior Designer',    category: 'Design',        isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v32.png', demoUrl: '../templates/vcard32-interior-designer.html' },
+    { id: 'vcard33', name: 'Musician',             category: 'Music',         isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v33.png', demoUrl: '../templates/vcard33-musician.html' },
+    { id: 'vcard34', name: 'Photographer',         category: 'Photography',   isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v34.png', demoUrl: '../templates/vcard34-photographer.html' },
+    { id: 'vcard35', name: 'Real Estate Agent',    category: 'Property',      isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v35.png', demoUrl: '../templates/vcard35-real-estate.html' },
+    { id: 'vcard36', name: 'Travel Agency',        category: 'Travel',        isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v36.png', demoUrl: '../templates/vcard36-travel-agency.html' },
+    { id: 'vcard37', name: 'Flower Garden',        category: 'Nature',        isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v37.png', demoUrl: '../templates/vcard37-flower-garden.html' },
+    { id: 'vcard38', name: 'Architecture',         category: 'Architecture',  isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v38.png', demoUrl: '../templates/vcard38-architecture.html' },
+    { id: 'vcard39', name: 'Bio Black',            category: 'Minimal',       isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v39.png', demoUrl: '../templates/vcard39-bio-black.html' },
+    { id: 'vcard40', name: 'Bio White',            category: 'Minimal',       isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v40.png', demoUrl: '../templates/vcard40-bio-white.html' },
+    { id: 'vcard41', name: 'Social Vcard',         category: 'Social',        isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v41.png', demoUrl: '../templates/vcard41-social-vcard.html' },
+    { id: 'vcard42', name: 'Social Vcard 2',       category: 'Social',        image: 'https://tapifyworld.com/assets/img/templates/vcard-v42.png', demoUrl: '../templates/vcard42-social-vcard2.html' },
+    { id: 'vcard44', name: 'Photographer', category: 'Photography', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v44.png', demoUrl: '../newTemps/imagesPhotographer/clean.html' },
+    { id: 'vcard45', name: 'Flower Garden', category: 'Nature', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v45.png', demoUrl: '../newTemps/flowerGarden/clean.html' },
+    { id: 'vcard46', name: 'CEO / CXO', category: 'Corporate', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v46.png', demoUrl: '../newTemps/imagesCEOCXO/clean.html' },
+    { id: 'vcard47', name: 'Consulting Services', category: 'Business', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v47.png', demoUrl: '../newTemps/imagesConsultingServices/clean.html' },
+    { id: 'vcard48', name: 'Culinary & Food', category: 'Food', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v48.png', demoUrl: '../newTemps/imagesCulinaryFoodServices/clean.html' },
+    { id: 'vcard49', name: 'Dynamic vCard', category: 'General', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v49.png', demoUrl: '../newTemps/imagesDynamicVCard/clean.html' },
+    { id: 'vcard50', name: 'Fashion & Beauty', category: 'Beauty', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v50.png', demoUrl: '../newTemps/imagesFashionBeauty/clean.html' },
+    { id: 'vcard51', name: 'Handyman Services', category: 'Services', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v51.png', demoUrl: '../newTemps/imagesHandyman/clean.html' },
+    { id: 'vcard52', name: 'Interior Designer', category: 'Design', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v52.png', demoUrl: '../newTemps/imagesInteriorDesigner/clean.html' },
+    { id: 'vcard53', name: 'Marriage Bureau', category: 'Wedding', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v53.png', demoUrl: '../newTemps/imagesMarriage/clean.html' },
+    { id: 'vcard54', name: 'Musician', category: 'Creative', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v54.png', demoUrl: '../newTemps/imagesMusician/clean.html' },
+    { id: 'vcard55', name: 'Pet Clinic', category: 'Pets', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v55.png', demoUrl: '../newTemps/imagesPetClinic/clean.html' },
+    { id: 'vcard56', name: 'Pet Shop', category: 'Pets', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v56.png', demoUrl: '../newTemps/imagesPetShop/clean.html' },
+    { id: 'vcard57', name: 'Programmer', category: 'Tech', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v57.png', demoUrl: '../newTemps/imagesProgrammer/clean.html' },
+    { id: 'vcard58', name: 'Retail & Ecommerce', category: 'Retail', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v58.png', demoUrl: '../newTemps/imagesRetailEcommerce/clean.html' },
+    { id: 'vcard59', name: 'School', category: 'Education', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v59.png', demoUrl: '../newTemps/imagesSchoolTemplates/clean.html' },
+    { id: 'vcard60', name: 'Social Media', category: 'Social', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v60.png', demoUrl: '../newTemps/imagesSocialMedia/clean.html' },
+    { id: 'vcard61', name: 'Social Services', category: 'Nonprofit', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v61.png', demoUrl: '../newTemps/imagesSocialServices/clean.html' },
+    { id: 'vcard62', name: 'Taxi Service', category: 'Transport', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v62.png', demoUrl: '../newTemps/imagestaxiservice/clean.html' },
+    { id: 'vcard63', name: 'Real Estate', category: 'Real Estate', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v63.png', demoUrl: '../newTemps/realEstate/clean.html' },
+    { id: 'vcard43', name: 'Stylish Salon',        category: 'Beauty',        isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v43.png', demoUrl: '../newTemps/imagesSalon/clean.html' },
+    { id: 'vcard5',  name: 'Corporate Connect',   category: 'Corporate',     isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v5.png',  demoUrl: '../newTemps/imagesCorporateConnect/core-connect.html' },
+    { id: 'vcard64', name: 'Event Management',   category: 'Events',        isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v64.png', demoUrl: '../newTemps/imagesEventManagement/clean.html' },
+    { id: 'vcard65', name: 'Hospital & Doctor',  category: 'Medical',       isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v65.png', demoUrl: '../newTemps/imagesHospital/clean.html' },
+    { id: 'vcard1', name: 'Simple Contact', category: 'Corporate', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v1.png', demoUrl: '../newTemps/imagesSimpleContact/clean.html' },
+    { id: 'vcard2', name: 'Executive Profile', category: 'Corporate', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v2.png', demoUrl: '../newTemps/imagesExecutiveProfile/clean.html' },
+    { id: 'vcard3', name: 'Clean Canvas', category: 'Minimal', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v3.png', demoUrl: '../newTemps/imagesCleanCanvas/clean.html' },
+    { id: 'vcard4', name: 'Professional', category: 'Corporate', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v4.png', demoUrl: '../newTemps/imagesProfessional/clean.html' },
+    { id: 'vcard6', name: 'Modern Edge', category: 'Creative', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v6.png', demoUrl: '../newTemps/imagesModernEdge/clean.html' },
+    { id: 'vcard7', name: 'Business Beacon', category: 'Corporate', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v7.png', demoUrl: '../newTemps/imagesBusinessBeacon/clean.html' },
+    { id: 'vcard8', name: 'Corporate Classic', category: 'Corporate', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v8.png', demoUrl: '../newTemps/imagesCorporateClassic/clean.html' },
+    { id: 'vcard9', name: 'Corporate Identity', category: 'Corporate', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v9.png', demoUrl: '../newTemps/imagesCorporateIdentity/clean.html' },
+    { id: 'vcard10', name: 'Pro Network', category: 'Corporate', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v10.png', demoUrl: '../newTemps/imagesProNetwork/clean.html' },
+    { id: 'vcard11', name: 'Portfolio', category: 'Design', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v11.png', demoUrl: '../newTemps/imagesPortfolio/clean.html' },
+    { id: 'vcard12', name: 'Gym & Fitness', category: 'Fitness', isNew: true, image: 'https://tapifyworld.com/assets/img/templates/vcard-v12.png', demoUrl: '../newTemps/imagesGym/clean.html' }
 ];
 
 function renderTemplates() {
@@ -354,10 +438,11 @@ function renderTemplates() {
     if (!grid) return;
 
     grid.innerHTML = templates.map((t, i) => `
-        <div class="template-card ${i === 0 ? 'selected' : ''}" data-template="${i}" onclick="selectTemplate(${i})">
+        <div class="template-card" data-template="${i}" onclick="selectTemplate(${i})">
             <div class="template-preview-img">
                 <img src="${t.image}" alt="${t.name}" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'template-fallback\\'>${t.name}</div>'">
                 ${t.featured ? '<span class="template-badge">★ Featured</span>' : ''}
+                ${t.isNew ? '<span class="template-badge template-badge-new">✦ New</span>' : ''}
                 <a href="${t.demoUrl}" target="_blank" class="template-demo-btn" onclick="event.stopPropagation()">
                     <i class="fas fa-eye"></i> View Demo
                 </a>
@@ -627,6 +712,7 @@ const socialPlatforms = [
 
 // ===== SERVICES (Real Backend) =====
 let servicesData = [];
+let pendingServiceImageFile = null;
 
 async function renderServicesTable() {
     const tbody = document.getElementById('servicesTableBody');
@@ -638,7 +724,7 @@ async function renderServicesTable() {
     }
 
     try {
-        const response = await fetch(`../backend/api/services/list.php?vcard_id=${currentVcardId}`, {
+        const response = await fetch(`https://app.tapify.co.in/api/services/list.php?vcard_id=${currentVcardId}`, {
             credentials: 'include'
         });
         const result = await response.json();
@@ -653,7 +739,7 @@ async function renderServicesTable() {
 
             tbody.innerHTML = servicesData.map(s => `
                 <tr data-id="${s.id}">
-                    <td><div class="item-icon">${escapeHtml(s.name).charAt(0)}</div></td>
+                    <td>${s.image ? `<img src="${resolveImg(s.image)}" alt="" style="width:38px;height:38px;border-radius:8px;object-fit:cover;display:block;">` : `<div class="item-icon">${escapeHtml(s.name).charAt(0)}</div>`}</td>
                     <td>${escapeHtml(s.name)}</td>
                     <td>${s.service_url ? `<a href="${escapeHtml(s.service_url)}" target="_blank" style="color: var(--primary); text-decoration: none;">${escapeHtml(s.service_url)}</a>` : '<span style="color:#999">No URL</span>'}</td>
                     <td class="td-center">
@@ -693,6 +779,7 @@ function editService(id) {
 
 function showServiceModal(service = null) {
     const isEdit = service !== null;
+    pendingServiceImageFile = null;
 
     const modalHtml = `
         <div class="modal-overlay show" id="serviceModal" onclick="if(event.target===this)closeServiceModal()">
@@ -702,6 +789,15 @@ function showServiceModal(service = null) {
                     <button class="modal-close" onclick="closeServiceModal()">×</button>
                 </div>
                 <div class="modal-body">
+                    <div class="form-group">
+                        <label>Service Image (optional)</label>
+                        <div id="srvImgPreview" onclick="document.getElementById('srvImgInput').click()" style="width:100%;height:150px;border:1.5px dashed var(--border,#d1d5db);border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;cursor:pointer;background:#f9fafb;">
+                            ${service && service.image
+                                ? `<img src="${resolveImg(service.image)}" alt="" style="width:100%;height:100%;object-fit:cover;">`
+                                : `<div style="text-align:center;color:#9ca3af"><i class="fas fa-image" style="font-size:1.6rem;display:block;margin-bottom:6px;"></i>Click to choose image</div>`}
+                        </div>
+                        <input type="file" id="srvImgInput" accept="image/*" style="display:none" onchange="onServiceImagePicked(event)">
+                    </div>
                     <div class="form-group">
                         <label>Service Name <span style="color:#ef4444">*</span></label>
                         <input type="text" id="srvName" value="${service ? escapeHtml(service.name) : ''}" placeholder="e.g., Web Design, Consulting" maxlength="200">
@@ -728,8 +824,21 @@ function showServiceModal(service = null) {
 }
 
 function closeServiceModal() {
+    pendingServiceImageFile = null;
     const modal = document.getElementById('serviceModal');
     if (modal) modal.remove();
+}
+
+function onServiceImagePicked(event) {
+    const file = event.target.files && event.target.files[0];
+    if (!file) return;
+    pendingServiceImageFile = file;
+    const preview = document.getElementById('srvImgPreview');
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        if (preview) preview.innerHTML = `<img src="${e.target.result}" alt="" style="width:100%;height:100%;object-fit:cover;">`;
+    };
+    reader.readAsDataURL(file);
 }
 
 async function saveService(id) {
@@ -742,7 +851,7 @@ async function saveService(id) {
     }
 
     try {
-        const response = await fetch('../backend/api/services/save.php', {
+        const response = await fetch('https://app.tapify.co.in/api/services/save.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
@@ -756,6 +865,22 @@ async function saveService(id) {
         const result = await response.json();
 
         if (result.success) {
+            // Upload the chosen image (if any) now that we have the service id
+            if (pendingServiceImageFile) {
+                const targetId = (result.data && result.data.id) ? result.data.id : id;
+                if (targetId) {
+                    try {
+                        const fd = new FormData();
+                        fd.append('file', pendingServiceImageFile);
+                        fd.append('vcard_id', currentVcardId);
+                        fd.append('type', 'service');
+                        fd.append('target_id', String(targetId));
+                        await fetch(UPLOAD_API + 'image.php', { method: 'POST', credentials: 'include', body: fd });
+                    } catch (e) {
+                        showToast('Service saved, but image upload failed', 'error');
+                    }
+                }
+            }
             showToast(id ? 'Service updated!' : 'Service added!', 'success');
             closeServiceModal();
             renderServicesTable();
@@ -771,7 +896,7 @@ async function deleteService(id, name) {
     if (!confirm(`Delete service "${name}"?`)) return;
 
     try {
-        const response = await fetch('../backend/api/services/delete.php', {
+        const response = await fetch('https://app.tapify.co.in/api/services/delete.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
@@ -803,7 +928,7 @@ async function renderProductsTable() {
     }
 
     try {
-        const response = await fetch(`../backend/api/products/list.php?vcard_id=${currentVcardId}`, {
+        const response = await fetch(`https://app.tapify.co.in/api/products/list.php?vcard_id=${currentVcardId}`, {
             credentials: 'include'
         });
         const result = await response.json();
@@ -926,7 +1051,7 @@ async function saveProduct(id) {
     }
 
     try {
-        const response = await fetch('../backend/api/products/save.php', {
+        const response = await fetch('https://app.tapify.co.in/api/products/save.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
@@ -958,7 +1083,7 @@ async function deleteProduct(id, name) {
     if (!confirm(`Delete product "${name}"?`)) return;
 
     try {
-        const response = await fetch('../backend/api/products/delete.php', {
+        const response = await fetch('https://app.tapify.co.in/api/products/delete.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
@@ -990,7 +1115,7 @@ async function renderBlogsTable() {
     }
 
     try {
-        const response = await fetch(`../backend/api/blogs/list.php?vcard_id=${currentVcardId}`, { credentials: 'include' });
+        const response = await fetch(`https://app.tapify.co.in/api/blogs/list.php?vcard_id=${currentVcardId}`, { credentials: 'include' });
         const result = await response.json();
 
         if (result.success) {
@@ -1075,7 +1200,7 @@ async function saveBlog(id) {
     if (!title) { showToast('Title is required', 'error'); return; }
 
     try {
-        const response = await fetch('../backend/api/blogs/save.php', {
+        const response = await fetch('https://app.tapify.co.in/api/blogs/save.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
@@ -1093,7 +1218,7 @@ async function saveBlog(id) {
 async function deleteBlog(id, title) {
     if (!confirm(`Delete blog "${title}"?`)) return;
     try {
-        const response = await fetch('../backend/api/blogs/delete.php', {
+        const response = await fetch('https://app.tapify.co.in/api/blogs/delete.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
@@ -1118,7 +1243,7 @@ async function renderTestimonialsTable() {
     }
 
     try {
-        const response = await fetch(`../backend/api/testimonials/list.php?vcard_id=${currentVcardId}`, { credentials: 'include' });
+        const response = await fetch(`https://app.tapify.co.in/api/testimonials/list.php?vcard_id=${currentVcardId}`, { credentials: 'include' });
         const result = await response.json();
 
         if (result.success) {
@@ -1226,7 +1351,7 @@ async function saveTestimonial(id) {
     if (!name || !message) { showToast('Name and message required', 'error'); return; }
 
     try {
-        const response = await fetch('../backend/api/testimonials/save.php', {
+        const response = await fetch('https://app.tapify.co.in/api/testimonials/save.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
@@ -1244,7 +1369,7 @@ async function saveTestimonial(id) {
 async function deleteTestimonial(id, name) {
     if (!confirm(`Delete testimonial from "${name}"?`)) return;
     try {
-        const response = await fetch('../backend/api/testimonials/delete.php', {
+        const response = await fetch('https://app.tapify.co.in/api/testimonials/delete.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
@@ -1269,7 +1394,7 @@ async function renderCustomLinksTable() {
     }
 
     try {
-        const response = await fetch(`../backend/api/custom-links/list.php?vcard_id=${currentVcardId}`, { credentials: 'include' });
+        const response = await fetch(`https://app.tapify.co.in/api/custom-links/list.php?vcard_id=${currentVcardId}`, { credentials: 'include' });
         const result = await response.json();
 
         if (result.success) {
@@ -1357,7 +1482,7 @@ async function saveCustomLink(id) {
     if (!label || !url) { showToast('Label and URL required', 'error'); return; }
 
     try {
-        const response = await fetch('../backend/api/custom-links/save.php', {
+        const response = await fetch('https://app.tapify.co.in/api/custom-links/save.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
@@ -1375,7 +1500,7 @@ async function saveCustomLink(id) {
 async function deleteCustomLink(id, label) {
     if (!confirm(`Delete "${label}"?`)) return;
     try {
-        const response = await fetch('../backend/api/custom-links/delete.php', {
+        const response = await fetch('https://app.tapify.co.in/api/custom-links/delete.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
@@ -1387,11 +1512,363 @@ async function deleteCustomLink(id, label) {
     } catch (err) { showToast('Delete failed', 'error'); }
 }
 
-// ===== INSTAEMBED (Demo only - Phase 4) =====
-function renderInstaembedTable() {
+// ===== IFRAMES (Real Backend) =====
+let iframesData = [];
+
+async function renderIframesTable() {
+    const tbody = document.getElementById('iframesTableBody');
+    if (!tbody) return;
+
+    if (!currentVcardId) {
+        tbody.innerHTML = '<tr><td colspan="2" style="text-align:center;padding:30px;color:var(--text-gray)">Save vCard first</td></tr>';
+        return;
+    }
+
+    try {
+        const response = await fetch(`https://app.tapify.co.in/api/iframes/list.php?vcard_id=${currentVcardId}`, { credentials: 'include' });
+        const result = await response.json();
+
+        if (result.success) {
+            iframesData = result.data.iframes;
+            if (iframesData.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="2" style="text-align:center;padding:30px;color:var(--text-gray)"><i class="fas fa-window-restore" style="font-size:2rem;opacity:0.3;display:block;margin-bottom:10px;"></i>No iframes yet. Click "+ Add Iframe"</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = iframesData.map(ifr => `
+                <tr data-id="${ifr.id}">
+                    <td><a href="${escapeHtml(ifr.url)}" target="_blank" style="color:var(--primary);text-decoration:none;">${escapeHtml(ifr.url.substring(0,60))}...</a></td>
+                    <td class="td-center">
+                        <button class="action-btn-sm action-delete" onclick="deleteIframe(${ifr.id})"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+    } catch (err) {
+        tbody.innerHTML = '<tr><td colspan="2" style="color:#ef4444;text-align:center;padding:20px">Failed to load iframes</td></tr>';
+    }
+}
+
+function showAddIframe() {
+    if (!currentVcardId) { showToast('Save vCard basics first', 'error'); return; }
+    openAddModal('iframe');
+}
+
+async function saveIframeLogic(url) {
+    if (!url) { showToast('URL is required', 'error'); return; }
+
+    try {
+        const response = await fetch('https://app.tapify.co.in/api/iframes/save.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify({ vcard_id: currentVcardId, url })
+        });
+        const result = await response.json();
+        if (result.success) {
+            showToast('Iframe added!', 'success');
+            closeAddModal();
+            renderIframesTable();
+        } else showToast(result.message, 'error');
+    } catch (err) { showToast('Save failed', 'error'); }
+}
+
+async function deleteIframe(id) {
+    if (!confirm(`Delete iframe?`)) return;
+    try {
+        const response = await fetch('https://app.tapify.co.in/api/iframes/delete.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify({ id, vcard_id: currentVcardId })
+        });
+        const result = await response.json();
+        if (result.success) { showToast('Deleted', 'success'); renderIframesTable(); }
+        else showToast(result.message, 'error');
+    } catch (err) { showToast('Delete failed', 'error'); }
+}
+
+// ===== INSTAEMBED (Real Backend) =====
+let instaData = [];
+
+async function renderInstaembedTable() {
     const tbody = document.getElementById('instaembedTableBody');
     if (!tbody) return;
-    tbody.innerHTML = '<tr><td colspan="3" style="text-align:center;padding:30px;color:var(--text-gray)"><i class="fas fa-info-circle"></i> Instagram embed coming in Phase 4</td></tr>';
+
+    if (!currentVcardId) {
+        tbody.innerHTML = '<tr><td colspan="3" style="text-align:center;padding:30px;color:var(--text-gray)">Save vCard first</td></tr>';
+        return;
+    }
+
+    try {
+        const response = await fetch(`https://app.tapify.co.in/api/instagram/list.php?vcard_id=${currentVcardId}`, { credentials: 'include' });
+        const result = await response.json();
+
+        if (result.success) {
+            instaData = result.data.feeds;
+            if (instaData.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="3" style="text-align:center;padding:30px;color:var(--text-gray)"><i class="fab fa-instagram" style="font-size:2rem;opacity:0.3;display:block;margin-bottom:10px;"></i>No Instagram embeds yet</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = instaData.map(ins => `
+                <tr data-id="${ins.id}">
+                    <td><div class="item-icon"><i class="fab fa-instagram"></i></div></td>
+                    <td><strong>${escapeHtml(ins.type)}</strong><br><small style="color:var(--text-gray)">Embed attached</small></td>
+                    <td class="td-center">
+                        <button class="action-btn-sm action-delete" onclick="deleteInstaembed(${ins.id})"><i class="fas fa-trash"></i></button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+    } catch (err) {
+        tbody.innerHTML = '<tr><td colspan="3" style="color:#ef4444;text-align:center;padding:20px">Failed to load</td></tr>';
+    }
+}
+
+function showAddInstaembed() {
+    if (!currentVcardId) { showToast('Save vCard basics first', 'error'); return; }
+    openAddModal('instaembed');
+}
+
+async function saveInstaembedLogic(type, tag) {
+    if (!type || !tag) { showToast('Type and Embed Tag required', 'error'); return; }
+
+    try {
+        const response = await fetch('https://app.tapify.co.in/api/instagram/save.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify({ vcard_id: currentVcardId, type, tag })
+        });
+        const result = await response.json();
+        if (result.success) {
+            showToast('Instagram embed added!', 'success');
+            closeAddModal();
+            renderInstaembedTable();
+        } else showToast(result.message, 'error');
+    } catch (err) { showToast('Save failed', 'error'); }
+}
+
+async function deleteInstaembed(id) {
+    if (!confirm(`Delete this Instagram embed?`)) return;
+    try {
+        const response = await fetch('https://app.tapify.co.in/api/instagram/delete.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify({ id, vcard_id: currentVcardId })
+        });
+        const result = await response.json();
+        if (result.success) { showToast('Deleted', 'success'); renderInstaembedTable(); }
+        else showToast(result.message, 'error');
+    } catch (err) { showToast('Delete failed', 'error'); }
+}
+
+// ===== SERVICE CATEGORIES (category -> items with image + name) =====
+let serviceCategoriesData = [];
+let pendingServiceItemImageFile = null;
+
+// Resolve a stored image path: Cloudinary/absolute URLs used as-is, else root-relative.
+function resolveImg(p) {
+    if (!p) return '';
+    return /^https?:\/\//i.test(p) ? p : '/' + String(p).replace(/^\/+/, '');
+}
+
+async function renderServiceCategories() {
+    const wrap = document.getElementById('serviceCategoriesContainer');
+    if (!wrap) return;
+    if (!currentVcardId) {
+        wrap.innerHTML = '<p style="text-align:center;color:var(--text-gray);padding:30px">Save vCard basics first to add service categories.</p>';
+        return;
+    }
+    try {
+        const res = await fetch(`https://app.tapify.co.in/api/service-categories/list.php?vcard_id=${currentVcardId}`, { credentials: 'include' });
+        const result = await res.json();
+        if (!result.success) { wrap.innerHTML = `<p style="color:#ef4444;text-align:center;padding:20px">${escapeHtml(result.message || 'Failed to load')}</p>`; return; }
+        serviceCategoriesData = result.data.categories || [];
+        if (serviceCategoriesData.length === 0) {
+            wrap.innerHTML = '<p style="text-align:center;color:var(--text-gray);padding:30px"><i class="fas fa-briefcase" style="font-size:2rem;opacity:.3;display:block;margin-bottom:10px"></i>No categories yet. Click "+ Add Category".</p>';
+            return;
+        }
+        wrap.innerHTML = serviceCategoriesData.map(cat => `
+            <div style="border:1px solid var(--border,#e5e7eb);border-radius:12px;padding:14px;margin-bottom:14px">
+                <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+                    <strong style="flex:1;font-size:15px">${escapeHtml(cat.name)}</strong>
+                    <button class="action-btn-sm action-edit" onclick="editServiceCategory(${cat.id})" title="Edit"><i class="fas fa-pen"></i></button>
+                    <button class="action-btn-sm action-delete" onclick="deleteServiceCategory(${cat.id}, '${escapeHtml(cat.name).replace(/'/g, "\\'")}')" title="Delete"><i class="fas fa-trash"></i></button>
+                </div>
+                <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px">
+                    ${(cat.items || []).map(si => `
+                        <div style="width:90px;position:relative">
+                            <div onclick="showServiceItemModal(${cat.id}, ${si.id})" style="cursor:pointer">
+                                ${si.image
+                                    ? `<img src="${resolveImg(si.image)}" style="width:90px;height:90px;border-radius:10px;object-fit:cover;display:block">`
+                                    : `<div style="width:90px;height:90px;border-radius:10px;background:#f3f4f6;display:flex;align-items:center;justify-content:center">📷</div>`}
+                                <div style="font-size:11px;margin-top:4px;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${escapeHtml(si.name)}</div>
+                            </div>
+                            <button onclick="deleteServiceItem(${si.id})" title="Delete" style="position:absolute;top:-6px;right:-6px;width:22px;height:22px;border-radius:11px;background:#ef4444;color:#fff;border:none;cursor:pointer;font-weight:700">×</button>
+                        </div>
+                    `).join('') || '<span style="color:var(--text-gray);font-size:12px">No services yet.</span>'}
+                </div>
+                <button class="btn-add" style="font-size:13px" onclick="showServiceItemModal(${cat.id}, 0)"><i class="fas fa-plus"></i> Add Service</button>
+            </div>
+        `).join('');
+    } catch (err) {
+        wrap.innerHTML = '<p style="color:#ef4444;text-align:center;padding:20px">Failed to load service categories</p>';
+    }
+}
+
+function showAddServiceCategory() {
+    if (!currentVcardId) { showToast('Please save vCard basics first', 'error'); return; }
+    showServiceCategoryModal();
+}
+function editServiceCategory(id) {
+    const c = serviceCategoriesData.find(x => x.id == id);
+    if (c) showServiceCategoryModal(c);
+}
+function showServiceCategoryModal(cat = null) {
+    const isEdit = cat !== null;
+    const html = `
+        <div class="modal-overlay show" id="svcCatModal" onclick="if(event.target===this)closeServiceCategoryModal()">
+            <div class="modal-box" style="max-width:460px">
+                <div class="modal-header"><h3>${isEdit ? '✏️ Edit Category' : '➕ Add Category'}</h3><button class="modal-close" onclick="closeServiceCategoryModal()">×</button></div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Category Name <span style="color:#ef4444">*</span></label>
+                        <input type="text" id="svcCatName" value="${cat ? escapeHtml(cat.name) : ''}" placeholder="e.g., Hair Services" maxlength="200">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-modal-cancel" onclick="closeServiceCategoryModal()">Cancel</button>
+                    <button class="btn-modal-confirm" onclick="saveServiceCategory(${cat ? cat.id : 0})"><i class="fas fa-save"></i> ${isEdit ? 'Update' : 'Add'}</button>
+                </div>
+            </div>
+        </div>`;
+    const old = document.getElementById('svcCatModal'); if (old) old.remove();
+    document.body.insertAdjacentHTML('beforeend', html);
+    setTimeout(() => document.getElementById('svcCatName')?.focus(), 100);
+}
+function closeServiceCategoryModal() {
+    const m = document.getElementById('svcCatModal'); if (m) m.remove();
+}
+async function saveServiceCategory(id) {
+    const name = document.getElementById('svcCatName').value.trim();
+    if (!name) { showToast('Category name is required', 'error'); return; }
+    try {
+        const res = await fetch('https://app.tapify.co.in/api/service-categories/save.php', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include',
+            body: JSON.stringify({ id: id || 0, vcard_id: currentVcardId, name })
+        });
+        const result = await res.json();
+        if (result.success) { showToast(id ? 'Category updated!' : 'Category added!', 'success'); closeServiceCategoryModal(); renderServiceCategories(); }
+        else showToast(result.message, 'error');
+    } catch (err) { showToast('Failed to save', 'error'); }
+}
+async function deleteServiceCategory(id, name) {
+    if (!confirm(`Delete category "${name}" and all its services?`)) return;
+    try {
+        const res = await fetch('https://app.tapify.co.in/api/service-categories/delete.php', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include',
+            body: JSON.stringify({ id, vcard_id: currentVcardId })
+        });
+        const result = await res.json();
+        if (result.success) { showToast('Category deleted', 'success'); renderServiceCategories(); }
+        else showToast(result.message, 'error');
+    } catch (err) { showToast('Failed to delete', 'error'); }
+}
+
+function showServiceItemModal(categoryId, itemId) {
+    pendingServiceItemImageFile = null;
+    let item = null;
+    if (itemId) {
+        const cat = serviceCategoriesData.find(c => c.id == categoryId);
+        item = cat && (cat.items || []).find(i => i.id == itemId);
+    }
+    const html = `
+        <div class="modal-overlay show" id="svcItemModal" onclick="if(event.target===this)closeServiceItemModal()">
+            <div class="modal-box" style="max-width:460px">
+                <div class="modal-header"><h3>${item ? '✏️ Edit Service' : '➕ Add Service'}</h3><button class="modal-close" onclick="closeServiceItemModal()">×</button></div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Service Image</label>
+                        <div id="svcItemImgPreview" onclick="document.getElementById('svcItemImgInput').click()" style="width:100%;height:150px;border:1.5px dashed var(--border,#d1d5db);border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center;cursor:pointer;background:#f9fafb">
+                            ${item && item.image ? `<img src="${resolveImg(item.image)}" style="width:100%;height:100%;object-fit:cover">` : `<div style="text-align:center;color:#9ca3af"><i class="fas fa-image" style="font-size:1.6rem;display:block;margin-bottom:6px"></i>Click to choose image</div>`}
+                        </div>
+                        <input type="file" id="svcItemImgInput" accept="image/*" style="display:none" onchange="onServiceItemImagePicked(event)">
+                    </div>
+                    <div class="form-group">
+                        <label>Service Name <span style="color:#ef4444">*</span></label>
+                        <input type="text" id="svcItemName" value="${item ? escapeHtml(item.name) : ''}" placeholder="e.g., Haircut" maxlength="200">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-modal-cancel" onclick="closeServiceItemModal()">Cancel</button>
+                    <button class="btn-modal-confirm" onclick="saveServiceItem(${categoryId}, ${itemId || 0})"><i class="fas fa-save"></i> ${item ? 'Update' : 'Add'}</button>
+                </div>
+            </div>
+        </div>`;
+    const old = document.getElementById('svcItemModal'); if (old) old.remove();
+    document.body.insertAdjacentHTML('beforeend', html);
+    setTimeout(() => document.getElementById('svcItemName')?.focus(), 100);
+}
+function closeServiceItemModal() {
+    pendingServiceItemImageFile = null;
+    const m = document.getElementById('svcItemModal'); if (m) m.remove();
+}
+function onServiceItemImagePicked(event) {
+    const file = event.target.files && event.target.files[0];
+    if (!file) return;
+    pendingServiceItemImageFile = file;
+    const preview = document.getElementById('svcItemImgPreview');
+    const reader = new FileReader();
+    reader.onload = (e) => { if (preview) preview.innerHTML = `<img src="${e.target.result}" style="width:100%;height:100%;object-fit:cover">`; };
+    reader.readAsDataURL(file);
+}
+async function saveServiceItem(categoryId, itemId) {
+    const name = document.getElementById('svcItemName').value.trim();
+    if (!name) { showToast('Service name is required', 'error'); return; }
+    try {
+        const res = await fetch('https://app.tapify.co.in/api/service-items/save.php', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include',
+            body: JSON.stringify({ id: itemId || 0, category_id: categoryId, name })
+        });
+        const result = await res.json();
+        if (!result.success) { showToast(result.message, 'error'); return; }
+        // Upload image (if chosen) now that we have the item id
+        if (pendingServiceItemImageFile) {
+            const targetId = (result.data && result.data.id) ? result.data.id : itemId;
+            if (targetId) {
+                try {
+                    const fd = new FormData();
+                    fd.append('file', pendingServiceItemImageFile);
+                    fd.append('vcard_id', currentVcardId);
+                    fd.append('type', 'service_item');
+                    fd.append('target_id', String(targetId));
+                    const upRes = await fetch(UPLOAD_API + 'image.php', { method: 'POST', credentials: 'include', body: fd });
+                    const upJson = await upRes.json().catch(() => ({}));
+                    if (!upJson.success) {
+                        showToast('Service saved, but image upload failed: ' + (upJson.message || ('HTTP ' + upRes.status)), 'error');
+                    }
+                } catch (e) { showToast('Service saved, but image upload failed (network)', 'error'); }
+            }
+        }
+        showToast(itemId ? 'Service updated!' : 'Service added!', 'success');
+        closeServiceItemModal();
+        renderServiceCategories();
+    } catch (err) { showToast('Failed to save', 'error'); }
+}
+async function deleteServiceItem(id) {
+    if (!confirm('Delete this service?')) return;
+    try {
+        const res = await fetch('https://app.tapify.co.in/api/service-items/delete.php', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include',
+            body: JSON.stringify({ id })
+        });
+        const result = await res.json();
+        if (result.success) { showToast('Service deleted', 'success'); renderServiceCategories(); }
+        else showToast(result.message, 'error');
+    } catch (err) { showToast('Failed to delete', 'error'); }
 }
 
 // ===== GALLERIES (Real Backend - basic) =====
@@ -1407,7 +1884,7 @@ async function renderGalleriesTable() {
     }
 
     try {
-        const response = await fetch(`../backend/api/galleries/list.php?vcard_id=${currentVcardId}`, { credentials: 'include' });
+        const response = await fetch(`https://app.tapify.co.in/api/galleries/list.php?vcard_id=${currentVcardId}`, { credentials: 'include' });
         const result = await response.json();
 
         if (result.success) {
@@ -1482,7 +1959,7 @@ async function saveGallery(id) {
     if (!name) { showToast('Name required', 'error'); return; }
 
     try {
-        const response = await fetch('../backend/api/galleries/save.php', {
+        const response = await fetch('https://app.tapify.co.in/api/galleries/save.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
@@ -1500,7 +1977,7 @@ async function saveGallery(id) {
 async function deleteGallery(id, name) {
     if (!confirm(`Delete gallery "${name}"? All images inside will also be deleted.`)) return;
     try {
-        const response = await fetch('../backend/api/galleries/delete.php', {
+        const response = await fetch('https://app.tapify.co.in/api/galleries/delete.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
@@ -1547,7 +2024,7 @@ async function renderSocialLinks() {
     if (!currentVcardId) return;
 
     try {
-        const response = await fetch(`../backend/api/social/list.php?vcard_id=${currentVcardId}`, { credentials: 'include' });
+        const response = await fetch(`https://app.tapify.co.in/api/social/list.php?vcard_id=${currentVcardId}`, { credentials: 'include' });
         const result = await response.json();
         if (result.success && result.data.links.length > 0) {
             result.data.links.forEach(link => {
@@ -1574,7 +2051,7 @@ async function saveSocialLinks() {
     });
 
     try {
-        const response = await fetch('../backend/api/social/save.php', {
+        const response = await fetch('https://app.tapify.co.in/api/social/save.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             credentials: 'include',
@@ -1777,6 +2254,19 @@ function closeAddModal() {
 }
 
 function saveModalItem() {
+    // Intercept saves for our new dynamic endpoints
+    if (currentModalType === 'iframe') {
+        const url = document.querySelector('#addModal input[type="url"]').value.trim();
+        saveIframeLogic(url);
+        return;
+    }
+    if (currentModalType === 'instaembed') {
+        const type = document.querySelector('#addModal select').value;
+        const tag = document.querySelector('#addModal textarea').value.trim();
+        saveInstaembedLogic(type, tag);
+        return;
+    }
+    
     showToast(`${currentModalType} added successfully!`, 'success');
     closeAddModal();
 }
@@ -1857,6 +2347,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderBusinessHours();
     renderAppointments();
     renderServicesTable();
+    renderServiceCategories();
     renderProductsTable();
     renderBlogsTable();
     renderTestimonialsTable();
@@ -1876,7 +2367,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // REAL BACKEND INTEGRATION
 // ============================================================
 
-const VCARD_API = '../backend/api/vcards/';
+const VCARD_API = 'https://app.tapify.co.in/api/vcards/';
 let currentVcardId = null;
 let currentVcardData = null;
 
@@ -1896,7 +2387,8 @@ async function loadVcardData(id) {
         });
 
         if (response.status === 401) {
-            window.location.href = 'login.html';
+            const prefix = (window.location.pathname.includes('/admin/') || window.location.pathname.includes('/dashboard/')) ? '../' : '';
+            window.location.href = prefix + 'login.html';
             return;
         }
 
@@ -1983,12 +2475,82 @@ function populateForm(vcard) {
     }
 
     // === Templates ===
-    const templateIdx = templates.findIndex(t => t.id === vcard.template_id);
-    if (templateIdx >= 0) {
-        document.querySelectorAll('.template-card').forEach(c => c.classList.remove('selected'));
-        const card = document.querySelector(`.template-card[data-template="${templateIdx}"]`);
-        if (card) card.classList.add('selected');
+    if (vcard.template_id) {
+        selectTemplateCardById(vcard.template_id);
     }
+
+    // === Dynamic vCard Colors ===
+    const dynamicTab = document.getElementById('tab-dynamic-vcard');
+    if (dynamicTab) {
+        const groups = dynamicTab.querySelectorAll('.form-group');
+        groups.forEach(group => {
+            const label = group.querySelector('label')?.textContent.trim();
+            const colorPicker = group.querySelector('input[type="color"]');
+            const colorText = group.querySelector('input[type="text"]');
+            
+            let val = '';
+            if (label.includes('Primary')) val = vcard.primary_color;
+            if (label.includes('Secondary')) val = vcard.secondary_color;
+            if (label.includes('Background Color')) val = vcard.bg_color;
+            if (label.includes('Button Text')) val = vcard.button_text_color;
+            if (label.includes('Label Text')) val = vcard.label_text_color;
+            if (label.includes('Description Text')) val = vcard.description_text_color;
+            if (label.includes('Cards Background')) val = vcard.cards_bg_color;
+            if (label.includes('Social Icon')) val = vcard.social_icon_color;
+
+            if (val && colorPicker) {
+                colorPicker.value = val;
+                if (colorText) colorText.value = val;
+            }
+        });
+
+        // Button Style
+        if (vcard.button_style) {
+            const styleBtns = dynamicTab.querySelectorAll('.style-btn');
+            styleBtns.forEach((btn, idx) => {
+                if (idx + 1 === parseInt(vcard.button_style)) {
+                    styleBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // Sticky Position
+        if (vcard.sticky_position) {
+            const posBtns = dynamicTab.querySelectorAll('#stickyPositionToggle .btn-toggle');
+            posBtns.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.value === vcard.sticky_position) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+    }
+
+    // === QR Code Configuration ===
+    const qrColor = document.getElementById('qrColor');
+    if (qrColor && vcard.qr_color) qrColor.value = vcard.qr_color;
+    
+    const qrBgColor = document.getElementById('qrBgColor');
+    if (qrBgColor && vcard.qr_bg_color) qrBgColor.value = vcard.qr_bg_color;
+
+    const qrStyle = document.getElementById('qrStyle');
+    if (qrStyle && vcard.qr_style) qrStyle.value = vcard.qr_style;
+
+    const qrEyeStyle = document.getElementById('qrEyeStyle');
+    if (qrEyeStyle && vcard.qr_eye_style) qrEyeStyle.value = vcard.qr_eye_style;
+
+    const qrUseConfig = document.getElementById('qrUseConfig');
+    if (qrUseConfig) qrUseConfig.checked = (vcard.qr_use_config == 1);
+
+    // === Manage Sections ===
+    const manageCheckboxes = document.querySelectorAll('#tab-manage-section input[type="checkbox"][data-section]');
+    manageCheckboxes.forEach(cb => {
+        const field = cb.dataset.section;
+        if (vcard[field] !== undefined) {
+            cb.checked = (vcard[field] == 1);
+        }
+    });
 
     // === Business Hours ===
     if (vcard.business_hours && vcard.business_hours.length > 0) {
@@ -2020,20 +2582,22 @@ function setVal(id, value) {
 // ============================================================
 
 function setupSaveButtons() {
-    // Override the universal save handler
     document.removeEventListener('click', dummyHandler);
 
     document.addEventListener('click', async (e) => {
-        if (!e.target.classList.contains('btn-save')) return;
-        if (e.target.dataset.saving === '1') return;
+        const btn = e.target.closest('.btn-save');
+        if (!btn || btn.id === 'saveSocialBtn') return;
+        if (btn.dataset.saving === '1') return;
 
         e.preventDefault();
-        e.target.dataset.saving = '1';
+        btn.dataset.saving = '1';
 
         try {
-            // Determine which tab is active
             const activeMainTab = document.querySelector('.tab-content.active');
-            const activeInnerTab = document.querySelector('.inner-tab-content.active');
+            // Only use inner tabs when Basic Details main section is active (hidden inner tabs keep .active otherwise)
+            const activeInnerTab = (activeMainTab?.id === 'tab-basic-details')
+                ? document.querySelector('.inner-tab-content.active')
+                : null;
 
             let saveResult = false;
 
@@ -2049,24 +2613,30 @@ function setupSaveButtons() {
                 saveResult = await saveBusinessHours();
             } else if (activeMainTab && activeMainTab.id === 'tab-dynamic-vcard') {
                 saveResult = await saveDynamicConfig();
+            } else if (activeMainTab && activeMainTab.id === 'tab-qr-code') {
+                saveResult = await saveQRCodeConfig();
+            } else if (activeMainTab && activeMainTab.id === 'tab-manage-section') {
+                saveResult = await saveManageSections();
             } else {
                 showToast('This section save is coming in next phase', 'warning');
-                saveResult = true; // Allow next-tab navigation
+                saveResult = true;
             }
 
-            // If save successful, navigate to next inner tab (for inner tabs)
-            if (saveResult && activeInnerTab) {
+            if (!saveResult) return;
+
+            // Inner tabs only: Basic → Personal → Other (stay on Basic Details section)
+            if (activeInnerTab) {
                 const innerTabs = document.querySelectorAll('.inner-tab');
                 const activeIndex = Array.from(innerTabs).findIndex(t => t.classList.contains('active'));
                 if (activeIndex >= 0 && activeIndex < innerTabs.length - 1) {
-                    setTimeout(() => innerTabs[activeIndex + 1].click(), 800);
+                    setTimeout(() => innerTabs[activeIndex + 1].click(), 600);
                 }
             }
         } catch (err) {
             console.error('Save error:', err);
             showToast('Save failed: ' + err.message, 'error');
         } finally {
-            setTimeout(() => delete e.target.dataset.saving, 500);
+            setTimeout(() => delete btn.dataset.saving, 500);
         }
     });
 }
@@ -2103,22 +2673,25 @@ async function savePersonalDetails() {
     const personalTab = document.getElementById('inner-personal');
     if (!personalTab) return false;
 
-    const inputs = personalTab.querySelectorAll('input.form-control, textarea.form-control, select.form-control');
-
-    const fieldNames = [
-        'first_name', 'last_name', 'email', 'phone',
-        'alternate_email', 'alternate_phone', 'location', 'location_type',
-        'location_url', 'dob', 'company', 'made_by', 'made_by_url',
-        'job_title', 'default_language', 'cover_type'
-    ];
-
-    const data = { id: currentVcardId };
-
-    inputs.forEach((input, idx) => {
-        if (idx < fieldNames.length) {
-            data[fieldNames[idx]] = input.value;
-        }
-    });
+    // Use explicit IDs for robustness
+    const data = {
+        id: currentVcardId,
+        first_name: personalTab.querySelector('input[placeholder="Enter First Name"]')?.value || '',
+        last_name: personalTab.querySelector('input[placeholder="Enter Last Name"]')?.value || '',
+        email: personalTab.querySelector('input[type="email"]')?.value || '',
+        phone: personalTab.querySelector('input[type="tel"]')?.value || '',
+        alternate_email: personalTab.querySelectorAll('input[type="email"]')[1]?.value || '',
+        alternate_phone: personalTab.querySelectorAll('input[type="tel"]')[1]?.value || '',
+        location: personalTab.querySelector('textarea')?.value || '',
+        location_type: personalTab.querySelector('select')?.value || 'link',
+        location_url: personalTab.querySelector('input[type="url"]')?.value || '',
+        dob: personalTab.querySelector('input[type="date"]')?.value || null,
+        company: personalTab.querySelector('input[placeholder="Company Name"]')?.value || '',
+        made_by: personalTab.querySelector('input[placeholder="Made By"]')?.value || '',
+        made_by_url: personalTab.querySelectorAll('input[type="url"]')[1]?.value || '',
+        job_title: personalTab.querySelector('input[placeholder="Job Title"]')?.value || '',
+        default_language: personalTab.querySelectorAll('select')[1]?.value || 'en'
+    };
 
     return await callUpdateAPI(data, 'Personal details');
 }
@@ -2129,22 +2702,27 @@ async function saveOtherConfigurations() {
 
     const data = {
         id: currentVcardId,
-        qr_download_size: parseInt(document.getElementById('qrSize')?.value || 200)
+        qr_download_size: parseInt(document.getElementById('qrSize')?.value || 200),
+        display_inquiry_form: document.querySelector('#inner-other input[type="checkbox"]:nth-of-type(2)')?.checked ? 1 : 0, // Wait, better to use unique labels or specific order if we must
+        // Actually, let's look at the HTML labels
     };
 
-    // Collect all checkbox toggles in this tab
+    // Re-refactoring to be even more precise using the labels
     const otherTab = document.getElementById('inner-other');
     if (otherTab) {
-        const toggles = otherTab.querySelectorAll('input[type="checkbox"]');
-        const toggleFields = [
-            'display_inquiry_form', 'display_qr_section', 'display_download_qr',
-            'display_add_contact', 'display_whatsapp_share', 'display_language_selector',
-            'hide_sticky_bar'
-        ];
-        toggles.forEach((toggle, idx) => {
-            if (idx < toggleFields.length) {
-                data[toggleFields[idx]] = toggle.checked ? 1 : 0;
-            }
+        const cards = otherTab.querySelectorAll('.config-card');
+        cards.forEach(card => {
+            const label = card.querySelector('label')?.textContent.trim();
+            const checkbox = card.querySelector('input[type="checkbox"]');
+            if (!checkbox) return;
+
+            if (label.includes('Language')) data.display_language_selector = checkbox.checked ? 1 : 0;
+            if (label.includes('Inquiry')) data.display_inquiry_form = checkbox.checked ? 1 : 0;
+            if (label.includes('Download QR')) data.display_download_qr = checkbox.checked ? 1 : 0;
+            if (label.includes('QR Section')) data.display_qr_section = checkbox.checked ? 1 : 0;
+            if (label.includes('Add To Contact')) data.display_add_contact = checkbox.checked ? 1 : 0;
+            if (label.includes('Sticky Bar')) data.hide_sticky_bar = checkbox.checked ? 1 : 0;
+            if (label.includes('WhatsApp Share')) data.display_whatsapp_share = checkbox.checked ? 1 : 0;
         });
     }
 
@@ -2164,10 +2742,31 @@ async function saveTemplate() {
     const idx = parseInt(selected.dataset.template);
     const template = templates[idx];
 
-    return await callUpdateAPI({
+    const ok = await callUpdateAPI({
         id: currentVcardId,
-        template_id: template.id
-    }, `Template "${template.name}"`);
+        template_id: template.id,
+        // Reset custom colors when selecting a new template from gallery
+        // This ensures the template's default registry colors take over.
+        primary_color: null,
+        secondary_color: null,
+        bg_color: null,
+        button_text_color: null,
+        label_text_color: null,
+        description_text_color: null,
+        cards_bg_color: null,
+        social_icon_color: null
+    }, `Template "${template.name}"`, { reload: false });
+
+    if (ok) {
+        if (currentVcardData) currentVcardData.template_id = template.id;
+        selectTemplateCardById(template.id);
+        const alias = currentVcardData?.url_alias || document.getElementById('urlAlias')?.value;
+        if (alias) {
+            const previewUrl = `${PUBLIC_VCARD_BASE}${alias.replace(/^\//, '')}`;
+            showToast(`Template saved. Open live card: ${previewUrl}`, 'success');
+        }
+    }
+    return ok;
 }
 
 // Save Business Hours
@@ -2197,23 +2796,73 @@ async function saveDynamicConfig() {
 
     const data = { id: currentVcardId };
 
-    // Collect color inputs
-    const colorInputs = dynamicTab.querySelectorAll('input[type="color"]');
-    const colorFields = [
-        'primary_color', 'secondary_color', 'bg_color', 'cards_bg_color',
-        'button_text_color', 'label_text_color', 'description_text_color', 'social_icon_color'
-    ];
-    colorInputs.forEach((input, idx) => {
-        if (idx < colorFields.length) {
-            data[colorFields[idx]] = input.value;
-        }
+    // Map color inputs by their label/order precisely
+    const groups = dynamicTab.querySelectorAll('.form-group');
+    groups.forEach(group => {
+        const label = group.querySelector('label')?.textContent.trim();
+        const input = group.querySelector('input[type="color"]');
+        if (!input) return;
+
+        if (label.includes('Primary')) data.primary_color = input.value;
+        if (label.includes('Secondary')) data.secondary_color = input.value;
+        if (label.includes('Background Color')) data.bg_color = input.value;
+        if (label.includes('Button Text')) data.button_text_color = input.value;
+        if (label.includes('Label Text')) data.label_text_color = input.value;
+        if (label.includes('Description Text')) data.description_text_color = input.value;
+        if (label.includes('Cards Background')) data.cards_bg_color = input.value;
+        if (label.includes('Social Icon')) data.social_icon_color = input.value;
     });
+
+    // Save Button Style (Index of active style-btn)
+    const activeStyleBtn = dynamicTab.querySelector('.style-btn.active');
+    if (activeStyleBtn) {
+        const styleBtns = Array.from(dynamicTab.querySelectorAll('.style-btn'));
+        data.button_style = styleBtns.indexOf(activeStyleBtn) + 1;
+    }
+
+    // Save Sticky Position
+    const activePositionBtn = dynamicTab.querySelector('#stickyPositionToggle .btn-toggle.active');
+    if (activePositionBtn) {
+        data.sticky_position = activePositionBtn.dataset.value || 'left';
+    }
 
     return await callUpdateAPI(data, 'Dynamic vCard');
 }
 
+// Save QR Code configuration
+async function saveQRCodeConfig() {
+    if (!currentVcardId) return false;
+
+    const data = {
+        id: currentVcardId,
+        qr_color: document.getElementById('qrColor')?.value || '#000000',
+        qr_bg_color: document.getElementById('qrBgColor')?.value || '#ffffff',
+        qr_style: document.getElementById('qrStyle')?.value || 'square',
+        qr_eye_style: document.getElementById('qrEyeStyle')?.value || 'square',
+        qr_use_config: document.getElementById('qrUseConfig')?.checked ? 1 : 0
+    };
+
+    return await callUpdateAPI(data, 'QR Code configuration');
+}
+
+// Save Manage Sections visibility
+async function saveManageSections() {
+    if (!currentVcardId) return false;
+
+    const data = { id: currentVcardId };
+    const checkboxes = document.querySelectorAll('#tab-manage-section input[type="checkbox"][data-section]');
+    
+    checkboxes.forEach(cb => {
+        const section = cb.dataset.section;
+        data[section] = cb.checked ? 1 : 0;
+    });
+
+    return await callUpdateAPI(data, 'Section visibility');
+}
+
 // Generic update API call
-async function callUpdateAPI(data, sectionName) {
+async function callUpdateAPI(data, sectionName, options = {}) {
+    const reload = options.reload !== false;
     try {
         const response = await fetch(`${VCARD_API}update.php`, {
             method: 'POST',
@@ -2223,7 +2872,7 @@ async function callUpdateAPI(data, sectionName) {
         });
 
         if (response.status === 401) {
-            window.location.href = 'login.html';
+            window.location.href = getLoginPath();
             return false;
         }
 
@@ -2231,6 +2880,13 @@ async function callUpdateAPI(data, sectionName) {
 
         if (result.success) {
             showToast(`✓ ${sectionName} saved successfully!`, 'success');
+            if (reload && currentVcardId) {
+                loadVcardData(currentVcardId);
+            } else if (currentVcardData && data) {
+                Object.keys(data).forEach(k => {
+                    if (k !== 'id' && data[k] !== undefined) currentVcardData[k] = data[k];
+                });
+            }
             return true;
         } else {
             showToast(result.message || `Failed to save ${sectionName}`, 'error');
@@ -2242,3 +2898,4 @@ async function callUpdateAPI(data, sectionName) {
         return false;
     }
 }
+

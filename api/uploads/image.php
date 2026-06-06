@@ -191,19 +191,24 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
         case 'service_item':
             if ($targetId > 0) {
-                // Verify the item belongs to a category under this vCard
+                // Ownership already verified above (vCard belongs to this user).
+                // Simply check the item exists under any category of this vCard.
                 $stmt = $pdo->prepare("
-                    SELECT si.image FROM vcard_service_items si
+                    SELECT si.id, si.image FROM vcard_service_items si
                     JOIN vcard_service_categories sc ON sc.id = si.category_id
-                    WHERE si.id = ? AND sc.vcard_id = ?
+                    JOIN vcards v ON v.id = sc.vcard_id
+                    WHERE si.id = ? AND v.user_id = ?
                 ");
-                $stmt->execute([$targetId, $vcardId]);
+                $stmt->execute([$targetId, $userId]);
                 $row = $stmt->fetch();
-                if ($row) {
-                    $oldImageToDelete = $row['image'];
-                    $stmt = $pdo->prepare("UPDATE vcard_service_items SET image = ? WHERE id = ?");
-                    $stmt->execute([$relativePath, $targetId]);
+                if (!$row) {
+                    sendError('Service item not found or access denied', 404);
                 }
+                $oldImageToDelete = $row['image'];
+                $stmt = $pdo->prepare("UPDATE vcard_service_items SET image = ? WHERE id = ?");
+                $stmt->execute([$relativePath, $targetId]);
+            } else {
+                sendError('target_id required for service_item upload');
             }
             break;
 
