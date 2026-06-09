@@ -35,6 +35,20 @@ try {
     $customerPassword = $input['customer_password'] ?? '';
     $customerName = sanitize($input['customer_name'] ?? '');
 
+    // Admins must always set a customer login when creating a vCard, so the
+    // customer can sign in. (Regular users create vCards under their own account.)
+    if (isAdmin()) {
+        if (empty($customerEmail) || empty($customerPassword)) {
+            sendError('Customer login email and password are required.');
+        }
+        if (!filter_var($customerEmail, FILTER_VALIDATE_EMAIL)) {
+            sendError('Please enter a valid customer login email.');
+        }
+        if (strlen($customerPassword) < 6) {
+            sendError('Customer password must be at least 6 characters.');
+        }
+    }
+
     if ($customerEmail && $_SESSION['user_role'] === 'admin') {
         if (empty($customerPassword) || strlen($customerPassword) < 6) {
             sendError('Customer password is required (minimum 6 characters) when customer email is provided');
