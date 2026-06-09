@@ -67,9 +67,11 @@ try {
             $stmt->execute([$customerName ?: $vcardName, $customerEmail, $hashedPass]);
             $userId = $pdo->lastInsertId();
 
-            // 3. Create default subscription
-            $stmt = $pdo->prepare("INSERT INTO subscriptions (user_id, plan_name, vcards_limit, stores_limit, price, subscribed_date, expiry_date, status) VALUES (?, 'Free Plan', 5, 1, 0, CURDATE(), DATE_ADD(CURDATE(), INTERVAL 1 YEAR), 'active')");
-            $stmt->execute([$userId]);
+            // 3. Create default subscription (dates bound as params, no SQL funcs)
+            $subStart  = date('Y-m-d');
+            $subExpiry = date('Y-m-d', strtotime('+1 year'));
+            $stmt = $pdo->prepare("INSERT INTO subscriptions (user_id, plan_name, vcards_limit, stores_limit, price, subscribed_date, expiry_date, status) VALUES (?, 'Free Plan', 5, 1, 0, ?, ?, 'active')");
+            $stmt->execute([$userId, $subStart, $subExpiry]);
         }
     }
 

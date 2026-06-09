@@ -112,8 +112,12 @@ try {
         $userId = $pdo->lastInsertId();
 
         // Give the new user a default subscription.
-        $stmt = $pdo->prepare("INSERT INTO subscriptions (user_id, plan_name, vcards_limit, stores_limit, price, subscribed_date, expiry_date, status) VALUES (?, 'Free Plan', 5, 1, 0, CURDATE(), DATE_ADD(CURDATE(), INTERVAL 1 YEAR), 'active')");
-        $stmt->execute([$userId]);
+        // Dates are computed in PHP and bound as params (avoids SQL date
+        // functions in a prepared statement, which some MySQL/MariaDB reject).
+        $subStart  = date('Y-m-d');
+        $subExpiry = date('Y-m-d', strtotime('+1 year'));
+        $stmt = $pdo->prepare("INSERT INTO subscriptions (user_id, plan_name, vcards_limit, stores_limit, price, subscribed_date, expiry_date, status) VALUES (?, 'Free Plan', 5, 1, 0, ?, ?, 'active')");
+        $stmt->execute([$userId, $subStart, $subExpiry]);
     }
 
     // Assign the vCard to this customer.
