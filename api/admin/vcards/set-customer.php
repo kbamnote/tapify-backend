@@ -112,7 +112,7 @@ try {
         $userId = $pdo->lastInsertId();
 
         // Give the new user a default subscription.
-        $stmt = $pdo->prepare("INSERT INTO subscriptions (user_id, plan_name, vcards_limit, stores_limit, status) VALUES (?, 'Free Plan', 5, 1, 'active')");
+        $stmt = $pdo->prepare("INSERT INTO subscriptions (user_id, plan_name, vcards_limit, stores_limit, price, subscribed_date, expiry_date, status) VALUES (?, 'Free Plan', 5, 1, 0, CURDATE(), DATE_ADD(CURDATE(), INTERVAL 1 YEAR), 'active')");
         $stmt->execute([$userId]);
     }
 
