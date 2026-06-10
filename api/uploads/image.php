@@ -191,15 +191,24 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
         case 'service_item':
             if ($targetId > 0) {
-                // Ownership already verified above (vCard belongs to this user).
-                // Simply check the item exists under any category of this vCard.
-                $stmt = $pdo->prepare("
-                    SELECT si.id, si.image FROM vcard_service_items si
-                    JOIN vcard_service_categories sc ON sc.id = si.category_id
-                    JOIN vcards v ON v.id = sc.vcard_id
-                    WHERE si.id = ? AND v.user_id = ?
-                ");
-                $stmt->execute([$targetId, $userId]);
+                // vCard ownership already verified above (admins allowed on any vCard).
+                // Tie the item to the authorized vCard; admins bypass user ownership.
+                if (isAdmin()) {
+                    $stmt = $pdo->prepare("
+                        SELECT si.id, si.image FROM vcard_service_items si
+                        JOIN vcard_service_categories sc ON sc.id = si.category_id
+                        WHERE si.id = ? AND sc.vcard_id = ?
+                    ");
+                    $stmt->execute([$targetId, $vcardId]);
+                } else {
+                    $stmt = $pdo->prepare("
+                        SELECT si.id, si.image FROM vcard_service_items si
+                        JOIN vcard_service_categories sc ON sc.id = si.category_id
+                        JOIN vcards v ON v.id = sc.vcard_id
+                        WHERE si.id = ? AND v.user_id = ?
+                    ");
+                    $stmt->execute([$targetId, $userId]);
+                }
                 $row = $stmt->fetch();
                 if (!$row) {
                     sendError('Service item not found or access denied', 404);
