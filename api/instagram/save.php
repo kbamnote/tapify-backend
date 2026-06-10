@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../includes/functions.php';
+requireAuth();
 
 $data = getInput();
 
@@ -10,7 +11,9 @@ if (!isset($data['vcard_id']) || empty($data['tag'])) {
 
 try {
     $pdo = getDB();
-    
+
+    if (!userCanEditVcard($pdo, (int)$data['vcard_id'])) sendError('Access denied', 403);
+
     $embedUrl = null;
     $rawTag = $data['tag'] ?? '';
 

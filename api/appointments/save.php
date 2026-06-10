@@ -37,18 +37,21 @@ try {
     $userId = getCurrentUserId();
 
     // Verify vCard ownership
-    $stmt = $pdo->prepare("SELECT id FROM vcards WHERE id = ? AND user_id = ? LIMIT 1");
-    $stmt->execute([$vcardId, $userId]);
-    if (!$stmt->fetch()) sendError('Access denied', 403);
+    if (!userCanEditVcard($pdo, $vcardId)) sendError('Access denied', 403);
 
     if ($id > 0) {
-        // Update - verify ownership
-        $stmt = $pdo->prepare("
-            SELECT a.id FROM vcard_appointments a
-            JOIN vcards v ON v.id = a.vcard_id
-            WHERE a.id = ? AND v.user_id = ? LIMIT 1
-        ");
-        $stmt->execute([$id, $userId]);
+        // Update - verify ownership (admins may edit any vCard's appointment)
+        if (isAdmin()) {
+            $stmt = $pdo->prepare("SELECT id FROM vcard_appointments WHERE id = ? LIMIT 1");
+            $stmt->execute([$id]);
+        } else {
+            $stmt = $pdo->prepare("
+                SELECT a.id FROM vcard_appointments a
+                JOIN vcards v ON v.id = a.vcard_id
+                WHERE a.id = ? AND v.user_id = ? LIMIT 1
+            ");
+            $stmt->execute([$id, $userId]);
+        }
         if (!$stmt->fetch()) sendError('Access denied', 403);
 
         $stmt = $pdo->prepare("UPDATE vcard_appointments

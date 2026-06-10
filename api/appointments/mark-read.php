@@ -20,12 +20,17 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
-    $stmt = $pdo->prepare("
-        SELECT a.id FROM vcard_appointments a
-        JOIN vcards v ON v.id = a.vcard_id
-        WHERE a.id = ? AND v.user_id = ? LIMIT 1
-    ");
-    $stmt->execute([$id, $userId]);
+    if (isAdmin()) {
+        $stmt = $pdo->prepare("SELECT id FROM vcard_appointments WHERE id = ? LIMIT 1");
+        $stmt->execute([$id]);
+    } else {
+        $stmt = $pdo->prepare("
+            SELECT a.id FROM vcard_appointments a
+            JOIN vcards v ON v.id = a.vcard_id
+            WHERE a.id = ? AND v.user_id = ? LIMIT 1
+        ");
+        $stmt->execute([$id, $userId]);
+    }
     if (!$stmt->fetch()) sendError('Access denied', 403);
 
     $stmt = $pdo->prepare("UPDATE vcard_appointments SET is_read = ? WHERE id = ?");

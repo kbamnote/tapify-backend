@@ -125,6 +125,22 @@ function requireAdmin() {
 }
 
 /**
+ * Verify the current user is allowed to manage the given vCard.
+ * Admins can manage ANY vCard; regular users only their own.
+ * Returns true if allowed, false otherwise.
+ */
+function userCanEditVcard($pdo, $vcardId) {
+    if (isAdmin()) {
+        $stmt = $pdo->prepare("SELECT id FROM vcards WHERE id = ? LIMIT 1");
+        $stmt->execute([$vcardId]);
+    } else {
+        $stmt = $pdo->prepare("SELECT id FROM vcards WHERE id = ? AND user_id = ? LIMIT 1");
+        $stmt->execute([$vcardId, getCurrentUserId()]);
+    }
+    return (bool)$stmt->fetch();
+}
+
+/**
  * Get current logged in user details
  */
 function getCurrentUser() {

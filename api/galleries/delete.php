@@ -15,9 +15,7 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
-    $stmt = $pdo->prepare("SELECT id FROM vcards WHERE id = ? AND user_id = ? LIMIT 1");
-    $stmt->execute([$vcardId, $userId]);
-    if (!$stmt->fetch()) sendError('Access denied', 403);
+    if (!userCanEditVcard($pdo, $vcardId)) sendError('Access denied', 403);
 
     // CASCADE will delete gallery images too
     $stmt = $pdo->prepare("DELETE FROM vcard_galleries WHERE id = ? AND vcard_id = ?");

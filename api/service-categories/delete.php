@@ -15,9 +15,7 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
-    $stmt = $pdo->prepare("SELECT id FROM vcards WHERE id = ? AND user_id = ? LIMIT 1");
-    $stmt->execute([$vcardId, $userId]);
-    if (!$stmt->fetch()) sendError('Access denied', 403);
+    if (!userCanEditVcard($pdo, $vcardId)) sendError('Access denied', 403);
 
     // CASCADE removes the category's items too
     $stmt = $pdo->prepare("DELETE FROM vcard_service_categories WHERE id = ? AND vcard_id = ?");

@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../includes/functions.php';
+requireAuth();
 
 $data = getInput();
 
@@ -10,6 +11,9 @@ if (!isset($data['id']) || !isset($data['vcard_id'])) {
 
 try {
     $pdo = getDB();
+
+    if (!userCanEditVcard($pdo, (int)$data['vcard_id'])) sendError('Access denied', 403);
+
     $stmt = $pdo->prepare("DELETE FROM vcard_iframes WHERE id = ? AND vcard_id = ?");
     $stmt->execute([$data['id'], $data['vcard_id']]);
     

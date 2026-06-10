@@ -16,15 +16,25 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
-    // Verify ownership through gallery → vcard chain
-    $stmt = $pdo->prepare("
-        SELECT g.id, g.name, g.vcard_id
-        FROM vcard_galleries g
-        JOIN vcards v ON v.id = g.vcard_id
-        WHERE g.id = ? AND v.user_id = ?
-        LIMIT 1
-    ");
-    $stmt->execute([$galleryId, $userId]);
+    // Verify ownership through gallery → vcard chain (admins may view any)
+    if (isAdmin()) {
+        $stmt = $pdo->prepare("
+            SELECT g.id, g.name, g.vcard_id
+            FROM vcard_galleries g
+            WHERE g.id = ?
+            LIMIT 1
+        ");
+        $stmt->execute([$galleryId]);
+    } else {
+        $stmt = $pdo->prepare("
+            SELECT g.id, g.name, g.vcard_id
+            FROM vcard_galleries g
+            JOIN vcards v ON v.id = g.vcard_id
+            WHERE g.id = ? AND v.user_id = ?
+            LIMIT 1
+        ");
+        $stmt->execute([$galleryId, $userId]);
+    }
     $gallery = $stmt->fetch();
     if (!$gallery) sendError('Access denied', 403);
 

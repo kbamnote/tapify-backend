@@ -24,9 +24,7 @@ try {
     $userId = getCurrentUserId();
 
     // Verify ownership
-    $stmt = $pdo->prepare("SELECT id FROM vcards WHERE id = ? AND user_id = ? LIMIT 1");
-    $stmt->execute([$vcardId, $userId]);
-    if (!$stmt->fetch()) sendError('Access denied', 403);
+    if (!userCanEditVcard($pdo, $vcardId)) sendError('Access denied', 403);
 
     // Delete all existing - then re-insert (simpler for bulk)
     $pdo->prepare("DELETE FROM vcard_social_links WHERE vcard_id = ?")->execute([$vcardId]);

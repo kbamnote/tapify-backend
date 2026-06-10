@@ -26,10 +26,8 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
-    // Verify vCard ownership
-    $stmt = $pdo->prepare("SELECT id FROM vcards WHERE id = ? AND user_id = ? LIMIT 1");
-    $stmt->execute([$vcardId, $userId]);
-    if (!$stmt->fetch()) sendError('Access denied', 403);
+    // Verify vCard ownership (admins may edit any vCard)
+    if (!userCanEditVcard($pdo, $vcardId)) sendError('Access denied', 403);
 
     $imagePath = null;
 

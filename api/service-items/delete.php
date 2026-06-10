@@ -14,14 +14,19 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
-    // Verify the item belongs to a vCard owned by this user
-    $stmt = $pdo->prepare("
-        SELECT si.id FROM vcard_service_items si
-        JOIN vcard_service_categories sc ON sc.id = si.category_id
-        JOIN vcards v ON v.id = sc.vcard_id
-        WHERE si.id = ? AND v.user_id = ? LIMIT 1
-    ");
-    $stmt->execute([$id, $userId]);
+    // Verify the item belongs to a vCard the current user may edit (admins: any)
+    if (isAdmin()) {
+        $stmt = $pdo->prepare("SELECT id FROM vcard_service_items WHERE id = ? LIMIT 1");
+        $stmt->execute([$id]);
+    } else {
+        $stmt = $pdo->prepare("
+            SELECT si.id FROM vcard_service_items si
+            JOIN vcard_service_categories sc ON sc.id = si.category_id
+            JOIN vcards v ON v.id = sc.vcard_id
+            WHERE si.id = ? AND v.user_id = ? LIMIT 1
+        ");
+        $stmt->execute([$id, $userId]);
+    }
     if (!$stmt->fetch()) sendError('Access denied', 403);
 
     $stmt = $pdo->prepare("DELETE FROM vcard_service_items WHERE id = ?");

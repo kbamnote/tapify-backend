@@ -17,13 +17,18 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
-    // Verify the category belongs to a vCard owned by this user
-    $stmt = $pdo->prepare("
-        SELECT sc.id FROM vcard_service_categories sc
-        JOIN vcards v ON v.id = sc.vcard_id
-        WHERE sc.id = ? AND v.user_id = ? LIMIT 1
-    ");
-    $stmt->execute([$categoryId, $userId]);
+    // Verify the category belongs to a vCard the current user may edit (admins: any)
+    if (isAdmin()) {
+        $stmt = $pdo->prepare("SELECT id FROM vcard_service_categories WHERE id = ? LIMIT 1");
+        $stmt->execute([$categoryId]);
+    } else {
+        $stmt = $pdo->prepare("
+            SELECT sc.id FROM vcard_service_categories sc
+            JOIN vcards v ON v.id = sc.vcard_id
+            WHERE sc.id = ? AND v.user_id = ? LIMIT 1
+        ");
+        $stmt->execute([$categoryId, $userId]);
+    }
     if (!$stmt->fetch()) sendError('Access denied', 403);
 
     if ($itemId > 0) {
