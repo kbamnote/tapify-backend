@@ -223,7 +223,7 @@ body{font-family:{
  </div>
  <div class="fs-14 text-center pt-3 px-30 profile-desc">
  <p class="text-primary mb-0">
- <p>At <strong><?= htmlspecialchars($fullName) ?></strong>, we specialize in crafting unforgettable travel experiences tailored to your dreams. Whether you’re seeking a relaxing beach escape, an adventurous mountain trek, a luxury honeymoon, or a cultural city tour, our expert team is here to make every journey seamless and memorable.</p>
+ <?php if(!empty($vcard["description"])): ?><?= $vcard["description"] ?><?php else: ?><p>At <strong><?= htmlspecialchars($fullName) ?></strong>, we specialize in crafting unforgettable travel experiences tailored to your dreams. Whether you’re seeking a relaxing beach escape, an adventurous mountain trek, a luxury honeymoon, or a cultural city tour, our expert team is here to make every journey seamless and memorable.</p><?php endif; ?>
  <p></p>
  </div>
  
