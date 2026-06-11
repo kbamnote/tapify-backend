@@ -87,4 +87,5 @@ return [
     'vcard63' => ['name' => 'Real Estate',       'layout' => 'standalone', 'primary' => '#0369a1', 'secondary' => '#0369a1', 'bg' => '#ffffff', 'surface' => '#ffffff', 'font' => 'inter'],
     'vcard64' => ['name' => 'Event Management',  'layout' => 'standalone', 'primary' => '#9333ea', 'secondary' => '#9333ea', 'bg' => '#ffffff', 'surface' => '#ffffff', 'font' => 'poppins', 'dark' => true],
     'vcard65' => ['name' => 'Hospital & Doctor', 'layout' => 'standalone', 'primary' => '#0d9488', 'secondary' => '#0d9488', 'bg' => '#ffffff', 'surface' => '#ffffff', 'font' => 'inter'],
+    'vcard66' => ['name' => 'Travel Agency Pro', 'layout' => 'standalone', 'primary' => '#40b5c5', 'secondary' => '#40b5c5', 'bg' => '#d7fcfd', 'surface' => '#ffffff', 'font' => 'poppins'],
 ];
