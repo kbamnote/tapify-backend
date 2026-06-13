@@ -58,11 +58,12 @@ try {
     $stmt->execute([$vcardId]);
     $socialLinks = $stmt->fetchAll();
 
-    // Normalize linkedin platform key for all templates
+    // Normalize platform keys so template icon maps (lowercase keys) always match.
+    // The editor saves capitalized display names ("Facebook", "WhatsApp"); lowercase them.
     foreach ($socialLinks as &$sl) {
-        if (strtolower($sl['platform'] ?? '') === 'linkedin') {
-            $sl['platform'] = 'linkedin-in';
-        }
+        $p = strtolower(trim($sl['platform'] ?? ''));
+        if ($p === 'linkedin') $p = 'linkedin-in';
+        $sl['platform'] = $p;
     }
     unset($sl);
 
@@ -213,7 +214,7 @@ $templateId = !empty($vcard['template_id']) ? trim($vcard['template_id']) : 'vca
 if (!empty($_GET['preview'])) {
     $previewId = trim($_GET['preview']);
     if (preg_match('/^vcard(0[1-9]|[12][0-9]|28)$/', $previewId) ||
-        preg_match('/^vcard([1-9]|[1-5][0-9]|6[0-8])$/', $previewId)) {
+        preg_match('/^vcard([1-9]|[1-5][0-9]|6[0-9])$/', $previewId)) {
         $templateId = $previewId;
         // Undo the view count increment done above
         $pdo->prepare("UPDATE vcards SET view_count = view_count - 1 WHERE id = ?")->execute([$vcardId]);
@@ -222,7 +223,7 @@ if (!empty($_GET['preview'])) {
 
 // Normalize: allow vcard01–vcard28 (new) or vcard1–vcard42 (legacy); strip unsafe characters
 if (!preg_match('/^vcard(0[1-9]|[12][0-9]|28)$/', $templateId) &&
-    !preg_match('/^vcard([1-9]|[1-5][0-9]|6[0-8])$/', $templateId)) {
+    !preg_match('/^vcard([1-9]|[1-5][0-9]|6[0-9])$/', $templateId)) {
     $templateId = 'vcard01';
 }
 
