@@ -99,16 +99,23 @@ try {
         }
     }
 
-    if (empty($updateFields)) {
+    $hasBusinessHours = isset($input['business_hours']) && is_array($input['business_hours']);
+    $hasSocialLinks = isset($input['social_links']) && is_array($input['social_links']);
+
+    // Nothing to update at all — no scalar fields and no related collections.
+    if (empty($updateFields) && !$hasBusinessHours && !$hasSocialLinks) {
         sendError('No fields to update');
     }
 
-    $sql = "UPDATE vcards SET " . implode(', ', $updateFields) . " WHERE id = :id";
-    $stmt = $pdo->prepare($sql);
-    $stmt->execute($params);
+    // Only run the main UPDATE when there are whitelisted scalar fields to change.
+    if (!empty($updateFields)) {
+        $sql = "UPDATE vcards SET " . implode(', ', $updateFields) . " WHERE id = :id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($params);
+    }
 
     // Update business hours if provided
-    if (isset($input['business_hours']) && is_array($input['business_hours'])) {
+    if ($hasBusinessHours) {
         $pdo->prepare("DELETE FROM vcard_business_hours WHERE vcard_id = ?")->execute([$vcardId]);
         $bhStmt = $pdo->prepare("INSERT INTO vcard_business_hours (vcard_id, day_name, is_open, open_time, close_time) VALUES (?, ?, ?, ?, ?)");
         foreach ($input['business_hours'] as $bh) {
@@ -123,7 +130,7 @@ try {
     }
 
     // Update social links if provided
-    if (isset($input['social_links']) && is_array($input['social_links'])) {
+    if ($hasSocialLinks) {
         $pdo->prepare("DELETE FROM vcard_social_links WHERE vcard_id = ?")->execute([$vcardId]);
         $slStmt = $pdo->prepare("INSERT INTO vcard_social_links (vcard_id, platform, url, display_order) VALUES (?, ?, ?, ?)");
         foreach ($input['social_links'] as $i => $sl) {
