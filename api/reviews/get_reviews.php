@@ -15,18 +15,23 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
-    // First get the user's funnel
-    $stmt = $pdo->prepare("SELECT id FROM review_funnels WHERE user_id = ? LIMIT 1");
-    $stmt->execute([$userId]);
-    $funnel = $stmt->fetch();
-
-    if (!$funnel) {
-        echo json_encode(['success' => true, 'data' => []]);
-        exit;
+    // Admins may request a specific funnel's reviews via ?funnel_id; regular
+    // users always get their own funnel's reviews.
+    if (isAdmin() && isset($_GET['funnel_id'])) {
+        $funnelId = (int)$_GET['funnel_id'];
+    } else {
+        $stmt = $pdo->prepare("SELECT id FROM review_funnels WHERE user_id = ? LIMIT 1");
+        $stmt->execute([$userId]);
+        $funnel = $stmt->fetch();
+        if (!$funnel) {
+            echo json_encode(['success' => true, 'data' => []]);
+            exit;
+        }
+        $funnelId = $funnel['id'];
     }
 
     $stmt = $pdo->prepare("SELECT * FROM funnel_reviews WHERE funnel_id = ? ORDER BY created_at DESC");
-    $stmt->execute([$funnel['id']]);
+    $stmt->execute([$funnelId]);
     $reviews = $stmt->fetchAll();
 
     echo json_encode(['success' => true, 'data' => $reviews]);
