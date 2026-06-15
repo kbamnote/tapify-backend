@@ -90,7 +90,15 @@ ini_set('session.cookie_samesite', 'None');
 ini_set('session.cookie_secure', 'True'); // Always True — Railway always serves HTTPS
 ini_set('session.cookie_httponly', 'True');
 
+// Persist sessions in the DB so logins survive container redeploys/restarts.
+// Railway's filesystem is ephemeral, so default file sessions are wiped on every
+// deploy (causing the re-login). Falls back to file sessions if the table is
+// missing, so deploying this before running migration_db_sessions.sql is safe.
+require_once __DIR__ . '/../includes/db_session.php';
 if (session_status() === PHP_SESSION_NONE) {
+    if (DBSessionHandler::tableExists()) {
+        session_set_save_handler(new DBSessionHandler(), true);
+    }
     session_start();
 }
 
