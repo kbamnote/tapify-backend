@@ -26,6 +26,21 @@ try {
     $expiry_date = !empty($data['expiry_date']) ? $data['expiry_date'] : null;
     $custom_color = $data['custom_color'] ?? '#000000';
     $logo = $data['logo'] ?? null;
+    // Visual style (dot type, corner styles, corner color, etc.) stored as JSON.
+    $style_json = null;
+    if (isset($data['style_json'])) {
+        $style_json = is_string($data['style_json']) ? $data['style_json'] : json_encode($data['style_json']);
+    }
+
+    // The style_json column is added by migration_qr_style.sql. Detect it so
+    // saving keeps working even if the migration hasn't been run yet.
+    $hasStyleCol = false;
+    try {
+        $colCheck = $pdo->query("SHOW COLUMNS FROM dynamic_qrs LIKE 'style_json'");
+        $hasStyleCol = $colCheck && $colCheck->fetch();
+    } catch (Exception $e) {
+        $hasStyleCol = false;
+    }
     
     // Generate unique short slug if not exists
     $short_url = $data['short_url'] ?? '';
@@ -43,22 +58,41 @@ try {
 
     if ($id) {
         // Update
-        $stmt = $pdo->prepare("
-            UPDATE dynamic_qrs 
-            SET name = ?, short_url = ?, destination_url = ?, qr_type = ?, status = ?, 
-                password = ?, expiry_date = ?, custom_color = ?, logo = ?, updated_at = NOW()
-            WHERE id = ? AND user_id = ?
-        ");
-        $stmt->execute([$name, $short_url, $destination_url, $qr_type, $status, $password, $expiry_date, $custom_color, $logo, $id, $userId]);
+        if ($hasStyleCol) {
+            $stmt = $pdo->prepare("
+                UPDATE dynamic_qrs
+                SET name = ?, short_url = ?, destination_url = ?, qr_type = ?, status = ?,
+                    password = ?, expiry_date = ?, custom_color = ?, logo = ?, style_json = ?, updated_at = NOW()
+                WHERE id = ? AND user_id = ?
+            ");
+            $stmt->execute([$name, $short_url, $destination_url, $qr_type, $status, $password, $expiry_date, $custom_color, $logo, $style_json, $id, $userId]);
+        } else {
+            $stmt = $pdo->prepare("
+                UPDATE dynamic_qrs
+                SET name = ?, short_url = ?, destination_url = ?, qr_type = ?, status = ?,
+                    password = ?, expiry_date = ?, custom_color = ?, logo = ?, updated_at = NOW()
+                WHERE id = ? AND user_id = ?
+            ");
+            $stmt->execute([$name, $short_url, $destination_url, $qr_type, $status, $password, $expiry_date, $custom_color, $logo, $id, $userId]);
+        }
         $msg = 'QR updated successfully';
     } else {
         // Insert
-        $stmt = $pdo->prepare("
-            INSERT INTO dynamic_qrs 
-            (user_id, name, short_url, destination_url, qr_type, status, password, expiry_date, custom_color, logo, created_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())
-        ");
-        $stmt->execute([$userId, $name, $short_url, $destination_url, $qr_type, $status, $password, $expiry_date, $custom_color, $logo]);
+        if ($hasStyleCol) {
+            $stmt = $pdo->prepare("
+                INSERT INTO dynamic_qrs
+                (user_id, name, short_url, destination_url, qr_type, status, password, expiry_date, custom_color, logo, style_json, created_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())
+            ");
+            $stmt->execute([$userId, $name, $short_url, $destination_url, $qr_type, $status, $password, $expiry_date, $custom_color, $logo, $style_json]);
+        } else {
+            $stmt = $pdo->prepare("
+                INSERT INTO dynamic_qrs
+                (user_id, name, short_url, destination_url, qr_type, status, password, expiry_date, custom_color, logo, created_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())
+            ");
+            $stmt->execute([$userId, $name, $short_url, $destination_url, $qr_type, $status, $password, $expiry_date, $custom_color, $logo]);
+        }
         $id = $pdo->lastInsertId();
         $msg = 'QR created successfully';
     }
