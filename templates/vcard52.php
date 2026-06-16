@@ -330,8 +330,9 @@ body{font-family:Poppins}
  </div>
  <div class="testimonial-slider"><?php foreach ((isset($__te)?$__te:($testimonials ?? [])) as $t): ?><div class="px-2"><div class="testimonial-card p-0"><div class="card-body text-center position-relative"><div class="text-center"><p class="text-gray mb-0">“<?= htmlspecialchars($t["message"] ?? "") ?>”</p></div></div><div class="d-flex flex-column align-items-center justify-content-center gap-2 profile-desc"><?php if(!empty($t["image"])): ?><div class="card-img" style="width:60px;height:60px;border-radius:50%;overflow:hidden;"><img src="<?= htmlspecialchars(imgUrl($t["image"])) ?>" class="w-100 h-100 object-fit-cover"></div><?php endif; ?><h5 class="fw-6 mb-0"><?= htmlspecialchars($t["author_name"] ?? ($t["author"] ?? "")) ?></h5></div></div></div><?php endforeach; ?></div>
  </div>
- 
- 
+
+
+ <?php if(!empty($insta_feed)): ?>
  <div class="pt-50 position-relative">
  <div class="position-absolute vector-all vector-7">
  <img src="/images/templates/interiordesigner2/int-036.webp" alt=images class=w-100>
@@ -386,8 +387,9 @@ body{font-family:Poppins}
  </div>
  </div>
  </div>
- 
- 
+ <?php endif; ?>
+
+
  <div class="blog-section pt-50 px-20 position-relative">
  <div class="position-absolute vector-all vector-8">
  <img src="/images/templates/interiordesigner2/int-037.webp" alt=images class=w-100>
@@ -552,7 +554,7 @@ body{font-family:Poppins}
  </div>
  
  
- <?php if(!empty($businessHours)): ?><div class="business-hour-section pt-50 px-30 position-relative"><div class="section-heading"><h2>Business Hours</h2></div><div class="px-30"><div class="row justify-content-center"><?php foreach ((isset($__bh)?$__bh:($businessHours ?? [])) as $bh): ?><div class="col-sm-6"><div class="business-hour-card d-flex gap-2 align-items-center mb-3"><div class="time-icon"><i class="bi bi-clock fs-3"></i></div><div class="d-flex flex-column align-items-start"><span class="fs-14 text-gray lh-1 fw-5"><?= htmlspecialchars(ucfirst(strtolower($bh["day_name"] ?? ""))) ?></span><span class="fs-16 fw-5"><?= !empty($bh["is_open"]) ? htmlspecialchars(trim(($bh["open_time"] ?? "")." - ".($bh["close_time"] ?? ""))) : "Closed" ?></span></div></div></div><?php endforeach; ?></div></div></div><?php endif; ?>
+ <?php if(!empty($businessHours)): ?><div class="business-hour-section position-relative pt-50 px-30"><div class="section-heading"><h4 class="mb-0">Business Hours</h4></div><div class="business-hour-card row justify-content-center position-relative row-gap-20px"><?php foreach (($businessHours ?? []) as $bh): ?><div class="col-sm-6 px-1 px-md-2"><div class="business-hour align-items-center"><div class="time-icons d-flex align-items-center justify-content-center"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time text-primary" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4"></path><path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path><path d="M15 3v4"></path><path d="M7 3v4"></path><path d="M3 11h16"></path><path d="M18 16.496v1.504l1 1"></path></svg></div><div class="text-start d-flex gap-2 justify-content-center align-items-center"><span class="text-gray"><?= htmlspecialchars(ucfirst(strtolower($bh["day_name"] ?? ""))) ?>:</span><span><?= !empty($bh["is_open"]) ? htmlspecialchars(trim(($bh["open_time"] ?? "")." - ".($bh["close_time"] ?? ""))) : "Closed" ?></span></div></div></div><?php endforeach; ?></div></div><?php endif; ?>
  
  
  <div class="pt-50 position-relative">

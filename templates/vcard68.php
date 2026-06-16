@@ -396,6 +396,7 @@ body{font-family:{
  </div><?php endif; ?>
  
  
+ <?php if(!empty($insta_feed)): ?>
  <div class="insta-feed-section pt-50 px-30 position-relative">
  <div class="position-absolute vector-all vector-8 text-end">
  <img src="/images/templates/realestatepro/rea-056.webp" alt=images class=w-100>
@@ -441,14 +442,15 @@ body{font-family:{
  <div class="row overflow-hidden mt-3 sf-hidden">
  
  <div class="col-12 col-sm-6 insta-feed-iframe sf-hidden">
- 
+
  </div>
  </div>
  </div>
  </div>
- 
- 
- <?php if(!empty($businessHours)): ?><div class="business-hour-section pt-50 px-30 position-relative"><div class="section-heading"><h2>Business Hours</h2></div><div class="px-30"><div class="row justify-content-center"><?php foreach ((isset($__bh)?$__bh:($businessHours ?? [])) as $bh): ?><div class="col-sm-6"><div class="business-hour-card d-flex gap-2 align-items-center mb-3"><div class="time-icon"><i class="bi bi-clock fs-3"></i></div><div class="d-flex flex-column align-items-start"><span class="fs-14 text-gray lh-1 fw-5"><?= htmlspecialchars(ucfirst(strtolower($bh["day_name"] ?? ""))) ?></span><span class="fs-16 fw-5"><?= !empty($bh["is_open"]) ? htmlspecialchars(trim(($bh["open_time"] ?? "")." - ".($bh["close_time"] ?? ""))) : "Closed" ?></span></div></div></div><?php endforeach; ?></div></div></div><?php endif; ?>
+ <?php endif; ?>
+
+
+ <?php if(!empty($businessHours)): ?><div class="business-hour-section pt-50 px-30 position-relative"><div class="section-heading"><h2>Business Hours</h2></div><div class="row justify-content-center row-gap-20px"><?php foreach ((isset($__bh)?$__bh:($businessHours ?? [])) as $bh): ?><div class="col-sm-6"><div class="business-hour-card d-flex gap-2 align-items-center justify-content-center"><div class="time-icon"><div class="time-msk-img"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3"></path><path d="M16 3v4"></path><path d="M8 3v4"></path><path d="M4 11h10"></path><path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path><path d="M18 16.5v1.5l.5 .5"></path></svg></div></div><div class="d-flex align-items-center gap-2"><span class="fs-14 text-white"><?= htmlspecialchars(ucfirst(strtolower($bh["day_name"] ?? ""))) ?></span><span class="fs-14 fw-5 text-white"><?= !empty($bh["is_open"]) ? htmlspecialchars(trim(($bh["open_time"] ?? "")." - ".($bh["close_time"] ?? ""))) : "Closed" ?></span></div></div></div><?php endforeach; ?></div></div><?php endif; ?>
  
  
  <div class="blog-section pt-50 px-20 position-relative">

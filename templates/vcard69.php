@@ -598,22 +598,8 @@ body{font-family:{
  Business Hours</p>
  </div>
  <div class="business-box row row-gap-20px justify-content-center">
- <div class=col-sm-6>
- <div class="business-box1 d-flex align-items-center gap-2">
- <div class="time-icons d-flex justify-content-center align-items-center text-teal-green">
- <svg xmlns=" http://www.w3.org/2000/svg" width=22 height=22 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock">
- <path stroke=none d="M0 0h24v24H0z" fill=none></path>
- <path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3"></path>
- <path d="M16 3v4"></path>
- <path d="M8 3v4"></path>
- <path d="M4 11h10"></path>
- <path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
- <path d="M18 16.5v1.5l.5 .5"></path>
- </svg>
- </div>
- <?php if(!empty($businessHours)): ?><div class="business-hour-section pt-50 px-30 position-relative"><div class="section-heading"><h2>Business Hours</h2></div><div class="px-30"><div class="row justify-content-center"><?php foreach ((isset($__bh)?$__bh:($businessHours ?? [])) as $bh): ?><div class="col-sm-6"><div class="business-hour-card d-flex gap-2 align-items-center mb-3"><div class="time-icon"><i class="bi bi-clock fs-3"></i></div><div class="d-flex flex-column align-items-start"><span class="fs-14 text-gray lh-1 fw-5"><?= htmlspecialchars(ucfirst(strtolower($bh["day_name"] ?? ""))) ?></span><span class="fs-16 fw-5"><?= !empty($bh["is_open"]) ? htmlspecialchars(trim(($bh["open_time"] ?? "")." - ".($bh["close_time"] ?? ""))) : "Closed" ?></span></div></div></div><?php endforeach; ?></div></div></div><?php endif; ?>
- </div>
- </div>
+ <?php if(!empty($businessHours)): ?>
+ <?php foreach (($businessHours ?? []) as $bh): ?>
  <div class=col-sm-6>
  <div class="business-box1 d-flex align-items-center gap-2">
  <div class="time-icons d-flex justify-content-center align-items-center text-teal-green">
@@ -628,112 +614,14 @@ body{font-family:{
  </svg>
  </div>
  <div class="business-hour w-100">
- <div class="fs-14 lh-normal fw-6 text-gray text-center">Tuesday </div>
- <div class="fs-14 fw-6 text-black text-center">12:00 AM - 12:00 AM
+ <div class="fs-14 lh-normal fw-6 text-gray text-center"><?= htmlspecialchars(ucfirst(strtolower($bh["day_name"] ?? ""))) ?> </div>
+ <div class="fs-14 fw-6 text-black text-center"><?= !empty($bh["is_open"]) ? htmlspecialchars(trim(($bh["open_time"] ?? "")." - ".($bh["close_time"] ?? ""))) : "Closed" ?>
  </div>
  </div>
  </div>
  </div>
- <div class=col-sm-6>
- <div class="business-box1 d-flex align-items-center gap-2">
- <div class="time-icons d-flex justify-content-center align-items-center text-teal-green">
- <svg xmlns=" http://www.w3.org/2000/svg" width=22 height=22 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock">
- <path stroke=none d="M0 0h24v24H0z" fill=none></path>
- <path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3"></path>
- <path d="M16 3v4"></path>
- <path d="M8 3v4"></path>
- <path d="M4 11h10"></path>
- <path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
- <path d="M18 16.5v1.5l.5 .5"></path>
- </svg>
- </div>
- <div class="business-hour w-100">
- <div class="fs-14 lh-normal fw-6 text-gray text-center">Wednesday </div>
- <div class="fs-14 fw-6 text-black text-center">12:00 AM - 12:00 AM
- </div>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="business-box1 d-flex align-items-center gap-2">
- <div class="time-icons d-flex justify-content-center align-items-center text-teal-green">
- <svg xmlns=" http://www.w3.org/2000/svg" width=22 height=22 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock">
- <path stroke=none d="M0 0h24v24H0z" fill=none></path>
- <path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3"></path>
- <path d="M16 3v4"></path>
- <path d="M8 3v4"></path>
- <path d="M4 11h10"></path>
- <path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
- <path d="M18 16.5v1.5l.5 .5"></path>
- </svg>
- </div>
- <div class="business-hour w-100">
- <div class="fs-14 lh-normal fw-6 text-gray text-center">Thursday </div>
- <div class="fs-14 fw-6 text-black text-center">12:00 AM - 12:00 AM
- </div>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="business-box1 d-flex align-items-center gap-2">
- <div class="time-icons d-flex justify-content-center align-items-center text-teal-green">
- <svg xmlns=" http://www.w3.org/2000/svg" width=22 height=22 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock">
- <path stroke=none d="M0 0h24v24H0z" fill=none></path>
- <path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3"></path>
- <path d="M16 3v4"></path>
- <path d="M8 3v4"></path>
- <path d="M4 11h10"></path>
- <path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
- <path d="M18 16.5v1.5l.5 .5"></path>
- </svg>
- </div>
- <div class="business-hour w-100">
- <div class="fs-14 lh-normal fw-6 text-gray text-center">Friday </div>
- <div class="fs-14 fw-6 text-black text-center">12:00 AM - 12:00 AM
- </div>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="business-box1 d-flex align-items-center gap-2">
- <div class="time-icons d-flex justify-content-center align-items-center text-teal-green">
- <svg xmlns=" http://www.w3.org/2000/svg" width=22 height=22 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock">
- <path stroke=none d="M0 0h24v24H0z" fill=none></path>
- <path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3"></path>
- <path d="M16 3v4"></path>
- <path d="M8 3v4"></path>
- <path d="M4 11h10"></path>
- <path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
- <path d="M18 16.5v1.5l.5 .5"></path>
- </svg>
- </div>
- <div class="business-hour w-100">
- <div class="fs-14 lh-normal fw-6 text-gray text-center">Saturday </div>
- <div class="fs-14 fw-6 text-black text-center">12:00 AM - 12:00 AM
- </div>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="business-box1 d-flex align-items-center gap-2">
- <div class="time-icons d-flex justify-content-center align-items-center text-teal-green">
- <svg xmlns=" http://www.w3.org/2000/svg" width=22 height=22 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock">
- <path stroke=none d="M0 0h24v24H0z" fill=none></path>
- <path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3"></path>
- <path d="M16 3v4"></path>
- <path d="M8 3v4"></path>
- <path d="M4 11h10"></path>
- <path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
- <path d="M18 16.5v1.5l.5 .5"></path>
- </svg>
- </div>
- <div class="business-hour w-100">
- <div class="fs-14 lh-normal fw-6 text-gray text-center">Sunday </div>
- <div class="fs-14 fw-6 text-black text-center">Closed
- </div>
- </div>
- </div>
- </div>
+ <?php endforeach; ?>
+ <?php endif; ?>
  </div>
  </div>
  
