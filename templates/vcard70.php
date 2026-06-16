@@ -117,7 +117,7 @@ body{font-family:Poppins,sans-serif!important}
  </div>
  <div class="profile-desc px-30 text-black pt-40 position-relative">
  <div class="text-gray-100 fs-14 fw-5 text-center mb-0">
- <p><strong>Spice Terrace</strong> offers an exquisite blend of traditional and modern Indian cuisine served in a vibrant rooftop setting. From aromatic curries to sizzling tandoori platters, we serve unforgettable flavors with warm hospitality and scenic views.</p>
+ <?php if(!empty($vcard["description"])): ?><?= $vcard["description"] ?><?php else: ?><p><strong>Spice Terrace</strong> offers an exquisite blend of traditional and modern Indian cuisine served in a vibrant rooftop setting. From aromatic curries to sizzling tandoori platters, we serve unforgettable flavors with warm hospitality and scenic views.</p><?php endif; ?>
  </div>
  </div>
  
@@ -142,7 +142,7 @@ body{font-family:Poppins,sans-serif!important}
  </div>
  <div>
  <div class="row row-gap-30px">
- <div class=col-sm-6>
+ <?php if(!empty($vcard["email"])): ?><div class=col-sm-6>
  <div class=contact-box>
  <div class=contact-icon-box>
  <div class="contact-icon d-flex justify-content-center align-items-center">
@@ -153,8 +153,8 @@ body{font-family:Poppins,sans-serif!important}
  <a href=mailto:<?= htmlspecialchars($vcard["email"] ?? "") ?> class="text-white fw-5"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
  </div>
  </div>
- </div>
- <div class=col-sm-6>
+ </div><?php endif; ?>
+ <?php if(!empty($vcard["phone"])): ?><div class=col-sm-6>
  <div class=contact-box>
  <div class=contact-icon-box>
  <div class="contact-icon d-flex justify-content-center align-items-center">
@@ -165,8 +165,8 @@ body{font-family:Poppins,sans-serif!important}
  <a href=tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?> class="text-white fw-5" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
  </div>
  </div>
- </div>
- <div class=col-sm-6>
+ </div><?php endif; ?>
+ <?php if(!empty($vcard["alternate_phone"])): ?><div class=col-sm-6>
  <div class=contact-box>
  <div class=contact-icon-box>
  <div class="contact-icon d-flex justify-content-center align-items-center">
@@ -174,11 +174,11 @@ body{font-family:Poppins,sans-serif!important}
  </div>
  </div>
  <div class=contact-desc>
- <a href=tel:+919800508990 class="text-white fw-5" dir=ltr>+919800508990</a>
+ <a href="tel:<?= htmlspecialchars($vcard["alternate_phone"] ?? "") ?>" class="text-white fw-5" dir=ltr><?= htmlspecialchars($vcard["alternate_phone"] ?? "") ?></a>
  </div>
  </div>
- </div>
- <div class=col-sm-6>
+ </div><?php endif; ?>
+ <?php if(!empty($vcard["dob"])): ?><div class=col-sm-6>
  <div class=contact-box>
  <div class=contact-icon-box>
  <div class="contact-icon d-flex justify-content-center align-items-center">
@@ -187,11 +187,11 @@ body{font-family:Poppins,sans-serif!important}
  </div>
  <div class=contact-desc>
  <p class="mb-0 text-white fw-5">
- 12th June, 1885</p>
+ <?= htmlspecialchars(date("jS F, Y", strtotime($vcard["dob"]))) ?></p>
  </div>
  </div>
- </div>
- <div class=col-sm-6>
+ </div><?php endif; ?>
+ <?php if(!empty($vcard["location"])): ?><div class=col-sm-6>
  <div class=contact-box>
  <div class=contact-icon-box>
  <div class="contact-icon d-flex justify-content-center align-items-center">
@@ -199,10 +199,10 @@ body{font-family:Poppins,sans-serif!important}
  </div>
  </div>
  <div class=contact-desc>
- <p class="text-white mb-0 fw-5">Delhi - Noida</p>
+ <p class="text-white mb-0 fw-5"><?= htmlspecialchars($vcard["location"]) ?></p>
  </div>
  </div>
- </div>
+ </div><?php endif; ?>
  </div>
  </div>
  </div>
@@ -232,13 +232,13 @@ body{font-family:Poppins,sans-serif!important}
  </h2>
  </div>
  <div class="product-slider"><?php foreach ((isset($__pr)?$__pr:($products ?? [])) as $p): $pi=!empty($p["image"])?imgUrl($p["image"]):"/images/templates/foodculinarypro/foo-023.webp"; ?><div class="px-2"><div class="product-card card"><div class="product-img card-img"><img src="<?= htmlspecialchars($pi) ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></div><div class="product-desc card-body d-flex flex-column align-items-center justify-content-between"><div class="product-title"><h3 class="text-dark text-center"><?= htmlspecialchars($p["name"] ?? "") ?></h3></div><?php if(isset($p["price"]) && $p["price"]!==""): ?><div class="product-amount"><span>₹ <?= htmlspecialchars($p["price"]) ?></span></div><?php endif; ?></div></div></div><?php endforeach; ?></div>
- <div class="text-center mt-4">
- <a class="fs-6 text-center text-black view-more d-inline-flex gap-2 align-items-center" href=https://tapifyworld.com/products/23/chef-vcard>View More Products
+ <?php if(!empty($storeUrl)): ?><div class="text-center mt-4">
+ <a class="fs-6 text-center text-black view-more d-inline-flex gap-2 align-items-center" href="<?= htmlspecialchars($storeUrl) ?>">View More Products
  <svg class="svg-inline--fa fa-arrow-right right-arrow-animation" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 448 512" data-fa-i2svg><path fill=currentColor d="M438.6 278.6l-160 160C272.4 444.9 264.2 448 256 448s-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L338.8 288H32C14.33 288 .0016 273.7 .0016 256S14.33 224 32 224h306.8l-105.4-105.4c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160C451.1 245.9 451.1 266.1 438.6 278.6z"></path></svg>
  </a>
+ </div><?php endif; ?>
  </div>
- </div>
- 
+
  <div class="testimonial-section pt-40 pb-40 position-relative">
  <div class="position-absolute vector-6 vector-all">
  <img src=/images/templates/foodculinarypro/foo-061.png loading=lazy class="w-100 h-100 object-fit-cover">
@@ -624,7 +624,7 @@ body{font-family:Poppins,sans-serif!important}
  
  <div class="add-to-contact-section z-index-9">
  <div class=text-center>
- <a href=https://tapifyworld.com/add-contact/23 class="btn btn-primary add-contact-btn"><svg class="svg-inline--fa fa-address-book" aria-hidden=true focusable=false data-prefix=fas data-icon=address-book role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M384 0H96C60.65 0 32 28.65 32 64v384c0 35.35 28.65 64 64 64h288c35.35 0 64-28.65 64-64V64C448 28.65 419.3 0 384 0zM240 128c35.35 0 64 28.65 64 64s-28.65 64-64 64c-35.34 0-64-28.65-64-64S204.7 128 240 128zM336 384h-192C135.2 384 128 376.8 128 368C128 323.8 163.8 288 208 288h64c44.18 0 80 35.82 80 80C352 376.8 344.8 384 336 384zM496 64H480v96h16C504.8 160 512 152.8 512 144v-64C512 71.16 504.8 64 496 64zM496 192H480v96h16C504.8 288 512 280.8 512 272v-64C512 199.2 504.8 192 496 192zM496 320H480v96h16c8.836 0 16-7.164 16-16v-64C512 327.2 504.8 320 496 320z"></path></svg>
+ <a href="javascript:saveContact()" class="btn btn-primary add-contact-btn"><svg class="svg-inline--fa fa-address-book" aria-hidden=true focusable=false data-prefix=fas data-icon=address-book role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M384 0H96C60.65 0 32 28.65 32 64v384c0 35.35 28.65 64 64 64h288c35.35 0 64-28.65 64-64V64C448 28.65 419.3 0 384 0zM240 128c35.35 0 64 28.65 64 64s-28.65 64-64 64c-35.34 0-64-28.65-64-64S204.7 128 240 128zM336 384h-192C135.2 384 128 376.8 128 368C128 323.8 163.8 288 208 288h64c44.18 0 80 35.82 80 80C352 376.8 344.8 384 336 384zM496 64H480v96h16C504.8 160 512 152.8 512 144v-64C512 71.16 504.8 64 496 64zM496 192H480v96h16C504.8 288 512 280.8 512 272v-64C512 199.2 504.8 192 496 192zM496 320H480v96h16c8.836 0 16-7.164 16-16v-64C512 327.2 504.8 320 496 320z"></path></svg>
  &nbsp;Add to contact</a>
  </div>
  </div>
