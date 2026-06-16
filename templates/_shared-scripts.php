@@ -334,12 +334,20 @@ function showToast(msg, type = 'success') {
 (function () {
   /* ---------- 1. Name letter-by-letter reveal ---------- */
   function animateNames() {
-    var selectors = ['.profile-name', '.tf-name', '[data-animate-name]'];
-    var nodes = document.querySelectorAll(selectors.join(','));
+    var nodes = document.querySelectorAll('.profile-name, .tf-name, [data-animate-name]');
     nodes.forEach(function (el) {
+      // For a .profile-name wrapper, animate the name heading INSIDE it (not the
+      // wrapper itself) so we don't flatten the occupation line or stack each
+      // character on its own row when the wrapper is a flex column.
+      if (!el.matches('.tf-name, [data-animate-name]')) {
+        var h = el.querySelector('h1,h2,h3,h4,h5');
+        if (h) el = h;
+        else if (el.children.length) return; // structured but no heading -> skip
+      }
       if (el.dataset.tfAnimated) return;
       el.dataset.tfAnimated = '1';
-      var text = el.textContent;
+      var keep = el.querySelector('i, svg'); // preserve verification icon etc.
+      var text = (el.textContent || '').replace(/\s+$/, '');
       el.textContent = '';
       var i = 0;
       text.split('').forEach(function (ch) {
@@ -356,6 +364,7 @@ function showToast(msg, type = 'success') {
         el.appendChild(s);
         i++;
       });
+      if (keep) { el.appendChild(document.createTextNode(' ')); el.appendChild(keep); }
     });
   }
 
