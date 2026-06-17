@@ -540,7 +540,7 @@ body{font-family:{
  </div>
  </div>
  
- <?php $__ifr=[]; foreach (($iframes ?? []) as $fr){ $__u=$fr["url"] ?? ""; if(!preg_match("#^https?://#i",$__u)) continue; if(preg_match("#https?://(?:www\.)?instagram\.com/(p|reel|tv)/([A-Za-z0-9_-]+)#",$__u,$__m)){$__u="https://www.instagram.com/".$__m[1]."/".$__m[2]."/embed/";} $__ifr[]=$__u; } foreach (($insta_feed ?? []) as $__if){ if(!empty($__if["embed_url"]) && preg_match("#^https?://#i",$__if["embed_url"])){$__ifr[]=$__if["embed_url"];} elseif(!empty($__if["tag"]) && preg_match("#https?://(?:www\.)?instagram\.com/(p|reel|tv)/([A-Za-z0-9_-]+)#",$__if["tag"],$__m2)){$__ifr[]="https://www.instagram.com/".$__m2[1]."/".$__m2[2]."/embed/";} } if(!empty($__ifr)): ?>
+ <?php $__ifr=[]; foreach (($iframes ?? []) as $fr){ $__u=$fr["url"] ?? ""; if(!preg_match("#^https?://#i",$__u)) continue; if(preg_match("#https?://(?:www\.)?instagram\.com/(p|reel|tv)/([A-Za-z0-9_-]+)#",$__u,$__m)){$__u="https://www.instagram.com/".$__m[1]."/".$__m[2]."/embed/";} $__ifr[]=$__u; } if(!empty($__ifr)): ?>
  <div class="iframe-section pt-50 px-20 position-relative">
  <div class="vector-all-right position-absolute">
  <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="100"><rect fill-opacity="0"/></svg>' alt=bg-img class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-21)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
@@ -554,6 +554,17 @@ body{font-family:{
  <div class="iframe-slider"><?php foreach ($__ifr as $__src): ?><div class="iframe-card" style="border:2px dashed #da242b;border-radius:0 50px 50px 50px;height:350px;overflow:hidden;margin-bottom:16px;"><iframe src="<?= htmlspecialchars($__src) ?>" width="100%" height="100%" frameborder="0" loading="lazy" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" style="display:block;border:0;width:100%;height:100%;"></iframe></div><?php endforeach; ?></div>
  </div>
  
+ <?php endif; ?>
+ <?php $__insta=[]; foreach (($insta_feed ?? []) as $__if){ if(!empty($__if["embed_url"]) && preg_match("#^https?://#i",$__if["embed_url"])){$__insta[]=$__if["embed_url"];} elseif(!empty($__if["tag"]) && preg_match("#https?://(?:www\.)?instagram\.com/(p|reel|tv)/([A-Za-z0-9_-]+)#",$__if["tag"],$__m2)){$__insta[]="https://www.instagram.com/".$__m2[1]."/".$__m2[2]."/embed/";} } if(!empty($__insta)): ?>
+ <div class="iframe-section pt-50 px-20 position-relative">
+ <div class="vector-img img-13">
+ <img src="/images/templates/handyman/han-041.webp" alt=bg-img>
+ </div>
+ <div class=section-heading>
+ <h2 class=mb-0>Instagram</h2>
+ </div>
+ <div class="iframe-slider"><?php foreach ($__insta as $__src): ?><div class="iframe-card" style="border:2px dashed #da242b;border-radius:0 50px 50px 50px;height:440px;overflow:hidden;margin-bottom:16px;"><iframe src="<?= htmlspecialchars($__src) ?>" width="100%" height="100%" frameborder="0" scrolling="no" allowtransparency="true" loading="lazy" style="display:block;border:0;width:100%;height:100%;"></iframe></div><?php endforeach; ?></div>
+ </div>
  <?php endif; ?>
  <div class="contact-us-section position-relative pt-50 px-30">
  <div class="vector-all-left position-absolute">
