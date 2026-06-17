@@ -303,48 +303,7 @@ img[src=&quot;data:,&quot;],source[src=&quot;data:,&quot;]{display:none!importan
  </div>
  </div>
  
- <div class="pt-60 position-relative" style="display:none">
- <div class=vcard38-vector-1>
- <img src="/images/templates/architecture/arc-046.webp" alt=images>
- </div>
- <div class="title d-flex align-items-center gap-20 justify-content-center">
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="127" height="13"><rect fill-opacity="0"/></svg>' alt=img style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-21)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- <h2>Instagram Feed</h2>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="127" height="13"><rect fill-opacity="0"/></svg>' alt=img style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-22)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <nav class=px-30>
- <div class="row insta-toggle">
- <div class="nav nav-tabs border-0 pe-0" id=nav-tab role=tablist>
- <button class="d-flex align-items-center justify-content-center py-2 active postbtn instagram-btn border-0 text-primary" id=nav-home-tab data-bs-toggle=tab data-bs-target=#nav-home type=button role=tab aria-controls=nav-home aria-selected=true>
- <svg aria-label=Posts class="svg-post-icon x1lliihq x1n2onr6 x173jzuc" fill=currentColor height=24 role=img viewBox="0 0 24 24" width=24>
- <title>Posts</title>
- <rect fill=none height=18 stroke=currentColor stroke-linecap=round stroke-linejoin=round stroke-width=2 width=18 x=3 y=3></rect>
- <line fill=none stroke=currentColor stroke-linecap=round stroke-linejoin=round stroke-width=2 x1=9.015 x2=9.015 y1=3 y2=21>
- </line>
- <line fill=none stroke=currentColor stroke-linecap=round stroke-linejoin=round stroke-width=2 x1=14.985 x2=14.985 y1=3 y2=21>
- </line>
- <line fill=none stroke=currentColor stroke-linecap=round stroke-linejoin=round stroke-width=2 x1=21 x2=3 y1=9.015 y2=9.015>
- </line>
- <line fill=none stroke=currentColor stroke-linecap=round stroke-linejoin=round stroke-width=2 x1=21 x2=3 y1=14.985 y2=14.985>
- </line>
- </svg>
- </button>
- <button class="d-flex align-items-center justify-content-center py-2 instagram-btn reelsbtn border-0 text-primary mr-0" id=nav-profile-tab data-bs-toggle=tab data-bs-target=#nav-profile type=button role=tab aria-controls=nav-profile aria-selected=false>
- <svg class=svg-reels-icon viewBox="0 0 48 48" width=27 height=27>
- <path d=m33,6H15c-.16,0-.31,0-.46.01-.7401.04-1.46.17-2.14.38-3.7,1.11-6.4,4.55-6.4,8.61v18c0,4.96,4.04,9,9,9h18c4.96,0,9-4.04,9-9V15c0-4.96-4.04-9-9-9Zm7,27c0,3.86-3.14,7-7,7H15c-3.86,0-7-3.14-7-7V15c0-3.37,2.39-6.19,5.57-6.85.46-.1.94-.15,1.43-.15h18c3.86,0,7,3.14,7,7v18Z fill=currentColor class="color000 svgShape not-active-svg">
- </path>
- <path d="M21 16h-2.2l-.66-1-4.57-6.85-.76-1.15h2.39l.66 1 4.67 7 .3.45c.11.17.17.36.17.55zM34 16h-2.2l-.66-1-4.67-7-.66-1h2.39l.66 1 4.67 7 .3.45c.11.17.17.36.17.55z" fill=currentColor class="color000 svgShape not-active-svg">
- </path>
- <rect width=36 height=3 x=6 y=15 fill=currentColor class="color000 svgShape"></rect>
- <path d=m20,35c-.1753,0-.3506-.0459-.5073-.1382-.3052-.1797-.4927-.5073-.4927-.8618v-10c0-.3545.1875-.6821.4927-.8618.3066-.1797.6831-.1846.9932-.0122l9,5c.3174.1763.5142.5107.5142.874s-.1968.6978-.5142.874l-9,5c-.1514.084-.3188.126-.4858.126Zm1-9.3003v6.6006l5.9409-3.3003-5.9409-3.3003Z fill=currentColor class="color000 svgShape not-active-svg">
- </path>
- <path d=m6,33c0,4.96,4.04,9,9,9h18c4.96,0,9-4.04,9-9v-16H6v16Zm13-9c0-.35.19-.68.49-.86.31-.18.69-.19,1-.01l9,5c.31.17.51.51.51.87s-.2.7-.51.87l-9,5c-.16.09-.3199.13-.49.13-.18,0-.35-.05-.51-.14-.3-.18-.49-.51-.49-.86v-10Zm23-9c0-4.96-4.04-9-9-9h-5.47l6,9h8.47Zm-10.86,0l-6.01-9h-10.13c-.16,0-.31,0-.46.01l5.99,8.99h10.61ZM12.4,6.39c-3.7,1.11-6.4,4.55-6.4,8.61h12.14l-5.74-8.61Z fill=currentColor class="color000 svgShape active-svg"></path>
- </svg>
- </button>
- </div>
- </div>
- </nav>
- </div>
+ <?php $__insta=[]; foreach (($insta_feed ?? []) as $__if) { if(!empty($__if["embed_url"]) && preg_match("#^https?://#i",$__if["embed_url"])){$__insta[]=$__if["embed_url"];} elseif(!empty($__if["tag"]) && preg_match("#https?://(?:www\.)?instagram\.com/(p|reel|tv)/([A-Za-z0-9_-]+)#",$__if["tag"],$__m)){$__insta[]="https://www.instagram.com/".$__m[1]."/".$__m[2]."/embed/";} } if(!empty($__insta)): ?><div class="pt-60 position-relative"><div class=vcard38-vector-1><img src="/images/templates/architecture/arc-046.webp" alt=images></div><div class="title d-flex align-items-center gap-20 justify-content-center"><h2>Instagram Feed</h2></div><div class="px-30 d-flex flex-wrap justify-content-center gap-3 pt-2"><?php foreach ($__insta as $__src): ?><div style="flex:1 1 300px;max-width:340px;border-radius:12px;overflow:hidden;"><iframe src="<?= htmlspecialchars($__src) ?>" width="100%" height="440" frameborder="0" scrolling="no" allowtransparency="true" loading="lazy" style="display:block;border:0;"></iframe></div><?php endforeach; ?></div></div><?php endif; ?>
  <div id=postContent class="insta-feed px-30">
  <div class="row overflow-hidden mt-3 row-gap-20px" loading=lazy>
  
