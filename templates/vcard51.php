@@ -516,7 +516,7 @@ body{font-family:{
  <img src="/images/templates/handyman/han-040.webp" alt=bg-img>
  </div>
  <div class=section-heading>
- <h4 class=mb-0>QR Code</h4>
+ <h2 class=mb-0>QR Code</h2>
  </div>
  <div class=qr-code-bg>
  <div class="qr-code mx-auto position-relative">
