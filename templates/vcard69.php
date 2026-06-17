@@ -169,7 +169,7 @@ body{font-family:{
  </div>
  
  <div class="row position-relative row-gap-16px">
- <div class=col-sm-6>
+ <?php if(!empty($vcard["email"])): ?><div class=col-sm-6>
  <a href=mailto:<?= htmlspecialchars($vcard["email"] ?? "") ?> class="text-decoration-none contact-box">
  <div class=box-1>
  <div class="icon1 d-flex align-items-center justify-content-center">
@@ -190,8 +190,8 @@ body{font-family:{
  <div class="box1-content fs-14 fw-5 text-center lh-base text-black text-break"><?= htmlspecialchars($vcard["email"] ?? "") ?></div>
  </div>
  </a>
- </div>
- <div class=col-sm-6>
+ </div><?php endif; ?>
+ <?php if(!empty($vcard["alternate_email"])): ?><div class=col-sm-6>
  <a href=mailto:<?= htmlspecialchars($vcard["alternate_email"] ?? "") ?> class=text-decoration-none>
  <div class=box-1>
  <div class="icon1 d-flex align-items-center justify-content-center">
@@ -212,8 +212,8 @@ body{font-family:{
  <div class="box1-content fs-14 fw-5 text-center lh-base text-black text-break"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></div>
  </div>
  </a>
- </div>
- <div class=col-sm-6>
+ </div><?php endif; ?>
+ <?php if(!empty($vcard["phone"])): ?><div class=col-sm-6>
  <a href=tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?> class=text-decoration-none>
  <div class=box-1>
  <div class="icon1 d-flex align-items-center justify-content-center">
@@ -231,7 +231,7 @@ body{font-family:{
  <div class="box1-content fs-14 fw-5 text-center lh-base text-black"><?= htmlspecialchars($vcard["phone"] ?? "") ?></div>
  </div>
  </a>
- </div>
+ </div><?php endif; ?>
  <div class=col-sm-6>
  <a href=tel:+919800508990 class=text-decoration-none>
  <div class=box-1>

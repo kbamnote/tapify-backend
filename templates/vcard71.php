@@ -166,38 +166,38 @@ img[src=&quot;data:,&quot;],source[src=&quot;data:,&quot;]{display:none!importan
  <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="127" height="13"><rect fill-opacity="0"/></svg>' alt=img style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-22)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  </div>
  <div class="row row-gap-30">
- <div class=col-sm-6>
+ <?php if(!empty($vcard["email"])): ?><div class=col-sm-6>
  <div class=contact-box>
  <div class=contact-icon>
  <img src="/images/templates/architecture/arc-038.webp" alt=img>
  </div>
  <a href=mailto:<?= htmlspecialchars($vcard["email"] ?? "") ?>><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
  </div>
- </div>
- <div class=col-sm-6>
+ </div><?php endif; ?>
+ <?php if(!empty($vcard["phone"])): ?><div class=col-sm-6>
  <div class=contact-box>
  <div class=contact-icon>
  <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><rect fill-opacity="0"/></svg>' alt=img style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-24)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  </div>
  <a href=tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
  </div>
- </div>
- <div class=col-sm-6>
+ </div><?php endif; ?>
+ <?php if(!empty($vcard["alternate_phone"])): ?><div class=col-sm-6>
  <div class=contact-box>
  <div class=contact-icon>
  <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><rect fill-opacity="0"/></svg>' alt=img style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-24)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  </div>
  <a href=tel:<?= htmlspecialchars($vcard["alternate_phone"] ?? "") ?>><?= htmlspecialchars($vcard["alternate_phone"] ?? "") ?></a>
  </div>
- </div>
- <div class=col-sm-6>
+ </div><?php endif; ?>
+ <?php if(!empty($vcard["location"])): ?><div class=col-sm-6>
  <div class=contact-box>
  <div class=contact-icon>
  <img src=/images/templates/architecture/arc-039.webp alt=img>
  </div>
  <p><?= htmlspecialchars($vcard["location"] ?? "") ?></p>
  </div>
- </div>
+ </div><?php endif; ?>
  </div>
  </div>
  

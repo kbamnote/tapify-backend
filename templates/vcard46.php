@@ -133,6 +133,7 @@ body{font-family:Poppins}
  </div>
  <div class=position-relative>
  <div class="row row-gap-20px">
+ <?php if(!empty($vcard["email"])): ?>
  <div class=col-md-6>
  <div class="contact-box d-flex align-items-center">
  <div class="contact-icon d-flex justify-content-center align-items-center">
@@ -143,6 +144,8 @@ body{font-family:Poppins}
  </div>
  </div>
  </div>
+ <?php endif; ?>
+ <?php if(!empty($vcard["alternate_email"])): ?>
  <div class=col-md-6>
  <div class="contact-box d-flex align-items-center">
  <div class="contact-icon d-flex justify-content-center align-items-center">
@@ -153,6 +156,8 @@ body{font-family:Poppins}
  </div>
  </div>
  </div>
+ <?php endif; ?>
+ <?php if(!empty($vcard["phone"])): ?>
  <div class=col-md-6>
  <div class="contact-box d-flex align-items-center">
  <div class="contact-icon d-flex justify-content-center align-items-center">
@@ -163,6 +168,7 @@ body{font-family:Poppins}
  </div>
  </div>
  </div>
+ <?php endif; ?>
  <?php if(!empty($vcard["alternate_phone"])): ?>
  <div class=col-md-6>
  <div class="contact-box d-flex align-items-center">

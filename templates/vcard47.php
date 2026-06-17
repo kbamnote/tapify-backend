@@ -224,6 +224,7 @@ body{font-family:Poppins}
  <span></span>
  </div>
  <div class="row row-gap-30">
+ <?php if(!empty($vcard["email"])): ?>
  <div class=col-sm-6>
  <div class=contact-bg>
  <div class=contact-box>
@@ -236,6 +237,8 @@ body{font-family:Poppins}
  </div>
  </div>
  </div>
+ <?php endif; ?>
+ <?php if(!empty($vcard["alternate_email"])): ?>
  <div class=col-sm-6>
  <div class="contact-bg mail-2">
  <div class=contact-box>
@@ -248,6 +251,8 @@ body{font-family:Poppins}
  </div>
  </div>
  </div>
+ <?php endif; ?>
+ <?php if(!empty($vcard["phone"])): ?>
  <div class=col-sm-6>
  <div class="contact-bg mail-3">
  <div class=contact-box>
@@ -260,6 +265,7 @@ body{font-family:Poppins}
  </div>
  </div>
  </div>
+ <?php endif; ?>
  <?php if(!empty($vcard["alternate_phone"])): ?>
  <div class=col-sm-6>
  <div class="contact-bg mail-4">
