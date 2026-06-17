@@ -84,13 +84,6 @@ body{font-family:{
  
 </div>
  <div class="main-section position-relative mx-auto overflow-hidden">
- <div class="yt-main-img main-img w-100 position-relative">
- 
- <div class=youtube-link-37>
- 
- </div>
- </div>
- 
  <div class="introduction-section pt-50 px-30 position-relative main-banner-video">
  <div class="position-absolute main-vector-3 d-none d-sm-block">
  <img src="/images/templates/flowergardenpro/flo-041.webp" alt=images class=w-100>
