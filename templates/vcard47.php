@@ -194,8 +194,8 @@ body{font-family:Poppins}
  <i class="verification-icon bi-patch-check-fill text-primary"></i>
  </h2>
  <p class="fs-16 mb-0 text-primary"><?= htmlspecialchars($vcard["occupation"] ?? "") ?></p>
- <p class="fs-14 mb-0 text-black">Business Consultant</p>
- <p class="fs-14 mb-0 text-black"></p>
+ <p class="fs-14 mb-0 text-black"><?= !empty($vcard["job_title"]) ? htmlspecialchars($vcard["job_title"]) : "Business Consultant" ?></p>
+ <?php if(!empty($vcard["company"])): ?><p class="fs-14 mb-0 text-black"><?= htmlspecialchars($vcard["company"]) ?></p><?php endif; ?>
  </div>
  </div>
  </div>
@@ -203,8 +203,7 @@ body{font-family:Poppins}
  
  <div class="desc text-center pt-40 px-30 fs-14">
  <p class="text-gray-100 fs-14 text-sm-start text-center mb-0">
- <?php if(!empty($vcard["description"])): ?><?= $vcard["description"] ?><?php else: ?><p>A Business consultant helps companies improve performance and efficiency.they analyze problems, develop strategies, and implement solutions.their goal is to boost profitability and streamline operations.they work across areas like strategy, marketing, finance, and HR.consultants bring fresh perspectives and industry expertise to every project.</p><?php endif; ?>
- <p></p>
+ <?php if(!empty($vcard["description"])): ?><?= $vcard["description"] ?><?php else: ?>A Business consultant helps companies improve performance and efficiency.they analyze problems, develop strategies, and implement solutions.their goal is to boost profitability and streamline operations.they work across areas like strategy, marketing, finance, and HR.consultants bring fresh perspectives and industry expertise to every project.<?php endif; ?>
  </div>
  <div class="social-media d-flex justify-content-center pt-40 position-relative">
  <div class="bg-vector vector-1 position-absolute">

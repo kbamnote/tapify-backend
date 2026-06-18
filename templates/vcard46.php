@@ -4,7 +4,7 @@ $cardUrl=PUBLIC_URL.'/'.($vcard['url_alias'] ?? $vcardId);
 $waPhone=preg_replace('/\D/','',$vcard['phone'] ?? '');
 $locationUrl=!empty($vcard['location_url'])?$vcard['location_url']:'https://maps.google.com/?q='.urlencode($vcard['location'] ?? '');
 $profileImg=!empty($vcard['profile_image'])?imgUrl($vcard['profile_image']):'https://ui-avatars.com/api/?name='.urlencode($fullName).'&size=200&background=1e3a5f&color=ffffff';
-$coverImg=!empty($vcard['cover_image'])?imgUrl($vcard['cover_image']):'/images/templates/ceocxo/ceo-018.webp';
+$coverImg=!empty($vcard['cover_image'])?imgUrl($vcard['cover_image']):'/images/templates/ceocxo/ceo-013.webp';
 $qrUrl='https://api.qrserver.com/v1/create-qr-code/?size=200x200&data='.urlencode($cardUrl);
 $platformIcons=['linkedin-in'=>'fa-linkedin-in','linkedin'=>'fa-linkedin-in','instagram'=>'fa-instagram','x-twitter'=>'fa-x-twitter','twitter'=>'fa-x-twitter','facebook'=>'fa-facebook-f','facebook-f'=>'fa-facebook-f','whatsapp'=>'fa-whatsapp','youtube'=>'fa-youtube','spotify'=>'fa-spotify','github'=>'fa-github','tiktok'=>'fa-tiktok','pinterest'=>'fa-pinterest-p','behance'=>'fa-behance','dribbble'=>'fa-dribbble','telegram'=>'fa-telegram','globe'=>'fa-globe'];
 ?>
@@ -118,7 +118,7 @@ body{font-family:Poppins}
  <div class="position-absolute vector-1 vector-all">
  <img src=/images/templates/ceocxo/ceo-039.webp class=w-100>
  </div>
- <div class="social-icons d-flex flex-wrap justify-content-center h-100 w-100 object-fit-cover fs-14"><?php foreach ($socialLinks as $s): $ic=$platformIcons[$s["platform"]] ?? "fa-globe"; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener"><i class="fab <?= $ic ?> icon fa-2x"></i></a><?php endforeach; ?></div>
+ <div class="social-icons d-flex flex-wrap justify-content-center h-100 w-100 object-fit-cover fs-14"><?php foreach ($socialLinks as $s): $ic=$platformIcons[$s["platform"]] ?? "fa-globe"; $pfx=($ic==="fa-globe")?"fas":"fab"; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener"><i class="<?= $pfx ?> <?= $ic ?> icon fa-2x"></i></a><?php endforeach; ?></div>
  </div>
  
  
@@ -233,7 +233,7 @@ body{font-family:Poppins}
  </div>
  <?php if(!empty($services)): ?><div class="our-services-section pt-50 position-relative"><div class="section-heading text-center"><h2>Our Services</h2></div><div class="services"><div class="px-30"><div class="row"><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/ceocxo/ceo-018.webp"; ?><div class="col-sm-6 mb-sm-0 mb-40 p-3"><div class="card-wrapper h-100"><a href="javascript:void(0)" class="text-decoration-none"><div class="service-card card h-100"><div class="card-img mx-auto"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></div><div class="card-body text-center"><h3 class="card-title text-primary"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></a></div></div><?php endforeach; ?></div></div></div></div><?php endif; ?>
  
- <div class="gallery-section pt-50 px-30 position-relative">
+ <?php $__gc=0; foreach((isset($__ga)?$__ga:($galleries ?? [])) as $__g){$__gc+=count($__g["images"] ?? []);} if($__gc>0): ?><div class="gallery-section pt-50 px-30 position-relative">
  <div class="position-absolute vector-5 vector-all">
  <img src="/images/templates/ceocxo/ceo-050.webp" class=w-100>
  </div>
@@ -243,12 +243,12 @@ body{font-family:Poppins}
  <h2 class="mb-0 d-inline-block">Gallery</h2>
  </div>
  <div class="gallery-slider"><?php foreach ((isset($__ga)?$__ga:($galleries ?? [])) as $g): foreach (($g["images"] ?? []) as $im): $gi=imgUrl($im["image_url"] ?? ($im["image"] ?? "")); ?><div class="px-2"><div class="gallery-img-wrapper"><div class="gallery-img" style="background-image:url('<?= htmlspecialchars($gi) ?>');background-size:cover;background-position:center;height:280px;border-radius:12px;"></div></div></div><?php endforeach; endforeach; ?></div>
- </div>
+ </div><?php endif; ?>
  <div class="modal fade sf-hidden" id=exampleModal tabindex=-1 aria-labelledby=exampleModalLabel aria-hidden=true>
  
  </div>
  
- <div class="product-section bg-gray pt-50 px-20 position-relative">
+ <?php if(!empty(isset($__pr)?$__pr:($products ?? []))): ?><div class="product-section bg-gray pt-50 px-20 position-relative">
  <div class="position-absolute vector-6 vector-all">
  <img src="/images/templates/ceocxo/ceo-051.webp" class=w-100>
  </div>
@@ -266,9 +266,9 @@ body{font-family:Poppins}
  </div>
  </div>
  <?php endif; ?>
- </div>
- 
- <div class="testimonial-section pt-50 px-20 position-relative">
+ </div><?php endif; ?>
+
+ <?php if(!empty(isset($__te)?$__te:($testimonials ?? []))): ?><div class="testimonial-section pt-50 px-20 position-relative">
  <div class="position-absolute vector-7 vector-all">
  <img src=/images/templates/ceocxo/ceo-052.webp class=w-100>
  </div>
@@ -278,9 +278,9 @@ body{font-family:Poppins}
  <h2 class="mb-0 d-inline-block"> Testimonials</h2>
  </div>
  <div class="testimonial-slider"><?php foreach ((isset($__te)?$__te:($testimonials ?? [])) as $t): ?><div class="px-2"><div class="testimonial-card p-0"><div class="card-body text-center position-relative"><div class="text-center"><p class="text-gray mb-0">“<?= htmlspecialchars($t["message"] ?? "") ?>”</p></div></div><div class="d-flex flex-column align-items-center justify-content-center gap-2 profile-desc"><?php if(!empty($t["image"])): ?><div class="card-img" style="width:60px;height:60px;border-radius:50%;overflow:hidden;"><img src="<?= htmlspecialchars(imgUrl($t["image"])) ?>" class="w-100 h-100 object-fit-cover"></div><?php endif; ?><h5 class="fw-6 mb-0"><?= htmlspecialchars($t["author_name"] ?? ($t["author"] ?? "")) ?></h5></div></div></div><?php endforeach; ?></div>
- </div>
- 
- 
+ </div><?php endif; ?>
+
+
  <div class="blog-section pt-50 px-20 position-relative">
  <div class="position-absolute vector-9 vector-all">
  <img src="/images/templates/ceocxo/ceo-053.webp" class=w-100>
