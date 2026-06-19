@@ -346,6 +346,38 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
  </div>
  <?php endif; ?>
 
+ <?php
+ $__instaItems = [];
+ foreach (($insta_feed ?? []) as $__ig) {
+   if (!empty($__ig["embed_url"]) && preg_match('#^https?://#i', $__ig["embed_url"])) {
+     $__instaItems[] = ["type"=>"iframe","src"=>$__ig["embed_url"]];
+   } elseif (!empty($__ig["tag"])) {
+     if (preg_match('#https?://(?:www\.)?instagram\.com/(p|reel|tv|reels)/([A-Za-z0-9_-]+)#', $__ig["tag"], $__m)) {
+       $__t = ($__m[1]==="reels") ? "reel" : $__m[1];
+       $__instaItems[] = ["type"=>"iframe","src"=>"https://www.instagram.com/".$__t."/".$__m[2]."/embed/"];
+     } elseif (strlen($__ig["tag"]) > 20) {
+       $__instaItems[] = ["type"=>"html","html"=>$__ig["tag"]];
+     }
+   }
+ }
+ ?>
+ <?php if(!empty($__instaItems)): ?>
+ <div class="insta-section pt-50 px-20 position-relative">
+ <div class="section-heading text-center"><h2 class="mb-0">Reels</h2></div>
+ <div class="insta-feed d-flex" style="gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 14px;-webkit-overflow-scrolling:touch;">
+ <?php foreach ($__instaItems as $__it): ?>
+ <div style="flex:0 0 auto;width:320px;max-width:86%;scroll-snap-align:center;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.12);">
+ <?php if ($__it["type"]==="iframe"): ?>
+ <iframe src="<?= htmlspecialchars($__it["src"]) ?>" width="100%" height="580" frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen loading="lazy" style="display:block;border:0;"></iframe>
+ <?php else: ?>
+ <?= $__it["html"] ?>
+ <?php endif; ?>
+ </div>
+ <?php endforeach; ?>
+ </div>
+ <?php if(!empty(array_filter($__instaItems, fn($i)=>$i["type"]==="html"))): ?><script async src="https://www.instagram.com/embed.js"></script><?php endif; ?>
+ </div>
+ <?php endif; ?>
  <?php if(!empty($businessHours)): ?><div class="business-hour-section pt-50 px-30 position-relative"><div class="section-heading text-center"><h2 class="mb-0">Business Hours</h2></div><div class="business-hour-card row justify-content-center position-relative row-gap-20px"><?php foreach ((isset($__bh)?$__bh:($businessHours ?? [])) as $bh): ?><div class="col-sm-6"><div class="business-hour align-items-center"><div class="time-icons d-flex align-items-center justify-content-center"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time text-dark" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4"></path><path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path><path d="M15 3v4"></path><path d="M7 3v4"></path><path d="M3 11h16"></path><path d="M18 16.496v1.504l1 1"></path></svg></div><div class="text-center d-flex flex-column justify-content-center align-items-center"><span class="text-dark"><?= htmlspecialchars(ucfirst(strtolower($bh["day_name"] ?? ""))) ?>:</span><span class="text-dark"><?= !empty($bh["is_open"]) ? htmlspecialchars(trim(($bh["open_time"] ?? "")." - ".($bh["close_time"] ?? ""))) : "Closed" ?></span></div></div></div><?php endforeach; ?></div></div><?php endif; ?>
  
  
