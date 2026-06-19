@@ -260,6 +260,23 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
  </div>
  </div>
  
+ <?php
+ $__iframes = array_filter($iframes ?? [], fn($fr)=>!empty($fr["url"]) && preg_match('#^https?://#i', $fr["url"]));
+ $__allMaps = !empty($__iframes);
+ foreach ($__iframes as $__fr) { if (stripos($__fr["url"],"google.")===false || stripos($__fr["url"],"/maps")===false) { $__allMaps=false; break; } }
+ ?>
+ <?php if(!empty($__iframes)): ?>
+ <div class="iframe-section pt-50 px-20 position-relative">
+ <div class="section-heading text-center"><h2 class="mb-0"><?= $__allMaps ? "Location" : "More Info" ?></h2></div>
+ <div class="px-10">
+ <?php foreach ($__iframes as $__fr): $__src = function_exists("embeddableMapUrl") ? embeddableMapUrl($__fr["url"]) : $__fr["url"]; ?>
+ <div style="border-radius:14px;overflow:hidden;margin-bottom:14px;border:2px solid #f8c000;box-shadow:0 6px 18px rgba(0,0,0,.10);">
+ <iframe src="<?= htmlspecialchars($__src) ?>" width="100%" height="320" style="display:block;border:0;" frameborder="0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+ </div>
+ <?php endforeach; ?>
+ </div>
+ </div>
+ <?php endif; ?>
  <?php $__ga = $galleries ?? []; $__gc=0; foreach($__ga as $__g){ $__gc += count($__g["images"] ?? []); } if($__gc>0): ?>
  <div class="gallery-section pt-50 px-20 position-relative">
  <div class="bg-vector vector-4 text-end">
