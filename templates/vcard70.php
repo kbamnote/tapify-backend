@@ -206,8 +206,26 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
  </div>
  </div>
  </div>
- 
- <?php if(!empty($services)): ?><div class="our-services-section pt-50 position-relative"><div class="section-heading text-center mb-40"><h2 class="text-white mb-1 d-inline-block">Our Services</h2></div><div class="services"><div class="px-30"><div class="row"><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/foodculinarypro/foo-023.webp"; ?><div class="col-sm-6 mb-sm-0 mb-40 p-3"><div class="card-wrapper h-100"><a href="javascript:void(0)" class="text-decoration-none"><div class="service-card card h-100"><div class="card-img mx-auto"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></div><div class="card-body text-center"><h3 class="card-title text-primary"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></a></div></div><?php endforeach; ?></div></div></div></div><?php endif; ?>
+
+ <?php
+ $__iframes = array_filter($iframes ?? [], fn($fr)=>!empty($fr["url"]) && preg_match('#^https?://#i', $fr["url"]));
+ $__allMaps = !empty($__iframes);
+ foreach ($__iframes as $__fr) { if (stripos($__fr["url"],"google.")===false || stripos($__fr["url"],"/maps")===false) { $__allMaps=false; break; } }
+ ?>
+ <?php if(!empty($__iframes)): ?>
+ <div class="iframe-section pt-40 px-20 position-relative">
+ <div class="section-heading text-center mb-40"><h2 class="text-white mb-1 d-inline-block"><?= $__allMaps ? "Location" : "More Info" ?></h2></div>
+ <div class="px-10">
+ <?php foreach ($__iframes as $__fr): $__src = function_exists("embeddableMapUrl") ? embeddableMapUrl($__fr["url"]) : $__fr["url"]; ?>
+ <div style="border-radius:14px;overflow:hidden;margin-bottom:14px;box-shadow:0 6px 18px rgba(0,0,0,.10);">
+ <iframe src="<?= htmlspecialchars($__src) ?>" width="100%" height="320" style="display:block;border:0;" frameborder="0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+ </div>
+ <?php endforeach; ?>
+ </div>
+ </div>
+ <?php endif; ?>
+
+ <?php if(!empty($services)): ?><div class="our-services-section pt-50 position-relative"><div class="section-heading text-center mb-40"><h2 class="text-white mb-1 d-inline-block">Our Services</h2></div><div class="services"><div class="px-30"><div class="row"><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/foodculinarypro/foo-023.webp"; ?><div class="col-sm-6 mb-sm-0 mb-40 p-3"><div class="card-wrapper h-100"><div class="service-card card h-100"><div class="card-img mx-auto"><a href="javascript:void(0)" class="pe-none"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></a></div><div class="card-body text-center"><h3 class="card-title text-primary"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></div></div><?php endforeach; ?></div></div></div></div><?php endif; ?>
  
  <?php $__gc=0; foreach((isset($__ga)?$__ga:($galleries ?? [])) as $__g){$__gc+=count($__g["images"] ?? []);} if($__gc>0): ?><div class="gallery-section pt-40 px-20 position-relative">
  <div class="position-absolute vector-4 vector-all">
@@ -543,6 +561,39 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
  </div></div></div></div></div><ul class=slick-dots role=tablist><li role=presentation><button type=button role=tab id=slick-slide-control30 aria-controls=slick-slide30 aria-label="1 of 4" tabindex=-1>1</button><li role=presentation class=slick-active><button type=button role=tab id=slick-slide-control31 aria-controls=slick-slide31 aria-label="2 of 4" tabindex=0 aria-selected=true>2</button><li role=presentation><button type=button role=tab id=slick-slide-control32 aria-controls=slick-slide32 aria-label="3 of 4" tabindex=-1>3</button><li role=presentation><button type=button role=tab id=slick-slide-control33 aria-controls=slick-slide33 aria-label="4 of 4" tabindex=-1>4</button></ul></div>
  </div>
  
+ <?php
+ $__instaItems = [];
+ foreach (($insta_feed ?? []) as $__ig) {
+   if (!empty($__ig["embed_url"]) && preg_match('#^https?://#i', $__ig["embed_url"])) {
+     $__instaItems[] = ["type"=>"iframe","src"=>$__ig["embed_url"]];
+   } elseif (!empty($__ig["tag"])) {
+     if (preg_match('#https?://(?:www\.)?instagram\.com/(p|reel|tv|reels)/([A-Za-z0-9_-]+)#', $__ig["tag"], $__m)) {
+       $__t = ($__m[1]==="reels") ? "reel" : $__m[1];
+       $__instaItems[] = ["type"=>"iframe","src"=>"https://www.instagram.com/".$__t."/".$__m[2]."/embed/"];
+     } elseif (strlen($__ig["tag"]) > 20) {
+       $__instaItems[] = ["type"=>"html","html"=>$__ig["tag"]];
+     }
+   }
+ }
+ ?>
+ <?php if(!empty($__instaItems)): ?>
+ <div class="insta-section pt-40 px-20 position-relative">
+ <div class="section-heading text-center mb-40"><h2 class="text-white mb-1 d-inline-block">Reels</h2></div>
+ <div class="insta-feed d-flex" style="gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 14px;-webkit-overflow-scrolling:touch;">
+ <?php foreach ($__instaItems as $__it): ?>
+ <div style="flex:0 0 auto;width:320px;max-width:86%;scroll-snap-align:center;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.12);">
+ <?php if ($__it["type"]==="iframe"): ?>
+ <iframe src="<?= htmlspecialchars($__it["src"]) ?>" width="100%" height="580" frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen loading="lazy" style="display:block;border:0;"></iframe>
+ <?php else: ?>
+ <?= $__it["html"] ?>
+ <?php endif; ?>
+ </div>
+ <?php endforeach; ?>
+ </div>
+ <?php if(!empty(array_filter($__instaItems, fn($i)=>$i["type"]==="html"))): ?><script async src="https://www.instagram.com/embed.js"></script><?php endif; ?>
+ </div>
+ <?php endif; ?>
+
  <?php if(!empty($businessHours)): ?><div class="business-hour-section pt-40 px-30 pb-40 position-relative"><div class="section-heading text-center mb-40"><h2 class="text-white mb-1 d-inline-block">Business Hours</h2></div><div class="business-hour-card row row-gap-30px justify-content-center position-relative"><?php foreach ((isset($__bh)?$__bh:($businessHours ?? [])) as $bh): ?><div class="col-sm-6"><div class="business-hour align-items-center"><div class="time-icon-box"><div class="time-icons d-flex align-items-center justify-content-center"><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time text-primary" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4"></path><path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path><path d="M15 3v4"></path><path d="M7 3v4"></path><path d="M3 11h16"></path><path d="M18 16.496v1.504l1 1"></path></svg></div></div><div class="text-center"><span class="text-white"><?= htmlspecialchars(ucfirst(strtolower($bh["day_name"] ?? ""))) ?>:</span><span class="text-primary"><?= !empty($bh["is_open"]) ? htmlspecialchars(trim(($bh["open_time"] ?? "")." - ".($bh["close_time"] ?? ""))) : "Closed" ?></span></div></div></div><?php endforeach; ?></div></div><?php endif; ?>
  
  <div class="qr-code-section pt-40 px-30 pb-40 position-relative">
@@ -558,7 +609,7 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
  <div class="d-flex flex-sm-row flex-column gap-3 position-relative z-1 align-items-center">
  <div class="qr-code-img text-center" id=qr-code-thirtysix>
  
-<img src="<?= htmlspecialchars($qrUrl) ?>" alt="QR Code" style="display:block;width:140px;height:auto;max-width:100%;margin:0 auto" loading="lazy">
+<img src="<?= htmlspecialchars($qrUrl) ?>" alt="QR Code" style="width:100%;height:100%;object-fit:contain;display:block;" loading="lazy">
  </div>
  <div class="text-center text-sm-start">
  <h5 class="fw-6 text-white">Scan to Contact</h5>

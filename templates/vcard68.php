@@ -714,7 +714,7 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
  <div class="d-flex rounded-10 flex-sm-row flex-column gap-3 align-items-center bg-secondary p-3">
  <div class="qr-code-img text-center" id=qr-code-thirtyfive>
  
-<img src="<?= htmlspecialchars($qrUrl) ?>" alt="QR Code" style="display:block;width:140px;height:auto;max-width:100%;margin:0 auto" loading="lazy">
+<img src="<?= htmlspecialchars($qrUrl) ?>" alt="QR Code" style="width:100%;height:100%;object-fit:contain;display:block;" loading="lazy">
  </div>
  <div class="text-center text-sm-start">
  <h5 class="fw-6 text-dark">Scan to Contact</h5>
