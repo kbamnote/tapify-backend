@@ -156,7 +156,7 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
  
  <div class="banner-section position-relative w-100"><div class="banner-img" style="position:relative;overflow:hidden;height:315px;"><?php $cvType=$vcard["cover_type"]??"image";$cvVal=$vcard["cover_image"]??"";$isVid=($cvType==="video")||preg_match("#youtube\.com|youtu\.be|instagram\.com|\.mp4#i",$cvVal);if($isVid&&!empty($cvVal)){if(preg_match("#(?:youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^\"&?/\s]{11})#i",$cvVal,$mm)){$yt=$mm[1];echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"https://www.youtube.com/embed/".$yt."?autoplay=1&mute=1&loop=1&playlist=".$yt."&controls=0&showinfo=0&rel=0&playsinline=1\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";}elseif(stripos($cvVal,"instagram.com")!==false){echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"".htmlspecialchars(rtrim($cvVal,"/")."/embed")."\" allowtransparency=\"true\"></iframe>";}else{echo "<video src=\"".htmlspecialchars(imgUrl($cvVal))."\" autoplay loop muted playsinline style=\"width:100%;height:100%;object-fit:cover;display:block;\"></video>";}}else{echo "<img src=\"".htmlspecialchars($coverImg)."\" alt=\"".htmlspecialchars($fullName)."\" style=\"width:100%;height:100%;object-fit:cover;display:block;\">";} ?></div></div>
  
- <div class="profile-section pt-40 px-30 mb-40 position-relative">
+ <!-- tapify-deploy-check-2026-06-20 --><div class="profile-section pt-40 px-30 mb-40 position-relative">
  <div class=profile-bg>
  <img src=/images/templates/hospitalpro/hos-038.webp alt=vector>
  </div>
