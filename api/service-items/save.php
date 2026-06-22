@@ -17,8 +17,8 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
-    // Verify the category belongs to a vCard the current user may edit (admins: any)
-    if (isAdmin()) {
+    // Verify the category belongs to a vCard the current user may edit (admins + staff: any)
+    if (canManageAllVcards()) {
         $stmt = $pdo->prepare("SELECT id FROM vcard_service_categories WHERE id = ? LIMIT 1");
         $stmt->execute([$categoryId]);
     } else {

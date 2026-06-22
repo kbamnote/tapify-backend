@@ -19,8 +19,8 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
-    // Get vCard (Admins can see any card, users only their own)
-    if (isAdmin()) {
+    // Get vCard (Admins + staff editors can see any card, users only their own)
+    if (canManageAllVcards()) {
         $stmt = $pdo->prepare("SELECT * FROM vcards WHERE id = ? LIMIT 1");
         $stmt->execute([$vcardId]);
     } else {

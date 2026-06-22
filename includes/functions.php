@@ -115,6 +115,34 @@ function isAdmin() {
 }
 
 /**
+ * Check if current user is a card-editor "staff" account.
+ * Staff can see & edit ALL vCards but cannot delete anything and have
+ * no access to admin-only features.
+ */
+function isStaff() {
+    return isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'staff';
+}
+
+/**
+ * Users who may view & edit EVERY vCard (admins + staff editors).
+ * Use this for "see all / edit all" branches. Do NOT use it to gate
+ * deletes or admin-only features — use isAdmin()/requireAdmin() there.
+ */
+function canManageAllVcards() {
+    return isset($_SESSION['user_role']) && in_array($_SESSION['user_role'], ['admin', 'staff'], true);
+}
+
+/**
+ * Block card-editor (staff) accounts from a destructive action.
+ * Call at the top of any delete endpoint. Admins and owners are unaffected.
+ */
+function blockStaffDelete() {
+    if (isStaff()) {
+        sendError('Card-editor accounts are not allowed to delete. Please ask an admin.', 403);
+    }
+}
+
+/**
  * Require admin role
  */
 function requireAdmin() {
@@ -126,11 +154,11 @@ function requireAdmin() {
 
 /**
  * Verify the current user is allowed to manage the given vCard.
- * Admins can manage ANY vCard; regular users only their own.
+ * Admins and staff editors can manage ANY vCard; regular users only their own.
  * Returns true if allowed, false otherwise.
  */
 function userCanEditVcard($pdo, $vcardId) {
-    if (isAdmin()) {
+    if (canManageAllVcards()) {
         $stmt = $pdo->prepare("SELECT id FROM vcards WHERE id = ? LIMIT 1");
         $stmt->execute([$vcardId]);
     } else {

@@ -25,8 +25,8 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
-    // Verify ownership (Admins can update any card)
-    if (isAdmin()) {
+    // Verify ownership (Admins + staff editors can update any card)
+    if (canManageAllVcards()) {
         $stmt = $pdo->prepare("SELECT id, url_alias FROM vcards WHERE id = ? LIMIT 1");
         $stmt->execute([$vcardId]);
     } else {

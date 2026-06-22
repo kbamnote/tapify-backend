@@ -26,8 +26,8 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
-    // Update (Admins can toggle any card)
-    if (isAdmin()) {
+    // Update (Admins + staff editors can toggle any card)
+    if (canManageAllVcards()) {
         $stmt = $pdo->prepare("UPDATE vcards SET status = ? WHERE id = ?");
         $stmt->execute([$status ? 1 : 0, $vcardId]);
     } else {
