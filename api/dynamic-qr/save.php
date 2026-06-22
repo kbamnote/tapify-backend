@@ -57,23 +57,29 @@ try {
     }
 
     if ($id) {
-        // Update
+        // Update — admins + staff editors may update ANY QR; users only their own.
+        $editAny = isStaffOrAdmin();
+        $ownSql  = $editAny ? "WHERE id = ?" : "WHERE id = ? AND user_id = ?";
         if ($hasStyleCol) {
             $stmt = $pdo->prepare("
                 UPDATE dynamic_qrs
                 SET name = ?, short_url = ?, destination_url = ?, qr_type = ?, status = ?,
                     password = ?, expiry_date = ?, custom_color = ?, logo = ?, style_json = ?, updated_at = NOW()
-                WHERE id = ? AND user_id = ?
+                $ownSql
             ");
-            $stmt->execute([$name, $short_url, $destination_url, $qr_type, $status, $password, $expiry_date, $custom_color, $logo, $style_json, $id, $userId]);
+            $params = [$name, $short_url, $destination_url, $qr_type, $status, $password, $expiry_date, $custom_color, $logo, $style_json, $id];
+            if (!$editAny) { $params[] = $userId; }
+            $stmt->execute($params);
         } else {
             $stmt = $pdo->prepare("
                 UPDATE dynamic_qrs
                 SET name = ?, short_url = ?, destination_url = ?, qr_type = ?, status = ?,
                     password = ?, expiry_date = ?, custom_color = ?, logo = ?, updated_at = NOW()
-                WHERE id = ? AND user_id = ?
+                $ownSql
             ");
-            $stmt->execute([$name, $short_url, $destination_url, $qr_type, $status, $password, $expiry_date, $custom_color, $logo, $id, $userId]);
+            $params = [$name, $short_url, $destination_url, $qr_type, $status, $password, $expiry_date, $custom_color, $logo, $id];
+            if (!$editAny) { $params[] = $userId; }
+            $stmt->execute($params);
         }
         $msg = 'QR updated successfully';
     } else {

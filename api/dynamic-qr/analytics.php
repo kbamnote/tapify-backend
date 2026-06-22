@@ -21,9 +21,14 @@ try {
         exit;
     }
 
-    // Verify ownership
-    $stmtCheck = $pdo->prepare("SELECT id FROM dynamic_qrs WHERE id = ? AND user_id = ?");
-    $stmtCheck->execute([$qr_id, $userId]);
+    // Verify access (admins + staff may view any QR; users only their own)
+    if (isStaffOrAdmin()) {
+        $stmtCheck = $pdo->prepare("SELECT id FROM dynamic_qrs WHERE id = ?");
+        $stmtCheck->execute([$qr_id]);
+    } else {
+        $stmtCheck = $pdo->prepare("SELECT id FROM dynamic_qrs WHERE id = ? AND user_id = ?");
+        $stmtCheck->execute([$qr_id, $userId]);
+    }
     if (!$stmtCheck->fetch()) {
         echo json_encode(['success' => false, 'message' => 'QR not found or unauthorized']);
         exit;

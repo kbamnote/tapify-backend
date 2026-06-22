@@ -14,9 +14,9 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
-    $isAdminUser = isAdmin();
+    $isAdminUser = isStaffOrAdmin(); // admins + staff editors see every QR
     if ($isAdminUser) {
-        // Admins see every user's QR codes, with the owner's name/email.
+        // Admins/staff see every user's QR codes, with the owner's name/email.
         $stmt = $pdo->query("SELECT q.*, u.name AS owner_name, u.email AS owner_email
                              FROM dynamic_qrs q
                              LEFT JOIN users u ON u.id = q.user_id

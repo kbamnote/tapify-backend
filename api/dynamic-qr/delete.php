@@ -10,6 +10,12 @@ if (!isLoggedIn()) {
     exit;
 }
 
+// Card-editor (staff) accounts may not delete anything.
+if (isStaff()) {
+    echo json_encode(['success' => false, 'message' => 'Card-editor accounts are not allowed to delete. Please ask an admin.']);
+    exit;
+}
+
 try {
     $pdo = getDB();
     $userId = getCurrentUserId();

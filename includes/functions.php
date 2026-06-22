@@ -124,12 +124,20 @@ function isStaff() {
 }
 
 /**
+ * Admins + staff editors. Generic "elevated" check usable for any resource
+ * (vCards, dynamic QRs, etc.). Staff are still blocked from deletes separately.
+ */
+function isStaffOrAdmin() {
+    return isset($_SESSION['user_role']) && in_array($_SESSION['user_role'], ['admin', 'staff'], true);
+}
+
+/**
  * Users who may view & edit EVERY vCard (admins + staff editors).
  * Use this for "see all / edit all" branches. Do NOT use it to gate
  * deletes or admin-only features — use isAdmin()/requireAdmin() there.
  */
 function canManageAllVcards() {
-    return isset($_SESSION['user_role']) && in_array($_SESSION['user_role'], ['admin', 'staff'], true);
+    return isStaffOrAdmin();
 }
 
 /**
