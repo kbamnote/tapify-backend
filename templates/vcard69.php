@@ -249,6 +249,16 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
  </div>
  </a>
  </div><?php endif; ?>
+ <?php if(!empty($vcard["location"])): ?><div class=col-sm-6>
+ <a href="<?= htmlspecialchars($locationUrl) ?>" target="_blank" rel="noopener" class=text-decoration-none>
+ <div class=box-1>
+ <div class="icon1 d-flex align-items-center justify-content-center">
+ <svg xmlns=http://www.w3.org/2000/svg width=20 height=20 viewBox="0 0 24 24" fill=none><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" fill=#2a9f2e></path></svg>
+ </div>
+ <div class="box1-content fs-14 fw-5 text-center lh-base text-black text-break"><?= htmlspecialchars($vcard["location"]) ?></div>
+ </div>
+ </a>
+ </div><?php endif; ?>
  </div>
  </div>
  <div class=overflow-hidden>
