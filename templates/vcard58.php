@@ -8,7 +8,7 @@ $coverImg=!empty($vcard['cover_image'])?imgUrl($vcard['cover_image']):'/images/t
 $qrUrl='https://api.qrserver.com/v1/create-qr-code/?size=200x200&data='.urlencode($cardUrl);
 $platformIcons=['linkedin-in'=>'fa-linkedin-in','linkedin'=>'fa-linkedin-in','instagram'=>'fa-instagram','x-twitter'=>'fa-x-twitter','twitter'=>'fa-x-twitter','facebook'=>'fa-facebook-f','facebook-f'=>'fa-facebook-f','whatsapp'=>'fa-whatsapp','youtube'=>'fa-youtube','spotify'=>'fa-spotify','github'=>'fa-github','tiktok'=>'fa-tiktok','pinterest'=>'fa-pinterest-p','behance'=>'fa-behance','dribbble'=>'fa-dribbble','telegram'=>'fa-telegram','globe'=>'fa-globe'];
 ?>
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title><?= htmlspecialchars($fullName) ?></title><link rel="icon" href="<?= !empty($vcard['favicon_image'])?imgUrl($vcard['favicon_image']):'/images/tapify-logo-green.png' ?>"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><style>:root{--sf-img-12: url("/images/templates/retail/ret-000.webp");--sf-img-17: url("/images/templates/retail/ret-001.png");--sf-img-20: url("/images/templates/retail/ret-002.png");--sf-img-37: url("/images/templates/retail/ret-003.webp");--sf-img-38: url("/images/templates/retail/ret-004.webp");--sf-img-39: url("/images/templates/retail/ret-005.webp");--sf-img-40: url("/images/templates/retail/ret-006.webp");--sf-img-42: url("/images/templates/retail/ret-007.webp");--sf-img-43: url("/images/templates/retail/ret-008.webp");--sf-img-44: url("/images/templates/retail/ret-009.webp");--sf-img-45: url("/images/templates/retail/ret-010.webp");--sf-img-46: url("/images/templates/retail/ret-011.webp");--sf-img-47: url("/images/templates/retail/ret-012.webp");--sf-img-50: url("/images/templates/retail/ret-013.webp");--sf-img-51: url("/images/templates/retail/ret-014.webp");--sf-img-52: url("/images/templates/retail/ret-015.webp");--sf-img-53: url("/images/templates/retail/ret-016.webp");--sf-img-56: url("/images/templates/retail/ret-017.webp");--sf-img-57: url("/images/templates/retail/ret-018.webp");--sf-img-58: url("/images/templates/retail/ret-019.webp")}
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title><?= htmlspecialchars($fullName) ?></title><link rel="icon" href="<?= !empty($vcard['favicon_image'])?imgUrl($vcard['favicon_image']):'/images/tapify-logo-green.png' ?>"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>:root{--sf-img-12: url("/images/templates/retail/ret-000.webp");--sf-img-17: url("/images/templates/retail/ret-001.png");--sf-img-20: url("/images/templates/retail/ret-002.png");--sf-img-37: url("/images/templates/retail/ret-003.webp");--sf-img-38: url("/images/templates/retail/ret-004.webp");--sf-img-39: url("/images/templates/retail/ret-005.webp");--sf-img-40: url("/images/templates/retail/ret-006.webp");--sf-img-42: url("/images/templates/retail/ret-007.webp");--sf-img-43: url("/images/templates/retail/ret-008.webp");--sf-img-44: url("/images/templates/retail/ret-009.webp");--sf-img-45: url("/images/templates/retail/ret-010.webp");--sf-img-46: url("/images/templates/retail/ret-011.webp");--sf-img-47: url("/images/templates/retail/ret-012.webp");--sf-img-50: url("/images/templates/retail/ret-013.webp");--sf-img-51: url("/images/templates/retail/ret-014.webp");--sf-img-52: url("/images/templates/retail/ret-015.webp");--sf-img-53: url("/images/templates/retail/ret-016.webp");--sf-img-56: url("/images/templates/retail/ret-017.webp");--sf-img-57: url("/images/templates/retail/ret-018.webp");--sf-img-58: url("/images/templates/retail/ret-019.webp")}
 :host,:root{--fa-font-solid:normal 900 1em/1"Font Awesome 6 Solid";--fa-font-regular:normal 400 1em/1"Font Awesome 6 Regular";--fa-font-light:normal 300 1em/1"Font Awesome 6 Light";--fa-font-thin:normal 100 1em/1"Font Awesome 6 Thin";--fa-font-duotone:normal 900 1em/1"Font Awesome 6 Duotone";--fa-font-brands:normal 400 1em/1"Font Awesome 6 Brands"}svg:not(:host).svg-inline--fa,svg:not(:root).svg-inline--fa{overflow:visible;box-sizing:content-box}.svg-inline--fa{display:var(--fa-display,inline-block);height:1em;vertical-align:-.125em}@-webkit-keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@-webkit-keyframes fa-bounce{0%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}100%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}}@keyframes fa-bounce{0%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}100%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}}@-webkit-keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@-webkit-keyframes fa-beat-fade{0%,100%{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@keyframes fa-beat-fade{0%,100%{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@-webkit-keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@-webkit-keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}100%,40%{-webkit-transform:rotate(0);transform:rotate(0)}}@keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}100%,40%{-webkit-transform:rotate(0);transform:rotate(0)}}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-sr-only-focusable:not(:focus),.sr-only-focusable:not(:focus){position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
 @-webkit-keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@-webkit-keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@-webkit-keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}@keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}.swal-icon--success:after,.swal-icon--success:before{content:"";border-radius:50%;position:absolute;width:60px;height:120px;background:#fff;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal-icon--success:before{border-radius:120px 0 0 120px;top:-7px;left:-33px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:60px 60px;transform-origin:60px 60px}.swal-icon--success:after{border-radius:0 120px 120px 0;top:-11px;left:30px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:0 60px;transform-origin:0 60px;-webkit-animation:rotatePlaceholder 4.25s ease-in;animation:rotatePlaceholder 4.25s ease-in}@-webkit-keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@-webkit-keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@-webkit-keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}@keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}.swal-icon--info:before{width:5px;height:29px;bottom:17px;border-radius:2px;margin-left:-2px}.swal-icon--info:after,.swal-icon--info:before{content:"";position:absolute;left:50%;background-color:#c9dae1}.swal-icon--info:after{width:7px;height:7px;border-radius:50%;margin-left:-3px;top:19px}.swal-button:not([disabled]):hover{background-color:#78cbf2}.swal-button:active{background-color:#70bce0}.swal-button:focus{outline:none;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(43,114,165,.29)}.swal-button::-moz-focus-inner{border:0}.swal-button--cancel:not([disabled]):hover{background-color:#e8e8e8}.swal-button--cancel:active{background-color:#d7d7d7}.swal-button--cancel:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(116,136,150,.29)}.swal-button--danger:not([disabled]):hover{background-color:#df4740}.swal-button--danger:active{background-color:#cf423b}.swal-button--danger:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(165,43,43,.29)}.swal-content__input:focus,.swal-content__textarea:focus{outline:none;border-color:#6db8ff}@-webkit-keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}@keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}.swal-overlay:before{content:" ";display:inline-block;vertical-align:middle;height:100%}@-webkit-keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}
 /*!
@@ -116,7 +116,7 @@ body{font-family:Poppins}
  <div class="card d-flex align-items-center justify-content-start gap-sm-5 gap-3 flex-column flex-sm-row bg-transparent">
  
  <div class=card-img>
- <img src="/images/templates/retail/ret-027.png" class="w-100 h-100 object-fit-cover" loading=lazy>
+ <img src="<?= htmlspecialchars($profileImg) ?>" alt="<?= htmlspecialchars($fullName) ?>" class="w-100 h-100 object-fit-cover" loading=lazy>
  
  </div>
  <div class="card-body p-0 text-center text-sm-start">
@@ -136,57 +136,23 @@ body{font-family:Poppins}
  <img src="/images/templates/retail/ret-028.svg" alt=profile-desc loading=lazy>
  </div>
  <p class="fs-6 text-center mb-0 text-light">
- <p>Welcome to <strong><?= htmlspecialchars($fullName) ?></strong>, your go-to destination for quality products and exceptional customer service. We offer a wide range of items to meet your everyday needs—from essentials to unique finds—all under one roof. Whether you're shopping for your home, wardrobe, or gifts, our curated selection ensures you'll find something you love.</p>
+ <?php if(!empty($vcard["description"])): ?><?= $vcard["description"] ?><?php else: ?><p>Welcome to <strong><?= htmlspecialchars($fullName) ?></strong>, your go-to destination for quality products and exceptional customer service. We offer a wide range of items to meet your everyday needs—from essentials to unique finds—all under one roof. Whether you're shopping for your home, wardrobe, or gifts, our curated selection ensures you'll find something you love.</p><?php endif; ?>
  <p></p>
  </div>
  <div class="social-media d-flex justify-content-center flex-wrap pt-40 position-relative px-30">
  <div class="bg-vector position-absolute vector-3 text-end">
  <img src="/images/templates/retail/ret-029.svg" alt=profile-desc loading=lazy>
  </div>
- <div class="social-icons d-flex justify-content-center text-decoration-none flex-wrap"><?php foreach ($socialLinks as $s): $ic=$platformIcons[$s["platform"]] ?? "fa-globe"; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener"><i class="fab <?= $ic ?> icon fa-2x"></i></a><?php endforeach; ?></div>
- </span>
- <span class="social-back d-flex justify-content-center align-items-center">
- <div class="cost-circle position-relative">
- 
- <span> <a href=https://x.com/ target=_blank>
- <svg xmlns=http://www.w3.org/2000/svg class=twitter_icon viewBox="0 0 512 512" fill=currentColor>
- <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
- </svg>
- </a></span>
- </div>
- </span>
- <span class="social-back d-flex justify-content-center align-items-center">
- <div class="cost-circle position-relative">
- 
- <span> <a href=https://www.facebook.com/ target=_blank>
- <svg class="svg-inline--fa fa-facebook facebook-icon icon fa-2x" aria-labelledby=svg-inline--fa-title-l2G81G5RNv5t data-prefix=fab data-icon=facebook role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><title id=svg-inline--fa-title-l2G81G5RNv5t>Facebook</title><path fill=currentColor d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.8 90.69 226.4 209.3 245V327.7h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.3 482.4 504 379.8 504 256z"></path></svg>
- </a></span>
- </div>
- </span>
- <span class="social-back d-flex justify-content-center align-items-center">
- <div class="cost-circle position-relative">
- 
- <span> <a href=https://www.instagram.com/ target=_blank>
- <svg class="svg-inline--fa fa-instagram instagram-icon icon fa-2x" aria-labelledby=svg-inline--fa-title-dPtcwrwB7pt2 data-prefix=fab data-icon=instagram role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 448 512" data-fa-i2svg><title id=svg-inline--fa-title-dPtcwrwB7pt2>Instagram</title><path fill=currentColor d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
- </a></span>
- </div>
- </span>
- <span class="social-back d-flex justify-content-center align-items-center">
- <div class="cost-circle position-relative">
- 
- <span> <a href=https://www.youtube.com/ target=_blank>
- <svg class="svg-inline--fa fa-youtube youtube-icon icon fa-2x" aria-labelledby=svg-inline--fa-title-Nh14wHxvcd6Y data-prefix=fab data-icon=youtube role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 576 512" data-fa-i2svg><title id=svg-inline--fa-title-Nh14wHxvcd6Y>Youtube</title><path fill=currentColor d="M549.7 124.1c-6.281-23.65-24.79-42.28-48.28-48.6C458.8 64 288 64 288 64S117.2 64 74.63 75.49c-23.5 6.322-42 24.95-48.28 48.6-11.41 42.87-11.41 132.3-11.41 132.3s0 89.44 11.41 132.3c6.281 23.65 24.79 41.5 48.28 47.82C117.2 448 288 448 288 448s170.8 0 213.4-11.49c23.5-6.321 42-24.17 48.28-47.82 11.41-42.87 11.41-132.3 11.41-132.3s0-89.44-11.41-132.3zm-317.5 213.5V175.2l142.7 81.21-142.7 81.2z"></path></svg>
- </a></span>
- </div>
- </span>
- <span class="social-back d-flex justify-content-center align-items-center">
- <div class="cost-circle position-relative">
- 
- <span> <a href=https://www.linkedin.com/ target=_blank>
- <svg class="svg-inline--fa fa-linkedin linkedin-icon icon fa-2x" aria-labelledby=svg-inline--fa-title-Xlq1tpeEGVTo data-prefix=fab data-icon=linkedin role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 448 512" data-fa-i2svg><title id=svg-inline--fa-title-Xlq1tpeEGVTo>Linkedin</title><path fill=currentColor d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
- </a></span>
- </div>
- </span>
+ <div class="social-icons d-flex justify-content-center text-decoration-none flex-wrap"><?php
+ $__svgX='<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>';
+ $__svgIG='<svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>';
+ $__svgFB='<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.8 90.69 226.4 209.3 245V327.7h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.3 482.4 504 379.8 504 256z"/></svg>';
+ $__svgWA='<svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l119.7-31.4c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zM223.9 438.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-71 18.6L51 357.9l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.3-5-3.7-10.5-6.5z"/></svg>';
+ $__svgYT='<svg viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M549.7 124.1c-6.281-23.65-24.79-42.28-48.28-48.6C458.8 64 288 64 288 64S117.2 64 74.63 75.49c-23.5 6.322-42 24.95-48.28 48.6-11.41 42.87-11.41 132.3-11.41 132.3s0 89.44 11.41 132.3c6.281 23.65 24.79 41.5 48.28 47.82C117.2 448 288 448 288 448s170.8 0 213.4-11.49c23.5-6.321 42-24.17 48.28-47.82 11.41-42.87 11.41-132.3 11.41-132.3s0-89.44-11.41-132.3zm-317.5 213.5V175.2l142.7 81.21-142.7 81.2z"/></svg>';
+ $__svgLI='<svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>';
+ $__svgGL='<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M352 256C352 278.2 350.8 299.6 348.7 320H163.3C161.2 299.6 159.1 278.2 159.1 256C159.1 233.8 161.2 212.4 163.3 192H348.7C350.8 212.4 352 233.8 352 256zM503.9 192C509.2 212.5 512 233.9 512 256C512 278.1 509.2 299.5 503.9 320H380.8C382.9 299.4 384 277.1 384 256C384 234 382.9 212.6 380.8 192H503.9zM493.4 160H376.7C366.7 96.14 346.9 42.62 321.4 8.442C399.8 29.09 463.4 85.94 493.4 160zM344.3 160H167.7C173.8 123.6 183.2 91.38 194.7 65.35C205.2 41.74 216.9 24.61 228.2 13.81C239.4 3.178 248.7 0 256 0C263.3 0 272.6 3.178 283.8 13.81C295.1 24.61 306.8 41.74 317.3 65.35C328.8 91.38 338.2 123.6 344.3 160zM18.61 160C48.59 85.94 112.2 29.09 190.6 8.442C165.1 42.62 145.3 96.14 135.3 160H18.61zM131.2 192C129.1 212.6 127.1 234 127.1 256C127.1 277.1 129.1 299.4 131.2 320H8.065C2.8 299.5 0 278.1 0 256C0 233.9 2.8 212.5 8.065 192H131.2zM194.7 446.6C183.2 420.6 173.8 388.4 167.7 352H344.3C338.2 388.4 328.8 420.6 317.3 446.6C306.8 470.3 295.1 487.4 283.8 498.2C272.6 508.8 263.3 512 255.1 512C248.7 512 239.4 508.8 228.2 498.2C216.9 487.4 205.2 470.3 194.7 446.6zM190.6 503.6C112.2 482.9 48.59 426.1 18.61 352H135.3C145.3 415.9 165.1 469.4 190.6 503.6zM321.4 503.6C346.9 469.4 366.7 415.9 376.7 352H493.4C463.4 426.1 399.8 482.9 321.4 503.6z"/></svg>';
+ $socialSvgs=['instagram'=>$__svgIG,'facebook'=>$__svgFB,'facebook-f'=>$__svgFB,'x-twitter'=>$__svgX,'twitter'=>$__svgX,'whatsapp'=>$__svgWA,'youtube'=>$__svgYT,'linkedin'=>$__svgLI,'linkedin-in'=>$__svgLI,'globe'=>$__svgGL];
+ foreach ($socialLinks as $s): $__p=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__p] ?? $socialSvgs["globe"]; ?><span class="social-back d-flex justify-content-center align-items-center"><div class="cost-circle position-relative"><span><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener"><?= $__svg ?></a></span></div></span><?php endforeach; ?></div>
  </div>
  </div>
  
@@ -201,6 +167,7 @@ body{font-family:Poppins}
  <h2 class=mb-0>Contact</h2>
  </div>
  <div class="row contact-row">
+ <?php if(!empty($vcard["email"])): ?>
  <div class=col-sm-6>
  <div class="contact-box d-flex align-items-center">
  <div class="contact-icon d-flex justify-content-center align-items-center">
@@ -213,6 +180,8 @@ body{font-family:Poppins}
  </div>
  </div>
  </div>
+ <?php endif; ?>
+ <?php if(!empty($vcard["alternate_email"])): ?>
  <div class=col-sm-6>
  <div class="contact-box d-flex align-items-center">
  <div class="contact-icon d-flex justify-content-center align-items-center">
@@ -225,6 +194,8 @@ body{font-family:Poppins}
  </div>
  </div>
  </div>
+ <?php endif; ?>
+ <?php if(!empty($vcard["phone"])): ?>
  <div class=col-sm-6>
  <div class="contact-box d-flex align-items-center">
  <div class="contact-icon d-flex justify-content-center align-items-center">
@@ -237,6 +208,8 @@ body{font-family:Poppins}
  </div>
  </div>
  </div>
+ <?php endif; ?>
+ <?php if(!empty($vcard["alternate_phone"])): ?>
  <div class=col-sm-6>
  <div class="contact-box d-flex align-items-center">
  <div class="contact-icon d-flex justify-content-center align-items-center">
@@ -245,10 +218,12 @@ body{font-family:Poppins}
  </div>
  </div>
  <div class=contact-desc>
- <a href=tel:+919800508990 class="text-black fw-5" dir=ltr>+919800508990</a>
+ <a href="tel:<?= htmlspecialchars($vcard["alternate_phone"]) ?>" class="text-black fw-5" dir=ltr><?= htmlspecialchars($vcard["alternate_phone"]) ?></a>
  </div>
  </div>
  </div>
+ <?php endif; ?>
+ <?php if(!empty($vcard["dob"])): ?>
  <div class="col-sm-6 mb-sm-0 mb-4">
  <div class="contact-box d-flex align-items-center">
  <div class="contact-icon d-flex justify-content-center align-items-center">
@@ -257,10 +232,12 @@ body{font-family:Poppins}
  </div>
  </div>
  <div class=contact-desc>
- <p class="mb-0 text-black fw-5">12th June, 1990</p>
+ <p class="mb-0 text-black fw-5"><?= htmlspecialchars(date("jS F, Y", strtotime($vcard["dob"]))) ?></p>
  </div>
  </div>
  </div>
+ <?php endif; ?>
+ <?php if(!empty($vcard["location"])): ?>
  <div class=col-sm-6>
  <div class="contact-box d-flex align-items-center">
  <div class="contact-icon d-flex justify-content-center align-items-center">
@@ -269,14 +246,15 @@ body{font-family:Poppins}
  </div>
  </div>
  <div class=contact-desc>
- <p class="text-black mb-0 fw-5">Mumbai, Maharashtra</p>
+ <p class="text-black mb-0 fw-5"><?= htmlspecialchars($vcard["location"]) ?></p>
  </div>
  </div>
  </div>
+ <?php endif; ?>
  </div>
  </div>
  
- <?php if(!empty($services)): ?><div class="our-services-section pt-50 position-relative"><div class="section-heading"><h2>Our Services</h2></div><div class="services"><div class="px-30"><div class="row"><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/retail/ret-016.webp"; ?><div class="col-sm-6 mb-sm-0 mb-40 p-3"><div class="card-wrapper h-100"><a href="javascript:void(0)" class="text-decoration-none"><div class="service-card card h-100"><div class="card-img mx-auto"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></div><div class="card-body text-center"><h3 class="card-title text-primary"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></a></div></div><?php endforeach; ?></div></div></div></div><?php endif; ?>
+ <?php if(!empty($services)): ?><div class="our-services-section pt-50 position-relative"><div class="section-heading text-center position-relative"><h2 class=mb-0>Our Services</h2></div><div class="services"><div class="px-30"><div class="row"><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/retail/ret-016.webp"; ?><div class="col-sm-6 mb-sm-0 mb-40 p-3"><div class="card-wrapper h-100"><a href="javascript:void(0)" class="text-decoration-none"><div class="service-card card h-100"><div class="img"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></div><div class="card-body text-center"><h3 class="card-title text-primary"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></a></div></div><?php endforeach; ?></div></div></div></div><?php endif; ?>
  
  <div class="gallery-section pt-50 position-relative px-20">
  <div class="bg-vector position-absolute vector-5">
@@ -287,7 +265,42 @@ body{font-family:Poppins}
  </div>
  <div class="gallery-slider"><?php foreach ((isset($__ga)?$__ga:($galleries ?? [])) as $g): foreach (($g["images"] ?? []) as $im): $gi=imgUrl($im["image_url"] ?? ($im["image"] ?? "")); ?><div class="px-2"><div class="gallery-img-wrapper"><div class="gallery-img" style="background-image:url('<?= htmlspecialchars($gi) ?>');background-size:cover;background-position:center;height:280px;border-radius:12px;"></div></div></div><?php endforeach; endforeach; ?></div>
  </div>
- 
+
+ <?php
+ $__instaItems = [];
+ foreach (($insta_feed ?? []) as $__ig) {
+   if (!empty($__ig["embed_url"]) && preg_match('#^https?://#i', $__ig["embed_url"])) {
+     $__instaItems[] = ["type"=>"iframe","src"=>$__ig["embed_url"]];
+   } elseif (!empty($__ig["tag"])) {
+     if (preg_match('#https?://(?:www\.)?instagram\.com/(p|reel|tv|reels)/([A-Za-z0-9_-]+)#', $__ig["tag"], $__m)) {
+       $__t = ($__m[1]==="reels") ? "reel" : $__m[1];
+       $__instaItems[] = ["type"=>"iframe","src"=>"https://www.instagram.com/".$__t."/".$__m[2]."/embed/"];
+     } elseif (strlen($__ig["tag"]) > 20) {
+       $__instaItems[] = ["type"=>"html","html"=>$__ig["tag"]];
+     }
+   }
+ }
+ ?>
+ <?php if(!empty($__instaItems)): ?>
+ <div class="insta-section pt-50 px-20 position-relative">
+ <div class="section-heading text-center position-relative">
+ <h2 class=mb-0>Reels</h2>
+ </div>
+ <div class="insta-feed d-flex" style="gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 14px;-webkit-overflow-scrolling:touch;">
+ <?php foreach ($__instaItems as $__it): ?>
+ <div style="flex:0 0 auto;width:320px;max-width:86%;scroll-snap-align:center;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.12);">
+ <?php if ($__it["type"]==="iframe"): ?>
+ <iframe src="<?= htmlspecialchars($__it["src"]) ?>" width="100%" height="580" frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen loading="lazy" style="display:block;border:0;"></iframe>
+ <?php else: ?>
+ <?= $__it["html"] ?>
+ <?php endif; ?>
+ </div>
+ <?php endforeach; ?>
+ </div>
+ <?php if(!empty(array_filter($__instaItems, fn($i)=>$i["type"]==="html"))): ?><script async src="https://www.instagram.com/embed.js"></script><?php endif; ?>
+ </div>
+ <?php endif; ?>
+
  <div class="testimonial-section pt-50 px-20">
  <div class="bg-vector position-absolute vector-6 text-end">
  <img src=/images/templates/retail/ret-041.svg alt=box-img loading=lazy>
@@ -311,11 +324,13 @@ body{font-family:Poppins}
  <div>
  <div class="product-slider"><?php foreach ((isset($__pr)?$__pr:($products ?? [])) as $p): $pi=!empty($p["image"])?imgUrl($p["image"]):"/images/templates/retail/ret-016.webp"; ?><div class="px-2"><div class="product-card card"><div class="product-img card-img"><img src="<?= htmlspecialchars($pi) ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></div><div class="product-desc card-body d-flex flex-column align-items-center justify-content-between"><div class="product-title"><h3 class="text-dark text-center"><?= htmlspecialchars($p["name"] ?? "") ?></h3></div><?php if(isset($p["price"]) && $p["price"]!==""): ?><div class="product-amount"><span>₹ <?= htmlspecialchars($p["price"]) ?></span></div><?php endif; ?></div></div></div><?php endforeach; ?></div>
  </div>
+ <?php if(!empty($storeUrl)): ?>
  <div class="text-center view-more mt-4">
- <a class="fs-6 text-decoration-none d-block btn-primary d-flex align-items-center justify-content-center gap-2" href=https://tapifyworld.com/products/28/retailer>View More Products
+ <a class="fs-6 text-decoration-none d-block btn-primary d-flex align-items-center justify-content-center gap-2" href="<?= htmlspecialchars($storeUrl) ?>">View More Products
  <svg class="svg-inline--fa fa-arrow-right-long right-arrow-animation text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z"></path></svg>
  </a>
  </div>
+ <?php endif; ?>
  </div>
  
  <div class="appointment-section pt-50 px-30 position-relative">
@@ -554,7 +569,7 @@ body{font-family:Poppins}
  </div></div></div></div></div><ul class=slick-dots role=tablist><li class=slick-active role=presentation><button type=button role=tab id=slick-slide-control20 aria-controls=slick-slide20 aria-label="1 of 3" tabindex=0 aria-selected=true>1</button><li role=presentation><button type=button role=tab id=slick-slide-control21 aria-controls=slick-slide21 aria-label="2 of 3" tabindex=-1>2</button><li role=presentation><button type=button role=tab id=slick-slide-control22 aria-controls=slick-slide22 aria-label="3 of 3" tabindex=-1>3</button></ul></div>
  </div>
  
- <?php if(!empty($businessHours)): ?><div class="business-hour-section pt-50 px-30 position-relative"><div class="section-heading"><h2>Business Hours</h2></div><div class="px-30"><div class="row justify-content-center"><?php foreach ((isset($__bh)?$__bh:($businessHours ?? [])) as $bh): ?><div class="col-sm-6"><div class="business-hour-card d-flex gap-2 align-items-center mb-3"><div class="time-icon"><i class="bi bi-clock fs-3"></i></div><div class="d-flex flex-column align-items-start"><span class="fs-14 text-gray lh-1 fw-5"><?= htmlspecialchars(ucfirst(strtolower($bh["day_name"] ?? ""))) ?></span><span class="fs-16 fw-5"><?= !empty($bh["is_open"]) ? htmlspecialchars(trim(($bh["open_time"] ?? "")." - ".($bh["close_time"] ?? ""))) : "Closed" ?></span></div></div></div><?php endforeach; ?></div></div></div><?php endif; ?>
+ <?php if(!empty($businessHours)): ?><div class="business-hour-section pt-50 px-30 position-relative"><div class="section-heading text-center position-relative"><h2 class=mb-0>Business Hours</h2></div><div class="business-hours row justify-content-center"><?php foreach (($businessHours ?? []) as $bh): ?><div class=col-sm-6><div class=business-box><div class=time-icon><div class=position-relative><div class=calender-icons><svg xmlns=http://www.w3.org/2000/svg width=24 height=24 viewBox="0 0 24 24" fill=none stroke=currentColor stroke-width=2 stroke-linecap=round stroke-linejoin=round class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock"><path stroke=none d="M0 0h24v24H0z" fill=none></path><path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3"></path><path d="M16 3v4"></path><path d="M8 3v4"></path><path d="M4 11h10"></path><path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path><path d="M18 16.5v1.5l.5 .5"></path></svg></div></div></div><div class="d-flex justify-content-center gap-2 w-100 business-time"><div class="fs-14 text-black"><?= htmlspecialchars(ucfirst(strtolower($bh["day_name"] ?? ""))) ?> :</div><div class="d-flex align-items-center gap-2 fs-14 justify-content-center"><div class=text-black><?= !empty($bh["is_open"]) ? htmlspecialchars(trim(($bh["open_time"] ?? "")." - ".($bh["close_time"] ?? ""))) : "Closed" ?></div></div></div></div></div><?php endforeach; ?></div></div><?php endif; ?>
  
  <div class="qr-code-section pt-50 px-40">
  <div class="bg-vector position-absolute vector-13">
@@ -566,7 +581,7 @@ body{font-family:Poppins}
  <div class="qr-code d-flex justify-content-center align-items-center flex-wrap flex-sm-nowrap mb-30 position-relative">
  <div class="qr-code-img mx-auto" id=qr-code-twentysix>
  
-<svg xmlns=http://www.w3.org/2000/svg version=1.1 width=130 height=130 viewBox="0 0 130 130"><rect x=0 y=0 width=130 height=130 fill=#ffffff></rect><g transform=scale(5.2)><g transform=translate(0,0)><path fill-rule=evenodd d="M8 0L8 1L9 1L9 0ZM11 0L11 1L10 1L10 4L12 4L12 7L11 7L11 6L10 6L10 8L8 8L8 10L9 10L9 11L10 11L10 12L8 12L8 13L9 13L9 15L10 15L10 17L8 17L8 15L7 15L7 14L5 14L5 15L4 15L4 14L3 14L3 15L4 15L4 16L2 16L2 17L5 17L5 16L6 16L6 17L8 17L8 18L10 18L10 17L11 17L11 18L12 18L12 19L15 19L15 20L14 20L14 21L13 21L13 20L12 20L12 21L11 21L11 24L10 24L10 20L11 20L11 19L9 19L9 21L8 21L8 25L9 25L9 24L10 24L10 25L14 25L14 24L15 24L15 23L16 23L16 22L17 22L17 23L18 23L18 24L17 24L17 25L25 25L25 24L23 24L23 23L24 23L24 22L23 22L23 21L22 21L22 20L21 20L21 17L22 17L22 19L23 19L23 20L24 20L24 19L25 19L25 15L24 15L24 14L25 14L25 12L23 12L23 11L21 11L21 10L20 10L20 9L23 9L23 10L24 10L24 9L25 9L25 8L24 8L24 9L23 9L23 8L20 8L20 9L19 9L19 10L20 10L20 11L21 11L21 12L18 12L18 10L17 10L17 9L18 9L18 8L17 8L17 6L16 6L16 7L15 7L15 5L17 5L17 2L15 2L15 3L14 3L14 2L13 2L13 1L14 1L14 0L13 0L13 1L12 1L12 0ZM16 0L16 1L17 1L17 0ZM8 2L8 5L9 5L9 2ZM11 2L11 3L13 3L13 2ZM13 4L13 5L14 5L14 4ZM8 6L8 7L9 7L9 6ZM13 6L13 7L12 7L12 8L10 8L10 9L12 9L12 11L11 11L11 10L10 10L10 11L11 11L11 12L10 12L10 15L11 15L11 16L12 16L12 17L13 17L13 18L15 18L15 19L16 19L16 18L15 18L15 16L14 16L14 15L16 15L16 16L18 16L18 15L20 15L20 14L18 14L18 13L17 13L17 14L14 14L14 13L13 13L13 12L12 12L12 11L13 11L13 9L14 9L14 12L15 12L15 11L16 11L16 12L17 12L17 11L16 11L16 9L15 9L15 8L14 8L14 6ZM0 8L0 10L1 10L1 11L0 11L0 12L1 12L1 15L0 15L0 16L1 16L1 15L2 15L2 12L3 12L3 11L2 11L2 10L4 10L4 11L5 11L5 10L6 10L6 11L7 11L7 10L6 10L6 9L7 9L7 8L6 8L6 9L4 9L4 8ZM4 12L4 13L5 13L5 12ZM6 12L6 13L7 13L7 12ZM21 12L21 16L24 16L24 15L22 15L22 14L24 14L24 13L22 13L22 12ZM12 13L12 15L13 15L13 13ZM6 15L6 16L7 16L7 15ZM13 16L13 17L14 17L14 16ZM17 17L17 20L20 20L20 17ZM23 17L23 18L24 18L24 17ZM18 18L18 19L19 19L19 18ZM15 20L15 21L14 21L14 22L13 22L13 21L12 21L12 22L13 22L13 23L15 23L15 21L16 21L16 20ZM19 21L19 24L20 24L20 21ZM21 22L21 24L22 24L22 22ZM0 0L0 7L7 7L7 0ZM1 1L1 6L6 6L6 1ZM2 2L2 5L5 5L5 2ZM18 0L18 7L25 7L25 0ZM19 1L19 6L24 6L24 1ZM20 2L20 5L23 5L23 2ZM0 18L0 25L7 25L7 18ZM1 19L1 24L6 24L6 19ZM2 20L2 23L5 23L5 20Z" fill=#000000></path></g></g></svg>
+<img src="<?= htmlspecialchars($qrUrl) ?>" alt="QR Code" style="width:100%;height:100%;object-fit:contain;display:block;" loading="lazy">
  </div>
  <div class="text-center text-sm-start">
  <h5 class=fw-6>Scan to Contact</h5>
@@ -623,12 +638,32 @@ body{font-family:Poppins}
  </form>
  </div>
  </div>
- 
- 
- 
+
+ <?php
+ $__iframes = array_filter($iframes ?? [], fn($fr)=>!empty($fr["url"]) && preg_match('#^https?://#i', $fr["url"]));
+ $__allMaps = !empty($__iframes);
+ foreach ($__iframes as $__fr) { if (stripos($__fr["url"],"google.")===false || stripos($__fr["url"],"/maps")===false) { $__allMaps=false; break; } }
+ ?>
+ <?php if(!empty($__iframes)): ?>
+ <div class="iframe-section pt-50 px-20 position-relative">
+ <div class="section-heading text-center position-relative">
+ <h2 class=mb-0><?= $__allMaps ? "Location" : "More Info" ?></h2>
+ </div>
+ <div class="px-10">
+ <?php foreach ($__iframes as $__fr): $__src = function_exists("embeddableMapUrl") ? embeddableMapUrl($__fr["url"]) : $__fr["url"]; ?>
+ <div style="border-radius:14px;overflow:hidden;margin-bottom:14px;box-shadow:0 6px 18px rgba(0,0,0,.10);">
+ <iframe src="<?= htmlspecialchars($__src) ?>" width="100%" height="320" style="display:block;border:0;" frameborder="0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+ </div>
+ <?php endforeach; ?>
+ </div>
+ </div>
+ <?php endif; ?>
+
+
+
  <div class=add-to-contact-section>
  <div class="text-center d-flex align-items-center justify-content-center">
- <a href=https://tapifyworld.com/add-contact/28 class="add-contact-btn rounded-2"><svg class="svg-inline--fa fa-address-book" aria-hidden=true focusable=false data-prefix=fas data-icon=address-book role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M384 0H96C60.65 0 32 28.65 32 64v384c0 35.35 28.65 64 64 64h288c35.35 0 64-28.65 64-64V64C448 28.65 419.3 0 384 0zM240 128c35.35 0 64 28.65 64 64s-28.65 64-64 64c-35.34 0-64-28.65-64-64S204.7 128 240 128zM336 384h-192C135.2 384 128 376.8 128 368C128 323.8 163.8 288 208 288h64c44.18 0 80 35.82 80 80C352 376.8 344.8 384 336 384zM496 64H480v96h16C504.8 160 512 152.8 512 144v-64C512 71.16 504.8 64 496 64zM496 192H480v96h16C504.8 288 512 280.8 512 272v-64C512 199.2 504.8 192 496 192zM496 320H480v96h16c8.836 0 16-7.164 16-16v-64C512 327.2 504.8 320 496 320z"></path></svg>
+ <a href="javascript:saveContact()" class="add-contact-btn rounded-2"><svg class="svg-inline--fa fa-address-book" aria-hidden=true focusable=false data-prefix=fas data-icon=address-book role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M384 0H96C60.65 0 32 28.65 32 64v384c0 35.35 28.65 64 64 64h288c35.35 0 64-28.65 64-64V64C448 28.65 419.3 0 384 0zM240 128c35.35 0 64 28.65 64 64s-28.65 64-64 64c-35.34 0-64-28.65-64-64S204.7 128 240 128zM336 384h-192C135.2 384 128 376.8 128 368C128 323.8 163.8 288 208 288h64c44.18 0 80 35.82 80 80C352 376.8 344.8 384 336 384zM496 64H480v96h16C504.8 160 512 152.8 512 144v-64C512 71.16 504.8 64 496 64zM496 192H480v96h16C504.8 288 512 280.8 512 272v-64C512 199.2 504.8 192 496 192zM496 320H480v96h16c8.836 0 16-7.164 16-16v-64C512 327.2 504.8 320 496 320z"></path></svg>
  &nbsp;Add to contact</a>
  </div>
  </div>
@@ -664,4 +699,4 @@ body{font-family:Poppins}
  
  </div>
 <div class=razorpay-container style=z-index:2147483647;position:fixed;top:0px;display:none;left:0px;height:100%;width:100%;max-height:100dvh;backface-visibility:hidden;overflow-y:visible><style>@keyframes rzp-rot{to{transform:rotate(360deg)}}@-webkit-keyframes rzp-rot{to{-webkit-transform:rotate(360deg)}}</style></div>
-<div class="flatpickr-calendar animate sf-hidden" tabindex=-1></div><div id=lightboxOverlay tabindex=-1 class=lightboxOverlay style=display:none></div><div id=lightbox tabindex=-1 class=lightbox style=display:none></div>"></iframe<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script><script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"><script src="https://cdn.jsdelivr.net/npm/flatpickr"></script><script>function tfInit(){if(typeof jQuery==="undefined"||!jQuery.fn||!jQuery.fn.slick){return setTimeout(tfInit,120);}jQuery(function($){$(".product-slider,.gallery-slider,.testimonial-slider").each(function(){if($(this).children().length===0){$(this).closest("[class*=section]").hide();$(this).hide();}});function ini(s,o){var $s=$(s);if(!$s.length||$s.hasClass("slick-initialized"))return;$s.slick(o);}ini(".product-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".gallery-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".testimonial-slider",{slidesToShow:1,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:4000});if(window.flatpickr){flatpickr("#pickUpDate",{minDate:"today",dateFormat:"Y-m-d"});flatpickr(".flatpickr-input",{minDate:"today",dateFormat:"Y-m-d"});}});}tfInit();</script><?php if(!empty($vcard["custom_js"])): ?><script><?= $vcard["custom_js"] ?></script><?php endif; ?><?php include __DIR__ . "/_shared-scripts.php"; ?></body></html>
+<div class="flatpickr-calendar animate sf-hidden" tabindex=-1></div><div id=lightboxOverlay tabindex=-1 class=lightboxOverlay style=display:none></div><div id=lightbox tabindex=-1 class=lightbox style=display:none></div><script src="https://code.jquery.com/jquery-3.6.0.min.js"></script><script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"><script src="https://cdn.jsdelivr.net/npm/flatpickr"></script><script>function tfInit(){if(typeof jQuery==="undefined"||!jQuery.fn||!jQuery.fn.slick){return setTimeout(tfInit,120);}jQuery(function($){$(".product-slider,.gallery-slider,.testimonial-slider").each(function(){if($(this).children().length===0){$(this).closest("[class*=section]").hide();$(this).hide();}});function ini(s,o){var $s=$(s);if(!$s.length||$s.hasClass("slick-initialized"))return;$s.slick(o);}ini(".product-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".gallery-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".testimonial-slider",{slidesToShow:1,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:4000});if(window.flatpickr){flatpickr("#pickUpDate",{minDate:"today",dateFormat:"Y-m-d"});flatpickr(".flatpickr-input",{minDate:"today",dateFormat:"Y-m-d"});}});}tfInit();</script><?php if(!empty($vcard["custom_js"])): ?><script><?= $vcard["custom_js"] ?></script><?php endif; ?><?php include __DIR__ . "/_shared-scripts.php"; ?></body></html>

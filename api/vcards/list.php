@@ -13,7 +13,7 @@ requireAuth();
 try {
     $pdo = getDB();
     $userId = getCurrentUserId();
-    $admin = isAdmin();
+    $admin = canManageAllVcards(); // admins + staff editors see ALL cards
 
     $search = trim($_GET['search'] ?? '');
     $status = $_GET['status'] ?? 'all';

@@ -83,7 +83,7 @@ return [
     'vcard59' => ['name' => 'School', 'layout' => 'standalone', 'primary' => '#1d4ed8', 'secondary' => '#1d4ed8', 'bg' => '#ffffff', 'surface' => '#ffffff', 'font' => 'poppins'],
     'vcard60' => ['name' => 'Social Media', 'layout' => 'standalone', 'primary' => '#6366f1', 'secondary' => '#6366f1', 'bg' => '#ffffff', 'surface' => '#ffffff', 'font' => 'poppins'],
     'vcard61' => ['name' => 'Social Services', 'layout' => 'standalone', 'primary' => '#059669', 'secondary' => '#059669', 'bg' => '#ffffff', 'surface' => '#ffffff', 'font' => 'poppins'],
-    'vcard62' => ['name' => 'Taxi Service', 'layout' => 'standalone', 'primary' => '#d4a017', 'secondary' => '#d4a017', 'bg' => '#ffffff', 'surface' => '#ffffff', 'font' => 'montserrat', 'dark' => true],
+    'vcard62' => ['name' => 'Taxi Service Pro', 'layout' => 'standalone', 'primary' => '#d4a017', 'secondary' => '#d4a017', 'bg' => '#ffffff', 'surface' => '#ffffff', 'font' => 'montserrat', 'dark' => true],
     'vcard63' => ['name' => 'Real Estate',       'layout' => 'standalone', 'primary' => '#0369a1', 'secondary' => '#0369a1', 'bg' => '#ffffff', 'surface' => '#ffffff', 'font' => 'inter'],
     'vcard64' => ['name' => 'Event Management',  'layout' => 'standalone', 'primary' => '#9333ea', 'secondary' => '#9333ea', 'bg' => '#ffffff', 'surface' => '#ffffff', 'font' => 'poppins', 'dark' => true],
     'vcard65' => ['name' => 'Hospital & Doctor', 'layout' => 'standalone', 'primary' => '#0d9488', 'secondary' => '#0d9488', 'bg' => '#ffffff', 'surface' => '#ffffff', 'font' => 'inter'],
@@ -92,4 +92,5 @@ return [
     'vcard68' => ['name' => 'Real Estate Pro', 'layout' => 'standalone', 'primary' => '#a98345', 'secondary' => '#a98345', 'bg' => '#ffffff', 'surface' => '#ffffff', 'font' => 'poppins'],
     'vcard69' => ['name' => 'Flower Garden Pro', 'layout' => 'standalone', 'primary' => '#2a9f2e', 'secondary' => '#2a9f2e', 'bg' => '#ffffff', 'surface' => '#ffffff', 'font' => 'montserrat'],
     'vcard70' => ['name' => 'Food & Culinary Pro', 'layout' => 'standalone', 'primary' => '#eb0029', 'secondary' => '#eb0029', 'bg' => '#ffffff', 'surface' => '#ffffff', 'font' => 'poppins'],
+    'vcard71' => ['name' => 'Architecture Pro', 'layout' => 'standalone', 'primary' => '#716659', 'secondary' => '#716659', 'bg' => '#ffffff', 'surface' => '#ffffff', 'font' => 'poppins'],
 ];

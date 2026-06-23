@@ -8,7 +8,7 @@ $coverImg=!empty($vcard['cover_image'])?imgUrl($vcard['cover_image']):'/images/t
 $qrUrl='https://api.qrserver.com/v1/create-qr-code/?size=200x200&data='.urlencode($cardUrl);
 $platformIcons=['linkedin-in'=>'fa-linkedin-in','linkedin'=>'fa-linkedin-in','instagram'=>'fa-instagram','x-twitter'=>'fa-x-twitter','twitter'=>'fa-x-twitter','facebook'=>'fa-facebook-f','facebook-f'=>'fa-facebook-f','whatsapp'=>'fa-whatsapp','youtube'=>'fa-youtube','spotify'=>'fa-spotify','github'=>'fa-github','tiktok'=>'fa-tiktok','pinterest'=>'fa-pinterest-p','behance'=>'fa-behance','dribbble'=>'fa-dribbble','telegram'=>'fa-telegram','globe'=>'fa-globe'];
 ?>
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title><?= htmlspecialchars($fullName) ?></title><link rel="icon" href="<?= !empty($vcard['favicon_image'])?imgUrl($vcard['favicon_image']):'/images/tapify-logo-green.png' ?>"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><style>:root{--sf-img-42: url("/images/templates/consulting/con-000.webp");--sf-img-43: url("/images/templates/consulting/con-001.webp");--sf-img-44: url("/images/templates/consulting/con-002.webp");--sf-img-45: url("/images/templates/consulting/con-003.png");--sf-img-47: url("/images/templates/consulting/con-004.webp");--sf-img-48: url("/images/templates/consulting/con-005.webp");--sf-img-49: url("/images/templates/consulting/con-006.webp");--sf-img-51: url("/images/templates/consulting/con-007.webp");--sf-img-52: url("/images/templates/consulting/con-008.webp");--sf-img-53: url("/images/templates/consulting/con-009.webp");--sf-img-54: url("/images/templates/consulting/con-010.webp");--sf-img-56: url("/images/templates/consulting/con-011.webp");--sf-img-57: url("/images/templates/consulting/con-012.webp");--sf-img-58: url("/images/templates/consulting/con-013.webp");--sf-img-59: url("/images/templates/consulting/con-014.webp")}
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title><?= htmlspecialchars($fullName) ?></title><link rel="icon" href="<?= !empty($vcard['favicon_image'])?imgUrl($vcard['favicon_image']):'/images/tapify-logo-green.png' ?>"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><style>:root{--sf-img-42: url("/images/templates/consulting/con-000.webp");--sf-img-43: url("/images/templates/consulting/con-001.webp");--sf-img-44: url("/images/templates/consulting/con-002.webp");--sf-img-45: url("/images/templates/consulting/con-003.png");--sf-img-47: url("/images/templates/consulting/con-004.webp");--sf-img-48: url("/images/templates/consulting/con-005.webp");--sf-img-49: url("/images/templates/consulting/con-006.webp");--sf-img-51: url("/images/templates/consulting/con-007.webp");--sf-img-52: url("/images/templates/consulting/con-008.webp");--sf-img-53: url("/images/templates/consulting/con-009.webp");--sf-img-54: url("/images/templates/consulting/con-010.webp");--sf-img-56: url("/images/templates/consulting/con-011.webp");--sf-img-57: url("/images/templates/consulting/con-012.webp");--sf-img-58: url("/images/templates/consulting/con-013.webp");--sf-img-59: url("/images/templates/consulting/con-014.webp")}
 :host,:root{--fa-font-solid:normal 900 1em/1"Font Awesome 6 Solid";--fa-font-regular:normal 400 1em/1"Font Awesome 6 Regular";--fa-font-light:normal 300 1em/1"Font Awesome 6 Light";--fa-font-thin:normal 100 1em/1"Font Awesome 6 Thin";--fa-font-duotone:normal 900 1em/1"Font Awesome 6 Duotone";--fa-font-brands:normal 400 1em/1"Font Awesome 6 Brands"}svg:not(:host).svg-inline--fa,svg:not(:root).svg-inline--fa{overflow:visible;box-sizing:content-box}.svg-inline--fa{display:var(--fa-display,inline-block);height:1em;vertical-align:-.125em}@-webkit-keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@-webkit-keyframes fa-bounce{0%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}100%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}}@keyframes fa-bounce{0%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}100%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}}@-webkit-keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@-webkit-keyframes fa-beat-fade{0%,100%{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@keyframes fa-beat-fade{0%,100%{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@-webkit-keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@-webkit-keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}100%,40%{-webkit-transform:rotate(0);transform:rotate(0)}}@keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}100%,40%{-webkit-transform:rotate(0);transform:rotate(0)}}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-sr-only-focusable:not(:focus),.sr-only-focusable:not(:focus){position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
 @-webkit-keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@-webkit-keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@-webkit-keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}@keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}.swal-icon--success:after,.swal-icon--success:before{content:"";border-radius:50%;position:absolute;width:60px;height:120px;background:#fff;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal-icon--success:before{border-radius:120px 0 0 120px;top:-7px;left:-33px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:60px 60px;transform-origin:60px 60px}.swal-icon--success:after{border-radius:0 120px 120px 0;top:-11px;left:30px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:0 60px;transform-origin:0 60px;-webkit-animation:rotatePlaceholder 4.25s ease-in;animation:rotatePlaceholder 4.25s ease-in}@-webkit-keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@-webkit-keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@-webkit-keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}@keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}.swal-icon--info:before{width:5px;height:29px;bottom:17px;border-radius:2px;margin-left:-2px}.swal-icon--info:after,.swal-icon--info:before{content:"";position:absolute;left:50%;background-color:#c9dae1}.swal-icon--info:after{width:7px;height:7px;border-radius:50%;margin-left:-3px;top:19px}.swal-button:not([disabled]):hover{background-color:#78cbf2}.swal-button:active{background-color:#70bce0}.swal-button:focus{outline:none;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(43,114,165,.29)}.swal-button::-moz-focus-inner{border:0}.swal-button--cancel:not([disabled]):hover{background-color:#e8e8e8}.swal-button--cancel:active{background-color:#d7d7d7}.swal-button--cancel:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(116,136,150,.29)}.swal-button--danger:not([disabled]):hover{background-color:#df4740}.swal-button--danger:active{background-color:#cf423b}.swal-button--danger:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(165,43,43,.29)}.swal-content__input:focus,.swal-content__textarea:focus{outline:none;border-color:#6db8ff}@-webkit-keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}@keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}.swal-overlay:before{content:" ";display:inline-block;vertical-align:middle;height:100%}@-webkit-keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}
 /*!
@@ -194,8 +194,8 @@ body{font-family:Poppins}
  <i class="verification-icon bi-patch-check-fill text-primary"></i>
  </h2>
  <p class="fs-16 mb-0 text-primary"><?= htmlspecialchars($vcard["occupation"] ?? "") ?></p>
- <p class="fs-14 mb-0 text-black">Business Consultant</p>
- <p class="fs-14 mb-0 text-black"></p>
+ <p class="fs-14 mb-0 text-black"><?= !empty($vcard["job_title"]) ? htmlspecialchars($vcard["job_title"]) : "Business Consultant" ?></p>
+ <?php if(!empty($vcard["company"])): ?><p class="fs-14 mb-0 text-black"><?= htmlspecialchars($vcard["company"]) ?></p><?php endif; ?>
  </div>
  </div>
  </div>
@@ -203,47 +203,23 @@ body{font-family:Poppins}
  
  <div class="desc text-center pt-40 px-30 fs-14">
  <p class="text-gray-100 fs-14 text-sm-start text-center mb-0">
- <p>A Business consultant helps companies improve performance and efficiency.they analyze problems, develop strategies, and implement solutions.their goal is to boost profitability and streamline operations.they work across areas like strategy, marketing, finance, and HR.consultants bring fresh perspectives and industry expertise to every project.</p>
- <p></p>
+ <?php if(!empty($vcard["description"])): ?><?= $vcard["description"] ?><?php else: ?>A Business consultant helps companies improve performance and efficiency.they analyze problems, develop strategies, and implement solutions.their goal is to boost profitability and streamline operations.they work across areas like strategy, marketing, finance, and HR.consultants bring fresh perspectives and industry expertise to every project.<?php endif; ?>
  </div>
  <div class="social-media d-flex justify-content-center pt-40 position-relative">
  <div class="bg-vector vector-1 position-absolute">
  <img src=/images/templates/consulting/con-027.png alt=vector class="w-100 h-100" loading=lazy>
  </div>
- <div class="social-media-icons d-flex justify-content-center flex-wrap px-30">
- <span class="social-icon d-flex justify-content-center align-items-center">
- <a href=https://tapkya.com/ target=_blank>
- <svg class="svg-inline--fa fa-globe icon fa-2x" aria-labelledby=svg-inline--fa-title-2SPwFiTgU0oe data-prefix=fas data-icon=globe role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><title id=svg-inline--fa-title-2SPwFiTgU0oe>Website</title><path fill=currentColor d="M352 256C352 278.2 350.8 299.6 348.7 320H163.3C161.2 299.6 159.1 278.2 159.1 256C159.1 233.8 161.2 212.4 163.3 192H348.7C350.8 212.4 352 233.8 352 256zM503.9 192C509.2 212.5 512 233.9 512 256C512 278.1 509.2 299.5 503.9 320H380.8C382.9 299.4 384 277.1 384 256C384 234 382.9 212.6 380.8 192H503.9zM493.4 160H376.7C366.7 96.14 346.9 42.62 321.4 8.442C399.8 29.09 463.4 85.94 493.4 160zM344.3 160H167.7C173.8 123.6 183.2 91.38 194.7 65.35C205.2 41.74 216.9 24.61 228.2 13.81C239.4 3.178 248.7 0 256 0C263.3 0 272.6 3.178 283.8 13.81C295.1 24.61 306.8 41.74 317.3 65.35C328.8 91.38 338.2 123.6 344.3 160H344.3zM18.61 160C48.59 85.94 112.2 29.09 190.6 8.442C165.1 42.62 145.3 96.14 135.3 160H18.61zM131.2 192C129.1 212.6 127.1 234 127.1 256C127.1 277.1 129.1 299.4 131.2 320H8.065C2.8 299.5 0 278.1 0 256C0 233.9 2.8 212.5 8.065 192H131.2zM194.7 446.6C183.2 420.6 173.8 388.4 167.7 352H344.3C338.2 388.4 328.8 420.6 317.3 446.6C306.8 470.3 295.1 487.4 283.8 498.2C272.6 508.8 263.3 512 255.1 512C248.7 512 239.4 508.8 228.2 498.2C216.9 487.4 205.2 470.3 194.7 446.6H194.7zM190.6 503.6C112.2 482.9 48.59 426.1 18.61 352H135.3C145.3 415.9 165.1 469.4 190.6 503.6V503.6zM321.4 503.6C346.9 469.4 366.7 415.9 376.7 352H493.4C463.4 426.1 399.8 482.9 321.4 503.6V503.6z"></path></svg>
- </a>
- </span>
- <span class="social-icon d-flex justify-content-center align-items-center">
- <a href=https://x.com/ target=_blank>
- <svg xmlns=http://www.w3.org/2000/svg class=twitter_icon viewBox="0 0 512 512" fill=currentColor>
- <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
- </svg>
- </a>
- </span>
- <span class="social-icon d-flex justify-content-center align-items-center">
- <a href=https://www.facebook.com/ target=_blank>
- <svg class="svg-inline--fa fa-facebook facebook-icon icon fa-2x" aria-labelledby=svg-inline--fa-title-jtS0b3wfiHbS data-prefix=fab data-icon=facebook role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><title id=svg-inline--fa-title-jtS0b3wfiHbS>Facebook</title><path fill=currentColor d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.8 90.69 226.4 209.3 245V327.7h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.3 482.4 504 379.8 504 256z"></path></svg>
- </a>
- </span>
- <span class="social-icon d-flex justify-content-center align-items-center">
- <a href=https://www.instagram.com/ target=_blank>
- <svg class="svg-inline--fa fa-instagram instagram-icon icon fa-2x" aria-labelledby=svg-inline--fa-title-nbDDwESi9zEF data-prefix=fab data-icon=instagram role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 448 512" data-fa-i2svg><title id=svg-inline--fa-title-nbDDwESi9zEF>Instagram</title><path fill=currentColor d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
- </a>
- </span>
- <span class="social-icon d-flex justify-content-center align-items-center">
- <a href=https://www.youtube.com/ target=_blank>
- <svg class="svg-inline--fa fa-youtube youtube-icon icon fa-2x" aria-labelledby=svg-inline--fa-title-KUiYQ9ipPZvh data-prefix=fab data-icon=youtube role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 576 512" data-fa-i2svg><title id=svg-inline--fa-title-KUiYQ9ipPZvh>Youtube</title><path fill=currentColor d="M549.7 124.1c-6.281-23.65-24.79-42.28-48.28-48.6C458.8 64 288 64 288 64S117.2 64 74.63 75.49c-23.5 6.322-42 24.95-48.28 48.6-11.41 42.87-11.41 132.3-11.41 132.3s0 89.44 11.41 132.3c6.281 23.65 24.79 41.5 48.28 47.82C117.2 448 288 448 288 448s170.8 0 213.4-11.49c23.5-6.321 42-24.17 48.28-47.82 11.41-42.87 11.41-132.3 11.41-132.3s0-89.44-11.41-132.3zm-317.5 213.5V175.2l142.7 81.21-142.7 81.2z"></path></svg>
- </a>
- </span>
- <span class="social-icon d-flex justify-content-center align-items-center">
- <a href=https://www.linkedin.com/ target=_blank>
- <svg class="svg-inline--fa fa-linkedin linkedin-icon icon fa-2x" aria-labelledby=svg-inline--fa-title-XVKYx2s1Y7Ii data-prefix=fab data-icon=linkedin role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 448 512" data-fa-i2svg><title id=svg-inline--fa-title-XVKYx2s1Y7Ii>Linkedin</title><path fill=currentColor d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
- </a>
- </span>
- </div>
+ <?php
+ $__svgX='<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>';
+ $__svgIG='<svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>';
+ $__svgFB='<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.8 90.69 226.4 209.3 245V327.7h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.3 482.4 504 379.8 504 256z"/></svg>';
+ $__svgWA='<svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l119.7-31.4c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zM223.9 438.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-71 18.6L51 357.9l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.3-5-3.7-10.5-6.5z"/></svg>';
+ $__svgYT='<svg viewBox="0 0 576 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M549.7 124.1c-6.281-23.65-24.79-42.28-48.28-48.6C458.8 64 288 64 288 64S117.2 64 74.63 75.49c-23.5 6.322-42 24.95-48.28 48.6-11.41 42.87-11.41 132.3-11.41 132.3s0 89.44 11.41 132.3c6.281 23.65 24.79 41.5 48.28 47.82C117.2 448 288 448 288 448s170.8 0 213.4-11.49c23.5-6.321 42-24.17 48.28-47.82 11.41-42.87 11.41-132.3 11.41-132.3s0-89.44-11.41-132.3zm-317.5 213.5V175.2l142.7 81.21-142.7 81.2z"/></svg>';
+ $__svgLI='<svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>';
+ $__svgGL='<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M352 256C352 278.2 350.8 299.6 348.7 320H163.3C161.2 299.6 159.1 278.2 159.1 256C159.1 233.8 161.2 212.4 163.3 192H348.7C350.8 212.4 352 233.8 352 256zM503.9 192C509.2 212.5 512 233.9 512 256C512 278.1 509.2 299.5 503.9 320H380.8C382.9 299.4 384 277.1 384 256C384 234 382.9 212.6 380.8 192H503.9zM493.4 160H376.7C366.7 96.14 346.9 42.62 321.4 8.442C399.8 29.09 463.4 85.94 493.4 160zM344.3 160H167.7C173.8 123.6 183.2 91.38 194.7 65.35C205.2 41.74 216.9 24.61 228.2 13.81C239.4 3.178 248.7 0 256 0C263.3 0 272.6 3.178 283.8 13.81C295.1 24.61 306.8 41.74 317.3 65.35C328.8 91.38 338.2 123.6 344.3 160zM18.61 160C48.59 85.94 112.2 29.09 190.6 8.442C165.1 42.62 145.3 96.14 135.3 160H18.61zM131.2 192C129.1 212.6 127.1 234 127.1 256C127.1 277.1 129.1 299.4 131.2 320H8.065C2.8 299.5 0 278.1 0 256C0 233.9 2.8 212.5 8.065 192H131.2zM194.7 446.6C183.2 420.6 173.8 388.4 167.7 352H344.3C338.2 388.4 328.8 420.6 317.3 446.6C306.8 470.3 295.1 487.4 283.8 498.2C272.6 508.8 263.3 512 255.1 512C248.7 512 239.4 508.8 228.2 498.2C216.9 487.4 205.2 470.3 194.7 446.6zM190.6 503.6C112.2 482.9 48.59 426.1 18.61 352H135.3C145.3 415.9 165.1 469.4 190.6 503.6zM321.4 503.6C346.9 469.4 366.7 415.9 376.7 352H493.4C463.4 426.1 399.8 482.9 321.4 503.6z"/></svg>';
+ $socialSvgs=['instagram'=>$__svgIG,'facebook'=>$__svgFB,'facebook-f'=>$__svgFB,'x-twitter'=>$__svgX,'twitter'=>$__svgX,'whatsapp'=>$__svgWA,'youtube'=>$__svgYT,'linkedin'=>$__svgLI,'linkedin-in'=>$__svgLI,'globe'=>$__svgGL];
+ ?>
+ <div class="social-media-icons d-flex justify-content-center flex-wrap px-30"><?php foreach ($socialLinks as $s): $__p=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__p] ?? $socialSvgs["globe"]; ?><span class="social-icon d-flex justify-content-center align-items-center"><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener"><?= $__svg ?></a></span><?php endforeach; ?></div>
  </div>
  
  </div>
@@ -257,6 +233,7 @@ body{font-family:Poppins}
  <span></span>
  </div>
  <div class="row row-gap-30">
+ <?php if(!empty($vcard["email"])): ?>
  <div class=col-sm-6>
  <div class=contact-bg>
  <div class=contact-box>
@@ -269,6 +246,8 @@ body{font-family:Poppins}
  </div>
  </div>
  </div>
+ <?php endif; ?>
+ <?php if(!empty($vcard["alternate_email"])): ?>
  <div class=col-sm-6>
  <div class="contact-bg mail-2">
  <div class=contact-box>
@@ -281,6 +260,8 @@ body{font-family:Poppins}
  </div>
  </div>
  </div>
+ <?php endif; ?>
+ <?php if(!empty($vcard["phone"])): ?>
  <div class=col-sm-6>
  <div class="contact-bg mail-3">
  <div class=contact-box>
@@ -293,6 +274,8 @@ body{font-family:Poppins}
  </div>
  </div>
  </div>
+ <?php endif; ?>
+ <?php if(!empty($vcard["alternate_phone"])): ?>
  <div class=col-sm-6>
  <div class="contact-bg mail-4">
  <div class=contact-box>
@@ -300,11 +283,13 @@ body{font-family:Poppins}
  <img src="/images/templates/consulting/con-030.svg" loading=lazy>
  </div>
  <div class="contact-desc text-center">
- <a href=tel:+919800508990 class="text-white fs-14 fw-5 text-center" dir=ltr>+919800508990</a>
+ <a href="tel:<?= htmlspecialchars($vcard["alternate_phone"]) ?>" class="text-white fs-14 fw-5 text-center" dir=ltr><?= htmlspecialchars($vcard["alternate_phone"]) ?></a>
  </div>
  </div>
  </div>
  </div>
+ <?php endif; ?>
+ <?php if(!empty($vcard["dob"])): ?>
  <div class=col-sm-6>
  <div class="contact-bg mail-2">
  <div class=contact-box>
@@ -312,11 +297,13 @@ body{font-family:Poppins}
  <img src=/images/templates/consulting/con-031.svg loading=lazy>
  </div>
  <div class="contact-desc text-center">
- <p class="mb-0 text-white fs-14 fw-5 text-center"> 12th June, 1990</p>
+ <p class="mb-0 text-white fs-14 fw-5 text-center"><?= htmlspecialchars(date("jS F, Y", strtotime($vcard["dob"]))) ?></p>
  </div>
  </div>
  </div>
  </div>
+ <?php endif; ?>
+ <?php if(!empty($vcard["location"])): ?>
  <div class=col-sm-6>
  <div class="contact-bg mail-3">
  <div class=contact-box>
@@ -324,15 +311,34 @@ body{font-family:Poppins}
  <img src="/images/templates/consulting/con-032.svg" loading=lazy>
  </div>
  <div class="contact-desc text-center">
- <p class="text-white mb-0 fs-14 fw-5 text-center">India, Delhi</p>
+ <p class="text-white mb-0 fs-14 fw-5 text-center"><?= htmlspecialchars($vcard["location"]) ?></p>
  </div>
  </div>
  </div>
  </div>
+ <?php endif; ?>
  </div>
  </div>
  
- <?php if(!empty($services)): ?><div class="our-services-section pt-50 position-relative"><div class="section-heading"><h2>Our Services</h2></div><div class="services"><div class="px-30"><div class="row"><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/consulting/con-021.webp"; ?><div class="col-sm-6 mb-sm-0 mb-40 p-3"><div class="card-wrapper h-100"><a href="javascript:void(0)" class="text-decoration-none"><div class="service-card card h-100"><div class="card-img mx-auto"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></div><div class="card-body text-center"><h3 class="card-title text-primary"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></a></div></div><?php endforeach; ?></div></div></div></div><?php endif; ?>
+ <?php
+ $__iframes = array_filter($iframes ?? [], fn($fr)=>!empty($fr["url"]) && preg_match('#^https?://#i', $fr["url"]));
+ $__allMaps = !empty($__iframes);
+ foreach ($__iframes as $__fr) { if (stripos($__fr["url"],"google.")===false || stripos($__fr["url"],"/maps")===false) { $__allMaps=false; break; } }
+ ?>
+ <?php if(!empty($__iframes)): ?>
+ <div class="iframe-section pt-50 px-30 position-relative">
+ <div class="section-heading text-center"><h2 class="text-white text-center mb-0"><?= $__allMaps ? "Location" : "More Info" ?></h2><span></span></div>
+ <div class="px-10">
+ <?php foreach ($__iframes as $__fr): $__src = function_exists("embeddableMapUrl") ? embeddableMapUrl($__fr["url"]) : $__fr["url"]; ?>
+ <div style="border-radius:14px;overflow:hidden;margin-bottom:14px;box-shadow:0 6px 18px rgba(0,0,0,.10);">
+ <iframe src="<?= htmlspecialchars($__src) ?>" width="100%" height="320" style="display:block;border:0;" frameborder="0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+ </div>
+ <?php endforeach; ?>
+ </div>
+ </div>
+ <?php endif; ?>
+
+ <?php if(!empty($services)): ?><div class="our-services-section pt-50 position-relative"><div class="section-heading text-center"><h2>Our Services</h2></div><div class="services"><div class="px-30"><div class="row"><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/consulting/con-021.webp"; ?><div class="col-sm-6 mb-sm-0 mb-40 p-3"><div class="card-wrapper h-100"><a href="javascript:void(0)" class="text-decoration-none"><div class="service-card card h-100"><div class="img mx-auto"><a href="javascript:void(0)" class="pe-none"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></a></div><div class="card-body text-center"><h3 class="card-title text-primary"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></a></div></div><?php endforeach; ?></div></div></div></div><?php endif; ?>
  
  
  <div class="appointment-section pt-50 px-30">
@@ -409,11 +415,13 @@ body{font-family:Poppins}
  </div>
  <div>
  <div class="product-slider"><?php foreach ((isset($__pr)?$__pr:($products ?? [])) as $p): $pi=!empty($p["image"])?imgUrl($p["image"]):"/images/templates/consulting/con-021.webp"; ?><div class="px-2"><div class="product-card card"><div class="product-img card-img"><img src="<?= htmlspecialchars($pi) ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></div><div class="product-desc card-body d-flex flex-column align-items-center justify-content-between"><div class="product-title"><h3 class="text-dark text-center"><?= htmlspecialchars($p["name"] ?? "") ?></h3></div><?php if(isset($p["price"]) && $p["price"]!==""): ?><div class="product-amount"><span>₹ <?= htmlspecialchars($p["price"]) ?></span></div><?php endif; ?></div></div></div><?php endforeach; ?></div>
+ <?php if(!empty($storeUrl)): ?>
  <div class="mt-4 text-center view-more">
- <a class="fs-6 text btn-primary btn text-decoration-none" href=https://tapifyworld.com/products/29/consultant>View More Products
+ <a class="fs-6 text btn-primary btn text-decoration-none" href="<?= htmlspecialchars($storeUrl) ?>">View More Products
  <svg class="svg-inline--fa fa-arrow-right-long right-arrow-animation" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z"></path></svg>
  </a>
  </div>
+ <?php endif; ?>
  </div>
  </div>
  
@@ -639,7 +647,41 @@ body{font-family:Poppins}
  </div>
  
  
- <?php if(!empty($businessHours)): ?><div class="business-hour-section pt-50 px-30 position-relative"><div class="section-heading"><h2>Business Hours</h2></div><div class="px-30"><div class="row justify-content-center"><?php foreach ((isset($__bh)?$__bh:($businessHours ?? [])) as $bh): ?><div class="col-sm-6"><div class="business-hour-card d-flex gap-2 align-items-center mb-3"><div class="time-icon"><i class="bi bi-clock fs-3"></i></div><div class="d-flex flex-column align-items-start"><span class="fs-14 text-gray lh-1 fw-5"><?= htmlspecialchars(ucfirst(strtolower($bh["day_name"] ?? ""))) ?></span><span class="fs-16 fw-5"><?= !empty($bh["is_open"]) ? htmlspecialchars(trim(($bh["open_time"] ?? "")." - ".($bh["close_time"] ?? ""))) : "Closed" ?></span></div></div></div><?php endforeach; ?></div></div></div><?php endif; ?>
+ <?php
+ $__instaItems = [];
+ foreach (($insta_feed ?? []) as $__ig) {
+   if (!empty($__ig["embed_url"]) && preg_match('#^https?://#i', $__ig["embed_url"])) {
+     $__instaItems[] = ["type"=>"iframe","src"=>$__ig["embed_url"]];
+   } elseif (!empty($__ig["tag"])) {
+     if (preg_match('#https?://(?:www\.)?instagram\.com/(p|reel|tv|reels)/([A-Za-z0-9_-]+)#', $__ig["tag"], $__m)) {
+       $__t = ($__m[1]==="reels") ? "reel" : $__m[1];
+       $__instaItems[] = ["type"=>"iframe","src"=>"https://www.instagram.com/".$__t."/".$__m[2]."/embed/"];
+     } elseif (strlen($__ig["tag"]) > 20) {
+       $__instaItems[] = ["type"=>"html","html"=>$__ig["tag"]];
+     }
+   }
+ }
+ ?>
+ <?php if(!empty($__instaItems)): ?>
+ <div class="insta-section pt-50 px-30 position-relative">
+ <div class="section-heading text-center"><h2 class="text-white text-center mb-0">Reels</h2><span></span></div>
+ <div class="insta-feed d-flex" style="gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 4px 14px;-webkit-overflow-scrolling:touch;">
+ <?php foreach ($__instaItems as $__it): ?>
+ <div style="flex:0 0 auto;width:320px;max-width:86%;scroll-snap-align:center;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 6px 18px rgba(0,0,0,.12);">
+ <?php if ($__it["type"]==="iframe"): ?>
+ <iframe src="<?= htmlspecialchars($__it["src"]) ?>" width="100%" height="580" frameborder="0" scrolling="no" allowtransparency="true" allowfullscreen loading="lazy" style="display:block;border:0;"></iframe>
+ <?php else: ?>
+ <?= $__it["html"] ?>
+ <?php endif; ?>
+ </div>
+ <?php endforeach; ?>
+ </div>
+ <?php if(!empty(array_filter($__instaItems, fn($i)=>$i["type"]==="html"))): ?><script async src="https://www.instagram.com/embed.js"></script><?php endif; ?>
+ </div>
+ <?php endif; ?>
+
+
+ <?php if(!empty($businessHours)): ?><div class="business-hour-section pt-50 px-30 position-relative"><div class="section-heading text-center"><h2 class="text-white text-center mb-0">Business Hours</h2><span></span></div><div class="business-hours row row-gap-20px justify-content-center py-3 mx-0"><?php foreach (($businessHours ?? []) as $bh): ?><div class="wrapper col-sm-6"><div class="hours text-center"><div class="icon-calendar"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-calendar-clock"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3"></path><path d="M16 3v4"></path><path d="M8 3v4"></path><path d="M4 11h10"></path><path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path><path d="M18 16.5v1.5l.5 .5"></path></svg></div><div class="text-primary"><span class="days"><?= htmlspecialchars(ucfirst(strtolower($bh["day_name"] ?? ""))) ?>:</span> <span class="time"><?= !empty($bh["is_open"]) ? htmlspecialchars(trim(($bh["open_time"] ?? "")." - ".($bh["close_time"] ?? ""))) : "Closed" ?></span></div></div></div><?php endforeach; ?></div></div><?php endif; ?>
  
  
  <div class="qr-code-section pt-50 px-30 position-relative">
@@ -654,7 +696,7 @@ body{font-family:Poppins}
  <div class="d-flex flex-sm-row flex-column gap-3 align-items-center">
  <div class="qr-code-img text-center" id=qr-code-thirteen>
  
-<svg xmlns=http://www.w3.org/2000/svg version=1.1 width=130 height=130 viewBox="0 0 130 130"><rect x=0 y=0 width=130 height=130 fill=#ffffff></rect><g transform=scale(4.483)><g transform=translate(0,0)><path fill-rule=evenodd d="M10 0L10 2L11 2L11 0ZM12 0L12 1L13 1L13 2L12 2L12 4L13 4L13 3L14 3L14 4L15 4L15 5L17 5L17 6L16 6L16 8L17 8L17 9L18 9L18 10L17 10L17 11L16 11L16 9L12 9L12 7L13 7L13 5L11 5L11 6L10 6L10 4L11 4L11 3L8 3L8 4L9 4L9 5L8 5L8 7L9 7L9 8L6 8L6 9L5 9L5 8L0 8L0 9L1 9L1 10L2 10L2 9L3 9L3 10L4 10L4 9L5 9L5 10L6 10L6 11L7 11L7 12L5 12L5 11L3 11L3 12L2 12L2 11L0 11L0 14L1 14L1 15L3 15L3 16L1 16L1 17L0 17L0 21L1 21L1 18L2 18L2 21L3 21L3 20L4 20L4 21L5 21L5 20L6 20L6 21L7 21L7 20L6 20L6 19L8 19L8 23L10 23L10 24L8 24L8 29L9 29L9 28L10 28L10 29L11 29L11 25L12 25L12 26L13 26L13 27L12 27L12 29L13 29L13 28L14 28L14 29L15 29L15 28L17 28L17 29L18 29L18 28L17 28L17 27L16 27L16 26L17 26L17 25L18 25L18 24L17 24L17 23L19 23L19 24L20 24L20 26L21 26L21 27L19 27L19 29L20 29L20 28L21 28L21 27L22 27L22 29L27 29L27 28L28 28L28 26L29 26L29 25L28 25L28 24L29 24L29 23L27 23L27 22L29 22L29 20L28 20L28 19L27 19L27 16L28 16L28 15L27 15L27 14L25 14L25 13L27 13L27 12L28 12L28 11L27 11L27 12L26 12L26 11L25 11L25 9L26 9L26 8L25 8L25 9L24 9L24 8L23 8L23 9L22 9L22 8L21 8L21 9L18 9L18 8L17 8L17 6L18 6L18 7L19 7L19 8L20 8L20 7L21 7L21 4L20 4L20 3L21 3L21 0L17 0L17 1L16 1L16 0ZM8 1L8 2L9 2L9 1ZM17 1L17 2L16 2L16 4L17 4L17 3L19 3L19 2L20 2L20 1ZM14 2L14 3L15 3L15 2ZM18 5L18 6L19 6L19 7L20 7L20 5ZM9 6L9 7L10 7L10 6ZM11 6L11 7L12 7L12 6ZM14 6L14 8L15 8L15 6ZM10 8L10 9L8 9L8 10L9 10L9 11L8 11L8 12L11 12L11 13L9 13L9 14L10 14L10 15L11 15L11 14L13 14L13 15L12 15L12 17L11 17L11 20L10 20L10 17L8 17L8 16L9 16L9 15L8 15L8 13L5 13L5 12L3 12L3 13L1 13L1 14L4 14L4 13L5 13L5 15L6 15L6 16L7 16L7 17L5 17L5 18L4 18L4 19L5 19L5 18L7 18L7 17L8 17L8 19L9 19L9 20L10 20L10 21L9 21L9 22L13 22L13 23L12 23L12 25L15 25L15 26L16 26L16 25L15 25L15 24L14 24L14 23L15 23L15 22L16 22L16 23L17 23L17 22L20 22L20 21L19 21L19 20L20 20L20 19L21 19L21 20L22 20L22 19L23 19L23 20L24 20L24 19L23 19L23 18L22 18L22 17L23 17L23 16L24 16L24 17L25 17L25 21L26 21L26 20L27 20L27 19L26 19L26 17L25 17L25 16L27 16L27 15L25 15L25 16L24 16L24 14L23 14L23 15L21 15L21 14L22 14L22 13L25 13L25 11L23 11L23 10L19 10L19 11L17 11L17 12L18 12L18 13L19 13L19 11L23 11L23 12L20 12L20 14L18 14L18 15L17 15L17 14L16 14L16 13L14 13L14 12L15 12L15 11L14 11L14 12L13 12L13 13L12 13L12 11L13 11L13 10L12 10L12 9L11 9L11 8ZM27 8L27 9L28 9L28 10L29 10L29 9L28 9L28 8ZM6 9L6 10L7 10L7 9ZM10 9L10 11L11 11L11 9ZM28 13L28 14L29 14L29 13ZM6 14L6 15L7 15L7 16L8 16L8 15L7 15L7 14ZM15 14L15 15L14 15L14 16L15 16L15 15L16 15L16 16L17 16L17 17L16 17L16 18L15 18L15 17L12 17L12 18L13 18L13 19L12 19L12 21L13 21L13 20L14 20L14 21L16 21L16 22L17 22L17 21L18 21L18 20L19 20L19 19L18 19L18 18L21 18L21 17L18 17L18 16L17 16L17 15L16 15L16 14ZM20 15L20 16L21 16L21 15ZM3 16L3 17L4 17L4 16ZM28 17L28 18L29 18L29 17ZM14 19L14 20L15 20L15 19ZM16 19L16 21L17 21L17 20L18 20L18 19ZM21 21L21 24L24 24L24 21ZM22 22L22 23L23 23L23 22ZM25 23L25 25L21 25L21 26L25 26L25 25L26 25L26 24L27 24L27 23ZM9 26L9 27L10 27L10 26ZM14 27L14 28L15 28L15 27ZM23 27L23 28L24 28L24 27ZM26 27L26 28L27 28L27 27ZM0 0L0 7L7 7L7 0ZM1 1L1 6L6 6L6 1ZM2 2L2 5L5 5L5 2ZM22 0L22 7L29 7L29 0ZM23 1L23 6L28 6L28 1ZM24 2L24 5L27 5L27 2ZM0 22L0 29L7 29L7 22ZM1 23L1 28L6 28L6 23ZM2 24L2 27L5 27L5 24Z" fill=#000000></path></g></g></svg>
+<img src="<?= htmlspecialchars($qrUrl) ?>" alt="QR Code" style="width:100%;height:100%;object-fit:contain;display:block;" loading="lazy">
  </div>
  <div class="text-sm-start text-center">
  <h5 class="fw-6 text-primary">Scan to Contact</h5>
@@ -723,7 +765,7 @@ body{font-family:Poppins}
  
  <div class="add-to-contact-section mb-2">
  <div class="text-center d-flex align-items-center justify-content-center">
- <a href=https://tapifyworld.com/add-contact/29 class=add-contact-btn><svg class="svg-inline--fa fa-address-book" aria-hidden=true focusable=false data-prefix=fas data-icon=address-book role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M384 0H96C60.65 0 32 28.65 32 64v384c0 35.35 28.65 64 64 64h288c35.35 0 64-28.65 64-64V64C448 28.65 419.3 0 384 0zM240 128c35.35 0 64 28.65 64 64s-28.65 64-64 64c-35.34 0-64-28.65-64-64S204.7 128 240 128zM336 384h-192C135.2 384 128 376.8 128 368C128 323.8 163.8 288 208 288h64c44.18 0 80 35.82 80 80C352 376.8 344.8 384 336 384zM496 64H480v96h16C504.8 160 512 152.8 512 144v-64C512 71.16 504.8 64 496 64zM496 192H480v96h16C504.8 288 512 280.8 512 272v-64C512 199.2 504.8 192 496 192zM496 320H480v96h16c8.836 0 16-7.164 16-16v-64C512 327.2 504.8 320 496 320z"></path></svg>
+ <a href="javascript:saveContact()" class=add-contact-btn><svg class="svg-inline--fa fa-address-book" aria-hidden=true focusable=false data-prefix=fas data-icon=address-book role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M384 0H96C60.65 0 32 28.65 32 64v384c0 35.35 28.65 64 64 64h288c35.35 0 64-28.65 64-64V64C448 28.65 419.3 0 384 0zM240 128c35.35 0 64 28.65 64 64s-28.65 64-64 64c-35.34 0-64-28.65-64-64S204.7 128 240 128zM336 384h-192C135.2 384 128 376.8 128 368C128 323.8 163.8 288 208 288h64c44.18 0 80 35.82 80 80C352 376.8 344.8 384 336 384zM496 64H480v96h16C504.8 160 512 152.8 512 144v-64C512 71.16 504.8 64 496 64zM496 192H480v96h16C504.8 288 512 280.8 512 272v-64C512 199.2 504.8 192 496 192zM496 320H480v96h16c8.836 0 16-7.164 16-16v-64C512 327.2 504.8 320 496 320z"></path></svg>
  &nbsp;Add to contact</a>
  </div>
  </div>
@@ -764,4 +806,4 @@ body{font-family:Poppins}
  </div>
  </div>
 <div class=razorpay-container style=z-index:2147483647;position:fixed;top:0px;display:none;left:0px;height:100%;width:100%;max-height:100dvh;backface-visibility:hidden;overflow-y:visible><style>@keyframes rzp-rot{to{transform:rotate(360deg)}}@-webkit-keyframes rzp-rot{to{-webkit-transform:rotate(360deg)}}</style></div>
-<div class="flatpickr-calendar animate sf-hidden" tabindex=-1></div><div id=lightboxOverlay tabindex=-1 class=lightboxOverlay style=display:none></div><div id=lightbox tabindex=-1 class=lightbox style=display:none></div>"></iframe<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script><script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"><script src="https://cdn.jsdelivr.net/npm/flatpickr"></script><script>function tfInit(){if(typeof jQuery==="undefined"||!jQuery.fn||!jQuery.fn.slick){return setTimeout(tfInit,120);}jQuery(function($){$(".product-slider,.gallery-slider,.testimonial-slider").each(function(){if($(this).children().length===0){$(this).closest("[class*=section]").hide();$(this).hide();}});function ini(s,o){var $s=$(s);if(!$s.length||$s.hasClass("slick-initialized"))return;$s.slick(o);}ini(".product-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".gallery-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".testimonial-slider",{slidesToShow:1,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:4000});if(window.flatpickr){flatpickr("#pickUpDate",{minDate:"today",dateFormat:"Y-m-d"});flatpickr(".flatpickr-input",{minDate:"today",dateFormat:"Y-m-d"});}});}tfInit();</script><?php if(!empty($vcard["custom_js"])): ?><script><?= $vcard["custom_js"] ?></script><?php endif; ?><?php include __DIR__ . "/_shared-scripts.php"; ?></body></html>
+<div class="flatpickr-calendar animate sf-hidden" tabindex=-1></div><div id=lightboxOverlay tabindex=-1 class=lightboxOverlay style=display:none></div><div id=lightbox tabindex=-1 class=lightbox style=display:none></div><script src="https://code.jquery.com/jquery-3.6.0.min.js"></script><script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"><script src="https://cdn.jsdelivr.net/npm/flatpickr"></script><script>function tfInit(){if(typeof jQuery==="undefined"||!jQuery.fn||!jQuery.fn.slick){return setTimeout(tfInit,120);}jQuery(function($){$(".product-slider,.gallery-slider,.testimonial-slider").each(function(){if($(this).children().length===0){$(this).closest("[class*=section]").hide();$(this).hide();}});function ini(s,o){var $s=$(s);if(!$s.length||$s.hasClass("slick-initialized"))return;$s.slick(o);}ini(".product-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".gallery-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".testimonial-slider",{slidesToShow:1,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:4000});if(window.flatpickr){flatpickr("#pickUpDate",{minDate:"today",dateFormat:"Y-m-d"});flatpickr(".flatpickr-input",{minDate:"today",dateFormat:"Y-m-d"});}});}tfInit();</script><?php if(!empty($vcard["custom_js"])): ?><script><?= $vcard["custom_js"] ?></script><?php endif; ?><?php include __DIR__ . "/_shared-scripts.php"; ?></body></html>

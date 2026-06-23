@@ -16,8 +16,8 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
-    // Verify ownership through gallery → vcard chain (admins may view any)
-    if (isAdmin()) {
+    // Verify ownership through gallery → vcard chain (admins + staff may view any)
+    if (canManageAllVcards()) {
         $stmt = $pdo->prepare("
             SELECT g.id, g.name, g.vcard_id
             FROM vcard_galleries g

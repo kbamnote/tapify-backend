@@ -32,6 +32,13 @@ try {
     $stmt->execute($vcardScopeParams);
     $stats['active_vcards'] = (int)$stmt->fetch()['c'];
 
+    // Total Users (platform-wide; admin only)
+    $stats['total_users'] = null;
+    if ($admin) {
+        $stmt = $pdo->query("SELECT COUNT(*) as c FROM users");
+        $stats['total_users'] = (int)$stmt->fetch()['c'];
+    }
+
     // Total vCard views
     $stmt = $pdo->prepare("SELECT COALESCE(SUM(view_count), 0) as v FROM vcards WHERE $vcardScopeSql");
     $stmt->execute($vcardScopeParams);

@@ -78,8 +78,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
                 sendError('Access denied', 403);
             }
         } else {
-            // Verify vCard ownership OR Admin status
-            if (isAdmin()) {
+            // Verify vCard ownership OR Admin/staff status
+            if (canManageAllVcards()) {
                 $stmt = $pdo->prepare("SELECT id FROM vcards WHERE id = ? LIMIT 1");
                 $stmt->execute([$vcardId]);
             } else {
@@ -193,7 +193,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             if ($targetId > 0) {
                 // vCard ownership already verified above (admins allowed on any vCard).
                 // Tie the item to the authorized vCard; admins bypass user ownership.
-                if (isAdmin()) {
+                if (canManageAllVcards()) {
                     $stmt = $pdo->prepare("
                         SELECT si.id, si.image FROM vcard_service_items si
                         JOIN vcard_service_categories sc ON sc.id = si.category_id

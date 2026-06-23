@@ -332,7 +332,7 @@ a{text-decoration:none}#body{background-color:#1d2336!important;font-family:popp
  </div>
  <div class="row justify-content-center mt-3">
  <div class="col-12 text-center mb-2">
- <a href=https://tapifyworld.com/add-contact/43 class="btn btn-primary fs-14 card11-add-btn"><i class="fa-solid fa-address-book"></i> &nbsp;Add to contact</a>
+ <a href="javascript:saveContact()" class="btn btn-primary fs-14 card11-add-btn"><i class="fa-solid fa-address-book"></i> &nbsp;Add to contact</a>
  </div>
  </div>
  <div class="modal fade py-3 sf-hidden" id=askContactDetailFormModel tabindex=-1 aria-hidden=true aria-labelledby=askContactDetailFormModelLabel>

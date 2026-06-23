@@ -20,7 +20,7 @@ CREATE TABLE `users` (
   `password` VARCHAR(255) NOT NULL,
   `phone` VARCHAR(20) DEFAULT NULL,
   `avatar` VARCHAR(255) DEFAULT NULL,
-  `role` ENUM('admin','user') NOT NULL DEFAULT 'user',
+  `role` ENUM('admin','staff','user') NOT NULL DEFAULT 'user',
   `email_verified` TINYINT(1) NOT NULL DEFAULT 0,
   `email_verify_token` VARCHAR(100) DEFAULT NULL,
   `password_reset_token` VARCHAR(100) DEFAULT NULL,

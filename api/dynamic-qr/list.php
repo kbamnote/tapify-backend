@@ -14,9 +14,24 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
-    $stmt = $pdo->prepare("SELECT * FROM dynamic_qrs WHERE user_id = ? ORDER BY created_at DESC");
-    $stmt->execute([$userId]);
-    $qrs = $stmt->fetchAll();
+    $isAdminUser = isStaffOrAdmin(); // admins + staff editors see every QR
+    if ($isAdminUser) {
+        // Admins/staff see every user's QR codes, with the owner's name/email.
+        $stmt = $pdo->query("SELECT q.*, u.name AS owner_name, u.email AS owner_email
+                             FROM dynamic_qrs q
+                             LEFT JOIN users u ON u.id = q.user_id
+                             ORDER BY q.created_at DESC");
+        $qrs = $stmt->fetchAll();
+    } else {
+        // Regular users only see their own.
+        $stmt = $pdo->prepare("SELECT q.*, u.name AS owner_name, u.email AS owner_email
+                               FROM dynamic_qrs q
+                               LEFT JOIN users u ON u.id = q.user_id
+                               WHERE q.user_id = ?
+                               ORDER BY q.created_at DESC");
+        $stmt->execute([$userId]);
+        $qrs = $stmt->fetchAll();
+    }
 
     // Fetch scan counts for each QR
     foreach ($qrs as &$qr) {
@@ -27,7 +42,7 @@ try {
         $qr['unique_scans'] = $scans['unique_scans'];
     }
 
-    echo json_encode(['success' => true, 'data' => $qrs]);
+    echo json_encode(['success' => true, 'data' => $qrs, 'is_admin' => $isAdminUser]);
 } catch (Exception $e) {
     echo json_encode(['success' => false, 'message' => $e->getMessage()]);
 }
