@@ -7,7 +7,7 @@ try {
     $pdo = getDB();
 
     // Step 1: Ensure 'designer' role exists in ENUM
-    $pdo->exec("ALTER TABLE users MODIFY COLUMN role ENUM('admin','user','designer') NOT NULL DEFAULT 'user'");
+    $pdo->exec("ALTER TABLE users MODIFY COLUMN role ENUM('admin','user','designer','staff') NOT NULL DEFAULT 'user'");
 
     // Step 2: Create / update 3 designer accounts
     $password = 'Designer@123';
