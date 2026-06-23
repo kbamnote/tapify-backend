@@ -211,6 +211,18 @@ body{font-family:Poppins}
  </div>
  </div>
  </div><?php endif; ?>
+ <?php if(!empty($vcard["location"])): ?>
+ <div class=col-sm-6>
+ <div class="contact-box d-flex align-items-center">
+ <div class="contact-icon d-flex justify-content-center align-items-center">
+ <svg width=20 height=20 viewBox="0 0 24 24" fill=none xmlns=http://www.w3.org/2000/svg><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" fill=#244d4e></path></svg>
+ </div>
+ <div class=contact-desc>
+ <a href="<?= htmlspecialchars($locationUrl) ?>" target="_blank" rel="noopener" class="text-black fs-6 fw-5 word-wrap"><?= htmlspecialchars($vcard["location"]) ?></a>
+ </div>
+ </div>
+ </div>
+ <?php endif; ?>
  <?php if(!empty($vcard["dob"])): ?>
  <div class=col-sm-6>
  <div class="contact-box d-flex align-items-center">
