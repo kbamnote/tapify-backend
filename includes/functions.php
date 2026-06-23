@@ -115,12 +115,29 @@ function isAdmin() {
 }
 
 /**
+ * Check if current user is a designer
+ */
+function isDesigner() {
+    return isset($_SESSION['user_role']) && $_SESSION['user_role'] === 'designer';
+}
+
+/**
  * Require admin role
  */
 function requireAdmin() {
     requireAuth();
     if (!isAdmin()) {
         sendError('Access denied. Admin privileges required.', 403);
+    }
+}
+
+/**
+ * Require admin OR designer role (for design-related endpoints)
+ */
+function requireDesignerOrAdmin() {
+    requireAuth();
+    if (!isAdmin() && !isDesigner()) {
+        sendError('Access denied. Designer or Admin privileges required.', 403);
     }
 }
 

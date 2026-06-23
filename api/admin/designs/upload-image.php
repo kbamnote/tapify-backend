@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../../config/database.php';
 ini_set('display_errors', 0); // Override database.php config for JSON APIs
 require_once __DIR__ . '/../../../includes/functions.php';
 
-requireAdmin();
+requireDesignerOrAdmin();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     sendError('Method not allowed', 405);

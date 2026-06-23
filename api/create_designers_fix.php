@@ -5,12 +5,17 @@ require_once __DIR__ . '/../includes/functions.php';
 
 try {
     $pdo = getDB();
-    $password = '123456';
+
+    // Step 1: Ensure 'designer' role exists in ENUM
+    $pdo->exec("ALTER TABLE users MODIFY COLUMN role ENUM('admin','user','designer') NOT NULL DEFAULT 'user'");
+
+    // Step 2: Create / update 3 designer accounts
+    $password = 'Designer@123';
     $hashed = hashPassword($password);
 
     $designers = [
-        ['name' => 'Designer One', 'email' => 'designer1@tapify.com'],
-        ['name' => 'Designer Two', 'email' => 'designer2@tapify.com'],
+        ['name' => 'Designer One',   'email' => 'designer1@tapify.com'],
+        ['name' => 'Designer Two',   'email' => 'designer2@tapify.com'],
         ['name' => 'Designer Three', 'email' => 'designer3@tapify.com'],
     ];
 
@@ -20,23 +25,22 @@ try {
         $stmt = $pdo->prepare("SELECT id FROM users WHERE email = ?");
         $stmt->execute([$d['email']]);
         if ($row = $stmt->fetch()) {
-            // Update existing user's password and role
-            $stmt = $pdo->prepare("UPDATE users SET password = ?, role = 'admin', status = 1 WHERE id = ?");
-            $stmt->execute([$hashed, $row['id']]);
-            $added[] = $d['email'] . ' (Updated)';
+            $stmt = $pdo->prepare("UPDATE users SET name = ?, password = ?, role = 'designer', status = 1 WHERE id = ?");
+            $stmt->execute([$d['name'], $hashed, $row['id']]);
+            $added[] = $d['email'] . ' (Updated → designer)';
         } else {
-            // Insert new user
-            $stmt = $pdo->prepare("INSERT INTO users (name, email, password, phone, role, email_verified, status) VALUES (?, ?, ?, '0000000000', 'admin', 1, 1)");
+            $stmt = $pdo->prepare("INSERT INTO users (name, email, password, phone, role, email_verified, status) VALUES (?, ?, ?, '', 'designer', 1, 1)");
             $stmt->execute([$d['name'], $d['email'], $hashed]);
-            $added[] = $d['email'] . ' (Created)';
+            $added[] = $d['email'] . ' (Created as designer)';
         }
     }
 
     echo json_encode([
-        'success' => true, 
-        'message' => 'Designers successfully created/updated!', 
-        'accounts' => $added, 
-        'password_for_all' => '123456'
+        'success'          => true,
+        'message'          => 'Designer accounts ready!',
+        'accounts'         => $added,
+        'password_for_all' => 'Designer@123',
+        'panel_url'        => '/designer.html',
     ]);
 
 } catch (Exception $e) {

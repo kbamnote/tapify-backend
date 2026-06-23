@@ -4,7 +4,7 @@ require_once __DIR__ . '/../../../config/database.php';
 ini_set('display_errors', 0);
 require_once __DIR__ . '/../../../includes/functions.php';
 
-requireAdmin();
+requireDesignerOrAdmin();
 
 $method = $_SERVER['REQUEST_METHOD'];
 
