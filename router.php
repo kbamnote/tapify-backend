@@ -7,6 +7,16 @@
 require_once __DIR__ . '/config/database.php';
 
 $alias = trim($_GET['alias'] ?? '');
+
+// Wildcard subdomain support: fall back to <slug>.tapify.co.in when there is no
+// path alias. Path-based URLs keep working unchanged (backward compatible).
+if ($alias === '') {
+    $subSlug = tapify_subdomain_slug($_SERVER['HTTP_HOST'] ?? '');
+    if ($subSlug !== '') {
+        $alias = $subSlug;
+    }
+}
+
 if (empty($alias)) {
     header('Location: ../frontend/index.html');
     exit;

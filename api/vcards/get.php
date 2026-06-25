@@ -68,7 +68,7 @@ try {
     }
 
     // Generate preview URL
-    $vcard['preview_url'] = SITE_URL . '/' . $vcard['url_alias'];
+    $vcard['preview_url'] = public_card_url($vcard['url_alias']);
 
     sendSuccess('vCard loaded', ['vcard' => $vcard]);
 

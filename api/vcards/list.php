@@ -83,7 +83,7 @@ try {
             if (strlen($avatar) >= 2) break;
         }
         $vcard['avatar'] = $avatar ?: 'V';
-        $vcard['preview_url'] = SITE_URL . '/' . $vcard['url_alias'];
+        $vcard['preview_url'] = public_card_url($vcard['url_alias']);
         $vcard['status'] = (bool)$vcard['status'];
         $vcard['view_count'] = (int)$vcard['view_count'];
         $vcard['title'] = $vcard['occupation'] ?: 'No occupation';

@@ -90,7 +90,7 @@ try {
 
     sendSuccess('Tapify profile created successfully', [
         'user'  => ['id' => $userId, 'name' => $name, 'email' => $email, 'phone' => $phone],
-        'vcard' => ['id' => $vcardId, 'user_id' => $userId, 'url_alias' => $urlAlias, 'preview_url' => SITE_URL . '/' . $urlAlias]
+        'vcard' => ['id' => $vcardId, 'user_id' => $userId, 'url_alias' => $urlAlias, 'preview_url' => public_card_url($urlAlias)]
     ]);
 
 } catch (Exception $e) {

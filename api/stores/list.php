@@ -75,7 +75,7 @@ try {
 
     foreach ($stores as &$store) {
         $store['avatar'] = strtoupper(substr($store['store_name'], 0, 2));
-        $store['preview_url'] = SITE_URL . '/' . $store['url_alias'];
+        $store['preview_url'] = public_card_url($store['url_alias']);
         $store['status'] = (bool)$store['status'];
         $store['view_count'] = (int)$store['view_count'];
         $store['order_count'] = (int)$store['order_count'];

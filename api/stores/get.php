@@ -42,7 +42,7 @@ try {
     $store['cover_url']   = imgUrl($store['cover_image']);
     $store['favicon_url'] = imgUrl($store['favicon_image']);
 
-    $store['preview_url'] = SITE_URL . '/' . $store['url_alias'];
+    $store['preview_url'] = public_card_url($store['url_alias']);
 
     sendSuccess('Store loaded', ['store' => $store]);
 

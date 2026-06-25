@@ -77,7 +77,7 @@ try {
     sendSuccess('Store created successfully', [
         'store_id' => $storeId,
         'url_alias' => $urlAlias,
-        'preview_url' => SITE_URL . '/' . $urlAlias
+        'preview_url' => public_card_url($urlAlias)
     ]);
 
 } catch (Exception $e) {

@@ -11,6 +11,14 @@
 define('SITE_URL', getenv('SITE_URL') ?: 'https://app.tapify.co.in');
 // PUBLIC_URL = public-facing domain used in share links and QR codes.
 define('PUBLIC_URL', getenv('PUBLIC_URL') ?: 'https://tapify.co.in');
+// PUBLIC_BASE_DOMAIN = apex domain that hosts the wildcard business subdomains
+// (e.g. <slug>.tapify.co.in). Keep in sync with the wildcard DNS record / TLS cert.
+define('PUBLIC_BASE_DOMAIN', getenv('PUBLIC_BASE_DOMAIN') ?: 'tapify.co.in');
+// USE_SUBDOMAIN_URLS: when true, public share links are rendered in the subdomain
+// form (<slug>.tapify.co.in). Subdomain ROUTING works regardless of this flag; it
+// only controls which URL is advertised by the dashboard/API. Set to '0' until the
+// wildcard DNS record + wildcard TLS cert are live, then flip to '1'.
+define('USE_SUBDOMAIN_URLS', (getenv('USE_SUBDOMAIN_URLS') ?: '1') === '1');
 define('SITE_NAME', 'Tapify');
 define('UPLOAD_PATH', __DIR__ . '/../uploads/');
 define('UPLOAD_URL', SITE_URL . '/backend/uploads/');
@@ -32,6 +40,46 @@ define('TOKEN_EXPIRY', 86400 * 7);
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 date_default_timezone_set('Asia/Kolkata');
+
+/**
+ * Hosts that are NOT business mini-sites and must never be treated as a slug.
+ */
+function tapify_reserved_subdomains() {
+    return ['app','www','api','admin','dashboard','login','mail','m','cdn',
+            'static','assets','ftp','smtp','ns1','ns2','webmail','cpanel'];
+}
+
+/**
+ * Extract a business url_alias from a wildcard-subdomain hostname.
+ *   "business-slug.tapify.co.in"  =>  "business-slug"
+ * Returns '' for the apex, reserved hosts (app/www/api/...), multi-label
+ * subdomains, or any host that is not directly under PUBLIC_BASE_DOMAIN.
+ */
+function tapify_subdomain_slug($host) {
+    $host = strtolower(trim((string)$host));
+    $host = preg_replace('/:\d+$/', '', $host);            // strip :port
+    $base = '.' . PUBLIC_BASE_DOMAIN;
+    if ($host === '' || substr($host, -strlen($base)) !== $base) return '';
+    $sub = substr($host, 0, -strlen($base));
+    if ($sub === '' || strpos($sub, '.') !== false) return '';   // single label only
+    if (in_array($sub, tapify_reserved_subdomains(), true)) return '';
+    return $sub;
+}
+
+/**
+ * Canonical public URL for a mini-site, given its url_alias.
+ * Subdomain form (https://slug.tapify.co.in) when USE_SUBDOMAIN_URLS is on and the
+ * slug is a valid DNS label; otherwise the legacy path form
+ * (https://tapify.co.in/slug), which always keeps working for backward compat.
+ */
+function public_card_url($alias) {
+    $alias = ltrim((string)$alias, '/');
+    if (USE_SUBDOMAIN_URLS && $alias !== ''
+        && preg_match('/^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i', $alias)) {
+        return 'https://' . $alias . '.' . PUBLIC_BASE_DOMAIN;
+    }
+    return rtrim(PUBLIC_URL, '/') . '/' . $alias;
+}
 
 /**
  * Database Connection (PDO)

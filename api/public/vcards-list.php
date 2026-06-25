@@ -72,7 +72,7 @@ try {
 
     foreach ($vcards as &$v) {
         $v['view_count']        = (int)$v['view_count'];
-        $v['preview_url']       = SITE_URL . '/' . $v['url_alias'];
+        $v['preview_url']       = public_card_url($v['url_alias']);
         $v['profile_image_url'] = $v['profile_image'] ? imgUrl($v['profile_image']) : null;
         $v['cover_image_url']   = $v['cover_image']   ? imgUrl($v['cover_image'])   : null;
 

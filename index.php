@@ -9,6 +9,15 @@ require_once __DIR__ . '/config/database.php';
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $alias = trim($uri, '/');
 
+// Wildcard subdomain support: <slug>.tapify.co.in with no path -> treat the
+// subdomain as the alias. Path-based URLs (app.tapify.co.in/<slug>) are unchanged.
+if ($alias === '' || $alias === 'index.php') {
+    $subSlug = tapify_subdomain_slug($_SERVER['HTTP_HOST'] ?? '');
+    if ($subSlug !== '') {
+        $alias = $subSlug;
+    }
+}
+
 // If root, show API status
 if (empty($alias) || $alias === 'index.php') {
     header('Content-Type: application/json');

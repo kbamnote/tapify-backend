@@ -153,7 +153,7 @@ try {
         'vcard_id' => $vcardId,
         'user_id' => $userId,
         'url_alias' => $urlAlias,
-        'preview_url' => SITE_URL . '/' . $urlAlias
+        'preview_url' => public_card_url($urlAlias)
     ]);
 
 } catch (Exception $e) {

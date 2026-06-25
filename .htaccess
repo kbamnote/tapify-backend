@@ -1,3 +1,20 @@
+# === Tapify front controller + wildcard-subdomain routing ===
+# Routes both  app.tapify.co.in/<slug>  and  <slug>.tapify.co.in/  through
+# index.php, which resolves the business from REQUEST_URI + HTTP_HOST.
+# This rule is host-agnostic, so the wildcard subdomains need no special-casing
+# here — they only require DNS + TLS + the same docroot (see SUBDOMAIN-SETUP.md).
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Never rewrite real files or directories (assets, uploads, /api/*.php, ...)
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Everything else goes through the front controller
+    RewriteRule ^ index.php [L]
+</IfModule>
+
 <Files "database.php">
     Order Allow,Deny
     Deny from all
