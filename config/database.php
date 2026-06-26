@@ -36,6 +36,11 @@ define('JWT_SECRET', getenv('JWT_SECRET') ?: 'tapify-secret-key-12345');
 define('JWT_ALGO', 'HS256');
 define('TOKEN_EXPIRY', 86400 * 7);
 
+// === WHATSAPP CLOUD API ===
+// Verify token — must match the token you enter in Meta's webhook configuration.
+// Set this as an environment variable (no hardcoded default).
+define('WHATSAPP_VERIFY_TOKEN', getenv('WHATSAPP_VERIFY_TOKEN') ?: '');
+
 // Error reporting
 error_reporting(E_ALL);
 ini_set('display_errors', 1);

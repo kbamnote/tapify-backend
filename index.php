@@ -29,6 +29,13 @@ if (empty($alias) || $alias === 'index.php') {
     exit;
 }
 
+// WhatsApp Cloud API webhook (GET verify / POST receive). Handled before any DB
+// lookup so it never collides with vCard/store slugs and can't break them.
+if ($alias === 'webhook') {
+    require __DIR__ . '/webhook.php';
+    exit;
+}
+
 // Ignore static files
 if (preg_match('/\.(?:png|jpg|jpeg|gif|css|js|ico)$/', $alias)) {
     return false;

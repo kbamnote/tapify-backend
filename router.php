@@ -22,6 +22,13 @@ if (empty($alias)) {
     exit;
 }
 
+// WhatsApp Cloud API webhook (GET verify / POST receive). Handled before any DB
+// lookup so it never collides with vCard/store slugs and can't break them.
+if ($alias === 'webhook') {
+    require __DIR__ . '/webhook.php';
+    exit;
+}
+
 try {
     $pdo = getDB();
 
