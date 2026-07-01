@@ -5,6 +5,7 @@
  */
 
 require_once __DIR__ . '/config/database.php';
+require_once __DIR__ . '/includes/seo.php';
 
 $alias = trim($_GET['alias'] ?? '');
 if (empty($alias)) {
@@ -252,4 +253,23 @@ if (strpos($tplContent, "'telegram'=>'fa-telegram'") === false && strpos($tplCon
     file_put_contents($templatePath, $tplContent);
 }
 
-include $templatePath;
+// === SEO (Phase 1 — pro/premium templates only) ===
+// For pro templates, buffer the rendered HTML and inject SEO tags into <head>
+// (optimized title, meta description, canonical subdomain URL, Open Graph /
+// Twitter cards, LocalBusiness JSON-LD). This touches ONLY the <head>; the
+// template body/design is passed through unchanged. Legacy templates render
+// exactly as before.
+if (tapify_seo_is_pro_template($templateId)) {
+    $GLOBALS['__tapify_seo'] = tapify_seo_build_vcard($vcard, [
+        'fullName'          => $fullName,
+        'services'          => $services,
+        'serviceCategories' => $serviceCategories,
+        'socialLinks'       => $socialLinks,
+        'businessHours'     => $businessHours,
+    ]);
+    ob_start('tapify_seo_ob_callback');
+    include $templatePath;
+    ob_end_flush();
+} else {
+    include $templatePath;
+}

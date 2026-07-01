@@ -36,6 +36,17 @@ if ($alias === 'webhook') {
     exit;
 }
 
+// SEO endpoints — served on every host (incl. business subdomains). Handled
+// before the DB slug lookup so they never collide with a vCard/store alias.
+if ($alias === 'sitemap.xml') {
+    require __DIR__ . '/sitemap.php';
+    exit;
+}
+if ($alias === 'robots.txt') {
+    require __DIR__ . '/robots.php';
+    exit;
+}
+
 // Ignore static files
 if (preg_match('/\.(?:png|jpg|jpeg|gif|css|js|ico)$/', $alias)) {
     return false;

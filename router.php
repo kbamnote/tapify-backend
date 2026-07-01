@@ -29,6 +29,17 @@ if ($alias === 'webhook') {
     exit;
 }
 
+// SEO endpoints — handled before the DB slug lookup so they never collide with
+// a vCard/store alias. Served on every host (incl. business subdomains).
+if ($alias === 'sitemap.xml') {
+    require __DIR__ . '/sitemap.php';
+    exit;
+}
+if ($alias === 'robots.txt') {
+    require __DIR__ . '/robots.php';
+    exit;
+}
+
 try {
     $pdo = getDB();
 
