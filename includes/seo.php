@@ -98,9 +98,17 @@ function tapify_seo_city_from_location($location) {
 endif;
 
 if (!function_exists('tapify_seo_clip')):
-/** Trim to a max length on a word boundary, appending an ellipsis when cut. */
+/**
+ * Normalize then trim text for use in meta tags / titles:
+ *  - decode HTML entities (so "&nbsp;"/"&amp;" don't show literally in snippets)
+ *  - collapse non-breaking spaces and runs of whitespace
+ *  - cut to $max on a word boundary, appending an ellipsis when truncated.
+ */
 function tapify_seo_clip($text, $max = 158) {
-    $text = trim(preg_replace('/\s+/', ' ', (string)$text));
+    $text = html_entity_decode((string)$text, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+    $text = str_replace("\xC2\xA0", ' ', $text);        // NBSP -> regular space
+    $collapsed = preg_replace('/\s+/u', ' ', $text);
+    $text = trim($collapsed !== null ? $collapsed : preg_replace('/\s+/', ' ', $text));
     if ($text === '' || mb_strlen($text) <= $max) return $text;
     $cut = mb_substr($text, 0, $max - 1);
     $sp  = mb_strrpos($cut, ' ');
@@ -205,7 +213,7 @@ function tapify_seo_build_vcard(array $vcard, array $ctx = []) {
     // ---- meta description ----
     // Prefer an admin-set description (vcards.seo_meta_description); otherwise use
     // the card description; otherwise synthesize one from name/services/city.
-    $overrideDesc = trim((string)($vcard['seo_meta_description'] ?? ''));
+    $overrideDesc = trim(strip_tags((string)($vcard['seo_meta_description'] ?? '')));
     $rawDesc = $overrideDesc !== '' ? $overrideDesc : trim(strip_tags((string)($vcard['description'] ?? '')));
     if ($rawDesc === '') {
         $bits = [];
