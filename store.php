@@ -5,6 +5,7 @@
  */
 
 require_once __DIR__ . '/config/database.php';
+require_once __DIR__ . '/includes/seo.php';
 
 $alias = trim($_GET['alias'] ?? '');
 if (empty($alias)) {
@@ -25,6 +26,21 @@ try {
     }
 
     $storeId = $store['id'];
+
+    // Canonical 301: send path-form hits to the subdomain form (see vcard.php).
+    // Loop-safe, GET/HEAD only, runs before the view_count bump.
+    if (empty($_GET['preview'])) {
+        $__seoRedirect = tapify_seo_canonical_redirect_target(
+            $store['url_alias'] ?? $alias,
+            $_SERVER['HTTP_HOST'] ?? '',
+            $_SERVER['REQUEST_METHOD'] ?? 'GET',
+            $_SERVER['QUERY_STRING'] ?? ''
+        );
+        if ($__seoRedirect !== '') {
+            header('Location: ' . $__seoRedirect, true, 301);
+            exit;
+        }
+    }
 
     // Increment view count
     $pdo->prepare("UPDATE whatsapp_stores SET view_count = view_count + 1 WHERE id = ?")->execute([$storeId]);

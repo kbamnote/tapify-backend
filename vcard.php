@@ -27,6 +27,23 @@ try {
 
     $vcardId = $vcard['id'];
 
+    // Canonical 301: send path-form hits (app.tapify.co.in/<slug> and the
+    // Vercel-proxied tapify.co.in/<slug>) to the subdomain form, consolidating SEO
+    // onto one URL. Loop-safe, GET/HEAD only, skips preview. Runs before the
+    // view_count bump so a redirect hop is never counted as a view.
+    if (empty($_GET['preview'])) {
+        $__seoRedirect = tapify_seo_canonical_redirect_target(
+            $vcard['url_alias'] ?? $alias,
+            $_SERVER['HTTP_HOST'] ?? '',
+            $_SERVER['REQUEST_METHOD'] ?? 'GET',
+            $_SERVER['QUERY_STRING'] ?? ''
+        );
+        if ($__seoRedirect !== '') {
+            header('Location: ' . $__seoRedirect, true, 301);
+            exit;
+        }
+    }
+
     $pdo->prepare("UPDATE vcards SET view_count = view_count + 1 WHERE id = ?")->execute([$vcardId]);
 
     $stmt = $pdo->prepare("SELECT * FROM vcard_business_hours WHERE vcard_id = ? ORDER BY FIELD(day_name, 'MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY','SUNDAY')");

@@ -455,6 +455,78 @@ function tapify_build_robots_txt($sitemapUrl) {
 }
 endif;
 
+if (!function_exists('tapify_seo_canonical_redirect_target')):
+/**
+ * Compute the canonical (subdomain) URL to 301-redirect a path-form request to,
+ * or '' when no redirect should happen. Used by vcard.php/store.php to send
+ * `app.tapify.co.in/<slug>` and the Vercel-proxied `tapify.co.in/<slug>` hits to
+ * `https://<slug>.tapify.co.in`, consolidating the SEO signal onto one URL.
+ *
+ * Safe by construction:
+ *  - GET/HEAD only — never redirects POST form submissions or API writes;
+ *  - only when USE_SUBDOMAIN_URLS is on;
+ *  - only to the SUBDOMAIN form — if public_card_url() falls back to the path form
+ *    (alias is not a valid DNS label) it returns '' so the request is NOT touched
+ *    (prevents an app->app self-loop);
+ *  - loop-safe — returns '' when the request is already on the canonical host
+ *    (the Vercel rewrite makes the backend see Host: app.tapify.co.in for BOTH the
+ *    direct and proxied path hits, and the subdomain target is a different host, so
+ *    the redirected request re-enters neither the proxy nor the app-path branch);
+ *  - enforces the 63-octet DNS label limit that public_card_url()'s regex omits, so
+ *    it never 301s to an unresolvable host;
+ *  - preserves the query string VERBATIM (only strips internal alias/preview keys),
+ *    so utm/fbclid/gclid attribution is never dropped or mangled.
+ *
+ * Pass the DB-stored url_alias (not the requested path) so the target host is the
+ * canonical lower-case form, byte-identical to the page's <link rel="canonical">.
+ *
+ * @param string $alias        vCard/store url_alias from the DB row
+ * @param string $currentHost  $_SERVER['HTTP_HOST']
+ * @param string $method       $_SERVER['REQUEST_METHOD']
+ * @param string $queryString  $_SERVER['QUERY_STRING']
+ * @return string redirect URL, or '' for no redirect
+ */
+function tapify_seo_canonical_redirect_target($alias, $currentHost, $method, $queryString = '') {
+    $m = strtoupper(trim((string)$method));
+    if ($m !== 'GET' && $m !== 'HEAD') return '';
+    if (!defined('USE_SUBDOMAIN_URLS') || !USE_SUBDOMAIN_URLS) return '';
+    if (!function_exists('public_card_url') || !defined('PUBLIC_BASE_DOMAIN')) return '';
+
+    $alias = trim((string)$alias);
+    if ($alias === '' || strlen($alias) > 63) return '';   // 63 = max DNS label length
+
+    $target = public_card_url($alias);
+    $targetHost = parse_url($target, PHP_URL_HOST);
+    if (!$targetHost) return '';
+
+    // Only redirect to the subdomain form. If public_card_url() produced the path
+    // fallback (invalid DNS label), leave the request where it is — no self-loop.
+    $expectedHost = strtolower($alias) . '.' . strtolower((string)PUBLIC_BASE_DOMAIN);
+    if (strtolower($targetHost) !== $expectedHost) return '';
+
+    // Loop safety: already on the canonical host -> do nothing.
+    $cur = strtolower(preg_replace('/:\d+$/', '', (string)$currentHost));
+    if ($cur === strtolower($targetHost)) return '';
+
+    // Preserve the query string verbatim, dropping only internal params. (Rebuilding
+    // via parse_str()+http_build_query() would mangle duplicate/dotted/array keys.)
+    $qs = '';
+    $queryString = (string)$queryString;
+    if ($queryString !== '') {
+        $keep = [];
+        foreach (explode('&', $queryString) as $pair) {
+            if ($pair === '') continue;
+            $key = urldecode(explode('=', $pair, 2)[0]);
+            if ($key === 'alias' || $key === 'preview') continue;
+            $keep[] = $pair;
+        }
+        $qs = implode('&', $keep);
+    }
+
+    return $qs !== '' ? $target . '?' . $qs : $target;
+}
+endif;
+
 if (!function_exists('tapify_seo_ob_callback')):
 /**
  * ob_start() callback used by vcard.php. Reads the prepared SEO data from a
