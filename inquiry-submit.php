@@ -33,8 +33,8 @@ if (preg_match('/(http|https|www\.)/i', $name)) {
 try {
     $pdo = getDB();
 
-    // Get vCard info for email
-    $stmt = $pdo->prepare("SELECT id, user_id, vcard_name FROM vcards WHERE id = ? AND status = 1 LIMIT 1");
+    // Get vCard info for email + WhatsApp (phone = the card's own contact number)
+    $stmt = $pdo->prepare("SELECT id, user_id, vcard_name, phone, phone_country_code FROM vcards WHERE id = ? AND status = 1 LIMIT 1");
     $stmt->execute([$vcardId]);
     $vcard = $stmt->fetch();
     if (!$vcard) sendError('vCard not found');
@@ -80,11 +80,31 @@ try {
         error_log('Push notification failed: ' . $e->getMessage());
     }
 
-    // === WHATSAPP CONFIRMATION to the customer (silent failure) ===
+    // === WHATSAPP (silent failure) ===
+    // Customer gets a confirmation; the business owner gets a new-lead alert on
+    // the vCard's own contact number (the number set on the card).
     try {
-        if (!empty($phone) && file_exists(__DIR__ . '/includes/whatsapp-helper.php')) {
+        if (file_exists(__DIR__ . '/includes/whatsapp-helper.php')) {
             require_once __DIR__ . '/includes/whatsapp-helper.php';
-            sendWhatsAppTemplate($phone, 'welcome', [$name]);
+
+            // 1) Confirmation to the customer (only if they left a phone)
+            if (!empty($phone)) {
+                sendWhatsAppTemplate($phone, 'welcome', [$name]);
+            }
+
+            // 2) New-lead alert to the vCard's own WhatsApp number.
+            // NB: $message was reused for the push text above — re-read the
+            // original inquiry text from $input for the alert body.
+            $bizPhone = wa_business_phone($vcard['phone'] ?? '', $vcard['phone_country_code'] ?? '');
+            if (!empty($bizPhone)) {
+                $origMsg = trim(preg_replace('/\s+/', ' ', sanitize($input['message'] ?? '')));
+                if ($origMsg === '') $origMsg = '(no message)';
+                if (function_exists('mb_strlen') && mb_strlen($origMsg) > 300) {
+                    $origMsg = mb_substr($origMsg, 0, 297) . '...';
+                }
+                $custPhone = ($phone !== '') ? $phone : 'Not provided';
+                sendWhatsAppTemplate($bizPhone, 'new_inquiry_alert', [$name, $custPhone, $origMsg]);
+            }
         }
     } catch (Exception $e) {
         error_log('WhatsApp inquiry notification failed: ' . $e->getMessage());

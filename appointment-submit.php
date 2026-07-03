@@ -65,8 +65,8 @@ try {
         sendError('The selected time slot has already been booked');
     }
 
-    // Get vCard info for email
-    $stmt = $pdo->prepare("SELECT id, vcard_name FROM vcards WHERE id = ? AND status = 1 LIMIT 1");
+    // Get vCard info for email + WhatsApp (phone = the card's own contact number)
+    $stmt = $pdo->prepare("SELECT id, vcard_name, phone, phone_country_code FROM vcards WHERE id = ? AND status = 1 LIMIT 1");
     $stmt->execute([$vcardId]);
     $vcard = $stmt->fetch();
     if (!$vcard) sendError('vCard not found');
@@ -123,11 +123,24 @@ try {
         error_log('Push notification failed: ' . $e->getMessage());
     }
 
-    // === WHATSAPP CONFIRMATION to the customer (silent failure) ===
+    // === WHATSAPP (silent failure) ===
+    // Customer gets a confirmation; the business owner gets a new-appointment
+    // alert on the vCard's own contact number (the number set on the card).
     try {
-        if (!empty($customerPhone) && file_exists(__DIR__ . '/includes/whatsapp-helper.php')) {
+        if (file_exists(__DIR__ . '/includes/whatsapp-helper.php')) {
             require_once __DIR__ . '/includes/whatsapp-helper.php';
-            sendWhatsAppTemplate($customerPhone, 'appointment_reminder', [$customerName, $appointmentDate, $appointmentTime]);
+
+            // 1) Confirmation to the customer
+            if (!empty($customerPhone)) {
+                sendWhatsAppTemplate($customerPhone, 'appointment_reminder', [$customerName, $appointmentDate, $appointmentTime]);
+            }
+
+            // 2) New-appointment alert to the vCard's own WhatsApp number
+            $bizPhone = wa_business_phone($vcard['phone'] ?? '', $vcard['phone_country_code'] ?? '');
+            if (!empty($bizPhone)) {
+                $custPhone = ($customerPhone !== '') ? $customerPhone : 'Not provided';
+                sendWhatsAppTemplate($bizPhone, 'new_appointment_alert', [$customerName, $custPhone, $appointmentDate, $appointmentTime]);
+            }
         }
     } catch (Exception $e) {
         error_log('WhatsApp appointment notification failed: ' . $e->getMessage());

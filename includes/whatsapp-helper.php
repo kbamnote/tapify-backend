@@ -20,6 +20,26 @@ if (!function_exists('wa_normalize_phone')) {
     }
 }
 
+if (!function_exists('wa_business_phone')) {
+    /**
+     * Build a sendable WhatsApp number from a vCard's stored phone + country code.
+     * Uses the country code only when the phone is a bare 10-digit local number,
+     * so a phone already saved with its country code isn't double-prefixed.
+     * Falls back to India (91) when a 10-digit number has no country code.
+     *
+     * @return string digits only, or '' when there is no usable phone
+     */
+    function wa_business_phone($phone, $countryCode = '') {
+        $digits = preg_replace('/\D/', '', (string)$phone);
+        if ($digits === '') return '';
+        if (strlen($digits) === 10) {
+            $cc = preg_replace('/\D/', '', (string)$countryCode);
+            $digits = ($cc !== '' ? $cc : '91') . $digits;
+        }
+        return $digits;
+    }
+}
+
 if (!function_exists('sendWhatsAppTemplate')) {
     /**
      * Send an approved WhatsApp template to one recipient.
