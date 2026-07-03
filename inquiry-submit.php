@@ -80,6 +80,16 @@ try {
         error_log('Push notification failed: ' . $e->getMessage());
     }
 
+    // === WHATSAPP CONFIRMATION to the customer (silent failure) ===
+    try {
+        if (!empty($phone) && file_exists(__DIR__ . '/includes/whatsapp-helper.php')) {
+            require_once __DIR__ . '/includes/whatsapp-helper.php';
+            sendWhatsAppTemplate($phone, 'welcome', [$name]);
+        }
+    } catch (Exception $e) {
+        error_log('WhatsApp inquiry notification failed: ' . $e->getMessage());
+    }
+
     sendSuccess('Thank you! Your message has been sent.', [
         'inquiry_id' => $inquiryId
     ]);

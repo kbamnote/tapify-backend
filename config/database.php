@@ -40,6 +40,11 @@ define('TOKEN_EXPIRY', 86400 * 7);
 // Verify token — must match the token you enter in Meta's webhook configuration.
 // Set this as an environment variable (no hardcoded default).
 define('WHATSAPP_VERIFY_TOKEN', getenv('WHATSAPP_VERIFY_TOKEN') ?: '');
+// Cloud API sender — Phone number ID + permanent access token (Tapify number).
+// Set both as environment variables; without them WhatsApp sends are skipped.
+define('WHATSAPP_PHONE_ID', getenv('WHATSAPP_PHONE_ID') ?: '');
+define('WHATSAPP_ACCESS_TOKEN', getenv('WHATSAPP_ACCESS_TOKEN') ?: '');
+define('WHATSAPP_WABA_ID', getenv('WHATSAPP_WABA_ID') ?: '');
 
 // Error reporting
 error_reporting(E_ALL);

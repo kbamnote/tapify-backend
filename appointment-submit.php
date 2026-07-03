@@ -123,6 +123,16 @@ try {
         error_log('Push notification failed: ' . $e->getMessage());
     }
 
+    // === WHATSAPP CONFIRMATION to the customer (silent failure) ===
+    try {
+        if (!empty($customerPhone) && file_exists(__DIR__ . '/includes/whatsapp-helper.php')) {
+            require_once __DIR__ . '/includes/whatsapp-helper.php';
+            sendWhatsAppTemplate($customerPhone, 'appointment_reminder', [$customerName, $appointmentDate, $appointmentTime]);
+        }
+    } catch (Exception $e) {
+        error_log('WhatsApp appointment notification failed: ' . $e->getMessage());
+    }
+
     sendSuccess('Appointment booked successfully', ['id' => $appointmentId]);
 
 } catch (Exception $e) {
