@@ -13,7 +13,26 @@ if (!isLoggedIn()) {
 try {
     $pdo = getDB();
     $userId = getCurrentUserId();
-    
+
+    // Ensure table exists (first-boot migration guard)
+    try {
+        $pdo->exec("
+            CREATE TABLE IF NOT EXISTS notifications (
+                id           INT AUTO_INCREMENT PRIMARY KEY,
+                user_id      INT          NOT NULL,
+                title        VARCHAR(255) NOT NULL,
+                message      TEXT         NOT NULL,
+                type         VARCHAR(50)  NOT NULL DEFAULT 'system',
+                target_id    INT          NULL,
+                redirect_url VARCHAR(500) NULL,
+                image_url    VARCHAR(500) NULL,
+                is_read      TINYINT(1)   NOT NULL DEFAULT 0,
+                created_at   DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                INDEX idx_user_id (user_id)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+        ");
+    } catch (Exception $e) {}
+
     $stmt = $pdo->prepare("SELECT * FROM notifications WHERE user_id = ? ORDER BY created_at DESC");
     $stmt->execute([$userId]);
     $notifications = $stmt->fetchAll();

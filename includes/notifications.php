@@ -67,22 +67,49 @@ function sendExpoPushNotification($token, $title, $body, $data = []) {
  * Creates a notification in the database and sends a push notification
  */
 function createAndSendNotification($pdo, $userId, $title, $message, $type, $targetId = null, $redirectUrl = null, $imageUrl = null) {
-    try {
-        // Ensure fcm_token column exists (guard against missing migration)
-        try { $pdo->exec("ALTER TABLE users ADD COLUMN fcm_token VARCHAR(255) DEFAULT NULL"); } catch (Exception $e) {}
+    $notificationId = null;
 
-        // 1. Insert into database
+    // ── Step 1: Ensure tables / columns exist ──────────────────────────────
+    try { $pdo->exec("ALTER TABLE users ADD COLUMN fcm_token VARCHAR(255) DEFAULT NULL"); } catch (Exception $e) {}
+
+    try {
+        $pdo->exec("
+            CREATE TABLE IF NOT EXISTS notifications (
+                id           INT AUTO_INCREMENT PRIMARY KEY,
+                user_id      INT          NOT NULL,
+                title        VARCHAR(255) NOT NULL,
+                message      TEXT         NOT NULL,
+                type         VARCHAR(50)  NOT NULL DEFAULT 'system',
+                target_id    INT          NULL,
+                redirect_url VARCHAR(500) NULL,
+                image_url    VARCHAR(500) NULL,
+                is_read      TINYINT(1)   NOT NULL DEFAULT 0,
+                created_at   DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
+                INDEX idx_user_id (user_id),
+                INDEX idx_read    (user_id, is_read)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4
+        ");
+    } catch (Exception $e) {
+        error_log("[TapifyPush] Table create failed: " . $e->getMessage());
+    }
+
+    // ── Step 2: Persist in-app notification (non-blocking) ─────────────────
+    try {
         $stmt = $pdo->prepare("INSERT INTO notifications (user_id, title, message, type, target_id, redirect_url, image_url, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, NOW())");
         $stmt->execute([$userId, $title, $message, $type, $targetId, $redirectUrl, $imageUrl]);
         $notificationId = $pdo->lastInsertId();
+    } catch (Exception $e) {
+        error_log("[TapifyPush] DB insert failed: " . $e->getMessage());
+        // Continue — push can still be sent even if DB write fails
+    }
 
-        // 2. Fetch user's Expo Push Token
-        $stmtToken = $pdo->prepare("SELECT fcm_token FROM users WHERE id = ?");
+    // ── Step 3: Send Expo push notification ────────────────────────────────
+    $pushResult = null;
+    try {
+        $stmtToken = $pdo->prepare("SELECT fcm_token FROM users WHERE id = ? LIMIT 1");
         $stmtToken->execute([$userId]);
         $user = $stmtToken->fetch();
 
-        // 3. Send Push Notification if token exists
-        $pushResult = null;
         if ($user && !empty($user['fcm_token'])) {
             $pushData = [
                 'notification_id' => $notificationId,
@@ -92,10 +119,9 @@ function createAndSendNotification($pdo, $userId, $title, $message, $type, $targ
             ];
             $pushResult = sendExpoPushNotification($user['fcm_token'], $title, $message, $pushData);
         }
-
-        return ['db' => true, 'push' => $pushResult];
     } catch (Exception $e) {
-        error_log("Notification Error: " . $e->getMessage());
-        return false;
+        error_log("[TapifyPush] Push send failed: " . $e->getMessage());
     }
+
+    return ['db' => ($notificationId !== null), 'push' => $pushResult];
 }
