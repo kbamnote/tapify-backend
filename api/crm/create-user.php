@@ -31,7 +31,12 @@ $firstName   = sanitize($input['first_name'] ?? '');
 $lastName    = sanitize($input['last_name'] ?? '');
 $company     = sanitize($input['company'] ?? '');
 $description = sanitize($input['description'] ?? '');
-$templateId  = sanitize($input['template_id'] ?? 'vcard1');
+$templateId  = sanitize($input['template_id'] ?? 'vcard46');
+// Optional business-card content (CRM page-2 details). Kept separate from the
+// account fields: vcard_email is the card's PUBLIC email (the login stays
+// `email`); profile_image is the business logo (may be a full Cloudinary URL).
+$vcardEmail   = sanitize($input['vcard_email'] ?? '');
+$profileImage = trim($input['profile_image'] ?? '');
 
 if (!$name)                          sendError('name is required');
 if (!$email || !isValidEmail($email)) sendError('Valid email is required');
@@ -71,10 +76,10 @@ try {
 
     // Create vCard
     $stmt = $pdo->prepare(
-        "INSERT INTO vcards (user_id, url_alias, vcard_name, occupation, description, first_name, last_name, email, phone, company, template_id, status)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)"
+        "INSERT INTO vcards (user_id, url_alias, vcard_name, occupation, description, first_name, last_name, email, phone, company, profile_image, template_id, status)
+         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)"
     );
-    $stmt->execute([$userId, $urlAlias, $vcardName, $occupation, $description, $firstName, $lastName, $email, $phone, $company, $templateId]);
+    $stmt->execute([$userId, $urlAlias, $vcardName, $occupation, $description, $firstName, $lastName, ($vcardEmail ?: $email), $phone, $company, $profileImage, $templateId]);
     $vcardId = (int) $pdo->lastInsertId();
 
     // Default business hours (Mon-Sat open, Sun closed)
