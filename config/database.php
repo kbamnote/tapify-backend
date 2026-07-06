@@ -31,6 +31,33 @@ define('CLOUDINARY_API_SECRET', getenv('CLOUDINARY_API_SECRET') ?: 'ywysF7LQEMa1
 // === AI CONFIGURATION ===
 define('OPENROUTER_API_KEY', getenv('OPENROUTER_API_KEY') ?: '');
 
+// --- AI Growth Center (provider-independent AI layer) ---
+// Which provider the AiProviderFactory should build by default. One of:
+// 'gemini' | 'openai' | 'claude' | 'openrouter'. Switch providers here (or via
+// the AI_PROVIDER env var) WITHOUT touching any business logic.
+define('AI_PROVIDER', getenv('AI_PROVIDER') ?: 'gemini');
+
+// Google Gemini (default). Get a key at https://aistudio.google.com/apikey
+define('GEMINI_API_KEY', getenv('GEMINI_API_KEY') ?: '');
+define('GEMINI_MODEL',   getenv('GEMINI_MODEL')   ?: 'gemini-2.5-flash');
+
+// OpenAI (optional — future ready; only used when AI_PROVIDER=openai)
+define('OPENAI_API_KEY', getenv('OPENAI_API_KEY') ?: '');
+define('OPENAI_MODEL',   getenv('OPENAI_MODEL')   ?: 'gpt-4o-mini');
+
+// Anthropic Claude (optional — future ready; only used when AI_PROVIDER=claude)
+define('ANTHROPIC_API_KEY', getenv('ANTHROPIC_API_KEY') ?: '');
+define('ANTHROPIC_MODEL',   getenv('ANTHROPIC_MODEL')   ?: 'claude-haiku-4-5-20251001');
+
+// Shared HTTP behaviour for all AI providers.
+define('AI_HTTP_TIMEOUT', (int) (getenv('AI_HTTP_TIMEOUT') ?: 45));   // seconds per request
+define('AI_MAX_RETRIES',  (int) (getenv('AI_MAX_RETRIES')  ?: 2));    // retries on 429/5xx/timeouts
+
+// Per-user guardrails on LIVE generations (cached results don't count) so a
+// single account can't drive unbounded paid provider spend.
+define('AI_RATE_PER_MIN', (int) (getenv('AI_RATE_PER_MIN') ?: 15));   // live calls / minute
+define('AI_RATE_PER_DAY', (int) (getenv('AI_RATE_PER_DAY') ?: 200));  // live calls / day
+
 // === SECURITY ===
 define('JWT_SECRET', getenv('JWT_SECRET') ?: 'tapify-secret-key-12345');
 define('JWT_ALGO', 'HS256');
