@@ -58,6 +58,17 @@ define('AI_MAX_RETRIES',  (int) (getenv('AI_MAX_RETRIES')  ?: 2));    // retries
 define('AI_RATE_PER_MIN', (int) (getenv('AI_RATE_PER_MIN') ?: 15));   // live calls / minute
 define('AI_RATE_PER_DAY', (int) (getenv('AI_RATE_PER_DAY') ?: 200));  // live calls / day
 
+// === GOOGLE BUSINESS PROFILE (Google My Business) ===
+// OAuth 2.0 Web client credentials from Google Cloud Console. The redirect URI
+// registered there MUST match GOOGLE_OAUTH_REDIRECT exactly.
+define('GOOGLE_CLIENT_ID',     getenv('GOOGLE_CLIENT_ID')     ?: '');
+define('GOOGLE_CLIENT_SECRET', getenv('GOOGLE_CLIENT_SECRET') ?: '');
+define('GOOGLE_OAUTH_REDIRECT', getenv('GOOGLE_OAUTH_REDIRECT') ?: (SITE_URL . '/api/google/gbp/callback.php'));
+// Restricted scope — requires OAuth verification + Business Profile API allowlisting.
+define('GOOGLE_BUSINESS_SCOPE', 'https://www.googleapis.com/auth/business.manage');
+// Deep link the OAuth callback bounces back to so the app knows we're done.
+define('APP_DEEP_LINK', getenv('APP_DEEP_LINK') ?: 'tapifapp://gbp-connected');
+
 // === SECURITY ===
 define('JWT_SECRET', getenv('JWT_SECRET') ?: 'tapify-secret-key-12345');
 define('JWT_ALGO', 'HS256');
@@ -188,11 +199,40 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 // CORS Headers
-$origin = $_SERVER['HTTP_ORIGIN'] ?? '*';
-header("Access-Control-Allow-Origin: $origin");
+// SECURITY: only reflect the Origin + allow credentials (cookies) for trusted
+// Tapify origins. Reflecting ANY origin together with Allow-Credentials:true lets
+// any site the logged-in user visits make credentialed calls and read the
+// response (CSRF + data exfiltration). Untrusted origins get non-credentialed
+// wildcard access, which still serves public endpoints but blocks cookie-bearing
+// cross-origin reads. Add extra browser origins via CORS_ALLOWED_ORIGINS (CSV).
+$corsAllowed = array_filter(array_map('trim', explode(',', getenv('CORS_ALLOWED_ORIGINS') ?: '')));
+if (!$corsAllowed) {
+    $corsAllowed = [SITE_URL, PUBLIC_URL]; // https://app.tapify.co.in, https://tapify.co.in
+}
+$origin = $_SERVER['HTTP_ORIGIN'] ?? '';
+$corsTrusted = false;
+if ($origin !== '') {
+    if (in_array($origin, $corsAllowed, true)) {
+        $corsTrusted = true;
+    } else {
+        // Any wildcard business subdomain, e.g. https://<slug>.tapify.co.in
+        $host = parse_url($origin, PHP_URL_HOST);
+        $base = '.' . PUBLIC_BASE_DOMAIN;
+        if ($host && ($host === PUBLIC_BASE_DOMAIN || substr($host, -strlen($base)) === $base)) {
+            $corsTrusted = true;
+        }
+    }
+}
+if ($corsTrusted) {
+    header("Access-Control-Allow-Origin: $origin");
+    header('Access-Control-Allow-Credentials: true');
+    header('Vary: Origin');
+} else {
+    // Public, non-credentialed access only (cookies are ignored by the browser).
+    header('Access-Control-Allow-Origin: *');
+}
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
-header('Access-Control-Allow-Credentials: true');
 
 // Handle preflight OPTIONS requests
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
