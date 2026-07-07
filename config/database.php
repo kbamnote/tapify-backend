@@ -73,6 +73,29 @@ define('GOOGLE_BUSINESS_SCOPE', 'https://www.googleapis.com/auth/business.manage
 // Deep link the OAuth callback bounces back to so the app knows we're done.
 define('APP_DEEP_LINK', getenv('APP_DEEP_LINK') ?: 'tapifapp://gbp-connected');
 
+// === SOCIAL MEDIA PUBLISHING ===
+// Meta (Facebook + Instagram) — one app covers both. Register the redirect URI
+// SOCIAL_OAUTH_REDIRECT in the Meta app's Facebook Login settings.
+define('FACEBOOK_APP_ID',       getenv('FACEBOOK_APP_ID')       ?: '');
+define('FACEBOOK_APP_SECRET',   getenv('FACEBOOK_APP_SECRET')   ?: '');
+define('FACEBOOK_GRAPH_VERSION', getenv('FACEBOOK_GRAPH_VERSION') ?: 'v21.0');
+// Facebook Login for Business uses a saved "Configuration" (permissions + assets)
+// referenced by its config_id, instead of a scope= param. Set this to the
+// Configuration ID from the Meta app; if empty, the provider falls back to the
+// classic scope-based dialog.
+define('FACEBOOK_CONFIG_ID',    getenv('FACEBOOK_CONFIG_ID')    ?: '');
+// LinkedIn
+define('LINKEDIN_CLIENT_ID',     getenv('LINKEDIN_CLIENT_ID')     ?: '');
+define('LINKEDIN_CLIENT_SECRET', getenv('LINKEDIN_CLIENT_SECRET') ?: '');
+// One shared OAuth callback for all platforms (the state row carries the
+// platform). Register this exact URL in every platform's app.
+define('SOCIAL_OAUTH_REDIRECT', getenv('SOCIAL_OAUTH_REDIRECT') ?: (SITE_URL . '/api/social/callback.php'));
+// Deep link the social OAuth callback returns to.
+define('SOCIAL_DEEP_LINK', getenv('SOCIAL_DEEP_LINK') ?: 'tapifapp://social-connected');
+// Shared secret protecting the scheduled-post cron endpoint (Railway cron calls
+// it with ?secret=... — no user session). Leave empty to disable the endpoint.
+define('SOCIAL_CRON_SECRET', getenv('SOCIAL_CRON_SECRET') ?: '');
+
 // === SECURITY ===
 define('JWT_SECRET', getenv('JWT_SECRET') ?: 'tapify-secret-key-12345');
 define('JWT_ALGO', 'HS256');
