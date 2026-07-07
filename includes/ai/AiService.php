@@ -58,7 +58,8 @@ class AiService
         $provider = AiProviderFactory::make();
 
         try {
-            $raw     = $provider->generate($prompt, ['json' => true, 'max_tokens' => 2048]);
+            $maxTokens = defined('AI_MAX_OUTPUT_TOKENS') ? (int) AI_MAX_OUTPUT_TOKENS : 8192;
+            $raw     = $provider->generate($prompt, ['json' => true, 'max_tokens' => $maxTokens]);
             $decoded = AiResponse::json($raw);
             $result  = PromptBuilder::shape($feature, $decoded);
         } catch (AiException $e) {

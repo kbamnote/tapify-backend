@@ -52,6 +52,10 @@ define('ANTHROPIC_MODEL',   getenv('ANTHROPIC_MODEL')   ?: 'claude-haiku-4-5-202
 // Shared HTTP behaviour for all AI providers.
 define('AI_HTTP_TIMEOUT', (int) (getenv('AI_HTTP_TIMEOUT') ?: 45));   // seconds per request
 define('AI_MAX_RETRIES',  (int) (getenv('AI_MAX_RETRIES')  ?: 2));    // retries on 429/5xx/timeouts
+// Max output tokens per generation. Must be large enough for the biggest
+// feature (FAQ = 10 Q&As, improvement checklist) or the JSON gets truncated
+// mid-response and fails to parse. Gemini 2.5 Flash handles this comfortably.
+define('AI_MAX_OUTPUT_TOKENS', (int) (getenv('AI_MAX_OUTPUT_TOKENS') ?: 8192));
 
 // Per-user guardrails on LIVE generations (cached results don't count) so a
 // single account can't drive unbounded paid provider spend.

@@ -23,9 +23,10 @@ Business details:
 
 Write 10 frequently asked questions a real customer in this category would ask, each with a clear, helpful answer (2-4 sentences). Cover pricing approach, process, timelines, service area, guarantees and booking where relevant. Answers must be honest and generic enough to be true without inventing specific prices.
 
-Return ONLY a valid JSON object (no markdown, no commentary) with EXACTLY this key:
+Return ONLY a valid JSON object (no markdown, no commentary) with EXACTLY this
+key, an array of exactly 10 objects:
 {
-  "faqs": [ { "question": "...", "answer": "..." }, "... up to 10" ]
+  "faqs": [ { "question": "...", "answer": "..." } ]
 }
 PROMPT;
 }

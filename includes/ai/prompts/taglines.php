@@ -25,9 +25,10 @@ Business details:
 
 Write 10 short, professional, distinct taglines (each under 8 words). Vary the angle: value, trust, speed, quality, local pride, results. No hashtags, no quotation marks inside the text.
 
-Return ONLY a valid JSON object (no markdown, no commentary) with EXACTLY this key:
+Return ONLY a valid JSON object (no markdown, no commentary) with EXACTLY this
+key, an array of exactly 10 tagline strings:
 {
-  "taglines": ["tagline 1", "tagline 2", "... up to 10"]
+  "taglines": ["tagline 1", "tagline 2"]
 }
 PROMPT;
 }
