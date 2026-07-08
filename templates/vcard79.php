@@ -137,7 +137,7 @@ html,body,#mapDiv{height:100%;margin:0;padding:0}
  <h4 class=vcard-two-heading><?= htmlspecialchars($fullName) ?></h4>
  <span class=profile-designation><?= htmlspecialchars($vcard["occupation"] ?? "") ?></span>
  <br>
- <span class="profile-description d-flex pt-4"> I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery</span>
+ <span class="profile-description d-flex pt-4"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars($vcard["description"])) ?><?php else: ?> I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery<?php endif; ?></span>
  <div class="social-icons d-flex pt-4"><?php foreach ($socialLinks as $s): $ic=$platformIcons[strtolower($s["platform"] ?? "")] ?? "fa-globe"; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><i class="fab <?= $ic ?> icon fa-2x"></i></a><?php endforeach; ?></div>
  </div>
  
@@ -221,62 +221,7 @@ html,body,#mapDiv{height:100%;margin:0;padding:0}
  <img src=/images/templates/executiveprofilex/exe-012.webp class="banner-shape-three position-absolute start-0" alt=shape loading=lazy>
  <h4 class="vcard-two-heading text-center pb-4">Our Services</h4>
  <div class=container>
- <div class="row g-3">
- <div class="col-sm-6 col-12">
- <div class="card service-card d-flex align-items-center p-2 h-100 border-0">
- <div class="service-image d-flex justify-content-center align-items-center">
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="32"><rect fill-opacity="0"/></svg>' alt=Ui/Ux loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-19)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="service-details mt-3">
- <h4 class="service-title text-center">UI/UX</h4>
- <p class="service-paragraph mb-0 text-center">
- Landing Page User Flow, Wireframing Prototyping mobile app design
- </p>
- </div>
- </div>
- </div>
- <div class="col-sm-6 col-12">
- <div class="card service-card d-flex align-items-center p-2 h-100 border-0">
- <div class="service-image d-flex justify-content-center align-items-center">
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="33" height="33"><rect fill-opacity="0"/></svg>' alt=Icons loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-20)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="service-details mt-3">
- <h4 class="service-title text-center">Icons</h4>
- <p class="service-paragraph mb-0 text-center">
- Landing Page User Flow, Wireframing
- Prototyping mobile app design
- </p>
- </div>
- </div>
- </div>
- <div class="col-sm-6 col-12">
- <div class="card service-card d-flex align-items-center p-2 h-100 border-0">
- <div class="service-image d-flex justify-content-center align-items-center">
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="32"><rect fill-opacity="0"/></svg>' alt=Ui/Ux loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-19)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="service-details mt-3">
- <h4 class="service-title text-center">UI/UX</h4>
- <p class="service-paragraph mb-0 text-center">
- Landing Page User Flow, Wireframing Prototyping mobile app design
- </p>
- </div>
- </div>
- </div>
- <div class="col-sm-6 col-12">
- <div class="card service-card d-flex align-items-center p-2 h-100 border-0">
- <div class="service-image d-flex justify-content-center align-items-center">
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="33" height="33"><rect fill-opacity="0"/></svg>' alt=Icons loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-20)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="service-details mt-3">
- <h4 class="service-title text-center">Icons</h4>
- <p class="service-paragraph mb-0 text-center">
- Landing Page User Flow, Wireframing
- Prototyping mobile app design
- </p>
- </div>
- </div>
- </div>
- </div>
+ <div class="row g-3"><?php if(!empty($services)): ?><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/executiveprofilex/exe-010.webp"; ?><div class="col-sm-6 col-6 mb-4 px-2"><div class="card service-card h-100"><div class="service-img card-img" style="overflow:hidden;border-radius:12px 12px 0 0"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 object-fit-cover" style="height:170px" loading="lazy"></div><div class="card-body text-center p-3"><h3 class="card-title fs-6 fw-6"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="card-text small mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></div><?php endforeach; ?><?php endif; ?></div>
  </div>
  </div>
  

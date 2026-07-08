@@ -119,11 +119,11 @@ body{font-family:{
  <div class="position-absolute vector-2 vector-all">
  <img src="/images/templates/lawyer/law-037.webp" alt=images class=w-100>
  </div>
- <div class="profile-desc text-primary text-center fs-14">
+ <div class="profile-desc text-primary text-center fs-14"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars($vcard["description"])) ?><?php else: ?>
  <p class=mb-0>
  <p>A <strong>Corporate Lawyer</strong> specializes in business law and provides legal guidance to companies on a wide range of matters. Their primary role is to ensure that a business complies with all legal and regulatory requirements while helping it achieve its commercial goals. Corporate lawyers draft and review contracts, negotiate deals, manage mergers and acquisitions, and advise on corporate governance, intellectual property, and labor issues.</p>
  <p></p>
- </div>
+ <?php endif; ?></div>
  
  
  </div>

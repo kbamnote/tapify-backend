@@ -178,7 +178,7 @@ body{font-family:Poppins}
  </div>
  </div>
  <div class="d-flex align-items-center justify-content-center mt-50">
- <span class="pt-2 px-2 profile-description fs-6"><p><strong>WellNest Nutrition</strong> is a holistic health and wellness center dedicated to personalized nutritional care.We specialize in diet therapy, lifestyle management, and preventive health plans tailored to individual needs.Our team of expert dietitians and wellness coaches help you achieve sustainable health goals through balanced nutrition.At WellNest, we believe that true wellness begins with what you nourish your body with—naturally and mindfully.</p></span>
+ <span class="pt-2 px-2 profile-description fs-6"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars($vcard["description"])) ?><?php else: ?><p><strong>WellNest Nutrition</strong> is a holistic health and wellness center dedicated to personalized nutritional care.We specialize in diet therapy, lifestyle management, and preventive health plans tailored to individual needs.Our team of expert dietitians and wellness coaches help you achieve sustainable health goals through balanced nutrition.At WellNest, we believe that true wellness begins with what you nourish your body with—naturally and mindfully.</p><?php endif; ?></span>
  </div>
  <br>
  </div>
@@ -261,60 +261,7 @@ body{font-family:Poppins}
  <div class=service-header-title>
  <h4 class="mb-4 text-center mb-5">Our Services</h4>
  </div>
- <div class="row g-6 justify-content-center">
- <div class=col-sm-6>
- <div class="card service-card h-100">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/corporateconnectx/cor-026.webp" class="card-img-top service-new-image object-fit-contain" alt="Sports &amp; Fitness Nutrition" loading=lazy>
- </a>
- <div class="card-body pt-3 p-0">
- <h5 class="card-title title-text">
- Sports &amp; Fitness Nutrition</h5>
- <p class="card-text text-gray-600">
- Performance-based meal plans for athletes, gym-goers, and active individuals.</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card h-100">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src=/images/templates/corporateconnectx/cor-027.webp class="card-img-top service-new-image object-fit-contain" alt="Diabetes &amp; Lifestyle Disease Management" loading=lazy>
- </a>
- <div class="card-body pt-3 p-0">
- <h5 class="card-title title-text">
- Diabetes &amp; Lifestyle Disease Management</h5>
- <p class="card-text text-gray-600">
- Nutritional therapy for diabetes, PCOS, thyroid, and hypertension.</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card h-100">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/corporateconnectx/cor-028.webp" class="card-img-top service-new-image object-fit-contain" alt="Weight Management Programs" loading=lazy>
- </a>
- <div class="card-body pt-3 p-0">
- <h5 class="card-title title-text">
- Weight Management Programs</h5>
- <p class="card-text text-gray-600">
- Scientifically designed plans for healthy weight loss or gain with regular monitoring.</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card h-100">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src=/images/templates/corporateconnectx/cor-029.webp class="card-img-top service-new-image object-fit-contain" alt="Personalized Diet Consultation" loading=lazy>
- </a>
- <div class="card-body pt-3 p-0">
- <h5 class="card-title title-text">
- Personalized Diet Consultation</h5>
- <p class="card-text text-gray-600">
- Tailored meal plans based on individual health goals, lifestyle, and medical conditions.</p>
- </div>
- </div>
- </div>
- </div>
+ <div class="row g-6 justify-content-center"><?php if(!empty($services)): ?><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/corporateconnectx/cor-015.webp"; ?><div class="col-sm-6 col-6 mb-4 px-2"><div class="card service-card h-100"><div class="service-img card-img" style="overflow:hidden;border-radius:12px 12px 0 0"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 object-fit-cover" style="height:170px" loading="lazy"></div><div class="card-body text-center p-3"><h3 class="card-title fs-6 fw-6"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="card-text small mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></div><?php endforeach; ?><?php endif; ?></div>
  </div>
  </div>
  

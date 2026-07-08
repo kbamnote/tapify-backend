@@ -209,11 +209,11 @@ body{font-family:Poppins}
  </div>
  </div>
  </div>
- <div class="text-secondary text-center profile-desc pt-40 px-30 position-relative">
+ <div class="text-secondary text-center profile-desc pt-40 px-30 position-relative"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars($vcard["description"])) ?><?php else: ?>
  <p class="fs-6 text-center mb-0 text-light profile-desc mb-30 fs-14 text-sm-start">
  <p>Welcome to <strong><?= htmlspecialchars($fullName) ?>e Supplies</strong>, your friendly neighborhood pet shop where every paw counts! We offer a wide range of premium pet products and services — from nutritious food and fun toys to grooming essentials and accessories for dogs, cats, birds, fish, and more.</p>
  <p></p>
- </div>
+ <?php endif; ?></div>
  
  <div class="social-media pt-40 d-flex flex-wrap justify-content-center px-30 position-relative"><?php foreach ($socialLinks as $s): $ic=$platformIcons[strtolower($s["platform"] ?? "")] ?? "fa-globe"; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><i class="fab <?= $ic ?> icon fa-2x"></i></a><?php endforeach; ?></div>
  

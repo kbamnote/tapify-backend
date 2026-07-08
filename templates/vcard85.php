@@ -151,9 +151,9 @@ body{font-family:{
  <div class=music-wave></div>
  </div>
  </div>
- <div class="profile-desc mb-0 fs-14 text-center pt-40 px-30">
+ <div class="profile-desc mb-0 fs-14 text-center pt-40 px-30"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars($vcard["description"])) ?><?php else: ?>
  <p class=ql-align-center>🎶&nbsp;<strong>Experience the Magic of Arijit Sharma Live!&nbsp;</strong>🎤<p class=ql-align-center>Join us for an unforgettable evening as the maestro of melodies takes the stage, weaving magic with his soulful voice and timeless hits. Don’t miss this extraordinary musical journey—mark your calendar and be part of the enchantment! 🌟<p><br></p>
- </div>
+ <?php endif; ?></div>
  
  <div class="social-media-section pt-40 position-relative px-30"><?php foreach ($socialLinks as $s): $ic=$platformIcons[strtolower($s["platform"] ?? "")] ?? "fa-globe"; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><i class="fab <?= $ic ?> icon fa-2x"></i></a><?php endforeach; ?></div>
  

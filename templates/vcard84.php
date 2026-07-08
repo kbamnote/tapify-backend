@@ -216,8 +216,8 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
  
  
  <div class="d-flex align-items-center">
- <span class="pt-2 px-2 profile-description fs-6"><p>As a <strong>Lead AI Research Engineer﻿﻿</strong>, Rishi Verma spearheads the design, development, and deployment of advanced artificial intelligence models. With a strong foundation in machine learning, deep learning, and neural network optimization, he bridges the gap between cutting-edge research and real-world applications. His focus is on building scalable, ethical, and high-performance AI systems that power next-gen SaaS products and intelligent platforms.</p>
- </span>
+ <span class="pt-2 px-2 profile-description fs-6"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars($vcard["description"])) ?><?php else: ?><p>As a <strong>Lead AI Research Engineer﻿﻿</strong>, Rishi Verma spearheads the design, development, and deployment of advanced artificial intelligence models. With a strong foundation in machine learning, deep learning, and neural network optimization, he bridges the gap between cutting-edge research and real-world applications. His focus is on building scalable, ethical, and high-performance AI systems that power next-gen SaaS products and intelligent platforms.</p>
+ <?php endif; ?></span>
  </div>
  </div>
  <div class=row>
@@ -313,68 +313,7 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
  <div class="main-our-section position-relative">
  <h4 class="text-center mb-5 heading-title">Our Services
  </h4>
- <div class="row g-6 justify-content-center">
- <div class=col-sm-6>
- <div class="card service-card h-100">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/modernedgex/mod-062.webp" class="card-img-top service-new-image" alt="Data Annotation &amp; Model Training Pipelines" loading=lazy>
- </a>
- <div class="card-body px-0 py-3 text-white">
- <h5 class=card-title>Data Annotation &amp; Model Training Pipelines</h5>
- <p class="card-text text-gray-200">
- Set up end-to-end pipelines that prepare data, label it accurately, and feed it into machine learning models for training with minimal human intervention.</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card h-100">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/modernedgex/mod-063.webp" class="card-img-top service-new-image" alt="Reactive Machine" loading=lazy>
- </a>
- <div class="card-body px-0 py-3 text-white">
- <h5 class=card-title>Reactive Machine</h5>
- <p class="card-text text-gray-200 more">
- A Reactive Machine is the simplest form of AI. It responds to current inputs in real time without using memory or learning from past experiences. It follows predefined ru...</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card h-100">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/modernedgex/mod-064.webp" class="card-img-top service-new-image" alt="Data Annotation &amp; Model Training Pipelines" loading=lazy>
- </a>
- <div class="card-body px-0 py-3 text-white">
- <h5 class=card-title>Data Annotation &amp; Model Training Pipelines</h5>
- <p class="card-text text-gray-200 more">
- An emerging field focused on designing systems—human or AI—that can monitor, understand, and adapt to their own state and surroundings. It blends AI, cognitive science, a...</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card h-100">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/modernedgex/mod-065.webp" class="card-img-top service-new-image" alt="Robotics Engineering" loading=lazy>
- </a>
- <div class="card-body px-0 py-3 text-white">
- <h5 class=card-title>Robotics Engineering</h5>
- <p class="card-text text-gray-200 more">
- Robotics Engineering is a multidisciplinary field that integrates mechanical engineering, electrical engineering, and computer science to design, build, and operate intel...</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card h-100">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/modernedgex/mod-066.webp" class="card-img-top service-new-image" alt="Medical Engineering" loading=lazy>
- </a>
- <div class="card-body px-0 py-3 text-white">
- <h5 class=card-title>Medical Engineering</h5>
- <p class="card-text text-gray-200 more">
- Medical engineers work on everything from diagnostic machines and artificial organs to surgical robots and wearable health monitors. Their innovations enhance the accurac...</p>
- </div>
- </div>
- </div>
- </div>
+ <div class="row g-6 justify-content-center"><?php if(!empty($services)): ?><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/modernedgex/mod-052.webp"; ?><div class="col-sm-6 col-6 mb-4 px-2"><div class="card service-card h-100"><div class="service-img card-img" style="overflow:hidden;border-radius:12px 12px 0 0"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 object-fit-cover" style="height:170px" loading="lazy"></div><div class="card-body text-center p-3"><h3 class="card-title fs-6 fw-6"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="card-text small mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></div><?php endforeach; ?><?php endif; ?></div>
  </div>
  </div>
  </div>

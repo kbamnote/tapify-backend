@@ -231,7 +231,7 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
  
  
  <div class="d-flex align-items-center justify-content-center">
- <span class="pt-2 px-2 profile-description fs-6"> <p>skilled full-stack web developer specializing in dynamic, high-performance applications using PHP, Python, Laravel, and React.js. With a passion for clean code and modern frameworks, I build scalable web solutions that blend powerful back-end functionality with responsive front-end experiences.</p></span>
+ <span class="pt-2 px-2 profile-description fs-6"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars($vcard["description"])) ?><?php else: ?> <p>skilled full-stack web developer specializing in dynamic, high-performance applications using PHP, Python, Laravel, and React.js. With a passion for clean code and modern frameworks, I build scalable web solutions that blend powerful back-end functionality with responsive front-end experiences.</p><?php endif; ?></span>
  </div>
  
  <div class="px-4 my-3 mb-5">
@@ -309,64 +309,7 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
  <div class="vcard__service mt-3 mb-5">
  <h4 class="vcard__heading text-center pb-3">Our Services</h4>
  <div class="container mt-1 bg-white position-relative">
- <div class="row g-6 justify-content-center">
- <div class=col-sm-6>
- <div class="card service-card h-100">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src=/images/templates/professionalx/pro-044.webp class="card-img-top service-new-image object-fit-contain" alt="React.js Development" loading=lazy>
- </a>
- <div class="card-body pt-3 p-0">
- <h5 class="card-title title-text">
- React.js Development
- </h5>
- <p class="card-text description-text">
- A modern JavaScript library for building interactive user interfaces. Developed by Meta, it's perfect for creating fast, dynamic front-end experiences.</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card h-100">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/professionalx/pro-045.webp" class="card-img-top service-new-image object-fit-contain" alt="Python Development" loading=lazy>
- </a>
- <div class="card-body pt-3 p-0">
- <h5 class="card-title title-text">
- Python Development
- </h5>
- <p class="card-text description-text">
- A versatile, high-level programming language used for web development, automation, data science, and more. Loved for its readability and clean syntax.</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card h-100">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/professionalx/pro-046.webp" class="card-img-top service-new-image object-fit-contain" alt="Laravel Development" loading=lazy>
- </a>
- <div class="card-body pt-3 p-0">
- <h5 class="card-title title-text">
- Laravel Development
- </h5>
- <p class="card-text description-text">
- A powerful PHP framework designed for elegant syntax and rapid development. Ideal for building secure, scalable web applications with built-in tools and MVC support.</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card h-100">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/professionalx/pro-047.webp" class="card-img-top service-new-image object-fit-contain" alt="PHP Development" loading=lazy>
- </a>
- <div class="card-body pt-3 p-0">
- <h5 class="card-title title-text">
- PHP Development
- </h5>
- <p class="card-text description-text">
- A popular server-side scripting language used to build dynamic websites and applications. Known for powering platforms like WordPress and robust back-end systems.</p>
- </div>
- </div>
- </div>
- </div>
+ <div class="row g-6 justify-content-center"><?php if(!empty($services)): ?><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/professionalx/pro-039.webp"; ?><div class="col-sm-6 col-6 mb-4 px-2"><div class="card service-card h-100"><div class="service-img card-img" style="overflow:hidden;border-radius:12px 12px 0 0"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 object-fit-cover" style="height:170px" loading="lazy"></div><div class="card-body text-center p-3"><h3 class="card-title fs-6 fw-6"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="card-text small mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></div><?php endforeach; ?><?php endif; ?></div>
  </div>
  </div>
  </div>

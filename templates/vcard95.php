@@ -139,7 +139,7 @@ img[src=&quot;data:,&quot;],source[src=&quot;data:,&quot;]{display:none!importan
  <div class="vcard-one__profile-details py-3 d-flex flex-column align-items-center justify-content-center px-3">
  <h4 class="profile-name pt-2 mb-0"><?= htmlspecialchars($fullName) ?></h4>
  <span class="profile-designation pt-2 fw-light"><?= htmlspecialchars($vcard["occupation"] ?? "") ?></span>
- <span class="mt-4 profile-description"> I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery</span>
+ <span class="mt-4 profile-description"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars($vcard["description"])) ?><?php else: ?> I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery<?php endif; ?></span>
  <div class="social-icons d-flex justify-content-center pt-4"><?php foreach ($socialLinks as $s): $ic=$platformIcons[strtolower($s["platform"] ?? "")] ?? "fa-globe"; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><i class="fab <?= $ic ?> icon fa-2x"></i></a><?php endforeach; ?></div>
  </div>
  
@@ -232,86 +232,7 @@ img[src=&quot;data:,&quot;],source[src=&quot;data:,&quot;]{display:none!importan
  <div class="vcard-one__service my-3 py-5">
  <h4 class="vcard-one-heading text-center pb-4">Our Services</h4>
  <div class=container>
- <div class="row g-3">
- <div class="col-sm-6 col-12">
- <div class="card service-card d-flex align-items-center flex-row p-2 border-0 h-100">
- <div class="service-image d-flex justify-content-center align-items-center rounded-circle">
- <img src="/images/templates/simplecontactx/sim-008.webp" alt=Ui/Ux loading=lazy>
- </div>
- <div class="service-details ms-3">
- <h4 class=service-title>UI/UX</h4>
- <p class="service-paragraph mb-0">
- Landing Page User Flow, Wireframing Prototyping mobile app design
- </p>
- </div>
- </div>
- </div>
- <div class="col-sm-6 col-12">
- <div class="card service-card d-flex align-items-center flex-row p-2 border-0 h-100">
- <div class="service-image d-flex justify-content-center align-items-center rounded-circle">
- <img src="/images/templates/simplecontactx/sim-009.webp" alt=Icons loading=lazy>
- </div>
- <div class="service-details ms-3">
- <h4 class=service-title>Icons</h4>
- <p class="service-paragraph mb-0">
- Character Desiggn Icon sot, Illustration Guide, illustaration Sat.
- </p>
- </div>
- </div>
- </div>
- <div class="col-sm-6 col-12">
- <div class="card service-card d-flex align-items-center flex-row p-2 border-0 h-100">
- <div class="service-image d-flex justify-content-center align-items-center rounded-circle">
- <img src="/images/templates/simplecontactx/sim-010.webp" alt=Branding loading=lazy>
- </div>
- <div class="service-details ms-3">
- <h4 class=service-title>Branding</h4>
- <p class="service-paragraph mb-0">
- Landing Page User Flow, Wireframing Prototyping mobile app design
- </p>
- </div>
- </div>
- </div>
- <div class="col-sm-6 col-12">
- <div class="card service-card d-flex align-items-center flex-row p-2 border-0 h-100">
- <div class="service-image d-flex justify-content-center align-items-center rounded-circle">
- <img src=/images/templates/simplecontactx/sim-011.webp alt="App Design" loading=lazy>
- </div>
- <div class="service-details ms-3">
- <h4 class=service-title>App Design</h4>
- <p class="service-paragraph mb-0">
- Character Desiggn Icon sot, Illustration Guide, illustaration Sat.
- </p>
- </div>
- </div>
- </div>
- <div class="col-sm-6 col-12">
- <div class="card service-card d-flex align-items-center flex-row p-2 border-0 h-100">
- <div class="service-image d-flex justify-content-center align-items-center rounded-circle">
- <img src="/images/templates/simplecontactx/sim-012.webp" alt=Motion loading=lazy>
- </div>
- <div class="service-details ms-3">
- <h4 class=service-title>Motion</h4>
- <p class="service-paragraph mb-0">
- Landing Page User Flow, Wireframing Prototyping mobile app design
- </p>
- </div>
- </div>
- </div>
- <div class="col-sm-6 col-12">
- <div class="card service-card d-flex align-items-center flex-row p-2 border-0 h-100">
- <div class="service-image d-flex justify-content-center align-items-center rounded-circle">
- <img src="/images/templates/simplecontactx/sim-013.webp" alt=Development loading=lazy>
- </div>
- <div class="service-details ms-3">
- <h4 class=service-title>Development</h4>
- <p class="service-paragraph mb-0">
- Character Desiggn Icon sot, Illustration Guide, illustaration Sat.
- </p>
- </div>
- </div>
- </div>
- </div>
+ <div class="row g-3"><?php if(!empty($services)): ?><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/simplecontactx/sim-011.webp"; ?><div class="col-sm-6 col-6 mb-4 px-2"><div class="card service-card h-100"><div class="service-img card-img" style="overflow:hidden;border-radius:12px 12px 0 0"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 object-fit-cover" style="height:170px" loading="lazy"></div><div class="card-body text-center p-3"><h3 class="card-title fs-6 fw-6"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="card-text small mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></div><?php endforeach; ?><?php endif; ?></div>
  </div>
  </div>
  

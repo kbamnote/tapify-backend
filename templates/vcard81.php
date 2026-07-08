@@ -201,11 +201,11 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
  </div>
  </div>
  </div>
- <div class="text-gray-100 fs-14 profile-desc text-center px-30 pt-50">
+ <div class="text-gray-100 fs-14 profile-desc text-center px-30 pt-50"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars($vcard["description"])) ?><?php else: ?>
  <p class="text-white text-center mb-0">
  <span class="mt-4 profile-description fs-6"> </span><p>A Fitness Trainer helps individuals improve their health and physical performance through customized workout routines, goal setting, and motivation. They guide clients in proper exercise techniques, monitor progress, and promote a balanced lifestyle through fitness and wellness coaching.</p>
  <p></p>
- </div>
+ <?php endif; ?></div>
  </div>
  <div class="social-media d-flex text-light justify-content-center px-30 pt-50 position-relative"><?php foreach ($socialLinks as $s): $ic=$platformIcons[strtolower($s["platform"] ?? "")] ?? "fa-globe"; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><i class="fab <?= $ic ?> icon fa-2x"></i></a><?php endforeach; ?></div>
  

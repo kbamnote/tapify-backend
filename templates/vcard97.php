@@ -135,73 +135,7 @@ body{font-family:Poppins}
  <div class="section-heading text-center">
  <h2 class="text-center mb-0 fw-bold">Contact</h2>
  </div>
- <div class="row row-gap-20px">
- <div class=col-sm-6>
- <div class="contact-box text-center">
- <div class="contact-icon d-flex justify-content-center align-items-center mx-auto">
- <img src=/images/templates/socialservicesx/soc-023.svg loading=lazy>
- </div>
- <div class=contact-desc>
- <a href=mailto:<?= htmlspecialchars($vcard["email"] ?? "") ?> class="text-primary fs-6 fw-5"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="contact-box text-center">
- 
- <div class="contact-icon d-flex justify-content-center align-items-center mx-auto">
- <img src=/images/templates/socialservicesx/soc-023.svg loading=lazy>
- </div>
- <div class=contact-desc>
- <a href=mailto:<?= htmlspecialchars($vcard["alternate_email"] ?? "") ?> class="text-primary fs-6 fw-5"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="contact-box text-center">
- 
- <div class="contact-icon d-flex justify-content-center align-items-center mx-auto">
- <img src=/images/templates/socialservicesx/soc-024.svg loading=lazy>
- </div>
- <div class=contact-desc>
- <a href=tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?> class="text-primary fs-6 fw-5" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="contact-box text-center">
- 
- <div class="contact-icon d-flex justify-content-center align-items-center mx-auto">
- <img src=/images/templates/socialservicesx/soc-024.svg loading=lazy>
- </div>
- <div class=contact-desc>
- <a href=tel:+9191 class="text-primary fs-6 fw-5" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="contact-box text-center">
- 
- <div class="contact-icon d-flex justify-content-center align-items-center mx-auto">
- <img src=/images/templates/socialservicesx/soc-025.svg loading=lazy>
- </div>
- <div class=contact-desc>
- <p class="text-primary fs-6 fw-5 mb-0">12th June, 1885</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="contact-box text-center">
- 
- <div class="contact-icon d-flex justify-content-center align-items-center mx-auto">
- <img src="/images/templates/socialservicesx/soc-026.svg" loading=lazy>
- </div>
- <div class=contact-desc>
- <p class="text-primary fs-6 fw-5 mb-0">India, Delhi</p>
- </div>
- </div>
- </div>
- </div>
+ <div class="row row-gap-20px"><?php if(!empty($services)): ?><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/socialservicesx/soc-018.webp"; ?><div class="col-sm-6 col-6 mb-4 px-2"><div class="card service-card h-100"><div class="service-img card-img" style="overflow:hidden;border-radius:12px 12px 0 0"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 object-fit-cover" style="height:170px" loading="lazy"></div><div class="card-body text-center p-3"><h3 class="card-title fs-6 fw-6"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="card-text small mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></div><?php endforeach; ?><?php endif; ?></div>
  </div>
  </div>
  

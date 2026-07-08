@@ -3154,9 +3154,9 @@ body{font-family:{
  <div class="position-absolute vector-all vector-1">
  <img src=/images/templates/eventmanagementx/eve-043.webp alt=vector-img class=w-100>
  </div>
- <div class="text-white mb-0 fs-14 text-center profile-desc">
+ <div class="text-white mb-0 fs-14 text-center profile-desc"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars($vcard["description"])) ?><?php else: ?>
  <p>As an <strong>Event Planner</strong>, I specialize in organizing and coordinating events, ensuring every detail is planned meticulously. From corporate events to weddings, my goal is to create unforgettable experiences for clients. I work closely with vendors, clients, and teams to ensure seamless execution and satisfaction.</p>
- </div>
+ <?php endif; ?></div>
  <div class="social-media d-flex justify-content-end"><?php foreach ($socialLinks as $s): $ic=$platformIcons[strtolower($s["platform"] ?? "")] ?? "fa-globe"; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><i class="fab <?= $ic ?> icon fa-2x"></i></a><?php endforeach; ?></div>
  
  </div>

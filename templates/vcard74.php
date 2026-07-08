@@ -123,7 +123,7 @@ body{font-family:Poppins}
  </div>
  </div>
  <div class="d-flex align-items-center justify-content-center mb-5 mx-3">
- <span class="pt-5 profile-description fs-6"> <p>A <strong>Financial Adviser</strong> is a licensed professional who helps individuals or businesses manage their finances by offering advice on <strong>investments, savings, tax planning, retirement, insurance</strong>, and <strong>wealth management</strong>.</p></span>
+ <span class="pt-5 profile-description fs-6"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars($vcard["description"])) ?><?php else: ?> <p>A <strong>Financial Adviser</strong> is a licensed professional who helps individuals or businesses manage their finances by offering advice on <strong>investments, savings, tax planning, retirement, insurance</strong>, and <strong>wealth management</strong>.</p><?php endif; ?></span>
  </div>
  </div>
  
@@ -225,86 +225,7 @@ body{font-family:Poppins}
  <div class=container>
  <h4 class="vcard-eight-heading heading-line position-relative text-center d-block mx-auto pb-3 mb-5">
  Our Services</h4>
- <div class="row g-6 justify-content-center">
- <div class=col-sm-6>
- <div class="card service-card">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/corporateclassicx/cor-027.webp" class="card-img-top service-new-image" alt="Tax Planning" loading=lazy>
- </a>
- <div class="card-body py-4">
- <h5 class="card-title text-white">Tax Planning
- </h5>
- <p class="card-text text-white-50 more">
- Advisers optimize your tax liability by suggesting deductions, exemptions, and investments under sections like 80C, 80D, and 10(14), helping you save more legally and eff...</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/corporateclassicx/cor-028.webp" class="card-img-top service-new-image" alt="Wealth Management" loading=lazy>
- </a>
- <div class="card-body py-4">
- <h5 class="card-title text-white">Wealth Management
- </h5>
- <p class="card-text text-white-50 more">
- This service includes comprehensive portfolio management, estate structuring, and long-term financial planning for high-net-worth individuals or families to preserve and...</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/corporateclassicx/cor-029.webp" class="card-img-top service-new-image" alt="Budgeting &amp; Cash Flow Analysis" loading=lazy>
- </a>
- <div class="card-body py-4">
- <h5 class="card-title text-white">Budgeting &amp; Cash Flow Analysis
- </h5>
- <p class="card-text text-white-50">
- They assess your income and expenses, identify spending leaks, and create a realistic monthly budget, enabling better savings and smarter financial decisions.</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/corporateclassicx/cor-030.webp" class="card-img-top service-new-image" alt="Insurance Planning" loading=lazy>
- </a>
- <div class="card-body py-4">
- <h5 class="card-title text-white">Insurance Planning
- </h5>
- <p class="card-text text-white-50 more">
- Advisers evaluate your insurance needs and recommend suitable life, health, disability, and general insurance policies to protect you and your family from unforeseen fina...</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/corporateclassicx/cor-031.webp" class="card-img-top service-new-image" alt="Debt Management" loading=lazy>
- </a>
- <div class="card-body py-4">
- <h5 class="card-title text-white">Debt Management
- </h5>
- <p class="card-text text-white-50">
- Financial advisers guide you in consolidating loans, choosing the right EMI structures, and improving your credit score to achieve long-term financial stability.</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src=/images/templates/corporateclassicx/cor-032.webp class="card-img-top service-new-image" alt="Investment Planning" loading=lazy>
- </a>
- <div class="card-body py-4">
- <h5 class="card-title text-white">Investment Planning
- </h5>
- <p class="card-text text-white-50 more">
- Financial advisers analyze your risk tolerance and goals to recommend investment options like mutual funds, stocks, bonds, or ETFs, ensuring your money works for you with...</p>
- </div>
- </div>
- </div>
- </div>
+ <div class="row g-6 justify-content-center"><?php if(!empty($services)): ?><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/corporateclassicx/cor-017.webp"; ?><div class="col-sm-6 col-6 mb-4 px-2"><div class="card service-card h-100"><div class="service-img card-img" style="overflow:hidden;border-radius:12px 12px 0 0"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 object-fit-cover" style="height:170px" loading="lazy"></div><div class="card-body text-center p-3"><h3 class="card-title fs-6 fw-6"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="card-text small mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></div><?php endforeach; ?><?php endif; ?></div>
  </div>
  </div>
  

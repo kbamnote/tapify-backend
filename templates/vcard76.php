@@ -211,7 +211,7 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
  <span class="profile-designation text-center d-block"></span>
  <p><span class="profile-company d-block text-center p-1"></span></p>
  <div class="d-flex align-items-center justify-content-center mb-5">
- <span class="pt-5 profile-description fs-6"><p>Crafting compelling content that speaks, sells, and ranks. As a skilled content writer, I specialize in creating SEO-friendly blogs, web copy, product descriptions, social media posts, and marketing materials tailored to your audience and brand voice. Whether you need engaging storytelling, persuasive sales copy, or educational articles, I deliver well-researched, clear, and impactful content that drives results.</p></span>
+ <span class="pt-5 profile-description fs-6"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars($vcard["description"])) ?><?php else: ?><p>Crafting compelling content that speaks, sells, and ranks. As a skilled content writer, I specialize in creating SEO-friendly blogs, web copy, product descriptions, social media posts, and marketing materials tailored to your audience and brand voice. Whether you need engaging storytelling, persuasive sales copy, or educational articles, I deliver well-researched, clear, and impactful content that drives results.</p><?php endif; ?></span>
  </div>
  <div class="social-icons d-flex justify-content-center pt-sm-5 pt-4 flex-wrap mx-auto"><?php foreach ($socialLinks as $s): $ic=$platformIcons[strtolower($s["platform"] ?? "")] ?? "fa-globe"; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><i class="fab <?= $ic ?> icon fa-2x"></i></a><?php endforeach; ?></div>
  
@@ -329,56 +329,7 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
  <h4 class="heading-right heading-line position-relative text-center mb-5">
  Our Services</h4>
  <div class="container pt-5">
- <div class="row g-6 justify-content-center">
- <div class=col-sm-6>
- <div class="card service-card">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/corporateidentityx/cor-025.webp" class="card-img-top service-new-image" alt="Resume &amp; LinkedIn Profile Writing" loading=lazy>
- </a>
- <div class="card-body py-4">
- <h5 class=card-title>Resume &amp; LinkedIn Profile Writing</h5>
- <p class=card-text>
- Professionally written profiles and resumes to improve job search effectiveness.</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src=/images/templates/corporateidentityx/cor-026.webp class="card-img-top service-new-image" alt="Social Media Content" loading=lazy>
- </a>
- <div class="card-body py-4">
- <h5 class=card-title>Social Media Content</h5>
- <p class=card-text>
- Creative posts and captions designed to engage audiences and grow your online presence.</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/corporateidentityx/cor-027.webp" class="card-img-top service-new-image" alt="Website Content" loading=lazy>
- </a>
- <div class="card-body py-4">
- <h5 class=card-title>Website Content</h5>
- <p class=card-text>
- Clear and compelling copy for homepages, service pages, about us sections, and more.</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/corporateidentityx/cor-027.webp" class="card-img-top service-new-image" alt="Blog &amp; Article Writing" loading=lazy>
- </a>
- <div class="card-body py-4">
- <h5 class=card-title>Blog &amp; Article Writing</h5>
- <p class=card-text>
- Engaging, SEO-optimized content to boost website traffic and improve search engine rankings.</p>
- </div>
- </div>
- </div>
- </div>
+ <div class="row g-6 justify-content-center"><?php if(!empty($services)): ?><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/corporateidentityx/cor-018.webp"; ?><div class="col-sm-6 col-6 mb-4 px-2"><div class="card service-card h-100"><div class="service-img card-img" style="overflow:hidden;border-radius:12px 12px 0 0"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 object-fit-cover" style="height:170px" loading="lazy"></div><div class="card-body text-center p-3"><h3 class="card-title fs-6 fw-6"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="card-text small mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></div><?php endforeach; ?><?php endif; ?></div>
  </div>
  </div>
  

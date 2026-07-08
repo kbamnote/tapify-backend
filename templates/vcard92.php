@@ -132,9 +132,9 @@ body{font-family:Poppins}
  <div class="bg-vector vector-16">
  <img src="/images/templates/programmerx/pro-032.webp" alt=bg-vector>
  </div>
- <div class="text-white mb-0 text-center profile-desc pt-50 px-30">
+ <div class="text-white mb-0 text-center profile-desc pt-50 px-30"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars($vcard["description"])) ?><?php else: ?>
  <p>A <strong>programmer</strong> is a professional who creates software applications or systems by writing instructions in a programming language. They use logic, problem-solving skills, and technical knowledge to develop solutions for specific tasks or problems. Programmers work with languages such as <strong>Python, Java, C++, JavaScript, and many others</strong>, depending on the project’s needs.</p>
- </div>
+ <?php endif; ?></div>
  </div>
  <div class="contact-section pt-50 pb-50 mt-50 px-30 position-relative">
  <div class="bg-vector vector-2 text-end">

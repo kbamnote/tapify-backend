@@ -386,7 +386,7 @@ body{font-family:{
  <img src="<?= $profileImg ?>" alt=images class="h-100 w-100 object-fit-cover rounded-circle">
  </div>
  </div>
- <div class="profile-desc p-0 text-center text-sm-start">
+ <div class="profile-desc p-0 text-center text-sm-start"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars($vcard["description"])) ?><?php else: ?>
  <h1 class="fs-28 fw-6 text-white mb-0">
  <?= htmlspecialchars($fullName) ?>
  <i class="verification-icon bi-patch-check-fill"></i>
@@ -396,7 +396,7 @@ body{font-family:{
  Photographer</p>
  <p class="fs-14 fw-light lh-base text-gray-100 mb-0">
  </p>
- </div>
+ <?php endif; ?></div>
  </div>
  </div>
  <div class="fs-14 text-gray-100 profile-desc pt-50 px-30 text-center">

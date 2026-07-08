@@ -149,7 +149,7 @@ body{font-family:Poppins}
  </div>
  </div>
  <div class="d-flex align-items-center justify-content-center mb-5">
- <span class="pt-2 profile-description"><p>The <strong>Marketing Director</strong> is a senior leader responsible for crafting and executing strategic marketing plans that drive brand awareness, customer engagement, and business growth. With a strong grasp of both traditional and digital marketing channels, they lead cross-functional teams to deliver impactful campaigns and measurable results.</p></span>
+ <span class="pt-2 profile-description"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars($vcard["description"])) ?><?php else: ?><p>The <strong>Marketing Director</strong> is a senior leader responsible for crafting and executing strategic marketing plans that drive brand awareness, customer engagement, and business growth. With a strong grasp of both traditional and digital marketing channels, they lead cross-functional teams to deliver impactful campaigns and measurable results.</p><?php endif; ?></span>
  </div>
  <div class="social-section mb-4"><?php foreach ($socialLinks as $s): $ic=$platformIcons[strtolower($s["platform"] ?? "")] ?? "fa-globe"; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><i class="fab <?= $ic ?> icon fa-2x"></i></a><?php endforeach; ?></div>
  
@@ -261,94 +261,7 @@ body{font-family:Poppins}
  <div class=our-service-title>
  <h4 class="mb-4 text-center">Our Services</h4>
  </div>
- <div class=our-service-section>
- <div class="row g-6 justify-content-center">
- <div class=col-sm-6>
- <div class="card service-card">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src=/images/templates/businessbeaconxx/bus-045.webp class="card-img-top service-new-image object-fit-contain" alt="Mail Marketing Campaigns" loading=lazy>
- </a>
- <div class="card-body py-4">
- <h5 class="card-title title-text">
- Mail Marketing Campaigns
- </h5>
- <p class="card-text description-text">
- Design and deploy targeted email campaigns to nurture leads, promote products, and retain customers through personalized messaging.</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/businessbeaconxx/bus-046.webp" class="card-img-top service-new-image object-fit-contain" alt="SEO &amp; Organic Growth" loading=lazy>
- </a>
- <div class="card-body py-4">
- <h5 class="card-title title-text">
- SEO &amp; Organic Growth
- </h5>
- <p class="card-text description-text">
- Rank higher on search engines and get discovered by the right audience with our advanced keyword strategies, technical SEO audits, and link building campaigns.</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/businessbeaconxx/bus-047.webp" class="card-img-top service-new-image object-fit-contain" alt="Performance Marketing" loading=lazy>
- </a>
- <div class="card-body py-4">
- <h5 class="card-title title-text">
- Performance Marketing
- </h5>
- <p class="card-text description-text">
- Targeted ad campaigns on Google, YouTube, Meta, and more—built to deliver results. We optimize every click, conversion, and ROI.</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src=/images/templates/businessbeaconxx/bus-048.webp class="card-img-top service-new-image object-fit-contain" alt="Social Media Management &amp; Ads" loading=lazy>
- </a>
- <div class="card-body py-4">
- <h5 class="card-title title-text">
- Social Media Management &amp; Ads
- </h5>
- <p class="card-text description-text">
- From content planning to paid social campaigns, we build and grow your presence on Instagram, Facebook, LinkedIn, and more to drive engagement and traffic.</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/businessbeaconxx/bus-049.webp" class="card-img-top service-new-image object-fit-contain" alt="Content Marketing" loading=lazy>
- </a>
- <div class="card-body py-4">
- <h5 class="card-title title-text">
- Content Marketing
- </h5>
- <p class="card-text description-text">
- From content planning to paid social campaigns, we build and grow your presence on Instagram, Facebook, LinkedIn, and more to drive engagement and traffic.</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/businessbeaconxx/bus-050.webp" class="card-img-top service-new-image object-fit-contain" alt="360° Digital Marketing Strategy" loading=lazy>
- </a>
- <div class="card-body py-4">
- <h5 class="card-title title-text">
- 360° Digital Marketing Strategy
- </h5>
- <p class="card-text description-text">
- We create end-to-end marketing strategies tailored to your business goals—combining SEO, PPC, social media, and content for maximum impact.</p>
- </div>
- </div>
- </div>
- </div>
- </div>
+ <?php if(!empty($services)): ?><div class="our-services-section pt-50 position-relative"><div class="section-heading"><h2>Our Services</h2></div><div class="services"><div class="px-30"><div class="row"><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/businessbeaconxx/bus-038.jpg"; ?><div class="col-sm-6 mb-sm-0 mb-40 p-3"><div class="card-wrapper h-100"><a href="javascript:void(0)" class="text-decoration-none"><div class="service-card card h-100"><div class="card-img mx-auto"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></div><div class="card-body text-center"><h3 class="card-title text-primary"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></a></div></div><?php endforeach; ?></div></div></div></div><?php endif; ?>
  </div>
  
  

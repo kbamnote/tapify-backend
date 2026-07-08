@@ -198,7 +198,7 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
  </div>
  </div>
  <div class="d-flex align-items-center justify-content-center mb-5">
- <span class="pt-5 profile-description fs-6"> <p>Pro Network is a dynamic membership community built for ambitious professionals, entrepreneurs, and industry leaders who want more than just connections — they want meaningful growth. With thoughtfully curated service tiers like <em>Starter Connect</em>, <em>Elite Circle</em>, and <em>Visionary Vault</em>, members gain access to premium content, mentorship, and real-world opportunities designed to elevate careers and businesses. </p></span>
+ <span class="pt-5 profile-description fs-6"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars($vcard["description"])) ?><?php else: ?> <p>Pro Network is a dynamic membership community built for ambitious professionals, entrepreneurs, and industry leaders who want more than just connections — they want meaningful growth. With thoughtfully curated service tiers like <em>Starter Connect</em>, <em>Elite Circle</em>, and <em>Visionary Vault</em>, members gain access to premium content, mentorship, and real-world opportunities designed to elevate careers and businesses. </p><?php endif; ?></span>
  </div>
  </div>
  
@@ -318,64 +318,7 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
  <div class="vcard-ten__service py-4 pb-3 mb-5 px-sm-3 px-2 position-relative mt-0">
  <h4 class="vcard-ten-heading text-center mb-5">Our Services</h4>
  <div class=container>
- <div class="row g-6 justify-content-center">
- <div class=col-sm-6>
- <div class="card service-card">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/pronetworkx/pro-026.webp" class="card-img-top service-new-image" alt="Exclusive Networking Events" loading=lazy>
- </a>
- <div class="card-body py-4">
- <h5 class="card-title text-gray-100">
- Exclusive Networking Events
- </h5>
- <p class="card-text text-gray-300">
- Curated virtual and in-person events to connect with industry peers, mentors, and collaborators.</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/pronetworkx/pro-027.webp" class="card-img-top service-new-image" alt="Mentorship &amp; Coaching" loading=lazy>
- </a>
- <div class="card-body py-4">
- <h5 class="card-title text-gray-100">
- Mentorship &amp; Coaching
- </h5>
- <p class="card-text text-gray-300">
- Access to expert guidance through one-on-one coaching or group mentorship circles.</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src=/images/templates/pronetworkx/pro-028.webp class="card-img-top service-new-image" alt="Accountability &amp; Goal Tracking Tools" loading=lazy>
- </a>
- <div class="card-body py-4">
- <h5 class="card-title text-gray-100">
- Accountability &amp; Goal Tracking Tools
- </h5>
- <p class="card-text text-gray-300">
- Built-in systems for setting goals, tracking progress, and staying motivated with peer accountability.</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/pronetworkx/pro-029.webp" class="card-img-top service-new-image" alt="Featured Member Spotlights" loading=lazy>
- </a>
- <div class="card-body py-4">
- <h5 class="card-title text-gray-100">
- Featured Member Spotlights
- </h5>
- <p class="card-text text-gray-300">
- Boost visibility through member showcases across blogs, emails, and social media.</p>
- </div>
- </div>
- </div>
- </div>
+ <div class="row g-6 justify-content-center"><?php if(!empty($services)): ?><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/pronetworkx/pro-015.webp"; ?><div class="col-sm-6 col-6 mb-4 px-2"><div class="card service-card h-100"><div class="service-img card-img" style="overflow:hidden;border-radius:12px 12px 0 0"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 object-fit-cover" style="height:170px" loading="lazy"></div><div class="card-body text-center p-3"><h3 class="card-title fs-6 fw-6"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="card-text small mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></div><?php endforeach; ?><?php endif; ?></div>
  </div>
  </div>
  

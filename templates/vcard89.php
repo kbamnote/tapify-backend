@@ -347,9 +347,9 @@ a{text-decoration:none}#body{background-color:#1d2336!important;font-family:popp
  <i class="verification-icon bi-patch-check-fill"></i>
  </h2>
  <p class="text-white fs-20 mb-2"><?= htmlspecialchars($vcard["occupation"] ?? "") ?></p>
- <div class="text-white profile-description fs-14 mb-3 fw-normal">
+ <div class="text-white profile-description fs-14 mb-3 fw-normal"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars($vcard["description"])) ?><?php else: ?>
  <p class=profile-description> <p>Welcome to <strong><em>Code Gradient</em></strong>, where innovation meets execution. We are a forward-thinking software development company dedicated to building smart, scalable, and secure digital solutions.<p> Our portfolio showcases a wide range of successful projects across web development, mobile apps, enterprise software, and custom tech solutions tailored for startups and enterprises alike.<p>With a focus on quality, performance, and client satisfaction, we transform complex challenges into seamless digital experiences.<p> Explore our work and discover how <em>Code Gradient</em> can power your business into the future.<p></p>
- </div>
+ <?php endif; ?></div>
  </div>
  <div class="col-xl-6 ps-3">
  <div class=desc>

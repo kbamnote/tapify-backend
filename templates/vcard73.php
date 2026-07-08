@@ -141,7 +141,7 @@ body{font-family:Poppins}
  <span class="profile-designation pt-2 fw-light"> </span>
  <span class="profile-designation pt-2 fw-light"> </span>
  <p><span class="profile-company d-block"></span></p>
- <span class="mt-4 profile-description fs-6"> <p>A Canvas Artist is a visual storyteller who brings ideas to life on white, clean canvas paper. Using brushes, pencils, or mixed media, they create expressive and intentional artwork that captures emotion, thought, and narrative. With a deep appreciation for space and form, their work ranges from abstract concepts to detailed realism—perfect for galleries, collectors, and creative showcases.</p></span>
+ <span class="mt-4 profile-description fs-6"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars($vcard["description"])) ?><?php else: ?> <p>A Canvas Artist is a visual storyteller who brings ideas to life on white, clean canvas paper. Using brushes, pencils, or mixed media, they create expressive and intentional artwork that captures emotion, thought, and narrative. With a deep appreciation for space and form, their work ranges from abstract concepts to detailed realism—perfect for galleries, collectors, and creative showcases.</p><?php endif; ?></span>
  <div class="social-icons d-flex flex-wrap justify-content-center pt-4 w-100"><?php foreach ($socialLinks as $s): $ic=$platformIcons[strtolower($s["platform"] ?? "")] ?? "fa-globe"; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><i class="fab <?= $ic ?> icon fa-2x"></i></a><?php endforeach; ?></div>
  
  
@@ -218,60 +218,7 @@ body{font-family:Poppins}
  <div class="vcard-one__service my-3 py-4 mt-0">
  <h4 class="vcard-one-heading text-center pb-4">Our Services</h4>
  <div class=container>
- <div class="row g-6 mb-5 pb-3 justify-content-center">
- <div class=col-sm-6>
- <div class="card service-card h-100">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/cleancanvasx/cle-045.webp" class="card-img-top service-new-image" alt="Decorative Wall Art Prints" loading=lazy>
- </a>
- <div class="card-body pt-3 p-0">
- <h5 class="card-title title-text">Decorative Wall Art Prints
- </h5>
- <p class="card-text description-text">
- Sell original pieces or high-quality prints for homes, studios, and galleries.</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card h-100">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/cleancanvasx/cle-046.webp" class="card-img-top service-new-image" alt="Creative Workshops &amp; Art Classes" loading=lazy>
- </a>
- <div class="card-body pt-3 p-0">
- <h5 class="card-title title-text">Creative Workshops &amp; Art Classes
- </h5>
- <p class="card-text description-text">
- Host sessions teaching classic techniques like shading, composition, and watercolor.</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card h-100">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src="/images/templates/cleancanvasx/cle-047.webp" class="card-img-top service-new-image" alt="Wedding &amp; Event Art" loading=lazy>
- </a>
- <div class="card-body pt-3 p-0">
- <h5 class="card-title title-text">Wedding &amp; Event Art
- </h5>
- <p class="card-text description-text">
- Live sketching, bespoke invitations, and hand-painted thank-you cards for special occasions.</p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="card service-card h-100">
- <a href=javascript:void(0) class="text-decoration-none pe-none" target>
- <img src=/images/templates/cleancanvasx/cle-048.webp class="card-img-top service-new-image" alt="Custom Portraits &amp; Illustrations" loading=lazy>
- </a>
- <div class="card-body pt-3 p-0">
- <h5 class="card-title title-text">Custom Portraits &amp; Illustrations
- </h5>
- <p class="card-text description-text">
- Create personalized portraits of people, pets, or memories using premium canvas paper.</p>
- </div>
- </div>
- </div>
- </div>
+ <div class="row g-6 mb-5 pb-3 justify-content-center"><?php if(!empty($services)): ?><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/cleancanvasx/cle-040.webp"; ?><div class="col-sm-6 col-6 mb-4 px-2"><div class="card service-card h-100"><div class="service-img card-img" style="overflow:hidden;border-radius:12px 12px 0 0"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 object-fit-cover" style="height:170px" loading="lazy"></div><div class="card-body text-center p-3"><h3 class="card-title fs-6 fw-6"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="card-text small mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></div><?php endforeach; ?><?php endif; ?></div>
  </div>
  </div>
  

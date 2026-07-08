@@ -106,9 +106,9 @@ body{background-color:var(--primary-100)!important;font-family:Poppins!important
  </div>
  </div>
  </div>
- <div class="text-gray-100 profile-desc px-30 pt-4 fs-14 text-center">
+ <div class="text-gray-100 profile-desc px-30 pt-4 fs-14 text-center"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars($vcard["description"])) ?><?php else: ?>
  <p> <?= htmlspecialchars($fullName) ?> is your one-stop destination for fun, learning, and creativity. We offer a wide range of high-quality toys, from educational games and puzzles to action figures and soft toys. Our collection is carefully curated to suit children of all ages and interests. With a welcoming play area, helpful staff, and exciting gift options, we make every visit a joyful experience. Whether you're shopping for birthdays, holidays, or everyday fun, <?= htmlspecialchars($fullName) ?> brings smiles to little faces and peace of mind to parents.</p>
- </div>
+ <?php endif; ?></div>
  
  <div class="social-media-section px-30 pt-40"><?php foreach ($socialLinks as $s): $ic=$platformIcons[strtolower($s["platform"] ?? "")] ?? "fa-globe"; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><i class="fab <?= $ic ?> icon fa-2x"></i></a><?php endforeach; ?></div>
  

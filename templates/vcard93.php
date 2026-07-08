@@ -111,9 +111,9 @@ body{font-family:{
  </div>
  </div>
  
- <div class="mb-0 text-center fs-14 pt-40 profile-desc px-30 position-relative">
+ <div class="mb-0 text-center fs-14 pt-40 profile-desc px-30 position-relative"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars($vcard["description"])) ?><?php else: ?>
  <p>Welcome to <strong>Luxury Salon</strong>, where beauty meets expertise. Our salon offers a relaxing and modern space designed to pamper you from the moment you walk in. Whether you're looking for a fresh haircut, vibrant color, sleek blowout, or nourishing hair treatment, our talented team of stylists is here to bring your vision to life. We specialize in personalized hair care, the latest styling trends, and exceptional customer service. At Luxury salon, your hair isn’t just styled—it’s transformed."</p>
- </div>
+ <?php endif; ?></div>
  <div class="social-media d-flex flex-wrap justify-content-center pt-40 px-30 position-relative"><?php foreach ($socialLinks as $s): $ic=$platformIcons[strtolower($s["platform"] ?? "")] ?? "fa-globe"; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><i class="fab <?= $ic ?> icon fa-2x"></i></a><?php endforeach; ?></div>
  
  
