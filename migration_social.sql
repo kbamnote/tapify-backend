@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS social_connections (
   platform VARCHAR(30) NOT NULL,               -- facebook | instagram | linkedin
   account_id VARCHAR(191) NOT NULL,            -- page id / ig user id / linkedin urn
   account_name VARCHAR(255) DEFAULT NULL,
-  account_avatar VARCHAR(500) DEFAULT NULL,
+  account_avatar TEXT DEFAULT NULL,
   access_token TEXT DEFAULT NULL,              -- page token / user token
   refresh_token TEXT DEFAULT NULL,
   token_expiry DATETIME DEFAULT NULL,

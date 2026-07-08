@@ -96,6 +96,25 @@ define('SOCIAL_DEEP_LINK', getenv('SOCIAL_DEEP_LINK') ?: 'tapifapp://social-conn
 // it with ?secret=... — no user session). Leave empty to disable the endpoint.
 define('SOCIAL_CRON_SECRET', getenv('SOCIAL_CRON_SECRET') ?: '');
 
+// === WALLET & PAYMENTS (funds Meta ad spend) ===
+// Conversion: how many wallet points 1 INR buys (₹1 = 1 point by default).
+define('WALLET_POINTS_PER_INR', (int) (getenv('WALLET_POINTS_PER_INR') ?: 1));
+// Tapify's commission on ad spend, in percent (added on top of the ad budget).
+define('ADS_COMMISSION_PERCENT', (float) (getenv('ADS_COMMISSION_PERCENT') ?: 10));
+// Payment provider (razorpay). Wired later; the adapter is key-gated so the
+// wallet works in "manual credit" mode until keys are set.
+define('PAYMENT_PROVIDER',   getenv('PAYMENT_PROVIDER')   ?: 'razorpay');
+define('RAZORPAY_KEY_ID',     getenv('RAZORPAY_KEY_ID')     ?: '');
+define('RAZORPAY_KEY_SECRET', getenv('RAZORPAY_KEY_SECRET') ?: '');
+define('RAZORPAY_WEBHOOK_SECRET', getenv('RAZORPAY_WEBHOOK_SECRET') ?: '');
+
+// === META ADS (reseller model — ads run through Tapify's own ad account) ===
+// System-user token + ad account that Tapify uses to create ads on customers'
+// behalf (server-to-server). Meta bills this account; the customer pays via wallet.
+define('TAPIFY_AD_ACCOUNT_ID',    getenv('TAPIFY_AD_ACCOUNT_ID')    ?: '');   // act_XXXXXXXXX
+define('TAPIFY_META_SYSTEM_TOKEN', getenv('TAPIFY_META_SYSTEM_TOKEN') ?: '');
+define('ADS_MIN_BUDGET_INR', (int) (getenv('ADS_MIN_BUDGET_INR') ?: 100));    // minimum boost budget
+
 // === SECURITY ===
 define('JWT_SECRET', getenv('JWT_SECRET') ?: 'tapify-secret-key-12345');
 define('JWT_ALGO', 'HS256');
