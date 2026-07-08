@@ -346,7 +346,7 @@ body{font-family:Poppins}
  <i class="verification-icon bi-patch-check-fill text-primary"></i>
  </h2>
  <p class="fs-16 text-decoration-underline text-primary mb-0"></p>
- <p class="fs-14 text-gray-200 mb-0"><?= htmlspecialchars($vcard["occupation"] ?? "") ?></p>
+ <p class="fs-14 text-gray-200 mb-0"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars($vcard["description"])) ?><?php else: ?><?= htmlspecialchars($vcard["occupation"] ?? "") ?><?php endif; ?></p>
  <p class="fs-14 text-gray-200 mb-0"></p>
  </div>
  </div>

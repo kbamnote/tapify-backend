@@ -114,7 +114,7 @@ body{font-family:Poppins}
  <div class="bg-vector position-absolute vector1">
  <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="110" height="62"><rect fill-opacity="0"/></svg>' alt=images class=w-100 style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-18)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  </div>
- <p>A <strong>Makeup Artist</strong> is a professional who specializes in enhancing or transforming a person's appearance using cosmetic products. They work across various industries including beauty, fashion, film, television, theater, and events.</p>
+ <p><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars($vcard["description"])) ?><?php else: ?>A <strong>Makeup Artist</strong> is a professional who specializes in enhancing or transforming a person's appearance using cosmetic products. They work across various industries including beauty, fashion, film, television, theater, and events.<?php endif; ?></p>
  </div>
  </div>
  

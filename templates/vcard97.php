@@ -113,7 +113,7 @@ body{font-family:Poppins}
  <div class="position-absolute top-0 all-bg-img img-1">
  <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="650" height="635"><rect fill-opacity="0"/></svg>' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-19)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  </div>
- <p><em>A child-focused non-profit organization dedicated to uplifting underprivileged children through education, healthcare, nutrition, and emotional well-being. We believe every child deserves a safe childhood, equal opportunities, and a hopeful future.</em></p>
+ <p><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars($vcard["description"])) ?><?php else: ?><em>A child-focused non-profit organization dedicated to uplifting underprivileged children through education, healthcare, nutrition, and emotional well-being. We believe every child deserves a safe childhood, equal opportunities, and a hopeful future.</em><?php endif; ?></p>
  <div class="bg-vector vector-1 position-absolute top-0 text-end">
  <img src="/images/templates/socialservicesx/soc-019.webp" alt=profile-bg>
  </div>

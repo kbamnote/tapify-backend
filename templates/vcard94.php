@@ -126,7 +126,7 @@ body{font-family:Poppins}
  </div>
  </div>
  <div class="fs-14 text-primary text-center pt-40 px-30 position-relative">
- <p>The <strong>Kindergarten</strong> Teacher provides a nurturing and engaging environment for children aged 3–4 years. This role focuses on foundational skill development through play-based learning, social interaction, and age-appropriate academic activities.</p>
+ <p><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars($vcard["description"])) ?><?php else: ?>The <strong>Kindergarten</strong> Teacher provides a nurturing and engaging environment for children aged 3–4 years. This role focuses on foundational skill development through play-based learning, social interaction, and age-appropriate academic activities.<?php endif; ?></p>
  </div>
  
  </div>

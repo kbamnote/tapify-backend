@@ -135,7 +135,7 @@ body{font-family:Poppins}
  </div>
  </div>
  <div class="desc pt-30 text-dark fs-14 text-center px-30">
- <p>A <strong>fashion influencer</strong> is an individual who has established credibility in the fashion industry and has a significant following on social media platforms. These individuals use their influence to impact the purchasing decisions and style choices of their</p>
+ <p><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars($vcard["description"])) ?><?php else: ?>A <strong>fashion influencer</strong> is an individual who has established credibility in the fashion industry and has a significant following on social media platforms. These individuals use their influence to impact the purchasing decisions and style choices of their<?php endif; ?></p>
  </div>
  
  <div class="social-media pt-40 px-30 d-flex flex-wrap justify-content-sm-start justify-content-center position-relative"><?php foreach ($socialLinks as $s): $ic=$platformIcons[strtolower($s["platform"] ?? "")] ?? "fa-globe"; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><i class="fab <?= $ic ?> icon fa-2x"></i></a><?php endforeach; ?></div>
