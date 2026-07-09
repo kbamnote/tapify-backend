@@ -159,19 +159,127 @@ class AdsService
         }
     }
 
+    /** Geo-location autocomplete for the boost screen's location picker. */
+    public function searchGeo($query)
+    {
+        $query = trim((string) $query);
+        if (strlen($query) < 2) return [];
+        return (new MetaAdsClient())->searchGeo($query);
+    }
+
+    /** Interest/behaviour autocomplete for detailed targeting. */
+    public function searchInterests($query)
+    {
+        $query = trim((string) $query);
+        if (strlen($query) < 2) return [];
+        return (new MetaAdsClient())->searchInterests($query);
+    }
+
+    /** Language autocomplete (Meta locales). */
+    public function searchLocales($query)
+    {
+        $query = trim((string) $query);
+        if (strlen($query) < 2) return [];
+        return (new MetaAdsClient())->searchLocales($query);
+    }
+
+    /**
+     * Build a Meta targeting spec from the app's input. Everything except a
+     * geo default is optional, so old callers (country + age + gender) keep
+     * working while new ones can pin a city/region/radius, add languages, or
+     * layer on interests.
+     *
+     * Geo precedence: if any fine-grained location (city/region/custom pin/zip)
+     * is given we target THAT and drop the whole-country default — otherwise a
+     * ₹ "target Mumbai" boost would silently blanket all of India.
+     */
     private function buildTargeting(array $t)
     {
-        $countries = !empty($t['country_codes']) && is_array($t['country_codes'])
-            ? array_values($t['country_codes']) : ['IN'];
+        $geo = [];
+
+        // Cities — each needs a Meta key (from searchGeo) + a radius (km, 1..80).
+        if (!empty($t['cities']) && is_array($t['cities'])) {
+            $cities = [];
+            foreach ($t['cities'] as $c) {
+                if (empty($c['key'])) continue;
+                $cities[] = [
+                    'key'           => (string) $c['key'],
+                    'radius'        => max(1, min(80, (int) ($c['radius'] ?? 25))),
+                    'distance_unit' => 'kilometer',
+                ];
+            }
+            if ($cities) $geo['cities'] = $cities;
+        }
+        // Regions/states — key only.
+        if (!empty($t['regions']) && is_array($t['regions'])) {
+            $regions = [];
+            foreach ($t['regions'] as $r) {
+                $key = is_array($r) ? ($r['key'] ?? null) : $r;
+                if ($key) $regions[] = ['key' => (string) $key];
+            }
+            if ($regions) $geo['regions'] = $regions;
+        }
+        // Custom pin(s) — latitude/longitude + radius (drop-a-pin targeting).
+        if (!empty($t['custom_locations']) && is_array($t['custom_locations'])) {
+            $custom = [];
+            foreach ($t['custom_locations'] as $c) {
+                if (!isset($c['latitude'], $c['longitude'])) continue;
+                $custom[] = [
+                    'latitude'      => (float) $c['latitude'],
+                    'longitude'     => (float) $c['longitude'],
+                    'radius'        => max(1, min(80, (int) ($c['radius'] ?? 25))),
+                    'distance_unit' => 'kilometer',
+                ];
+            }
+            if ($custom) $geo['custom_locations'] = $custom;
+        }
+        // Post/PIN codes.
+        if (!empty($t['zips']) && is_array($t['zips'])) {
+            $zips = [];
+            foreach ($t['zips'] as $z) {
+                $key = is_array($z) ? ($z['key'] ?? null) : $z;
+                if ($key) $zips[] = ['key' => (string) $key];
+            }
+            if ($zips) $geo['zips'] = $zips;
+        }
+
+        if (!$geo) {
+            // No fine location → whole country (default India).
+            $countries = !empty($t['country_codes']) && is_array($t['country_codes'])
+                ? array_values($t['country_codes']) : ['IN'];
+            $geo['countries'] = $countries;
+        } elseif (!empty($t['country_codes']) && is_array($t['country_codes'])) {
+            // Caller explicitly wants a country layered on top of the fine geo.
+            $geo['countries'] = array_values($t['country_codes']);
+        }
+
         $targeting = [
-            'geo_locations' => ['countries' => $countries],
+            'geo_locations' => $geo,
             'age_min' => isset($t['age_min']) ? max(13, min(65, (int) $t['age_min'])) : 18,
             'age_max' => isset($t['age_max']) ? max(13, min(65, (int) $t['age_max'])) : 65,
         ];
+
         if (!empty($t['genders']) && is_array($t['genders'])) {
             $g = array_values(array_filter(array_map('intval', $t['genders']), fn($x) => in_array($x, [1, 2], true)));
             if ($g) $targeting['genders'] = $g;
         }
+
+        // Languages — Meta numeric locale ids.
+        if (!empty($t['locales']) && is_array($t['locales'])) {
+            $loc = array_values(array_filter(array_map('intval', $t['locales'])));
+            if ($loc) $targeting['locales'] = $loc;
+        }
+
+        // Detailed targeting — interests/behaviours by id (from a targeting search).
+        if (!empty($t['interests']) && is_array($t['interests'])) {
+            $ints = [];
+            foreach ($t['interests'] as $i) {
+                $id = is_array($i) ? ($i['id'] ?? null) : $i;
+                if ($id) $ints[] = ['id' => (string) $id, 'name' => is_array($i) ? (string) ($i['name'] ?? '') : ''];
+            }
+            if ($ints) $targeting['flexible_spec'] = [['interests' => $ints]];
+        }
+
         return $targeting;
     }
 }

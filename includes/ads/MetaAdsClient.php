@@ -83,6 +83,60 @@ class MetaAdsClient
         return ['campaign_id' => $campaignId, 'adset_id' => $adsetId, 'ad_id' => $ad['id']];
     }
 
+    /**
+     * Search Meta's ad geo-locations (cities/regions/etc.) for the location picker.
+     * Meta needs a location "key" — you can't target by a plain city name — so the
+     * app searches here, shows the results, and sends the chosen key(s) back in
+     * targeting.cities[].key. Returns Meta's rows (key, name, type, region,
+     * country_name, ...).
+     */
+    public function searchGeo($query, $types = null)
+    {
+        if (!$this->isConfigured()) {
+            throw new AdsException('Ads are not configured on the server yet.', 503, 'TAPIFY ad creds missing');
+        }
+        // Default to cities only: every result is then a valid `cities[].key` that
+        // accepts a radius. (Regions/zips need different targeting fields with no
+        // radius, so mixing them in would make Meta reject the boost.)
+        $locTypes = (is_array($types) && $types) ? $types : ['city'];
+        $url = $this->graph() . '/search?' . http_build_query([
+            'type'           => 'adgeolocation',
+            'location_types' => json_encode(array_values($locTypes)),
+            'q'              => $query,
+            'limit'          => 20,
+            'access_token'   => $this->token,
+        ]);
+        $res = $this->getRaw($url);
+        return $res['data'] ?? [];
+    }
+
+    /** Search Meta interests/behaviours for detailed targeting. */
+    public function searchInterests($query)
+    {
+        return $this->searchDict('adinterest', $query);
+    }
+
+    /** Search Meta languages (locales); each row's `key` is the numeric locale id. */
+    public function searchLocales($query)
+    {
+        return $this->searchDict('adlocale', $query);
+    }
+
+    private function searchDict($type, $query)
+    {
+        if (!$this->isConfigured()) {
+            throw new AdsException('Ads are not configured on the server yet.', 503, 'TAPIFY ad creds missing');
+        }
+        $url = $this->graph() . '/search?' . http_build_query([
+            'type'         => $type,
+            'q'            => $query,
+            'limit'        => 25,
+            'access_token' => $this->token,
+        ]);
+        $res = $this->getRaw($url);
+        return $res['data'] ?? [];
+    }
+
     /** Recent published posts for a Page (using the page token from the connection). */
     public function listPagePosts($pageId, $pageToken, $limit = 15)
     {
