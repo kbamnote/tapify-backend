@@ -280,6 +280,14 @@ class AdsService
             if ($ints) $targeting['flexible_spec'] = [['interests' => $ints]];
         }
 
+        // Advantage+ audience (formerly "detailed targeting expansion"). Meta now
+        // REQUIRES this flag on every ad set: 1 lets Meta widen the audience beyond
+        // what we specified, 0 targets exactly what the user chose. Default to 0 to
+        // respect the picked age/gender/interests; the location radius is always
+        // honoured either way. Caller may pass advantage_audience:1 for broader reach.
+        $advAudience = isset($t['advantage_audience']) ? ((int) $t['advantage_audience'] ? 1 : 0) : 0;
+        $targeting['targeting_automation'] = ['advantage_audience' => $advAudience];
+
         return $targeting;
     }
 }
