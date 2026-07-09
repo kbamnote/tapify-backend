@@ -58,33 +58,41 @@ class MetaAdsClient
         ]);
         $campaignId = $campaign['id'];
 
-        // 2) Ad set (lifetime budget in paise, targeting, run window).
-        $lifetimePaise = (int) round(((float) $opts['budget_inr']) * 100);
-        $start = time() + 120;                                   // start ~2 min out
-        $end   = $start + max(1, (int) $opts['duration_days']) * 86400;
-        $adset = $this->post("/{$acct}/adsets", [
-            'name'              => $name . ' — set',
-            'campaign_id'       => $campaignId,
-            'lifetime_budget'   => $lifetimePaise,
-            'billing_event'     => 'IMPRESSIONS',
-            'optimization_goal' => 'REACH',
-            'bid_strategy'      => 'LOWEST_COST_WITHOUT_CAP',
-            'targeting'         => json_encode($opts['targeting'] ?? ['geo_locations' => ['countries' => ['IN']]]),
-            'start_time'        => date('c', $start),
-            'end_time'          => date('c', $end),
-            'status'            => 'ACTIVE',
-        ]);
-        $adsetId = $adset['id'];
+        // Steps 2+3 build on the campaign. If either fails, delete the campaign so
+        // we don't strand an empty "No ads" ad set in the account (Meta creates
+        // campaign→adset→ad sequentially, so a late failure orphans earlier objects).
+        try {
+            // 2) Ad set (lifetime budget in paise, targeting, run window).
+            $lifetimePaise = (int) round(((float) $opts['budget_inr']) * 100);
+            $start = time() + 120;                                   // start ~2 min out
+            $end   = $start + max(1, (int) $opts['duration_days']) * 86400;
+            $adset = $this->post("/{$acct}/adsets", [
+                'name'              => $name . ' — set',
+                'campaign_id'       => $campaignId,
+                'lifetime_budget'   => $lifetimePaise,
+                'billing_event'     => 'IMPRESSIONS',
+                'optimization_goal' => 'REACH',
+                'bid_strategy'      => 'LOWEST_COST_WITHOUT_CAP',
+                'targeting'         => json_encode($opts['targeting'] ?? ['geo_locations' => ['countries' => ['IN']]]),
+                'start_time'        => date('c', $start),
+                'end_time'          => date('c', $end),
+                'status'            => 'ACTIVE',
+            ]);
+            $adsetId = $adset['id'];
 
-        // 3) Ad — creative references the existing Page post.
-        $ad = $this->post("/{$acct}/ads", [
-            'name'     => $name . ' — ad',
-            'adset_id' => $adsetId,
-            'creative' => json_encode(['object_story_id' => $opts['object_story_id']]),
-            'status'   => 'ACTIVE',
-        ]);
+            // 3) Ad — creative references the existing Page post.
+            $ad = $this->post("/{$acct}/ads", [
+                'name'     => $name . ' — ad',
+                'adset_id' => $adsetId,
+                'creative' => json_encode(['object_story_id' => $opts['object_story_id']]),
+                'status'   => 'ACTIVE',
+            ]);
 
-        return ['campaign_id' => $campaignId, 'adset_id' => $adsetId, 'ad_id' => $ad['id']];
+            return ['campaign_id' => $campaignId, 'adset_id' => $adsetId, 'ad_id' => $ad['id']];
+        } catch (Exception $e) {
+            try { $this->delete("/{$campaignId}"); } catch (Exception $ignore) {}
+            throw $e;
+        }
     }
 
     /**
@@ -208,6 +216,21 @@ class MetaAdsClient
             CURLOPT_POST           => true,
             CURLOPT_POSTFIELDS     => http_build_query($params),
             CURLOPT_TIMEOUT        => 45,
+        ]);
+        $raw = curl_exec($ch);
+        $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $err = curl_error($ch);
+        curl_close($ch);
+        return $this->handle($raw, $code, $err, $path);
+    }
+
+    private function delete($path)
+    {
+        $ch = curl_init($this->graph() . $path . '?access_token=' . urlencode($this->token));
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CUSTOMREQUEST  => 'DELETE',
+            CURLOPT_TIMEOUT        => 30,
         ]);
         $raw = curl_exec($ch);
         $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
