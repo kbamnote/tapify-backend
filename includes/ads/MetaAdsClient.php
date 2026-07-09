@@ -40,14 +40,18 @@ class MetaAdsClient
         $acct = $this->account;
         $name = $opts['name'] ?? ('Boost ' . date('Y-m-d H:i'));
 
-        // 1) Campaign (engagement objective).
-        // Budget is set at the AD SET level below (not campaign/CBO), so Meta's
-        // newer API versions require us to explicitly declare whether ad sets may
-        // share budget. A single-ad-set boost never shares — send 'false'.
-        // (http_build_query would turn a PHP bool false into '', so pass the string.)
+        // 1) Campaign. Objective = AWARENESS/REACH: "show this post to as many
+        // people as possible." Unlike OUTCOME_ENGAGEMENT (which Meta now treats as
+        // a destination/link ad and demands a call-to-action + website URL on the
+        // creative), REACH boosts the existing post as-is with no link required —
+        // exactly what a "boost my post" means.
+        // Budget is set at the AD SET level (not campaign/CBO), so Meta requires us
+        // to explicitly declare whether ad sets may share budget. A single-ad-set
+        // boost never shares — send 'false'. (http_build_query turns a PHP bool
+        // false into '', so pass the string.)
         $campaign = $this->post("/{$acct}/campaigns", [
             'name'                              => $name,
-            'objective'                         => 'OUTCOME_ENGAGEMENT',
+            'objective'                         => 'OUTCOME_AWARENESS',
             'status'                            => 'ACTIVE',
             'special_ad_categories'             => '[]',
             'is_adset_budget_sharing_enabled'   => 'false',
@@ -63,7 +67,7 @@ class MetaAdsClient
             'campaign_id'       => $campaignId,
             'lifetime_budget'   => $lifetimePaise,
             'billing_event'     => 'IMPRESSIONS',
-            'optimization_goal' => 'POST_ENGAGEMENT',
+            'optimization_goal' => 'REACH',
             'bid_strategy'      => 'LOWEST_COST_WITHOUT_CAP',
             'targeting'         => json_encode($opts['targeting'] ?? ['geo_locations' => ['countries' => ['IN']]]),
             'start_time'        => date('c', $start),
