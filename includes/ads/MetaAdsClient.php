@@ -41,11 +41,16 @@ class MetaAdsClient
         $name = $opts['name'] ?? ('Boost ' . date('Y-m-d H:i'));
 
         // 1) Campaign (engagement objective).
+        // Budget is set at the AD SET level below (not campaign/CBO), so Meta's
+        // newer API versions require us to explicitly declare whether ad sets may
+        // share budget. A single-ad-set boost never shares — send 'false'.
+        // (http_build_query would turn a PHP bool false into '', so pass the string.)
         $campaign = $this->post("/{$acct}/campaigns", [
-            'name'                  => $name,
-            'objective'             => 'OUTCOME_ENGAGEMENT',
-            'status'                => 'ACTIVE',
-            'special_ad_categories' => '[]',
+            'name'                              => $name,
+            'objective'                         => 'OUTCOME_ENGAGEMENT',
+            'status'                            => 'ACTIVE',
+            'special_ad_categories'             => '[]',
+            'is_adset_budget_sharing_enabled'   => 'false',
         ]);
         $campaignId = $campaign['id'];
 
