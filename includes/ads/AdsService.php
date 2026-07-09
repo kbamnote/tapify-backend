@@ -30,12 +30,26 @@ class AdsService
         }
 
         // 2) Validate budget + duration.
-        $budgetInr = (float) ($input['budget_inr'] ?? 0);
-        $minInr = defined('ADS_MIN_BUDGET_INR') ? (int) ADS_MIN_BUDGET_INR : 100;
-        if ($budgetInr < $minInr) {
-            throw new AdsException("Minimum ad budget is ₹{$minInr}.", 422, 'budget below min');
-        }
+        // Meta enforces a per-DAY minimum on ad-set budgets. Because we use a
+        // LIFETIME budget, Meta's floor is (min daily) x (run days), e.g. a 3-day
+        // boost needs ~₹284. A flat minimum isn't enough — a short, low budget
+        // passes it but Meta still rejects ("your ad set budget must be more than
+        // ₹X"). Enforce the duration-aware floor here, BEFORE charging the wallet,
+        // so we fail fast with a clear message instead of charge-then-refund.
+        // ₹100/day is padded slightly above Meta's ~₹94.80/day INR floor so we
+        // always clear it (Meta's exact floor varies by currency/billing/targeting).
         $durationDays = max(1, min(30, (int) ($input['duration_days'] ?? 3)));
+        $budgetInr = (float) ($input['budget_inr'] ?? 0);
+        $minDailyInr = defined('ADS_MIN_DAILY_INR') ? (float) ADS_MIN_DAILY_INR : 100;
+        $absMinInr = defined('ADS_MIN_BUDGET_INR') ? (int) ADS_MIN_BUDGET_INR : 100;
+        $minInr = max($absMinInr, (int) ceil($minDailyInr * $durationDays));
+        if ($budgetInr < $minInr) {
+            throw new AdsException(
+                "For a {$durationDays}-day boost the minimum budget is ₹{$minInr} (about ₹" . (int) $minDailyInr . "/day). Increase the budget or shorten the duration.",
+                422,
+                'budget below Meta per-day floor'
+            );
+        }
         $budgetPoints = WalletService::pointsForInr($budgetInr);
 
         $pageId  = $conn['account_id'];
