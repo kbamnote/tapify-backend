@@ -114,6 +114,9 @@ define('RAZORPAY_WEBHOOK_SECRET', getenv('RAZORPAY_WEBHOOK_SECRET') ?: '');
 define('TAPIFY_AD_ACCOUNT_ID',    getenv('TAPIFY_AD_ACCOUNT_ID')    ?: '');   // act_XXXXXXXXX
 define('TAPIFY_META_SYSTEM_TOKEN', getenv('TAPIFY_META_SYSTEM_TOKEN') ?: '');
 define('ADS_MIN_BUDGET_INR', (int) (getenv('ADS_MIN_BUDGET_INR') ?: 100));    // minimum boost budget
+// The system user that creates the ads. Before each boost we best-effort assign
+// this user the ADVERTISE task on the customer's Page (self-healing permission).
+define('TAPIFY_SYSTEM_USER_ID',   getenv('TAPIFY_SYSTEM_USER_ID')   ?: '');
 
 // === SECURITY ===
 define('JWT_SECRET', getenv('JWT_SECRET') ?: 'tapify-secret-key-12345');

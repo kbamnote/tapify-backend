@@ -9,7 +9,10 @@
 class FacebookProvider implements SocialProviderInterface
 {
     // Includes IG scopes now so Instagram can be added without reconnecting.
-    const SCOPES = 'pages_show_list,pages_manage_posts,pages_read_engagement,business_management,instagram_basic,instagram_content_publish';
+    // pages_manage_ads maps to the Page ADVERTISE task and ads_management to ad
+    // creation — both are needed so a customer's consent lets Tapify boost their
+    // Page's posts (reseller ads model).
+    const SCOPES = 'pages_show_list,pages_manage_posts,pages_read_engagement,pages_manage_ads,ads_management,business_management,instagram_basic,instagram_content_publish';
 
     public function platform() { return 'facebook'; }
 

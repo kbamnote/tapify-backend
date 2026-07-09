@@ -56,6 +56,12 @@ class AdsService
         $storyId = strpos($postId, '_') !== false ? $postId : ($pageId . '_' . $postId);
         $targeting = $this->buildTargeting(is_array($input['targeting'] ?? null) ? $input['targeting'] : []);
 
+        // Self-healing Page permission: make sure Tapify's system user holds the
+        // ADVERTISE task on this Page (idempotent, uses the Page token saved at
+        // connect). Best-effort — if it fails, the boost proceeds and Meta's own
+        // error explains what's missing.
+        (new MetaAdsClient())->assignPageAdvertiser($pageId, $conn['access_token'] ?? '');
+
         // 3) Charge the wallet first (reserves funds atomically).
         $charge = $this->wallet->chargeForAd($userId, $budgetPoints, 'boost', 'Boost post ' . $storyId);
 

@@ -110,6 +110,33 @@ class MetaAdsClient
         return $res['data'] ?? [];
     }
 
+    /**
+     * Best-effort: give Tapify's system user the ADVERTISE task on a customer's
+     * Page, using the Page token captured at connect time. This is what lets the
+     * system user boost that Page's posts from Tapify's ad account. Idempotent —
+     * re-assigning an already-assigned user succeeds. Returns true on success;
+     * failures are logged and swallowed (until Meta App Review approves
+     * ads_management/business_management for the login flow, this can fail —
+     * the boost then surfaces Meta's own permission error as before).
+     */
+    public function assignPageAdvertiser($pageId, $pageToken)
+    {
+        if (!defined('TAPIFY_SYSTEM_USER_ID') || TAPIFY_SYSTEM_USER_ID === '' || !$pageId || !$pageToken) {
+            return false;
+        }
+        try {
+            $res = $this->post("/{$pageId}/assigned_users", [
+                'user'         => TAPIFY_SYSTEM_USER_ID,
+                'tasks'        => json_encode(['ADVERTISE']),
+                'access_token' => $pageToken,
+            ]);
+            return !empty($res['success']);
+        } catch (Exception $e) {
+            error_log('[ADS][WARN] page_advertiser_assign_failed page=' . $pageId . ' ' . $e->getMessage());
+            return false;
+        }
+    }
+
     /** Search Meta interests/behaviours for detailed targeting. */
     public function searchInterests($query)
     {
@@ -168,7 +195,9 @@ class MetaAdsClient
     // ── HTTP ────────────────────────────────────────────────────────────────
     private function post($path, array $params)
     {
-        $params['access_token'] = $this->token;
+        // Default to the system token, but let callers pass a different one
+        // (e.g. a Page token for Page-scoped calls like assigned_users).
+        if (!isset($params['access_token'])) $params['access_token'] = $this->token;
         $ch = curl_init($this->graph() . $path);
         curl_setopt_array($ch, [
             CURLOPT_RETURNTRANSFER => true,
