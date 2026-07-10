@@ -315,11 +315,11 @@ body{font-family:Poppins}
 <path d="M1.02843 9.9343C-0.886789 11.8516 -0.0887816 13.4493 3.10325 14.4079C4.85886 14.8873 6.29528 16.485 6.29528 17.7632C6.29528 19.0414 7.41249 20 8.6893 20C10.2853 20 11.0833 18.2425 11.0833 14.4079C11.0833 9.29521 10.6045 8.81589 6.61448 8.81589C4.06086 8.81589 1.50723 9.29521 1.02843 9.9343Z" fill="#6549C2" fill-opacity="0.5"></path>
 <path d="M12.6794 14.5677C12.6794 16.0057 13.7967 16.8045 15.3927 16.485C19.3827 15.6861 19.8615 12.0113 16.0311 12.0113C14.1159 12.0113 12.6794 12.97 12.6794 14.5677Z" fill="#6549C2" fill-opacity="0.5"></path>
 </svg></div></div>
-<?php if(!empty($services)): ?>
-<?php if(!empty($products)): ?>
-<?php if(!empty($testimonials)): ?>
-<?php if(!empty($galleries)): ?>
-<?php if(!empty($businessHours)): ?>
+<?php if(true): ?>
+<?php if(true): ?>
+<?php if(true): ?>
+<?php if(true): ?>
+<?php if(true): ?>
 <div class="container p-0">
 <div class="modal fade sf-hidden" data-bs-backdrop="static" data-bs-keyboard="false" id="passwordModal" role="dialog">
 </div>

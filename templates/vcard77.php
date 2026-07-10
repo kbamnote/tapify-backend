@@ -68,11 +68,11 @@ body{background-color:var(--primary-100)!important;font-family:Poppins!important
 .lightbox{text-align:center;line-height:0;position:absolute;left:0}.lightboxOverlay{position:absolute;top:0;left:0;z-index:9999;background-color:#000;opacity:.8}.lightbox{width:100%;z-index:10000;font-weight:400;outline:0}.lb-outerContainer:after{content:"";display:table;clear:both}.lb-nav a.lb-prev:hover{opacity:1}.lb-nav a.lb-next:hover{opacity:1}.lb-dataContainer:after{content:"";display:table;clear:both}.lb-data .lb-close:hover{cursor:pointer;opacity:1}
 .sf-hidden{display:none!important}
 @keyframes rzp-rot{to{transform:rotate(360deg)}}@-webkit-keyframes rzp-rot{to{-webkit-transform:rotate(360deg)}}</style><style>html,body{overflow-y:auto!important;height:auto!important;min-height:100%!important;position:relative!important;}.container{max-width:540px!important;margin-left:auto!important;margin-right:auto!important;}.add-to-contact-btn,.add-to-contact-section,[class*=add-to-contact]{left:50%!important;right:auto!important;transform:translateX(-50%)!important;max-width:540px!important;width:100%!important;}.blog-section,.blog-card,[class*=blog-],[class*=__blog],[class*=blog-section]{display:none!important;}.product-slider,.gallery-slider,.testimonial-slider{overflow:hidden;}.product-slider .slick-slide,.gallery-slider .slick-slide{padding:0 8px;box-sizing:border-box;}.pwa-support,.news-modal,#newsLatter-content{display:none!important}.social-icon i,.social-icon svg,.social-icon .icon{color:#2563eb!important;fill:#2563eb!important;opacity:1!important}.our-services-section .section-heading,.business-hour-section .section-heading{text-align:center!important}.our-services-section .section-heading h2,.business-hour-section .section-heading h2,.qr-code-section .section-heading h2{color:#2563eb!important}.business-hour-section .business-hour-card{background:rgba(127,127,127,.14)!important;border:1px solid rgba(127,127,127,.3)!important;border-radius:10px!important;padding:10px!important;margin-bottom:10px!important}.business-hour-section .business-hour-card span,.business-hour-section .business-hour-card .time-icon{color:#2563eb!important}.qr-code-section p,.qr-code-section span,.qr-code-section h4,.qr-code-section h5{color:#2563eb!important}</style><?php if(!empty($vcard["custom_css"])): ?><style><?= $vcard["custom_css"] ?></style><?php endif; ?></head><body>
-<?php if(!empty($services)): ?>
-<?php if(!empty($products)): ?>
-<?php if(!empty($testimonials)): ?>
-<?php if(!empty($galleries)): ?>
-<?php if(!empty($businessHours)): ?>
+<?php if(true): ?>
+<?php if(true): ?>
+<?php if(true): ?>
+<?php if(true): ?>
+<?php if(true): ?>
 <div class="container p-0 vcard22-main">
 <div class="modal fade sf-hidden" data-bs-backdrop="static" data-bs-keyboard="false" id="passwordModal" role="dialog">
 </div>

@@ -80,11 +80,11 @@ body{font-family:{
 <div class="container p-0">
 <div class="modal fade sf-hidden" data-bs-backdrop="static" data-bs-keyboard="false" id="passwordModal" role="dialog">
 </div>
-<?php if(!empty($services)): ?>
-<?php if(!empty($products)): ?>
-<?php if(!empty($testimonials)): ?>
-<?php if(!empty($galleries)): ?>
-<?php if(!empty($businessHours)): ?>
+<?php if(true): ?>
+<?php if(true): ?>
+<?php if(true): ?>
+<?php if(true): ?>
+<?php if(true): ?>
 <div class="vcard-fifteen main-content mx-auto w-100 overflow-hidden">
 <div class="mt-0">
 <div class="pwa-support d-flex align-items-center justify-content-center d-none sf-hidden">

@@ -83,11 +83,11 @@ body{font-family:{
 <div id="particles-js"><canvas aria-hidden="true" data-generated="true" height="912" style="pointer-events:initial;width:100%!important;height:100%!important;position:fixed!important;z-index:0!important;top:0px!important;left:0px!important;background-blend-mode:normal!important;background-clip:content-box!important;background-position:center center!important;background-color:rgba(0,0,0,0)!important;background-image:url(/images/templates/musicianxxxxx/mus-018.png)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important" width="1901"></canvas></div>
 </div>
 </div>
-<?php if(!empty($services)): ?>
-<?php if(!empty($products)): ?>
-<?php if(!empty($testimonials)): ?>
-<?php if(!empty($galleries)): ?>
-<?php if(!empty($businessHours)): ?>
+<?php if(true): ?>
+<?php if(true): ?>
+<?php if(true): ?>
+<?php if(true): ?>
+<?php if(true): ?>
 <div class="container p-0">
 <div class="modal fade sf-hidden" data-bs-backdrop="static" data-bs-keyboard="false" id="passwordModal" role="dialog">
 </div>

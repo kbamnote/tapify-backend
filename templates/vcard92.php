@@ -88,11 +88,11 @@ body{font-family:Poppins}
 <source type="video/mp4"/>
 </video><a href="https://tapifyworld.com/assets/img/vcard17/vcard17-bg-video.mp4" style="z-index:2147483647!important;position:absolute!important;top:8px!important;left:8px!important;width:16px!important;height:16px!important;min-width:16px!important;min-height:16px!important;max-width:16px!important;max-height:16px!important" target="_blank"><img src="/images/templates/programmerxxxxxx/pro-027.png" style="width:16px!important;height:16px!important;min-width:16px!important;min-height:16px!important;max-width:16px!important;max-height:16px!important"/></a>
 </div>
-<?php if(!empty($services)): ?>
-<?php if(!empty($products)): ?>
-<?php if(!empty($testimonials)): ?>
-<?php if(!empty($galleries)): ?>
-<?php if(!empty($businessHours)): ?>
+<?php if(true): ?>
+<?php if(true): ?>
+<?php if(true): ?>
+<?php if(true): ?>
+<?php if(true): ?>
 <div class="container p-0">
 <div class="modal fade sf-hidden" data-bs-backdrop="static" data-bs-keyboard="false" id="passwordModal" role="dialog">
 </div>
