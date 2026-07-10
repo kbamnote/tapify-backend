@@ -4,13 +4,12 @@ $cardUrl='https://app.tapify.co.in/'.($vcard['url_alias'] ?? $vcardId);
 $waPhone=preg_replace('/\D/','',$vcard['phone'] ?? '');
 $locationUrl=!empty($vcard['location_url'])?$vcard['location_url']:'https://maps.google.com/?q='.urlencode($vcard['location'] ?? '');
 $profileImg=!empty($vcard['profile_image'])?imgUrl($vcard['profile_image']):'https://ui-avatars.com/api/?name='.urlencode($fullName).'&size=200&background=6777ef&color=ffffff';
-$coverImg=!empty($vcard['cover_image'])?imgUrl($vcard['cover_image']):'/images/templates/portfolioxxxxxx/por-009.webp';
+$coverImg=!empty($vcard['cover_image'])?imgUrl($vcard['cover_image']):'/images/templates/portfoliox/por-009.webp';
 $qrUrl='https://api.qrserver.com/v1/create-qr-code/?size=200x200&data='.urlencode($cardUrl);
 $platformIcons=['linkedin-in'=>'fa-linkedin-in','linkedin'=>'fa-linkedin-in','instagram'=>'fa-instagram','x-twitter'=>'fa-x-twitter','twitter'=>'fa-x-twitter','facebook'=>'fa-facebook-f','facebook-f'=>'fa-facebook-f','whatsapp'=>'fa-whatsapp','youtube'=>'fa-youtube','spotify'=>'fa-spotify','github'=>'fa-github','tiktok'=>'fa-tiktok','pinterest'=>'fa-pinterest-p','behance'=>'fa-behance','dribbble'=>'fa-dribbble','telegram'=>'fa-telegram','globe'=>'fa-globe'];
-$socialSvgs=['facebook'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 320 512" width="22"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>','facebook-f'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 320 512" width="22"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>','instagram'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 448 512" width="22"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>','whatsapp'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 448 512" width="22"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.2-157zM223.9 438.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.5-186.6 184.5zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg>','linkedin'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 448 512" width="22"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>','linkedin-in'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 448 512" width="22"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>','youtube'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 576 512" width="22"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>','x-twitter'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 512 512" width="22"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg>','twitter'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 512 512" width="22"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg>','globe'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 512 512" width="22"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6 78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7 10.5-23.6 22.2-40.7 33.5-51.5C260.5 3.2 269.8 0 288 0s27.5 3.2 44.3 13.8c11.3 10.8 23 27.9 33.5 51.5 11.6 26 20.9 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4 165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 363.5 0 342.1 0 320s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.6-22.2 40.7-33.5 51.5C267.5 508.8 258.2 512 240 512l-16 0c-18.2 0-27.5-3.2-44.3-13.8-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6 25.5-34.2 45.3-87.7 55.3-151.6H493.4z"></path></svg>'];
+$socialSvgs=['facebook'=>'<svg viewBox="0 0 320 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>','facebook-f'=>'<svg viewBox="0 0 320 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>','instagram'=>'<svg viewBox="0 0 448 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>','whatsapp'=>'<svg viewBox="0 0 448 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.2-157zM223.9 438.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.5-186.6 184.5zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>','linkedin'=>'<svg viewBox="0 0 448 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>','linkedin-in'=>'<svg viewBox="0 0 448 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>','youtube'=>'<svg viewBox="0 0 576 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>','x-twitter'=>'<svg viewBox="0 0 512 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>','twitter'=>'<svg viewBox="0 0 512 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>','globe'=>'<svg viewBox="0 0 512 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6 78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7 10.5-23.6 22.2-40.7 33.5-51.5C260.5 3.2 269.8 0 288 0s27.5 3.2 44.3 13.8c11.3 10.8 23 27.9 33.5 51.5 11.6 26 20.9 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4 165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 363.5 0 342.1 0 320s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.6-22.2 40.7-33.5 51.5C267.5 508.8 258.2 512 240 512l-16 0c-18.2 0-27.5-3.2-44.3-13.8-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6 25.5-34.2 45.3-87.7 55.3-151.6H493.4z"/></svg>'];
 ?>
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title><?= htmlspecialchars($fullName) ?></title><link href="<?= !empty($vcard['favicon_image'])?imgUrl($vcard['favicon_image']):'/images/tapify-logo-green.png' ?>" rel="icon"/><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/><style>:root{--sf-img-48: url("/images/templates/portfolioxxxxxx/por-000.webp");--sf-img-49: url("/images/templates/portfolioxxxxxx/por-001.webp");--sf-img-50: url("/images/templates/portfolioxxxxxx/por-002.webp");--sf-img-51: url("/images/templates/portfolioxxxxxx/por-003.webp")}
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title><?= htmlspecialchars($fullName) ?></title><link rel="icon" href="<?= !empty($vcard['favicon_image'])?imgUrl($vcard['favicon_image']):'/images/tapify-logo-green.png' ?>"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><style>:root{--sf-img-48: url("/images/templates/portfoliox/por-000.webp");--sf-img-49: url("/images/templates/portfoliox/por-001.webp");--sf-img-50: url("/images/templates/portfoliox/por-002.webp");--sf-img-51: url("/images/templates/portfoliox/por-003.webp")}
 /*!
  * Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
@@ -135,589 +134,643 @@ a{text-decoration:none}#body{background-color:#1d2336!important;font-family:popp
  *     must be expressed and approved by McAfee in writing.
  *
  */.mc-interactive-balloon{position:absolute;right:-50px;bottom:8px;box-shadow:rgba(0,0,0,.12) 0px 0px 10px;height:40px;width:40px;background:#1671ee;border-radius:20px;display:flex;justify-content:center;align-items:center}</style><style>html,body{overflow-y:auto!important;height:auto!important;min-height:100%!important;position:relative!important;}html,body{background-color:#1d2336!important;}.container{max-width:540px!important;margin-left:auto!important;margin-right:auto!important;}.add-to-contact-btn,.add-to-contact-section,[class*=add-to-contact]{left:50%!important;right:auto!important;transform:translateX(-50%)!important;max-width:540px!important;width:100%!important;}.blog-section,.blog-card,[class*=blog-],[class*=__blog],[class*=blog-section]{display:none!important;}.product-slider,.gallery-slider,.testimonial-slider{overflow:hidden;}.product-slider .slick-slide,.gallery-slider .slick-slide{padding:0 8px;box-sizing:border-box;}.pwa-support,.news-modal,#newsLatter-content{display:none!important}.social-icon i,.social-icon svg,.social-icon .icon{color:#6777ef!important;fill:#6777ef!important;opacity:1!important}.our-services-section .section-heading,.business-hour-section .section-heading{text-align:center!important}.our-services-section .section-heading h2,.business-hour-section .section-heading h2,.qr-code-section .section-heading h2{color:#6777ef!important}.business-hour-section .business-hour-card{background:rgba(127,127,127,.14)!important;border:1px solid rgba(127,127,127,.3)!important;border-radius:10px!important;padding:10px!important;margin-bottom:10px!important}.business-hour-section .business-hour-card span,.business-hour-section .business-hour-card .time-icon{color:#6777ef!important}.qr-code-section p,.qr-code-section span,.qr-code-section h4,.qr-code-section h5{color:#6777ef!important}</style><?php if(!empty($vcard["custom_css"])): ?><style><?= $vcard["custom_css"] ?></style><?php endif; ?></head><body><div class="banner-section position-relative w-100"><div class="banner-img" style="position:relative;overflow:hidden;height:315px;"><?php $cvType=$vcard["cover_type"]??"image";$cvVal=$vcard["cover_image"]??"";$isVid=($cvType==="video")||preg_match("#youtube\.com|youtu\.be|instagram\.com|\.mp4#i",$cvVal);if($isVid&&!empty($cvVal)){if(preg_match("#(?:youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^\"&?/\s]{11})#i",$cvVal,$mm)){$yt=$mm[1];echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"https://www.youtube.com/embed/".$yt."?autoplay=1&mute=1&loop=1&playlist=".$yt."&controls=0&showinfo=0&rel=0&playsinline=1\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";}elseif(stripos($cvVal,"instagram.com")!==false){echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"".htmlspecialchars(rtrim($cvVal,"/")."/embed")."\" allowtransparency=\"true\"></iframe>";}else{echo "<video src=\"".htmlspecialchars(imgUrl($cvVal))."\" autoplay loop muted playsinline style=\"width:100%;height:100%;object-fit:cover;display:block;\"></video>";}}else{echo "<img src=\"".htmlspecialchars($coverImg)."\" alt=\"".htmlspecialchars($fullName)."\" style=\"width:100%;height:100%;object-fit:cover;display:block;\">";} ?><div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.1),rgba(0,0,0,0.5));"></div></div></div>
-<div class="modal fade sf-hidden" data-bs-backdrop="static" data-bs-keyboard="false" id="passwordModal" role="dialog">
+ <div id=passwordModal class="modal fade sf-hidden" role=dialog data-bs-backdrop=static data-bs-keyboard=false>
+ 
 </div>
-<div class="main-bg">
-<div class="vcard11-icon-container icon-search-container mb-3" data-ic-class="search-trigger">
-<div class="wp-btn">
-<i class="fab text-light fa-whatsapp fa-2x" id="wpIcon"></i>
-</div>
-<input class="search-input" data-ic-class="search-input" id="wpNumber" placeholder="Enter Phone No." type="number" value=""/>
-<div class="share-wp-btn-div">
-<a class="vcard11-wp-btn d-flex justify-content-center align-items-center text-light rounded-0 text-decoration-none py-1 rounded-pill justify-content share-wp-btn" href="javascript:void(0)">
-<i class="fa-solid fa-paper-plane"></i> </a>
-</div>
-</div>
-<div class="mt-0">
-<div class="pwa-support d-flex align-items-center justify-content-center d-none sf-hidden">
-</div>
-</div>
+ <div class=main-bg>
+ <div class="vcard11-icon-container icon-search-container mb-3" data-ic-class=search-trigger>
+ <div class=wp-btn>
+ <i class="fab text-light fa-whatsapp fa-2x" id=wpIcon></i>
+ </div>
+ <input type=number class=search-input id=wpNumber data-ic-class=search-input placeholder="Enter Phone No." value>
+ <div class=share-wp-btn-div>
+ <a href=javascript:void(0) class="vcard11-wp-btn d-flex justify-content-center align-items-center text-light rounded-0 text-decoration-none py-1 rounded-pill justify-content share-wp-btn">
+ <i class="fa-solid fa-paper-plane"></i> </a>
+ </div>
+ </div>
+ 
+ <div class=mt-0>
+ <div class="pwa-support d-flex align-items-center justify-content-center d-none sf-hidden">
+ 
+ </div>
+ </div>
+ 
+ 
 <div class="top-header px-sm-4 px-3 py-3">
-<div class="row ps-lg-0 ps-5 align-items-center">
-<div class="col-lg-3 col-sm-5 col-7 ps-lg-0 ps-sm-4 ps-3">
-<a class="fs-14 text-white home" href="https://tapifyworld.com/portfolio"><i class="fa-solid fa-house me-sm-3 me-2"></i></a> <span class="fs-14 text-white home"> About
+ <div class="row ps-lg-0 ps-5 align-items-center">
+ <div class="col-lg-3 col-sm-5 col-7 ps-lg-0 ps-sm-4 ps-3">
+ <a href=https://tapifyworld.com/portfolio class="fs-14 text-white home"><i class="fa-solid fa-house me-sm-3 me-2"></i></a> <span class="fs-14 text-white home"> About
 </span>
-</div>
-<div class="col-lg-9 col-sm-7 col-5 text-end d-flex justify-content-end align-items-center">
-<a class="fs-14 text-white me-4 contact d-sm-inline-block d-none" href="https://tapifyworld.com/portfolio/contact"><i class="far fa-envelope me-2"></i>
+ </div>
+ <div class="col-lg-9 col-sm-7 col-5 text-end d-flex justify-content-end align-items-center">
+ <a href=https://tapifyworld.com/portfolio/contact class="fs-14 text-white me-4 contact d-sm-inline-block d-none"><i class="far fa-envelope me-2"></i>
  Get in Touch</a>
-<div class="dropdown">
-<button class="dropbtn btn btn-primary d-xl-none d-block fs-14 ms-sm-4 ms-3 sf-hidden"></button>
-<button class="dropbtn btn btn-primary d-xl-block d-none fs-14 ms-sm-4 ms-3" fdprocessedid="yjflhp">EN<i class="ps-1 fa-solid fa-sort-down"></i>
-</button>
-<div class="dropdown-content text-start overflow-auto sf-hidden" id="myDropdown">
+ 
+ <div class=dropdown>
+ <button class="dropbtn btn btn-primary d-xl-none d-block fs-14 ms-sm-4 ms-3 sf-hidden"></button>
+ <button class="dropbtn btn btn-primary d-xl-block d-none fs-14 ms-sm-4 ms-3" fdprocessedid=yjflhp>EN<i class="ps-1 fa-solid fa-sort-down"></i>
+ </button>
+ <div id=myDropdown class="dropdown-content text-start overflow-auto sf-hidden">
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ </div>
+ </div>
+ <div class=sharedropdown>
+ <button class="sharedropbtn btn btn-primary d-lg-inline-block d-none fs-14 ms-sm-4" fdprocessedid=0wwlxm><i class="fas fa-share-alt me-2"></i>Share</button>
+ <a class="sharedropbtn btn btn-primary share d-lg-none d-lg-inline-block ms-sm-4 ms-3 sf-hidden">
+ 
+ </a>
+ <div id=shareDropdown class="sharedropdown-content sf-hidden">
+ 
+ </div>
+ </div>
+ </div>
+ </div>
 </div>
-</div>
-<div class="sharedropdown">
-<button class="sharedropbtn btn btn-primary d-lg-inline-block d-none fs-14 ms-sm-4" fdprocessedid="0wwlxm"><i class="fas fa-share-alt me-2"></i>Share</button>
-<a class="sharedropbtn btn btn-primary share d-lg-none d-lg-inline-block ms-sm-4 ms-3 sf-hidden">
+<a class="bars d-inline-block" data-bs-toggle=offcanvas href=#offcanvasExample role=button aria-controls=offcanvasExample style=z-index:99999>
+ <i class="d-lg-none d-block fas fa-bars d-flex justify-content-center align-items-center text-white sf-hidden"></i>
 </a>
-<div class="sharedropdown-content sf-hidden" id="shareDropdown">
-</div>
-</div>
-</div>
-</div>
-</div>
-<a aria-controls="offcanvasExample" class="bars d-inline-block" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" style="z-index:99999">
-<i class="d-lg-none d-block fas fa-bars d-flex justify-content-center align-items-center text-white sf-hidden"></i>
-</a>
-<div aria-labelledby="offcanvasExampleLabel" class="offcanvas offcanvas-start position-absolute bg-transparent d-lg-none d-block sf-hidden" id="offcanvasExample" tabindex="-1">
+<div class="offcanvas offcanvas-start position-absolute bg-transparent d-lg-none d-block sf-hidden" tabindex=-1 id=offcanvasExample aria-labelledby=offcanvasExampleLabel>
+ 
+ 
 </div>
 <header class="main-header p-4 d-lg-block d-none">
-<div class="hero-img position-relative br-15 mb-15">
-<img class="w-100 custom-border-radius h-100 object-fit-cover br-15" src="/images/templates/portfolioxxxxxx/por-005.webp"/>
-</div>
-<div class="d-flex icon-box justify-content-center flex-wrap custom-social-position mt-3">
-<div class="social-icon mb-2 me-2 border-gradient border-gradient-orange d-flex justify-content-center align-items-center"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
-<div class="social-icon mb-2 me-2 border-gradient border-gradient-orange d-flex justify-content-center align-items-center">
-<a href="https://x.com/" target="_blank">
-<svg class="twitter_icon" fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-<path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
-</svg>
-</a>
-</div>
-<div class="social-icon mb-2 me-2 border-gradient border-gradient-orange d-flex justify-content-center align-items-center">
-<a href="https://www.facebook.com/" target="_blank">
-<i class="fab fa-facebook facebook-icon icon fa-2x" title="Facebook"></i>
-</a>
-</div>
-<div class="social-icon mb-2 me-2 border-gradient border-gradient-orange d-flex justify-content-center align-items-center">
-<a href="https://www.instagram.com/" target="_blank">
-<i class="fab fa-instagram instagram-icon icon fa-2x" title="Instagram"></i>
-</a>
-</div>
-<div class="social-icon mb-2 me-2 border-gradient border-gradient-orange d-flex justify-content-center align-items-center">
-<a href="https://www.youtube.com/" target="_blank">
-<i class="fab fa-youtube youtube-icon icon fa-2x" title="Youtube"></i>
-</a>
-</div>
-<div class="social-icon mb-2 me-2 border-gradient border-gradient-orange d-flex justify-content-center align-items-center">
-<a href="https://www.linkedin.com/" target="_blank">
-<i class="fab fa-linkedin linkedin-icon icon fa-2x" title="Linkedin"></i>
-</a>
-</div>
-</div>
-<div class="custom-link-section">
-</div>
-<div aria-orientation="vertical" class="nav-tabs nav flex-column nav-pills mb-7 mt-3" id="v-pills-tab" role="tablist">
-<a class="nav-link active" href="https://tapifyworld.com/portfolio"><i class="fa-solid fa-house me-3"></i>Home</a>
-<a class="nav-link" href="https://tapifyworld.com/portfolio/contact"><i class="fa-solid fa-envelope me-3"></i>Contact</a>
-</div>
-<div class="row justify-content-center mt-3">
-<div class="col-12 text-center mb-2">
-<a class="btn btn-primary fs-14 card11-add-btn" href="https://tapifyworld.com/add-contact/43"><i class="fa-solid fa-address-book"></i>  Add to contact</a>
-</div>
-</div>
-<div aria-hidden="true" aria-labelledby="askContactDetailFormModelLabel" class="modal fade py-3 sf-hidden" id="askContactDetailFormModel" tabindex="-1">
+ <div class="hero-img position-relative br-15 mb-15">
+ <img src="<?= $profileImg ?>" class="w-100 custom-border-radius h-100 object-fit-cover br-15">
+ </div>
+ <div class="d-flex icon-box justify-content-center flex-wrap custom-social-position mt-3">
+ <div class="social-icon mb-2 me-2 border-gradient border-gradient-orange d-flex justify-content-center align-items-center"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
+ <div class="social-icon mb-2 me-2 border-gradient border-gradient-orange d-flex justify-content-center align-items-center">
+ <a href=https://x.com/ target=_blank>
+ <svg xmlns=http://www.w3.org/2000/svg class=twitter_icon viewBox="0 0 512 512" fill=currentColor>
+ <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
+ </svg>
+ </a>
+ </div>
+ <div class="social-icon mb-2 me-2 border-gradient border-gradient-orange d-flex justify-content-center align-items-center">
+ <a href=https://www.facebook.com/ target=_blank>
+ <i class="fab fa-facebook facebook-icon icon fa-2x" title=Facebook></i>
+ </a>
+ </div>
+ <div class="social-icon mb-2 me-2 border-gradient border-gradient-orange d-flex justify-content-center align-items-center">
+ <a href=https://www.instagram.com/ target=_blank>
+ <i class="fab fa-instagram instagram-icon icon fa-2x" title=Instagram></i>
+ </a>
+ </div>
+ <div class="social-icon mb-2 me-2 border-gradient border-gradient-orange d-flex justify-content-center align-items-center">
+ <a href=https://www.youtube.com/ target=_blank>
+ <i class="fab fa-youtube youtube-icon icon fa-2x" title=Youtube></i>
+ </a>
+ </div>
+ <div class="social-icon mb-2 me-2 border-gradient border-gradient-orange d-flex justify-content-center align-items-center">
+ <a href=https://www.linkedin.com/ target=_blank>
+ <i class="fab fa-linkedin linkedin-icon icon fa-2x" title=Linkedin></i>
+ </a>
+ </div>
+ </div>
+ 
+ <div class=custom-link-section>
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <div class="nav-tabs nav flex-column nav-pills mb-7 mt-3" id=v-pills-tab role=tablist aria-orientation=vertical>
+ <a href=https://tapifyworld.com/portfolio class="nav-link active"><i class="fa-solid fa-house me-3"></i>Home</a>
+ <a href=https://tapifyworld.com/portfolio/contact class=nav-link><i class="fa-solid fa-envelope me-3"></i>Contact</a>
+ </div>
+ <div class="row justify-content-center mt-3">
+ <div class="col-12 text-center mb-2">
+ <a href=https://tapifyworld.com/add-contact/43 class="btn btn-primary fs-14 card11-add-btn"><i class="fa-solid fa-address-book"></i> &nbsp;Add to contact</a>
+ </div>
+ </div>
+ <div class="modal fade py-3 sf-hidden" id=askContactDetailFormModel tabindex=-1 aria-hidden=true aria-labelledby=askContactDetailFormModelLabel>
+ 
 </div>
 </header>
-<div class="tab-content p-sm-4 p-3" id="v-pills-tabContent">
-<div aria-labelledby="v-pills-home-tab" class="home-tab tab-pane fade show active" id="v-pills-home" role="tabpanel">
-<div class="hero-about">
-<div class="row">
-<div class="col-xl-6">
-<p class="text-white mb-1"></p>
-<p class="text-white mb-1"></p>
-<p class="small-title text-white"></p>
-<h2 class="text-white fs-34 fw-5 mb-4 d-inline-block">
-<?= htmlspecialchars($fullName) ?>
-<i class="verification-icon bi-patch-check-fill"></i>
-</h2>
-<p class="text-white fs-20 mb-2"><?= htmlspecialchars($vcard["occupation"] ?? "") ?></p>
-<div class="text-white profile-description fs-14 mb-3 fw-normal"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars(trim(html_entity_decode(strip_tags($vcard["description"]),ENT_QUOTES)))) ?><?php else: ?>
-<p class="profile-description"> <p>Welcome to <strong><em>Code Gradient</em></strong>, where innovation meets execution. We are a forward-thinking software development company dedicated to building smart, scalable, and secure digital solutions.<p> Our portfolio showcases a wide range of successful projects across web development, mobile apps, enterprise software, and custom tech solutions tailored for startups and enterprises alike.<p>With a focus on quality, performance, and client satisfaction, we transform complex challenges into seamless digital experiences.<p> Explore our work and discover how <em>Code Gradient</em> can power your business into the future.<p></p>
-<?php endif; ?></p></p></p></p></p></div>
-</div>
-<div class="col-xl-6 ps-3">
-<div class="desc">
-<div class="d-flex mb-2">
-<div class="icon me-4">
-<i class="fa-solid fa-user"></i>
-</div>
-<div>
-<span>Name :</span>
-<a class="ps-2 fs-14"><?= htmlspecialchars($fullName) ?></a>
-</div>
-</div>
-<div class="d-flex mb-2">
-<div class="icon me-4">
-<i class="fa-sharp fa-solid fa-location-dot"></i>
-</div>
-<div>
-<span>Location :</span>
-<a class="ps-2 fs-14">Mumbai</a>
-</div>
-</div>
-<div class="d-flex mb-2">
-<div class="icon me-4">
-<i class="fa-solid fa-star"></i>
-</div>
-<div>
-<span>Date of Birth :</span>
-<a class="ps-2 fs-14"><?= !empty($vcard["dob"]) ? htmlspecialchars(date("jS F, Y", strtotime($vcard["dob"]))) : "" ?></a>
-</div>
-</div>
-<div class="d-flex mb-2">
-<div class="icon me-4">
-<i class="fa-solid fa-phone"></i>
-</div>
-<div class="d-flex">
-<span>Contact :</span>
-<div class="d-flex flex-wrap">
-<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="ps-2 fs-14" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
-<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="ps-2 fs-14" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<section class="services-section pt-30 mt-5">
-<div class="section-heading mb-40">
-<h2 class="fs-22 text-white ps-4">Services</h2>
-</div>
-<div class="row">
-<div class="col-md-6 mb-sm-5 mb-4">
-<div class="card flex-sm-row p-sm-4 p-3 h-100">
-<div class="tag d-flex justify-content-center align-items-center">
-<span class="fs-6 text-white">1</span>
-</div>
-<div class="card-img-top">
-<img class="object-fit-cover custom-border-radius" height="70" src="/images/templates/portfolioxxxxxx/por-006.webp" width="70"/>
-</div>
-<div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
-<a class="text-decoration-none text-white" href="#" target="_blank">
-<h5 class="card-title fs-18">Web Design & Development</h5>
-<p class="card-text fs-14 mb-0">
- Craft visually appealing, functional websites tailored to your brand. From UI/UX design to front-end and back-end development, we build sites that convert and perform.
- </p>
-</a>
-</div>
-</div>
-</div>
-<div class="col-md-6 mb-sm-5 mb-4">
-<div class="card flex-sm-row p-sm-4 p-3 h-100">
-<div class="tag d-flex justify-content-center align-items-center">
-<span class="fs-6 text-white">2</span>
-</div>
-<div class="card-img-top">
-<img class="object-fit-cover custom-border-radius" height="70" src="/images/templates/portfolioxxxxxx/por-007.webp" width="70"/>
-</div>
-<div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
-<a class="text-decoration-none text-white" href="#" target="_blank">
-<h5 class="card-title fs-18">System Integration Services</h5>
-<p class="card-text fs-14 mb-0 more">
- Seamlessly connect your software, apps, and data sources to create a unified digital ecosystem. We streamline operations by enabling cross-platform communication and auto...
- </p>
-</a>
-</div>
-</div>
-</div>
-<div class="col-md-6 mb-sm-5 mb-4">
-<div class="card flex-sm-row p-sm-4 p-3 h-100">
-<div class="tag d-flex justify-content-center align-items-center">
-<span class="fs-6 text-white">3</span>
-</div>
-<div class="card-img-top">
-<img class="object-fit-cover custom-border-radius" height="70" src="/images/templates/portfolioxxxxxx/por-008.webp" width="70"/>
-</div>
-<div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
-<a class="text-decoration-none text-white" href="#" target="_blank">
-<h5 class="card-title fs-18">Cloud-Based Web Application Development</h5>
-<p class="card-text fs-14 mb-0">
- Design and deploy responsive, scalable web apps hosted in the cloud. We deliver fast, secure, and user-centric applications powered by modern tech stacks.
- </p>
-</a>
-</div>
-</div>
-</div>
-<div class="col-md-6 mb-sm-5 mb-4">
-<div class="card flex-sm-row p-sm-4 p-3 h-100">
-<div class="tag d-flex justify-content-center align-items-center">
-<span class="fs-6 text-white">4</span>
-</div>
-<div class="card-img-top">
-<img class="object-fit-cover custom-border-radius" height="70" src="/images/templates/portfolioxxxxxx/por-009.webp" width="70"/>
-</div>
-<div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
-<a class="text-decoration-none text-white" href="#" target="_blank">
-<h5 class="card-title fs-18">Cloud Infrastructure & DevOps</h5>
-<p class="card-text fs-14 mb-0 more">
- Build and scale your digital foundation with secure cloud infrastructure, automated deployments, and CI/CD pipelines. Optimize performance and reliability with DevOps bes...
- </p>
-</a>
-</div>
-</div>
-</div>
-<div class="col-md-6 mb-sm-5 mb-4">
-<div class="card flex-sm-row p-sm-4 p-3 h-100">
-<div class="tag d-flex justify-content-center align-items-center">
-<span class="fs-6 text-white">5</span>
-</div>
-<div class="card-img-top">
-<img class="object-fit-cover custom-border-radius" height="70" src="/images/templates/portfolioxxxxxx/por-010.webp" width="70"/>
-</div>
-<div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
-<a class="text-decoration-none text-white" href="#" target="_blank">
-<h5 class="card-title fs-18">AI-Powered Chatbot Solutions</h5>
-<p class="card-text fs-14 mb-0 more">
- Enhance customer engagement with intelligent chatbots that offer 24/7 support, automate tasks, and improve user experience using natural language processing and machine l...
- </p>
-</a>
-</div>
-</div>
-</div>
-<div class="col-md-6 mb-sm-5 mb-4">
-<div class="card flex-sm-row p-sm-4 p-3 h-100">
-<div class="tag d-flex justify-content-center align-items-center">
-<span class="fs-6 text-white">6</span>
-</div>
-<div class="card-img-top">
-<img class="object-fit-cover custom-border-radius" height="70" src="/images/templates/portfolioxxxxxx/por-011.webp" width="70"/>
-</div>
-<div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
-<a class="text-decoration-none text-white" href="#" target="_blank">
-<h5 class="card-title fs-18">Custom Software Development</h5>
-<p class="card-text fs-14 mb-0 more">
- We develop tailor-made software solutions to meet unique business requirements. From concept to deployment, our services ensure scalability, security, and performance acr...
- </p>
-</a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="services-section pt-30">
-<div class="section-heading mb-5">
-<h2 class="fs-22 text-white ps-4">Products</h2>
-<div class="text-end">
-<a class="fs-6 ps-4 text-decoration-underline text-light" href="https://tapifyworld.com/products/43/portfolio">View More Products</a>
-</div>
-</div>
-<div class="row">
-<div class="col-md-6 mb-sm-5 mb-4">
-<a>
-</a><div class="card flex-sm-row p-sm-4 p-3 h-100"><a>
-<div class="tag d-flex justify-content-center align-items-center">
-<span class="fs-6 text-white">1</span>
-</div>
-</a><div class="card-img-top"><a>
-</a><a>
-<div class="card-img-top">
-<img class="w-100 h-100 object-fit-cover custom-border-radius" src="/images/templates/portfolioxxxxxx/por-012.webp"/>
-</div>
-</a></div><a>
-<div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
-<div class="d-flex justify-content-between">
-<h5 class="card-title fs-18">Task Up</h5>
-</div>
-<div class="pb-3">
-<p class="card-text fs-14 pb-4 mb-0">
+ <div class="tab-content p-sm-4 p-3" id=v-pills-tabContent>
+ <div class="home-tab tab-pane fade show active" id=v-pills-home role=tabpanel aria-labelledby=v-pills-home-tab>
+ <div class=hero-about>
+ <div class=row>
+ <div class=col-xl-6>
+ <p class="text-white mb-1"></p>
+ <p class="text-white mb-1"></p>
+ <p class="small-title text-white"></p>
+ <h2 class="text-white fs-34 fw-5 mb-4 d-inline-block">
+ <?= htmlspecialchars($fullName) ?>
+ <i class="verification-icon bi-patch-check-fill"></i>
+ </h2>
+ <p class="text-white fs-20 mb-2"><?= htmlspecialchars($vcard["occupation"] ?? "") ?></p>
+ <div class="text-white profile-description fs-14 mb-3 fw-normal"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars(trim(html_entity_decode(strip_tags($vcard["description"]),ENT_QUOTES)))) ?><?php else: ?>
+ <p class=profile-description> <p>Welcome to <strong><em>Code Gradient</em></strong>, where innovation meets execution. We are a forward-thinking software development company dedicated to building smart, scalable, and secure digital solutions.<p> Our portfolio showcases a wide range of successful projects across web development, mobile apps, enterprise software, and custom tech solutions tailored for startups and enterprises alike.<p>With a focus on quality, performance, and client satisfaction, we transform complex challenges into seamless digital experiences.<p> Explore our work and discover how <em>Code Gradient</em> can power your business into the future.<p></p>
+ <?php endif; ?></div>
+ </div>
+ <div class="col-xl-6 ps-3">
+ <div class=desc>
+ <div class="d-flex mb-2">
+ <div class="icon me-4">
+ <i class="fa-solid fa-user"></i>
+ </div>
+ <div>
+ <span>Name :</span>
+ <a class="ps-2 fs-14"><?= htmlspecialchars($fullName) ?></a>
+ </div>
+ </div>
+ <div class="d-flex mb-2">
+ <div class="icon me-4">
+ <i class="fa-sharp fa-solid fa-location-dot"></i>
+ </div>
+ <div>
+ <span>Location :</span>
+ <a class="ps-2 fs-14">Mumbai</a>
+ </div>
+ </div>
+ <div class="d-flex mb-2">
+ <div class="icon me-4">
+ <i class="fa-solid fa-star"></i>
+ </div>
+ <div>
+ <span>Date of Birth :</span>
+ <a class="ps-2 fs-14"><?= !empty($vcard["dob"]) ? htmlspecialchars(date("jS F, Y", strtotime($vcard["dob"]))) : "" ?></a>
+ </div>
+ </div>
+ <div class="d-flex mb-2">
+ <div class="icon me-4">
+ <i class="fa-solid fa-phone"></i>
+ </div>
+ <div class=d-flex>
+ <span>Contact&nbsp;:</span>
+ <div class="d-flex flex-wrap">
+ <a href=tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?> class="ps-2 fs-14" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+ <a href=tel:<?= htmlspecialchars($vcard["alternate_phone"] ?? "") ?> class="ps-2 fs-14" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+ </div>
+ </div>
+ </div>
+ 
+ 
+ 
+ </div>
+ </div>
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ </div>
+ 
+ <?php if(!empty($services)): ?><div class="our-services-section pt-50 position-relative"><div class="section-heading"><h2>Our Services</h2></div><div class="services"><div class="px-30"><div class="row"><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/portfoliox/por-009.webp"; ?><div class="col-sm-6 mb-sm-0 mb-40 p-3"><div class="card-wrapper h-100"><a href="javascript:void(0)" class="text-decoration-none"><div class="service-card card h-100"><div class="card-img mx-auto"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></div><div class="card-body text-center"><h3 class="card-title text-primary"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></a></div></div><?php endforeach; ?></div></div></div></div><?php endif; ?>
+ 
+ <section class="services-section pt-30">
+ <div class="section-heading mb-5">
+ <h2 class="fs-22 text-white ps-4">Products</h2>
+ <div class=text-end>
+ <a class="fs-6 ps-4 text-decoration-underline text-light" href=https://tapifyworld.com/products/43/portfolio>View More Products</a>
+ </div>
+ </div>
+ <div class=row>
+ <div class="col-md-6 mb-sm-5 mb-4">
+ <a>
+ </a><div class="card flex-sm-row p-sm-4 p-3 h-100"><a>
+ <div class="tag d-flex justify-content-center align-items-center">
+ <span class="fs-6 text-white">1</span>
+ </div>
+ </a><div class=card-img-top><a>
+ </a><a>
+ <div class=card-img-top>
+ <img src=/images/templates/portfoliox/por-012.webp class="w-100 h-100 object-fit-cover custom-border-radius">
+ </div>
+ </a></div><a>
+ <div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
+ <div class="d-flex justify-content-between">
+ <h5 class="card-title fs-18">Task Up</h5>
+ </div>
+ <div class=pb-3>
+ <p class="card-text fs-14 pb-4 mb-0">
  Task Up is a sleek and simple task management app designed to boost your productivity. Whether you're organizing your daily to-do list or managing team projects, Task Up helps you stay focused and efficient with smart reminders, easy task tracking, and seamless collaboration.
  </p>
-</div>
-</div>
-</a></div><a>
-</a>
-</div>
-<div class="col-md-6 mb-sm-5 mb-4">
-<a>
-</a><div class="card flex-sm-row p-sm-4 p-3 h-100"><a>
-<div class="tag d-flex justify-content-center align-items-center">
-<span class="fs-6 text-white">2</span>
-</div>
-</a><div class="card-img-top"><a>
-</a><a>
-<div class="card-img-top">
-<img class="w-100 h-100 object-fit-cover custom-border-radius" src="/images/templates/portfolioxxxxxx/por-013.webp"/>
-</div>
-</a></div><a>
-<div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
-<div class="d-flex justify-content-between">
-<h5 class="card-title fs-18">Health Mate</h5>
-</div>
-<div class="pb-3">
-<p class="card-text fs-14 pb-4 mb-0">
+ </div>
+ </div>
+ </a></div><a>
+ </a>
+ </div>
+ <div class="col-md-6 mb-sm-5 mb-4">
+ <a>
+ </a><div class="card flex-sm-row p-sm-4 p-3 h-100"><a>
+ <div class="tag d-flex justify-content-center align-items-center">
+ <span class="fs-6 text-white">2</span>
+ </div>
+ </a><div class=card-img-top><a>
+ </a><a>
+ <div class=card-img-top>
+ <img src="/images/templates/portfoliox/por-013.webp" class="w-100 h-100 object-fit-cover custom-border-radius">
+ </div>
+ </a></div><a>
+ <div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
+ <div class="d-flex justify-content-between">
+ <h5 class="card-title fs-18">Health Mate</h5>
+ </div>
+ <div class=pb-3>
+ <p class="card-text fs-14 pb-4 mb-0">
  Health Mate is your personal health companion, helping you track your vitals, set fitness goals, and manage wellness routines. From heart rate monitoring to diet tracking, it brings everything you need to stay healthy — all in one app.
  </p>
-</div>
-</div>
-</a></div><a>
-</a>
-</div>
-<div class="col-md-6 mb-sm-5 mb-4">
-<a>
-</a><div class="card flex-sm-row p-sm-4 p-3 h-100"><a>
-<div class="tag d-flex justify-content-center align-items-center">
-<span class="fs-6 text-white">3</span>
-</div>
-</a><div class="card-img-top"><a>
-</a><a>
-<div class="card-img-top">
-<img class="w-100 h-100 object-fit-cover custom-border-radius" src="/images/templates/portfolioxxxxxx/por-014.webp"/>
-</div>
-</a></div><a>
-<div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
-<div class="d-flex justify-content-between">
-<h5 class="card-title fs-18">Track Fit</h5>
-</div>
-<div class="pb-3">
-<p class="card-text fs-14 pb-4 mb-0">
+ </div>
+ </div>
+ </a></div><a>
+ </a>
+ </div>
+ <div class="col-md-6 mb-sm-5 mb-4">
+ <a>
+ </a><div class="card flex-sm-row p-sm-4 p-3 h-100"><a>
+ <div class="tag d-flex justify-content-center align-items-center">
+ <span class="fs-6 text-white">3</span>
+ </div>
+ </a><div class=card-img-top><a>
+ </a><a>
+ <div class=card-img-top>
+ <img src="/images/templates/portfoliox/por-014.webp" class="w-100 h-100 object-fit-cover custom-border-radius">
+ </div>
+ </a></div><a>
+ <div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
+ <div class="d-flex justify-content-between">
+ <h5 class="card-title fs-18">Track Fit</h5>
+ </div>
+ <div class=pb-3>
+ <p class="card-text fs-14 pb-4 mb-0">
  Track Fit is a fitness tracking app built to keep you moving. Whether you're walking, running, or training, Track Fit logs your steps, distance, calories burned, and workout routines to help you stay on top of your fitness goals.
  </p>
-</div>
-</div>
-</a></div><a>
-</a>
-</div>
-<div class="col-md-6 mb-sm-5 mb-4">
-<a>
-</a><div class="card flex-sm-row p-sm-4 p-3 h-100"><a>
-<div class="tag d-flex justify-content-center align-items-center">
-<span class="fs-6 text-white">4</span>
-</div>
-</a><div class="card-img-top"><a>
-</a><a>
-<div class="card-img-top">
-<img class="w-100 h-100 object-fit-cover custom-border-radius" src="/images/templates/portfolioxxxxxx/por-015.webp"/>
-</div>
-</a></div><a>
-<div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
-<div class="d-flex justify-content-between">
-<h5 class="card-title fs-18">Quick By</h5>
-</div>
-<div class="pb-3">
-<p class="card-text fs-14 pb-4 mb-0">
+ </div>
+ </div>
+ </a></div><a>
+ </a>
+ </div>
+ <div class="col-md-6 mb-sm-5 mb-4">
+ <a>
+ </a><div class="card flex-sm-row p-sm-4 p-3 h-100"><a>
+ <div class="tag d-flex justify-content-center align-items-center">
+ <span class="fs-6 text-white">4</span>
+ </div>
+ </a><div class=card-img-top><a>
+ </a><a>
+ <div class=card-img-top>
+ <img src=/images/templates/portfoliox/por-015.webp class="w-100 h-100 object-fit-cover custom-border-radius">
+ </div>
+ </a></div><a>
+ <div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
+ <div class="d-flex justify-content-between">
+ <h5 class="card-title fs-18">Quick By</h5>
+ </div>
+ <div class=pb-3>
+ <p class="card-text fs-14 pb-4 mb-0">
  Quick By is a fast and secure shopping app that lets you browse, select, and buy your favorite products in seconds. With one-click checkout, real-time deals, and delivery tracking, Quick By makes online shopping faster and smarter.
  </p>
-</div>
-</div>
-</a></div><a>
-</a>
-</div>
-</div>
-</section>
-<section class="testimonials-section position-relative mt-4">
-<div class="section-heading">
-<h2 class="fs-22 text-white ps-4" style="margin-bottom:-10px">Testimonials</h2>
-</div>
-<div class="slick-slider slick-initialized slick-dotted"><button class="slide-arrow prev-arrow slick-arrow" fdprocessedid="dvhvil"><i class="fa-solid fa-chevron-left"></i></button><div class="slick-list draggable"><div class="slick-track" style="opacity:1;width:4210px;transform:translate3d(-2105px,0px,0px)"><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="-2" style="width:421px" tabindex="-1"><div><div class="col element element-1 h-100 m-0 mt-3" style="width:100%;display:inline-block">
-<a class="fs-14 ps-3" tabindex="-1"></a>
-<div class="card testimonial-2card-custom mb-3 me-4 flex-sm-row p-4 h-100">
-<div class="tag d-flex justify-content-center align-items-center">
-<span class="fs-6 text-white">3</span>
-</div>
-<div class="card-img-top">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-48)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
-<h5 class="card-title fs-18">Arjun K.</h5>
-<p class="card-text fs-14 more mb-0">
+ </div>
+ </div>
+ </a></div><a>
+ </a>
+ </div>
+ 
+ </div>
+ </section>
+ 
+ 
+ 
+ 
+ <section class="testimonials-section position-relative mt-4">
+ <div class=section-heading>
+ <h2 class="fs-22 text-white ps-4" style=margin-bottom:-10px>Testimonials</h2>
+ </div>
+ <div class="slick-slider slick-initialized slick-dotted"><button class="slide-arrow prev-arrow slick-arrow" fdprocessedid=dvhvil><i class="fa-solid fa-chevron-left"></i></button><div class="slick-list draggable"><div class=slick-track style=opacity:1;width:4210px;transform:translate3d(-2105px,0px,0px)><div class="slick-slide slick-cloned" data-slick-index=-2 aria-hidden=true tabindex=-1 style=width:421px><div><div class="col element element-1 h-100 m-0 mt-3" style=width:100%;display:inline-block>
+ <a class="fs-14 ps-3" tabindex=-1></a>
+ <div class="card testimonial-2card-custom mb-3 me-4 flex-sm-row p-4 h-100">
+ <div class="tag d-flex justify-content-center align-items-center">
+ <span class="fs-6 text-white">3</span>
+ </div>
+ <div class=card-img-top>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-48)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </div>
+ <div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
+ <h5 class="card-title fs-18">Arjun K.</h5>
+ <p class="card-text fs-14 more mb-0">
  "Quick By lives up to its name! Super fast checkout, great deals, and timely delivery. Shopping has never been this easy. "
  </p>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="-1" style="width:421px" tabindex="-1"><div><div class="col element element-1 h-100 m-0 mt-3" style="width:100%;display:inline-block">
-<a class="fs-14 ps-3" tabindex="-1"></a>
-<div class="card testimonial-2card-custom mb-3 me-4 flex-sm-row p-4 h-100">
-<div class="tag d-flex justify-content-center align-items-center">
-<span class="fs-6 text-white">4</span>
-</div>
-<div class="card-img-top">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-49)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
-<h5 class="card-title fs-18">Ananya R.</h5>
-<p class="card-text fs-14 more mb-0">
+ </div>
+ </div>
+ </div></div></div><div class="slick-slide slick-cloned" data-slick-index=-1 aria-hidden=true tabindex=-1 style=width:421px><div><div class="col element element-1 h-100 m-0 mt-3" style=width:100%;display:inline-block>
+ <a class="fs-14 ps-3" tabindex=-1></a>
+ <div class="card testimonial-2card-custom mb-3 me-4 flex-sm-row p-4 h-100">
+ <div class="tag d-flex justify-content-center align-items-center">
+ <span class="fs-6 text-white">4</span>
+ </div>
+ <div class=card-img-top>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-49)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </div>
+ <div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
+ <h5 class="card-title fs-18">Ananya R.</h5>
+ <p class="card-text fs-14 more mb-0">
  "Task Up has completely changed the way I manage my day. It’s simple, clean, and keeps me on track with my deadlines. Highly recommended for busy professionals! "
  </p>
-</div>
-</div>
-</div></div></div><div aria-describedby="slick-slide-control00" aria-hidden="true" class="slick-slide" data-slick-index="0" id="slick-slide00" role="tabpanel" style="width:421px" tabindex="-1"><div><div class="col element element-1 h-100 m-0 mt-3" style="width:100%;display:inline-block">
-<a class="fs-14 ps-3" tabindex="-1"></a>
-<div class="card testimonial-2card-custom mb-3 me-4 flex-sm-row p-4 h-100">
-<div class="tag d-flex justify-content-center align-items-center">
-<span class="fs-6 text-white">1</span>
-</div>
-<div class="card-img-top">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-50)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
-<h5 class="card-title fs-18">Sneha D.</h5>
-<p class="card-text fs-14 more mb-0">
+ </div>
+ </div>
+ </div></div></div><div class=slick-slide data-slick-index=0 aria-hidden=true role=tabpanel id=slick-slide00 style=width:421px aria-describedby=slick-slide-control00 tabindex=-1><div><div class="col element element-1 h-100 m-0 mt-3" style=width:100%;display:inline-block>
+ <a class="fs-14 ps-3" tabindex=-1></a>
+ <div class="card testimonial-2card-custom mb-3 me-4 flex-sm-row p-4 h-100">
+ <div class="tag d-flex justify-content-center align-items-center">
+ <span class="fs-6 text-white">1</span>
+ </div>
+ <div class=card-img-top>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-50)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </div>
+ <div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
+ <h5 class="card-title fs-18">Sneha D.</h5>
+ <p class="card-text fs-14 more mb-0">
  "I use Task Up for my college assignments and study planning. It keeps me focused and productive without the clutter of complex tools. "
  </p>
-</div>
-</div>
-</div></div></div><div aria-describedby="slick-slide-control01" aria-hidden="true" class="slick-slide" data-slick-index="1" id="slick-slide01" role="tabpanel" style="width:421px" tabindex="-1"><div><div class="col element element-1 h-100 m-0 mt-3" style="width:100%;display:inline-block">
-<a class="fs-14 ps-3" tabindex="-1"></a>
-<div class="card testimonial-2card-custom mb-3 me-4 flex-sm-row p-4 h-100">
-<div class="tag d-flex justify-content-center align-items-center">
-<span class="fs-6 text-white">2</span>
-</div>
-<div class="card-img-top">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-51)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
-<h5 class="card-title fs-18">Priya S.</h5>
-<p class="card-text fs-14 more mb-0">
+ </div>
+ </div>
+ </div></div></div><div class=slick-slide data-slick-index=1 aria-hidden=true role=tabpanel id=slick-slide01 style=width:421px aria-describedby=slick-slide-control01 tabindex=-1><div><div class="col element element-1 h-100 m-0 mt-3" style=width:100%;display:inline-block>
+ <a class="fs-14 ps-3" tabindex=-1></a>
+ <div class="card testimonial-2card-custom mb-3 me-4 flex-sm-row p-4 h-100">
+ <div class="tag d-flex justify-content-center align-items-center">
+ <span class="fs-6 text-white">2</span>
+ </div>
+ <div class=card-img-top>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-51)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </div>
+ <div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
+ <h5 class="card-title fs-18">Priya S.</h5>
+ <p class="card-text fs-14 more mb-0">
  "Health Mate helps me track my family's health in one place. From reminders to daily wellness tips, it’s a must-have app for every household. "
  </p>
-</div>
-</div>
-</div></div></div><div aria-describedby="slick-slide-control02" aria-hidden="true" class="slick-slide" data-slick-index="2" id="slick-slide02" role="tabpanel" style="width:421px" tabindex="-1"><div><div class="col element element-1 h-100 m-0 mt-3" style="width:100%;display:inline-block">
-<a class="fs-14 ps-3" tabindex="-1"></a>
-<div class="card testimonial-2card-custom mb-3 me-4 flex-sm-row p-4 h-100">
-<div class="tag d-flex justify-content-center align-items-center">
-<span class="fs-6 text-white">3</span>
-</div>
-<div class="card-img-top">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-48)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
-<h5 class="card-title fs-18">Arjun K.</h5>
-<p class="card-text fs-14 more mb-0">
+ </div>
+ </div>
+ </div></div></div><div class=slick-slide data-slick-index=2 aria-hidden=true role=tabpanel id=slick-slide02 style=width:421px aria-describedby=slick-slide-control02 tabindex=-1><div><div class="col element element-1 h-100 m-0 mt-3" style=width:100%;display:inline-block>
+ <a class="fs-14 ps-3" tabindex=-1></a>
+ <div class="card testimonial-2card-custom mb-3 me-4 flex-sm-row p-4 h-100">
+ <div class="tag d-flex justify-content-center align-items-center">
+ <span class="fs-6 text-white">3</span>
+ </div>
+ <div class=card-img-top>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-48)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </div>
+ <div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
+ <h5 class="card-title fs-18">Arjun K.</h5>
+ <p class="card-text fs-14 more mb-0">
  "Quick By lives up to its name! Super fast checkout, great deals, and timely delivery. Shopping has never been this easy. "
  </p>
-</div>
-</div>
-</div></div></div><div aria-describedby="slick-slide-control03" aria-hidden="false" class="slick-slide slick-current slick-active" data-slick-index="3" id="slick-slide03" role="tabpanel" style="width:421px"><div><div class="col element element-1 h-100 m-0 mt-3" style="width:100%;display:inline-block">
-<a class="fs-14 ps-3" tabindex="0"></a>
-<div class="card testimonial-2card-custom mb-3 me-4 flex-sm-row p-4 h-100">
-<div class="tag d-flex justify-content-center align-items-center">
-<span class="fs-6 text-white">4</span>
-</div>
-<div class="card-img-top">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-49)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
-<h5 class="card-title fs-18">Ananya R.</h5>
-<p class="card-text fs-14 more mb-0">
+ </div>
+ </div>
+ </div></div></div><div class="slick-slide slick-current slick-active" data-slick-index=3 aria-hidden=false role=tabpanel id=slick-slide03 style=width:421px aria-describedby=slick-slide-control03><div><div class="col element element-1 h-100 m-0 mt-3" style=width:100%;display:inline-block>
+ <a class="fs-14 ps-3" tabindex=0></a>
+ <div class="card testimonial-2card-custom mb-3 me-4 flex-sm-row p-4 h-100">
+ <div class="tag d-flex justify-content-center align-items-center">
+ <span class="fs-6 text-white">4</span>
+ </div>
+ <div class=card-img-top>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-49)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </div>
+ <div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
+ <h5 class="card-title fs-18">Ananya R.</h5>
+ <p class="card-text fs-14 more mb-0">
  "Task Up has completely changed the way I manage my day. It’s simple, clean, and keeps me on track with my deadlines. Highly recommended for busy professionals! "
  </p>
-</div>
-</div>
-</div></div></div><div aria-hidden="false" class="slick-slide slick-cloned slick-active" data-slick-index="4" style="width:421px" tabindex="-1"><div><div class="col element element-1 h-100 m-0 mt-3" style="width:100%;display:inline-block">
-<a class="fs-14 ps-3" tabindex="0"></a>
-<div class="card testimonial-2card-custom mb-3 me-4 flex-sm-row p-4 h-100">
-<div class="tag d-flex justify-content-center align-items-center">
-<span class="fs-6 text-white">1</span>
-</div>
-<div class="card-img-top">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-50)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
-<h5 class="card-title fs-18">Sneha D.</h5>
-<p class="card-text fs-14 more mb-0">
+ </div>
+ </div>
+ </div></div></div><div class="slick-slide slick-cloned slick-active" data-slick-index=4 aria-hidden=false tabindex=-1 style=width:421px><div><div class="col element element-1 h-100 m-0 mt-3" style=width:100%;display:inline-block>
+ <a class="fs-14 ps-3" tabindex=0></a>
+ <div class="card testimonial-2card-custom mb-3 me-4 flex-sm-row p-4 h-100">
+ <div class="tag d-flex justify-content-center align-items-center">
+ <span class="fs-6 text-white">1</span>
+ </div>
+ <div class=card-img-top>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-50)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </div>
+ <div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
+ <h5 class="card-title fs-18">Sneha D.</h5>
+ <p class="card-text fs-14 more mb-0">
  "I use Task Up for my college assignments and study planning. It keeps me focused and productive without the clutter of complex tools. "
  </p>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="5" style="width:421px" tabindex="-1"><div><div class="col element element-1 h-100 m-0 mt-3" style="width:100%;display:inline-block">
-<a class="fs-14 ps-3" tabindex="-1"></a>
-<div class="card testimonial-2card-custom mb-3 me-4 flex-sm-row p-4 h-100">
-<div class="tag d-flex justify-content-center align-items-center">
-<span class="fs-6 text-white">2</span>
-</div>
-<div class="card-img-top">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-51)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
-<h5 class="card-title fs-18">Priya S.</h5>
-<p class="card-text fs-14 more mb-0">
+ </div>
+ </div>
+ </div></div></div><div class="slick-slide slick-cloned" data-slick-index=5 aria-hidden=true tabindex=-1 style=width:421px><div><div class="col element element-1 h-100 m-0 mt-3" style=width:100%;display:inline-block>
+ <a class="fs-14 ps-3" tabindex=-1></a>
+ <div class="card testimonial-2card-custom mb-3 me-4 flex-sm-row p-4 h-100">
+ <div class="tag d-flex justify-content-center align-items-center">
+ <span class="fs-6 text-white">2</span>
+ </div>
+ <div class=card-img-top>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-51)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </div>
+ <div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
+ <h5 class="card-title fs-18">Priya S.</h5>
+ <p class="card-text fs-14 more mb-0">
  "Health Mate helps me track my family's health in one place. From reminders to daily wellness tips, it’s a must-have app for every household. "
  </p>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="6" style="width:421px" tabindex="-1"><div><div class="col element element-1 h-100 m-0 mt-3" style="width:100%;display:inline-block">
-<a class="fs-14 ps-3" tabindex="-1"></a>
-<div class="card testimonial-2card-custom mb-3 me-4 flex-sm-row p-4 h-100">
-<div class="tag d-flex justify-content-center align-items-center">
-<span class="fs-6 text-white">3</span>
-</div>
-<div class="card-img-top">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-48)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
-<h5 class="card-title fs-18">Arjun K.</h5>
-<p class="card-text fs-14 more mb-0">
+ </div>
+ </div>
+ </div></div></div><div class="slick-slide slick-cloned" data-slick-index=6 aria-hidden=true tabindex=-1 style=width:421px><div><div class="col element element-1 h-100 m-0 mt-3" style=width:100%;display:inline-block>
+ <a class="fs-14 ps-3" tabindex=-1></a>
+ <div class="card testimonial-2card-custom mb-3 me-4 flex-sm-row p-4 h-100">
+ <div class="tag d-flex justify-content-center align-items-center">
+ <span class="fs-6 text-white">3</span>
+ </div>
+ <div class=card-img-top>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-48)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </div>
+ <div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
+ <h5 class="card-title fs-18">Arjun K.</h5>
+ <p class="card-text fs-14 more mb-0">
  "Quick By lives up to its name! Super fast checkout, great deals, and timely delivery. Shopping has never been this easy. "
  </p>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="7" style="width:421px" tabindex="-1"><div><div class="col element element-1 h-100 m-0 mt-3" style="width:100%;display:inline-block">
-<a class="fs-14 ps-3" tabindex="-1"></a>
-<div class="card testimonial-2card-custom mb-3 me-4 flex-sm-row p-4 h-100">
-<div class="tag d-flex justify-content-center align-items-center">
-<span class="fs-6 text-white">4</span>
-</div>
-<div class="card-img-top">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-49)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
-<h5 class="card-title fs-18">Ananya R.</h5>
-<p class="card-text fs-14 more mb-0">
+ </div>
+ </div>
+ </div></div></div><div class="slick-slide slick-cloned" data-slick-index=7 aria-hidden=true tabindex=-1 style=width:421px><div><div class="col element element-1 h-100 m-0 mt-3" style=width:100%;display:inline-block>
+ <a class="fs-14 ps-3" tabindex=-1></a>
+ <div class="card testimonial-2card-custom mb-3 me-4 flex-sm-row p-4 h-100">
+ <div class="tag d-flex justify-content-center align-items-center">
+ <span class="fs-6 text-white">4</span>
+ </div>
+ <div class=card-img-top>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-49)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </div>
+ <div class="card-body p-0 ps-sm-4 pt-sm-0 pt-3">
+ <h5 class="card-title fs-18">Ananya R.</h5>
+ <p class="card-text fs-14 more mb-0">
  "Task Up has completely changed the way I manage my day. It’s simple, clean, and keeps me on track with my deadlines. Highly recommended for busy professionals! "
  </p>
-</div>
-</div>
-</div></div></div></div></div><button class="slide-arrow next-arrow slick-arrow" fdprocessedid="0nm34k"><i class="fa-solid fa-chevron-right"></i></button><ul class="slick-dots" role="tablist"><li role="presentation"><button aria-controls="slick-slide00" aria-label="1 of 2" fdprocessedid="ep1vgj" id="slick-slide-control00" role="tab" tabindex="-1" type="button">1</button><li role="presentation"><button aria-controls="slick-slide01" aria-label="2 of 2" id="slick-slide-control01" role="tab" tabindex="-1" type="button">2</button><li role="presentation"><button aria-controls="slick-slide02" aria-label="3 of 2" fdprocessedid="b25hn" id="slick-slide-control02" role="tab" tabindex="-1" type="button">3</button><li class="slick-active" role="presentation"><button aria-controls="slick-slide03" aria-label="4 of 2" aria-selected="true" fdprocessedid="zkqyqv" id="slick-slide-control03" role="tab" tabindex="0" type="button">4</button></li></li></li></li></ul></div>
-</section>
-<section class="client-section">
-<div class="section-heading mb-4">
-<h2 class="fs-22 text-white ps-4 mt-5">Gallery</h2>
-</div>
-<div class="row">
-<div class="col-md-3 col-6 mt-3">
-<div class="client-box w-100 h-100">
-<div class="client-img">
-<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/860/Frame-159.jpg"><img class="w-100 h-100 object-fit-cover rounded" src="/images/templates/portfolioxxxxxx/por-016.webp"/></a>
-</div>
-</div>
-</div>
-<div class="col-md-3 col-6 mt-3">
-<div class="client-box w-100 h-100">
-<div class="client-img">
-<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/861/Frame-158.jpg"><img class="w-100 h-100 object-fit-cover rounded" src="/images/templates/portfolioxxxxxx/por-017.webp"/></a>
-</div>
-</div>
-</div>
-<div class="col-md-3 col-6 mt-3">
-<div class="client-box w-100 h-100">
-<div class="client-img">
-<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/862/Frame-157.jpg"><img class="w-100 h-100 object-fit-cover rounded" src="/images/templates/portfolioxxxxxx/por-018.webp"/></a>
-</div>
-</div>
-</div>
-</div>
-</section>
-<div class="d-flex justify-content-center mt-5 text-white">
-</div>
-<div aria-hidden="true" aria-labelledby="newsLatterModalLabel" class="modal fade sf-hidden" id="newsLatterModal" tabindex="-1">
-</div>
-</div>
-</div></div><div class="razorpay-container" style="z-index:2147483647;position:fixed;top:0px;display:none;left:0px;height:100%;width:100%;max-height:100dvh;backface-visibility:hidden;overflow-y:visible"><style>@keyframes rzp-rot{to{transform:rotate(360deg)}}@-webkit-keyframes rzp-rot{to{-webkit-transform:rotate(360deg)}}</style></div><div class="lightboxOverlay" id="lightboxOverlay" style="display:none" tabindex="-1"></div><div class="lightbox" id="lightbox" style="display:none" tabindex="-1"></div>"><span id="PING_CONTENT_DLS_POPUP" style="display:none"></span><div style="background-color:transparent;border-width:medium;border-style:none;border-color:currentcolor;border-image:initial;bottom:15px;display:block;margin:0px;opacity:1;padding:0px;position:fixed;right:15px;z-index:2147483647"><div style="display:contents"><style class="sf-hidden">/*!
+ </div>
+ </div>
+ </div></div></div></div></div><button class="slide-arrow next-arrow slick-arrow" fdprocessedid=0nm34k><i class="fa-solid fa-chevron-right"></i></button><ul class=slick-dots role=tablist><li role=presentation><button type=button role=tab id=slick-slide-control00 aria-controls=slick-slide00 aria-label="1 of 2" tabindex=-1 fdprocessedid=ep1vgj>1</button><li role=presentation><button type=button role=tab id=slick-slide-control01 aria-controls=slick-slide01 aria-label="2 of 2" tabindex=-1>2</button><li role=presentation><button type=button role=tab id=slick-slide-control02 aria-controls=slick-slide02 aria-label="3 of 2" tabindex=-1 fdprocessedid=b25hn>3</button><li role=presentation class=slick-active><button type=button role=tab id=slick-slide-control03 aria-controls=slick-slide03 aria-label="4 of 2" tabindex=0 fdprocessedid=zkqyqv aria-selected=true>4</button></ul></div>
+ </section>
+ 
+ 
+ 
+ 
+ <section class=client-section>
+ <div class="section-heading mb-4">
+ <h2 class="fs-22 text-white ps-4 mt-5">Gallery</h2>
+ </div>
+ <div class=row>
+ <div class="col-md-3 col-6 mt-3">
+ <div class="client-box w-100 h-100">
+ <div class=client-img>
+ <a href=https://tapifyworld.com//uploads/vcards/gallery/860/Frame-159.jpg data-lightbox=gallery-images><img src=/images/templates/portfoliox/por-016.webp class="w-100 h-100 object-fit-cover rounded"></a>
+ </div>
+ </div>
+ </div>
+ <div class="col-md-3 col-6 mt-3">
+ <div class="client-box w-100 h-100">
+ <div class=client-img>
+ <a href=https://tapifyworld.com//uploads/vcards/gallery/861/Frame-158.jpg data-lightbox=gallery-images><img src=/images/templates/portfoliox/por-017.webp class="w-100 h-100 object-fit-cover rounded"></a>
+ </div>
+ </div>
+ </div>
+ <div class="col-md-3 col-6 mt-3">
+ <div class="client-box w-100 h-100">
+ <div class=client-img>
+ <a href=https://tapifyworld.com//uploads/vcards/gallery/862/Frame-157.jpg data-lightbox=gallery-images><img src="/images/templates/portfoliox/por-018.webp" class="w-100 h-100 object-fit-cover rounded"></a>
+ </div>
+ </div>
+ </div>
+ </div>
+ </section>
+ <div class="d-flex justify-content-center mt-5 text-white">
+ </div>
+ 
+ <div class="modal fade sf-hidden" id=newsLatterModal tabindex=-1 aria-labelledby=newsLatterModalLabel aria-hidden=true>
+ 
+ </div>
+ </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+</div></div><div class=razorpay-container style=z-index:2147483647;position:fixed;top:0px;display:none;left:0px;height:100%;width:100%;max-height:100dvh;backface-visibility:hidden;overflow-y:visible><style>@keyframes rzp-rot{to{transform:rotate(360deg)}}@-webkit-keyframes rzp-rot{to{-webkit-transform:rotate(360deg)}}</style></div><div id=lightboxOverlay tabindex=-1 class=lightboxOverlay style=display:none></div><div id=lightbox tabindex=-1 class=lightbox style=display:none></div>"><span id=PING_CONTENT_DLS_POPUP style=display:none></span><div style=background-color:transparent;border-width:medium;border-style:none;border-color:currentcolor;border-image:initial;bottom:15px;display:block;margin:0px;opacity:1;padding:0px;position:fixed;right:15px;z-index:2147483647><div style="display:contents"><style class=sf-hidden>/*!
  * 
  *     MCAFEE RESTRICTED CONFIDENTIAL
  *     Copyright (c) 2026 McAfee, LLC
@@ -739,10 +792,12 @@ a{text-decoration:none}#body{background-color:#1d2336!important;font-family:popp
  *     estoppel or otherwise. Any license under such intellectual property rights
  *     must be expressed and approved by McAfee in writing.
  *
- */*{border:0;box-sizing:border-box;font:inherit;font-family:"McAfeePoppins",Helvetica,Arial;font-size:100%;margin:0;padding:0;vertical-align:baseline;outline:none}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}html,body{background-color:#f5f6fa;font-family:"McAfeePoppins",Helvetica,Arial;line-height:1;height:100%;width:100%}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:"";content:none}table{border-collapse:collapse;border-spacing:0}b{font-weight:bold}img{display:block}.dls__container{align-items:center;display:flex;margin:0 auto;margin-top:50px;position:relative}.dls__popup__expanded{align-items:center;overflow:hidden;border-radius:100px;cursor:pointer;display:flex;left:0;padding:15px;position:absolute;height:95px;width:383px;background-color:#fff;transition:all .3s ease-in-out}.dls__popup__expanded .dls__icon{height:65px;width:73px}.content{margin-left:12px}.content .content__images{display:flex;align-items:center;width:250px}.content .content__images .seperator__line{margin-left:5px;margin-right:10px}.content .content__images #dls_close_icon{cursor:pointer;margin-left:auto;margin-right:0px}.content p{font-family:"McAfeePoppins",Helvetica,Arial;font-weight:"400";font-size:14px;line-height:20px;margin-top:8px;color:#4258ff;width:250px;cursor:pointer}.shield{overflow:hidden;box-shadow:0px 2px 4px 0px rgba(33,41,52,.12),0px -1px 2px 0px rgba(0,0,0,.08);align-items:center;border-radius:100px;bottom:0;display:flex;height:95px;justify-content:center;position:absolute;right:0;width:383px;transition:all .3s ease-in-out}.shield__circle{display:flex;justify-content:center;align-items:center;width:55px;height:55px;background-color:#c01818;transition:all .6s ease-in-out .2s;z-index:1;opacity:0}</style><div class="dls__container">
-<div class="shield" style="background:transparent;opacity:0.1;display:none">
-</div>
-</div><style class="sf-hidden">/*!
+ */*{border:0;box-sizing:border-box;font:inherit;font-family:"McAfeePoppins",Helvetica,Arial;font-size:100%;margin:0;padding:0;vertical-align:baseline;outline:none}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}html,body{background-color:#f5f6fa;font-family:"McAfeePoppins",Helvetica,Arial;line-height:1;height:100%;width:100%}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:"";content:none}table{border-collapse:collapse;border-spacing:0}b{font-weight:bold}img{display:block}.dls__container{align-items:center;display:flex;margin:0 auto;margin-top:50px;position:relative}.dls__popup__expanded{align-items:center;overflow:hidden;border-radius:100px;cursor:pointer;display:flex;left:0;padding:15px;position:absolute;height:95px;width:383px;background-color:#fff;transition:all .3s ease-in-out}.dls__popup__expanded .dls__icon{height:65px;width:73px}.content{margin-left:12px}.content .content__images{display:flex;align-items:center;width:250px}.content .content__images .seperator__line{margin-left:5px;margin-right:10px}.content .content__images #dls_close_icon{cursor:pointer;margin-left:auto;margin-right:0px}.content p{font-family:"McAfeePoppins",Helvetica,Arial;font-weight:"400";font-size:14px;line-height:20px;margin-top:8px;color:#4258ff;width:250px;cursor:pointer}.shield{overflow:hidden;box-shadow:0px 2px 4px 0px rgba(33,41,52,.12),0px -1px 2px 0px rgba(0,0,0,.08);align-items:center;border-radius:100px;bottom:0;display:flex;height:95px;justify-content:center;position:absolute;right:0;width:383px;transition:all .3s ease-in-out}.shield__circle{display:flex;justify-content:center;align-items:center;width:55px;height:55px;background-color:#c01818;transition:all .6s ease-in-out .2s;z-index:1;opacity:0}</style><div class=dls__container>
+ <div class=shield style=background:transparent;opacity:0.1;display:none>
+ 
+ 
+ </div>
+</div><style class=sf-hidden>/*!
  * 
  *     MCAFEE RESTRICTED CONFIDENTIAL
  *     Copyright (c) 2026 McAfee, LLC
@@ -764,4 +819,4 @@ a{text-decoration:none}#body{background-color:#1d2336!important;font-family:popp
  *     estoppel or otherwise. Any license under such intellectual property rights
  *     must be expressed and approved by McAfee in writing.
  *
- */.mc-interactive-balloon{position:absolute;right:-50px;bottom:8px;box-shadow:rgba(0,0,0,.12) 0px 0px 10px;height:40px;width:40px;background:#1671ee;border-radius:20px;display:flex;justify-content:center;align-items:center}</style></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet"/><script src="https://cdn.jsdelivr.net/npm/flatpickr"></script><script>function tfInit(){if(typeof jQuery==="undefined"||!jQuery.fn||!jQuery.fn.slick){return setTimeout(tfInit,120);}jQuery(function($){$(".product-slider,.gallery-slider,.testimonial-slider,.blog-slider").each(function(){if($(this).children().length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=instagram],[class*=insta-feed],[class*=insta-section],[class*=insta-feed-section]").each(function(){if($(this).find("img,iframe,.slick-slide,.insta-item,a[href*=instagram]").length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=__gallery],[class*=__product],[class*=__testimonial]").each(function(){var sl=$(this).find(".gallery-slider,.product-slider,.testimonial-slider").first();if(sl.length&&sl.children().length===0){$(this).hide();}});$("a").each(function(){var h=$(this).attr("href")||"";var tx=$(this).text().replace(/\s+/g,"");if((h==="mailto:"||h==="tel:")&&tx===""){$(this).closest(".contact-box,.contact-item,li,.col-sm-6,.col-md-6,.col-6,.col-12,.col").hide();}});$("[class*=contact-box],[class*=contact-item]").each(function(){if($(this).text().replace(/\s+/g,"")===""){$(this).hide();}});window.tfSubmitInquiry=async function(ev){ev.preventDefault();var f=ev.target;var b=f.querySelector("button[type=submit]");var fd=new FormData(f);if(b)b.disabled=true;try{var r=await fetch("/inquiry-submit.php",{method:"POST",body:fd});var j=await r.json();if(j.success){if(window.showToast)showToast("Message sent!","success");f.reset();}else{if(window.showToast)showToast(j.message||"Failed","error");}}catch(e){if(window.showToast)showToast("Connection error","error");}finally{if(b)b.disabled=false;}};function ini(s,o){var $s=$(s);if(!$s.length||$s.hasClass("slick-initialized"))return;$s.slick(o);}ini(".product-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".gallery-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".testimonial-slider",{slidesToShow:1,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:4000});if(window.flatpickr){flatpickr("#pickUpDate",{minDate:"today",dateFormat:"Y-m-d"});flatpickr(".flatpickr-input",{minDate:"today",dateFormat:"Y-m-d"});}});}tfInit();</script><?php if(!empty($vcard["custom_js"])): ?><script><?= $vcard["custom_js"] ?></script><?php endif; ?><?php include __DIR__ . "/_shared-scripts.php"; ?></body></html>
+ */.mc-interactive-balloon{position:absolute;right:-50px;bottom:8px;box-shadow:rgba(0,0,0,.12) 0px 0px 10px;height:40px;width:40px;background:#1671ee;border-radius:20px;display:flex;justify-content:center;align-items:center}</style></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"><script src="https://cdn.jsdelivr.net/npm/flatpickr"></script><script>function tfInit(){if(typeof jQuery==="undefined"||!jQuery.fn||!jQuery.fn.slick){return setTimeout(tfInit,120);}jQuery(function($){$(".product-slider,.gallery-slider,.testimonial-slider,.blog-slider").each(function(){if($(this).children().length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=instagram],[class*=insta-feed],[class*=insta-section],[class*=insta-feed-section]").each(function(){if($(this).find("img,iframe,.slick-slide,.insta-item,a[href*=instagram]").length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=__gallery],[class*=__product],[class*=__testimonial]").each(function(){var sl=$(this).find(".gallery-slider,.product-slider,.testimonial-slider").first();if(sl.length&&sl.children().length===0){$(this).hide();}});$("a").each(function(){var h=$(this).attr("href")||"";var tx=$(this).text().replace(/\s+/g,"");if((h==="mailto:"||h==="tel:")&&tx===""){$(this).closest(".contact-box,.contact-item,li,.col-sm-6,.col-md-6,.col-6,.col-12,.col").hide();}});$("[class*=contact-box],[class*=contact-item]").each(function(){if($(this).text().replace(/\s+/g,"")===""){$(this).hide();}});window.tfSubmitInquiry=async function(ev){ev.preventDefault();var f=ev.target;var b=f.querySelector("button[type=submit]");var fd=new FormData(f);if(b)b.disabled=true;try{var r=await fetch("/inquiry-submit.php",{method:"POST",body:fd});var j=await r.json();if(j.success){if(window.showToast)showToast("Message sent!","success");f.reset();}else{if(window.showToast)showToast(j.message||"Failed","error");}}catch(e){if(window.showToast)showToast("Connection error","error");}finally{if(b)b.disabled=false;}};function ini(s,o){var $s=$(s);if(!$s.length||$s.hasClass("slick-initialized"))return;$s.slick(o);}ini(".product-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".gallery-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".testimonial-slider",{slidesToShow:1,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:4000});if(window.flatpickr){flatpickr("#pickUpDate",{minDate:"today",dateFormat:"Y-m-d"});flatpickr(".flatpickr-input",{minDate:"today",dateFormat:"Y-m-d"});}});}tfInit();</script><?php if(!empty($vcard["custom_js"])): ?><script><?= $vcard["custom_js"] ?></script><?php endif; ?><?php include __DIR__ . "/_shared-scripts.php"; ?><style>/*tf-fixups*/[class*=product-section],[class*=gallery-section],[class*=testimonial-section],.product-slider,.gallery-slider,.testimonial-slider{display:none!important}.service-card img{max-height:170px!important;object-fit:cover!important}.service-card h3,.service-card .card-title{font-size:16px!important}.flatpickr-calendar:not(.open){display:none!important}</style></body></html>

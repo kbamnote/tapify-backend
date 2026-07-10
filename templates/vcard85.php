@@ -4,13 +4,12 @@ $cardUrl='https://app.tapify.co.in/'.($vcard['url_alias'] ?? $vcardId);
 $waPhone=preg_replace('/\D/','',$vcard['phone'] ?? '');
 $locationUrl=!empty($vcard['location_url'])?$vcard['location_url']:'https://maps.google.com/?q='.urlencode($vcard['location'] ?? '');
 $profileImg=!empty($vcard['profile_image'])?imgUrl($vcard['profile_image']):'https://ui-avatars.com/api/?name='.urlencode($fullName).'&size=200&background=2563eb&color=ffffff';
-$coverImg=!empty($vcard['cover_image'])?imgUrl($vcard['cover_image']):'/images/templates/musicianxxxxx/mus-019.webp';
+$coverImg=!empty($vcard['cover_image'])?imgUrl($vcard['cover_image']):'/images/templates/musician/mus-019.webp';
 $qrUrl='https://api.qrserver.com/v1/create-qr-code/?size=200x200&data='.urlencode($cardUrl);
 $platformIcons=['linkedin-in'=>'fa-linkedin-in','linkedin'=>'fa-linkedin-in','instagram'=>'fa-instagram','x-twitter'=>'fa-x-twitter','twitter'=>'fa-x-twitter','facebook'=>'fa-facebook-f','facebook-f'=>'fa-facebook-f','whatsapp'=>'fa-whatsapp','youtube'=>'fa-youtube','spotify'=>'fa-spotify','github'=>'fa-github','tiktok'=>'fa-tiktok','pinterest'=>'fa-pinterest-p','behance'=>'fa-behance','dribbble'=>'fa-dribbble','telegram'=>'fa-telegram','globe'=>'fa-globe'];
-$socialSvgs=['facebook'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 320 512" width="22"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>','facebook-f'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 320 512" width="22"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>','instagram'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 448 512" width="22"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>','whatsapp'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 448 512" width="22"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.2-157zM223.9 438.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.5-186.6 184.5zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg>','linkedin'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 448 512" width="22"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>','linkedin-in'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 448 512" width="22"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>','youtube'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 576 512" width="22"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>','x-twitter'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 512 512" width="22"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg>','twitter'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 512 512" width="22"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg>','globe'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 512 512" width="22"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6 78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7 10.5-23.6 22.2-40.7 33.5-51.5C260.5 3.2 269.8 0 288 0s27.5 3.2 44.3 13.8c11.3 10.8 23 27.9 33.5 51.5 11.6 26 20.9 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4 165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 363.5 0 342.1 0 320s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.6-22.2 40.7-33.5 51.5C267.5 508.8 258.2 512 240 512l-16 0c-18.2 0-27.5-3.2-44.3-13.8-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6 25.5-34.2 45.3-87.7 55.3-151.6H493.4z"></path></svg>'];
+$socialSvgs=['facebook'=>'<svg viewBox="0 0 320 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>','facebook-f'=>'<svg viewBox="0 0 320 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>','instagram'=>'<svg viewBox="0 0 448 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>','whatsapp'=>'<svg viewBox="0 0 448 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.2-157zM223.9 438.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.5-186.6 184.5zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>','linkedin'=>'<svg viewBox="0 0 448 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>','linkedin-in'=>'<svg viewBox="0 0 448 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>','youtube'=>'<svg viewBox="0 0 576 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>','x-twitter'=>'<svg viewBox="0 0 512 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>','twitter'=>'<svg viewBox="0 0 512 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>','globe'=>'<svg viewBox="0 0 512 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6 78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7 10.5-23.6 22.2-40.7 33.5-51.5C260.5 3.2 269.8 0 288 0s27.5 3.2 44.3 13.8c11.3 10.8 23 27.9 33.5 51.5 11.6 26 20.9 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4 165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 363.5 0 342.1 0 320s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.6-22.2 40.7-33.5 51.5C267.5 508.8 258.2 512 240 512l-16 0c-18.2 0-27.5-3.2-44.3-13.8-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6 25.5-34.2 45.3-87.7 55.3-151.6H493.4z"/></svg>'];
 ?>
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title><?= htmlspecialchars($fullName) ?></title><link href="<?= !empty($vcard['favicon_image'])?imgUrl($vcard['favicon_image']):'/images/tapify-logo-green.png' ?>" rel="icon"/><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/><style>:root{--sf-img-26: url("/images/templates/musicianxxxxx/mus-000.webp");--sf-img-27: url("/images/templates/musicianxxxxx/mus-001.webp");--sf-img-28: url("/images/templates/musicianxxxxx/mus-002.webp");--sf-img-29: url("/images/templates/musicianxxxxx/mus-003.webp");--sf-img-37: url("/images/templates/musicianxxxxx/mus-004.webp");--sf-img-38: url("/images/templates/musicianxxxxx/mus-005.webp");--sf-img-39: url("/images/templates/musicianxxxxx/mus-006.webp");--sf-img-40: url("/images/templates/musicianxxxxx/mus-007.webp");--sf-img-44: url("/images/templates/musicianxxxxx/mus-008.webp");--sf-img-45: url("/images/templates/musicianxxxxx/mus-009.webp");--sf-img-46: url("/images/templates/musicianxxxxx/mus-010.webp");--sf-img-48: url("/images/templates/musicianxxxxx/mus-011.webp");--sf-img-49: url("/images/templates/musicianxxxxx/mus-012.webp");--sf-img-50: url("/images/templates/musicianxxxxx/mus-013.webp");--sf-img-51: url("/images/templates/musicianxxxxx/mus-014.webp")}
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title><?= htmlspecialchars($fullName) ?></title><link rel="icon" href="<?= !empty($vcard['favicon_image'])?imgUrl($vcard['favicon_image']):'/images/tapify-logo-green.png' ?>"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><style>:root{--sf-img-26: url("/images/templates/musician/mus-000.webp");--sf-img-27: url("/images/templates/musician/mus-001.webp");--sf-img-28: url("/images/templates/musician/mus-002.webp");--sf-img-29: url("/images/templates/musician/mus-003.webp");--sf-img-37: url("/images/templates/musician/mus-004.webp");--sf-img-38: url("/images/templates/musician/mus-005.webp");--sf-img-39: url("/images/templates/musician/mus-006.webp");--sf-img-40: url("/images/templates/musician/mus-007.webp");--sf-img-44: url("/images/templates/musician/mus-008.webp");--sf-img-45: url("/images/templates/musician/mus-009.webp");--sf-img-46: url("/images/templates/musician/mus-010.webp");--sf-img-48: url("/images/templates/musician/mus-011.webp");--sf-img-49: url("/images/templates/musician/mus-012.webp");--sf-img-50: url("/images/templates/musician/mus-013.webp");--sf-img-51: url("/images/templates/musician/mus-014.webp")}
 :host,:root{--fa-font-solid:normal 900 1em/1"Font Awesome 6 Solid";--fa-font-regular:normal 400 1em/1"Font Awesome 6 Regular";--fa-font-light:normal 300 1em/1"Font Awesome 6 Light";--fa-font-thin:normal 100 1em/1"Font Awesome 6 Thin";--fa-font-duotone:normal 900 1em/1"Font Awesome 6 Duotone";--fa-font-brands:normal 400 1em/1"Font Awesome 6 Brands"}svg:not(:host).svg-inline--fa,svg:not(:root).svg-inline--fa{overflow:visible;box-sizing:content-box}.svg-inline--fa{display:var(--fa-display,inline-block);height:1em;vertical-align:-.125em}@-webkit-keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@-webkit-keyframes fa-bounce{0%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}100%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}}@keyframes fa-bounce{0%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}100%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}}@-webkit-keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@-webkit-keyframes fa-beat-fade{0%,100%{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@keyframes fa-beat-fade{0%,100%{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@-webkit-keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@-webkit-keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}100%,40%{-webkit-transform:rotate(0);transform:rotate(0)}}@keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}100%,40%{-webkit-transform:rotate(0);transform:rotate(0)}}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-sr-only-focusable:not(:focus),.sr-only-focusable:not(:focus){position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
 @-webkit-keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@-webkit-keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@-webkit-keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}@keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}.swal-icon--success:after,.swal-icon--success:before{content:"";border-radius:50%;position:absolute;width:60px;height:120px;background:#fff;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal-icon--success:before{border-radius:120px 0 0 120px;top:-7px;left:-33px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:60px 60px;transform-origin:60px 60px}.swal-icon--success:after{border-radius:0 120px 120px 0;top:-11px;left:30px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:0 60px;transform-origin:0 60px;-webkit-animation:rotatePlaceholder 4.25s ease-in;animation:rotatePlaceholder 4.25s ease-in}@-webkit-keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@-webkit-keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@-webkit-keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}@keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}.swal-icon--info:before{width:5px;height:29px;bottom:17px;border-radius:2px;margin-left:-2px}.swal-icon--info:after,.swal-icon--info:before{content:"";position:absolute;left:50%;background-color:#c9dae1}.swal-icon--info:after{width:7px;height:7px;border-radius:50%;margin-left:-3px;top:19px}.swal-button:not([disabled]):hover{background-color:#78cbf2}.swal-button:active{background-color:#70bce0}.swal-button:focus{outline:none;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(43,114,165,.29)}.swal-button::-moz-focus-inner{border:0}.swal-button--cancel:not([disabled]):hover{background-color:#e8e8e8}.swal-button--cancel:active{background-color:#d7d7d7}.swal-button--cancel:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(116,136,150,.29)}.swal-button--danger:not([disabled]):hover{background-color:#df4740}.swal-button--danger:active{background-color:#cf423b}.swal-button--danger:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(165,43,43,.29)}.swal-content__input:focus,.swal-content__textarea:focus{outline:none;border-color:#6db8ff}@-webkit-keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}@keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}.swal-overlay:before{content:" ";display:inline-block;vertical-align:middle;height:100%}@-webkit-keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}
 /*!
@@ -64,7 +63,7 @@ $socialSvgs=['facebook'=>'<svg fill="currentColor" height="22" style="display:in
 */.select2-container--bootstrap-5 :focus{outline:0}.select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__clear:hover,.select2-container--bootstrap-5 .select2-selection--single .select2-selection__clear:hover{background:transparent url(data:image/svg+xml;charset=utf-8,%3Csvg\ xmlns=\'http://www.w3.org/2000/svg\'\ viewBox=\'0\ 0\ 16\ 16\'\ fill=\'%23ADB5BD\'%3E%3Cpath\ d=\'M.293.293a1\ 1\ 0\ 0\ 1\ 1.414\ 0L8\ 6.586\ 14.293.293a1\ 1\ 0\ 1\ 1\ 1.414\ 1.414L9.414\ 8l6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414\ 1.414L8\ 9.414l-6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414-1.414L6.586\ 8\ .293\ 1.707a1\ 1\ 0\ 0\ 1\ 0-1.414z\'/%3E%3C/svg%3E)50%/.75rem auto no-repeat}.select2-container--bootstrap-5 .select2-dropdown .select2-search .select2-search__field:focus{border-color:#ced4da;box-shadow:none}.select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__rendered .select2-selection__choice .select2-selection__choice__remove:hover{background:transparent url(data:image/svg+xml;charset=utf-8,%3Csvg\ xmlns=\'http://www.w3.org/2000/svg\'\ viewBox=\'0\ 0\ 16\ 16\'\ fill=\'%23ADB5BD\'%3E%3Cpath\ d=\'M.293.293a1\ 1\ 0\ 0\ 1\ 1.414\ 0L8\ 6.586\ 14.293.293a1\ 1\ 0\ 1\ 1\ 1.414\ 1.414L9.414\ 8l6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414\ 1.414L8\ 9.414l-6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414-1.414L6.586\ 8\ .293\ 1.707a1\ 1\ 0\ 0\ 1\ 0-1.414z\'/%3E%3C/svg%3E)50%/.75rem auto no-repeat}.was-validated select:valid+.select2-container--bootstrap-5 .select2-selection{border-color:#0ac074}.was-validated select:valid+.select2-container--bootstrap-5.select2-container--focus .select2-selection,.was-validated select:valid+.select2-container--bootstrap-5.select2-container--open .select2-selection{border-color:#0ac074;box-shadow:0 0 0 .25rem rgba(10,192,116,.25)}.was-validated select:valid+.select2-container--bootstrap-5.select2-container--open.select2-container--below .select2-selection{border-bottom:0 solid transparent}.was-validated select:valid+.select2-container--bootstrap-5.select2-container--open.select2-container--above .select2-selection{border-top:0 solid transparent;border-top-left-radius:0;border-top-right-radius:0}.was-validated select:invalid+.select2-container--bootstrap-5 .select2-selection{border-color:#f62947}.was-validated select:invalid+.select2-container--bootstrap-5.select2-container--focus .select2-selection,.was-validated select:invalid+.select2-container--bootstrap-5.select2-container--open .select2-selection{border-color:#f62947;box-shadow:0 0 0 .25rem rgba(246,41,71,.25)}.was-validated select:invalid+.select2-container--bootstrap-5.select2-container--open.select2-container--below .select2-selection{border-bottom:0 solid transparent}.was-validated select:invalid+.select2-container--bootstrap-5.select2-container--open.select2-container--above .select2-selection{border-top:0 solid transparent;border-top-left-radius:0;border-top-right-radius:0}.select2-container--bootstrap-5 .select2--small.select2-selection--multiple .select2-selection__clear:hover,.select2-container--bootstrap-5 .select2--small.select2-selection--single .select2-selection__clear:hover{background:transparent url(data:image/svg+xml;charset=utf-8,%3Csvg\ xmlns=\'http://www.w3.org/2000/svg\'\ viewBox=\'0\ 0\ 16\ 16\'\ fill=\'%23ADB5BD\'%3E%3Cpath\ d=\'M.293.293a1\ 1\ 0\ 0\ 1\ 1.414\ 0L8\ 6.586\ 14.293.293a1\ 1\ 0\ 1\ 1\ 1.414\ 1.414L9.414\ 8l6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414\ 1.414L8\ 9.414l-6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414-1.414L6.586\ 8\ .293\ 1.707a1\ 1\ 0\ 0\ 1\ 0-1.414z\'/%3E%3C/svg%3E)50%/.5rem auto no-repeat}.select2-container--bootstrap-5 .select2--small.select2-selection--multiple .select2-selection__rendered .select2-selection__choice .select2-selection__choice__remove:hover{background:transparent url(data:image/svg+xml;charset=utf-8,%3Csvg\ xmlns=\'http://www.w3.org/2000/svg\'\ viewBox=\'0\ 0\ 16\ 16\'\ fill=\'%23ADB5BD\'%3E%3Cpath\ d=\'M.293.293a1\ 1\ 0\ 0\ 1\ 1.414\ 0L8\ 6.586\ 14.293.293a1\ 1\ 0\ 1\ 1\ 1.414\ 1.414L9.414\ 8l6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414\ 1.414L8\ 9.414l-6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414-1.414L6.586\ 8\ .293\ 1.707a1\ 1\ 0\ 0\ 1\ 0-1.414z\'/%3E%3C/svg%3E)50%/.5rem auto no-repeat}.select2-container--bootstrap-5 .select2--large.select2-selection--multiple .select2-selection__clear:hover,.select2-container--bootstrap-5 .select2--large.select2-selection--single .select2-selection__clear:hover{background:transparent url(data:image/svg+xml;charset=utf-8,%3Csvg\ xmlns=\'http://www.w3.org/2000/svg\'\ viewBox=\'0\ 0\ 16\ 16\'\ fill=\'%23ADB5BD\'%3E%3Cpath\ d=\'M.293.293a1\ 1\ 0\ 0\ 1\ 1.414\ 0L8\ 6.586\ 14.293.293a1\ 1\ 0\ 1\ 1\ 1.414\ 1.414L9.414\ 8l6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414\ 1.414L8\ 9.414l-6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414-1.414L6.586\ 8\ .293\ 1.707a1\ 1\ 0\ 0\ 1\ 0-1.414z\'/%3E%3C/svg%3E)50%/1rem auto no-repeat}.select2-container--bootstrap-5 .select2--large.select2-selection--multiple .select2-selection__rendered .select2-selection__choice .select2-selection__choice__remove:hover{background:transparent url(data:image/svg+xml;charset=utf-8,%3Csvg\ xmlns=\'http://www.w3.org/2000/svg\'\ viewBox=\'0\ 0\ 16\ 16\'\ fill=\'%23ADB5BD\'%3E%3Cpath\ d=\'M.293.293a1\ 1\ 0\ 0\ 1\ 1.414\ 0L8\ 6.586\ 14.293.293a1\ 1\ 0\ 1\ 1\ 1.414\ 1.414L9.414\ 8l6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414\ 1.414L8\ 9.414l-6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414-1.414L6.586\ 8\ .293\ 1.707a1\ 1\ 0\ 0\ 1\ 0-1.414z\'/%3E%3C/svg%3E)50%/1rem auto no-repeat}.form-select-sm~.select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__clear:hover,.form-select-sm~.select2-container--bootstrap-5 .select2-selection--single .select2-selection__clear:hover{background:transparent url(data:image/svg+xml;charset=utf-8,%3Csvg\ xmlns=\'http://www.w3.org/2000/svg\'\ viewBox=\'0\ 0\ 16\ 16\'\ fill=\'%23ADB5BD\'%3E%3Cpath\ d=\'M.293.293a1\ 1\ 0\ 0\ 1\ 1.414\ 0L8\ 6.586\ 14.293.293a1\ 1\ 0\ 1\ 1\ 1.414\ 1.414L9.414\ 8l6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414\ 1.414L8\ 9.414l-6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414-1.414L6.586\ 8\ .293\ 1.707a1\ 1\ 0\ 0\ 1\ 0-1.414z\'/%3E%3C/svg%3E)50%/.5rem auto no-repeat}.form-select-sm~.select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__rendered .select2-selection__choice .select2-selection__choice__remove:hover{background:transparent url(data:image/svg+xml;charset=utf-8,%3Csvg\ xmlns=\'http://www.w3.org/2000/svg\'\ viewBox=\'0\ 0\ 16\ 16\'\ fill=\'%23ADB5BD\'%3E%3Cpath\ d=\'M.293.293a1\ 1\ 0\ 0\ 1\ 1.414\ 0L8\ 6.586\ 14.293.293a1\ 1\ 0\ 1\ 1\ 1.414\ 1.414L9.414\ 8l6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414\ 1.414L8\ 9.414l-6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414-1.414L6.586\ 8\ .293\ 1.707a1\ 1\ 0\ 0\ 1\ 0-1.414z\'/%3E%3C/svg%3E)50%/.5rem auto no-repeat}.form-select-lg~.select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__clear:hover,.form-select-lg~.select2-container--bootstrap-5 .select2-selection--single .select2-selection__clear:hover{background:transparent url(data:image/svg+xml;charset=utf-8,%3Csvg\ xmlns=\'http://www.w3.org/2000/svg\'\ viewBox=\'0\ 0\ 16\ 16\'\ fill=\'%23ADB5BD\'%3E%3Cpath\ d=\'M.293.293a1\ 1\ 0\ 0\ 1\ 1.414\ 0L8\ 6.586\ 14.293.293a1\ 1\ 0\ 1\ 1\ 1.414\ 1.414L9.414\ 8l6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414\ 1.414L8\ 9.414l-6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414-1.414L6.586\ 8\ .293\ 1.707a1\ 1\ 0\ 0\ 1\ 0-1.414z\'/%3E%3C/svg%3E)50%/1rem auto no-repeat}.form-select-lg~.select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__rendered .select2-selection__choice .select2-selection__choice__remove:hover{background:transparent url(data:image/svg+xml;charset=utf-8,%3Csvg\ xmlns=\'http://www.w3.org/2000/svg\'\ viewBox=\'0\ 0\ 16\ 16\'\ fill=\'%23ADB5BD\'%3E%3Cpath\ d=\'M.293.293a1\ 1\ 0\ 0\ 1\ 1.414\ 0L8\ 6.586\ 14.293.293a1\ 1\ 0\ 1\ 1\ 1.414\ 1.414L9.414\ 8l6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414\ 1.414L8\ 9.414l-6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414-1.414L6.586\ 8\ .293\ 1.707a1\ 1\ 0\ 0\ 1\ 0-1.414z\'/%3E%3C/svg%3E)50%/1rem auto no-repeat}#toast-container>div:hover{box-shadow:0 0 20px rgba(173,181,189,.1)}.flatpickr-calendar{background-color:#fff;border-color:#fff;box-shadow:0 5px 20px rgba(173,181,189,.2)!important;padding:1.25rem .875rem .875rem!important;width:320px!important}.flatpickr-calendar:after,.flatpickr-calendar:before{content:none}.flatpickr-calendar .flatpickr-months .flatpickr-monthDropdown-months,.flatpickr-calendar .flatpickr-months .numInputWrapper{color:#212529;font-size:1rem;font-weight:500}.flatpickr-calendar .flatpickr-months .flatpickr-month .flatpickr-current-month{align-items:center;display:flex;justify-content:center;padding-top:0}.flatpickr-calendar .flatpickr-months .flatpickr-month .flatpickr-current-month .flatpickr-monthDropdown-months:hover,.flatpickr-calendar .flatpickr-months .flatpickr-month .flatpickr-current-month .numInputWrapper:hover{background:0 0}.flatpickr-calendar .flatpickr-months .flatpickr-month .flatpickr-current-month .flatpickr-monthDropdown-months{padding-left:0}.flatpickr-calendar .flatpickr-months .flatpickr-month .flatpickr-current-month .numInputWrapper{padding-left:.313rem}.flatpickr-calendar .flatpickr-months .flatpickr-next-month,.flatpickr-calendar .flatpickr-months .flatpickr-prev-month{padding:0;top:24px}.flatpickr-calendar .flatpickr-months .flatpickr-next-month:hover svg,.flatpickr-calendar .flatpickr-months .flatpickr-prev-month:hover svg{fill:#6571ff}.flatpickr-calendar .flatpickr-months .flatpickr-prev-month{left:30px!important}.flatpickr-calendar .flatpickr-months .flatpickr-next-month{right:30px!important}.flatpickr-calendar .flatpickr-innerContainer{margin-top:.625rem}.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-weekdays{margin-bottom:.75rem}.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-weekdays .flatpickr-weekday{color:#212529;font-size:0;font-weight:500}.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-weekdays .flatpickr-weekday:first-letter{font-size:.875rem}.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-days{width:290px}.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-days .dayContainer{max-width:290px;min-width:290px;width:290px}.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-days .dayContainer .flatpickr-day{border-radius:.313rem;color:#495057;height:35px;line-height:35px;margin-bottom:.375rem;max-width:unset;width:35px}.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-days .dayContainer .flatpickr-day:hover{background-color:#f8f9fa;border-color:#f8f9fa}.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-days .dayContainer .flatpickr-day.today{background-color:#e0e3ff;border-color:#e0e3ff;color:#6571ff}.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-days .dayContainer .flatpickr-day.nextMonthDay,.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-days .dayContainer .flatpickr-day.prevMonthDay{color:#ced4da}.flatpickr-calendar .flatpickr-time .numInputWrapper:hover{background-color:transparent}.flatpickr-calendar .flatpickr-time .flatpickr-am-pm:focus,.flatpickr-calendar .flatpickr-time .flatpickr-am-pm:hover,.flatpickr-calendar .flatpickr-time .numInput:focus,.flatpickr-calendar .flatpickr-time .numInput:hover,.flatpickr-calendar .flatpickr-time span:focus,.flatpickr-calendar .flatpickr-time span:hover{background-color:transparent}.flatpickr-calendar .flatpickr-time .arrowUp:after{border-bottom-color:#495057}.flatpickr-calendar .flatpickr-time .arrowDown:after{border-top-color:#495057}.datepicker.datepicker-dropdown.dropdown-menu:after,.datepicker.datepicker-dropdown.dropdown-menu:before{content:none}.datepicker.datepicker-dropdown.dropdown-menu .table-condensed .day:hover,.datepicker.datepicker-dropdown.dropdown-menu .table-condensed .month:hover{background:#f8f9fa;color:#212529}.datepicker.datepicker-dropdown.dropdown-menu .table-condensed .datepicker-switch:hover{background:0 0}.datepicker.datepicker-dropdown.dropdown-menu .datepicker-days .table-condensed thead tr th.dow:first-letter{font-size:.875rem}.daterangepicker:after,.daterangepicker:before{content:none}.daterangepicker .drp-calendar .calendar-table .table-condensed thead tr:nth-child(2) th:first-letter{font-size:.875rem}.daterangepicker .drp-calendar .calendar-table tr .available:hover{background:#f8f9fa;color:#212529}.daterangepicker .ranges ul li:hover{background-color:#f8f9fa;color:#212529}.swal-modal .swal-icon--success:after,.swal-modal .swal-icon--success:before{background-color:#fff}.swal-modal .swal-icon--success:after{left:29px}.swal-modal .swal-icon--success:before{left:-32px}.swal-modal .swal-footer .swal-button:focus{box-shadow:none}.dataTables_wrapper div.dataTables_paginate .paginate_button.current:active,.dataTables_wrapper div.dataTables_paginate .paginate_button.current:focus,.dataTables_wrapper div.dataTables_paginate .paginate_button.current:hover{background:#6571ff;border-color:#6571ff;color:#fff!important}.dataTables_wrapper div.dataTables_paginate .paginate_button:active,.dataTables_wrapper div.dataTables_paginate .paginate_button:focus,.dataTables_wrapper div.dataTables_paginate .paginate_button:hover{background:#e9ecef;border-color:#e9ecef;box-shadow:none;color:#6571ff!important}.fc-media-screen .fc-header-toolbar .fc-toolbar-chunk .btn-primary:hover{background-color:#6571ff;border-color:#6571ff;color:#fff}.fc-media-screen .fc-header-toolbar .fc-toolbar-chunk .btn-primary span:before{font-weight:600!important}
 *{box-sizing:border-box;margin:0;padding:0}.modal .modal-dialog .modal-content .modal-body .required:after{color:#f62947;content:"*";font-size:inherit;font-weight:700;position:relative}.modal .modal-dialog .modal-content .modal-body .input-box:focus{background-color:#eef3f7;box-shadow:unset}.modal .modal-dialog .modal-content .modal-footer .submit-btn:hover{background-color:#6571ff!important}.modal .modal-dialog .modal-content .modal-footer .submit-btn:focus{box-shadow:unset}input::-moz-placeholder{overflow:visible}input::placeholder{overflow:visible}.lightbox{flex-direction:column-reverse}#wpNumber::-webkit-inner-spin-button{display:none}.input:focus{outline:none}.input::-webkit-input-placeholder{color:#aaa}.input:focus::-webkit-input-placeholder{color:#969696}.input:focus+.underline{transform:scale(1)}.vcard11-input:focus+.vcard11-underline{transform:scale(1)!important}.vcard11-input:focus{outline:none}.sub-btn{border-radius:20px;flex-direction:column;left:0;top:0;width:100%}
 .lightbox{text-align:center;line-height:0;position:absolute;left:0}.lightboxOverlay{position:absolute;top:0;left:0;z-index:9999;background-color:#000;opacity:.8}.lightbox{width:100%;z-index:10000;font-weight:400;outline:0}.lb-outerContainer:after{content:"";display:table;clear:both}.lb-nav a.lb-prev:hover{opacity:1}.lb-nav a.lb-next:hover{opacity:1}.lb-dataContainer:after{content:"";display:table;clear:both}.lb-data .lb-close:hover{cursor:pointer;opacity:1}
-.text-black{color:#0c0a0b!important}.text-primary{color:#34137c!important}.text-gradient{-webkit-text-fill-color:transparent;-webkit-background-clip:text;background-image:linear-gradient(to top left,#7566e3,#ce4d86)}.fw-6{font-weight:600!important}body{font-family:Poppins;font-weight:400!important;position:relative}body:after{background:linear-gradient(to top left,#7566e3b0,#ce4d86b3);content:"";height:100%;left:0;position:fixed;top:0;width:100%;z-index:-1}.px-30{padding-left:30px;padding-right:30px}@media (max-width:575px){.px-30{padding-left:20px;padding-right:20px}}.px-20{padding-left:20px;padding-right:20px}@media (max-width:575px){.px-20{padding-left:10px;padding-right:10px}}.section-heading{margin-bottom:26px;position:relative}.section-heading h2{border-color:#a204de;border-radius:50px;border-style:solid;border-width:2px 8px;display:inline-block;font-size:24px;padding:6px 20px;position:relative}@media (max-width:575px){.section-heading h2{font-size:16px}}.btn{border-radius:15px;font-weight:500;padding:12px 20px;transition:all .3s ease-in-out}.btn:focus{box-shadow:none!important;outline:none!important}.btn-gradient{background-image:linear-gradient(to top left,#7566e3,#ce4d86);border:1px solid #fff;color:#fff!important;overflow:hidden;position:relative;z-index:1}.btn-gradient:focus,.btn-gradient:hover{background-image:linear-gradient(to top left,#ce4d86,#7566e3)}.btn-gradient .wave{height:530%;left:0;position:absolute;top:-95px;transition:.4s;width:100%;z-index:-1}.btn-gradient .wave:after,.btn-gradient .wave:before{content:"";height:200%;left:-40%;pointer-events:none;position:absolute;top:46%;width:180%}.btn-gradient .wave:before{animation:wave 10s linear infinite;background-color:#ffffff2b;border-radius:45%}.btn-gradient .wave:after{animation:wave 15s linear infinite;background-color:#ffffff26;border-radius:35%}@keyframes wave{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}.main-content{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background-color:#fff!important;border-radius:15px!important;margin-bottom:4px!important;margin-top:4px!important;max-width:670px!important;min-height:calc(100% - 8px)!important}.banner-section .banner-img{height:320px;position:relative}@media (max-width:575px){.banner-section .banner-img{height:280px}}.profile-section{z-index:1}.profile-section .profile-bg{position:absolute;right:0;top:0;z-index:-1}.profile-section .card{background:transparent;border:0;border-bottom:3px solid #a602e0;border-radius:0;overflow:hidden;padding-bottom:30px;position:relative}.profile-section .card .music-wave{background-image:url(/images/templates/musicianxxxxx/mus-015.gif);background-repeat:repeat;background-size:contain;bottom:-22px;height:50px;left:0;position:absolute;width:100%}.profile-section .card .card-img-main{padding:2px}.profile-section .card .card-img-main:after{background-image:linear-gradient(170deg,#bb32ea,#5c4296);border-radius:50%;border-bottom-left-radius:20px;border-bottom-right-radius:6px;border-top-left-radius:10px;border-top-right-radius:40%;content:"";height:100%;position:absolute;right:0;top:0;width:100%;z-index:-1}.profile-section .card .card-img-main .card-img{background:#fff;border-bottom-left-radius:30px;border-bottom-right-radius:10px;border-top-left-radius:20px;border-top-right-radius:50%;height:150px;min-width:150px;overflow:hidden;padding:4px;width:150px}@media (max-width:575px){.profile-section .card .card-img-main .card-img{height:120px;min-width:120px;width:120px}}.profile-section .card .card-img-main .card-img img{border-bottom-left-radius:30px;border-bottom-right-radius:10px;border-top-left-radius:20px;border-top-right-radius:50%;-o-object-position:top;object-position:top}.profile-section .card .verification-icon{-webkit-text-fill-color:transparent;-webkit-background-clip:text}.social-media-section .social-media{gap:16px}@media (max-width:575px){.social-media-section .social-media{gap:10px}}.social-media-section .social-icon{background-position:50%;background-repeat:no-repeat;background-size:cover;border-radius:30%;transition:all .4s ease-in-out;z-index:1}.social-media-section .social-icon a{align-items:center;border-radius:30%;color:#fff;display:flex;height:100%;justify-content:center;left:42%;position:absolute;top:50%;transform:translate(-50%,-50%);width:100%}.social-media-section .social-icon a svg{height:22px;width:22px}.social-media-section .social-icon .play-svg{z-index:-1}.social-media-section .social-icon .play-svg svg{transition:all .4s ease-in-out}.social-media-section .social-icon:hover .play-svg svg{transform:scale(1.2)}.contact-section .contact-box{background:linear-gradient(to top left,#7566e3,#ce4d86);border-radius:10px;gap:10px;overflow:hidden;padding:8px;position:relative}.contact-section .contact-box .contact-icon{height:40px;min-width:40px;position:relative;width:40px}.contact-section .contact-box .contact-icon img{height:22px;left:4px;position:absolute;width:22px}.contact-section .contact-box .contact-desc a{word-break:break-all}.our-services-section .services{position:relative;z-index:2}.our-services-section .services .card-wrapper{border-radius:20px;padding:2px;position:relative}.our-services-section .services .service-card{background-color:#fff;border:1px solid #34137c;border-radius:12px;overflow:hidden;position:relative}.our-services-section .services .service-card .card-img{background-color:#fff;border-radius:12px 12px 0 0;height:180px;overflow:hidden;width:100%}.our-services-section .services .service-card .card-img a{display:block;height:100%;width:100%}.our-services-section .services .service-card .card-img img{-o-object-fit:cover;object-fit:cover}.our-services-section .services .service-card .card-body{background:linear-gradient(to top left,#7566e3,#ce4d86);border-bottom-left-radius:12px;border-bottom-right-radius:12px;min-height:149px;overflow:hidden;padding:12px;position:relative}.our-services-section .services .service-card .card-title{color:#fff!important;font-size:18px}.our-services-section .services .service-card .description-text{color:#fff!important;font-size:14px}.appointment-section{background-attachment:fixed;background-image:url(/images/templates/musicianxxxxx/mus-016.webp);background-repeat:no-repeat;background-size:cover;position:relative}.appointment-section:before{background-image:linear-gradient(to top left,#7566e3,#ce4d86);content:"";height:100%;left:0;opacity:.4;position:absolute;top:0;width:100%}.appointment-section h2{border-color:#fff}.appointment-section .appointment{z-index:1}.appointment-section .appointment .appointment-input{-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);background:#ffffff4d;border:2px solid #ffffff4d;border-radius:15px;color:#fff;height:50px;padding:12px 25px;width:100%}@media (max-width:575px){.appointment-section .appointment .appointment-input{font-size:14px;padding:10px}}.appointment-section .appointment .appointment-input::-moz-placeholder{color:#fff}.appointment-section .appointment .appointment-input::placeholder{color:#fff}.appointment-section .appointment .appointment-input:focus{box-shadow:none;outline:none}.appointment-section .appointment .calendar-icon{position:absolute;right:18px;top:11px}@media (max-width:575px){.gallery-section{padding-left:10px;padding-right:10px}}.gallery-section .gallery-slider{position:relative}.gallery-section .gallery-slider .gallery-img{background-position:50%;background-size:cover}.gallery-section .gallery-slider .slick-slide{padding:0 10px}.gallery-section .gallery-slider .img-wrapper{border:1px solid #34137c;border-radius:14px;margin:0 auto;max-width:560px;padding:2px;position:relative}.gallery-section .gallery-slider .img-wrapper .gallery-img{aspect-ratio:2;background-color:#fff;border-radius:14px;height:280px;margin:0 auto;max-height:280px;overflow:hidden;position:relative;width:100%}@media (max-width:480px){.gallery-section .gallery-slider .img-wrapper .gallery-img{height:240px}}.gallery-section .gallery-slider .img-wrapper .gallery-img .expand-icon{align-items:center;background-image:linear-gradient(to top left,#7566e3,#ce4d86);border-radius:50%;cursor:pointer;display:inline-flex;height:40px;justify-content:center;position:absolute;right:10px;top:10px;width:40px}.gallery-section .gallery-slider .img-wrapper .gallery-img img{-o-object-fit:contain;object-fit:contain}.product-section .product-slider .slick-slide{padding:0 10px}.product-section .product-slider .card-wrapper{border:1px solid #34137c;border-radius:12px;position:relative}.product-section .product-slider .product-card{background-color:#fff;border-radius:12px;position:relative}.product-section .product-slider .product-card .product-img{background-color:#fff;border-radius:12px 12px 0 0;height:176px;width:100%}.product-section .product-slider .product-card .product-img img{-o-object-fit:cover;object-fit:cover}.product-section .product-slider .product-card .card-body{background:linear-gradient(to top left,#7566e3,#ce4d86);border-radius:0 0 12px 12px;min-height:115px;padding:12px}.product-section .product-slider .product-card .card-body .product-title{-webkit-line-clamp:2;-webkit-box-orient:vertical;color:#fff!important;font-size:18px;font-weight:500;min-height:44px;overflow:hidden}.product-section .product-slider .product-card .card-body .product-amount{-webkit-line-clamp:1;-webkit-box-orient:vertical;font-size:22px;font-weight:600;line-height:1.25;overflow:hidden}.testimonial-section .testimonial-slider .slick-slide{padding:0 10px}.testimonial-section .testimonial-slider .testimonial-card{border:0;color:#fff;padding:4px;position:relative;z-index:1}.testimonial-section .testimonial-slider .testimonial-card .empty-box{border:2px solid #bb32ea;border-radius:20px;height:80%;left:0;position:absolute;top:50%;transform:translateY(-50%);width:100%;z-index:-1}.testimonial-section .testimonial-slider .testimonial-card:after{background-image:linear-gradient(170deg,#bb32ea,#5c4296);border-radius:18px 30px 18px 30px;content:"";height:100%;left:50%;position:absolute;top:0;transform:translateX(-50%);width:90%}.testimonial-section .testimonial-slider .testimonial-card .testimonial-content{background:#fff;border-radius:30px;margin:0 auto;max-width:90%;padding:16px;width:100%;z-index:1}.testimonial-section .testimonial-slider .testimonial-card .testimonial-content .quote{background:#fff;border-radius:50%;height:50px;min-width:50px;position:absolute;width:50px}.testimonial-section .testimonial-slider .testimonial-card .testimonial-content .quote img{width:40px}.testimonial-section .testimonial-slider .testimonial-card .testimonial-content .quote.quote-left{left:8px;top:40px}@media (max-width:575px){.testimonial-section .testimonial-slider .testimonial-card .testimonial-content .quote.quote-left{left:4px}}.testimonial-section .testimonial-slider .testimonial-card .testimonial-content .quote.quote-right{bottom:30px;right:8px}@media (max-width:575px){.testimonial-section .testimonial-slider .testimonial-card .testimonial-content .quote.quote-right{right:4px}}.testimonial-section .testimonial-slider .testimonial-card .testimonial-profile-img{background:#fff;border-radius:50%;height:80px;margin-left:auto;margin-right:auto;min-width:80px;overflow:hidden;padding:3px;width:80px}.testimonial-section .testimonial-slider .testimonial-card .card-body h3{-webkit-line-clamp:1;-webkit-box-orient:vertical;font-size:18px;overflow:hidden}@media (max-width:575px){.testimonial-section .testimonial-slider .testimonial-card .card-body h3{font-size:14px}}.testimonial-section .testimonial-slider .testimonial-card .card-body .desc{-webkit-line-clamp:4;-webkit-box-orient:vertical;font-size:14px;min-height:84px;overflow:hidden;padding:0 20px}.blog-section .card-wrapper{border-radius:20px;padding:2px;position:relative}.blog-section .blog-slider{position:relative}.blog-section .blog-slider .slick-slide{padding:0 10px}.blog-section .blog-slider .blog-card{background-color:#fff;border:1px solid #34137c;border-radius:12px;position:relative}.blog-section .blog-slider .blog-card .card-img{background-color:#fff;border-radius:12px 12px 0 0;height:280px;overflow:hidden;width:100%}.blog-section .blog-slider .blog-card .card-img img{-o-object-fit:cover;object-fit:cover}.blog-section .blog-slider .blog-card .card-body{background:linear-gradient(to top left,#7566e3,#ce4d86);border-radius:0 0 12px 12px;min-height:158px;padding:12px}.blog-section .blog-slider .blog-card .card-body h5{-webkit-line-clamp:2;-webkit-box-orient:vertical;min-height:48px;overflow:hidden}.blog-section .blog-slider .blog-card .card-body .blog-desc{-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:14px;line-height:1.2;margin-bottom:0!important;min-height:33px;overflow:hidden}.blog-section .blog-slider .blog-card .card-body .read-more{border-radius:50px;padding:4px 10px}.business-hour-section .business-hour-card{background-image:linear-gradient(to top left,#7566e3,#ce4d86);border:2px solid #ab00e5;border-radius:10px;font-size:14px;padding:6px}.business-hour-section .business-hour-card .time-icons .calender-icon{left:38%;position:absolute;top:50%;transform:translate(-50%,-50%);width:20px}.qr-code-section .card-wrapper{border-radius:20px;margin:0 auto;max-width:550px;padding:2px;position:relative;width:100%}.qr-code-section .card-wrapper:before{background-image:linear-gradient(to top left,#7566e3,#ce4d86);border-radius:20px;content:"";height:100%;left:0;position:absolute;top:0;width:100%;z-index:0}.qr-code-section .qr-code{background-color:#fff;border-radius:30px 18px 30px 18px;padding:10px;width:100%}.qr-code-section .qr-code .qr-content{background:linear-gradient(to top left,#7566e3,#ce4d86);border-radius:18px;padding:15px}.qr-code-section .qr-code .qr-code-img{align-items:center;background:#fff;border-radius:10px;display:flex;height:130px;justify-content:center;min-width:130px;padding:8px;width:130px}.qr-code-section .qr-code .qr-code-img svg{border-radius:6px}.contact-us-section .contact-form{background:#fff;background-image:linear-gradient(to top left,#7566e3,#ce4d86);border:2px solid #34137c;border-radius:15px;position:relative}.contact-us-section .contact-form form{background-color:#fff;border-radius:30px 18px 30px 18px;padding:20px 30px}.contact-us-section .contact-form form .form-control{background:linear-gradient(to top left,#7566e3,#ce4d86);border-radius:10px;color:#fff;font-size:14px;height:50px;margin-bottom:15px;padding:13px 20px}.contact-us-section .contact-form form .form-control::-moz-placeholder{color:#fff}.contact-us-section .contact-form form .form-control::placeholder{color:#fff}.contact-us-section .contact-form form .form-control:focus{border-color:transparent;box-shadow:none;outline:none}.contact-us-section .contact-form form .btn{max-width:290px}.create-vcard-section .card-wrapper:before{background-image:linear-gradient(to top left,#7566e3,#ce4d86);border-radius:15px;content:"";height:100%;left:0;position:absolute;top:0;width:100%;z-index:0}.map-section:before{background-image:linear-gradient(to top left,#7566e3,#ce4d86);border-radius:20px;content:"";height:100%;left:0;position:absolute;top:0;width:100%;z-index:0}.add-to-contact-section{bottom:60px;left:0;position:fixed;width:100%;z-index:10}.btn-section .fixed-btn-section .musician-bars-btn{background-image:linear-gradient(to top left,#7566e3,#ce4d86)}.slick-dots{bottom:-35px}.slick-dots li{height:8px!important;margin:0 4px!important;width:8px!important}.slick-dots li button,.slick-dots li button:before{font-size:0!important;height:8px!important;width:8px!important}.slick-dots li button:before{background-color:#b4a4c4;border-radius:10px}.slick-dots li.slick-active,.slick-dots li.slick-active button{width:24px!important}.slick-dots li.slick-active button:before{background-image:linear-gradient(to top left,#7566e3,#ce4d86);opacity:1;width:24px!important}.language ul{list-style:none}.language ul .lang-list{background:linear-gradient(to top left,#7566e3,#ce4d86);border:none;border-radius:6px;font-size:14px;outline:none;padding:3px 9px;transition:all .3s ease;width:fit-content}.language ul .lang-list .lang-head{color:#fff;font-size:14px}.language ul .lang-list .lang-hover-list{font-size:14px;margin:15px 0 0;min-width:70px;padding:0;right:0;width:100%}.language ul .lang-list .lang-hover-list li:hover{background:linear-gradient(to top left,#7566e3,#ce4d86)!important}.language ul .lang-list .lang-hover-list li:hover a{color:#fff}.time-slot:hover{background:linear-gradient(to top left,#7566e3,#ce4d86);border:1px solid #fff}.insta-feed::-webkit-scrollbar{width:0}.insta-feed::-webkit-scrollbar-thumb,.insta-feed::-webkit-scrollbar-track{background-color:#f1faff!important}.instagram-btn:before{background:linear-gradient(to top left,#7566e3,#ce4d86);content:"";height:2px;position:absolute;top:100%;transition:width .3s ease;width:0}.instagram-btn.active:before{width:80%}.cursor-pointer{cursor:pointer}.btn-section{position:absolute;right:80px;top:50%;z-index:9}.btn-section .fixed-btn-section{align-items:center;display:flex;position:fixed;top:50%}.btn-section .fixed-btn-section .bars-btn{align-items:center;border-radius:50%;display:flex;height:65px;justify-content:center;min-width:65px;width:65px}.btn-section .fixed-btn-section .sub-btn{position:absolute;right:75px}.support-banner .support_text::-webkit-scrollbar{width:4px}.support-banner .support_text::-webkit-scrollbar-track{background:transparent}.support-banner .support_text::-webkit-scrollbar-thumb{background:#888}.act-now .wave:after,.act-now .wave:before{content:"";height:200%;left:-40%;pointer-events:none;position:absolute;top:46%;width:180%}.act-now .wave:before{animation:wave 10s linear infinite;background-color:#ffffff2b;border-radius:45%}.act-now .wave:after{animation:wave 15s linear infinite;background-color:#ffffff26;border-radius:35%}.vcard-thirtythree-btn .wave:after,.vcard-thirtythree-btn .wave:before{content:"";height:200%;left:-40%;pointer-events:none;position:absolute;top:46%;width:180%}.vcard-thirtythree-btn .wave:before{animation:wave 10s linear infinite;background-color:#ffffff2b;border-radius:45%}.vcard-thirtythree-btn .wave:after{animation:wave 15s linear infinite;background-color:#ffffff26;border-radius:35%}.vcard-one__product .card-wrapper:before{background-image:linear-gradient(to top left,#7566e3,#ce4d86);border-radius:20px;content:"";height:100%;left:0;position:absolute;top:0;width:100%;z-index:0}.buy-product:hover{background-color:rgba(52,19,124,.9)}.modal{background-color:#00000080;z-index:99999!important}.modal .news-modal #newsLatter-content .modal-body .required:after{color:#f62947;content:"*";font-size:inherit;font-weight:700;position:relative}.modal .news-modal #newsLatter-content .modal-body .input-box:focus{background-color:#eef3f7;box-shadow:unset}.modal .news-modal #newsLatter-content .modal-footer .submit-btn:hover{background-color:#ffc000!important}.modal .news-modal #newsLatter-content .modal-footer .submit-btn:focus{box-shadow:unset}.input-box{background:linear-gradient(to top left,#7566e3,#ce4d86);border-radius:10px!important;cursor:pointer;display:grid;margin-bottom:5px;padding:20px;place-items:center}.input-box h4{font-size:14px!important;margin:0}.input-box h4{color:#fff!important}small{color:#aea6aa!important;font-size:12px}.copy-btn:focus{box-shadow:none!important;outline:none!important}.object-fit-cover{-o-object-fit:cover;object-fit:cover}.pwa-support{background:#fff;border:1px solid #ab00e5;border-radius:20px;bottom:20px;height:auto!important;left:0;margin:0 auto;max-width:400px;padding:24px;position:fixed!important;right:0;width:100%;z-index:99999!important}.pwa-support .pwa-heading{font-size:20px;margin-bottom:12px}.pwa-support .pwa-text{font-size:.875rem!important;margin-bottom:16px}.pwa-install-button{background:linear-gradient(to top left,#7566e3,#ce4d86)!important;color:#fff!important;padding:.563rem 1.563rem!important}.pwa-cancel-button,.pwa-install-button{border:none!important;border-radius:10px!important;font-size:.875rem!important;font-weight:400!important}.pwa-cancel-button{background-color:#adb5bd!important;color:#000;padding:.563rem 1.563rem}.pwa-cancel-button:hover{background-color:#d1d5db!important;border:none!important;color:#000!important}.row-gap-20px{row-gap:20px}.row-gap-15px{row-gap:15px}.right-arrow-animation{animation:right-arrow 1s linear 1s infinite alternate}@keyframes right-arrow{0%{transform:translateX(0)}to{transform:translateX(8px)}}@media (max-width:576px){.vector-all img{width:75%!important}}@media (max-width:575px){.vector-all img{width:60%!important}}.vector-1{left:0;top:5px;width:45px}.vector-2{right:0;top:5px}.vector-3{left:0;top:15px}.vector-4{right:0;top:0;width:70px}.vector-5{left:6px;top:0;width:32px}.vector-6{right:0;top:5px}.vector-7{left:0;top:5px;width:80px}.vector-9{left:0;top:10px}.vector-10{right:0;top:0}.vector-11{left:0;top:10px}.vector-13{left:0;top:10px;width:30px}.add-contact-btn{transition:all .3s ease-in-out}.add-contact-btn:hover{transform:scale(1.05)!important;transition:all .3s ease-in}.card-back:after{background:linear-gradient(to top left,#7566e3,#ce4d86);border-radius:17px;content:"";height:100%;left:0;position:absolute;top:0;width:100%;z-index:-1}@keyframes music-wave{0%{background-position-x:0}to{background-position-x:100%}}.profile-desc p{margin-bottom:0!important}.fs-20{font-size:20px!important}@media (max-width:767px){.fs-20{font-size:16px!important}}.vcard33-bg-animation{bottom:0;left:0;position:fixed;right:0}.vcard33-bg-animation .ag-spotlight-moving_spotlight{animation:an-spotlight-moving-right 20s cubic-bezier(.6,0,.55,.8) infinite;background-position:50% 50%;background-repeat:no-repeat;background-size:100%auto;bottom:0;-webkit-clip-path:polygon(0 0,100%0,50% 100%,43% 100%);clip-path:polygon(0 0,100%0,50% 100%,43% 100%);height:128.125em;image-rendering:crisp-edges;opacity:.1;position:absolute;transform-origin:center bottom;width:14.375em;z-index:-1}.vcard33-bg-animation .ag-spotlight-moving_spotlight-right{background-image:linear-gradient(146deg,rgba(172,0,230,.7),rgba(52,19,124,.7) 50%,hsla(0,0%,100%,.7));right:40px}.vcard33-bg-animation .ag-spotlight-moving_spotlight-right1{animation:an-spotlight-moving-left 20s cubic-bezier(.6,0,.55,.8) infinite;background-image:linear-gradient(267deg,rgba(172,0,230,.7),rgba(52,19,124,.7) 50%,hsla(0,0%,100%,.7));right:260px}.vcard33-bg-animation .ag-spotlight-moving_spotlight-right2{animation-name:an-spotlight-moving-center1;background-image:linear-gradient(267deg,rgba(172,0,230,.7),rgba(52,19,124,.7) 50%,hsla(0,0%,100%,.7));right:480px}.vcard33-bg-animation .ag-spotlight-moving_spotlight-left{animation-name:an-spotlight-moving-left;background-image:linear-gradient(133deg,rgba(172,0,230,.7),rgba(52,19,124,.7) 50%,hsla(0,0%,100%,.7));left:40px}.vcard33-bg-animation .ag-spotlight-moving_spotlight-left1{animation-name:an-spotlight-moving-right;background-image:linear-gradient(90deg,rgba(172,0,230,.7),rgba(52,19,124,.7) 50%,hsla(0,0%,100%,.7));left:260px}.vcard33-bg-animation .ag-spotlight-moving_spotlight-left2{animation-name:an-spotlight-moving-center;background-image:linear-gradient(94deg,rgba(172,0,230,.7),rgba(52,19,124,.7) 50%,hsla(0,0%,100%,.7));left:480px}@keyframes an-spotlight-moving-right{0%,to{transform:rotate(-10deg)}50%{transform:rotate(-20deg)}}@keyframes an-spotlight-moving-center{0%,to{transform:rotate(-10deg)}50%{transform:rotate(20deg)}}@keyframes an-spotlight-moving-center1{0%,to{transform:rotate(10deg)}50%{transform:rotate(-20deg)}}@keyframes an-spotlight-moving-left{0%,to{transform:rotate(10deg)}50%{transform:rotate(20deg)}}
+.text-black{color:#0c0a0b!important}.text-primary{color:#34137c!important}.text-gradient{-webkit-text-fill-color:transparent;-webkit-background-clip:text;background-image:linear-gradient(to top left,#7566e3,#ce4d86)}.fw-6{font-weight:600!important}body{font-family:Poppins;font-weight:400!important;position:relative}body:after{background:linear-gradient(to top left,#7566e3b0,#ce4d86b3);content:"";height:100%;left:0;position:fixed;top:0;width:100%;z-index:-1}.px-30{padding-left:30px;padding-right:30px}@media (max-width:575px){.px-30{padding-left:20px;padding-right:20px}}.px-20{padding-left:20px;padding-right:20px}@media (max-width:575px){.px-20{padding-left:10px;padding-right:10px}}.section-heading{margin-bottom:26px;position:relative}.section-heading h2{border-color:#a204de;border-radius:50px;border-style:solid;border-width:2px 8px;display:inline-block;font-size:24px;padding:6px 20px;position:relative}@media (max-width:575px){.section-heading h2{font-size:16px}}.btn{border-radius:15px;font-weight:500;padding:12px 20px;transition:all .3s ease-in-out}.btn:focus{box-shadow:none!important;outline:none!important}.btn-gradient{background-image:linear-gradient(to top left,#7566e3,#ce4d86);border:1px solid #fff;color:#fff!important;overflow:hidden;position:relative;z-index:1}.btn-gradient:focus,.btn-gradient:hover{background-image:linear-gradient(to top left,#ce4d86,#7566e3)}.btn-gradient .wave{height:530%;left:0;position:absolute;top:-95px;transition:.4s;width:100%;z-index:-1}.btn-gradient .wave:after,.btn-gradient .wave:before{content:"";height:200%;left:-40%;pointer-events:none;position:absolute;top:46%;width:180%}.btn-gradient .wave:before{animation:wave 10s linear infinite;background-color:#ffffff2b;border-radius:45%}.btn-gradient .wave:after{animation:wave 15s linear infinite;background-color:#ffffff26;border-radius:35%}@keyframes wave{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}.main-content{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background-color:#fff!important;border-radius:15px!important;margin-bottom:4px!important;margin-top:4px!important;max-width:670px!important;min-height:calc(100% - 8px)!important}.banner-section .banner-img{height:320px;position:relative}@media (max-width:575px){.banner-section .banner-img{height:280px}}.profile-section{z-index:1}.profile-section .profile-bg{position:absolute;right:0;top:0;z-index:-1}.profile-section .card{background:transparent;border:0;border-bottom:3px solid #a602e0;border-radius:0;overflow:hidden;padding-bottom:30px;position:relative}.profile-section .card .music-wave{background-image:url(/images/templates/musician/mus-015.gif);background-repeat:repeat;background-size:contain;bottom:-22px;height:50px;left:0;position:absolute;width:100%}.profile-section .card .card-img-main{padding:2px}.profile-section .card .card-img-main:after{background-image:linear-gradient(170deg,#bb32ea,#5c4296);border-radius:50%;border-bottom-left-radius:20px;border-bottom-right-radius:6px;border-top-left-radius:10px;border-top-right-radius:40%;content:"";height:100%;position:absolute;right:0;top:0;width:100%;z-index:-1}.profile-section .card .card-img-main .card-img{background:#fff;border-bottom-left-radius:30px;border-bottom-right-radius:10px;border-top-left-radius:20px;border-top-right-radius:50%;height:150px;min-width:150px;overflow:hidden;padding:4px;width:150px}@media (max-width:575px){.profile-section .card .card-img-main .card-img{height:120px;min-width:120px;width:120px}}.profile-section .card .card-img-main .card-img img{border-bottom-left-radius:30px;border-bottom-right-radius:10px;border-top-left-radius:20px;border-top-right-radius:50%;-o-object-position:top;object-position:top}.profile-section .card .verification-icon{-webkit-text-fill-color:transparent;-webkit-background-clip:text}.social-media-section .social-media{gap:16px}@media (max-width:575px){.social-media-section .social-media{gap:10px}}.social-media-section .social-icon{background-position:50%;background-repeat:no-repeat;background-size:cover;border-radius:30%;transition:all .4s ease-in-out;z-index:1}.social-media-section .social-icon a{align-items:center;border-radius:30%;color:#fff;display:flex;height:100%;justify-content:center;left:42%;position:absolute;top:50%;transform:translate(-50%,-50%);width:100%}.social-media-section .social-icon a svg{height:22px;width:22px}.social-media-section .social-icon .play-svg{z-index:-1}.social-media-section .social-icon .play-svg svg{transition:all .4s ease-in-out}.social-media-section .social-icon:hover .play-svg svg{transform:scale(1.2)}.contact-section .contact-box{background:linear-gradient(to top left,#7566e3,#ce4d86);border-radius:10px;gap:10px;overflow:hidden;padding:8px;position:relative}.contact-section .contact-box .contact-icon{height:40px;min-width:40px;position:relative;width:40px}.contact-section .contact-box .contact-icon img{height:22px;left:4px;position:absolute;width:22px}.contact-section .contact-box .contact-desc a{word-break:break-all}.our-services-section .services{position:relative;z-index:2}.our-services-section .services .card-wrapper{border-radius:20px;padding:2px;position:relative}.our-services-section .services .service-card{background-color:#fff;border:1px solid #34137c;border-radius:12px;overflow:hidden;position:relative}.our-services-section .services .service-card .card-img{background-color:#fff;border-radius:12px 12px 0 0;height:180px;overflow:hidden;width:100%}.our-services-section .services .service-card .card-img a{display:block;height:100%;width:100%}.our-services-section .services .service-card .card-img img{-o-object-fit:cover;object-fit:cover}.our-services-section .services .service-card .card-body{background:linear-gradient(to top left,#7566e3,#ce4d86);border-bottom-left-radius:12px;border-bottom-right-radius:12px;min-height:149px;overflow:hidden;padding:12px;position:relative}.our-services-section .services .service-card .card-title{color:#fff!important;font-size:18px}.our-services-section .services .service-card .description-text{color:#fff!important;font-size:14px}.appointment-section{background-attachment:fixed;background-image:url(/images/templates/musician/mus-016.webp);background-repeat:no-repeat;background-size:cover;position:relative}.appointment-section:before{background-image:linear-gradient(to top left,#7566e3,#ce4d86);content:"";height:100%;left:0;opacity:.4;position:absolute;top:0;width:100%}.appointment-section h2{border-color:#fff}.appointment-section .appointment{z-index:1}.appointment-section .appointment .appointment-input{-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);background:#ffffff4d;border:2px solid #ffffff4d;border-radius:15px;color:#fff;height:50px;padding:12px 25px;width:100%}@media (max-width:575px){.appointment-section .appointment .appointment-input{font-size:14px;padding:10px}}.appointment-section .appointment .appointment-input::-moz-placeholder{color:#fff}.appointment-section .appointment .appointment-input::placeholder{color:#fff}.appointment-section .appointment .appointment-input:focus{box-shadow:none;outline:none}.appointment-section .appointment .calendar-icon{position:absolute;right:18px;top:11px}@media (max-width:575px){.gallery-section{padding-left:10px;padding-right:10px}}.gallery-section .gallery-slider{position:relative}.gallery-section .gallery-slider .gallery-img{background-position:50%;background-size:cover}.gallery-section .gallery-slider .slick-slide{padding:0 10px}.gallery-section .gallery-slider .img-wrapper{border:1px solid #34137c;border-radius:14px;margin:0 auto;max-width:560px;padding:2px;position:relative}.gallery-section .gallery-slider .img-wrapper .gallery-img{aspect-ratio:2;background-color:#fff;border-radius:14px;height:280px;margin:0 auto;max-height:280px;overflow:hidden;position:relative;width:100%}@media (max-width:480px){.gallery-section .gallery-slider .img-wrapper .gallery-img{height:240px}}.gallery-section .gallery-slider .img-wrapper .gallery-img .expand-icon{align-items:center;background-image:linear-gradient(to top left,#7566e3,#ce4d86);border-radius:50%;cursor:pointer;display:inline-flex;height:40px;justify-content:center;position:absolute;right:10px;top:10px;width:40px}.gallery-section .gallery-slider .img-wrapper .gallery-img img{-o-object-fit:contain;object-fit:contain}.product-section .product-slider .slick-slide{padding:0 10px}.product-section .product-slider .card-wrapper{border:1px solid #34137c;border-radius:12px;position:relative}.product-section .product-slider .product-card{background-color:#fff;border-radius:12px;position:relative}.product-section .product-slider .product-card .product-img{background-color:#fff;border-radius:12px 12px 0 0;height:176px;width:100%}.product-section .product-slider .product-card .product-img img{-o-object-fit:cover;object-fit:cover}.product-section .product-slider .product-card .card-body{background:linear-gradient(to top left,#7566e3,#ce4d86);border-radius:0 0 12px 12px;min-height:115px;padding:12px}.product-section .product-slider .product-card .card-body .product-title{-webkit-line-clamp:2;-webkit-box-orient:vertical;color:#fff!important;font-size:18px;font-weight:500;min-height:44px;overflow:hidden}.product-section .product-slider .product-card .card-body .product-amount{-webkit-line-clamp:1;-webkit-box-orient:vertical;font-size:22px;font-weight:600;line-height:1.25;overflow:hidden}.testimonial-section .testimonial-slider .slick-slide{padding:0 10px}.testimonial-section .testimonial-slider .testimonial-card{border:0;color:#fff;padding:4px;position:relative;z-index:1}.testimonial-section .testimonial-slider .testimonial-card .empty-box{border:2px solid #bb32ea;border-radius:20px;height:80%;left:0;position:absolute;top:50%;transform:translateY(-50%);width:100%;z-index:-1}.testimonial-section .testimonial-slider .testimonial-card:after{background-image:linear-gradient(170deg,#bb32ea,#5c4296);border-radius:18px 30px 18px 30px;content:"";height:100%;left:50%;position:absolute;top:0;transform:translateX(-50%);width:90%}.testimonial-section .testimonial-slider .testimonial-card .testimonial-content{background:#fff;border-radius:30px;margin:0 auto;max-width:90%;padding:16px;width:100%;z-index:1}.testimonial-section .testimonial-slider .testimonial-card .testimonial-content .quote{background:#fff;border-radius:50%;height:50px;min-width:50px;position:absolute;width:50px}.testimonial-section .testimonial-slider .testimonial-card .testimonial-content .quote img{width:40px}.testimonial-section .testimonial-slider .testimonial-card .testimonial-content .quote.quote-left{left:8px;top:40px}@media (max-width:575px){.testimonial-section .testimonial-slider .testimonial-card .testimonial-content .quote.quote-left{left:4px}}.testimonial-section .testimonial-slider .testimonial-card .testimonial-content .quote.quote-right{bottom:30px;right:8px}@media (max-width:575px){.testimonial-section .testimonial-slider .testimonial-card .testimonial-content .quote.quote-right{right:4px}}.testimonial-section .testimonial-slider .testimonial-card .testimonial-profile-img{background:#fff;border-radius:50%;height:80px;margin-left:auto;margin-right:auto;min-width:80px;overflow:hidden;padding:3px;width:80px}.testimonial-section .testimonial-slider .testimonial-card .card-body h3{-webkit-line-clamp:1;-webkit-box-orient:vertical;font-size:18px;overflow:hidden}@media (max-width:575px){.testimonial-section .testimonial-slider .testimonial-card .card-body h3{font-size:14px}}.testimonial-section .testimonial-slider .testimonial-card .card-body .desc{-webkit-line-clamp:4;-webkit-box-orient:vertical;font-size:14px;min-height:84px;overflow:hidden;padding:0 20px}.blog-section .card-wrapper{border-radius:20px;padding:2px;position:relative}.blog-section .blog-slider{position:relative}.blog-section .blog-slider .slick-slide{padding:0 10px}.blog-section .blog-slider .blog-card{background-color:#fff;border:1px solid #34137c;border-radius:12px;position:relative}.blog-section .blog-slider .blog-card .card-img{background-color:#fff;border-radius:12px 12px 0 0;height:280px;overflow:hidden;width:100%}.blog-section .blog-slider .blog-card .card-img img{-o-object-fit:cover;object-fit:cover}.blog-section .blog-slider .blog-card .card-body{background:linear-gradient(to top left,#7566e3,#ce4d86);border-radius:0 0 12px 12px;min-height:158px;padding:12px}.blog-section .blog-slider .blog-card .card-body h5{-webkit-line-clamp:2;-webkit-box-orient:vertical;min-height:48px;overflow:hidden}.blog-section .blog-slider .blog-card .card-body .blog-desc{-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:14px;line-height:1.2;margin-bottom:0!important;min-height:33px;overflow:hidden}.blog-section .blog-slider .blog-card .card-body .read-more{border-radius:50px;padding:4px 10px}.business-hour-section .business-hour-card{background-image:linear-gradient(to top left,#7566e3,#ce4d86);border:2px solid #ab00e5;border-radius:10px;font-size:14px;padding:6px}.business-hour-section .business-hour-card .time-icons .calender-icon{left:38%;position:absolute;top:50%;transform:translate(-50%,-50%);width:20px}.qr-code-section .card-wrapper{border-radius:20px;margin:0 auto;max-width:550px;padding:2px;position:relative;width:100%}.qr-code-section .card-wrapper:before{background-image:linear-gradient(to top left,#7566e3,#ce4d86);border-radius:20px;content:"";height:100%;left:0;position:absolute;top:0;width:100%;z-index:0}.qr-code-section .qr-code{background-color:#fff;border-radius:30px 18px 30px 18px;padding:10px;width:100%}.qr-code-section .qr-code .qr-content{background:linear-gradient(to top left,#7566e3,#ce4d86);border-radius:18px;padding:15px}.qr-code-section .qr-code .qr-code-img{align-items:center;background:#fff;border-radius:10px;display:flex;height:130px;justify-content:center;min-width:130px;padding:8px;width:130px}.qr-code-section .qr-code .qr-code-img svg{border-radius:6px}.contact-us-section .contact-form{background:#fff;background-image:linear-gradient(to top left,#7566e3,#ce4d86);border:2px solid #34137c;border-radius:15px;position:relative}.contact-us-section .contact-form form{background-color:#fff;border-radius:30px 18px 30px 18px;padding:20px 30px}.contact-us-section .contact-form form .form-control{background:linear-gradient(to top left,#7566e3,#ce4d86);border-radius:10px;color:#fff;font-size:14px;height:50px;margin-bottom:15px;padding:13px 20px}.contact-us-section .contact-form form .form-control::-moz-placeholder{color:#fff}.contact-us-section .contact-form form .form-control::placeholder{color:#fff}.contact-us-section .contact-form form .form-control:focus{border-color:transparent;box-shadow:none;outline:none}.contact-us-section .contact-form form .btn{max-width:290px}.create-vcard-section .card-wrapper:before{background-image:linear-gradient(to top left,#7566e3,#ce4d86);border-radius:15px;content:"";height:100%;left:0;position:absolute;top:0;width:100%;z-index:0}.map-section:before{background-image:linear-gradient(to top left,#7566e3,#ce4d86);border-radius:20px;content:"";height:100%;left:0;position:absolute;top:0;width:100%;z-index:0}.add-to-contact-section{bottom:60px;left:0;position:fixed;width:100%;z-index:10}.btn-section .fixed-btn-section .musician-bars-btn{background-image:linear-gradient(to top left,#7566e3,#ce4d86)}.slick-dots{bottom:-35px}.slick-dots li{height:8px!important;margin:0 4px!important;width:8px!important}.slick-dots li button,.slick-dots li button:before{font-size:0!important;height:8px!important;width:8px!important}.slick-dots li button:before{background-color:#b4a4c4;border-radius:10px}.slick-dots li.slick-active,.slick-dots li.slick-active button{width:24px!important}.slick-dots li.slick-active button:before{background-image:linear-gradient(to top left,#7566e3,#ce4d86);opacity:1;width:24px!important}.language ul{list-style:none}.language ul .lang-list{background:linear-gradient(to top left,#7566e3,#ce4d86);border:none;border-radius:6px;font-size:14px;outline:none;padding:3px 9px;transition:all .3s ease;width:fit-content}.language ul .lang-list .lang-head{color:#fff;font-size:14px}.language ul .lang-list .lang-hover-list{font-size:14px;margin:15px 0 0;min-width:70px;padding:0;right:0;width:100%}.language ul .lang-list .lang-hover-list li:hover{background:linear-gradient(to top left,#7566e3,#ce4d86)!important}.language ul .lang-list .lang-hover-list li:hover a{color:#fff}.time-slot:hover{background:linear-gradient(to top left,#7566e3,#ce4d86);border:1px solid #fff}.insta-feed::-webkit-scrollbar{width:0}.insta-feed::-webkit-scrollbar-thumb,.insta-feed::-webkit-scrollbar-track{background-color:#f1faff!important}.instagram-btn:before{background:linear-gradient(to top left,#7566e3,#ce4d86);content:"";height:2px;position:absolute;top:100%;transition:width .3s ease;width:0}.instagram-btn.active:before{width:80%}.cursor-pointer{cursor:pointer}.btn-section{position:absolute;right:80px;top:50%;z-index:9}.btn-section .fixed-btn-section{align-items:center;display:flex;position:fixed;top:50%}.btn-section .fixed-btn-section .bars-btn{align-items:center;border-radius:50%;display:flex;height:65px;justify-content:center;min-width:65px;width:65px}.btn-section .fixed-btn-section .sub-btn{position:absolute;right:75px}.support-banner .support_text::-webkit-scrollbar{width:4px}.support-banner .support_text::-webkit-scrollbar-track{background:transparent}.support-banner .support_text::-webkit-scrollbar-thumb{background:#888}.act-now .wave:after,.act-now .wave:before{content:"";height:200%;left:-40%;pointer-events:none;position:absolute;top:46%;width:180%}.act-now .wave:before{animation:wave 10s linear infinite;background-color:#ffffff2b;border-radius:45%}.act-now .wave:after{animation:wave 15s linear infinite;background-color:#ffffff26;border-radius:35%}.vcard-thirtythree-btn .wave:after,.vcard-thirtythree-btn .wave:before{content:"";height:200%;left:-40%;pointer-events:none;position:absolute;top:46%;width:180%}.vcard-thirtythree-btn .wave:before{animation:wave 10s linear infinite;background-color:#ffffff2b;border-radius:45%}.vcard-thirtythree-btn .wave:after{animation:wave 15s linear infinite;background-color:#ffffff26;border-radius:35%}.vcard-one__product .card-wrapper:before{background-image:linear-gradient(to top left,#7566e3,#ce4d86);border-radius:20px;content:"";height:100%;left:0;position:absolute;top:0;width:100%;z-index:0}.buy-product:hover{background-color:rgba(52,19,124,.9)}.modal{background-color:#00000080;z-index:99999!important}.modal .news-modal #newsLatter-content .modal-body .required:after{color:#f62947;content:"*";font-size:inherit;font-weight:700;position:relative}.modal .news-modal #newsLatter-content .modal-body .input-box:focus{background-color:#eef3f7;box-shadow:unset}.modal .news-modal #newsLatter-content .modal-footer .submit-btn:hover{background-color:#ffc000!important}.modal .news-modal #newsLatter-content .modal-footer .submit-btn:focus{box-shadow:unset}.input-box{background:linear-gradient(to top left,#7566e3,#ce4d86);border-radius:10px!important;cursor:pointer;display:grid;margin-bottom:5px;padding:20px;place-items:center}.input-box h4{font-size:14px!important;margin:0}.input-box h4{color:#fff!important}small{color:#aea6aa!important;font-size:12px}.copy-btn:focus{box-shadow:none!important;outline:none!important}.object-fit-cover{-o-object-fit:cover;object-fit:cover}.pwa-support{background:#fff;border:1px solid #ab00e5;border-radius:20px;bottom:20px;height:auto!important;left:0;margin:0 auto;max-width:400px;padding:24px;position:fixed!important;right:0;width:100%;z-index:99999!important}.pwa-support .pwa-heading{font-size:20px;margin-bottom:12px}.pwa-support .pwa-text{font-size:.875rem!important;margin-bottom:16px}.pwa-install-button{background:linear-gradient(to top left,#7566e3,#ce4d86)!important;color:#fff!important;padding:.563rem 1.563rem!important}.pwa-cancel-button,.pwa-install-button{border:none!important;border-radius:10px!important;font-size:.875rem!important;font-weight:400!important}.pwa-cancel-button{background-color:#adb5bd!important;color:#000;padding:.563rem 1.563rem}.pwa-cancel-button:hover{background-color:#d1d5db!important;border:none!important;color:#000!important}.row-gap-20px{row-gap:20px}.row-gap-15px{row-gap:15px}.right-arrow-animation{animation:right-arrow 1s linear 1s infinite alternate}@keyframes right-arrow{0%{transform:translateX(0)}to{transform:translateX(8px)}}@media (max-width:576px){.vector-all img{width:75%!important}}@media (max-width:575px){.vector-all img{width:60%!important}}.vector-1{left:0;top:5px;width:45px}.vector-2{right:0;top:5px}.vector-3{left:0;top:15px}.vector-4{right:0;top:0;width:70px}.vector-5{left:6px;top:0;width:32px}.vector-6{right:0;top:5px}.vector-7{left:0;top:5px;width:80px}.vector-9{left:0;top:10px}.vector-10{right:0;top:0}.vector-11{left:0;top:10px}.vector-13{left:0;top:10px;width:30px}.add-contact-btn{transition:all .3s ease-in-out}.add-contact-btn:hover{transform:scale(1.05)!important;transition:all .3s ease-in}.card-back:after{background:linear-gradient(to top left,#7566e3,#ce4d86);border-radius:17px;content:"";height:100%;left:0;position:absolute;top:0;width:100%;z-index:-1}@keyframes music-wave{0%{background-position-x:0}to{background-position-x:100%}}.profile-desc p{margin-bottom:0!important}.fs-20{font-size:20px!important}@media (max-width:767px){.fs-20{font-size:16px!important}}.vcard33-bg-animation{bottom:0;left:0;position:fixed;right:0}.vcard33-bg-animation .ag-spotlight-moving_spotlight{animation:an-spotlight-moving-right 20s cubic-bezier(.6,0,.55,.8) infinite;background-position:50% 50%;background-repeat:no-repeat;background-size:100%auto;bottom:0;-webkit-clip-path:polygon(0 0,100%0,50% 100%,43% 100%);clip-path:polygon(0 0,100%0,50% 100%,43% 100%);height:128.125em;image-rendering:crisp-edges;opacity:.1;position:absolute;transform-origin:center bottom;width:14.375em;z-index:-1}.vcard33-bg-animation .ag-spotlight-moving_spotlight-right{background-image:linear-gradient(146deg,rgba(172,0,230,.7),rgba(52,19,124,.7) 50%,hsla(0,0%,100%,.7));right:40px}.vcard33-bg-animation .ag-spotlight-moving_spotlight-right1{animation:an-spotlight-moving-left 20s cubic-bezier(.6,0,.55,.8) infinite;background-image:linear-gradient(267deg,rgba(172,0,230,.7),rgba(52,19,124,.7) 50%,hsla(0,0%,100%,.7));right:260px}.vcard33-bg-animation .ag-spotlight-moving_spotlight-right2{animation-name:an-spotlight-moving-center1;background-image:linear-gradient(267deg,rgba(172,0,230,.7),rgba(52,19,124,.7) 50%,hsla(0,0%,100%,.7));right:480px}.vcard33-bg-animation .ag-spotlight-moving_spotlight-left{animation-name:an-spotlight-moving-left;background-image:linear-gradient(133deg,rgba(172,0,230,.7),rgba(52,19,124,.7) 50%,hsla(0,0%,100%,.7));left:40px}.vcard33-bg-animation .ag-spotlight-moving_spotlight-left1{animation-name:an-spotlight-moving-right;background-image:linear-gradient(90deg,rgba(172,0,230,.7),rgba(52,19,124,.7) 50%,hsla(0,0%,100%,.7));left:260px}.vcard33-bg-animation .ag-spotlight-moving_spotlight-left2{animation-name:an-spotlight-moving-center;background-image:linear-gradient(94deg,rgba(172,0,230,.7),rgba(52,19,124,.7) 50%,hsla(0,0%,100%,.7));left:480px}@keyframes an-spotlight-moving-right{0%,to{transform:rotate(-10deg)}50%{transform:rotate(-20deg)}}@keyframes an-spotlight-moving-center{0%,to{transform:rotate(-10deg)}50%{transform:rotate(20deg)}}@keyframes an-spotlight-moving-center1{0%,to{transform:rotate(10deg)}50%{transform:rotate(-20deg)}}@keyframes an-spotlight-moving-left{0%,to{transform:rotate(10deg)}50%{transform:rotate(20deg)}}
 body{font-family:{
                     {
                     $vcard->font_family
@@ -72,1223 +71,607 @@ body{font-family:{
             }}{! ! $vcard->custom_css  ! !}
 .sf-hidden{display:none!important}
 @keyframes rzp-rot{to{transform:rotate(360deg)}}@-webkit-keyframes rzp-rot{to{-webkit-transform:rotate(360deg)}}</style><style>html,body{overflow-y:auto!important;height:auto!important;min-height:100%!important;position:relative!important;}.container{max-width:540px!important;margin-left:auto!important;margin-right:auto!important;}.add-to-contact-btn,.add-to-contact-section,[class*=add-to-contact]{left:50%!important;right:auto!important;transform:translateX(-50%)!important;max-width:540px!important;width:100%!important;}.blog-section,.blog-card,[class*=blog-],[class*=__blog],[class*=blog-section]{display:none!important;}.product-slider,.gallery-slider,.testimonial-slider{overflow:hidden;}.product-slider .slick-slide,.gallery-slider .slick-slide{padding:0 8px;box-sizing:border-box;}.pwa-support,.news-modal,#newsLatter-content{display:none!important}.social-icon i,.social-icon svg,.social-icon .icon{color:#2563eb!important;fill:#2563eb!important;opacity:1!important}.our-services-section .section-heading,.business-hour-section .section-heading{text-align:center!important}.our-services-section .section-heading h2,.business-hour-section .section-heading h2,.qr-code-section .section-heading h2{color:#2563eb!important}.business-hour-section .business-hour-card{background:rgba(127,127,127,.14)!important;border:1px solid rgba(127,127,127,.3)!important;border-radius:10px!important;padding:10px!important;margin-bottom:10px!important}.business-hour-section .business-hour-card span,.business-hour-section .business-hour-card .time-icon{color:#2563eb!important}.qr-code-section p,.qr-code-section span,.qr-code-section h4,.qr-code-section h5{color:#2563eb!important}</style><?php if(!empty($vcard["custom_css"])): ?><style><?= $vcard["custom_css"] ?></style><?php endif; ?></head><body>
-<div class="vcard33-bg-animation">
-<div class="ag-spotlight-moving_spotlight ag-spotlight-moving_spotlight-right"></div>
-<div class="ag-spotlight-moving_spotlight ag-spotlight-moving_spotlight-right1"></div>
-<div class="ag-spotlight-moving_spotlight ag-spotlight-moving_spotlight-right2"></div>
-<div class="ag-spotlight-moving_spotlight ag-spotlight-moving_spotlight-left"></div>
-<div class="ag-spotlight-moving_spotlight ag-spotlight-moving_spotlight-left1"></div>
-<div class="ag-spotlight-moving_spotlight ag-spotlight-moving_spotlight-left2"></div>
-<div>
-<div id="particles-js"><canvas aria-hidden="true" data-generated="true" height="912" style="pointer-events:initial;width:100%!important;height:100%!important;position:fixed!important;z-index:0!important;top:0px!important;left:0px!important;background-blend-mode:normal!important;background-clip:content-box!important;background-position:center center!important;background-color:rgba(0,0,0,0)!important;background-image:url(/images/templates/musicianxxxxx/mus-018.png)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important" width="1901"></canvas></div>
+ <div class=vcard33-bg-animation>
+ <div class="ag-spotlight-moving_spotlight ag-spotlight-moving_spotlight-right"></div>
+ <div class="ag-spotlight-moving_spotlight ag-spotlight-moving_spotlight-right1"></div>
+ <div class="ag-spotlight-moving_spotlight ag-spotlight-moving_spotlight-right2"></div>
+ <div class="ag-spotlight-moving_spotlight ag-spotlight-moving_spotlight-left"></div>
+ <div class="ag-spotlight-moving_spotlight ag-spotlight-moving_spotlight-left1"></div>
+ <div class="ag-spotlight-moving_spotlight ag-spotlight-moving_spotlight-left2"></div>
+ <div>
+ <div id=particles-js><canvas data-generated=true style="pointer-events:initial;width:100%!important;height:100%!important;position:fixed!important;z-index:0!important;top:0px!important;left:0px!important;background-blend-mode:normal!important;background-clip:content-box!important;background-position:center center!important;background-color:rgba(0,0,0,0)!important;background-image:url(/images/templates/musician/mus-018.png)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important" aria-hidden=true width=1901 height=912></canvas></div>
+ </div>
+ </div>
+ <div class="container p-0">
+ <div id=passwordModal class="modal fade sf-hidden" role=dialog data-bs-backdrop=static data-bs-keyboard=false>
+ 
 </div>
-</div>
-<?php if(true): ?>
-<?php if(true): ?>
-<?php if(true): ?>
-<?php if(true): ?>
-<?php if(true): ?>
-<div class="container p-0">
-<div class="modal fade sf-hidden" data-bs-backdrop="static" data-bs-keyboard="false" id="passwordModal" role="dialog">
-</div>
-<div class="main-content mx-auto w-100 overflow-hidden position-relative">
-<div class="mt-0">
-<div class="pwa-support d-flex align-items-center justify-content-center">
-<div>
-<h1 class="text-start pwa-heading">Install as App</h1>
-<p class="text-start pwa-text text-dark">Get a seamless experience by adding this website to your home screen—just like an app! </p>
-<div class="text-end d-flex">
-<button class="pwa-install-button w-50 mb-1 btn" fdprocessedid="5ha3j7" id="installPwaBtn">Install </button>
-<button class="pwa-cancel-button w-50 ms-2 pwa-close btn btn-secondary mb-1" fdprocessedid="dfqc7v">Cancel</button>
-</div>
-</div>
-</div>
-</div>
-<div class="banner-section position-relative w-100"><div class="banner-img" style="position:relative;overflow:hidden;height:315px;"><?php $cvType=$vcard["cover_type"]??"image";$cvVal=$vcard["cover_image"]??"";$isVid=($cvType==="video")||preg_match("#youtube\.com|youtu\.be|instagram\.com|\.mp4#i",$cvVal);if($isVid&&!empty($cvVal)){if(preg_match("#(?:youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^\"&?/\s]{11})#i",$cvVal,$mm)){$yt=$mm[1];echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"https://www.youtube.com/embed/".$yt."?autoplay=1&mute=1&loop=1&playlist=".$yt."&controls=0&showinfo=0&rel=0&playsinline=1\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";}elseif(stripos($cvVal,"instagram.com")!==false){echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"".htmlspecialchars(rtrim($cvVal,"/")."/embed")."\" allowtransparency=\"true\"></iframe>";}else{echo "<video src=\"".htmlspecialchars(imgUrl($cvVal))."\" autoplay loop muted playsinline style=\"width:100%;height:100%;object-fit:cover;display:block;\"></video>";}}else{echo "<img src=\"".htmlspecialchars($coverImg)."\" alt=\"".htmlspecialchars($fullName)."\" style=\"width:100%;height:100%;object-fit:cover;display:block;\">";} ?><div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.1),rgba(0,0,0,0.5));"></div></div></div>
-<div class="d-flex justify-content-end position-absolute top-0 end-0 mx-3 language-btn">
-<div class="language pt-3">
-<ul class="text-decoration-none ps-0">
-<li class="dropdown1 dropdown lang-list">
-<a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle lang-head text-decoration-none" data-toggle="dropdown" role="button">
+ <div class="main-content mx-auto w-100 overflow-hidden position-relative">
+ 
+ <div class=mt-0>
+ <div class="pwa-support d-flex align-items-center justify-content-center">
+ <div>
+ <h1 class="text-start pwa-heading">Install as App</h1>
+ <p class="text-start pwa-text text-dark">Get a seamless experience by adding this website to your home screen—just like an app! </p>
+ <div class="text-end d-flex">
+ <button id=installPwaBtn class="pwa-install-button w-50 mb-1 btn" fdprocessedid=5ha3j7>Install </button>
+ <button class="pwa-cancel-button w-50 ms-2 pwa-close btn btn-secondary mb-1" fdprocessedid=dfqc7v>Cancel</button>
+ </div>
+ </div>
+ </div>
+ </div>
+ 
+ 
+ <div class="banner-section position-relative w-100"><div class="banner-img" style="position:relative;overflow:hidden;height:315px;"><?php $cvType=$vcard["cover_type"]??"image";$cvVal=$vcard["cover_image"]??"";$isVid=($cvType==="video")||preg_match("#youtube\.com|youtu\.be|instagram\.com|\.mp4#i",$cvVal);if($isVid&&!empty($cvVal)){if(preg_match("#(?:youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^\"&?/\s]{11})#i",$cvVal,$mm)){$yt=$mm[1];echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"https://www.youtube.com/embed/".$yt."?autoplay=1&mute=1&loop=1&playlist=".$yt."&controls=0&showinfo=0&rel=0&playsinline=1\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";}elseif(stripos($cvVal,"instagram.com")!==false){echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"".htmlspecialchars(rtrim($cvVal,"/")."/embed")."\" allowtransparency=\"true\"></iframe>";}else{echo "<video src=\"".htmlspecialchars(imgUrl($cvVal))."\" autoplay loop muted playsinline style=\"width:100%;height:100%;object-fit:cover;display:block;\"></video>";}}else{echo "<img src=\"".htmlspecialchars($coverImg)."\" alt=\"".htmlspecialchars($fullName)."\" style=\"width:100%;height:100%;object-fit:cover;display:block;\">";} ?><div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.1),rgba(0,0,0,0.5));"></div></div></div>
+ 
+ <div class="d-flex justify-content-end position-absolute top-0 end-0 mx-3 language-btn">
+ <div class="language pt-3">
+ <ul class="text-decoration-none ps-0">
+ <li class="dropdown1 dropdown lang-list">
+ <a class="dropdown-toggle lang-head text-decoration-none" data-toggle=dropdown role=button aria-haspopup=true aria-expanded=false>
  EN
  </a>
-<ul class="dropdown-menu top-dropdown lang-hover-list top-100 mt-0 sf-hidden">
-</ul>
-</li>
-</ul>
-</div>
-</div>
-<div class="profile-section position-relative pt-40">
-<div class="profile-bg h-100"> <img alt="images" class="w-100 h-100 object-fit-cover" src="/images/templates/musicianxxxxx/mus-020.webp"/></div>
-<div class="card d-flex flex-sm-row gap-3 gap-sm-5 align-items-center px-30"><?php foreach ((isset($__bh)?$__bh:($businessHours ?? [])) as $bh): ?>
-<div class="col-sm-6"><div class="business-hour-card d-flex gap-2 align-items-center mb-3"><div class="time-icon"><i class="bi bi-clock fs-3"></i></div><div class="d-flex flex-column align-items-start"><span class="fs-14 text-gray lh-1 fw-5"><?= htmlspecialchars(ucfirst(strtolower($bh["day_name"] ?? ""))) ?></span><span class="fs-16 fw-5"><?= !empty($bh["is_open"]) ? htmlspecialchars(trim(($bh["open_time"] ?? "")." - ".($bh["close_time"] ?? ""))) : "Closed" ?></span></div></div></div>
-<?php endforeach; ?></div>
-</div>
-<div class="profile-desc mb-0 fs-14 text-center pt-40 px-30"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars(trim(html_entity_decode(strip_tags($vcard["description"]),ENT_QUOTES)))) ?><?php else: ?>
-<p class="ql-align-center">🎶 <strong>Experience the Magic of Arijit Sharma Live! </strong>🎤<p class="ql-align-center">Join us for an unforgettable evening as the maestro of melodies takes the stage, weaving magic with his soulful voice and timeless hits. Don’t miss this extraordinary musical journey—mark your calendar and be part of the enchantment! 🌟<p><br/></p>
-<?php endif; ?></p></p></div>
-<div class="social-media-section pt-40 position-relative px-30"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
-<div class="pt-50 px-30 position-relative">
-<div class="position-absolute vector-all vector-2 text-end">
-<img alt="images" class="w-100" src="/images/templates/musicianxxxxx/mus-023.webp"/>
-</div>
-<div class="contact-section">
-<div class="section-heading text-center text-primary">
-<h2 class="mb-0 fw-6 text-gradient">Contacts</h2>
-</div>
-<div class="row">
-<div class="col-sm-6 mb-4">
-<div class="contact-box d-flex align-items-center">
-<div class="contact-icon d-flex justify-content-center align-items-center">
-<img src="/images/templates/musicianxxxxx/mus-024.svg"/>
-<div class="play-svg">
-<svg fill="none" height="45" viewBox="0 0 50 50" width="45" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.0265553 25.0022L0.026556 9.85C0.0265564 1.17377 6.61268 -2.45174 14.6594 1.74886L29.5844 9.54996L43.6064 16.901C52.1312 21.3516 52.1312 28.6527 43.6064 33.1033L29.5579 40.4543L14.6329 48.2554C6.58612 52.456 -2.08198e-07 48.8055 1.69959e-07 40.1543L8.3228e-07 25.0022L0.0265553 25.0022Z" fill="white"></path>
-</svg>
-</div>
-</div>
-<div class="contact-desc">
-<a href="mailto:<?= htmlspecialchars($vcard["email"] ?? "") ?>" class="text-white fs-14 fw-5"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
-</div>
-</div>
-</div>
-<div class="col-sm-6 mb-4">
-<div class="contact-box d-flex align-items-center">
-<div class="contact-icon d-flex justify-content-center align-items-center">
-<img src="/images/templates/musicianxxxxx/mus-024.svg"/>
-<div class="play-svg">
-<svg fill="none" height="45" viewBox="0 0 50 50" width="45" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.0265553 25.0022L0.026556 9.85C0.0265564 1.17377 6.61268 -2.45174 14.6594 1.74886L29.5844 9.54996L43.6064 16.901C52.1312 21.3516 52.1312 28.6527 43.6064 33.1033L29.5579 40.4543L14.6329 48.2554C6.58612 52.456 -2.08198e-07 48.8055 1.69959e-07 40.1543L8.3228e-07 25.0022L0.0265553 25.0022Z" fill="white"></path>
-</svg>
-</div>
-</div>
-<div class="contact-desc">
-<a href="mailto:<?= htmlspecialchars($vcard["alternate_email"] ?? "") ?>" class="text-white fs-14 fw-5"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
-</div>
-</div>
-</div>
-<div class="col-sm-6 mb-4">
-<div class="contact-box d-flex align-items-center">
-<div class="contact-icon d-flex justify-content-center align-items-center">
-<img src="/images/templates/musicianxxxxx/mus-025.svg"/>
-<div class="play-svg">
-<svg fill="none" height="45" viewBox="0 0 50 50" width="45" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.0265553 25.0022L0.026556 9.85C0.0265564 1.17377 6.61268 -2.45174 14.6594 1.74886L29.5844 9.54996L43.6064 16.901C52.1312 21.3516 52.1312 28.6527 43.6064 33.1033L29.5579 40.4543L14.6329 48.2554C6.58612 52.456 -2.08198e-07 48.8055 1.69959e-07 40.1543L8.3228e-07 25.0022L0.0265553 25.0022Z" fill="white"></path>
-</svg>
-</div>
-</div>
-<div class="contact-desc">
-<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="text-white fs-14 fw-5"><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
-</div>
-</div>
-</div>
-<div class="col-sm-6 mb-4">
-<div class="contact-box d-flex align-items-center">
-<div class="contact-icon d-flex justify-content-center align-items-center">
-<img src="/images/templates/musicianxxxxx/mus-025.svg"/>
-<div class="play-svg">
-<svg fill="none" height="45" viewBox="0 0 50 50" width="45" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.0265553 25.0022L0.026556 9.85C0.0265564 1.17377 6.61268 -2.45174 14.6594 1.74886L29.5844 9.54996L43.6064 16.901C52.1312 21.3516 52.1312 28.6527 43.6064 33.1033L29.5579 40.4543L14.6329 48.2554C6.58612 52.456 -2.08198e-07 48.8055 1.69959e-07 40.1543L8.3228e-07 25.0022L0.0265553 25.0022Z" fill="white"></path>
-</svg>
-</div>
-</div>
-<div class="contact-desc">
-<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="text-white fs-14 fw-5"><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
-</div>
-</div>
-</div>
-<div class="col-sm-6 mb-sm-0 mb-4">
-<div class="contact-box d-flex align-items-center">
-<div class="contact-icon d-flex justify-content-center align-items-center">
-<img src="/images/templates/musicianxxxxx/mus-026.svg"/>
-<div class="play-svg">
-<svg fill="none" height="45" viewBox="0 0 50 50" width="45" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.0265553 25.0022L0.026556 9.85C0.0265564 1.17377 6.61268 -2.45174 14.6594 1.74886L29.5844 9.54996L43.6064 16.901C52.1312 21.3516 52.1312 28.6527 43.6064 33.1033L29.5579 40.4543L14.6329 48.2554C6.58612 52.456 -2.08198e-07 48.8055 1.69959e-07 40.1543L8.3228e-07 25.0022L0.0265553 25.0022Z" fill="white"></path>
-</svg>
-</div>
-</div>
-<div class="contact-desc">
-<p class="mb-0 text-white fs-14 fw-5"><?= !empty($vcard["dob"]) ? htmlspecialchars(date("jS F, Y", strtotime($vcard["dob"]))) : "" ?></p>
-</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="contact-box d-flex align-items-center">
-<div class="contact-icon d-flex justify-content-center align-items-center">
-<img src="/images/templates/musicianxxxxx/mus-027.svg"/>
-<div class="play-svg">
-<svg fill="none" height="45" viewBox="0 0 50 50" width="45" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.0265553 25.0022L0.026556 9.85C0.0265564 1.17377 6.61268 -2.45174 14.6594 1.74886L29.5844 9.54996L43.6064 16.901C52.1312 21.3516 52.1312 28.6527 43.6064 33.1033L29.5579 40.4543L14.6329 48.2554C6.58612 52.456 -2.08198e-07 48.8055 1.69959e-07 40.1543L8.3228e-07 25.0022L0.0265553 25.0022Z" fill="white"></path>
-</svg>
-</div>
-</div>
-<div class="contact-desc">
-<p class="mb-0 text-white fs-14 fw-5">India, Mumbai</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="gallery-section pt-50 position-relative">
-<div class="position-absolute vector-all vector-3">
-<img alt="images" class="w-100" src="/images/templates/musicianxxxxx/mus-028.webp"/>
-</div>
-<div class="section-heading text-center">
-<h2 class="mb-0 fw-6 text-gradient">Gallery</h2>
-</div>
-<div class="gallery-slider slick-initialized slick-slider slick-dotted"><div class="slick-list draggable"><div class="slick-track" style="opacity:1;width:6030px;transform:translate3d(-2010px,0px,0px)"><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="-1" style="width:670px" tabindex="-1"><div><div class="slide" style="width:100%;display:inline-block">
-<div class="img-wrapper">
-<div class="gallery-img">
-<div class="expand-icon pe-none">
-<svg aria-hidden="true" class="svg-inline--fa fa-expand text-white" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
-</div>
-<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/641/Frame-1707480737.png" tabindex="-1"><img alt="profile" class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-26)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
-</div>
-</div>
-</div></div></div><div aria-describedby="slick-slide-control00" aria-hidden="true" class="slick-slide" data-slick-index="0" id="slick-slide00" role="tabpanel" style="width:670px" tabindex="-1"><div><div class="slide" style="width:100%;display:inline-block">
-<div class="img-wrapper">
-<div class="gallery-img">
-<div class="expand-icon pe-none">
-<svg aria-hidden="true" class="svg-inline--fa fa-expand text-white" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
-</div>
-<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/638/Frame-1707480735.png" tabindex="-1"><img alt="profile" class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-27)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
-</div>
-</div>
-</div></div></div><div aria-describedby="slick-slide-control01" aria-hidden="true" class="slick-slide" data-slick-index="1" id="slick-slide01" role="tabpanel" style="width:670px" tabindex="-1"><div><div class="slide" style="width:100%;display:inline-block">
-<div class="img-wrapper">
-<div class="gallery-img">
-<div class="expand-icon pe-none">
-<svg aria-hidden="true" class="svg-inline--fa fa-expand text-white" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
-</div>
-<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/639/Frame-1707480738.png" tabindex="-1"><img alt="profile" class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-28)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
-</div>
-</div>
-</div></div></div><div aria-describedby="slick-slide-control02" aria-hidden="false" class="slick-slide slick-current slick-active" data-slick-index="2" id="slick-slide02" role="tabpanel" style="width:670px"><div><div class="slide" style="width:100%;display:inline-block">
-<div class="img-wrapper">
-<div class="gallery-img">
-<div class="expand-icon pe-none">
-<svg aria-hidden="true" class="svg-inline--fa fa-expand text-white" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
-</div>
-<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/640/Frame-1707480739.png" tabindex="0"><img alt="profile" class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-29)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
-</div>
-</div>
-</div></div></div><div aria-describedby="slick-slide-control03" aria-hidden="true" class="slick-slide" data-slick-index="3" id="slick-slide03" role="tabpanel" style="width:670px" tabindex="-1"><div><div class="slide" style="width:100%;display:inline-block">
-<div class="img-wrapper">
-<div class="gallery-img">
-<div class="expand-icon pe-none">
-<svg aria-hidden="true" class="svg-inline--fa fa-expand text-white" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
-</div>
-<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/641/Frame-1707480737.png" tabindex="-1"><img alt="profile" class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-26)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="4" style="width:670px" tabindex="-1"><div><div class="slide" style="width:100%;display:inline-block">
-<div class="img-wrapper">
-<div class="gallery-img">
-<div class="expand-icon pe-none">
-<svg aria-hidden="true" class="svg-inline--fa fa-expand text-white" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
-</div>
-<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/638/Frame-1707480735.png" tabindex="-1"><img alt="profile" class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-27)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="5" style="width:670px" tabindex="-1"><div><div class="slide" style="width:100%;display:inline-block">
-<div class="img-wrapper">
-<div class="gallery-img">
-<div class="expand-icon pe-none">
-<svg aria-hidden="true" class="svg-inline--fa fa-expand text-white" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
-</div>
-<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/639/Frame-1707480738.png" tabindex="-1"><img alt="profile" class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-28)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="6" style="width:670px" tabindex="-1"><div><div class="slide" style="width:100%;display:inline-block">
-<div class="img-wrapper">
-<div class="gallery-img">
-<div class="expand-icon pe-none">
-<svg aria-hidden="true" class="svg-inline--fa fa-expand text-white" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
-</div>
-<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/640/Frame-1707480739.png" tabindex="-1"><img alt="profile" class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-29)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="7" style="width:670px" tabindex="-1"><div><div class="slide" style="width:100%;display:inline-block">
-<div class="img-wrapper">
-<div class="gallery-img">
-<div class="expand-icon pe-none">
-<svg aria-hidden="true" class="svg-inline--fa fa-expand text-white" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
-</div>
-<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/641/Frame-1707480737.png" tabindex="-1"><img alt="profile" class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-26)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
-</div>
-</div>
-</div></div></div></div></div><ul class="slick-dots" role="tablist"><li role="presentation"><button aria-controls="slick-slide00" aria-label="1 of 4" fdprocessedid="3w6jii" id="slick-slide-control00" role="tab" tabindex="-1" type="button">1</button><li role="presentation"><button aria-controls="slick-slide01" aria-label="2 of 4" fdprocessedid="nz12xr" id="slick-slide-control01" role="tab" tabindex="-1" type="button">2</button><li class="slick-active" role="presentation"><button aria-controls="slick-slide02" aria-label="3 of 4" aria-selected="true" id="slick-slide-control02" role="tab" tabindex="0" type="button">3</button><li role="presentation"><button aria-controls="slick-slide03" aria-label="4 of 4" id="slick-slide-control03" role="tab" tabindex="-1" type="button">4</button></li></li></li></li></ul></div>
-</div>
-<div class="our-services-section pt-50 position-relative">
-<div class="position-absolute vector-all vector-4 text-end">
-<img alt="images" class="w-100" src="/images/templates/musicianxxxxx/mus-029.webp"/>
-</div>
-<div class="section-heading text-center">
-<h2 class="mb-0 fw-6 text-gradient">Our Services</h2>
-</div>
-<div class="services">
-<div class="px-30">
-<div class="row row-gap-20px">
-<div class="col-sm-6">
-<div class="card-wrapper h-100">
-<div class="service-card h-100 d-flex flex-column">
-<div class="card-img d-flex justify-content-center align-items-center position-relative">
-<a class="pe-none" href="javascript:void(0)" target="">
-<img alt="branding" class="h-100 w-100 object-fit-cover" loading="lazy" src="/images/templates/musicianxxxxx/mus-030.webp"/>
-</a>
-</div>
-<div class="card-body">
-<h3 class="card-title fw-6 mb-10 text-center">
- Music Production
- </h3>
-<p class="mb-0 text-white text-center description-text">
- Transforming ideas into soundscapes, one beat at a time. Where creativity meets the rhythm of innovation in every track.
- </p>
-</div>
-</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="card-wrapper h-100">
-<div class="service-card h-100 d-flex flex-column">
-<div class="card-img d-flex justify-content-center align-items-center position-relative">
-<a class="pe-none" href="javascript:void(0)" target="">
-<img alt="branding" class="h-100 w-100 object-fit-cover" loading="lazy" src="/images/templates/musicianxxxxx/mus-031.webp"/>
-</a>
-</div>
-<div class="card-body">
-<h3 class="card-title fw-6 mb-10 text-center">
- Performance And Booking
- </h3>
-<p class="mb-0 text-white text-center description-text">
- Bringing unforgettable live experiences to your stage, every time. Book the energy, feel the vibe – your next performance starts here.
- </p>
-</div>
-</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="card-wrapper h-100">
-<div class="service-card h-100 d-flex flex-column">
-<div class="card-img d-flex justify-content-center align-items-center position-relative">
-<a class="pe-none" href="javascript:void(0)" target="">
-<img alt="branding" class="h-100 w-100 object-fit-cover" loading="lazy" src="/images/templates/musicianxxxxx/mus-032.webp"/>
-</a>
-</div>
-<div class="card-body">
-<h3 class="card-title fw-6 mb-10 text-center">
- Music Distribution
- </h3>
-<p class="mb-0 text-white text-center description-text">
- Get your music heard worldwide, effortlessly. Distribute your sound to every corner of the globe, all in one click.
- </p>
-</div>
-</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="card-wrapper h-100">
-<div class="service-card h-100 d-flex flex-column">
-<div class="card-img d-flex justify-content-center align-items-center position-relative">
-<a class="pe-none" href="javascript:void(0)" target="">
-<img alt="branding" class="h-100 w-100 object-fit-cover" loading="lazy" src="/images/templates/musicianxxxxx/mus-033.webp"/>
-</a>
-</div>
-<div class="card-body">
-<h3 class="card-title fw-6 mb-10 text-center">
- Songwriting & Composition
- </h3>
-<p class="mb-0 text-white text-center description-text">
- Original lyrics and melodies tailored for artists, ads, and films.
- </p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="pt-50 position-relative">
-<div class="position-absolute vector-all vector-5">
-<img alt="images" class="w-100" src="/images/templates/musicianxxxxx/mus-034.webp"/>
-</div>
-<div class="appointment-section pt-60 pb-60 px-30">
-<div class="section-heading text-center text-white">
-<h2 class="mb-0 fw-6">Make an Appointment</h2>
-</div>
-<div class="appointment position-relative z-1">
-<div class="row">
-<div class="col-sm-12 mx-auto">
-<div class="position-relative">
-<input class="date form-control appointment-input text-start flatpickr-input active" fdprocessedid="gapm8" id="pickUpDate" name="date" placeholder="Pick a Date" readonly="" type="text" value=""/>
-<span class="calendar-icon">
-<svg fill="none" height="20" viewBox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
-<path d="M6.25 9.375V10.625C6.25 10.9705 5.97047 11.25 5.625 11.25H4.375C4.02953 11.25 3.75 10.9705 3.75 10.625V9.375C3.75 9.02953 4.02953 8.75 4.375 8.75H5.625C5.97047 8.75 6.25 9.02953 6.25 9.375ZM5.625 13.75H4.375C4.02953 13.75 3.75 14.0295 3.75 14.375V15.625C3.75 15.9705 4.02953 16.25 4.375 16.25H5.625C5.97047 16.25 6.25 15.9705 6.25 15.625V14.375C6.25 14.0295 5.97047 13.75 5.625 13.75ZM10.625 8.75H9.375C9.02953 8.75 8.75 9.02953 8.75 9.375V10.625C8.75 10.9705 9.02953 11.25 9.375 11.25H10.625C10.9705 11.25 11.25 10.9705 11.25 10.625V9.375C11.25 9.02953 10.9705 8.75 10.625 8.75ZM10.625 13.75H9.375C9.02953 13.75 8.75 14.0295 8.75 14.375V15.625C8.75 15.9705 9.02953 16.25 9.375 16.25H10.625C10.9705 16.25 11.25 15.9705 11.25 15.625V14.375C11.25 14.0295 10.9705 13.75 10.625 13.75ZM15.625 8.75H14.375C14.0295 8.75 13.75 9.02953 13.75 9.375V10.625C13.75 10.9705 14.0295 11.25 14.375 11.25H15.625C15.9705 11.25 16.25 10.9705 16.25 10.625V9.375C16.25 9.02953 15.9705 8.75 15.625 8.75ZM15.625 13.75H14.375C14.0295 13.75 13.75 14.0295 13.75 14.375V15.625C13.75 15.9705 14.0295 16.25 14.375 16.25H15.625C15.9705 16.25 16.25 15.9705 16.25 15.625V14.375C16.25 14.0295 15.9705 13.75 15.625 13.75ZM4.375 3.75H5.625C5.97047 3.75 6.25 3.47047 6.25 3.125V0.625C6.25 0.279531 5.97047 0 5.625 0H4.375C4.02953 0 3.75 0.279531 3.75 0.625V3.125C3.75 3.47047 4.02953 3.75 4.375 3.75ZM20 5V17.5C20 18.8806 18.8806 20 17.5 20H2.5C1.11937 20 0 18.8806 0 17.5V5C0 3.61937 1.11937 2.5 2.5 2.5H3.125V3.125C3.125 3.81348 3.6859 4.375 4.375 4.375H5.625C6.3141 4.375 6.875 3.81348 6.875 3.125V2.5H13.125V3.125C13.125 3.81348 13.6865 4.375 14.375 4.375H15.625C16.3135 4.375 16.875 3.81348 16.875 3.125V2.5H17.5C18.8806 2.5 20 3.61937 20 5ZM18.75 7.5C18.75 6.81152 18.1897 6.25 17.5 6.25H2.5C1.8109 6.25 1.25 6.81152 1.25 7.5V17.5C1.25 18.1897 1.8109 18.75 2.5 18.75H17.5C18.1897 18.75 18.75 18.1897 18.75 17.5V7.5ZM14.375 3.75H15.625C15.9705 3.75 16.25 3.47047 16.25 3.125V0.625C16.25 0.279531 15.9705 0 15.625 0H14.375C14.0295 0 13.75 0.279531 13.75 0.625V3.125C13.75 3.47047 14.0295 3.75 14.375 3.75Z" fill="#ffffff"></path>
-</svg>
-</span>
-</div>
-</div>
-</div>
-<div class="row">
-<div class="col-sm-12">
-<div class="row" id="slotData">
-</div>
-<div class="text-center">
-<button class="appoint-btn appointmentAdd btn btn-gradient d-none mt-3 sf-hidden">
+ <ul class="dropdown-menu top-dropdown lang-hover-list top-100 mt-0 sf-hidden">
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ </ul>
+ </li>
+ </ul>
+ </div>
+ </div>
+ 
+ <div class="profile-section position-relative pt-40">
+ <div class="profile-bg h-100"> <img src="/images/templates/musician/mus-020.webp" class="w-100 h-100 object-fit-cover" alt=images></div>
+ <div class="card d-flex flex-sm-row gap-3 gap-sm-5 align-items-center px-30">
+ <div class="card-img-main position-relative">
+ <div class="card-img position-relative">
+ <img src="<?= $profileImg ?>" class="w-100 h-100 object-fit-cover">
+ </div>
+ </div>
+ <div class="card-body p-0 text-sm-start text-center">
+ <div class=profile-name>
+ <h2 class="text-black mb-0 fs-28">
+ <?= htmlspecialchars($fullName) ?>
+ <i class="verification-icon bi-patch-check-fill"></i>
+ </h2>
+ <p class="fs-18 text-primary mb-1 fw-5 text-decoration-underline"><?= htmlspecialchars($vcard["occupation"] ?? "") ?></p>
+ <p class="fs-14 text-black mb-0">Musician</p>
+ <p class="fs-14 text-black mb-0"></p>
+ </div>
+ </div>
+ <div class=music-wave></div>
+ </div>
+ </div>
+ <div class="profile-desc mb-0 fs-14 text-center pt-40 px-30"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars(trim(html_entity_decode(strip_tags($vcard["description"]),ENT_QUOTES)))) ?><?php else: ?>
+ <p class=ql-align-center>🎶&nbsp;<strong>Experience the Magic of Arijit Sharma Live!&nbsp;</strong>🎤<p class=ql-align-center>Join us for an unforgettable evening as the maestro of melodies takes the stage, weaving magic with his soulful voice and timeless hits. Don’t miss this extraordinary musical journey—mark your calendar and be part of the enchantment! 🌟<p><br></p>
+ <?php endif; ?></div>
+ 
+ <div class="social-media-section pt-40 position-relative px-30"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
+ 
+ 
+ <div class="pt-50 px-30 position-relative">
+ <div class="position-absolute vector-all vector-2 text-end">
+ <img src="/images/templates/musician/mus-023.webp" class=w-100 alt=images>
+ </div>
+ <div class=contact-section>
+ <div class="section-heading text-center text-primary">
+ <h2 class="mb-0 fw-6 text-gradient">Contacts</h2>
+ </div>
+ <div class=row>
+ <div class="col-sm-6 mb-4">
+ <div class="contact-box d-flex align-items-center">
+ <div class="contact-icon d-flex justify-content-center align-items-center">
+ <img src=/images/templates/musician/mus-024.svg>
+ <div class=play-svg>
+ <svg width=45 height=45 viewBox="0 0 50 50" fill=none xmlns=http://www.w3.org/2000/svg>
+ <path d="M0.0265553 25.0022L0.026556 9.85C0.0265564 1.17377 6.61268 -2.45174 14.6594 1.74886L29.5844 9.54996L43.6064 16.901C52.1312 21.3516 52.1312 28.6527 43.6064 33.1033L29.5579 40.4543L14.6329 48.2554C6.58612 52.456 -2.08198e-07 48.8055 1.69959e-07 40.1543L8.3228e-07 25.0022L0.0265553 25.0022Z" fill=white></path>
+ </svg>
+ </div>
+ </div>
+ <div class=contact-desc>
+ <a href=mailto:<?= htmlspecialchars($vcard["email"] ?? "") ?> class="text-white fs-14 fw-5"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
+ </div>
+ </div>
+ </div>
+ <div class="col-sm-6 mb-4">
+ <div class="contact-box d-flex align-items-center">
+ <div class="contact-icon d-flex justify-content-center align-items-center">
+ <img src=/images/templates/musician/mus-024.svg>
+ <div class=play-svg>
+ <svg width=45 height=45 viewBox="0 0 50 50" fill=none xmlns=http://www.w3.org/2000/svg>
+ <path d="M0.0265553 25.0022L0.026556 9.85C0.0265564 1.17377 6.61268 -2.45174 14.6594 1.74886L29.5844 9.54996L43.6064 16.901C52.1312 21.3516 52.1312 28.6527 43.6064 33.1033L29.5579 40.4543L14.6329 48.2554C6.58612 52.456 -2.08198e-07 48.8055 1.69959e-07 40.1543L8.3228e-07 25.0022L0.0265553 25.0022Z" fill=white></path>
+ </svg>
+ </div>
+ </div>
+ <div class=contact-desc>
+ <a href=mailto:<?= htmlspecialchars($vcard["alternate_email"] ?? "") ?> class="text-white fs-14 fw-5"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
+ </div>
+ </div>
+ </div>
+ <div class="col-sm-6 mb-4">
+ <div class="contact-box d-flex align-items-center">
+ <div class="contact-icon d-flex justify-content-center align-items-center">
+ <img src="/images/templates/musician/mus-025.svg">
+ <div class=play-svg>
+ <svg width=45 height=45 viewBox="0 0 50 50" fill=none xmlns=http://www.w3.org/2000/svg>
+ <path d="M0.0265553 25.0022L0.026556 9.85C0.0265564 1.17377 6.61268 -2.45174 14.6594 1.74886L29.5844 9.54996L43.6064 16.901C52.1312 21.3516 52.1312 28.6527 43.6064 33.1033L29.5579 40.4543L14.6329 48.2554C6.58612 52.456 -2.08198e-07 48.8055 1.69959e-07 40.1543L8.3228e-07 25.0022L0.0265553 25.0022Z" fill=white></path>
+ </svg>
+ </div>
+ </div>
+ <div class=contact-desc>
+ <a href=tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?> class="text-white fs-14 fw-5"><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+ </div>
+ </div>
+ </div>
+ <div class="col-sm-6 mb-4">
+ <div class="contact-box d-flex align-items-center">
+ <div class="contact-icon d-flex justify-content-center align-items-center">
+ <img src="/images/templates/musician/mus-025.svg">
+ <div class=play-svg>
+ <svg width=45 height=45 viewBox="0 0 50 50" fill=none xmlns=http://www.w3.org/2000/svg>
+ <path d="M0.0265553 25.0022L0.026556 9.85C0.0265564 1.17377 6.61268 -2.45174 14.6594 1.74886L29.5844 9.54996L43.6064 16.901C52.1312 21.3516 52.1312 28.6527 43.6064 33.1033L29.5579 40.4543L14.6329 48.2554C6.58612 52.456 -2.08198e-07 48.8055 1.69959e-07 40.1543L8.3228e-07 25.0022L0.0265553 25.0022Z" fill=white></path>
+ </svg>
+ </div>
+ </div>
+ <div class=contact-desc>
+ <a href=tel:<?= htmlspecialchars($vcard["alternate_phone"] ?? "") ?> class="text-white fs-14 fw-5"><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+ </div>
+ </div>
+ </div>
+ <div class="col-sm-6 mb-sm-0 mb-4">
+ <div class="contact-box d-flex align-items-center">
+ <div class="contact-icon d-flex justify-content-center align-items-center">
+ <img src="/images/templates/musician/mus-026.svg">
+ <div class=play-svg>
+ <svg width=45 height=45 viewBox="0 0 50 50" fill=none xmlns=http://www.w3.org/2000/svg>
+ <path d="M0.0265553 25.0022L0.026556 9.85C0.0265564 1.17377 6.61268 -2.45174 14.6594 1.74886L29.5844 9.54996L43.6064 16.901C52.1312 21.3516 52.1312 28.6527 43.6064 33.1033L29.5579 40.4543L14.6329 48.2554C6.58612 52.456 -2.08198e-07 48.8055 1.69959e-07 40.1543L8.3228e-07 25.0022L0.0265553 25.0022Z" fill=white></path>
+ </svg>
+ </div>
+ </div>
+ <div class=contact-desc>
+ <p class="mb-0 text-white fs-14 fw-5"><?= !empty($vcard["dob"]) ? htmlspecialchars(date("jS F, Y", strtotime($vcard["dob"]))) : "" ?></p>
+ </div>
+ </div>
+ </div>
+ <div class=col-sm-6>
+ <div class="contact-box d-flex align-items-center">
+ <div class="contact-icon d-flex justify-content-center align-items-center">
+ <img src=/images/templates/musician/mus-027.svg>
+ <div class=play-svg>
+ <svg width=45 height=45 viewBox="0 0 50 50" fill=none xmlns=http://www.w3.org/2000/svg>
+ <path d="M0.0265553 25.0022L0.026556 9.85C0.0265564 1.17377 6.61268 -2.45174 14.6594 1.74886L29.5844 9.54996L43.6064 16.901C52.1312 21.3516 52.1312 28.6527 43.6064 33.1033L29.5579 40.4543L14.6329 48.2554C6.58612 52.456 -2.08198e-07 48.8055 1.69959e-07 40.1543L8.3228e-07 25.0022L0.0265553 25.0022Z" fill=white></path>
+ </svg>
+ </div>
+ </div>
+ <div class=contact-desc>
+ <p class="mb-0 text-white fs-14 fw-5">India, Mumbai</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ 
+ <div class="gallery-section pt-50 position-relative">
+ <div class="position-absolute vector-all vector-3">
+ <img src="/images/templates/musician/mus-028.webp" class=w-100 alt=images>
+ </div>
+ <div class="section-heading text-center">
+ <h2 class="mb-0 fw-6 text-gradient">Gallery</h2>
+ </div>
+ <div class="gallery-slider"><?php foreach ((isset($__ga)?$__ga:($galleries ?? [])) as $g): foreach (($g["images"] ?? []) as $im): $gi=imgUrl($im["image_url"] ?? ($im["image"] ?? "")); ?><div class="px-2"><div class="gallery-img-wrapper"><div class="gallery-img" style="background-image:url('<?= htmlspecialchars($gi) ?>');background-size:cover;background-position:center;height:280px;border-radius:12px;"></div></div></div><?php endforeach; endforeach; ?></div>
+ </div>
+ 
+ <?php if(!empty($services)): ?><div class="our-services-section pt-50 position-relative"><div class="section-heading"><h2>Our Services</h2></div><div class="services"><div class="px-30"><div class="row"><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/musician/mus-019.webp"; ?><div class="col-sm-6 mb-sm-0 mb-40 p-3"><div class="card-wrapper h-100"><a href="javascript:void(0)" class="text-decoration-none"><div class="service-card card h-100"><div class="card-img mx-auto"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></div><div class="card-body text-center"><h3 class="card-title text-primary"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></a></div></div><?php endforeach; ?></div></div></div></div><?php endif; ?>
+ 
+ <div class="pt-50 position-relative">
+ <div class="position-absolute vector-all vector-5">
+ <img src="/images/templates/musician/mus-034.webp" class=w-100 alt=images>
+ </div>
+ <div class="appointment-section pt-60 pb-60 px-30">
+ <div class="section-heading text-center text-white">
+ <h2 class="mb-0 fw-6">Make an Appointment</h2>
+ </div>
+ <div class="appointment position-relative z-1">
+ <div class=row>
+ <div class="col-sm-12 mx-auto">
+ <div class=position-relative>
+ <input class="date form-control appointment-input text-start flatpickr-input active" placeholder="Pick a Date" id=pickUpDate name=date type=text readonly fdprocessedid=gapm8 value>
+ <span class=calendar-icon>
+ <svg width=20 height=20 viewBox="0 0 20 20" fill=none xmlns=http://www.w3.org/2000/svg>
+ <path d="M6.25 9.375V10.625C6.25 10.9705 5.97047 11.25 5.625 11.25H4.375C4.02953 11.25 3.75 10.9705 3.75 10.625V9.375C3.75 9.02953 4.02953 8.75 4.375 8.75H5.625C5.97047 8.75 6.25 9.02953 6.25 9.375ZM5.625 13.75H4.375C4.02953 13.75 3.75 14.0295 3.75 14.375V15.625C3.75 15.9705 4.02953 16.25 4.375 16.25H5.625C5.97047 16.25 6.25 15.9705 6.25 15.625V14.375C6.25 14.0295 5.97047 13.75 5.625 13.75ZM10.625 8.75H9.375C9.02953 8.75 8.75 9.02953 8.75 9.375V10.625C8.75 10.9705 9.02953 11.25 9.375 11.25H10.625C10.9705 11.25 11.25 10.9705 11.25 10.625V9.375C11.25 9.02953 10.9705 8.75 10.625 8.75ZM10.625 13.75H9.375C9.02953 13.75 8.75 14.0295 8.75 14.375V15.625C8.75 15.9705 9.02953 16.25 9.375 16.25H10.625C10.9705 16.25 11.25 15.9705 11.25 15.625V14.375C11.25 14.0295 10.9705 13.75 10.625 13.75ZM15.625 8.75H14.375C14.0295 8.75 13.75 9.02953 13.75 9.375V10.625C13.75 10.9705 14.0295 11.25 14.375 11.25H15.625C15.9705 11.25 16.25 10.9705 16.25 10.625V9.375C16.25 9.02953 15.9705 8.75 15.625 8.75ZM15.625 13.75H14.375C14.0295 13.75 13.75 14.0295 13.75 14.375V15.625C13.75 15.9705 14.0295 16.25 14.375 16.25H15.625C15.9705 16.25 16.25 15.9705 16.25 15.625V14.375C16.25 14.0295 15.9705 13.75 15.625 13.75ZM4.375 3.75H5.625C5.97047 3.75 6.25 3.47047 6.25 3.125V0.625C6.25 0.279531 5.97047 0 5.625 0H4.375C4.02953 0 3.75 0.279531 3.75 0.625V3.125C3.75 3.47047 4.02953 3.75 4.375 3.75ZM20 5V17.5C20 18.8806 18.8806 20 17.5 20H2.5C1.11937 20 0 18.8806 0 17.5V5C0 3.61937 1.11937 2.5 2.5 2.5H3.125V3.125C3.125 3.81348 3.6859 4.375 4.375 4.375H5.625C6.3141 4.375 6.875 3.81348 6.875 3.125V2.5H13.125V3.125C13.125 3.81348 13.6865 4.375 14.375 4.375H15.625C16.3135 4.375 16.875 3.81348 16.875 3.125V2.5H17.5C18.8806 2.5 20 3.61937 20 5ZM18.75 7.5C18.75 6.81152 18.1897 6.25 17.5 6.25H2.5C1.8109 6.25 1.25 6.81152 1.25 7.5V17.5C1.25 18.1897 1.8109 18.75 2.5 18.75H17.5C18.1897 18.75 18.75 18.1897 18.75 17.5V7.5ZM14.375 3.75H15.625C15.9705 3.75 16.25 3.47047 16.25 3.125V0.625C16.25 0.279531 15.9705 0 15.625 0H14.375C14.0295 0 13.75 0.279531 13.75 0.625V3.125C13.75 3.47047 14.0295 3.75 14.375 3.75Z" fill=#ffffff></path>
+ </svg>
+ </span>
+ </div>
+ </div>
+ </div>
+ <div class=row>
+ <div class=col-sm-12>
+ <div id=slotData class=row>
+ </div>
+ <div class=text-center>
+ <button class="appoint-btn appointmentAdd btn btn-gradient d-none mt-3 sf-hidden">
  
  Make an Appointment
  </button>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div aria-hidden="true" class="modal fade appointment-modal sf-hidden" id="AppointmentModal" tabindex="-1">
-</div>
-<div class="product-section pt-50 px-20 position-relative">
-<div class="position-absolute vector-all vector-6 text-end">
-<img alt="images" class="w-100" src="/images/templates/musicianxxxxx/mus-035.webp"/>
-</div>
-<div class="section-heading text-center">
-<h2 class="mb-0 fw-6 text-gradient">Products</h2>
-</div>
-<div class="product-slider slick-initialized slick-slider"><div class="slick-list draggable"><div class="slick-track" style="opacity:1;width:3150px;transform:translate3d(-630px,0px,0px)"><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="-2" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="card-wrapper">
-<div class="product-card card">
-<a class="text-decoration-none fs-6 position-relative d-block h-100" tabindex="-1" target="_blank">
-<div class="product-img card-img position-relative overflow-hidden">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-37)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="product-desc card-body w-100 position-relative overflow-hidden">
-<div class="d-flex justify-content-between align-items-center mb-1 flex-column gap-2 overflow-hidden">
-<h3 class="text-center fw-5 mb-0 product-title">Pro Production Package</h3>
-<p class="amount product-amount mb-0">
-<span class="fw-6 text-white">₹ 20,000.00</span>
-</p>
-</div>
-</div>
-</a>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="-1" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="card-wrapper">
-<div class="product-card card">
-<a class="text-decoration-none fs-6 position-relative d-block h-100" tabindex="-1" target="_blank">
-<div class="product-img card-img position-relative overflow-hidden">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-38)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="product-desc card-body w-100 position-relative overflow-hidden">
-<div class="d-flex justify-content-between align-items-center mb-1 flex-column gap-2 overflow-hidden">
-<h3 class="text-center fw-5 mb-0 product-title">Album Launch Package</h3>
-<p class="amount product-amount mb-0">
-<span class="fw-6 text-white">₹ 45,000.00</span>
-</p>
-</div>
-</div>
-</a>
-</div>
-</div>
-</div></div></div><div aria-hidden="false" class="slick-slide slick-current slick-active" data-slick-index="0" style="width:315px"><div><div style="width:100%;display:inline-block">
-<div class="card-wrapper">
-<div class="product-card card">
-<a class="text-decoration-none fs-6 position-relative d-block h-100" tabindex="0" target="_blank">
-<div class="product-img card-img position-relative overflow-hidden">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-39)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="product-desc card-body w-100 position-relative overflow-hidden">
-<div class="d-flex justify-content-between align-items-center mb-1 flex-column gap-2 overflow-hidden">
-<h3 class="text-center fw-5 mb-0 product-title">Original lyrics and melodies tailored for artists, ads, and films.</h3>
-<p class="amount product-amount mb-0">
-<span class="fw-6 text-white">₹ 5,000.00</span>
-</p>
-</div>
-</div>
-</a>
-</div>
-</div>
-</div></div></div><div aria-hidden="false" class="slick-slide slick-active" data-slick-index="1" style="width:315px"><div><div style="width:100%;display:inline-block">
-<div class="card-wrapper">
-<div class="product-card card">
-<a class="text-decoration-none fs-6 position-relative d-block h-100" tabindex="0" target="_blank">
-<div class="product-img card-img position-relative overflow-hidden">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-40)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="product-desc card-body w-100 position-relative overflow-hidden">
-<div class="d-flex justify-content-between align-items-center mb-1 flex-column gap-2 overflow-hidden">
-<h3 class="text-center fw-5 mb-0 product-title">Performance Package</h3>
-<p class="amount product-amount mb-0">
-<span class="fw-6 text-white">₹ 12,000.00</span>
-</p>
-</div>
-</div>
-</a>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide" data-slick-index="2" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="card-wrapper">
-<div class="product-card card">
-<a class="text-decoration-none fs-6 position-relative d-block h-100" tabindex="-1" target="_blank">
-<div class="product-img card-img position-relative overflow-hidden">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-37)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="product-desc card-body w-100 position-relative overflow-hidden">
-<div class="d-flex justify-content-between align-items-center mb-1 flex-column gap-2 overflow-hidden">
-<h3 class="text-center fw-5 mb-0 product-title">Pro Production Package</h3>
-<p class="amount product-amount mb-0">
-<span class="fw-6 text-white">₹ 20,000.00</span>
-</p>
-</div>
-</div>
-</a>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide" data-slick-index="3" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="card-wrapper">
-<div class="product-card card">
-<a class="text-decoration-none fs-6 position-relative d-block h-100" tabindex="-1" target="_blank">
-<div class="product-img card-img position-relative overflow-hidden">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-38)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="product-desc card-body w-100 position-relative overflow-hidden">
-<div class="d-flex justify-content-between align-items-center mb-1 flex-column gap-2 overflow-hidden">
-<h3 class="text-center fw-5 mb-0 product-title">Album Launch Package</h3>
-<p class="amount product-amount mb-0">
-<span class="fw-6 text-white">₹ 45,000.00</span>
-</p>
-</div>
-</div>
-</a>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="4" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="card-wrapper">
-<div class="product-card card">
-<a class="text-decoration-none fs-6 position-relative d-block h-100" tabindex="-1" target="_blank">
-<div class="product-img card-img position-relative overflow-hidden">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-39)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="product-desc card-body w-100 position-relative overflow-hidden">
-<div class="d-flex justify-content-between align-items-center mb-1 flex-column gap-2 overflow-hidden">
-<h3 class="text-center fw-5 mb-0 product-title">Original lyrics and melodies tailored for artists, ads, and films.</h3>
-<p class="amount product-amount mb-0">
-<span class="fw-6 text-white">₹ 5,000.00</span>
-</p>
-</div>
-</div>
-</a>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="5" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="card-wrapper">
-<div class="product-card card">
-<a class="text-decoration-none fs-6 position-relative d-block h-100" tabindex="-1" target="_blank">
-<div class="product-img card-img position-relative overflow-hidden">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-40)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="product-desc card-body w-100 position-relative overflow-hidden">
-<div class="d-flex justify-content-between align-items-center mb-1 flex-column gap-2 overflow-hidden">
-<h3 class="text-center fw-5 mb-0 product-title">Performance Package</h3>
-<p class="amount product-amount mb-0">
-<span class="fw-6 text-white">₹ 12,000.00</span>
-</p>
-</div>
-</div>
-</a>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="6" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="card-wrapper">
-<div class="product-card card">
-<a class="text-decoration-none fs-6 position-relative d-block h-100" tabindex="-1" target="_blank">
-<div class="product-img card-img position-relative overflow-hidden">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-37)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="product-desc card-body w-100 position-relative overflow-hidden">
-<div class="d-flex justify-content-between align-items-center mb-1 flex-column gap-2 overflow-hidden">
-<h3 class="text-center fw-5 mb-0 product-title">Pro Production Package</h3>
-<p class="amount product-amount mb-0">
-<span class="fw-6 text-white">₹ 20,000.00</span>
-</p>
-</div>
-</div>
-</a>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="7" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="card-wrapper">
-<div class="product-card card">
-<a class="text-decoration-none fs-6 position-relative d-block h-100" tabindex="-1" target="_blank">
-<div class="product-img card-img position-relative overflow-hidden">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-38)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="product-desc card-body w-100 position-relative overflow-hidden">
-<div class="d-flex justify-content-between align-items-center mb-1 flex-column gap-2 overflow-hidden">
-<h3 class="text-center fw-5 mb-0 product-title">Album Launch Package</h3>
-<p class="amount product-amount mb-0">
-<span class="fw-6 text-white">₹ 45,000.00</span>
-</p>
-</div>
-</div>
-</a>
-</div>
-</div>
-</div></div></div></div></div></div>
-<div class="mx-auto mt-4 text-center">
-<a class="btn btn-gradient d-inline-flex gap-2 align-items-center view-more" href="https://tapifyworld.com/products/33/musician">
-<div class="wave"></div>
- View More Products <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long right-arrow-animation" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor"></path></svg>
-</a>
-</div>
-</div>
-<div class="pt-50 px-20 position-relative">
-<div class="position-absolute vector-all vector-7">
-<img alt="images" class="w-100" src="/images/templates/musicianxxxxx/mus-036.webp"/>
-</div>
-<div class="testimonial-section position-relative">
-<div class="section-heading text-center">
-<h2 class="mb-0 fw-6 text-gradient">Testimonials</h2>
-</div>
-<div class="testimonial-slider slick-initialized slick-slider"><div class="slick-list draggable"><div class="slick-track" style="opacity:1;width:4410px;transform:translate3d(-630px,0px,0px)"><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="-1" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="testimonial-card card">
-<div class="empty-box"></div>
-<div class="testimonial-content">
-<div class="quote-left quote d-flex align-items-center justify-content-center">
-<img alt="quote-left" src="/images/templates/musicianxxxxx/mus-037.svg"/>
-</div>
-<div class="quote-right quote d-flex align-items-center justify-content-center">
-<img alt="quote-left" src="/images/templates/musicianxxxxx/mus-038.svg"/>
-</div>
-<div class="card-img testimonial-profile-img mb-3">
-<img class="w-100 h-100 object-fit-cover rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-44)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="card-body p-0 text-center">
-<h3 class="text-primary text-decoration-underline mb-10">Karan Roy</h3>
-<p class="desc text-black mb-0 more">
- " I’ve grown so much here—not just as a guitarist, but as an artist. The feedback, the collaborations, and the friendships I’ve made are priceless."
- </p>
-</div>
-</div>
-</div>
-</div></div></div><div aria-hidden="false" class="slick-slide slick-current slick-active" data-slick-index="0" style="width:630px"><div><div style="width:100%;display:inline-block">
-<div class="testimonial-card card">
-<div class="empty-box"></div>
-<div class="testimonial-content">
-<div class="quote-left quote d-flex align-items-center justify-content-center">
-<img alt="quote-left" src="/images/templates/musicianxxxxx/mus-037.svg"/>
-</div>
-<div class="quote-right quote d-flex align-items-center justify-content-center">
-<img alt="quote-left" src="/images/templates/musicianxxxxx/mus-038.svg"/>
-</div>
-<div class="card-img testimonial-profile-img mb-3">
-<img class="w-100 h-100 object-fit-cover rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-45)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="card-body p-0 text-center">
-<h3 class="text-primary text-decoration-underline mb-10">Riya Mehta</h3>
-<p class="desc text-black mb-0 more">
- " Being part of this community reignited my passion for music. I uploaded my first track here, and the encouragement I received was overwhelming. It's not just a platform—it's a family."
- </p>
-</div>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide" data-slick-index="1" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="testimonial-card card">
-<div class="empty-box"></div>
-<div class="testimonial-content">
-<div class="quote-left quote d-flex align-items-center justify-content-center">
-<img alt="quote-left" src="/images/templates/musicianxxxxx/mus-037.svg"/>
-</div>
-<div class="quote-right quote d-flex align-items-center justify-content-center">
-<img alt="quote-left" src="/images/templates/musicianxxxxx/mus-038.svg"/>
-</div>
-<div class="card-img testimonial-profile-img mb-3">
-<img class="w-100 h-100 object-fit-cover rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-46)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="card-body p-0 text-center">
-<h3 class="text-primary text-decoration-underline mb-10">Ankit Deshpande</h3>
-<p class="desc text-black mb-0 more">
- " As a classical tabla player, I always looked for ways to reach a younger audience. This space helped me blend tradition with technology. The response has been incredible!""
- </p>
-</div>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide" data-slick-index="2" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="testimonial-card card">
-<div class="empty-box"></div>
-<div class="testimonial-content">
-<div class="quote-left quote d-flex align-items-center justify-content-center">
-<img alt="quote-left" src="/images/templates/musicianxxxxx/mus-037.svg"/>
-</div>
-<div class="quote-right quote d-flex align-items-center justify-content-center">
-<img alt="quote-left" src="/images/templates/musicianxxxxx/mus-038.svg"/>
-</div>
-<div class="card-img testimonial-profile-img mb-3">
-<img class="w-100 h-100 object-fit-cover rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-44)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="card-body p-0 text-center">
-<h3 class="text-primary text-decoration-underline mb-10">Karan Roy</h3>
-<p class="desc text-black mb-0 more">
- " I’ve grown so much here—not just as a guitarist, but as an artist. The feedback, the collaborations, and the friendships I’ve made are priceless."
- </p>
-</div>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="3" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="testimonial-card card">
-<div class="empty-box"></div>
-<div class="testimonial-content">
-<div class="quote-left quote d-flex align-items-center justify-content-center">
-<img alt="quote-left" src="/images/templates/musicianxxxxx/mus-037.svg"/>
-</div>
-<div class="quote-right quote d-flex align-items-center justify-content-center">
-<img alt="quote-left" src="/images/templates/musicianxxxxx/mus-038.svg"/>
-</div>
-<div class="card-img testimonial-profile-img mb-3">
-<img class="w-100 h-100 object-fit-cover rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-45)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="card-body p-0 text-center">
-<h3 class="text-primary text-decoration-underline mb-10">Riya Mehta</h3>
-<p class="desc text-black mb-0 more">
- " Being part of this community reignited my passion for music. I uploaded my first track here, and the encouragement I received was overwhelming. It's not just a platform—it's a family."
- </p>
-</div>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="4" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="testimonial-card card">
-<div class="empty-box"></div>
-<div class="testimonial-content">
-<div class="quote-left quote d-flex align-items-center justify-content-center">
-<img alt="quote-left" src="/images/templates/musicianxxxxx/mus-037.svg"/>
-</div>
-<div class="quote-right quote d-flex align-items-center justify-content-center">
-<img alt="quote-left" src="/images/templates/musicianxxxxx/mus-038.svg"/>
-</div>
-<div class="card-img testimonial-profile-img mb-3">
-<img class="w-100 h-100 object-fit-cover rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-46)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="card-body p-0 text-center">
-<h3 class="text-primary text-decoration-underline mb-10">Ankit Deshpande</h3>
-<p class="desc text-black mb-0 more">
- " As a classical tabla player, I always looked for ways to reach a younger audience. This space helped me blend tradition with technology. The response has been incredible!""
- </p>
-</div>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="5" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="testimonial-card card">
-<div class="empty-box"></div>
-<div class="testimonial-content">
-<div class="quote-left quote d-flex align-items-center justify-content-center">
-<img alt="quote-left" src="/images/templates/musicianxxxxx/mus-037.svg"/>
-</div>
-<div class="quote-right quote d-flex align-items-center justify-content-center">
-<img alt="quote-left" src="/images/templates/musicianxxxxx/mus-038.svg"/>
-</div>
-<div class="card-img testimonial-profile-img mb-3">
-<img class="w-100 h-100 object-fit-cover rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-44)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="card-body p-0 text-center">
-<h3 class="text-primary text-decoration-underline mb-10">Karan Roy</h3>
-<p class="desc text-black mb-0 more">
- " I’ve grown so much here—not just as a guitarist, but as an artist. The feedback, the collaborations, and the friendships I’ve made are priceless."
- </p>
-</div>
-</div>
-</div>
-</div></div></div></div></div></div>
-</div>
-</div>
-<div class="blog-section pt-50 px-20 position-relative">
-<div class="position-absolute vector-all vector-9">
-<img alt="images" class="w-100" src="/images/templates/musicianxxxxx/mus-039.webp"/>
-</div>
-<div class="section-heading text-center">
-<h2 class="mb-0 fw-6 text-gradient">Blog</h2>
-</div>
-<div class="blog-slider slick-initialized slick-slider slick-dotted"><div class="slick-list draggable"><div class="slick-track" style="opacity:1;width:5670px;transform:translate3d(-1890px,0px,0px)"><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="-1" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="card-wrapper">
-<div class="blog-card card">
-<div class="card-img">
-<a href="https://tapifyworld.com/musician/blog/61" tabindex="-1">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-48)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</a>
-</div>
-<div class="card-body">
-<h5 class="fw-5 text-white mb-2">The First Note: Starting as a Musician</h5>
-<p class="text-white blog-desc fw-5 mb-0">
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div class="modal fade appointment-modal sf-hidden" id=AppointmentModal tabindex=-1 aria-hidden=true>
+ 
+</div>
+ 
+ <div class="product-section pt-50 px-20 position-relative">
+ <div class="position-absolute vector-all vector-6 text-end">
+ <img src="/images/templates/musician/mus-035.webp" class=w-100 alt=images>
+ </div>
+ <div class="section-heading text-center">
+ <h2 class="mb-0 fw-6 text-gradient">Products</h2>
+ </div>
+ <div class="product-slider"><?php foreach ((isset($__pr)?$__pr:($products ?? [])) as $p): $pi=!empty($p["image"])?imgUrl($p["image"]):"/images/templates/musician/mus-019.webp"; ?><div class="px-2"><div class="product-card card"><div class="product-img card-img"><img src="<?= htmlspecialchars($pi) ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></div><div class="product-desc card-body d-flex flex-column align-items-center justify-content-between"><div class="product-title"><h3 class="text-dark text-center"><?= htmlspecialchars($p["name"] ?? "") ?></h3></div><?php if(isset($p["price"]) && $p["price"]!==""): ?><div class="product-amount"><span>₹ <?= htmlspecialchars($p["price"]) ?></span></div><?php endif; ?></div></div></div><?php endforeach; ?></div>
+ <div class="mx-auto mt-4 text-center">
+ <a class="btn btn-gradient d-inline-flex gap-2 align-items-center view-more" href=https://tapifyworld.com/products/33/musician>
+ <div class=wave></div>
+ View More Products <svg class="svg-inline--fa fa-arrow-right-long right-arrow-animation" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z"></path></svg>
+ </a>
+ </div>
+ </div>
+ 
+ <div class="pt-50 px-20 position-relative">
+ <div class="position-absolute vector-all vector-7">
+ <img src=/images/templates/musician/mus-036.webp class=w-100 alt=images>
+ </div>
+ <div class="testimonial-section position-relative">
+ <div class="section-heading text-center">
+ <h2 class="mb-0 fw-6 text-gradient">Testimonials</h2>
+ </div>
+ <div class="testimonial-slider"><?php foreach ((isset($__te)?$__te:($testimonials ?? [])) as $t): ?><div class="px-2"><div class="testimonial-card p-0"><div class="card-body text-center position-relative"><div class="text-center"><p class="text-gray mb-0">“<?= htmlspecialchars($t["message"] ?? "") ?>”</p></div></div><div class="d-flex flex-column align-items-center justify-content-center gap-2 profile-desc"><?php if(!empty($t["image"])): ?><div class="card-img" style="width:60px;height:60px;border-radius:50%;overflow:hidden;"><img src="<?= htmlspecialchars(imgUrl($t["image"])) ?>" class="w-100 h-100 object-fit-cover"></div><?php endif; ?><h5 class="fw-6 mb-0"><?= htmlspecialchars($t["author_name"] ?? ($t["author"] ?? "")) ?></h5></div></div></div><?php endforeach; ?></div>
+ </div>
+ </div>
+ 
+ 
+ <div class="blog-section pt-50 px-20 position-relative">
+ <div class="position-absolute vector-all vector-9">
+ <img src="/images/templates/musician/mus-039.webp" class=w-100 alt=images>
+ </div>
+ <div class="section-heading text-center">
+ <h2 class="mb-0 fw-6 text-gradient">Blog</h2>
+ </div>
+ <div class="blog-slider slick-initialized slick-slider slick-dotted"><div class="slick-list draggable"><div class=slick-track style=opacity:1;width:5670px;transform:translate3d(-1890px,0px,0px)><div class="slick-slide slick-cloned" data-slick-index=-1 aria-hidden=true tabindex=-1 style=width:630px><div><div style=width:100%;display:inline-block>
+ <div class=card-wrapper>
+ <div class="blog-card card">
+ <div class=card-img>
+ <a href=https://tapifyworld.com/musician/blog/61 tabindex=-1>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-48)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </a>
+ </div>
+ <div class=card-body>
+ <h5 class="fw-5 text-white mb-2">The First Note: Starting as a Musician</h5>
+ <p class="text-white blog-desc fw-5 mb-0">
  Every musician remembers their beginning — the first piano lesson, the first time holding a guitar, the nervousness of singing in front of others. Starting small is where greatness begins. Embrace the basics, practice consistently, and never underestimate the power of persistence.
  </p>
-<div class="mt-3 d-flex align-items-center justify-content-end">
-<a class="d-inline-flex align-items-center justify-content-end gap-2 bg-white text-primary fs-14 read-more" href="https://tapifyworld.com/musician/blog/61" tabindex="-1">
- Read More <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor"></path></svg>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div></div></div><div aria-describedby="slick-slide-control30" aria-hidden="true" class="slick-slide" data-slick-index="0" id="slick-slide30" role="tabpanel" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="card-wrapper">
-<div class="blog-card card">
-<div class="card-img">
-<a href="https://tapifyworld.com/musician/blog/58" tabindex="-1">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-49)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</a>
-</div>
-<div class="card-body">
-<h5 class="fw-5 text-white mb-2">What’s Your Story as a Musician?</h5>
-<p class="text-white blog-desc fw-5 mb-0">
+ <div class="mt-3 d-flex align-items-center justify-content-end">
+ <a href=https://tapifyworld.com/musician/blog/61 class="d-inline-flex align-items-center justify-content-end gap-2 bg-white text-primary fs-14 read-more" tabindex=-1>
+ Read More <svg class="svg-inline--fa fa-arrow-right-long" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z"></path></svg>
+ </a>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div></div></div><div class=slick-slide data-slick-index=0 aria-hidden=true role=tabpanel id=slick-slide30 style=width:630px tabindex=-1 aria-describedby=slick-slide-control30><div><div style=width:100%;display:inline-block>
+ <div class=card-wrapper>
+ <div class="blog-card card">
+ <div class=card-img>
+ <a href=https://tapifyworld.com/musician/blog/58 tabindex=-1>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-49)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </a>
+ </div>
+ <div class=card-body>
+ <h5 class="fw-5 text-white mb-2">What’s Your Story as a Musician?</h5>
+ <p class="text-white blog-desc fw-5 mb-0">
  Every musician has a unique journey—whether you strummed your first chord in your bedroom, learned ragas from a guru, or discovered your voice through late-night jam sessions. Music isn’t just about notes and rhythms; it’s about expression, growth, and connection.
  </p>
-<div class="mt-3 d-flex align-items-center justify-content-end">
-<a class="d-inline-flex align-items-center justify-content-end gap-2 bg-white text-primary fs-14 read-more" href="https://tapifyworld.com/musician/blog/58" tabindex="-1">
- Read More <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor"></path></svg>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div></div></div><div aria-describedby="slick-slide-control31" aria-hidden="true" class="slick-slide" data-slick-index="1" id="slick-slide31" role="tabpanel" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="card-wrapper">
-<div class="blog-card card">
-<div class="card-img">
-<a href="https://tapifyworld.com/musician/blog/59" tabindex="-1">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-50)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</a>
-</div>
-<div class="card-body">
-<h5 class="fw-5 text-white mb-2">Final Thoughts</h5>
-<p class="text-white blog-desc fw-5 mb-0">
+ <div class="mt-3 d-flex align-items-center justify-content-end">
+ <a href=https://tapifyworld.com/musician/blog/58 class="d-inline-flex align-items-center justify-content-end gap-2 bg-white text-primary fs-14 read-more" tabindex=-1>
+ Read More <svg class="svg-inline--fa fa-arrow-right-long" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z"></path></svg>
+ </a>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div></div></div><div class=slick-slide data-slick-index=1 aria-hidden=true role=tabpanel id=slick-slide31 style=width:630px aria-describedby=slick-slide-control31 tabindex=-1><div><div style=width:100%;display:inline-block>
+ <div class=card-wrapper>
+ <div class="blog-card card">
+ <div class=card-img>
+ <a href=https://tapifyworld.com/musician/blog/59 tabindex=-1>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-50)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </a>
+ </div>
+ <div class=card-body>
+ <h5 class="fw-5 text-white mb-2">Final Thoughts</h5>
+ <p class="text-white blog-desc fw-5 mb-0">
  Being a musician is a gift — one that takes heart, hustle, and harmony. Keep playing. Keep singing. Keep creating. Because somewhere out there, someone is waiting to hear your song.
  </p>
-<div class="mt-3 d-flex align-items-center justify-content-end">
-<a class="d-inline-flex align-items-center justify-content-end gap-2 bg-white text-primary fs-14 read-more" href="https://tapifyworld.com/musician/blog/59" tabindex="-1">
- Read More <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor"></path></svg>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div></div></div><div aria-describedby="slick-slide-control32" aria-hidden="false" class="slick-slide slick-current slick-active" data-slick-index="2" id="slick-slide32" role="tabpanel" style="width:630px"><div><div style="width:100%;display:inline-block">
-<div class="card-wrapper">
-<div class="blog-card card">
-<div class="card-img">
-<a href="https://tapifyworld.com/musician/blog/60" tabindex="0">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-51)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</a>
-</div>
-<div class="card-body">
-<h5 class="fw-5 text-white mb-2">Performing & Sharing</h5>
-<p class="text-white blog-desc fw-5 mb-0">
+ <div class="mt-3 d-flex align-items-center justify-content-end">
+ <a href=https://tapifyworld.com/musician/blog/59 class="d-inline-flex align-items-center justify-content-end gap-2 bg-white text-primary fs-14 read-more" tabindex=-1>
+ Read More <svg class="svg-inline--fa fa-arrow-right-long" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z"></path></svg>
+ </a>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div></div></div><div class="slick-slide slick-current slick-active" data-slick-index=2 aria-hidden=false role=tabpanel id=slick-slide32 style=width:630px aria-describedby=slick-slide-control32><div><div style=width:100%;display:inline-block>
+ <div class=card-wrapper>
+ <div class="blog-card card">
+ <div class=card-img>
+ <a href=https://tapifyworld.com/musician/blog/60 tabindex=0>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-51)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </a>
+ </div>
+ <div class=card-body>
+ <h5 class="fw-5 text-white mb-2">Performing &amp; Sharing</h5>
+ <p class="text-white blog-desc fw-5 mb-0">
  A musician’s gift shines brightest when shared. Perform in local cafes, upload your covers, share your originals on social platforms, or jam with friends. Each performance, no matter how small, helps you grow in confidence and technique.
  </p>
-<div class="mt-3 d-flex align-items-center justify-content-end">
-<a class="d-inline-flex align-items-center justify-content-end gap-2 bg-white text-primary fs-14 read-more" href="https://tapifyworld.com/musician/blog/60" tabindex="0">
- Read More <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor"></path></svg>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div></div></div><div aria-describedby="slick-slide-control33" aria-hidden="true" class="slick-slide" data-slick-index="3" id="slick-slide33" role="tabpanel" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="card-wrapper">
-<div class="blog-card card">
-<div class="card-img">
-<a href="https://tapifyworld.com/musician/blog/61" tabindex="-1">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-48)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</a>
-</div>
-<div class="card-body">
-<h5 class="fw-5 text-white mb-2">The First Note: Starting as a Musician</h5>
-<p class="text-white blog-desc fw-5 mb-0">
+ <div class="mt-3 d-flex align-items-center justify-content-end">
+ <a href=https://tapifyworld.com/musician/blog/60 class="d-inline-flex align-items-center justify-content-end gap-2 bg-white text-primary fs-14 read-more" tabindex=0>
+ Read More <svg class="svg-inline--fa fa-arrow-right-long" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z"></path></svg>
+ </a>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div></div></div><div class=slick-slide data-slick-index=3 aria-hidden=true tabindex=-1 role=tabpanel id=slick-slide33 style=width:630px aria-describedby=slick-slide-control33><div><div style=width:100%;display:inline-block>
+ <div class=card-wrapper>
+ <div class="blog-card card">
+ <div class=card-img>
+ <a href=https://tapifyworld.com/musician/blog/61 tabindex=-1>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-48)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </a>
+ </div>
+ <div class=card-body>
+ <h5 class="fw-5 text-white mb-2">The First Note: Starting as a Musician</h5>
+ <p class="text-white blog-desc fw-5 mb-0">
  Every musician remembers their beginning — the first piano lesson, the first time holding a guitar, the nervousness of singing in front of others. Starting small is where greatness begins. Embrace the basics, practice consistently, and never underestimate the power of persistence.
  </p>
-<div class="mt-3 d-flex align-items-center justify-content-end">
-<a class="d-inline-flex align-items-center justify-content-end gap-2 bg-white text-primary fs-14 read-more" href="https://tapifyworld.com/musician/blog/61" tabindex="-1">
- Read More <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor"></path></svg>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="4" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="card-wrapper">
-<div class="blog-card card">
-<div class="card-img">
-<a href="https://tapifyworld.com/musician/blog/58" tabindex="-1">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-49)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</a>
-</div>
-<div class="card-body">
-<h5 class="fw-5 text-white mb-2">What’s Your Story as a Musician?</h5>
-<p class="text-white blog-desc fw-5 mb-0">
+ <div class="mt-3 d-flex align-items-center justify-content-end">
+ <a href=https://tapifyworld.com/musician/blog/61 class="d-inline-flex align-items-center justify-content-end gap-2 bg-white text-primary fs-14 read-more" tabindex=-1>
+ Read More <svg class="svg-inline--fa fa-arrow-right-long" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z"></path></svg>
+ </a>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div></div></div><div class="slick-slide slick-cloned" data-slick-index=4 aria-hidden=true tabindex=-1 style=width:630px><div><div style=width:100%;display:inline-block>
+ <div class=card-wrapper>
+ <div class="blog-card card">
+ <div class=card-img>
+ <a href=https://tapifyworld.com/musician/blog/58 tabindex=-1>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-49)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </a>
+ </div>
+ <div class=card-body>
+ <h5 class="fw-5 text-white mb-2">What’s Your Story as a Musician?</h5>
+ <p class="text-white blog-desc fw-5 mb-0">
  Every musician has a unique journey—whether you strummed your first chord in your bedroom, learned ragas from a guru, or discovered your voice through late-night jam sessions. Music isn’t just about notes and rhythms; it’s about expression, growth, and connection.
  </p>
-<div class="mt-3 d-flex align-items-center justify-content-end">
-<a class="d-inline-flex align-items-center justify-content-end gap-2 bg-white text-primary fs-14 read-more" href="https://tapifyworld.com/musician/blog/58" tabindex="-1">
- Read More <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor"></path></svg>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="5" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="card-wrapper">
-<div class="blog-card card">
-<div class="card-img">
-<a href="https://tapifyworld.com/musician/blog/59" tabindex="-1">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-50)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</a>
-</div>
-<div class="card-body">
-<h5 class="fw-5 text-white mb-2">Final Thoughts</h5>
-<p class="text-white blog-desc fw-5 mb-0">
+ <div class="mt-3 d-flex align-items-center justify-content-end">
+ <a href=https://tapifyworld.com/musician/blog/58 class="d-inline-flex align-items-center justify-content-end gap-2 bg-white text-primary fs-14 read-more" tabindex=-1>
+ Read More <svg class="svg-inline--fa fa-arrow-right-long" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z"></path></svg>
+ </a>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div></div></div><div class="slick-slide slick-cloned" data-slick-index=5 aria-hidden=true tabindex=-1 style=width:630px><div><div style=width:100%;display:inline-block>
+ <div class=card-wrapper>
+ <div class="blog-card card">
+ <div class=card-img>
+ <a href=https://tapifyworld.com/musician/blog/59 tabindex=-1>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-50)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </a>
+ </div>
+ <div class=card-body>
+ <h5 class="fw-5 text-white mb-2">Final Thoughts</h5>
+ <p class="text-white blog-desc fw-5 mb-0">
  Being a musician is a gift — one that takes heart, hustle, and harmony. Keep playing. Keep singing. Keep creating. Because somewhere out there, someone is waiting to hear your song.
  </p>
-<div class="mt-3 d-flex align-items-center justify-content-end">
-<a class="d-inline-flex align-items-center justify-content-end gap-2 bg-white text-primary fs-14 read-more" href="https://tapifyworld.com/musician/blog/59" tabindex="-1">
- Read More <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor"></path></svg>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="6" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="card-wrapper">
-<div class="blog-card card">
-<div class="card-img">
-<a href="https://tapifyworld.com/musician/blog/60" tabindex="-1">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-51)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</a>
-</div>
-<div class="card-body">
-<h5 class="fw-5 text-white mb-2">Performing & Sharing</h5>
-<p class="text-white blog-desc fw-5 mb-0">
+ <div class="mt-3 d-flex align-items-center justify-content-end">
+ <a href=https://tapifyworld.com/musician/blog/59 class="d-inline-flex align-items-center justify-content-end gap-2 bg-white text-primary fs-14 read-more" tabindex=-1>
+ Read More <svg class="svg-inline--fa fa-arrow-right-long" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z"></path></svg>
+ </a>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div></div></div><div class="slick-slide slick-cloned" data-slick-index=6 aria-hidden=true tabindex=-1 style=width:630px><div><div style=width:100%;display:inline-block>
+ <div class=card-wrapper>
+ <div class="blog-card card">
+ <div class=card-img>
+ <a href=https://tapifyworld.com/musician/blog/60 tabindex=-1>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-51)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </a>
+ </div>
+ <div class=card-body>
+ <h5 class="fw-5 text-white mb-2">Performing &amp; Sharing</h5>
+ <p class="text-white blog-desc fw-5 mb-0">
  A musician’s gift shines brightest when shared. Perform in local cafes, upload your covers, share your originals on social platforms, or jam with friends. Each performance, no matter how small, helps you grow in confidence and technique.
  </p>
-<div class="mt-3 d-flex align-items-center justify-content-end">
-<a class="d-inline-flex align-items-center justify-content-end gap-2 bg-white text-primary fs-14 read-more" href="https://tapifyworld.com/musician/blog/60" tabindex="-1">
- Read More <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor"></path></svg>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="7" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="card-wrapper">
-<div class="blog-card card">
-<div class="card-img">
-<a href="https://tapifyworld.com/musician/blog/61" tabindex="-1">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-48)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</a>
-</div>
-<div class="card-body">
-<h5 class="fw-5 text-white mb-2">The First Note: Starting as a Musician</h5>
-<p class="text-white blog-desc fw-5 mb-0">
+ <div class="mt-3 d-flex align-items-center justify-content-end">
+ <a href=https://tapifyworld.com/musician/blog/60 class="d-inline-flex align-items-center justify-content-end gap-2 bg-white text-primary fs-14 read-more" tabindex=-1>
+ Read More <svg class="svg-inline--fa fa-arrow-right-long" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z"></path></svg>
+ </a>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div></div></div><div class="slick-slide slick-cloned" data-slick-index=7 aria-hidden=true tabindex=-1 style=width:630px><div><div style=width:100%;display:inline-block>
+ <div class=card-wrapper>
+ <div class="blog-card card">
+ <div class=card-img>
+ <a href=https://tapifyworld.com/musician/blog/61 tabindex=-1>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-48)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </a>
+ </div>
+ <div class=card-body>
+ <h5 class="fw-5 text-white mb-2">The First Note: Starting as a Musician</h5>
+ <p class="text-white blog-desc fw-5 mb-0">
  Every musician remembers their beginning — the first piano lesson, the first time holding a guitar, the nervousness of singing in front of others. Starting small is where greatness begins. Embrace the basics, practice consistently, and never underestimate the power of persistence.
  </p>
-<div class="mt-3 d-flex align-items-center justify-content-end">
-<a class="d-inline-flex align-items-center justify-content-end gap-2 bg-white text-primary fs-14 read-more" href="https://tapifyworld.com/musician/blog/61" tabindex="-1">
- Read More <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor"></path></svg>
-</a>
-</div>
-</div>
-</div>
-</div>
-</div></div></div></div></div><ul class="slick-dots" role="tablist"><li role="presentation"><button aria-controls="slick-slide30" aria-label="1 of 4" fdprocessedid="ogtf2t" id="slick-slide-control30" role="tab" tabindex="-1" type="button">1</button><li role="presentation"><button aria-controls="slick-slide31" aria-label="2 of 4" fdprocessedid="rzibh" id="slick-slide-control31" role="tab" tabindex="-1" type="button">2</button><li class="slick-active" role="presentation"><button aria-controls="slick-slide32" aria-label="3 of 4" aria-selected="true" id="slick-slide-control32" role="tab" tabindex="0" type="button">3</button><li role="presentation"><button aria-controls="slick-slide33" aria-label="4 of 4" id="slick-slide-control33" role="tab" tabindex="-1" type="button">4</button></li></li></li></li></ul></div>
-</div>
-<div class="pt-50 px-30 position-relative">
-<div class="position-absolute vector-all vector-10 text-end">
-<img alt="images" class="w-100" src="/images/templates/musicianxxxxx/mus-040.webp"/>
-</div>
-<div class="business-hour-section position-relative">
-<div class="section-heading text-center">
-<h2 class="mb-0 fw-6 text-gradient">Business Hours</h2>
-</div>
-<div class="row row-gap-15px justify-content-center">
-<div class="col-sm-6">
-<div class="business-hour-card d-flex align-items-center flex-wrap flex-sm-nowrap gap-2">
-<div class="time-icons text-primary position-relative">
-<div class="calender-icon">
-<img alt="business-hour-bg-img" class="w-100" src="/images/templates/musicianxxxxx/mus-041.svg"/>
-</div>
-<div class="play-svg">
-<svg fill="none" height="45" viewBox="0 0 50 50" width="45" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.0265553 25.0022L0.026556 9.85C0.0265564 1.17377 6.61268 -2.45174 14.6594 1.74886L29.5844 9.54996L43.6064 16.901C52.1312 21.3516 52.1312 28.6527 43.6064 33.1033L29.5579 40.4543L14.6329 48.2554C6.58612 52.456 -2.08198e-07 48.8055 1.69959e-07 40.1543L8.3228e-07 25.0022L0.0265553 25.0022Z" fill="white"></path>
-</svg>
-</div>
-</div>
-<div class="d-flex gap-1 flex-column">
-<div class="fs-14 fw-5 text-white">
- Monday :
+ <div class="mt-3 d-flex align-items-center justify-content-end">
+ <a href=https://tapifyworld.com/musician/blog/61 class="d-inline-flex align-items-center justify-content-end gap-2 bg-white text-primary fs-14 read-more" tabindex=-1>
+ Read More <svg class="svg-inline--fa fa-arrow-right-long" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z"></path></svg>
+ </a>
  </div>
-<div class="d-flex gap-3 align-items-center justify-content-end fs-14 fw-5 text-white">
-<div>
- 12:00 AM - 12:00 AM
  </div>
-</div>
-</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="business-hour-card d-flex align-items-center flex-wrap flex-sm-nowrap gap-2">
-<div class="time-icons text-primary position-relative">
-<div class="calender-icon">
-<img alt="business-hour-bg-img" class="w-100" src="/images/templates/musicianxxxxx/mus-041.svg"/>
-</div>
-<div class="play-svg">
-<svg fill="none" height="45" viewBox="0 0 50 50" width="45" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.0265553 25.0022L0.026556 9.85C0.0265564 1.17377 6.61268 -2.45174 14.6594 1.74886L29.5844 9.54996L43.6064 16.901C52.1312 21.3516 52.1312 28.6527 43.6064 33.1033L29.5579 40.4543L14.6329 48.2554C6.58612 52.456 -2.08198e-07 48.8055 1.69959e-07 40.1543L8.3228e-07 25.0022L0.0265553 25.0022Z" fill="white"></path>
-</svg>
-</div>
-</div>
-<div class="d-flex gap-1 flex-column">
-<div class="fs-14 fw-5 text-white">
- Tuesday :
  </div>
-<div class="d-flex gap-3 align-items-center justify-content-end fs-14 fw-5 text-white">
-<div>
- 12:00 AM - 12:00 AM
  </div>
-</div>
-</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="business-hour-card d-flex align-items-center flex-wrap flex-sm-nowrap gap-2">
-<div class="time-icons text-primary position-relative">
-<div class="calender-icon">
-<img alt="business-hour-bg-img" class="w-100" src="/images/templates/musicianxxxxx/mus-041.svg"/>
-</div>
-<div class="play-svg">
-<svg fill="none" height="45" viewBox="0 0 50 50" width="45" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.0265553 25.0022L0.026556 9.85C0.0265564 1.17377 6.61268 -2.45174 14.6594 1.74886L29.5844 9.54996L43.6064 16.901C52.1312 21.3516 52.1312 28.6527 43.6064 33.1033L29.5579 40.4543L14.6329 48.2554C6.58612 52.456 -2.08198e-07 48.8055 1.69959e-07 40.1543L8.3228e-07 25.0022L0.0265553 25.0022Z" fill="white"></path>
-</svg>
-</div>
-</div>
-<div class="d-flex gap-1 flex-column">
-<div class="fs-14 fw-5 text-white">
- Wednesday :
+ </div></div></div></div></div><ul class=slick-dots role=tablist><li role=presentation><button type=button role=tab id=slick-slide-control30 aria-controls=slick-slide30 aria-label="1 of 4" tabindex=-1 fdprocessedid=ogtf2t>1</button><li role=presentation><button type=button role=tab id=slick-slide-control31 aria-controls=slick-slide31 aria-label="2 of 4" tabindex=-1 fdprocessedid=rzibh>2</button><li role=presentation class=slick-active><button type=button role=tab id=slick-slide-control32 aria-controls=slick-slide32 aria-label="3 of 4" tabindex=0 aria-selected=true>3</button><li role=presentation><button type=button role=tab id=slick-slide-control33 aria-controls=slick-slide33 aria-label="4 of 4" tabindex=-1>4</button></ul></div>
  </div>
-<div class="d-flex gap-3 align-items-center justify-content-end fs-14 fw-5 text-white">
-<div>
- 12:00 AM - 12:00 AM
+ 
+ <div class="pt-50 px-30 position-relative">
+ <div class="position-absolute vector-all vector-10 text-end">
+ <img src="/images/templates/musician/mus-040.webp" class=w-100 alt=images>
  </div>
-</div>
-</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="business-hour-card d-flex align-items-center flex-wrap flex-sm-nowrap gap-2">
-<div class="time-icons text-primary position-relative">
-<div class="calender-icon">
-<img alt="business-hour-bg-img" class="w-100" src="/images/templates/musicianxxxxx/mus-041.svg"/>
-</div>
-<div class="play-svg">
-<svg fill="none" height="45" viewBox="0 0 50 50" width="45" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.0265553 25.0022L0.026556 9.85C0.0265564 1.17377 6.61268 -2.45174 14.6594 1.74886L29.5844 9.54996L43.6064 16.901C52.1312 21.3516 52.1312 28.6527 43.6064 33.1033L29.5579 40.4543L14.6329 48.2554C6.58612 52.456 -2.08198e-07 48.8055 1.69959e-07 40.1543L8.3228e-07 25.0022L0.0265553 25.0022Z" fill="white"></path>
-</svg>
-</div>
-</div>
-<div class="d-flex gap-1 flex-column">
-<div class="fs-14 fw-5 text-white">
- Thursday :
+ <?php if(!empty($businessHours)): ?><div class="business-hour-section pt-50 px-30 position-relative"><div class="section-heading"><h2>Business Hours</h2></div><div class="px-30"><div class="row justify-content-center"><?php foreach ((isset($__bh)?$__bh:($businessHours ?? [])) as $bh): ?><div class="col-sm-6"><div class="business-hour-card d-flex gap-2 align-items-center mb-3"><div class="time-icon"><i class="bi bi-clock fs-3"></i></div><div class="d-flex flex-column align-items-start"><span class="fs-14 text-gray lh-1 fw-5"><?= htmlspecialchars(ucfirst(strtolower($bh["day_name"] ?? ""))) ?></span><span class="fs-16 fw-5"><?= !empty($bh["is_open"]) ? htmlspecialchars(trim(($bh["open_time"] ?? "")." - ".($bh["close_time"] ?? ""))) : "Closed" ?></span></div></div></div><?php endforeach; ?></div></div></div><?php endif; ?>
  </div>
-<div class="d-flex gap-3 align-items-center justify-content-end fs-14 fw-5 text-white">
-<div>
- 12:00 AM - 12:00 AM
+ 
+ <div class="qr-code-section pt-50 px-30 position-relative">
+ <div class="position-absolute vector-all vector-11">
+ <img src="/images/templates/musician/mus-042.webp" class=w-100 alt=images>
  </div>
-</div>
-</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="business-hour-card d-flex align-items-center flex-wrap flex-sm-nowrap gap-2">
-<div class="time-icons text-primary position-relative">
-<div class="calender-icon">
-<img alt="business-hour-bg-img" class="w-100" src="/images/templates/musicianxxxxx/mus-041.svg"/>
-</div>
-<div class="play-svg">
-<svg fill="none" height="45" viewBox="0 0 50 50" width="45" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.0265553 25.0022L0.026556 9.85C0.0265564 1.17377 6.61268 -2.45174 14.6594 1.74886L29.5844 9.54996L43.6064 16.901C52.1312 21.3516 52.1312 28.6527 43.6064 33.1033L29.5579 40.4543L14.6329 48.2554C6.58612 52.456 -2.08198e-07 48.8055 1.69959e-07 40.1543L8.3228e-07 25.0022L0.0265553 25.0022Z" fill="white"></path>
-</svg>
-</div>
-</div>
-<div class="d-flex gap-1 flex-column">
-<div class="fs-14 fw-5 text-white">
- Friday :
+ <div class="section-heading text-center">
+ <h2 class="mb-0 fw-6 text-gradient">QR Code</h2>
  </div>
-<div class="d-flex gap-3 align-items-center justify-content-end fs-14 fw-5 text-white">
-<div>
- 12:00 AM - 12:00 AM
+ <div class=card-wrapper>
+ <div class="qr-code mx-auto position-relative">
+ <div class=qr-content>
+ <div class="d-flex gap-3 align-items-center flex-wrap flex-sm-nowrap justify-content-center text-center text-sm-start">
+ <div class="qr-code-img mx-auto" id=qr-code-thirtyone>
+ 
+<svg xmlns=http://www.w3.org/2000/svg version=1.1 width=130 height=130 viewBox="0 0 130 130"><rect x=0 y=0 width=130 height=130 fill=#ffffff></rect><g transform=scale(5.2)><g transform=translate(0,0)><path fill-rule=evenodd d="M8 0L8 2L9 2L9 4L8 4L8 9L7 9L7 8L5 8L5 9L3 9L3 8L0 8L0 10L1 10L1 9L2 9L2 10L3 10L3 11L5 11L5 12L4 12L4 14L0 14L0 15L2 15L2 16L0 16L0 17L2 17L2 16L3 16L3 17L4 17L4 16L5 16L5 17L7 17L7 16L8 16L8 14L9 14L9 13L11 13L11 14L10 14L10 15L9 15L9 16L10 16L10 19L8 19L8 20L10 20L10 21L9 21L9 22L8 22L8 25L11 25L11 24L12 24L12 25L13 25L13 23L14 23L14 25L15 25L15 23L14 23L14 21L13 21L13 19L12 19L12 18L14 18L14 17L12 17L12 16L13 16L13 15L12 15L12 14L13 14L13 13L12 13L12 10L14 10L14 9L15 9L15 14L14 14L14 16L15 16L15 15L16 15L16 14L17 14L17 15L19 15L19 16L16 16L16 17L15 17L15 18L16 18L16 19L14 19L14 20L15 20L15 21L16 21L16 25L17 25L17 23L18 23L18 25L19 25L19 24L21 24L21 25L22 25L22 24L21 24L21 23L22 23L22 22L23 22L23 23L25 23L25 20L23 20L23 21L22 21L22 22L21 22L21 16L22 16L22 15L23 15L23 14L24 14L24 15L25 15L25 12L24 12L24 13L23 13L23 14L21 14L21 15L19 15L19 14L20 14L20 13L19 13L19 12L20 12L20 11L21 11L21 12L22 12L22 11L23 11L23 10L24 10L24 11L25 11L25 8L23 8L23 10L22 10L22 9L21 9L21 8L17 8L17 5L16 5L16 7L15 7L15 0L14 0L14 2L13 2L13 1L12 1L12 3L13 3L13 5L12 5L12 7L13 7L13 5L14 5L14 7L15 7L15 8L14 8L14 9L13 9L13 8L12 8L12 9L11 9L11 12L9 12L9 11L8 11L8 10L10 10L10 9L9 9L9 5L11 5L11 3L10 3L10 2L9 2L9 0ZM10 0L10 1L11 1L11 0ZM16 2L16 4L17 4L17 2ZM10 6L10 8L11 8L11 6ZM15 8L15 9L16 9L16 8ZM6 9L6 10L7 10L7 9ZM17 9L17 10L16 10L16 11L17 11L17 10L18 10L18 9ZM20 9L20 10L21 10L21 9ZM0 11L0 13L1 13L1 11ZM6 11L6 12L5 12L5 14L4 14L4 15L3 15L3 16L4 16L4 15L6 15L6 16L7 16L7 15L6 15L6 14L8 14L8 13L9 13L9 12L8 12L8 11ZM18 11L18 12L16 12L16 13L18 13L18 12L19 12L19 11ZM6 12L6 13L7 13L7 12ZM10 15L10 16L12 16L12 15ZM23 16L23 17L24 17L24 19L25 19L25 17L24 17L24 16ZM8 17L8 18L9 18L9 17ZM17 17L17 20L20 20L20 17ZM18 18L18 19L19 19L19 18ZM11 19L11 21L12 21L12 19ZM18 21L18 23L19 23L19 22L20 22L20 21ZM23 21L23 22L24 22L24 21ZM9 22L9 23L10 23L10 24L11 24L11 22ZM12 22L12 23L13 23L13 22ZM24 24L24 25L25 25L25 24ZM0 0L0 7L7 7L7 0ZM1 1L1 6L6 6L6 1ZM2 2L2 5L5 5L5 2ZM18 0L18 7L25 7L25 0ZM19 1L19 6L24 6L24 1ZM20 2L20 5L23 5L23 2ZM0 18L0 25L7 25L7 18ZM1 19L1 24L6 24L6 19ZM2 20L2 23L5 23L5 20Z" fill=#000000></path></g></g></svg>
  </div>
-</div>
-</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="business-hour-card d-flex align-items-center flex-wrap flex-sm-nowrap gap-2">
-<div class="time-icons text-primary position-relative">
-<div class="calender-icon">
-<img alt="business-hour-bg-img" class="w-100" src="/images/templates/musicianxxxxx/mus-041.svg"/>
-</div>
-<div class="play-svg">
-<svg fill="none" height="45" viewBox="0 0 50 50" width="45" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.0265553 25.0022L0.026556 9.85C0.0265564 1.17377 6.61268 -2.45174 14.6594 1.74886L29.5844 9.54996L43.6064 16.901C52.1312 21.3516 52.1312 28.6527 43.6064 33.1033L29.5579 40.4543L14.6329 48.2554C6.58612 52.456 -2.08198e-07 48.8055 1.69959e-07 40.1543L8.3228e-07 25.0022L0.0265553 25.0022Z" fill="white"></path>
-</svg>
-</div>
-</div>
-<div class="d-flex gap-1 flex-column">
-<div class="fs-14 fw-5 text-white">
- Saturday :
+ <div>
+ <h5 class="text-white fs-20 fw-6">Scan to Contact</h5>
+ <p class="fs-14 text-white mb-0">Point your phone’s camera at the QR code to quickly add our contact information. You can also use the "Add to Contacts" button below for fast saving.</p>
  </div>
-<div class="d-flex gap-3 align-items-center justify-content-end fs-14 fw-5 text-white">
-<div>
- 12:00 AM - 12:00 AM
  </div>
-</div>
-</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="business-hour-card d-flex align-items-center flex-wrap flex-sm-nowrap gap-2">
-<div class="time-icons text-primary position-relative">
-<div class="calender-icon">
-<img alt="business-hour-bg-img" class="w-100" src="/images/templates/musicianxxxxx/mus-041.svg"/>
-</div>
-<div class="play-svg">
-<svg fill="none" height="45" viewBox="0 0 50 50" width="45" xmlns="http://www.w3.org/2000/svg">
-<path d="M0.0265553 25.0022L0.026556 9.85C0.0265564 1.17377 6.61268 -2.45174 14.6594 1.74886L29.5844 9.54996L43.6064 16.901C52.1312 21.3516 52.1312 28.6527 43.6064 33.1033L29.5579 40.4543L14.6329 48.2554C6.58612 52.456 -2.08198e-07 48.8055 1.69959e-07 40.1543L8.3228e-07 25.0022L0.0265553 25.0022Z" fill="white"></path>
-</svg>
-</div>
-</div>
-<div class="d-flex gap-1 flex-column">
-<div class="fs-14 fw-5 text-white">
- Sunday :
  </div>
-<div class="d-flex gap-3 align-items-center justify-content-end fs-14 fw-5 text-white">
-<div>
- 12:00 AM - 12:00 AM
  </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="qr-code-section pt-50 px-30 position-relative">
-<div class="position-absolute vector-all vector-11">
-<img alt="images" class="w-100" src="/images/templates/musicianxxxxx/mus-042.webp"/>
-</div>
-<div class="section-heading text-center">
-<h2 class="mb-0 fw-6 text-gradient">QR Code</h2>
-</div>
-<div class="card-wrapper">
-<div class="qr-code mx-auto position-relative">
-<div class="qr-content">
-<div class="d-flex gap-3 align-items-center flex-wrap flex-sm-nowrap justify-content-center text-center text-sm-start">
-<div class="qr-code-img mx-auto" id="qr-code-thirtyone">
-<svg height="130" version="1.1" viewBox="0 0 130 130" width="130" xmlns="http://www.w3.org/2000/svg"><rect fill="#ffffff" height="130" width="130" x="0" y="0"></rect><g transform="scale(5.2)"><g transform="translate(0,0)"><path d="M8 0L8 2L9 2L9 4L8 4L8 9L7 9L7 8L5 8L5 9L3 9L3 8L0 8L0 10L1 10L1 9L2 9L2 10L3 10L3 11L5 11L5 12L4 12L4 14L0 14L0 15L2 15L2 16L0 16L0 17L2 17L2 16L3 16L3 17L4 17L4 16L5 16L5 17L7 17L7 16L8 16L8 14L9 14L9 13L11 13L11 14L10 14L10 15L9 15L9 16L10 16L10 19L8 19L8 20L10 20L10 21L9 21L9 22L8 22L8 25L11 25L11 24L12 24L12 25L13 25L13 23L14 23L14 25L15 25L15 23L14 23L14 21L13 21L13 19L12 19L12 18L14 18L14 17L12 17L12 16L13 16L13 15L12 15L12 14L13 14L13 13L12 13L12 10L14 10L14 9L15 9L15 14L14 14L14 16L15 16L15 15L16 15L16 14L17 14L17 15L19 15L19 16L16 16L16 17L15 17L15 18L16 18L16 19L14 19L14 20L15 20L15 21L16 21L16 25L17 25L17 23L18 23L18 25L19 25L19 24L21 24L21 25L22 25L22 24L21 24L21 23L22 23L22 22L23 22L23 23L25 23L25 20L23 20L23 21L22 21L22 22L21 22L21 16L22 16L22 15L23 15L23 14L24 14L24 15L25 15L25 12L24 12L24 13L23 13L23 14L21 14L21 15L19 15L19 14L20 14L20 13L19 13L19 12L20 12L20 11L21 11L21 12L22 12L22 11L23 11L23 10L24 10L24 11L25 11L25 8L23 8L23 10L22 10L22 9L21 9L21 8L17 8L17 5L16 5L16 7L15 7L15 0L14 0L14 2L13 2L13 1L12 1L12 3L13 3L13 5L12 5L12 7L13 7L13 5L14 5L14 7L15 7L15 8L14 8L14 9L13 9L13 8L12 8L12 9L11 9L11 12L9 12L9 11L8 11L8 10L10 10L10 9L9 9L9 5L11 5L11 3L10 3L10 2L9 2L9 0ZM10 0L10 1L11 1L11 0ZM16 2L16 4L17 4L17 2ZM10 6L10 8L11 8L11 6ZM15 8L15 9L16 9L16 8ZM6 9L6 10L7 10L7 9ZM17 9L17 10L16 10L16 11L17 11L17 10L18 10L18 9ZM20 9L20 10L21 10L21 9ZM0 11L0 13L1 13L1 11ZM6 11L6 12L5 12L5 14L4 14L4 15L3 15L3 16L4 16L4 15L6 15L6 16L7 16L7 15L6 15L6 14L8 14L8 13L9 13L9 12L8 12L8 11ZM18 11L18 12L16 12L16 13L18 13L18 12L19 12L19 11ZM6 12L6 13L7 13L7 12ZM10 15L10 16L12 16L12 15ZM23 16L23 17L24 17L24 19L25 19L25 17L24 17L24 16ZM8 17L8 18L9 18L9 17ZM17 17L17 20L20 20L20 17ZM18 18L18 19L19 19L19 18ZM11 19L11 21L12 21L12 19ZM18 21L18 23L19 23L19 22L20 22L20 21ZM23 21L23 22L24 22L24 21ZM9 22L9 23L10 23L10 24L11 24L11 22ZM12 22L12 23L13 23L13 22ZM24 24L24 25L25 25L25 24ZM0 0L0 7L7 7L7 0ZM1 1L1 6L6 6L6 1ZM2 2L2 5L5 5L5 2ZM18 0L18 7L25 7L25 0ZM19 1L19 6L24 6L24 1ZM20 2L20 5L23 5L23 2ZM0 18L0 25L7 25L7 18ZM1 19L1 24L6 24L6 19ZM2 20L2 23L5 23L5 20Z" fill="#000000" fill-rule="evenodd"></path></g></g></svg>
-</div>
-<div>
-<h5 class="text-white fs-20 fw-6">Scan to Contact</h5>
-<p class="fs-14 text-white mb-0">Point your phone’s camera at the QR code to quickly add our contact information. You can also use the "Add to Contacts" button below for fast saving.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="pt-50 px-30 position-relative">
-<div class="position-absolute vector-all vector-13">
-<img alt="images" class="w-100" src="/images/templates/musicianxxxxx/mus-043.webp"/>
-</div>
-<div class="contact-us-section position-relative">
-<div class="section-heading text-center">
-<h2 class="mb-0 fw-6 text-gradient">Inquiries</h2>
-</div>
-<div class="contact-form">
-<form enctype="multipart/form-data" id="enquiryForm" onsubmit="tfSubmitInquiry(event)"><input name="vcard_id" type="hidden" value="<?= $vcardId ?>"/><label class="w-100 mb-2" style="display:block;text-align:left"><span style="font-size:13px;opacity:.85">Attachment (optional)</span><input accept="image/*,.pdf" class="form-control" name="attachment" style="margin-top:4px" type="file"/></label>
-<div class="row">
-<div class="alert alert-danger d-none sf-hidden" id="enquiryError"></div>
-<div class="col-12 px-0">
-<input class="form-control" fdprocessedid="toi9ic" name="name" placeholder="Your Name" type="text" value=""/>
-</div>
-<div class="col-12 px-0">
-<input class="form-control" fdprocessedid="bld7oih" name="phone" placeholder="Enter Phone Number" type="tel" value=""/>
-</div>
-<div class="col-12 px-0">
-<input class="form-control" fdprocessedid="5sg3be" name="email" placeholder="Email Address" type="email" value=""/>
-</div>
-<div class="col-12 px-0">
-<textarea class="form-control h-100" name="message" placeholder="Type a message here..." rows="3"></textarea>
-</div>
-<div class="mb-3 mt-3 px-0">
-<div class="wrapper-file-input">
-<div class="input-box" id="fileInputTrigger">
-<h4> <svg aria-hidden="true" class="svg-inline--fa fa-upload me-2" data-fa-i2svg="" data-icon="upload" data-prefix="fas" focusable="false" role="img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M105.4 182.6c12.5 12.49 32.76 12.5 45.25 .001L224 109.3V352c0 17.67 14.33 32 32 32c17.67 0 32-14.33 32-32V109.3l73.38 73.38c12.49 12.49 32.75 12.49 45.25-.001c12.49-12.49 12.49-32.75 0-45.25l-128-128C272.4 3.125 264.2 0 256 0S239.6 3.125 233.4 9.375L105.4 137.4C92.88 149.9 92.88 170.1 105.4 182.6zM480 352h-160c0 35.35-28.65 64-64 64s-64-28.65-64-64H32c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h448c17.67 0 32-14.33 32-32v-96C512 366.3 497.7 352 480 352zM432 456c-13.2 0-24-10.8-24-24c0-13.2 10.8-24 24-24s24 10.8 24 24C456 445.2 445.2 456 432 456z" fill="currentColor"></path></svg>Choose File to upload
- </h4> <input class="sf-hidden" hidden="" id="attachment" multiple="" name="attachment" type="file" value=""/>
-</div> <small class="text-primary">Files Supported: JPG, PNG, JPEG</small>
-</div>
-<div class="wrapper-file-section">
-<div class="selected-files" id="selectedFilesSection" style="display:none">
-</div>
-</div>
-</div>
-<div class="col-12 text-center">
-<button class="btn btn-gradient w-100 send-btn" fdprocessedid="lxuk7b" type="submit">
-<div class="wave"></div>
+ </div>
+ </div>
+ 
+ 
+ <div class="pt-50 px-30 position-relative">
+ <div class="position-absolute vector-all vector-13">
+ <img src=/images/templates/musician/mus-043.webp class=w-100 alt=images>
+ </div>
+ <div class="contact-us-section position-relative">
+ <div class="section-heading text-center">
+ <h2 class="mb-0 fw-6 text-gradient">Inquiries</h2>
+ </div>
+ <div class=contact-form>
+ <form id="enquiryForm" onsubmit="tfSubmitInquiry(event)" enctype="multipart/form-data"><input type="hidden" name="vcard_id" value="<?= $vcardId ?>"><label class="w-100 mb-2" style="display:block;text-align:left"><span style="font-size:13px;opacity:.85">Attachment (optional)</span><input type="file" name="attachment" class="form-control" accept="image/*,.pdf" style="margin-top:4px"></label>
+ <div class=row>
+ <div id=enquiryError class="alert alert-danger d-none sf-hidden"></div>
+ <div class="col-12 px-0">
+ <input type=text class=form-control placeholder="Your Name" name=name fdprocessedid=toi9ic value>
+ </div>
+ <div class="col-12 px-0">
+ <input type=tel class=form-control placeholder="Enter Phone Number" name=phone fdprocessedid=bld7oih value>
+ </div>
+ <div class="col-12 px-0">
+ <input type=email class=form-control placeholder="Email Address" name=email fdprocessedid=5sg3be value>
+ </div>
+ <div class="col-12 px-0">
+ <textarea class="form-control h-100" placeholder="Type a message here..." name=message rows=3></textarea>
+ </div>
+ <div class="mb-3 mt-3 px-0">
+ <div class=wrapper-file-input>
+ <div class=input-box id=fileInputTrigger>
+ <h4> <svg class="svg-inline--fa fa-upload me-2" aria-hidden=true focusable=false data-prefix=fas data-icon=upload role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M105.4 182.6c12.5 12.49 32.76 12.5 45.25 .001L224 109.3V352c0 17.67 14.33 32 32 32c17.67 0 32-14.33 32-32V109.3l73.38 73.38c12.49 12.49 32.75 12.49 45.25-.001c12.49-12.49 12.49-32.75 0-45.25l-128-128C272.4 3.125 264.2 0 256 0S239.6 3.125 233.4 9.375L105.4 137.4C92.88 149.9 92.88 170.1 105.4 182.6zM480 352h-160c0 35.35-28.65 64-64 64s-64-28.65-64-64H32c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h448c17.67 0 32-14.33 32-32v-96C512 366.3 497.7 352 480 352zM432 456c-13.2 0-24-10.8-24-24c0-13.2 10.8-24 24-24s24 10.8 24 24C456 445.2 445.2 456 432 456z"></path></svg>Choose File to upload
+ </h4> <input type=file id=attachment name=attachment hidden multiple value class=sf-hidden>
+ </div> <small class=text-primary>Files Supported: JPG, PNG, JPEG</small>
+ </div>
+ <div class=wrapper-file-section>
+ <div class=selected-files id=selectedFilesSection style=display:none>
+ 
+ 
+ </div>
+ </div>
+ </div>
+ <div class="col-12 text-center">
+ <button class="btn btn-gradient w-100 send-btn" type=submit fdprocessedid=lxuk7b>
+ <div class=wave></div>
  Send Message
  </button>
-</div>
-</div>
-</form>
-</div>
-</div>
-</div>
-<div class="add-to-contact-section">
-<div class="text-center d-flex align-items-center justify-content-center">
-<a class="add-contact-btn rounded-4 btn btn-gradient" href="https://tapifyworld.com/add-contact/33">
-<div class="wave"></div>
-<svg aria-hidden="true" class="svg-inline--fa fa-address-book" data-fa-i2svg="" data-icon="address-book" data-prefix="fas" focusable="false" role="img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M384 0H96C60.65 0 32 28.65 32 64v384c0 35.35 28.65 64 64 64h288c35.35 0 64-28.65 64-64V64C448 28.65 419.3 0 384 0zM240 128c35.35 0 64 28.65 64 64s-28.65 64-64 64c-35.34 0-64-28.65-64-64S204.7 128 240 128zM336 384h-192C135.2 384 128 376.8 128 368C128 323.8 163.8 288 208 288h64c44.18 0 80 35.82 80 80C352 376.8 344.8 384 336 384zM496 64H480v96h16C504.8 160 512 152.8 512 144v-64C512 71.16 504.8 64 496 64zM496 192H480v96h16C504.8 288 512 280.8 512 272v-64C512 199.2 504.8 192 496 192zM496 320H480v96h16c8.836 0 16-7.164 16-16v-64C512 327.2 504.8 320 496 320z" fill="currentColor"></path></svg>
-  Add to contact
+ </div>
+ </div>
+ </form>
+ </div>
+ </div>
+ </div>
+ 
+ 
+ 
+ <div class=add-to-contact-section>
+ <div class="text-center d-flex align-items-center justify-content-center">
+ <a href=https://tapifyworld.com/add-contact/33 class="add-contact-btn rounded-4 btn btn-gradient">
+ <div class=wave></div>
+ <svg class="svg-inline--fa fa-address-book" aria-hidden=true focusable=false data-prefix=fas data-icon=address-book role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M384 0H96C60.65 0 32 28.65 32 64v384c0 35.35 28.65 64 64 64h288c35.35 0 64-28.65 64-64V64C448 28.65 419.3 0 384 0zM240 128c35.35 0 64 28.65 64 64s-28.65 64-64 64c-35.34 0-64-28.65-64-64S204.7 128 240 128zM336 384h-192C135.2 384 128 376.8 128 368C128 323.8 163.8 288 208 288h64c44.18 0 80 35.82 80 80C352 376.8 344.8 384 336 384zM496 64H480v96h16C504.8 160 512 152.8 512 144v-64C512 71.16 504.8 64 496 64zM496 192H480v96h16C504.8 288 512 280.8 512 272v-64C512 199.2 504.8 192 496 192zM496 320H480v96h16c8.836 0 16-7.164 16-16v-64C512 327.2 504.8 320 496 320z"></path></svg>
+ &nbsp;Add to contact
  </a>
+ </div>
+ </div>
+ <div class="modal fade py-3 sf-hidden" id=askContactDetailFormModel tabindex=-1 aria-hidden=true aria-labelledby=askContactDetailFormModelLabel>
+ 
 </div>
-</div>
-<div aria-hidden="true" aria-labelledby="askContactDetailFormModelLabel" class="modal fade py-3 sf-hidden" id="askContactDetailFormModel" tabindex="-1">
-</div>
-<div class="d-flex py-2 justify-content-evenly">
-<div class="text-center">
-<small class="text-gradient fw-5">Made By
+ 
+ <div class="d-flex py-2 justify-content-evenly">
+ <div class=text-center>
+ <small class="text-gradient fw-5">Made By
  Tapify</small>
-</div>
-</div>
-<div class="btn-section cursor-pointer">
-<div class="fixed-btn-section">
-<div class="bars-btn musician-bars-btn">
-<img src="/images/templates/musicianxxxxx/mus-044.svg"/>
-</div>
-<div class="sub-btn d-none sf-hidden">
-</div>
-</div>
-</div>
-</div>
-</div>
-<?php endif; ?>
-<?php endif; ?>
-<?php endif; ?>
-<?php endif; ?>
-<?php endif; ?>
-<div aria-hidden="true" aria-labelledby="newsLatterModalLabel" class="modal fade sf-hidden" id="newsLatterModal" tabindex="-1">
-</div>
-<div class="modal fade sf-hidden" id="vcard33-shareModel" role="dialog">
-</div>
-<div class="razorpay-container" style="z-index:2147483647;position:fixed;top:0px;display:none;left:0px;height:100%;width:100%;max-height:100dvh;backface-visibility:hidden;overflow-y:visible"><style>@keyframes rzp-rot{to{transform:rotate(360deg)}}@-webkit-keyframes rzp-rot{to{-webkit-transform:rotate(360deg)}}</style></div>
-<div class="flatpickr-calendar animate open arrowTop arrowLeft" style="top:2603.72px;left:539.889px;right:auto" tabindex="-1"><div class="flatpickr-months"><span class="flatpickr-prev-month flatpickr-disabled sf-hidden"><svg version="1.1" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g></g><path d="M5.207 8.471l7.146 7.147-0.707 0.707-7.853-7.854 7.854-7.853 0.707 0.707-7.147 7.146z"></path></svg></span><div class="flatpickr-month"><div class="flatpickr-current-month"><select aria-label="Month" class="flatpickr-monthDropdown-months" tabindex="-1"><option class="flatpickr-monthDropdown-month" selected="" tabindex="-1" value="6">July<option class="flatpickr-monthDropdown-month" tabindex="-1" value="7">August<option class="flatpickr-monthDropdown-month" tabindex="-1" value="8">September<option class="flatpickr-monthDropdown-month" tabindex="-1" value="9">October<option class="flatpickr-monthDropdown-month" tabindex="-1" value="10">November<option class="flatpickr-monthDropdown-month" tabindex="-1" value="11">December</option></option></option></option></option></option></select><div class="numInputWrapper"><input aria-label="Year" class="numInput cur-year" min="2026" tabindex="-1" type="number" value="2026"/><span class="arrowUp"></span><span class="arrowDown"></span></div></div></div><span class="flatpickr-next-month"><svg version="1.1" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g></g><path d="M13.207 8.472l-7.854 7.854-0.707-0.707 7.146-7.146-7.146-7.148 0.707-0.707 7.854 7.854z"></path></svg></span></div><div class="flatpickr-innerContainer"><div class="flatpickr-rContainer"><div class="flatpickr-weekdays"><div class="flatpickr-weekdaycontainer">
-<span class="flatpickr-weekday">
- Sun</span><span class="flatpickr-weekday">Mon</span><span class="flatpickr-weekday">Tue</span><span class="flatpickr-weekday">Wed</span><span class="flatpickr-weekday">Thu</span><span class="flatpickr-weekday">Fri</span><span class="flatpickr-weekday">Sat
+ </div>
+ </div>
+ 
+ <div class="btn-section cursor-pointer">
+ <div class=fixed-btn-section>
+ <div class="bars-btn musician-bars-btn">
+ <img src=/images/templates/musician/mus-044.svg>
+ </div>
+ <div class="sub-btn d-none sf-hidden">
+ 
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ 
+ <div class="modal fade sf-hidden" id=newsLatterModal tabindex=-1 aria-labelledby=newsLatterModalLabel aria-hidden=true>
+ 
+ </div>
+ 
+ <div id=vcard33-shareModel class="modal fade sf-hidden" role=dialog>
+ 
+ </div>
+<div class=razorpay-container style=z-index:2147483647;position:fixed;top:0px;display:none;left:0px;height:100%;width:100%;max-height:100dvh;backface-visibility:hidden;overflow-y:visible><style>@keyframes rzp-rot{to{transform:rotate(360deg)}}@-webkit-keyframes rzp-rot{to{-webkit-transform:rotate(360deg)}}</style></div>
+ 
+ 
+<div class="flatpickr-calendar animate open arrowTop arrowLeft" tabindex=-1 style=top:2603.72px;left:539.889px;right:auto><div class=flatpickr-months><span class="flatpickr-prev-month flatpickr-disabled sf-hidden"><svg version=1.1 xmlns=http://www.w3.org/2000/svg xmlns:xlink=http://www.w3.org/1999/xlink viewBox="0 0 17 17"><g></g><path d="M5.207 8.471l7.146 7.147-0.707 0.707-7.853-7.854 7.854-7.853 0.707 0.707-7.147 7.146z"></path></svg></span><div class=flatpickr-month><div class=flatpickr-current-month><select class=flatpickr-monthDropdown-months aria-label=Month tabindex=-1><option class=flatpickr-monthDropdown-month value=6 tabindex=-1 selected>July<option class=flatpickr-monthDropdown-month value=7 tabindex=-1>August<option class=flatpickr-monthDropdown-month value=8 tabindex=-1>September<option class=flatpickr-monthDropdown-month value=9 tabindex=-1>October<option class=flatpickr-monthDropdown-month value=10 tabindex=-1>November<option class=flatpickr-monthDropdown-month value=11 tabindex=-1>December</select><div class=numInputWrapper><input class="numInput cur-year" type=number tabindex=-1 aria-label=Year min=2026 value=2026><span class=arrowUp></span><span class=arrowDown></span></div></div></div><span class=flatpickr-next-month><svg version=1.1 xmlns=http://www.w3.org/2000/svg xmlns:xlink=http://www.w3.org/1999/xlink viewBox="0 0 17 17"><g></g><path d="M13.207 8.472l-7.854 7.854-0.707-0.707 7.146-7.146-7.146-7.148 0.707-0.707 7.854 7.854z"></path></svg></span></div><div class=flatpickr-innerContainer><div class=flatpickr-rContainer><div class=flatpickr-weekdays><div class=flatpickr-weekdaycontainer>
+ <span class=flatpickr-weekday>
+ Sun</span><span class=flatpickr-weekday>Mon</span><span class=flatpickr-weekday>Tue</span><span class=flatpickr-weekday>Wed</span><span class=flatpickr-weekday>Thu</span><span class=flatpickr-weekday>Fri</span><span class=flatpickr-weekday>Sat
  </span>
-</div></div><div class="flatpickr-days" tabindex="-1"><div class="dayContainer"><span aria-label="June 28, 2026" class="flatpickr-day prevMonthDay flatpickr-disabled">28</span><span aria-label="June 29, 2026" class="flatpickr-day prevMonthDay flatpickr-disabled">29</span><span aria-label="June 30, 2026" class="flatpickr-day prevMonthDay flatpickr-disabled">30</span><span aria-label="July 1, 2026" class="flatpickr-day flatpickr-disabled">1</span><span aria-label="July 2, 2026" class="flatpickr-day flatpickr-disabled">2</span><span aria-label="July 3, 2026" class="flatpickr-day flatpickr-disabled">3</span><span aria-label="July 4, 2026" class="flatpickr-day flatpickr-disabled">4</span><span aria-label="July 5, 2026" class="flatpickr-day flatpickr-disabled">5</span><span aria-current="date" aria-label="July 6, 2026" class="flatpickr-day today" tabindex="-1">6</span><span aria-label="July 7, 2026" class="flatpickr-day" tabindex="-1">7</span><span aria-label="July 8, 2026" class="flatpickr-day" tabindex="-1">8</span><span aria-label="July 9, 2026" class="flatpickr-day" tabindex="-1">9</span><span aria-label="July 10, 2026" class="flatpickr-day" tabindex="-1">10</span><span aria-label="July 11, 2026" class="flatpickr-day" tabindex="-1">11</span><span aria-label="July 12, 2026" class="flatpickr-day" tabindex="-1">12</span><span aria-label="July 13, 2026" class="flatpickr-day" tabindex="-1">13</span><span aria-label="July 14, 2026" class="flatpickr-day" tabindex="-1">14</span><span aria-label="July 15, 2026" class="flatpickr-day" tabindex="-1">15</span><span aria-label="July 16, 2026" class="flatpickr-day" tabindex="-1">16</span><span aria-label="July 17, 2026" class="flatpickr-day" tabindex="-1">17</span><span aria-label="July 18, 2026" class="flatpickr-day" tabindex="-1">18</span><span aria-label="July 19, 2026" class="flatpickr-day" tabindex="-1">19</span><span aria-label="July 20, 2026" class="flatpickr-day" tabindex="-1">20</span><span aria-label="July 21, 2026" class="flatpickr-day" tabindex="-1">21</span><span aria-label="July 22, 2026" class="flatpickr-day" tabindex="-1">22</span><span aria-label="July 23, 2026" class="flatpickr-day" tabindex="-1">23</span><span aria-label="July 24, 2026" class="flatpickr-day" tabindex="-1">24</span><span aria-label="July 25, 2026" class="flatpickr-day" tabindex="-1">25</span><span aria-label="July 26, 2026" class="flatpickr-day" tabindex="-1">26</span><span aria-label="July 27, 2026" class="flatpickr-day" tabindex="-1">27</span><span aria-label="July 28, 2026" class="flatpickr-day" tabindex="-1">28</span><span aria-label="July 29, 2026" class="flatpickr-day" tabindex="-1">29</span><span aria-label="July 30, 2026" class="flatpickr-day" tabindex="-1">30</span><span aria-label="July 31, 2026" class="flatpickr-day" tabindex="-1">31</span><span aria-label="August 1, 2026" class="flatpickr-day nextMonthDay" tabindex="-1">1</span><span aria-label="August 2, 2026" class="flatpickr-day nextMonthDay" tabindex="-1">2</span><span aria-label="August 3, 2026" class="flatpickr-day nextMonthDay" tabindex="-1">3</span><span aria-label="August 4, 2026" class="flatpickr-day nextMonthDay" tabindex="-1">4</span><span aria-label="August 5, 2026" class="flatpickr-day nextMonthDay" tabindex="-1">5</span><span aria-label="August 6, 2026" class="flatpickr-day nextMonthDay" tabindex="-1">6</span><span aria-label="August 7, 2026" class="flatpickr-day nextMonthDay" tabindex="-1">7</span><span aria-label="August 8, 2026" class="flatpickr-day nextMonthDay" tabindex="-1">8</span></div></div></div></div></div><div class="lightboxOverlay" id="lightboxOverlay" style="display:none" tabindex="-1"></div><div class="lightbox" id="lightbox" style="display:none" tabindex="-1"></div>"><script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet"/><script src="https://cdn.jsdelivr.net/npm/flatpickr"></script><script>function tfInit(){if(typeof jQuery==="undefined"||!jQuery.fn||!jQuery.fn.slick){return setTimeout(tfInit,120);}jQuery(function($){$(".product-slider,.gallery-slider,.testimonial-slider,.blog-slider").each(function(){if($(this).children().length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=instagram],[class*=insta-feed],[class*=insta-section],[class*=insta-feed-section]").each(function(){if($(this).find("img,iframe,.slick-slide,.insta-item,a[href*=instagram]").length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=__gallery],[class*=__product],[class*=__testimonial]").each(function(){var sl=$(this).find(".gallery-slider,.product-slider,.testimonial-slider").first();if(sl.length&&sl.children().length===0){$(this).hide();}});$("a").each(function(){var h=$(this).attr("href")||"";var tx=$(this).text().replace(/\s+/g,"");if((h==="mailto:"||h==="tel:")&&tx===""){$(this).closest(".contact-box,.contact-item,li,.col-sm-6,.col-md-6,.col-6,.col-12,.col").hide();}});$("[class*=contact-box],[class*=contact-item]").each(function(){if($(this).text().replace(/\s+/g,"")===""){$(this).hide();}});window.tfSubmitInquiry=async function(ev){ev.preventDefault();var f=ev.target;var b=f.querySelector("button[type=submit]");var fd=new FormData(f);if(b)b.disabled=true;try{var r=await fetch("/inquiry-submit.php",{method:"POST",body:fd});var j=await r.json();if(j.success){if(window.showToast)showToast("Message sent!","success");f.reset();}else{if(window.showToast)showToast(j.message||"Failed","error");}}catch(e){if(window.showToast)showToast("Connection error","error");}finally{if(b)b.disabled=false;}};function ini(s,o){var $s=$(s);if(!$s.length||$s.hasClass("slick-initialized"))return;$s.slick(o);}ini(".product-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".gallery-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".testimonial-slider",{slidesToShow:1,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:4000});if(window.flatpickr){flatpickr("#pickUpDate",{minDate:"today",dateFormat:"Y-m-d"});flatpickr(".flatpickr-input",{minDate:"today",dateFormat:"Y-m-d"});}});}tfInit();</script><?php if(!empty($vcard["custom_js"])): ?><script><?= $vcard["custom_js"] ?></script><?php endif; ?><?php include __DIR__ . "/_shared-scripts.php"; ?></body></html>
+ </div></div><div class=flatpickr-days tabindex=-1><div class=dayContainer><span class="flatpickr-day prevMonthDay flatpickr-disabled" aria-label="June 28, 2026">28</span><span class="flatpickr-day prevMonthDay flatpickr-disabled" aria-label="June 29, 2026">29</span><span class="flatpickr-day prevMonthDay flatpickr-disabled" aria-label="June 30, 2026">30</span><span class="flatpickr-day flatpickr-disabled" aria-label="July 1, 2026">1</span><span class="flatpickr-day flatpickr-disabled" aria-label="July 2, 2026">2</span><span class="flatpickr-day flatpickr-disabled" aria-label="July 3, 2026">3</span><span class="flatpickr-day flatpickr-disabled" aria-label="July 4, 2026">4</span><span class="flatpickr-day flatpickr-disabled" aria-label="July 5, 2026">5</span><span class="flatpickr-day today" aria-label="July 6, 2026" aria-current=date tabindex=-1>6</span><span class=flatpickr-day aria-label="July 7, 2026" tabindex=-1>7</span><span class=flatpickr-day aria-label="July 8, 2026" tabindex=-1>8</span><span class=flatpickr-day aria-label="July 9, 2026" tabindex=-1>9</span><span class=flatpickr-day aria-label="July 10, 2026" tabindex=-1>10</span><span class=flatpickr-day aria-label="July 11, 2026" tabindex=-1>11</span><span class=flatpickr-day aria-label="July 12, 2026" tabindex=-1>12</span><span class=flatpickr-day aria-label="July 13, 2026" tabindex=-1>13</span><span class=flatpickr-day aria-label="July 14, 2026" tabindex=-1>14</span><span class=flatpickr-day aria-label="July 15, 2026" tabindex=-1>15</span><span class=flatpickr-day aria-label="July 16, 2026" tabindex=-1>16</span><span class=flatpickr-day aria-label="July 17, 2026" tabindex=-1>17</span><span class=flatpickr-day aria-label="July 18, 2026" tabindex=-1>18</span><span class=flatpickr-day aria-label="July 19, 2026" tabindex=-1>19</span><span class=flatpickr-day aria-label="July 20, 2026" tabindex=-1>20</span><span class=flatpickr-day aria-label="July 21, 2026" tabindex=-1>21</span><span class=flatpickr-day aria-label="July 22, 2026" tabindex=-1>22</span><span class=flatpickr-day aria-label="July 23, 2026" tabindex=-1>23</span><span class=flatpickr-day aria-label="July 24, 2026" tabindex=-1>24</span><span class=flatpickr-day aria-label="July 25, 2026" tabindex=-1>25</span><span class=flatpickr-day aria-label="July 26, 2026" tabindex=-1>26</span><span class=flatpickr-day aria-label="July 27, 2026" tabindex=-1>27</span><span class=flatpickr-day aria-label="July 28, 2026" tabindex=-1>28</span><span class=flatpickr-day aria-label="July 29, 2026" tabindex=-1>29</span><span class=flatpickr-day aria-label="July 30, 2026" tabindex=-1>30</span><span class=flatpickr-day aria-label="July 31, 2026" tabindex=-1>31</span><span class="flatpickr-day nextMonthDay" aria-label="August 1, 2026" tabindex=-1>1</span><span class="flatpickr-day nextMonthDay" aria-label="August 2, 2026" tabindex=-1>2</span><span class="flatpickr-day nextMonthDay" aria-label="August 3, 2026" tabindex=-1>3</span><span class="flatpickr-day nextMonthDay" aria-label="August 4, 2026" tabindex=-1>4</span><span class="flatpickr-day nextMonthDay" aria-label="August 5, 2026" tabindex=-1>5</span><span class="flatpickr-day nextMonthDay" aria-label="August 6, 2026" tabindex=-1>6</span><span class="flatpickr-day nextMonthDay" aria-label="August 7, 2026" tabindex=-1>7</span><span class="flatpickr-day nextMonthDay" aria-label="August 8, 2026" tabindex=-1>8</span></div></div></div></div></div><div id=lightboxOverlay tabindex=-1 class=lightboxOverlay style=display:none></div><div id=lightbox tabindex=-1 class=lightbox style=display:none></div>"><script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"><script src="https://cdn.jsdelivr.net/npm/flatpickr"></script><script>function tfInit(){if(typeof jQuery==="undefined"||!jQuery.fn||!jQuery.fn.slick){return setTimeout(tfInit,120);}jQuery(function($){$(".product-slider,.gallery-slider,.testimonial-slider,.blog-slider").each(function(){if($(this).children().length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=instagram],[class*=insta-feed],[class*=insta-section],[class*=insta-feed-section]").each(function(){if($(this).find("img,iframe,.slick-slide,.insta-item,a[href*=instagram]").length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=__gallery],[class*=__product],[class*=__testimonial]").each(function(){var sl=$(this).find(".gallery-slider,.product-slider,.testimonial-slider").first();if(sl.length&&sl.children().length===0){$(this).hide();}});$("a").each(function(){var h=$(this).attr("href")||"";var tx=$(this).text().replace(/\s+/g,"");if((h==="mailto:"||h==="tel:")&&tx===""){$(this).closest(".contact-box,.contact-item,li,.col-sm-6,.col-md-6,.col-6,.col-12,.col").hide();}});$("[class*=contact-box],[class*=contact-item]").each(function(){if($(this).text().replace(/\s+/g,"")===""){$(this).hide();}});window.tfSubmitInquiry=async function(ev){ev.preventDefault();var f=ev.target;var b=f.querySelector("button[type=submit]");var fd=new FormData(f);if(b)b.disabled=true;try{var r=await fetch("/inquiry-submit.php",{method:"POST",body:fd});var j=await r.json();if(j.success){if(window.showToast)showToast("Message sent!","success");f.reset();}else{if(window.showToast)showToast(j.message||"Failed","error");}}catch(e){if(window.showToast)showToast("Connection error","error");}finally{if(b)b.disabled=false;}};function ini(s,o){var $s=$(s);if(!$s.length||$s.hasClass("slick-initialized"))return;$s.slick(o);}ini(".product-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".gallery-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".testimonial-slider",{slidesToShow:1,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:4000});if(window.flatpickr){flatpickr("#pickUpDate",{minDate:"today",dateFormat:"Y-m-d"});flatpickr(".flatpickr-input",{minDate:"today",dateFormat:"Y-m-d"});}});}tfInit();</script><?php if(!empty($vcard["custom_js"])): ?><script><?= $vcard["custom_js"] ?></script><?php endif; ?><?php include __DIR__ . "/_shared-scripts.php"; ?><style>/*tf-fixups*/.flatpickr-calendar:not(.open){display:none!important}</style></body></html>

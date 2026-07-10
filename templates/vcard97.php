@@ -4,13 +4,12 @@ $cardUrl='https://app.tapify.co.in/'.($vcard['url_alias'] ?? $vcardId);
 $waPhone=preg_replace('/\D/','',$vcard['phone'] ?? '');
 $locationUrl=!empty($vcard['location_url'])?$vcard['location_url']:'https://maps.google.com/?q='.urlencode($vcard['location'] ?? '');
 $profileImg=!empty($vcard['profile_image'])?imgUrl($vcard['profile_image']):'https://ui-avatars.com/api/?name='.urlencode($fullName).'&size=200&background=2563eb&color=ffffff';
-$coverImg=!empty($vcard['cover_image'])?imgUrl($vcard['cover_image']):'/images/templates/socialservicesxxxxxx/soc-018.webp';
+$coverImg=!empty($vcard['cover_image'])?imgUrl($vcard['cover_image']):'/images/templates/socialservicesx/soc-018.webp';
 $qrUrl='https://api.qrserver.com/v1/create-qr-code/?size=200x200&data='.urlencode($cardUrl);
 $platformIcons=['linkedin-in'=>'fa-linkedin-in','linkedin'=>'fa-linkedin-in','instagram'=>'fa-instagram','x-twitter'=>'fa-x-twitter','twitter'=>'fa-x-twitter','facebook'=>'fa-facebook-f','facebook-f'=>'fa-facebook-f','whatsapp'=>'fa-whatsapp','youtube'=>'fa-youtube','spotify'=>'fa-spotify','github'=>'fa-github','tiktok'=>'fa-tiktok','pinterest'=>'fa-pinterest-p','behance'=>'fa-behance','dribbble'=>'fa-dribbble','telegram'=>'fa-telegram','globe'=>'fa-globe'];
-$socialSvgs=['facebook'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 320 512" width="22"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>','facebook-f'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 320 512" width="22"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>','instagram'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 448 512" width="22"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>','whatsapp'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 448 512" width="22"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.2-157zM223.9 438.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.5-186.6 184.5zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg>','linkedin'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 448 512" width="22"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>','linkedin-in'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 448 512" width="22"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>','youtube'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 576 512" width="22"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>','x-twitter'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 512 512" width="22"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg>','twitter'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 512 512" width="22"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg>','globe'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewBox="0 0 512 512" width="22"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6 78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7 10.5-23.6 22.2-40.7 33.5-51.5C260.5 3.2 269.8 0 288 0s27.5 3.2 44.3 13.8c11.3 10.8 23 27.9 33.5 51.5 11.6 26 20.9 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4 165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 363.5 0 342.1 0 320s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.6-22.2 40.7-33.5 51.5C267.5 508.8 258.2 512 240 512l-16 0c-18.2 0-27.5-3.2-44.3-13.8-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6 25.5-34.2 45.3-87.7 55.3-151.6H493.4z"></path></svg>'];
+$socialSvgs=['facebook'=>'<svg viewBox="0 0 320 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>','facebook-f'=>'<svg viewBox="0 0 320 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>','instagram'=>'<svg viewBox="0 0 448 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>','whatsapp'=>'<svg viewBox="0 0 448 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.2-157zM223.9 438.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.5-186.6 184.5zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>','linkedin'=>'<svg viewBox="0 0 448 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>','linkedin-in'=>'<svg viewBox="0 0 448 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>','youtube'=>'<svg viewBox="0 0 576 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>','x-twitter'=>'<svg viewBox="0 0 512 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>','twitter'=>'<svg viewBox="0 0 512 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>','globe'=>'<svg viewBox="0 0 512 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6 78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7 10.5-23.6 22.2-40.7 33.5-51.5C260.5 3.2 269.8 0 288 0s27.5 3.2 44.3 13.8c11.3 10.8 23 27.9 33.5 51.5 11.6 26 20.9 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4 165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 363.5 0 342.1 0 320s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.6-22.2 40.7-33.5 51.5C267.5 508.8 258.2 512 240 512l-16 0c-18.2 0-27.5-3.2-44.3-13.8-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6 25.5-34.2 45.3-87.7 55.3-151.6H493.4z"/></svg>'];
 ?>
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title><?= htmlspecialchars($fullName) ?></title><link href="<?= !empty($vcard['favicon_image'])?imgUrl($vcard['favicon_image']):'/images/tapify-logo-green.png' ?>" rel="icon"/><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/><style>:root{--sf-img-13: url("/images/templates/socialservicesxxxxxx/soc-000.webp");--sf-img-12: url("/images/templates/socialservicesxxxxxx/soc-001.webp");--sf-img-19: url("/images/templates/socialservicesxxxxxx/soc-002.webp");--sf-img-30: url("/images/templates/socialservicesxxxxxx/soc-003.webp");--sf-img-31: url("/images/templates/socialservicesxxxxxx/soc-004.webp");--sf-img-32: url("/images/templates/socialservicesxxxxxx/soc-005.webp");--sf-img-40: url("/images/templates/socialservicesxxxxxx/soc-006.webp");--sf-img-43: url("/images/templates/socialservicesxxxxxx/soc-007.webp");--sf-img-42: url("/images/templates/socialservicesxxxxxx/soc-008.webp");--sf-img-46: url("/images/templates/socialservicesxxxxxx/soc-009.webp");--sf-img-52: url("/images/templates/socialservicesxxxxxx/soc-010.webp");--sf-img-50: url("/images/templates/socialservicesxxxxxx/soc-011.webp");--sf-img-54: url("/images/templates/socialservicesxxxxxx/soc-012.webp");--sf-img-55: url("/images/templates/socialservicesxxxxxx/soc-013.webp");--sf-img-49: url("/images/templates/socialservicesxxxxxx/soc-014.webp")}
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title><?= htmlspecialchars($fullName) ?></title><link rel="icon" href="<?= !empty($vcard['favicon_image'])?imgUrl($vcard['favicon_image']):'/images/tapify-logo-green.png' ?>"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><style>:root{--sf-img-13: url("/images/templates/socialservicesx/soc-000.webp");--sf-img-12: url("/images/templates/socialservicesx/soc-001.webp");--sf-img-19: url("/images/templates/socialservicesx/soc-002.webp");--sf-img-30: url("/images/templates/socialservicesx/soc-003.webp");--sf-img-31: url("/images/templates/socialservicesx/soc-004.webp");--sf-img-32: url("/images/templates/socialservicesx/soc-005.webp");--sf-img-40: url("/images/templates/socialservicesx/soc-006.webp");--sf-img-43: url("/images/templates/socialservicesx/soc-007.webp");--sf-img-42: url("/images/templates/socialservicesx/soc-008.webp");--sf-img-46: url("/images/templates/socialservicesx/soc-009.webp");--sf-img-52: url("/images/templates/socialservicesx/soc-010.webp");--sf-img-50: url("/images/templates/socialservicesx/soc-011.webp");--sf-img-54: url("/images/templates/socialservicesx/soc-012.webp");--sf-img-55: url("/images/templates/socialservicesx/soc-013.webp");--sf-img-49: url("/images/templates/socialservicesx/soc-014.webp")}
 :host,:root{--fa-font-solid:normal 900 1em/1"Font Awesome 6 Solid";--fa-font-regular:normal 400 1em/1"Font Awesome 6 Regular";--fa-font-light:normal 300 1em/1"Font Awesome 6 Light";--fa-font-thin:normal 100 1em/1"Font Awesome 6 Thin";--fa-font-duotone:normal 900 1em/1"Font Awesome 6 Duotone";--fa-font-brands:normal 400 1em/1"Font Awesome 6 Brands"}svg:not(:host).svg-inline--fa,svg:not(:root).svg-inline--fa{overflow:visible;box-sizing:content-box}.svg-inline--fa{display:var(--fa-display,inline-block);height:1em;vertical-align:-.125em}@-webkit-keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@-webkit-keyframes fa-bounce{0%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}100%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}}@keyframes fa-bounce{0%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}100%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}}@-webkit-keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@-webkit-keyframes fa-beat-fade{0%,100%{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@keyframes fa-beat-fade{0%,100%{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@-webkit-keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@-webkit-keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}100%,40%{-webkit-transform:rotate(0);transform:rotate(0)}}@keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}100%,40%{-webkit-transform:rotate(0);transform:rotate(0)}}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-sr-only-focusable:not(:focus),.sr-only-focusable:not(:focus){position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
 @-webkit-keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@-webkit-keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@-webkit-keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}@keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}.swal-icon--success:after,.swal-icon--success:before{content:"";border-radius:50%;position:absolute;width:60px;height:120px;background:#fff;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal-icon--success:before{border-radius:120px 0 0 120px;top:-7px;left:-33px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:60px 60px;transform-origin:60px 60px}.swal-icon--success:after{border-radius:0 120px 120px 0;top:-11px;left:30px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:0 60px;transform-origin:0 60px;-webkit-animation:rotatePlaceholder 4.25s ease-in;animation:rotatePlaceholder 4.25s ease-in}@-webkit-keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@-webkit-keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@-webkit-keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}@keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}.swal-icon--info:before{width:5px;height:29px;bottom:17px;border-radius:2px;margin-left:-2px}.swal-icon--info:after,.swal-icon--info:before{content:"";position:absolute;left:50%;background-color:#c9dae1}.swal-icon--info:after{width:7px;height:7px;border-radius:50%;margin-left:-3px;top:19px}.swal-button:not([disabled]):hover{background-color:#78cbf2}.swal-button:active{background-color:#70bce0}.swal-button:focus{outline:none;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(43,114,165,.29)}.swal-button::-moz-focus-inner{border:0}.swal-button--cancel:not([disabled]):hover{background-color:#e8e8e8}.swal-button--cancel:active{background-color:#d7d7d7}.swal-button--cancel:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(116,136,150,.29)}.swal-button--danger:not([disabled]):hover{background-color:#df4740}.swal-button--danger:active{background-color:#cf423b}.swal-button--danger:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(165,43,43,.29)}.swal-content__input:focus,.swal-content__textarea:focus{outline:none;border-color:#6db8ff}@-webkit-keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}@keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}.swal-overlay:before{content:" ";display:inline-block;vertical-align:middle;height:100%}@-webkit-keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}
 /*!
@@ -68,1112 +67,566 @@ $socialSvgs=['facebook'=>'<svg fill="currentColor" height="22" style="display:in
 body{font-family:Poppins}
 .sf-hidden{display:none!important}
 @keyframes rzp-rot{to{transform:rotate(360deg)}}@-webkit-keyframes rzp-rot{to{-webkit-transform:rotate(360deg)}}</style><style>html,body{overflow-y:auto!important;height:auto!important;min-height:100%!important;position:relative!important;}html,body{background-color:#c4dad2!important;}.container{max-width:540px!important;margin-left:auto!important;margin-right:auto!important;}.add-to-contact-btn,.add-to-contact-section,[class*=add-to-contact]{left:50%!important;right:auto!important;transform:translateX(-50%)!important;max-width:540px!important;width:100%!important;}.blog-section,.blog-card,[class*=blog-],[class*=__blog],[class*=blog-section]{display:none!important;}.product-slider,.gallery-slider,.testimonial-slider{overflow:hidden;}.product-slider .slick-slide,.gallery-slider .slick-slide{padding:0 8px;box-sizing:border-box;}.pwa-support,.news-modal,#newsLatter-content{display:none!important}.social-icon i,.social-icon svg,.social-icon .icon{color:#2563eb!important;fill:#2563eb!important;opacity:1!important}.our-services-section .section-heading,.business-hour-section .section-heading{text-align:center!important}.our-services-section .section-heading h2,.business-hour-section .section-heading h2,.qr-code-section .section-heading h2{color:#2563eb!important}.business-hour-section .business-hour-card{background:rgba(127,127,127,.14)!important;border:1px solid rgba(127,127,127,.3)!important;border-radius:10px!important;padding:10px!important;margin-bottom:10px!important}.business-hour-section .business-hour-card span,.business-hour-section .business-hour-card .time-icon{color:#2563eb!important}.qr-code-section p,.qr-code-section span,.qr-code-section h4,.qr-code-section h5{color:#2563eb!important}</style><?php if(!empty($vcard["custom_css"])): ?><style><?= $vcard["custom_css"] ?></style><?php endif; ?></head><body>
-<?php if(true): ?>
-<?php if(true): ?>
-<?php if(true): ?>
-<?php if(true): ?>
-<?php if(true): ?>
-<div class="container p-0">
-<div class="modal fade sf-hidden" data-bs-backdrop="static" data-bs-keyboard="false" id="passwordModal" role="dialog">
-</div>
-<div class="main-content mx-auto w-100 overflow-hidden">
-<div class="mt-0">
-<div class="pwa-support d-flex align-items-center justify-content-center d-none sf-hidden">
-</div>
-</div>
-<div class="banner-section position-relative w-100"><div class="banner-img" style="position:relative;overflow:hidden;height:315px;"><?php $cvType=$vcard["cover_type"]??"image";$cvVal=$vcard["cover_image"]??"";$isVid=($cvType==="video")||preg_match("#youtube\.com|youtu\.be|instagram\.com|\.mp4#i",$cvVal);if($isVid&&!empty($cvVal)){if(preg_match("#(?:youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^\"&?/\s]{11})#i",$cvVal,$mm)){$yt=$mm[1];echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"https://www.youtube.com/embed/".$yt."?autoplay=1&mute=1&loop=1&playlist=".$yt."&controls=0&showinfo=0&rel=0&playsinline=1\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";}elseif(stripos($cvVal,"instagram.com")!==false){echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"".htmlspecialchars(rtrim($cvVal,"/")."/embed")."\" allowtransparency=\"true\"></iframe>";}else{echo "<video src=\"".htmlspecialchars(imgUrl($cvVal))."\" autoplay loop muted playsinline style=\"width:100%;height:100%;object-fit:cover;display:block;\"></video>";}}else{echo "<img src=\"".htmlspecialchars($coverImg)."\" alt=\"".htmlspecialchars($fullName)."\" style=\"width:100%;height:100%;object-fit:cover;display:block;\">";} ?><div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.1),rgba(0,0,0,0.5));"></div></div></div>
-<div class="profile-section position-relative pt-40">
-<div class="px-30">
-<div class="card d-flex flex-sm-row align-items-center position-relative gap-4 bg-transparent overflow-hidden"><?php foreach ((isset($__bh)?$__bh:($businessHours ?? [])) as $bh): ?>
-<div class="col-sm-6"><div class="business-hour-card d-flex gap-2 align-items-center mb-3"><div class="time-icon"><i class="bi bi-clock fs-3"></i></div><div class="d-flex flex-column align-items-start"><span class="fs-14 text-gray lh-1 fw-5"><?= htmlspecialchars(ucfirst(strtolower($bh["day_name"] ?? ""))) ?></span><span class="fs-16 fw-5"><?= !empty($bh["is_open"]) ? htmlspecialchars(trim(($bh["open_time"] ?? "")." - ".($bh["close_time"] ?? ""))) : "Closed" ?></span></div></div></div>
-<?php endforeach; ?></div>
-</div>
-<div class="position-absolute top-0 end-0 main-vector-bg">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-018.webp"/>
-</div>
-<div class="text-gray-100 profile-desc mb-sm-0 fs-14 text-center pt-50 position-relative px-30">
-<div class="position-absolute top-0 all-bg-img img-1">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-19)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<p><em>A child-focused non-profit organization dedicated to uplifting underprivileged children through education, healthcare, nutrition, and emotional well-being. We believe every child deserves a safe childhood, equal opportunities, and a hopeful future.</em></p>
-<div class="bg-vector vector-1 position-absolute top-0 text-end">
-<img alt="profile-bg" src="/images/templates/socialservicesxxxxxx/soc-019.webp"/>
-</div>
-</div>
-<div class="social-media d-flex justify-content-center flex-wrap position-relative"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
-</div>
-<div class="contact-section position-relative">
-<div class="position-absolute top-0 end-0 all-bg-img img-2">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-19)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="bg-vector vector-3 position-absolute text-end">
-<img alt="profile-bg" src="/images/templates/socialservicesxxxxxx/soc-022.webp"/>
-</div>
-<div class="pt-50 px-30">
-<div class="section-heading text-center">
-<h2 class="text-center mb-0 fw-bold">Contact</h2>
-</div>
-<div class="row row-gap-20px">
-<div class="col-sm-6">
-<div class="contact-box text-center">
-<div class="contact-icon d-flex justify-content-center align-items-center mx-auto">
-<img loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-023.svg"/>
-</div>
-<div class="contact-desc">
-<a href="mailto:<?= htmlspecialchars($vcard["email"] ?? "") ?>" class="text-primary fs-6 fw-5"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
-</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="contact-box text-center">
-<div class="contact-icon d-flex justify-content-center align-items-center mx-auto">
-<img loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-023.svg"/>
-</div>
-<div class="contact-desc">
-<a href="mailto:<?= htmlspecialchars($vcard["alternate_email"] ?? "") ?>" class="text-primary fs-6 fw-5"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
-</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="contact-box text-center">
-<div class="contact-icon d-flex justify-content-center align-items-center mx-auto">
-<img loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-024.svg"/>
-</div>
-<div class="contact-desc">
-<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="text-primary fs-6 fw-5" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
-</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="contact-box text-center">
-<div class="contact-icon d-flex justify-content-center align-items-center mx-auto">
-<img loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-024.svg"/>
-</div>
-<div class="contact-desc">
-<a class="text-primary fs-6 fw-5" dir="ltr" href="tel:+9191"><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
-</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="contact-box text-center">
-<div class="contact-icon d-flex justify-content-center align-items-center mx-auto">
-<img loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-025.svg"/>
-</div>
-<div class="contact-desc">
-<p class="text-primary fs-6 fw-5 mb-0"><?= !empty($vcard["dob"]) ? htmlspecialchars(date("jS F, Y", strtotime($vcard["dob"]))) : "" ?></p>
-</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="contact-box text-center">
-<div class="contact-icon d-flex justify-content-center align-items-center mx-auto">
-<img loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-026.svg"/>
-</div>
-<div class="contact-desc">
-<p class="text-primary fs-6 fw-5 mb-0">India, Delhi</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="gallery-section pt-50 px-20 position-relative mb-0">
-<div class="section-heading text-center mb-30 z-9">
-<h2 class="mb-0">Gallery</h2>
-</div>
-<div class="line-img position-absolute">
-<img alt="gallery-bg" class="w-100 h-100" src="/images/templates/socialservicesxxxxxx/soc-027.webp"/>
-</div>
-<div class="heart-img">
-<img alt="gallery-bg" src="/images/templates/socialservicesxxxxxx/soc-028.webp"/>
-</div>
-<div class="gallery-slider mb-0 px-sm-4 px-sm-2 slick-initialized slick-slider slick-dotted"><div class="slick-list draggable"><div class="slick-track" style="opacity:1;width:4074px;transform:translate3d(-582px,0px,0px)"><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="-1" style="width:582px" tabindex="-1"><div><div class="slide" style="width:100%;display:inline-block">
-<div class="gallery-box">
-<div class="gallery-img">
-<div class="expand-icon pe-none">
-<svg aria-hidden="true" class="svg-inline--fa fa-expand text-white" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
-</div>
-<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/514/Frame-1707480462.jpg" tabindex="-1"><img alt="profile" class="w-100" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-30)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
-</div>
-</div>
-</div></div></div><div aria-hidden="false" class="slick-slide slick-current slick-active" data-slick-index="0" id="slick-slide00" role="tabpanel" style="width:582px"><div><div class="slide" style="width:100%;display:inline-block">
-<div class="gallery-box">
-<div class="gallery-img">
-<div class="expand-icon pe-none">
-<svg aria-hidden="true" class="svg-inline--fa fa-expand text-white" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
-</div>
-<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/512/Frame-1707480460.jpg" tabindex="0"><img alt="profile" class="w-100" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-31)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide" data-slick-index="1" id="slick-slide01" role="tabpanel" style="width:582px" tabindex="-1"><div><div class="slide" style="width:100%;display:inline-block">
-<div class="gallery-box">
-<div class="gallery-img">
-<div class="expand-icon pe-none">
-<svg aria-hidden="true" class="svg-inline--fa fa-expand text-white" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
-</div>
-<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/513/Frame-1707480461.jpg" tabindex="-1"><img alt="profile" class="w-100" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-32)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide" data-slick-index="2" id="slick-slide02" role="tabpanel" style="width:582px" tabindex="-1"><div><div class="slide" style="width:100%;display:inline-block">
-<div class="gallery-box">
-<div class="gallery-img">
-<div class="expand-icon pe-none">
-<svg aria-hidden="true" class="svg-inline--fa fa-expand text-white" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
-</div>
-<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/514/Frame-1707480462.jpg" tabindex="-1"><img alt="profile" class="w-100" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-30)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="3" style="width:582px" tabindex="-1"><div><div class="slide" style="width:100%;display:inline-block">
-<div class="gallery-box">
-<div class="gallery-img">
-<div class="expand-icon pe-none">
-<svg aria-hidden="true" class="svg-inline--fa fa-expand text-white" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
-</div>
-<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/512/Frame-1707480460.jpg" tabindex="-1"><img alt="profile" class="w-100" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-31)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="4" style="width:582px" tabindex="-1"><div><div class="slide" style="width:100%;display:inline-block">
-<div class="gallery-box">
-<div class="gallery-img">
-<div class="expand-icon pe-none">
-<svg aria-hidden="true" class="svg-inline--fa fa-expand text-white" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
-</div>
-<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/513/Frame-1707480461.jpg" tabindex="-1"><img alt="profile" class="w-100" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-32)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="5" style="width:582px" tabindex="-1"><div><div class="slide" style="width:100%;display:inline-block">
-<div class="gallery-box">
-<div class="gallery-img">
-<div class="expand-icon pe-none">
-<svg aria-hidden="true" class="svg-inline--fa fa-expand text-white" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
-</div>
-<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/514/Frame-1707480462.jpg" tabindex="-1"><img alt="profile" class="w-100" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-30)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
-</div>
-</div>
-</div></div></div></div></div><ul class="slick-dots" role="tablist"><li class="slick-active" role="presentation"><button aria-controls="slick-slide00" aria-label="1 of 3" aria-selected="true" fdprocessedid="ssdcfa" id="slick-slide-control00" role="tab" tabindex="0" type="button">1</button><li role="presentation"><button aria-controls="slick-slide01" aria-label="2 of 3" id="slick-slide-control01" role="tab" tabindex="-1" type="button">2</button><li role="presentation"><button aria-controls="slick-slide02" aria-label="3 of 3" id="slick-slide-control02" role="tab" tabindex="-1" type="button">3</button></li></li></li></ul></div>
-</div>
-<div class="our-services-section pt-50">
-<div class="bg-vector vector-4 position-absolute vector-12">
-<img alt="profile-bg" src="/images/templates/socialservicesxxxxxx/soc-029.webp"/>
-</div>
-<div class="section-heading text-center">
-<h2 class="text-center mb-0">Our Services</h2>
-</div>
-<div class="services">
-<div class="position-absolute all-bg-img img-3">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-19)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="px-20">
-<div class="row">
-<div class="col-sm-6 mb-sm-4 mb-4">
-<div class="service-card h-100 position-relative">
-<a class="text-decoration-none img pe-none" href="javascript:void(0)" target="">
-<img alt="Education Support" class="card-img-top service-new-image" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-030.webp"/>
-</a>
-<div class="card-body">
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-031.svg"/>
-</div>
-<a class="text-decoration-none" href="javascript:void(0)" target="">
-<h5 class="card-title title-text text-primary">
+ 
+ <div class="container p-0">
+ <div id=passwordModal class="modal fade sf-hidden" role=dialog data-bs-backdrop=static data-bs-keyboard=false>
+ 
+</div>
+ <div class="main-content mx-auto w-100 overflow-hidden">
+ 
+ <div class=mt-0>
+ <div class="pwa-support d-flex align-items-center justify-content-center d-none sf-hidden">
+ 
+ </div>
+ </div>
+ 
+ <div class="banner-section position-relative w-100"><div class="banner-img" style="position:relative;overflow:hidden;height:315px;"><?php $cvType=$vcard["cover_type"]??"image";$cvVal=$vcard["cover_image"]??"";$isVid=($cvType==="video")||preg_match("#youtube\.com|youtu\.be|instagram\.com|\.mp4#i",$cvVal);if($isVid&&!empty($cvVal)){if(preg_match("#(?:youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^\"&?/\s]{11})#i",$cvVal,$mm)){$yt=$mm[1];echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"https://www.youtube.com/embed/".$yt."?autoplay=1&mute=1&loop=1&playlist=".$yt."&controls=0&showinfo=0&rel=0&playsinline=1\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";}elseif(stripos($cvVal,"instagram.com")!==false){echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"".htmlspecialchars(rtrim($cvVal,"/")."/embed")."\" allowtransparency=\"true\"></iframe>";}else{echo "<video src=\"".htmlspecialchars(imgUrl($cvVal))."\" autoplay loop muted playsinline style=\"width:100%;height:100%;object-fit:cover;display:block;\"></video>";}}else{echo "<img src=\"".htmlspecialchars($coverImg)."\" alt=\"".htmlspecialchars($fullName)."\" style=\"width:100%;height:100%;object-fit:cover;display:block;\">";} ?><div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.1),rgba(0,0,0,0.5));"></div></div></div>
+ 
+ <div class="profile-section position-relative pt-40">
+ <div class=px-30>
+ <div class="card d-flex flex-sm-row align-items-center position-relative gap-4 bg-transparent overflow-hidden">
+ 
+ 
+ <div class=user-img>
+ <div class=card-img>
+ <img src="/images/templates/socialservicesx/soc-017.webp" class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ </div>
+ <div class="card-body text-sm-start text-center mt-sm-0 pt-sm-3 p-0">
+ <div class="profile-name text-black">
+ <h2 class="fs-28 text-black d-flex gap-3 align-items-center justify-content-center justify-content-sm-start">
+ <?= htmlspecialchars($fullName) ?>
+ <i class="verification-icon bi-patch-check-fill text-primary"></i>
+ </h2>
+ <p class="fs-16 mb-1 text-primary fw-medium text-decoration-underline"><?= htmlspecialchars($vcard["occupation"] ?? "") ?></p>
+ <p class="fs-14 mb-0">Founder &amp; CEO</p>
+ <p class="fs-14 mb-0"></p>
+ </div>
+ </div>
+ </div>
+ </div> 
+ <div class="position-absolute top-0 end-0 main-vector-bg">
+ <img src=/images/templates/socialservicesx/soc-018.webp class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ 
+ 
+ <div class="text-gray-100 profile-desc mb-sm-0 fs-14 text-center pt-50 position-relative px-30">
+ <div class="position-absolute top-0 all-bg-img img-1">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-19)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </div>
+ <p><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars(trim(html_entity_decode(strip_tags($vcard["description"]),ENT_QUOTES)))) ?><?php else: ?><em>A child-focused non-profit organization dedicated to uplifting underprivileged children through education, healthcare, nutrition, and emotional well-being. We believe every child deserves a safe childhood, equal opportunities, and a hopeful future.</em><?php endif; ?></p>
+ <div class="bg-vector vector-1 position-absolute top-0 text-end">
+ <img src="/images/templates/socialservicesx/soc-019.webp" alt=profile-bg>
+ </div>
+ </div>
+ 
+ <div class="social-media d-flex justify-content-center flex-wrap position-relative"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
+ 
+ 
+ </div>
+ 
+ <div class="contact-section position-relative">
+ <div class="position-absolute top-0 end-0 all-bg-img img-2">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-19)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </div>
+ <div class="bg-vector vector-3 position-absolute text-end">
+ <img src="/images/templates/socialservicesx/soc-022.webp" alt=profile-bg>
+ </div>
+ <div class="pt-50 px-30">
+ <div class="section-heading text-center">
+ <h2 class="text-center mb-0 fw-bold">Contact</h2>
+ </div>
+ <div class="row row-gap-20px"><?php if(!empty($services)): ?><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/socialservicesx/soc-018.webp"; ?><div class="col-sm-6 col-6 mb-4 px-2"><div class="card service-card h-100"><div class="service-img card-img" style="overflow:hidden;border-radius:12px 12px 0 0"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 object-fit-cover" style="height:170px" loading="lazy"></div><div class="card-body text-center p-3"><h3 class="card-title fs-6 fw-6"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="card-text small mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></div><?php endforeach; ?><?php endif; ?></div>
+ </div>
+ </div>
+ 
+ <div class="gallery-section pt-50 px-20 position-relative mb-0">
+ <div class="section-heading text-center mb-30 z-9">
+ <h2 class=mb-0>Gallery</h2>
+ </div>
+ <div class="line-img position-absolute">
+ <img src="/images/templates/socialservicesx/soc-027.webp" alt=gallery-bg class="w-100 h-100">
+ </div>
+ <div class=heart-img>
+ <img src="/images/templates/socialservicesx/soc-028.webp" alt=gallery-bg>
+ </div>
+ <div class="gallery-slider"><?php foreach ((isset($__ga)?$__ga:($galleries ?? [])) as $g): foreach (($g["images"] ?? []) as $im): $gi=imgUrl($im["image_url"] ?? ($im["image"] ?? "")); ?><div class="px-2"><div class="gallery-img-wrapper"><div class="gallery-img" style="background-image:url('<?= htmlspecialchars($gi) ?>');background-size:cover;background-position:center;height:280px;border-radius:12px;"></div></div></div><?php endforeach; endforeach; ?></div>
+ </div>
+ 
+ <div class="our-services-section pt-50">
+ <div class="bg-vector vector-4 position-absolute vector-12">
+ <img src=/images/templates/socialservicesx/soc-029.webp alt=profile-bg>
+ </div>
+ <div class="section-heading text-center">
+ <h2 class="text-center mb-0">Our Services</h2>
+ </div>
+ <div class=services>
+ <div class="position-absolute all-bg-img img-3">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-19)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </div>
+ <div class=px-20>
+ <div class=row>
+ <div class="col-sm-6 mb-sm-4 mb-4">
+ <div class="service-card h-100 position-relative">
+ <a href=javascript:void(0) class="text-decoration-none img pe-none" target>
+ <img src=/images/templates/socialservicesx/soc-030.webp class="card-img-top service-new-image" alt="Education Support" loading=lazy>
+ </a>
+ <div class=card-body>
+ <div class=dots-img>
+ <img src=/images/templates/socialservicesx/soc-031.svg class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ <a href=javascript:void(0) class=text-decoration-none target>
+ <h5 class="card-title title-text text-primary">
  Education Support</h5>
-</a>
-<p class="card-text description-text">
+ </a>
+ <p class="card-text description-text">
  Free tuition centers, school enrollment drives, and provision of books, uniforms, and supplies for children in slums and rural areas.</p>
-</div>
-</div>
-</div>
-<div class="col-sm-6 mb-sm-4 mb-4">
-<div class="service-card h-100 position-relative">
-<a class="text-decoration-none img pe-none" href="javascript:void(0)" target="">
-<img alt="Midday Meals & Nutrition" class="card-img-top service-new-image" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-032.webp"/>
-</a>
-<div class="card-body">
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-031.svg"/>
-</div>
-<a class="text-decoration-none" href="javascript:void(0)" target="">
-<h5 class="card-title title-text text-primary">
- Midday Meals & Nutrition</h5>
-</a>
-<p class="card-text description-text">
+ </div>
+ </div>
+ </div>
+ <div class="col-sm-6 mb-sm-4 mb-4">
+ <div class="service-card h-100 position-relative">
+ <a href=javascript:void(0) class="text-decoration-none img pe-none" target>
+ <img src=/images/templates/socialservicesx/soc-032.webp class="card-img-top service-new-image" alt="Midday Meals &amp; Nutrition" loading=lazy>
+ </a>
+ <div class=card-body>
+ <div class=dots-img>
+ <img src=/images/templates/socialservicesx/soc-031.svg class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ <a href=javascript:void(0) class=text-decoration-none target>
+ <h5 class="card-title title-text text-primary">
+ Midday Meals &amp; Nutrition</h5>
+ </a>
+ <p class="card-text description-text">
  Providing nutritious meals and health supplements to malnourished children.</p>
-</div>
-</div>
-</div>
-<div class="col-sm-6 mb-sm-4 mb-4">
-<div class="service-card h-100 position-relative">
-<a class="text-decoration-none img pe-none" href="javascript:void(0)" target="">
-<img alt="Healthcare Camps" class="card-img-top service-new-image" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-033.webp"/>
-</a>
-<div class="card-body">
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-031.svg"/>
-</div>
-<a class="text-decoration-none" href="javascript:void(0)" target="">
-<h5 class="card-title title-text text-primary">
+ </div>
+ </div>
+ </div>
+ <div class="col-sm-6 mb-sm-4 mb-4">
+ <div class="service-card h-100 position-relative">
+ <a href=javascript:void(0) class="text-decoration-none img pe-none" target>
+ <img src=/images/templates/socialservicesx/soc-033.webp class="card-img-top service-new-image" alt="Healthcare Camps" loading=lazy>
+ </a>
+ <div class=card-body>
+ <div class=dots-img>
+ <img src=/images/templates/socialservicesx/soc-031.svg class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ <a href=javascript:void(0) class=text-decoration-none target>
+ <h5 class="card-title title-text text-primary">
  Healthcare Camps</h5>
-</a>
-<p class="card-text description-text">
+ </a>
+ <p class="card-text description-text">
  Regular medical checkups, vaccinations, and emergency health services.</p>
-</div>
-</div>
-</div>
-<div class="col-sm-6 mb-sm-4 mb-4">
-<div class="service-card h-100 position-relative">
-<a class="text-decoration-none img pe-none" href="javascript:void(0)" target="">
-<img alt="Child Sponsorship Programs" class="card-img-top service-new-image" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-034.webp"/>
-</a>
-<div class="card-body">
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-031.svg"/>
-</div>
-<a class="text-decoration-none" href="javascript:void(0)" target="">
-<h5 class="card-title title-text text-primary">
+ </div>
+ </div>
+ </div>
+ <div class="col-sm-6 mb-sm-4 mb-4">
+ <div class="service-card h-100 position-relative">
+ <a href=javascript:void(0) class="text-decoration-none img pe-none" target>
+ <img src=/images/templates/socialservicesx/soc-034.webp class="card-img-top service-new-image" alt="Child Sponsorship Programs" loading=lazy>
+ </a>
+ <div class=card-body>
+ <div class=dots-img>
+ <img src=/images/templates/socialservicesx/soc-031.svg class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ <a href=javascript:void(0) class=text-decoration-none target>
+ <h5 class="card-title title-text text-primary">
  Child Sponsorship Programs</h5>
-</a>
-<p class="card-text description-text">
+ </a>
+ <p class="card-text description-text">
  Pairing donors with individual children to support education and livelihood.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="product-section pt-50 px-20">
-<div class="bg-vector vector-5 position-absolute text-end">
-<img alt="profile-bg" src="/images/templates/socialservicesxxxxxx/soc-035.webp"/>
-</div>
-<div class="section-heading text-center">
-<h2 class="mb-0">Products</h2>
-</div>
-<div class="product-slider slick-initialized slick-slider"><div class="slick-list draggable"><div class="slick-track" style="opacity:1;width:2520px;transform:translate3d(-630px,0px,0px)"><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="-2" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="product-card card overflow-hidden">
-<div class="product-img card-img">
-<a class="text-decoration-none fs-6" tabindex="-1" target="_blank"><img class="w-100 h-100 object-fit-contain" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-40)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
-<div class="line-img"></div>
-</div>
-<div class="product-desc align-items-center position-relative">
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-036.svg"/>
-</div>
-<div class="d-flex justify-content-center flex-column gap-2 align-items-center">
-<h3 class="fs-18 fw-5 mb-0">Education Kit Box
- </h3>
-<h4 class="text-center mb-0 fs-20">
-</h4>
-</div>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="-1" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="product-card card overflow-hidden">
-<div class="product-img card-img">
-<a class="text-decoration-none fs-6" tabindex="-1" target="_blank"><img class="w-100 h-100 object-fit-contain" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-42)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
-<div class="line-img"></div>
-</div>
-<div class="product-desc align-items-center position-relative">
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-036.svg"/>
-</div>
-<div class="d-flex justify-content-center flex-column gap-2 align-items-center">
-<h3 class="fs-18 fw-5 mb-0">Learning Flashcards Set
- </h3>
-<h4 class="text-center mb-0 fs-20">
-</h4>
-</div>
-</div>
-</div>
-</div></div></div><div aria-hidden="false" class="slick-slide slick-current slick-active" data-slick-index="0" style="width:315px"><div><div style="width:100%;display:inline-block">
-<div class="product-card card overflow-hidden">
-<div class="product-img card-img">
-<a class="text-decoration-none fs-6" tabindex="0" target="_blank"><img class="w-100 h-100 object-fit-contain" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-43)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
-<div class="line-img"></div>
-</div>
-<div class="product-desc align-items-center position-relative">
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-036.svg"/>
-</div>
-<div class="d-flex justify-content-center flex-column gap-2 align-items-center">
-<h3 class="fs-18 fw-5 mb-0">NGO T-shirts
- </h3>
-<h4 class="text-center mb-0 fs-20">
-</h4>
-</div>
-</div>
-</div>
-</div></div></div><div aria-hidden="false" class="slick-slide slick-active" data-slick-index="1" style="width:315px"><div><div style="width:100%;display:inline-block">
-<div class="product-card card overflow-hidden">
-<div class="product-img card-img">
-<a class="text-decoration-none fs-6" tabindex="0" target="_blank"><img class="w-100 h-100 object-fit-contain" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-40)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
-<div class="line-img"></div>
-</div>
-<div class="product-desc align-items-center position-relative">
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-036.svg"/>
-</div>
-<div class="d-flex justify-content-center flex-column gap-2 align-items-center">
-<h3 class="fs-18 fw-5 mb-0">Education Kit Box
- </h3>
-<h4 class="text-center mb-0 fs-20">
-</h4>
-</div>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide" data-slick-index="2" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="product-card card overflow-hidden">
-<div class="product-img card-img">
-<a class="text-decoration-none fs-6" tabindex="-1" target="_blank"><img class="w-100 h-100 object-fit-contain" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-42)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
-<div class="line-img"></div>
-</div>
-<div class="product-desc align-items-center position-relative">
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-036.svg"/>
-</div>
-<div class="d-flex justify-content-center flex-column gap-2 align-items-center">
-<h3 class="fs-18 fw-5 mb-0">Learning Flashcards Set
- </h3>
-<h4 class="text-center mb-0 fs-20">
-</h4>
-</div>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="3" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="product-card card overflow-hidden">
-<div class="product-img card-img">
-<a class="text-decoration-none fs-6" tabindex="-1" target="_blank"><img class="w-100 h-100 object-fit-contain" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-43)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
-<div class="line-img"></div>
-</div>
-<div class="product-desc align-items-center position-relative">
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-036.svg"/>
-</div>
-<div class="d-flex justify-content-center flex-column gap-2 align-items-center">
-<h3 class="fs-18 fw-5 mb-0">NGO T-shirts
- </h3>
-<h4 class="text-center mb-0 fs-20">
-</h4>
-</div>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="4" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="product-card card overflow-hidden">
-<div class="product-img card-img">
-<a class="text-decoration-none fs-6" tabindex="-1" target="_blank"><img class="w-100 h-100 object-fit-contain" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-40)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
-<div class="line-img"></div>
-</div>
-<div class="product-desc align-items-center position-relative">
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-036.svg"/>
-</div>
-<div class="d-flex justify-content-center flex-column gap-2 align-items-center">
-<h3 class="fs-18 fw-5 mb-0">Education Kit Box
- </h3>
-<h4 class="text-center mb-0 fs-20">
-</h4>
-</div>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="5" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="product-card card overflow-hidden">
-<div class="product-img card-img">
-<a class="text-decoration-none fs-6" tabindex="-1" target="_blank"><img class="w-100 h-100 object-fit-contain" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-42)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
-<div class="line-img"></div>
-</div>
-<div class="product-desc align-items-center position-relative">
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-036.svg"/>
-</div>
-<div class="d-flex justify-content-center flex-column gap-2 align-items-center">
-<h3 class="fs-18 fw-5 mb-0">Learning Flashcards Set
- </h3>
-<h4 class="text-center mb-0 fs-20">
-</h4>
-</div>
-</div>
-</div>
-</div></div></div></div></div></div>
-<div class="text-center">
-<div class="mt-4 text-center view-more d-inline-flex gap-2 align-items-center btn-primary position-relative cursor-pointer">
-<a class="fs-6 text" href="https://tapifyworld.com/products/27/social-services-template">View More Products</a>
-<svg aria-hidden="true" class="svg-inline--fa fa-arrow-right right-arrow-animation" data-fa-i2svg="" data-icon="arrow-right" data-prefix="fas" focusable="false" role="img" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 278.6l-160 160C272.4 444.9 264.2 448 256 448s-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L338.8 288H32C14.33 288 .0016 273.7 .0016 256S14.33 224 32 224h306.8l-105.4-105.4c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160C451.1 245.9 451.1 266.1 438.6 278.6z" fill="currentColor"></path></svg>
-</div>
-</div>
-</div>
-<div class="appointment-section pt-50 px-30 position-relative">
-<div class="position-absolute all-bg-img img-4">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-19)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="bg-vector vector-6 top-0 position-absolute start-0">
-<img alt="profile-bg" src="/images/templates/socialservicesxxxxxx/soc-037.webp"/>
-</div>
-<div class="section-heading text-center">
-<h2 class="mb-0">Make an Appointment</h2>
-</div>
-<div class="appointment">
-<div class="position-relative p-3">
-<input class="date appoint-input form-control appointment-input text-start flatpickr-input" fdprocessedid="nxh3sfg" id="pickUpDate" name="date" placeholder="Pick a Date" readonly="" type="text" value=""/>
-<span class="calendar-icon">
-<svg fill="none" height="18" viewBox="0 0 18 18" width="18" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_102_145)">
-<path d="M14.25 1.5H13.5V0.75C13.5 0.551088 13.421 0.360322 13.2803 0.21967C13.1397 0.0790176 12.9489 0 12.75 0C12.5511 0 12.3603 0.0790176 12.2197 0.21967C12.079 0.360322 12 0.551088 12 0.75V1.5H6V0.75C6 0.551088 5.92098 0.360322 5.78033 0.21967C5.63968 0.0790176 5.44891 0 5.25 0C5.05109 0 4.86032 0.0790176 4.71967 0.21967C4.57902 0.360322 4.5 0.551088 4.5 0.75V1.5H3.75C2.7558 1.50119 1.80267 1.89666 1.09966 2.59966C0.396661 3.30267 0.00119089 4.2558 0 5.25L0 14.25C0.00119089 15.2442 0.396661 16.1973 1.09966 16.9003C1.80267 17.6033 2.7558 17.9988 3.75 18H14.25C15.2442 17.9988 16.1973 17.6033 16.9003 16.9003C17.6033 16.1973 17.9988 15.2442 18 14.25V5.25C17.9988 4.2558 17.6033 3.30267 16.9003 2.59966C16.1973 1.89666 15.2442 1.50119 14.25 1.5ZM1.5 5.25C1.5 4.65326 1.73705 4.08097 2.15901 3.65901C2.58097 3.23705 3.15326 3 3.75 3H14.25C14.8467 3 15.419 3.23705 15.841 3.65901C16.2629 4.08097 16.5 4.65326 16.5 5.25V6H1.5V5.25ZM14.25 16.5H3.75C3.15326 16.5 2.58097 16.2629 2.15901 15.841C1.73705 15.419 1.5 14.8467 1.5 14.25V7.5H16.5V14.25C16.5 14.8467 16.2629 15.419 15.841 15.841C15.419 16.2629 14.8467 16.5 14.25 16.5Z" fill="#00715d"></path>
-<path d="M9 12.375C9.62132 12.375 10.125 11.8713 10.125 11.25C10.125 10.6287 9.62132 10.125 9 10.125C8.37868 10.125 7.875 10.6287 7.875 11.25C7.875 11.8713 8.37868 12.375 9 12.375Z" fill="#00715d"></path>
-<path d="M5.25 12.375C5.87132 12.375 6.375 11.8713 6.375 11.25C6.375 10.6287 5.87132 10.125 5.25 10.125C4.62868 10.125 4.125 10.6287 4.125 11.25C4.125 11.8713 4.62868 12.375 5.25 12.375Z" fill="#00715d"></path>
-<path d="M12.75 12.375C13.3713 12.375 13.875 11.8713 13.875 11.25C13.875 10.6287 13.3713 10.125 12.75 10.125C12.1287 10.125 11.625 10.6287 11.625 11.25C11.625 11.8713 12.1287 12.375 12.75 12.375Z" fill="#00715d"></path>
-</g>
-<defs>
-<clipPath id="clip0_102_145">
-<rect fill="white" height="18" width="18">
-</rect>
-</clipPath>
-</defs>
-</svg>
-</span>
-</div>
-<div>
-<div class="px-3 position-relative">
-<div class="row" id="slotData">
-</div>
-<div class="appointment-btn text-center w-100 position-relative">
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-031.svg"/>
-</div>
-<button class="appointmentAdd btn btn-primary w-100 d-none sf-hidden">
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ 
+ <div class="product-section pt-50 px-20">
+ <div class="bg-vector vector-5 position-absolute text-end">
+ <img src="/images/templates/socialservicesx/soc-035.webp" alt=profile-bg>
+ </div>
+ <div class="section-heading text-center">
+ <h2 class=mb-0>Products</h2>
+ </div>
+ <div class="product-slider"><?php foreach ((isset($__pr)?$__pr:($products ?? [])) as $p): $pi=!empty($p["image"])?imgUrl($p["image"]):"/images/templates/socialservicesx/soc-018.webp"; ?><div class="px-2"><div class="product-card card"><div class="product-img card-img"><img src="<?= htmlspecialchars($pi) ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></div><div class="product-desc card-body d-flex flex-column align-items-center justify-content-between"><div class="product-title"><h3 class="text-dark text-center"><?= htmlspecialchars($p["name"] ?? "") ?></h3></div><?php if(isset($p["price"]) && $p["price"]!==""): ?><div class="product-amount"><span>₹ <?= htmlspecialchars($p["price"]) ?></span></div><?php endif; ?></div></div></div><?php endforeach; ?></div>
+ <div class=text-center>
+ <div class="mt-4 text-center view-more d-inline-flex gap-2 align-items-center btn-primary position-relative cursor-pointer">
+ <a class="fs-6 text" href=https://tapifyworld.com/products/27/social-services-template>View More Products</a>
+ <svg class="svg-inline--fa fa-arrow-right right-arrow-animation" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 448 512" data-fa-i2svg><path fill=currentColor d="M438.6 278.6l-160 160C272.4 444.9 264.2 448 256 448s-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L338.8 288H32C14.33 288 .0016 273.7 .0016 256S14.33 224 32 224h306.8l-105.4-105.4c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160C451.1 245.9 451.1 266.1 438.6 278.6z"></path></svg>
+ </div>
+ </div>
+ </div>
+ 
+ <div class="appointment-section pt-50 px-30 position-relative">
+ <div class="position-absolute all-bg-img img-4">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-19)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </div>
+ <div class="bg-vector vector-6 top-0 position-absolute start-0">
+ <img src="/images/templates/socialservicesx/soc-037.webp" alt=profile-bg>
+ </div>
+ <div class="section-heading text-center">
+ <h2 class=mb-0>Make an Appointment</h2>
+ </div>
+ <div class=appointment>
+ <div class="position-relative p-3">
+ <input class="date appoint-input form-control appointment-input text-start flatpickr-input" placeholder="Pick a Date" id=pickUpDate name=date type=text readonly fdprocessedid=nxh3sfg value>
+ <span class=calendar-icon>
+ <svg width=18 height=18 viewBox="0 0 18 18" fill=none xmlns=http://www.w3.org/2000/svg>
+ <g clip-path=url(#clip0_102_145)>
+ <path d="M14.25 1.5H13.5V0.75C13.5 0.551088 13.421 0.360322 13.2803 0.21967C13.1397 0.0790176 12.9489 0 12.75 0C12.5511 0 12.3603 0.0790176 12.2197 0.21967C12.079 0.360322 12 0.551088 12 0.75V1.5H6V0.75C6 0.551088 5.92098 0.360322 5.78033 0.21967C5.63968 0.0790176 5.44891 0 5.25 0C5.05109 0 4.86032 0.0790176 4.71967 0.21967C4.57902 0.360322 4.5 0.551088 4.5 0.75V1.5H3.75C2.7558 1.50119 1.80267 1.89666 1.09966 2.59966C0.396661 3.30267 0.00119089 4.2558 0 5.25L0 14.25C0.00119089 15.2442 0.396661 16.1973 1.09966 16.9003C1.80267 17.6033 2.7558 17.9988 3.75 18H14.25C15.2442 17.9988 16.1973 17.6033 16.9003 16.9003C17.6033 16.1973 17.9988 15.2442 18 14.25V5.25C17.9988 4.2558 17.6033 3.30267 16.9003 2.59966C16.1973 1.89666 15.2442 1.50119 14.25 1.5ZM1.5 5.25C1.5 4.65326 1.73705 4.08097 2.15901 3.65901C2.58097 3.23705 3.15326 3 3.75 3H14.25C14.8467 3 15.419 3.23705 15.841 3.65901C16.2629 4.08097 16.5 4.65326 16.5 5.25V6H1.5V5.25ZM14.25 16.5H3.75C3.15326 16.5 2.58097 16.2629 2.15901 15.841C1.73705 15.419 1.5 14.8467 1.5 14.25V7.5H16.5V14.25C16.5 14.8467 16.2629 15.419 15.841 15.841C15.419 16.2629 14.8467 16.5 14.25 16.5Z" fill=#00715d></path>
+ <path d="M9 12.375C9.62132 12.375 10.125 11.8713 10.125 11.25C10.125 10.6287 9.62132 10.125 9 10.125C8.37868 10.125 7.875 10.6287 7.875 11.25C7.875 11.8713 8.37868 12.375 9 12.375Z" fill=#00715d></path>
+ <path d="M5.25 12.375C5.87132 12.375 6.375 11.8713 6.375 11.25C6.375 10.6287 5.87132 10.125 5.25 10.125C4.62868 10.125 4.125 10.6287 4.125 11.25C4.125 11.8713 4.62868 12.375 5.25 12.375Z" fill=#00715d></path>
+ <path d="M12.75 12.375C13.3713 12.375 13.875 11.8713 13.875 11.25C13.875 10.6287 13.3713 10.125 12.75 10.125C12.1287 10.125 11.625 10.6287 11.625 11.25C11.625 11.8713 12.1287 12.375 12.75 12.375Z" fill=#00715d></path>
+ </g>
+ <defs>
+ <clippath id=clip0_102_145>
+ <rect width=18 height=18 fill=white>
+ </rect>
+ </clippath>
+ </defs>
+ </svg>
+ </span>
+ </div>
+ <div>
+ <div class="px-3 position-relative">
+ <div id=slotData class=row>
+ </div>
+ <div class="appointment-btn text-center w-100 position-relative">
+ <div class=dots-img>
+ <img src=/images/templates/socialservicesx/soc-031.svg class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ <button class="appointmentAdd btn btn-primary w-100 d-none sf-hidden">
  Make an Appointment
  </button>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div class="modal fade appointment-modal sf-hidden" id=AppointmentModal tabindex=-1 aria-hidden=true>
+ 
 </div>
-</div>
-</div>
-</div>
-</div>
-<div aria-hidden="true" class="modal fade appointment-modal sf-hidden" id="AppointmentModal" tabindex="-1">
-</div>
-<div class="testimonial-section pt-50 px-20">
-<div class="bg-vector vector-7 position-absolute text-end">
-<img alt="profile-bg" src="/images/templates/socialservicesxxxxxx/soc-038.webp"/>
-</div>
-<div class="section-heading text-center">
-<h2 class="mb-0">Testimonials</h2>
-</div>
-<div class="testimonial-slider slick-initialized slick-slider slick-dotted"><div class="slick-list draggable"><div class="slick-track" style="opacity:1;width:4410px;transform:translate3d(-630px,0px,0px)"><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="-1" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="testimonial-card card d-flex flex-sm-row align-items-center text-center text-sm-start gap-4">
-<div class="testimonial-profile-section">
-<div class="testimonial-profile-img">
-<img class="w-100 h-100 object-fit-cover rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-46)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-</div>
-<div class="card-body">
-<div class="quote-img">
-<img alt="quote-img" class="w-100 h-100" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-039.svg"/>
-</div>
-<h3 class="fs-20 fw-6 mb-2 d-flex align-items-center gap-2">
-<span class="line-img d-block"></span>
- Rahul Verma
- <span class="line-img d-block"></span>
-</h3>
-<p class="desc fs-14 more">
- I’ve been donating for over 2 years now, and the transparency and impact of their work is truly inspiring. It feels good to be part of real change.
- </p>
-</div>
-<div class="suqare-box"></div>
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-040.svg"/>
-</div>
-</div>
-</div></div></div><div aria-hidden="false" class="slick-slide slick-current slick-active" data-slick-index="0" id="slick-slide20" role="tabpanel" style="width:630px"><div><div style="width:100%;display:inline-block">
-<div class="testimonial-card card d-flex flex-sm-row align-items-center text-center text-sm-start gap-4">
-<div class="testimonial-profile-section">
-<div class="testimonial-profile-img">
-<img class="w-100 h-100 object-fit-cover rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-49)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-</div>
-<div class="card-body">
-<div class="quote-img">
-<img alt="quote-img" class="w-100 h-100" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-039.svg"/>
-</div>
-<h3 class="fs-20 fw-6 mb-2 d-flex align-items-center gap-2">
-<span class="line-img d-block"></span>
- Sneha Patel
- <span class="line-img d-block"></span>
-</h3>
-<p class="desc fs-14 more">
- Volunteering with this NGO has been a life-changing experience. Seeing the children smile, learn, and grow makes every moment worth it.
- </p>
-</div>
-<div class="suqare-box"></div>
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-040.svg"/>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide" data-slick-index="1" id="slick-slide21" role="tabpanel" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="testimonial-card card d-flex flex-sm-row align-items-center text-center text-sm-start gap-4">
-<div class="testimonial-profile-section">
-<div class="testimonial-profile-img">
-<img class="w-100 h-100 object-fit-cover rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-50)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-</div>
-<div class="card-body">
-<div class="quote-img">
-<img alt="quote-img" class="w-100 h-100" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-039.svg"/>
-</div>
-<h3 class="fs-20 fw-6 mb-2 d-flex align-items-center gap-2">
-<span class="line-img d-block"></span>
- Ritika Sharma
- <span class="line-img d-block"></span>
-</h3>
-<p class="desc fs-14 more">
- Their education kits helped many of my students stay in school and continue learning during tough times. I’m grateful for their support.
- </p>
-</div>
-<div class="suqare-box"></div>
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-040.svg"/>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide" data-slick-index="2" id="slick-slide22" role="tabpanel" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="testimonial-card card d-flex flex-sm-row align-items-center text-center text-sm-start gap-4">
-<div class="testimonial-profile-section">
-<div class="testimonial-profile-img">
-<img class="w-100 h-100 object-fit-cover rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-46)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-</div>
-<div class="card-body">
-<div class="quote-img">
-<img alt="quote-img" class="w-100 h-100" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-039.svg"/>
-</div>
-<h3 class="fs-20 fw-6 mb-2 d-flex align-items-center gap-2">
-<span class="line-img d-block"></span>
- Rahul Verma
- <span class="line-img d-block"></span>
-</h3>
-<p class="desc fs-14 more">
- I’ve been donating for over 2 years now, and the transparency and impact of their work is truly inspiring. It feels good to be part of real change.
- </p>
-</div>
-<div class="suqare-box"></div>
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-040.svg"/>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="3" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="testimonial-card card d-flex flex-sm-row align-items-center text-center text-sm-start gap-4">
-<div class="testimonial-profile-section">
-<div class="testimonial-profile-img">
-<img class="w-100 h-100 object-fit-cover rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-49)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-</div>
-<div class="card-body">
-<div class="quote-img">
-<img alt="quote-img" class="w-100 h-100" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-039.svg"/>
-</div>
-<h3 class="fs-20 fw-6 mb-2 d-flex align-items-center gap-2">
-<span class="line-img d-block"></span>
- Sneha Patel
- <span class="line-img d-block"></span>
-</h3>
-<p class="desc fs-14 more">
- Volunteering with this NGO has been a life-changing experience. Seeing the children smile, learn, and grow makes every moment worth it.
- </p>
-</div>
-<div class="suqare-box"></div>
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-040.svg"/>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="4" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="testimonial-card card d-flex flex-sm-row align-items-center text-center text-sm-start gap-4">
-<div class="testimonial-profile-section">
-<div class="testimonial-profile-img">
-<img class="w-100 h-100 object-fit-cover rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-50)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-</div>
-<div class="card-body">
-<div class="quote-img">
-<img alt="quote-img" class="w-100 h-100" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-039.svg"/>
-</div>
-<h3 class="fs-20 fw-6 mb-2 d-flex align-items-center gap-2">
-<span class="line-img d-block"></span>
- Ritika Sharma
- <span class="line-img d-block"></span>
-</h3>
-<p class="desc fs-14 more">
- Their education kits helped many of my students stay in school and continue learning during tough times. I’m grateful for their support.
- </p>
-</div>
-<div class="suqare-box"></div>
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-040.svg"/>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="5" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
-<div class="testimonial-card card d-flex flex-sm-row align-items-center text-center text-sm-start gap-4">
-<div class="testimonial-profile-section">
-<div class="testimonial-profile-img">
-<img class="w-100 h-100 object-fit-cover rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-46)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-</div>
-<div class="card-body">
-<div class="quote-img">
-<img alt="quote-img" class="w-100 h-100" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-039.svg"/>
-</div>
-<h3 class="fs-20 fw-6 mb-2 d-flex align-items-center gap-2">
-<span class="line-img d-block"></span>
- Rahul Verma
- <span class="line-img d-block"></span>
-</h3>
-<p class="desc fs-14 more">
- I’ve been donating for over 2 years now, and the transparency and impact of their work is truly inspiring. It feels good to be part of real change.
- </p>
-</div>
-<div class="suqare-box"></div>
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-040.svg"/>
-</div>
-</div>
-</div></div></div></div></div><ul class="slick-dots" role="tablist"><li class="slick-active" role="presentation"><button aria-controls="slick-slide20" aria-label="1 of 3" aria-selected="true" fdprocessedid="viuu9" id="slick-slide-control20" role="tab" tabindex="0" type="button">1</button><li role="presentation"><button aria-controls="slick-slide21" aria-label="2 of 3" id="slick-slide-control21" role="tab" tabindex="-1" type="button">2</button><li role="presentation"><button aria-controls="slick-slide22" aria-label="3 of 3" id="slick-slide-control22" role="tab" tabindex="-1" type="button">3</button></li></li></li></ul></div>
-</div>
-<div class="blog-section pt-50 px-20">
-<div class="bg-vector vector-8 position-absolute end-0 top-0">
-<img alt="profile-bg" src="/images/templates/socialservicesxxxxxx/soc-041.webp"/>
-</div>
-<div class="section-heading text-center">
-<h2 class="mb-0">Blog</h2>
-</div>
-<div class="blog-slider slick-initialized slick-slider slick-dotted"><div class="slick-list draggable"><div class="slick-track" style="opacity:1;width:4410px;transform:translate3d(-630px,0px,0px)"><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="-1" style="width:630px" tabindex="-1"><div><div class="blog-content bg-none" style="width:100%;display:inline-block">
-<div class="blog-img">
-<a href="https://tapifyworld.com/social-services-template/blog/39" tabindex="-1">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-52)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</a>
-</div>
-<div class="content position-relative">
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-042.svg"/>
-</div>
-<h3 class="text-primary">Why Education is the Strongest Tool Against Child Poverty</h3>
-<p class="mb-0">
+ 
+ <div class="testimonial-section pt-50 px-20">
+ <div class="bg-vector vector-7 position-absolute text-end">
+ <img src="/images/templates/socialservicesx/soc-038.webp" alt=profile-bg>
+ </div>
+ <div class="section-heading text-center">
+ <h2 class=mb-0>Testimonials</h2>
+ </div>
+ <div class="testimonial-slider"><?php foreach ((isset($__te)?$__te:($testimonials ?? [])) as $t): ?><div class="px-2"><div class="testimonial-card p-0"><div class="card-body text-center position-relative"><div class="text-center"><p class="text-gray mb-0">“<?= htmlspecialchars($t["message"] ?? "") ?>”</p></div></div><div class="d-flex flex-column align-items-center justify-content-center gap-2 profile-desc"><?php if(!empty($t["image"])): ?><div class="card-img" style="width:60px;height:60px;border-radius:50%;overflow:hidden;"><img src="<?= htmlspecialchars(imgUrl($t["image"])) ?>" class="w-100 h-100 object-fit-cover"></div><?php endif; ?><h5 class="fw-6 mb-0"><?= htmlspecialchars($t["author_name"] ?? ($t["author"] ?? "")) ?></h5></div></div></div><?php endforeach; ?></div>
+ </div>
+ 
+ 
+ <div class="blog-section pt-50 px-20">
+ <div class="bg-vector vector-8 position-absolute end-0 top-0">
+ <img src=/images/templates/socialservicesx/soc-041.webp alt=profile-bg>
+ </div>
+ <div class="section-heading text-center">
+ <h2 class=mb-0>Blog</h2>
+ </div>
+ <div class="blog-slider slick-initialized slick-slider slick-dotted"><div class="slick-list draggable"><div class=slick-track style=opacity:1;width:4410px;transform:translate3d(-630px,0px,0px)><div class="slick-slide slick-cloned" data-slick-index=-1 aria-hidden=true tabindex=-1 style=width:630px><div><div class="blog-content bg-none" style=width:100%;display:inline-block>
+ <div class=blog-img>
+ <a href=https://tapifyworld.com/social-services-template/blog/39 tabindex=-1>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-52)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </a>
+ </div>
+ <div class="content position-relative">
+ <div class=dots-img>
+ <img src=/images/templates/socialservicesx/soc-042.svg class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ <h3 class=text-primary>Why Education is the Strongest Tool Against Child Poverty</h3>
+ <p class=mb-0>
  A thought piece on the importance of accessible education for every child.
  </p>
-<div class="d-flex align-items-center justify-content-end read-more">
-<a class="d-inline-flex align-items-center justify-content-end gap-2 mt-3" href="https://tapifyworld.com/social-services-template/blog/39" tabindex="-1">
+ <div class="d-flex align-items-center justify-content-end read-more">
+ <a href=https://tapifyworld.com/social-services-template/blog/39 class="d-inline-flex align-items-center justify-content-end gap-2 mt-3" tabindex=-1>
  Read More
- <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long text-decoration-none" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-<path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor">
-</path>
-</svg>
-</a>
-</div>
-</div>
-</div></div></div><div aria-hidden="false" class="slick-slide slick-current slick-active" data-slick-index="0" id="slick-slide30" role="tabpanel" style="width:630px"><div><div class="blog-content bg-none" style="width:100%;display:inline-block">
-<div class="blog-img">
-<a href="https://tapifyworld.com/social-services-template/blog/37" tabindex="0">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-54)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</a>
-</div>
-<div class="content position-relative">
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-042.svg"/>
-</div>
-<h3 class="text-primary">Behind the Scenes: A Day in Our NGO</h3>
-<p class="mb-0">
+ <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
+ <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
+ </path>
+ </svg>
+ </a>
+ </div>
+ </div>
+ </div></div></div><div class="slick-slide slick-current slick-active" data-slick-index=0 aria-hidden=false role=tabpanel id=slick-slide30 style=width:630px><div><div class="blog-content bg-none" style=width:100%;display:inline-block>
+ <div class=blog-img>
+ <a href=https://tapifyworld.com/social-services-template/blog/37 tabindex=0>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-54)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </a>
+ </div>
+ <div class="content position-relative">
+ <div class=dots-img>
+ <img src=/images/templates/socialservicesx/soc-042.svg class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ <h3 class=text-primary>Behind the Scenes: A Day in Our NGO</h3>
+ <p class=mb-0>
  Give readers a glimpse of your team, operations, and daily efforts. 
  </p>
-<div class="d-flex align-items-center justify-content-end read-more">
-<a class="d-inline-flex align-items-center justify-content-end gap-2 mt-3" href="https://tapifyworld.com/social-services-template/blog/37" tabindex="0">
+ <div class="d-flex align-items-center justify-content-end read-more">
+ <a href=https://tapifyworld.com/social-services-template/blog/37 class="d-inline-flex align-items-center justify-content-end gap-2 mt-3" tabindex=0>
  Read More
- <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long text-decoration-none" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-<path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor">
-</path>
-</svg>
-</a>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide" data-slick-index="1" id="slick-slide31" role="tabpanel" style="width:630px" tabindex="-1"><div><div class="blog-content bg-none" style="width:100%;display:inline-block">
-<div class="blog-img">
-<a href="https://tapifyworld.com/social-services-template/blog/38" tabindex="-1">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-55)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</a>
-</div>
-<div class="content position-relative">
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-042.svg"/>
-</div>
-<h3 class="text-primary">Behind the Scenes: A Day with Our Field Team</h3>
-<p class="mb-0">
+ <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
+ <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
+ </path>
+ </svg>
+ </a>
+ </div>
+ </div>
+ </div></div></div><div class=slick-slide data-slick-index=1 aria-hidden=true tabindex=-1 role=tabpanel id=slick-slide31 style=width:630px><div><div class="blog-content bg-none" style=width:100%;display:inline-block>
+ <div class=blog-img>
+ <a href=https://tapifyworld.com/social-services-template/blog/38 tabindex=-1>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-55)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </a>
+ </div>
+ <div class="content position-relative">
+ <div class=dots-img>
+ <img src=/images/templates/socialservicesx/soc-042.svg class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ <h3 class=text-primary>Behind the Scenes: A Day with Our Field Team</h3>
+ <p class=mb-0>
  Share real-life impact stories of children helped through your programs.
  </p>
-<div class="d-flex align-items-center justify-content-end read-more">
-<a class="d-inline-flex align-items-center justify-content-end gap-2 mt-3" href="https://tapifyworld.com/social-services-template/blog/38" tabindex="-1">
+ <div class="d-flex align-items-center justify-content-end read-more">
+ <a href=https://tapifyworld.com/social-services-template/blog/38 class="d-inline-flex align-items-center justify-content-end gap-2 mt-3" tabindex=-1>
  Read More
- <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long text-decoration-none" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-<path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor">
-</path>
-</svg>
-</a>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide" data-slick-index="2" id="slick-slide32" role="tabpanel" style="width:630px" tabindex="-1"><div><div class="blog-content bg-none" style="width:100%;display:inline-block">
-<div class="blog-img">
-<a href="https://tapifyworld.com/social-services-template/blog/39" tabindex="-1">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-52)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</a>
-</div>
-<div class="content position-relative">
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-042.svg"/>
-</div>
-<h3 class="text-primary">Why Education is the Strongest Tool Against Child Poverty</h3>
-<p class="mb-0">
+ <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
+ <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
+ </path>
+ </svg>
+ </a>
+ </div>
+ </div>
+ </div></div></div><div class=slick-slide data-slick-index=2 aria-hidden=true tabindex=-1 role=tabpanel id=slick-slide32 style=width:630px><div><div class="blog-content bg-none" style=width:100%;display:inline-block>
+ <div class=blog-img>
+ <a href=https://tapifyworld.com/social-services-template/blog/39 tabindex=-1>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-52)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </a>
+ </div>
+ <div class="content position-relative">
+ <div class=dots-img>
+ <img src=/images/templates/socialservicesx/soc-042.svg class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ <h3 class=text-primary>Why Education is the Strongest Tool Against Child Poverty</h3>
+ <p class=mb-0>
  A thought piece on the importance of accessible education for every child.
  </p>
-<div class="d-flex align-items-center justify-content-end read-more">
-<a class="d-inline-flex align-items-center justify-content-end gap-2 mt-3" href="https://tapifyworld.com/social-services-template/blog/39" tabindex="-1">
+ <div class="d-flex align-items-center justify-content-end read-more">
+ <a href=https://tapifyworld.com/social-services-template/blog/39 class="d-inline-flex align-items-center justify-content-end gap-2 mt-3" tabindex=-1>
  Read More
- <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long text-decoration-none" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-<path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor">
-</path>
-</svg>
-</a>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="3" style="width:630px" tabindex="-1"><div><div class="blog-content bg-none" style="width:100%;display:inline-block">
-<div class="blog-img">
-<a href="https://tapifyworld.com/social-services-template/blog/37" tabindex="-1">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-54)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</a>
-</div>
-<div class="content position-relative">
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-042.svg"/>
-</div>
-<h3 class="text-primary">Behind the Scenes: A Day in Our NGO</h3>
-<p class="mb-0">
+ <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
+ <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
+ </path>
+ </svg>
+ </a>
+ </div>
+ </div>
+ </div></div></div><div class="slick-slide slick-cloned" data-slick-index=3 aria-hidden=true tabindex=-1 style=width:630px><div><div class="blog-content bg-none" style=width:100%;display:inline-block>
+ <div class=blog-img>
+ <a href=https://tapifyworld.com/social-services-template/blog/37 tabindex=-1>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-54)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </a>
+ </div>
+ <div class="content position-relative">
+ <div class=dots-img>
+ <img src=/images/templates/socialservicesx/soc-042.svg class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ <h3 class=text-primary>Behind the Scenes: A Day in Our NGO</h3>
+ <p class=mb-0>
  Give readers a glimpse of your team, operations, and daily efforts. 
  </p>
-<div class="d-flex align-items-center justify-content-end read-more">
-<a class="d-inline-flex align-items-center justify-content-end gap-2 mt-3" href="https://tapifyworld.com/social-services-template/blog/37" tabindex="-1">
+ <div class="d-flex align-items-center justify-content-end read-more">
+ <a href=https://tapifyworld.com/social-services-template/blog/37 class="d-inline-flex align-items-center justify-content-end gap-2 mt-3" tabindex=-1>
  Read More
- <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long text-decoration-none" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-<path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor">
-</path>
-</svg>
-</a>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="4" style="width:630px" tabindex="-1"><div><div class="blog-content bg-none" style="width:100%;display:inline-block">
-<div class="blog-img">
-<a href="https://tapifyworld.com/social-services-template/blog/38" tabindex="-1">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-55)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</a>
-</div>
-<div class="content position-relative">
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-042.svg"/>
-</div>
-<h3 class="text-primary">Behind the Scenes: A Day with Our Field Team</h3>
-<p class="mb-0">
+ <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
+ <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
+ </path>
+ </svg>
+ </a>
+ </div>
+ </div>
+ </div></div></div><div class="slick-slide slick-cloned" data-slick-index=4 aria-hidden=true tabindex=-1 style=width:630px><div><div class="blog-content bg-none" style=width:100%;display:inline-block>
+ <div class=blog-img>
+ <a href=https://tapifyworld.com/social-services-template/blog/38 tabindex=-1>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-55)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </a>
+ </div>
+ <div class="content position-relative">
+ <div class=dots-img>
+ <img src=/images/templates/socialservicesx/soc-042.svg class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ <h3 class=text-primary>Behind the Scenes: A Day with Our Field Team</h3>
+ <p class=mb-0>
  Share real-life impact stories of children helped through your programs.
  </p>
-<div class="d-flex align-items-center justify-content-end read-more">
-<a class="d-inline-flex align-items-center justify-content-end gap-2 mt-3" href="https://tapifyworld.com/social-services-template/blog/38" tabindex="-1">
+ <div class="d-flex align-items-center justify-content-end read-more">
+ <a href=https://tapifyworld.com/social-services-template/blog/38 class="d-inline-flex align-items-center justify-content-end gap-2 mt-3" tabindex=-1>
  Read More
- <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long text-decoration-none" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-<path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor">
-</path>
-</svg>
-</a>
-</div>
-</div>
-</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="5" style="width:630px" tabindex="-1"><div><div class="blog-content bg-none" style="width:100%;display:inline-block">
-<div class="blog-img">
-<a href="https://tapifyworld.com/social-services-template/blog/39" tabindex="-1">
-<img class="w-100 h-100 object-fit-cover" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-52)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</a>
-</div>
-<div class="content position-relative">
-<div class="dots-img">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-042.svg"/>
-</div>
-<h3 class="text-primary">Why Education is the Strongest Tool Against Child Poverty</h3>
-<p class="mb-0">
+ <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
+ <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
+ </path>
+ </svg>
+ </a>
+ </div>
+ </div>
+ </div></div></div><div class="slick-slide slick-cloned" data-slick-index=5 aria-hidden=true tabindex=-1 style=width:630px><div><div class="blog-content bg-none" style=width:100%;display:inline-block>
+ <div class=blog-img>
+ <a href=https://tapifyworld.com/social-services-template/blog/39 tabindex=-1>
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-52)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </a>
+ </div>
+ <div class="content position-relative">
+ <div class=dots-img>
+ <img src=/images/templates/socialservicesx/soc-042.svg class="w-100 h-100 object-fit-cover" loading=lazy>
+ </div>
+ <h3 class=text-primary>Why Education is the Strongest Tool Against Child Poverty</h3>
+ <p class=mb-0>
  A thought piece on the importance of accessible education for every child.
  </p>
-<div class="d-flex align-items-center justify-content-end read-more">
-<a class="d-inline-flex align-items-center justify-content-end gap-2 mt-3" href="https://tapifyworld.com/social-services-template/blog/39" tabindex="-1">
+ <div class="d-flex align-items-center justify-content-end read-more">
+ <a href=https://tapifyworld.com/social-services-template/blog/39 class="d-inline-flex align-items-center justify-content-end gap-2 mt-3" tabindex=-1>
  Read More
- <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long text-decoration-none" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-<path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor">
-</path>
-</svg>
-</a>
-</div>
-</div>
-</div></div></div></div></div><ul class="slick-dots" role="tablist"><li class="slick-active" role="presentation"><button aria-controls="slick-slide30" aria-label="1 of 3" aria-selected="true" fdprocessedid="cyibvs" id="slick-slide-control30" role="tab" tabindex="0" type="button">1</button><li role="presentation"><button aria-controls="slick-slide31" aria-label="2 of 3" id="slick-slide-control31" role="tab" tabindex="-1" type="button">2</button><li role="presentation"><button aria-controls="slick-slide32" aria-label="3 of 3" id="slick-slide-control32" role="tab" tabindex="-1" type="button">3</button></li></li></li></ul></div>
-</div>
-<div class="qr-code-section pt-50 px-30">
-<div class="position-absolute top-0 end-0 all-bg-img img-5">
-<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-19)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-</div>
-<div class="bg-vector vector-10 position-absolute">
-<img alt="profile-bg" src="/images/templates/socialservicesxxxxxx/soc-043.webp"/>
-</div>
-<div class="section-heading mb-40 text-center">
-<h2 class="mb-0">QR Code</h2>
-</div>
-<div class="qr-code mx-auto position-relative overflow-hidden">
-<div class="d-flex flex-sm-row flex-column gap-3 align-items-center">
-<div class="qr-code-bg">
-<div class="qr-code-img text-center" id="qr-code-thirteen">
-<svg height="130" version="1.1" viewBox="0 0 130 130" width="130" xmlns="http://www.w3.org/2000/svg"><rect fill="#ffffff" height="130" width="130" x="0" y="0"></rect><g transform="scale(4.483)"><g transform="translate(0,0)"><path d="M10 0L10 2L11 2L11 0ZM12 0L12 1L13 1L13 2L12 2L12 4L15 4L15 3L16 3L16 2L17 2L17 1L20 1L20 2L19 2L19 3L17 3L17 4L16 4L16 5L14 5L14 8L12 8L12 7L13 7L13 5L11 5L11 6L10 6L10 4L11 4L11 3L8 3L8 4L9 4L9 5L8 5L8 7L9 7L9 8L6 8L6 9L5 9L5 8L0 8L0 9L2 9L2 10L1 10L1 11L0 11L0 13L1 13L1 14L0 14L0 21L1 21L1 18L2 18L2 19L3 19L3 20L2 20L2 21L3 21L3 20L6 20L6 21L7 21L7 20L6 20L6 19L7 19L7 18L6 18L6 17L7 17L7 16L11 16L11 14L12 14L12 15L13 15L13 14L14 14L14 16L13 16L13 17L14 17L14 19L19 19L19 18L21 18L21 17L18 17L18 16L17 16L17 15L18 15L18 14L20 14L20 12L23 12L23 11L25 11L25 13L22 13L22 14L21 14L21 15L20 15L20 16L21 16L21 15L23 15L23 14L24 14L24 16L23 16L23 17L22 17L22 18L23 18L23 19L22 19L22 20L21 20L21 19L20 19L20 20L19 20L19 21L18 21L18 20L13 20L13 19L12 19L12 21L11 21L11 19L9 19L9 18L12 18L12 17L9 17L9 18L8 18L8 19L9 19L9 20L8 20L8 23L9 23L9 24L8 24L8 29L10 29L10 27L11 27L11 26L12 26L12 28L13 28L13 29L15 29L15 28L17 28L17 29L18 29L18 28L17 28L17 27L16 27L16 26L14 26L14 25L15 25L15 24L17 24L17 25L18 25L18 27L19 27L19 29L20 29L20 28L21 28L21 27L22 27L22 29L27 29L27 28L28 28L28 26L29 26L29 25L28 25L28 23L27 23L27 22L29 22L29 20L28 20L28 19L27 19L27 16L28 16L28 15L27 15L27 14L25 14L25 13L27 13L27 12L28 12L28 11L27 11L27 12L26 12L26 11L25 11L25 9L26 9L26 8L25 8L25 9L24 9L24 8L23 8L23 9L22 9L22 8L21 8L21 9L19 9L19 10L17 10L17 9L18 9L18 8L17 8L17 6L18 6L18 7L19 7L19 8L20 8L20 7L21 7L21 4L20 4L20 3L21 3L21 0L16 0L16 1L15 1L15 2L14 2L14 1L13 1L13 0ZM8 1L8 2L9 2L9 1ZM13 2L13 3L14 3L14 2ZM16 5L16 6L15 6L15 8L16 8L16 6L17 6L17 5ZM18 5L18 6L19 6L19 7L20 7L20 5ZM9 6L9 7L10 7L10 6ZM11 6L11 7L12 7L12 6ZM10 8L10 9L9 9L9 10L8 10L8 9L6 9L6 10L8 10L8 11L9 11L9 12L7 12L7 11L5 11L5 10L4 10L4 9L3 9L3 11L1 11L1 12L3 12L3 13L4 13L4 12L7 12L7 13L5 13L5 14L3 14L3 15L4 15L4 16L2 16L2 18L3 18L3 19L4 19L4 18L5 18L5 17L6 17L6 16L7 16L7 15L8 15L8 13L9 13L9 15L10 15L10 14L11 14L11 13L12 13L12 14L13 14L13 13L12 13L12 12L14 12L14 14L16 14L16 13L15 13L15 12L18 12L18 13L19 13L19 11L23 11L23 10L19 10L19 11L17 11L17 10L16 10L16 9L15 9L15 10L14 10L14 9L13 9L13 10L12 10L12 9L11 9L11 8ZM27 8L27 9L28 9L28 10L29 10L29 9L28 9L28 8ZM10 9L10 11L11 11L11 9ZM13 10L13 11L14 11L14 12L15 12L15 11L16 11L16 10L15 10L15 11L14 11L14 10ZM3 11L3 12L4 12L4 11ZM9 12L9 13L11 13L11 12ZM28 13L28 14L29 14L29 13ZM5 14L5 16L6 16L6 15L7 15L7 14ZM25 15L25 16L24 16L24 17L25 17L25 21L26 21L26 20L27 20L27 19L26 19L26 17L25 17L25 16L27 16L27 15ZM16 16L16 17L15 17L15 18L16 18L16 17L17 17L17 18L18 18L18 17L17 17L17 16ZM28 17L28 18L29 18L29 17ZM23 19L23 20L24 20L24 19ZM9 20L9 23L11 23L11 24L10 24L10 25L9 25L9 27L10 27L10 25L11 25L11 24L14 24L14 22L16 22L16 21L12 21L12 22L10 22L10 20ZM19 21L19 22L20 22L20 21ZM21 21L21 24L24 24L24 21ZM12 22L12 23L13 23L13 22ZM17 22L17 24L18 24L18 25L19 25L19 27L21 27L21 26L25 26L25 25L26 25L26 24L27 24L27 23L25 23L25 25L21 25L21 26L20 26L20 24L19 24L19 23L18 23L18 22ZM22 22L22 23L23 23L23 22ZM12 25L12 26L13 26L13 28L14 28L14 26L13 26L13 25ZM27 25L27 26L28 26L28 25ZM23 27L23 28L24 28L24 27ZM26 27L26 28L27 28L27 27ZM0 0L0 7L7 7L7 0ZM1 1L1 6L6 6L6 1ZM2 2L2 5L5 5L5 2ZM22 0L22 7L29 7L29 0ZM23 1L23 6L28 6L28 1ZM24 2L24 5L27 5L27 2ZM0 22L0 29L7 29L7 22ZM1 23L1 28L6 28L6 23ZM2 24L2 27L5 27L5 24Z" fill="#000000" fill-rule="evenodd"></path></g></g></svg>
-</div>
-</div>
-<div class="text-sm-start text-center">
-<h5 class="fw-6">Scan to Contact</h5>
-<p class="fs-14 text-gray mb-0">Point your phone’s camera at the QR code to quickly add our contact information. You can also use the "Add to Contacts" button below for fast saving.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="business-hour-section pt-50 px-30 position-relative">
-<div class="bg-vector vector-11 position-absolute top-0 end-0">
-<img alt="profile-bg" src="/images/templates/socialservicesxxxxxx/soc-044.webp"/>
-</div>
-<div class="section-heading text-center">
-<h2 class="mb-0">Business Hours</h2>
-</div>
-<div class="business-hours">
-<div class="justify-content-center row business-time mx-0 row-gap-20">
-<div class="col-sm-6">
-<div class="time-body text-center position-relative">
-<div class="days">Monday:</div>
-<div class="time">
-<div>12:00 AM - 12:00 AM</div>
-</div>
-<div class="calender-icon">
-<svg class="text-white" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
-<path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3">
-</path>
-<path d="M16 3v4"></path>
-<path d="M8 3v4"></path>
-<path d="M4 11h10"></path>
-<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
-<path d="M18 16.5v1.5l.5 .5"></path>
-</svg>
-</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="time-body text-center position-relative">
-<div class="days">Tuesday:</div>
-<div class="time">
-<div>12:00 AM - 12:00 AM</div>
-</div>
-<div class="calender-icon">
-<svg class="text-white" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
-<path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3">
-</path>
-<path d="M16 3v4"></path>
-<path d="M8 3v4"></path>
-<path d="M4 11h10"></path>
-<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
-<path d="M18 16.5v1.5l.5 .5"></path>
-</svg>
-</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="time-body text-center position-relative">
-<div class="days">Wednesday:</div>
-<div class="time">
-<div>12:00 AM - 12:00 AM</div>
-</div>
-<div class="calender-icon">
-<svg class="text-white" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
-<path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3">
-</path>
-<path d="M16 3v4"></path>
-<path d="M8 3v4"></path>
-<path d="M4 11h10"></path>
-<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
-<path d="M18 16.5v1.5l.5 .5"></path>
-</svg>
-</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="time-body text-center position-relative">
-<div class="days">Thursday:</div>
-<div class="time">
-<div>12:00 AM - 12:00 AM</div>
-</div>
-<div class="calender-icon">
-<svg class="text-white" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
-<path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3">
-</path>
-<path d="M16 3v4"></path>
-<path d="M8 3v4"></path>
-<path d="M4 11h10"></path>
-<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
-<path d="M18 16.5v1.5l.5 .5"></path>
-</svg>
-</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="time-body text-center position-relative">
-<div class="days">Friday:</div>
-<div class="time">
-<div>12:00 AM - 12:00 AM</div>
-</div>
-<div class="calender-icon">
-<svg class="text-white" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
-<path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3">
-</path>
-<path d="M16 3v4"></path>
-<path d="M8 3v4"></path>
-<path d="M4 11h10"></path>
-<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
-<path d="M18 16.5v1.5l.5 .5"></path>
-</svg>
-</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="time-body text-center position-relative">
-<div class="days">Saturday:</div>
-<div class="time">
-<div>12:00 AM - 12:00 AM</div>
-</div>
-<div class="calender-icon">
-<svg class="text-white" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
-<path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3">
-</path>
-<path d="M16 3v4"></path>
-<path d="M8 3v4"></path>
-<path d="M4 11h10"></path>
-<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
-<path d="M18 16.5v1.5l.5 .5"></path>
-</svg>
-</div>
-</div>
-</div>
-<div class="col-sm-6">
-<div class="time-body text-center position-relative">
-<div class="days">Sunday:</div>
-<div class="time">
-<div>Closed</div>
-</div>
-<div class="calender-icon">
-<svg class="text-white" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
-<path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3">
-</path>
-<path d="M16 3v4"></path>
-<path d="M8 3v4"></path>
-<path d="M4 11h10"></path>
-<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
-<path d="M18 16.5v1.5l.5 .5"></path>
-</svg>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="contact-us-section pt-30 px-30 position-relative">
-<div class="bg-vector position-absolute top-0 vector-13">
-<img alt="profile-bg" src="/images/templates/socialservicesxxxxxx/soc-045.webp"/>
-</div>
-<div class="section-heading text-center">
-<h2 class="mb-0">Inquiries</h2>
-</div>
-<div class="contact-form">
-<div class="dot-img">
-<img alt="imgaes" class="w-100" src="/images/templates/socialservicesxxxxxx/soc-042.svg"/>
-</div>
-<form enctype="multipart/form-data" id="enquiryForm" onsubmit="tfSubmitInquiry(event)"><input name="vcard_id" type="hidden" value="<?= $vcardId ?>"/><label class="w-100 mb-2" style="display:block;text-align:left"><span style="font-size:13px;opacity:.85">Attachment (optional)</span><input accept="image/*,.pdf" class="form-control" name="attachment" style="margin-top:4px" type="file"/></label>
-<div class="row">
-<div class="alert alert-danger d-none sf-hidden" id="enquiryError"></div>
-<div class="col-12">
-<div class="mb-3">
-<input class="form-control" fdprocessedid="6n7i4e" name="name" placeholder="Your Name" type="text" value=""/>
-</div>
-</div>
-<div class="col-12">
-<div class="mb-3">
-<input class="form-control" fdprocessedid="pkn9k" name="email" placeholder="Email Address" type="email" value=""/>
-</div>
-</div>
-<div class="col-12">
-<div class="mb-3">
-<input class="form-control" fdprocessedid="mncgx8" name="phone" placeholder="Enter Phone Number." type="tel" value=""/>
-</div>
-</div>
-<div class="col-12">
-<div class="mb-3">
-<textarea class="form-control h-100" name="message" placeholder="Type a message here..." rows="4"></textarea>
-</div>
-</div>
-<div class="mb-3">
-<div class="wrapper-file-input">
-<div class="input-box" id="fileInputTrigger">
-<h4> <svg aria-hidden="true" class="svg-inline--fa fa-upload me-2" data-fa-i2svg="" data-icon="upload" data-prefix="fas" focusable="false" role="img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M105.4 182.6c12.5 12.49 32.76 12.5 45.25 .001L224 109.3V352c0 17.67 14.33 32 32 32c17.67 0 32-14.33 32-32V109.3l73.38 73.38c12.49 12.49 32.75 12.49 45.25-.001c12.49-12.49 12.49-32.75 0-45.25l-128-128C272.4 3.125 264.2 0 256 0S239.6 3.125 233.4 9.375L105.4 137.4C92.88 149.9 92.88 170.1 105.4 182.6zM480 352h-160c0 35.35-28.65 64-64 64s-64-28.65-64-64H32c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h448c17.67 0 32-14.33 32-32v-96C512 366.3 497.7 352 480 352zM432 456c-13.2 0-24-10.8-24-24c0-13.2 10.8-24 24-24s24 10.8 24 24C456 445.2 445.2 456 432 456z" fill="currentColor"></path></svg>Choose File to upload
- </h4> <input class="sf-hidden" hidden="" id="attachment" multiple="" name="attachment" type="file" value=""/>
-</div> <small>Files Supported: JPG, PNG, JPEG</small>
-</div>
-<div class="wrapper-file-section">
-<div class="selected-files" id="selectedFilesSection" style="display:none">
-</div>
-</div>
-</div>
-<div class="col-12 text-center mt-3">
-<button class="send-btn btn btn-primary rounded-2 w-100 contact-btn" fdprocessedid="wa2pyk" type="submit">
+ <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
+ <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
+ </path>
+ </svg>
+ </a>
+ </div>
+ </div>
+ </div></div></div></div></div><ul class=slick-dots role=tablist><li class=slick-active role=presentation><button type=button role=tab id=slick-slide-control30 aria-controls=slick-slide30 aria-label="1 of 3" tabindex=0 aria-selected=true fdprocessedid=cyibvs>1</button><li role=presentation><button type=button role=tab id=slick-slide-control31 aria-controls=slick-slide31 aria-label="2 of 3" tabindex=-1>2</button><li role=presentation><button type=button role=tab id=slick-slide-control32 aria-controls=slick-slide32 aria-label="3 of 3" tabindex=-1>3</button></ul></div>
+ </div>
+ 
+ <div class="qr-code-section pt-50 px-30">
+ <div class="position-absolute top-0 end-0 all-bg-img img-5">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-19)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ </div>
+ <div class="bg-vector vector-10 position-absolute">
+ <img src="/images/templates/socialservicesx/soc-043.webp" alt=profile-bg>
+ </div>
+ <div class="section-heading mb-40 text-center">
+ <h2 class=mb-0>QR Code</h2>
+ </div>
+ <div class="qr-code mx-auto position-relative overflow-hidden">
+ <div class="d-flex flex-sm-row flex-column gap-3 align-items-center">
+ <div class=qr-code-bg>
+ <div class="qr-code-img text-center" id=qr-code-thirteen>
+ 
+<svg xmlns=http://www.w3.org/2000/svg version=1.1 width=130 height=130 viewBox="0 0 130 130"><rect x=0 y=0 width=130 height=130 fill=#ffffff></rect><g transform=scale(4.483)><g transform=translate(0,0)><path fill-rule=evenodd d="M10 0L10 2L11 2L11 0ZM12 0L12 1L13 1L13 2L12 2L12 4L15 4L15 3L16 3L16 2L17 2L17 1L20 1L20 2L19 2L19 3L17 3L17 4L16 4L16 5L14 5L14 8L12 8L12 7L13 7L13 5L11 5L11 6L10 6L10 4L11 4L11 3L8 3L8 4L9 4L9 5L8 5L8 7L9 7L9 8L6 8L6 9L5 9L5 8L0 8L0 9L2 9L2 10L1 10L1 11L0 11L0 13L1 13L1 14L0 14L0 21L1 21L1 18L2 18L2 19L3 19L3 20L2 20L2 21L3 21L3 20L6 20L6 21L7 21L7 20L6 20L6 19L7 19L7 18L6 18L6 17L7 17L7 16L11 16L11 14L12 14L12 15L13 15L13 14L14 14L14 16L13 16L13 17L14 17L14 19L19 19L19 18L21 18L21 17L18 17L18 16L17 16L17 15L18 15L18 14L20 14L20 12L23 12L23 11L25 11L25 13L22 13L22 14L21 14L21 15L20 15L20 16L21 16L21 15L23 15L23 14L24 14L24 16L23 16L23 17L22 17L22 18L23 18L23 19L22 19L22 20L21 20L21 19L20 19L20 20L19 20L19 21L18 21L18 20L13 20L13 19L12 19L12 21L11 21L11 19L9 19L9 18L12 18L12 17L9 17L9 18L8 18L8 19L9 19L9 20L8 20L8 23L9 23L9 24L8 24L8 29L10 29L10 27L11 27L11 26L12 26L12 28L13 28L13 29L15 29L15 28L17 28L17 29L18 29L18 28L17 28L17 27L16 27L16 26L14 26L14 25L15 25L15 24L17 24L17 25L18 25L18 27L19 27L19 29L20 29L20 28L21 28L21 27L22 27L22 29L27 29L27 28L28 28L28 26L29 26L29 25L28 25L28 23L27 23L27 22L29 22L29 20L28 20L28 19L27 19L27 16L28 16L28 15L27 15L27 14L25 14L25 13L27 13L27 12L28 12L28 11L27 11L27 12L26 12L26 11L25 11L25 9L26 9L26 8L25 8L25 9L24 9L24 8L23 8L23 9L22 9L22 8L21 8L21 9L19 9L19 10L17 10L17 9L18 9L18 8L17 8L17 6L18 6L18 7L19 7L19 8L20 8L20 7L21 7L21 4L20 4L20 3L21 3L21 0L16 0L16 1L15 1L15 2L14 2L14 1L13 1L13 0ZM8 1L8 2L9 2L9 1ZM13 2L13 3L14 3L14 2ZM16 5L16 6L15 6L15 8L16 8L16 6L17 6L17 5ZM18 5L18 6L19 6L19 7L20 7L20 5ZM9 6L9 7L10 7L10 6ZM11 6L11 7L12 7L12 6ZM10 8L10 9L9 9L9 10L8 10L8 9L6 9L6 10L8 10L8 11L9 11L9 12L7 12L7 11L5 11L5 10L4 10L4 9L3 9L3 11L1 11L1 12L3 12L3 13L4 13L4 12L7 12L7 13L5 13L5 14L3 14L3 15L4 15L4 16L2 16L2 18L3 18L3 19L4 19L4 18L5 18L5 17L6 17L6 16L7 16L7 15L8 15L8 13L9 13L9 15L10 15L10 14L11 14L11 13L12 13L12 14L13 14L13 13L12 13L12 12L14 12L14 14L16 14L16 13L15 13L15 12L18 12L18 13L19 13L19 11L23 11L23 10L19 10L19 11L17 11L17 10L16 10L16 9L15 9L15 10L14 10L14 9L13 9L13 10L12 10L12 9L11 9L11 8ZM27 8L27 9L28 9L28 10L29 10L29 9L28 9L28 8ZM10 9L10 11L11 11L11 9ZM13 10L13 11L14 11L14 12L15 12L15 11L16 11L16 10L15 10L15 11L14 11L14 10ZM3 11L3 12L4 12L4 11ZM9 12L9 13L11 13L11 12ZM28 13L28 14L29 14L29 13ZM5 14L5 16L6 16L6 15L7 15L7 14ZM25 15L25 16L24 16L24 17L25 17L25 21L26 21L26 20L27 20L27 19L26 19L26 17L25 17L25 16L27 16L27 15ZM16 16L16 17L15 17L15 18L16 18L16 17L17 17L17 18L18 18L18 17L17 17L17 16ZM28 17L28 18L29 18L29 17ZM23 19L23 20L24 20L24 19ZM9 20L9 23L11 23L11 24L10 24L10 25L9 25L9 27L10 27L10 25L11 25L11 24L14 24L14 22L16 22L16 21L12 21L12 22L10 22L10 20ZM19 21L19 22L20 22L20 21ZM21 21L21 24L24 24L24 21ZM12 22L12 23L13 23L13 22ZM17 22L17 24L18 24L18 25L19 25L19 27L21 27L21 26L25 26L25 25L26 25L26 24L27 24L27 23L25 23L25 25L21 25L21 26L20 26L20 24L19 24L19 23L18 23L18 22ZM22 22L22 23L23 23L23 22ZM12 25L12 26L13 26L13 28L14 28L14 26L13 26L13 25ZM27 25L27 26L28 26L28 25ZM23 27L23 28L24 28L24 27ZM26 27L26 28L27 28L27 27ZM0 0L0 7L7 7L7 0ZM1 1L1 6L6 6L6 1ZM2 2L2 5L5 5L5 2ZM22 0L22 7L29 7L29 0ZM23 1L23 6L28 6L28 1ZM24 2L24 5L27 5L27 2ZM0 22L0 29L7 29L7 22ZM1 23L1 28L6 28L6 23ZM2 24L2 27L5 27L5 24Z" fill=#000000></path></g></g></svg>
+ </div>
+ </div>
+ <div class="text-sm-start text-center">
+ <h5 class=fw-6>Scan to Contact</h5>
+ <p class="fs-14 text-gray mb-0">Point your phone’s camera at the QR code to quickly add our contact information. You can also use the "Add to Contacts" button below for fast saving.</p>
+ </div>
+ </div>
+ </div>
+ </div>
+ 
+ <?php if(!empty($businessHours)): ?><div class="business-hour-section pt-50 px-30 position-relative"><div class="section-heading"><h2>Business Hours</h2></div><div class="px-30"><div class="row justify-content-center"><?php foreach ((isset($__bh)?$__bh:($businessHours ?? [])) as $bh): ?><div class="col-sm-6"><div class="business-hour-card d-flex gap-2 align-items-center mb-3"><div class="time-icon"><i class="bi bi-clock fs-3"></i></div><div class="d-flex flex-column align-items-start"><span class="fs-14 text-gray lh-1 fw-5"><?= htmlspecialchars(ucfirst(strtolower($bh["day_name"] ?? ""))) ?></span><span class="fs-16 fw-5"><?= !empty($bh["is_open"]) ? htmlspecialchars(trim(($bh["open_time"] ?? "")." - ".($bh["close_time"] ?? ""))) : "Closed" ?></span></div></div></div><?php endforeach; ?></div></div></div><?php endif; ?>
+ 
+ 
+ <div class="contact-us-section pt-30 px-30 position-relative">
+ <div class="bg-vector position-absolute top-0 vector-13">
+ <img src=/images/templates/socialservicesx/soc-045.webp alt=profile-bg>
+ </div>
+ <div class="section-heading text-center">
+ <h2 class=mb-0>Inquiries</h2>
+ </div>
+ <div class=contact-form>
+ <div class=dot-img>
+ <img src=/images/templates/socialservicesx/soc-042.svg alt=imgaes class=w-100>
+ </div>
+ <form id="enquiryForm" onsubmit="tfSubmitInquiry(event)" enctype="multipart/form-data"><input type="hidden" name="vcard_id" value="<?= $vcardId ?>"><label class="w-100 mb-2" style="display:block;text-align:left"><span style="font-size:13px;opacity:.85">Attachment (optional)</span><input type="file" name="attachment" class="form-control" accept="image/*,.pdf" style="margin-top:4px"></label>
+ <div class=row>
+ <div id=enquiryError class="alert alert-danger d-none sf-hidden"></div>
+ <div class=col-12>
+ <div class=mb-3>
+ <input type=text class=form-control name=name placeholder="Your Name" fdprocessedid=6n7i4e value>
+ </div>
+ </div>
+ <div class=col-12>
+ <div class=mb-3>
+ <input type=email class=form-control name=email placeholder="Email Address" fdprocessedid=pkn9k value>
+ </div>
+ </div>
+ <div class=col-12>
+ <div class=mb-3>
+ <input type=tel class=form-control name=phone placeholder="Enter Phone Number." fdprocessedid=mncgx8 value>
+ </div>
+ </div>
+ <div class=col-12>
+ <div class=mb-3>
+ <textarea class="form-control h-100" name=message placeholder="Type a message here..." rows=4></textarea>
+ </div>
+ </div>
+ <div class=mb-3>
+ 
+ <div class=wrapper-file-input>
+ <div class=input-box id=fileInputTrigger>
+ <h4> <svg class="svg-inline--fa fa-upload me-2" aria-hidden=true focusable=false data-prefix=fas data-icon=upload role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M105.4 182.6c12.5 12.49 32.76 12.5 45.25 .001L224 109.3V352c0 17.67 14.33 32 32 32c17.67 0 32-14.33 32-32V109.3l73.38 73.38c12.49 12.49 32.75 12.49 45.25-.001c12.49-12.49 12.49-32.75 0-45.25l-128-128C272.4 3.125 264.2 0 256 0S239.6 3.125 233.4 9.375L105.4 137.4C92.88 149.9 92.88 170.1 105.4 182.6zM480 352h-160c0 35.35-28.65 64-64 64s-64-28.65-64-64H32c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h448c17.67 0 32-14.33 32-32v-96C512 366.3 497.7 352 480 352zM432 456c-13.2 0-24-10.8-24-24c0-13.2 10.8-24 24-24s24 10.8 24 24C456 445.2 445.2 456 432 456z"></path></svg>Choose File to upload
+ </h4> <input type=file id=attachment name=attachment hidden multiple value class=sf-hidden>
+ </div> <small>Files Supported: JPG, PNG, JPEG</small>
+ </div>
+ <div class=wrapper-file-section>
+ <div class=selected-files id=selectedFilesSection style=display:none>
+ 
+ 
+ </div>
+ </div>
+ </div>
+ <div class="col-12 text-center mt-3">
+ <button class="send-btn btn btn-primary rounded-2 w-100 contact-btn" type=submit fdprocessedid=wa2pyk>
  Send Message
  </button>
+ </div>
+ </div>
+ </form>
+ </div>
+ </div>
+ 
+ 
+ 
+ 
+ <div class=add-to-contact-section>
+ <div class="text-center d-flex align-items-center justify-content-center">
+ <a href=https://tapifyworld.com/add-contact/27 class="add-contact-btn position-relative rounded-2 gap-2 d-flex justify-content-center align-items-center"><svg class="svg-inline--fa fa-address-book" aria-hidden=true focusable=false data-prefix=fas data-icon=address-book role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M384 0H96C60.65 0 32 28.65 32 64v384c0 35.35 28.65 64 64 64h288c35.35 0 64-28.65 64-64V64C448 28.65 419.3 0 384 0zM240 128c35.35 0 64 28.65 64 64s-28.65 64-64 64c-35.34 0-64-28.65-64-64S204.7 128 240 128zM336 384h-192C135.2 384 128 376.8 128 368C128 323.8 163.8 288 208 288h64c44.18 0 80 35.82 80 80C352 376.8 344.8 384 336 384zM496 64H480v96h16C504.8 160 512 152.8 512 144v-64C512 71.16 504.8 64 496 64zM496 192H480v96h16C504.8 288 512 280.8 512 272v-64C512 199.2 504.8 192 496 192zM496 320H480v96h16c8.836 0 16-7.164 16-16v-64C512 327.2 504.8 320 496 320z"></path></svg>
+ &nbsp;Add to contact</a>
+ </div>
+ </div>
+ <div class="modal fade py-3 sf-hidden" id=askContactDetailFormModel tabindex=-1 aria-hidden=true aria-labelledby=askContactDetailFormModelLabel>
+ 
 </div>
-</div>
-</form>
-</div>
-</div>
-<div class="add-to-contact-section">
-<div class="text-center d-flex align-items-center justify-content-center">
-<a class="add-contact-btn position-relative rounded-2 gap-2 d-flex justify-content-center align-items-center" href="https://tapifyworld.com/add-contact/27"><svg aria-hidden="true" class="svg-inline--fa fa-address-book" data-fa-i2svg="" data-icon="address-book" data-prefix="fas" focusable="false" role="img" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M384 0H96C60.65 0 32 28.65 32 64v384c0 35.35 28.65 64 64 64h288c35.35 0 64-28.65 64-64V64C448 28.65 419.3 0 384 0zM240 128c35.35 0 64 28.65 64 64s-28.65 64-64 64c-35.34 0-64-28.65-64-64S204.7 128 240 128zM336 384h-192C135.2 384 128 376.8 128 368C128 323.8 163.8 288 208 288h64c44.18 0 80 35.82 80 80C352 376.8 344.8 384 336 384zM496 64H480v96h16C504.8 160 512 152.8 512 144v-64C512 71.16 504.8 64 496 64zM496 192H480v96h16C504.8 288 512 280.8 512 272v-64C512 199.2 504.8 192 496 192zM496 320H480v96h16c8.836 0 16-7.164 16-16v-64C512 327.2 504.8 320 496 320z" fill="currentColor"></path></svg>
-  Add to contact</a>
-</div>
-</div>
-<div aria-hidden="true" aria-labelledby="askContactDetailFormModelLabel" class="modal fade py-3 sf-hidden" id="askContactDetailFormModel" tabindex="-1">
-</div>
-<div class="bottom-bg">
-<img alt="bottom-bg" class="w-100" src="/images/templates/socialservicesxxxxxx/soc-046.webp"/>
-</div>
-<div class="d-flex justify-content-evenly py-2">
-<div class="text-center">
-<small class="text-primary">Made By
+ 
+ 
+ <div class=bottom-bg>
+ <img src="/images/templates/socialservicesx/soc-046.webp" alt=bottom-bg class=w-100>
+ </div>
+ 
+ <div class="d-flex justify-content-evenly py-2">
+ <div class=text-center>
+ <small class=text-primary>Made By
  Tapify</small>
-</div>
-</div>
-<div class="btn-section cursor-pointer">
-<div class="fixed-btn-section">
-<div class="bars-btn social-services-bars-btn">
-<img loading="lazy" src="/images/templates/socialservicesxxxxxx/soc-047.svg"/>
-</div>
-<div class="sub-btn d-none sf-hidden">
-</div>
-</div>
-</div>
-</div>
-</div>
-<div aria-hidden="true" aria-labelledby="newsLatterModalLabel" class="modal fade sf-hidden" id="newsLatterModal" tabindex="-1">
-</div>
-<div class="modal fade sf-hidden" id="vcard25-shareModel" role="dialog">
-</div>
-</div>
-<?php endif; ?>
-<?php endif; ?>
-<?php endif; ?>
-<?php endif; ?>
-<?php endif; ?><div class="razorpay-container" style="z-index:2147483647;position:fixed;top:0px;display:none;left:0px;height:100%;width:100%;max-height:100dvh;backface-visibility:hidden;overflow-y:visible"><style>@keyframes rzp-rot{to{transform:rotate(360deg)}}@-webkit-keyframes rzp-rot{to{-webkit-transform:rotate(360deg)}}</style></div><div class="flatpickr-calendar animate arrowBottom arrowLeft sf-hidden" style="top:2809.96px;left:341.667px;right:auto" tabindex="-1"></div><div class="lightboxOverlay" id="lightboxOverlay" style="display:none" tabindex="-1"></div><div class="lightbox" id="lightbox" style="display:none" tabindex="-1"></div>"><script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet"/><script src="https://cdn.jsdelivr.net/npm/flatpickr"></script><script>function tfInit(){if(typeof jQuery==="undefined"||!jQuery.fn||!jQuery.fn.slick){return setTimeout(tfInit,120);}jQuery(function($){$(".product-slider,.gallery-slider,.testimonial-slider,.blog-slider").each(function(){if($(this).children().length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=instagram],[class*=insta-feed],[class*=insta-section],[class*=insta-feed-section]").each(function(){if($(this).find("img,iframe,.slick-slide,.insta-item,a[href*=instagram]").length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=__gallery],[class*=__product],[class*=__testimonial]").each(function(){var sl=$(this).find(".gallery-slider,.product-slider,.testimonial-slider").first();if(sl.length&&sl.children().length===0){$(this).hide();}});$("a").each(function(){var h=$(this).attr("href")||"";var tx=$(this).text().replace(/\s+/g,"");if((h==="mailto:"||h==="tel:")&&tx===""){$(this).closest(".contact-box,.contact-item,li,.col-sm-6,.col-md-6,.col-6,.col-12,.col").hide();}});$("[class*=contact-box],[class*=contact-item]").each(function(){if($(this).text().replace(/\s+/g,"")===""){$(this).hide();}});window.tfSubmitInquiry=async function(ev){ev.preventDefault();var f=ev.target;var b=f.querySelector("button[type=submit]");var fd=new FormData(f);if(b)b.disabled=true;try{var r=await fetch("/inquiry-submit.php",{method:"POST",body:fd});var j=await r.json();if(j.success){if(window.showToast)showToast("Message sent!","success");f.reset();}else{if(window.showToast)showToast(j.message||"Failed","error");}}catch(e){if(window.showToast)showToast("Connection error","error");}finally{if(b)b.disabled=false;}};function ini(s,o){var $s=$(s);if(!$s.length||$s.hasClass("slick-initialized"))return;$s.slick(o);}ini(".product-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".gallery-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".testimonial-slider",{slidesToShow:1,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:4000});if(window.flatpickr){flatpickr("#pickUpDate",{minDate:"today",dateFormat:"Y-m-d"});flatpickr(".flatpickr-input",{minDate:"today",dateFormat:"Y-m-d"});}});}tfInit();</script><?php if(!empty($vcard["custom_js"])): ?><script><?= $vcard["custom_js"] ?></script><?php endif; ?><?php include __DIR__ . "/_shared-scripts.php"; ?></body></html>
+ </div>
+ </div>
+ <div class="btn-section cursor-pointer">
+ <div class=fixed-btn-section>
+ <div class="bars-btn social-services-bars-btn">
+ <img src="/images/templates/socialservicesx/soc-047.svg" loading=lazy>
+ </div>
+ <div class="sub-btn d-none sf-hidden">
+ 
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ 
+ <div class="modal fade sf-hidden" id=newsLatterModal tabindex=-1 aria-labelledby=newsLatterModalLabel aria-hidden=true>
+ 
+ </div>
+ 
+ <div id=vcard25-shareModel class="modal fade sf-hidden" role=dialog>
+ 
+ </div>
+</div><div class=razorpay-container style=z-index:2147483647;position:fixed;top:0px;display:none;left:0px;height:100%;width:100%;max-height:100dvh;backface-visibility:hidden;overflow-y:visible><style>@keyframes rzp-rot{to{transform:rotate(360deg)}}@-webkit-keyframes rzp-rot{to{-webkit-transform:rotate(360deg)}}</style></div><div class="flatpickr-calendar animate arrowBottom arrowLeft sf-hidden" tabindex=-1 style=top:2809.96px;left:341.667px;right:auto></div><div id=lightboxOverlay tabindex=-1 class=lightboxOverlay style=display:none></div><div id=lightbox tabindex=-1 class=lightbox style=display:none></div>"><script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"><script src="https://cdn.jsdelivr.net/npm/flatpickr"></script><script>function tfInit(){if(typeof jQuery==="undefined"||!jQuery.fn||!jQuery.fn.slick){return setTimeout(tfInit,120);}jQuery(function($){$(".product-slider,.gallery-slider,.testimonial-slider,.blog-slider").each(function(){if($(this).children().length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=instagram],[class*=insta-feed],[class*=insta-section],[class*=insta-feed-section]").each(function(){if($(this).find("img,iframe,.slick-slide,.insta-item,a[href*=instagram]").length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=__gallery],[class*=__product],[class*=__testimonial]").each(function(){var sl=$(this).find(".gallery-slider,.product-slider,.testimonial-slider").first();if(sl.length&&sl.children().length===0){$(this).hide();}});$("a").each(function(){var h=$(this).attr("href")||"";var tx=$(this).text().replace(/\s+/g,"");if((h==="mailto:"||h==="tel:")&&tx===""){$(this).closest(".contact-box,.contact-item,li,.col-sm-6,.col-md-6,.col-6,.col-12,.col").hide();}});$("[class*=contact-box],[class*=contact-item]").each(function(){if($(this).text().replace(/\s+/g,"")===""){$(this).hide();}});window.tfSubmitInquiry=async function(ev){ev.preventDefault();var f=ev.target;var b=f.querySelector("button[type=submit]");var fd=new FormData(f);if(b)b.disabled=true;try{var r=await fetch("/inquiry-submit.php",{method:"POST",body:fd});var j=await r.json();if(j.success){if(window.showToast)showToast("Message sent!","success");f.reset();}else{if(window.showToast)showToast(j.message||"Failed","error");}}catch(e){if(window.showToast)showToast("Connection error","error");}finally{if(b)b.disabled=false;}};function ini(s,o){var $s=$(s);if(!$s.length||$s.hasClass("slick-initialized"))return;$s.slick(o);}ini(".product-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".gallery-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".testimonial-slider",{slidesToShow:1,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:4000});if(window.flatpickr){flatpickr("#pickUpDate",{minDate:"today",dateFormat:"Y-m-d"});flatpickr(".flatpickr-input",{minDate:"today",dateFormat:"Y-m-d"});}});}tfInit();</script><?php if(!empty($vcard["custom_js"])): ?><script><?= $vcard["custom_js"] ?></script><?php endif; ?><?php include __DIR__ . "/_shared-scripts.php"; ?><style>/*tf-fixups*/[class*=profile-name],.contact-box a,.contact-box p,.contact-box span{color:#2563eb!important}.contact-section{background:rgba(127,127,127,.10)!important;border-radius:12px}.flatpickr-calendar:not(.open){display:none!important}</style></body></html>
