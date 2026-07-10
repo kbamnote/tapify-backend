@@ -394,10 +394,10 @@ body{font-family:Poppins}
  <path d="M12.75 12.375C13.3713 12.375 13.875 11.8713 13.875 11.25C13.875 10.6287 13.3713 10.125 12.75 10.125C12.1287 10.125 11.625 10.6287 11.625 11.25C11.625 11.8713 12.1287 12.375 12.75 12.375Z" fill=#00715d></path>
  </g>
  <defs>
- <clippath id=clip0_102_145>
+ <clipPath id=clip0_102_145>
  <rect width=18 height=18 fill=white>
  </rect>
- </clippath>
+ </clipPath>
  </defs>
  </svg>
  </span>

@@ -102,9 +102,9 @@ body{font-family:Poppins}
  <path d="M82.4616 21.8723C78.9402 28.7582 73.4373 32.5087 65.2278 33.3054C57.7739 34.0287 51.0301 31.7875 46.1858 25.3927" stroke=#1cbbb4></path>
  </g>
  <defs>
- <clippath id=clip0_9563_935>
+ <clipPath id=clip0_9563_935>
  <rect width=670 height=50 fill=white transform="matrix(-1 0 0 -1 670 50)"></rect>
- </clippath>
+ </clipPath>
  </defs>
  </svg>
  </div>
@@ -151,9 +151,9 @@ body{font-family:Poppins}
  <path d="M587.538 28.1277C591.06 21.2418 596.563 17.4913 604.772 16.6946C612.226 15.9713 618.97 18.2125 623.814 24.6073" stroke=#f8ce0e></path>
  </g>
  <defs>
- <clippath id=clip0_9563_935>
+ <clipPath id=clip0_9563_935>
  <rect width=670 height=50 fill=white></rect>
- </clippath>
+ </clipPath>
  </defs>
  </svg>
  </div>
@@ -170,9 +170,9 @@ body{font-family:Poppins}
  <path d="M82.4616 21.8723C78.9402 28.7582 73.4373 32.5087 65.2278 33.3054C57.7739 34.0287 51.0301 31.7875 46.1858 25.3927" stroke=#f8ce0e></path>
  </g>
  <defs>
- <clippath id=clip0_9563_935>
+ <clipPath id=clip0_9563_935>
  <rect width=670 height=50 fill=white transform="matrix(-1 0 0 -1 670 50)"></rect>
- </clippath>
+ </clipPath>
  </defs>
  </svg>
  </div>
@@ -269,9 +269,9 @@ body{font-family:Poppins}
  <path d="M587.538 28.1277C591.06 21.2418 596.563 17.4913 604.772 16.6946C612.226 15.9713 618.97 18.2125 623.814 24.6073" stroke=#ed088b></path>
  </g>
  <defs>
- <clippath id=clip0_9563_935>
+ <clipPath id=clip0_9563_935>
  <rect width=670 height=50 fill=white></rect>
- </clippath>
+ </clipPath>
  </defs>
  </svg>
  </div>
@@ -288,9 +288,9 @@ body{font-family:Poppins}
  <path d="M82.4616 21.8723C78.9402 28.7582 73.4373 32.5087 65.2278 33.3054C57.7739 34.0287 51.0301 31.7875 46.1858 25.3927" stroke=#ed088b></path>
  </g>
  <defs>
- <clippath id=clip0_9563_935>
+ <clipPath id=clip0_9563_935>
  <rect width=670 height=50 fill=white transform="matrix(-1 0 0 -1 670 50)"></rect>
- </clippath>
+ </clipPath>
  </defs>
  </svg>
  </div>
@@ -390,9 +390,9 @@ body{font-family:Poppins}
  <path d="M587.538 28.1277C591.06 21.2418 596.563 17.4913 604.772 16.6946C612.226 15.9713 618.97 18.2125 623.814 24.6073" stroke=#f69800></path>
  </g>
  <defs>
- <clippath id=clip0_9563_935>
+ <clipPath id=clip0_9563_935>
  <rect width=670 height=50 fill=white></rect>
- </clippath>
+ </clipPath>
  </defs>
  </svg>
  </div>
@@ -409,9 +409,9 @@ body{font-family:Poppins}
  <path d="M82.4616 21.8723C78.9402 28.7582 73.4373 32.5087 65.2278 33.3054C57.7739 34.0287 51.0301 31.7875 46.1858 25.3927" stroke=#f69800></path>
  </g>
  <defs>
- <clippath id=clip0_9563_935>
+ <clipPath id=clip0_9563_935>
  <rect width=670 height=50 fill=white transform="matrix(-1 0 0 -1 670 50)"></rect>
- </clippath>
+ </clipPath>
  </defs>
  </svg>
  </div>
@@ -460,9 +460,9 @@ body{font-family:Poppins}
  <path d="M587.538 28.1277C591.06 21.2418 596.563 17.4913 604.772 16.6946C612.226 15.9713 618.97 18.2125 623.814 24.6073" stroke=#1cbbb4></path>
  </g>
  <defs>
- <clippath id=clip0_9563_935>
+ <clipPath id=clip0_9563_935>
  <rect width=670 height=50 fill=white></rect>
- </clippath>
+ </clipPath>
  </defs>
  </svg>
  </div>
@@ -479,9 +479,9 @@ body{font-family:Poppins}
  <path d="M82.4616 21.8723C78.9402 28.7582 73.4373 32.5087 65.2278 33.3054C57.7739 34.0287 51.0301 31.7875 46.1858 25.3927" stroke=#1cbbb4></path>
  </g>
  <defs>
- <clippath id=clip0_9563_935>
+ <clipPath id=clip0_9563_935>
  <rect width=670 height=50 fill=white transform="matrix(-1 0 0 -1 670 50)"></rect>
- </clippath>
+ </clipPath>
  </defs>
  </svg>
  </div>
@@ -640,9 +640,9 @@ body{font-family:Poppins}
  <path d="M587.538 28.1277C591.06 21.2418 596.563 17.4913 604.772 16.6946C612.226 15.9713 618.97 18.2125 623.814 24.6073" stroke=#f8ce0e></path>
  </g>
  <defs>
- <clippath id=clip0_9563_935>
+ <clipPath id=clip0_9563_935>
  <rect width=670 height=50 fill=white></rect>
- </clippath>
+ </clipPath>
  </defs>
  </svg>
  </div>
@@ -659,9 +659,9 @@ body{font-family:Poppins}
  <path d="M82.4616 21.8723C78.9402 28.7582 73.4373 32.5087 65.2278 33.3054C57.7739 34.0287 51.0301 31.7875 46.1858 25.3927" stroke=#f8ce0e></path>
  </g>
  <defs>
- <clippath id=clip0_9563_935>
+ <clipPath id=clip0_9563_935>
  <rect width=670 height=50 fill=white transform="matrix(-1 0 0 -1 670 50)"></rect>
- </clippath>
+ </clipPath>
  </defs>
  </svg>
  </div>
@@ -706,9 +706,9 @@ body{font-family:Poppins}
  <path d="M587.538 28.1277C591.06 21.2418 596.563 17.4913 604.772 16.6946C612.226 15.9713 618.97 18.2125 623.814 24.6073" stroke=#ed088b></path>
  </g>
  <defs>
- <clippath id=clip0_9563_935>
+ <clipPath id=clip0_9563_935>
  <rect width=670 height=50 fill=white></rect>
- </clippath>
+ </clipPath>
  </defs>
  </svg>
  </div>
@@ -725,9 +725,9 @@ body{font-family:Poppins}
  <path d="M82.4616 21.8723C78.9402 28.7582 73.4373 32.5087 65.2278 33.3054C57.7739 34.0287 51.0301 31.7875 46.1858 25.3927" stroke=#ed088b></path>
  </g>
  <defs>
- <clippath id=clip0_9563_935>
+ <clipPath id=clip0_9563_935>
  <rect width=670 height=50 fill=white transform="matrix(-1 0 0 -1 670 50)"></rect>
- </clippath>
+ </clipPath>
  </defs>
  </svg>
  </div>
