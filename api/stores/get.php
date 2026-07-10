@@ -37,6 +37,8 @@ try {
     $store['show_search'] = (bool)$store['show_search'];
     $store['show_categories'] = (bool)$store['show_categories'];
     $store['show_featured'] = (bool)$store['show_featured'];
+    if (array_key_exists('enable_translate', $store)) $store['enable_translate'] = (bool)$store['enable_translate'];
+    if (array_key_exists('enable_pwa', $store)) $store['enable_pwa'] = (bool)$store['enable_pwa'];
 
     $store['logo_url']    = imgUrl($store['logo_image']);
     $store['cover_url']   = imgUrl($store['cover_image']);

@@ -40,7 +40,10 @@ try {
         'min_order_amount', 'delivery_charge', 'cod_available',
         'show_search', 'show_categories', 'show_featured',
         'order_message_template', 'primary_color', 'secondary_color',
-        'template_id', 'user_id'
+        'template_id', 'user_id',
+        // New template-independent branding / behaviour (migration_store_themes.sql)
+        'accent_color', 'text_color', 'font_family', 'theme_mode',
+        'enable_translate', 'enable_pwa', 'seo_title', 'seo_description'
     ];
 
     $updates = [];
@@ -73,7 +76,7 @@ try {
                 $val = $newAlias;
             } elseif ($key === 'whatsapp_number') {
                 $val = preg_replace('/\D/', '', $val);
-            } elseif (in_array($key, ['cod_available', 'show_search', 'show_categories', 'show_featured'])) {
+            } elseif (in_array($key, ['cod_available', 'show_search', 'show_categories', 'show_featured', 'enable_translate', 'enable_pwa'])) {
                 $val = $val ? 1 : 0;
             }
 

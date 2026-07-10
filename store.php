@@ -75,18 +75,39 @@ $primaryColor = $store['primary_color'] ?? '#25D366';
 $secondaryColor = $store['secondary_color'] ?? '#128C7E';
 $currency = $store['currency_symbol'] ?? '₹';
 
-$templateMap = [
-    'store_template_1' => 'store-template-1-beauty-product.php',
-    'store_template_2' => 'store-template-2-e-commerce.php',
-    'store_template_3' => 'store-template-3-restaurant.php',
-    'store_template_4' => 'store-template-4-grocery.php',
-    'store_template_5' => 'store-template-5-cloth-store.php',
-    'store_template_6' => 'store-template-6-home-decor.php',
-    'store_template_7' => 'store-template-7-jewellery.php',
-    'store_template_8' => 'store-template-8-travel.php'
-];
+// ── Shared data view: enrich products so every template renders the same shape.
+//    (Additive — legacy v1 templates ignore the extra keys.)
+$categoriesById = [];
+foreach ($categories as $__c) { $categoriesById[$__c['id']] = $__c['name']; }
+$priceMin = null; $priceMax = null;
+foreach ($products as &$__p) {
+    $__p['category_name'] = $categoriesById[$__p['category_id']] ?? '';
+    $__hasDisc = ($__p['discount_price'] !== null && $__p['discount_price'] > 0 && $__p['discount_price'] < $__p['price']);
+    $__p['has_discount']    = $__hasDisc;
+    $__p['effective_price'] = $__hasDisc ? (float)$__p['discount_price'] : (float)$__p['price'];
+    $__p['disc_pct']        = $__hasDisc ? (int)round((1 - $__p['discount_price'] / $__p['price']) * 100) : 0;
+    $__p['img']             = !empty($__p['image']) ? imgUrl($__p['image']) : '';
+    $__ep = $__p['effective_price'];
+    if ($priceMin === null || $__ep < $priceMin) $priceMin = $__ep;
+    if ($priceMax === null || $__ep > $priceMax) $priceMax = $__ep;
+}
+unset($__p);
+$priceMin = $priceMin ?? 0;
+$priceMax = $priceMax ?? 0;
 
-$templateId = !empty($store['template_id']) ? $store['template_id'] : 'default';
+// ── Template resolution (registry-driven) with optional ?preview=<template_id> override.
+// Only the 8 v2 templates (store_template_9..16) are ever rendered — any legacy
+// or unknown template_id is transparently mapped to its v2 equivalent, so a
+// store can never fall back to the old designs.
+require_once __DIR__ . '/webStore_templates/_store-theme-registry.php';
+$templateMap = tapify_store_template_map();
+
+$templateId = tapify_resolve_store_template_id($store['template_id'] ?? '');
+// Owner/preview override: render existing data through a different template without saving.
+if (!empty($_GET['preview'])) {
+    $templateId = tapify_resolve_store_template_id($_GET['preview']);
+}
+$templateConfig = tapify_store_template_config($templateId);
 
 if (array_key_exists($templateId, $templateMap)) {
     $templateFile = $templateMap[$templateId];
