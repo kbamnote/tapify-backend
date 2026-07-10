@@ -4,12 +4,13 @@ $cardUrl='https://app.tapify.co.in/'.($vcard['url_alias'] ?? $vcardId);
 $waPhone=preg_replace('/\D/','',$vcard['phone'] ?? '');
 $locationUrl=!empty($vcard['location_url'])?$vcard['location_url']:'https://maps.google.com/?q='.urlencode($vcard['location'] ?? '');
 $profileImg=!empty($vcard['profile_image'])?imgUrl($vcard['profile_image']):'https://ui-avatars.com/api/?name='.urlencode($fullName).'&size=200&background=212529&color=ffffff';
-$coverImg=!empty($vcard['cover_image'])?imgUrl($vcard['cover_image']):'/images/templates/executiveprofilex/exe-010.webp';
+$coverImg=!empty($vcard['cover_image'])?imgUrl($vcard['cover_image']):'/images/templates/executiveprofilexxxxxx/exe-010.webp';
 $qrUrl='https://api.qrserver.com/v1/create-qr-code/?size=200x200&data='.urlencode($cardUrl);
 $platformIcons=['linkedin-in'=>'fa-linkedin-in','linkedin'=>'fa-linkedin-in','instagram'=>'fa-instagram','x-twitter'=>'fa-x-twitter','twitter'=>'fa-x-twitter','facebook'=>'fa-facebook-f','facebook-f'=>'fa-facebook-f','whatsapp'=>'fa-whatsapp','youtube'=>'fa-youtube','spotify'=>'fa-spotify','github'=>'fa-github','tiktok'=>'fa-tiktok','pinterest'=>'fa-pinterest-p','behance'=>'fa-behance','dribbble'=>'fa-dribbble','telegram'=>'fa-telegram','globe'=>'fa-globe'];
-$socialSvgs=['facebook'=>'<svg viewBox="0 0 320 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>','facebook-f'=>'<svg viewBox="0 0 320 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>','instagram'=>'<svg viewBox="0 0 448 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>','whatsapp'=>'<svg viewBox="0 0 448 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.2-157zM223.9 438.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.5-186.6 184.5zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>','linkedin'=>'<svg viewBox="0 0 448 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>','linkedin-in'=>'<svg viewBox="0 0 448 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>','youtube'=>'<svg viewBox="0 0 576 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>','x-twitter'=>'<svg viewBox="0 0 512 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>','twitter'=>'<svg viewBox="0 0 512 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>','globe'=>'<svg viewBox="0 0 512 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6 78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7 10.5-23.6 22.2-40.7 33.5-51.5C260.5 3.2 269.8 0 288 0s27.5 3.2 44.3 13.8c11.3 10.8 23 27.9 33.5 51.5 11.6 26 20.9 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4 165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 363.5 0 342.1 0 320s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.6-22.2 40.7-33.5 51.5C267.5 508.8 258.2 512 240 512l-16 0c-18.2 0-27.5-3.2-44.3-13.8-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6 25.5-34.2 45.3-87.7 55.3-151.6H493.4z"/></svg>'];
+$socialSvgs=['facebook'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 320 512" width="22"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>','facebook-f'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 320 512" width="22"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>','instagram'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 448 512" width="22"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>','whatsapp'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 448 512" width="22"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.2-157zM223.9 438.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.5-186.6 184.5zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg>','linkedin'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 448 512" width="22"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>','linkedin-in'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 448 512" width="22"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>','youtube'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 576 512" width="22"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>','x-twitter'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 512 512" width="22"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg>','twitter'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 512 512" width="22"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg>','globe'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 512 512" width="22"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6 78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7 10.5-23.6 22.2-40.7 33.5-51.5C260.5 3.2 269.8 0 288 0s27.5 3.2 44.3 13.8c11.3 10.8 23 27.9 33.5 51.5 11.6 26 20.9 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4 165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 363.5 0 342.1 0 320s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.6-22.2 40.7-33.5 51.5C267.5 508.8 258.2 512 240 512l-16 0c-18.2 0-27.5-3.2-44.3-13.8-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6 25.5-34.2 45.3-87.7 55.3-151.6H493.4z"></path></svg>'];
 ?>
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title><?= htmlspecialchars($fullName) ?></title><link rel="icon" href="<?= !empty($vcard['favicon_image'])?imgUrl($vcard['favicon_image']):'/images/tapify-logo-green.png' ?>"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><style>:root{--sf-img-12: url("/images/templates/executiveprofilex/exe-000.webp");--sf-img-17: url("/images/templates/executiveprofilex/exe-001.webp");--sf-img-19: url("/images/templates/executiveprofilex/exe-002.webp");--sf-img-20: url("/images/templates/executiveprofilex/exe-003.webp");--sf-img-22: url("/images/templates/executiveprofilex/exe-004.webp");--sf-img-23: url("/images/templates/executiveprofilex/exe-005.webp")}
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title><?= htmlspecialchars($fullName) ?></title><link href="<?= !empty($vcard['favicon_image'])?imgUrl($vcard['favicon_image']):'/images/tapify-logo-green.png' ?>" rel="icon"/><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/><style>:root{--sf-img-12: url("/images/templates/executiveprofilexxxxxx/exe-000.webp");--sf-img-17: url("/images/templates/executiveprofilexxxxxx/exe-001.webp");--sf-img-19: url("/images/templates/executiveprofilexxxxxx/exe-002.webp");--sf-img-20: url("/images/templates/executiveprofilexxxxxx/exe-003.webp");--sf-img-22: url("/images/templates/executiveprofilexxxxxx/exe-004.webp");--sf-img-23: url("/images/templates/executiveprofilexxxxxx/exe-005.webp")}
 :host,:root{--fa-font-solid:normal 900 1em/1"Font Awesome 6 Solid";--fa-font-regular:normal 400 1em/1"Font Awesome 6 Regular";--fa-font-light:normal 300 1em/1"Font Awesome 6 Light";--fa-font-thin:normal 100 1em/1"Font Awesome 6 Thin";--fa-font-duotone:normal 900 1em/1"Font Awesome 6 Duotone";--fa-font-brands:normal 400 1em/1"Font Awesome 6 Brands"}svg:not(:host).svg-inline--fa,svg:not(:root).svg-inline--fa{overflow:visible;box-sizing:content-box}.svg-inline--fa{display:var(--fa-display,inline-block);height:1em;vertical-align:-.125em}.fa-2x{font-size:2em}@-webkit-keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@-webkit-keyframes fa-bounce{0%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}100%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}}@keyframes fa-bounce{0%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}100%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}}@-webkit-keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@-webkit-keyframes fa-beat-fade{0%,100%{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@keyframes fa-beat-fade{0%,100%{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@-webkit-keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@-webkit-keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}100%,40%{-webkit-transform:rotate(0);transform:rotate(0)}}@keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}100%,40%{-webkit-transform:rotate(0);transform:rotate(0)}}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-sr-only-focusable:not(:focus),.sr-only-focusable:not(:focus){position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
 @-webkit-keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@-webkit-keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@-webkit-keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}@keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}.swal-icon--success:after,.swal-icon--success:before{content:"";border-radius:50%;position:absolute;width:60px;height:120px;background:#fff;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal-icon--success:before{border-radius:120px 0 0 120px;top:-7px;left:-33px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:60px 60px;transform-origin:60px 60px}.swal-icon--success:after{border-radius:0 120px 120px 0;top:-11px;left:30px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:0 60px;transform-origin:0 60px;-webkit-animation:rotatePlaceholder 4.25s ease-in;animation:rotatePlaceholder 4.25s ease-in}@-webkit-keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@-webkit-keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@-webkit-keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}@keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}.swal-icon--info:before{width:5px;height:29px;bottom:17px;border-radius:2px;margin-left:-2px}.swal-icon--info:after,.swal-icon--info:before{content:"";position:absolute;left:50%;background-color:#c9dae1}.swal-icon--info:after{width:7px;height:7px;border-radius:50%;margin-left:-3px;top:19px}.swal-button:not([disabled]):hover{background-color:#78cbf2}.swal-button:active{background-color:#70bce0}.swal-button:focus{outline:none;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(43,114,165,.29)}.swal-button::-moz-focus-inner{border:0}.swal-button--cancel:not([disabled]):hover{background-color:#e8e8e8}.swal-button--cancel:active{background-color:#d7d7d7}.swal-button--cancel:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(116,136,150,.29)}.swal-button--danger:not([disabled]):hover{background-color:#df4740}.swal-button--danger:active{background-color:#cf423b}.swal-button--danger:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(165,43,43,.29)}.swal-content__input:focus,.swal-content__textarea:focus{outline:none;border-color:#6db8ff}@-webkit-keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}@keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}.swal-overlay:before{content:" ";display:inline-block;vertical-align:middle;height:100%}@-webkit-keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}
 /*!
@@ -99,246 +100,342 @@ html,body,#mapDiv{height:100%;margin:0;padding:0}
  *     estoppel or otherwise. Any license under such intellectual property rights
  *     must be expressed and approved by McAfee in writing.
  *
- */.mc-interactive-balloon{position:absolute;right:-50px;bottom:8px;box-shadow:rgba(0,0,0,.12) 0px 0px 10px;height:40px;width:40px;background:#1671ee;border-radius:20px;display:flex;justify-content:center;align-items:center}</style><style>html,body{overflow-y:auto!important;height:auto!important;min-height:100%!important;position:relative!important;}html,body{background-color:#e5e5e5!important;}.container{max-width:540px!important;margin-left:auto!important;margin-right:auto!important;}.add-to-contact-btn,.add-to-contact-section,[class*=add-to-contact]{left:50%!important;right:auto!important;transform:translateX(-50%)!important;max-width:540px!important;width:100%!important;}.blog-section,.blog-card,[class*=blog-],[class*=__blog],[class*=blog-section]{display:none!important;}.product-slider,.gallery-slider,.testimonial-slider{overflow:hidden;}.product-slider .slick-slide,.gallery-slider .slick-slide{padding:0 8px;box-sizing:border-box;}.pwa-support,.news-modal,#newsLatter-content{display:none!important}.social-icon i,.social-icon svg,.social-icon .icon{color:#212529!important;fill:#212529!important;opacity:1!important}.our-services-section .section-heading,.business-hour-section .section-heading{text-align:center!important}.our-services-section .section-heading h2,.business-hour-section .section-heading h2,.qr-code-section .section-heading h2{color:#212529!important}.business-hour-section .business-hour-card{background:rgba(127,127,127,.14)!important;border:1px solid rgba(127,127,127,.3)!important;border-radius:10px!important;padding:10px!important;margin-bottom:10px!important}.business-hour-section .business-hour-card span,.business-hour-section .business-hour-card .time-icon{color:#212529!important}.qr-code-section p,.qr-code-section span,.qr-code-section h4,.qr-code-section h5{color:#212529!important}</style><?php if(!empty($vcard["custom_css"])): ?><style><?= $vcard["custom_css"] ?></style><?php endif; ?></head><body><div class="banner-section position-relative w-100"><div class="banner-img" style="position:relative;overflow:hidden;height:315px;"><?php $cvType=$vcard["cover_type"]??"image";$cvVal=$vcard["cover_image"]??"";$isVid=($cvType==="video")||preg_match("#youtube\.com|youtu\.be|instagram\.com|\.mp4#i",$cvVal);if($isVid&&!empty($cvVal)){if(preg_match("#(?:youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^\"&?/\s]{11})#i",$cvVal,$mm)){$yt=$mm[1];echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"https://www.youtube.com/embed/".$yt."?autoplay=1&mute=1&loop=1&playlist=".$yt."&controls=0&showinfo=0&rel=0&playsinline=1\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";}elseif(stripos($cvVal,"instagram.com")!==false){echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"".htmlspecialchars(rtrim($cvVal,"/")."/embed")."\" allowtransparency=\"true\"></iframe>";}else{echo "<video src=\"".htmlspecialchars(imgUrl($cvVal))."\" autoplay loop muted playsinline style=\"width:100%;height:100%;object-fit:cover;display:block;\"></video>";}}else{echo "<img src=\"".htmlspecialchars($coverImg)."\" alt=\"".htmlspecialchars($fullName)."\" style=\"width:100%;height:100%;object-fit:cover;display:block;\">";} ?><div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.1),rgba(0,0,0,0.5));"></div></div></div>
-<div class=container>
- <div class="vcard-two main-content w-100 mx-auto overflow-hidden">
- 
- <div class="vcard-two__banner w-100 position-relative">
- <img src=/images/templates/executiveprofilex/exe-006.webp class="img-fluid banner-image position-relative" alt=background loading=lazy>
- 
- <img src="/images/templates/executiveprofilex/exe-007.webp" class="banner-shape position-absolute end-0" alt=shape loading=lazy>
- <div class="d-flex justify-content-end position-absolute top-0 end-0 me-3 custom-language">
- <div class="language pt-4 me-2">
- <ul class=text-decoration-none>
- <li class="dropdown1 dropdown lang-list">
- <a class="dropdown-toggle lang-head text-decoration-none" data-toggle=dropdown role=button aria-haspopup=true aria-expanded=false>
- <svg class="svg-inline--fa fa-language me-2" aria-hidden=true focusable=false data-prefix=fas data-icon=language role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 640 512" data-fa-i2svg><path fill=currentColor d="M448 164C459 164 468 172.1 468 184V188H528C539 188 548 196.1 548 208C548 219 539 228 528 228H526L524.4 232.5C515.5 256.1 501.9 279.1 484.7 297.9C485.6 298.4 486.5 298.1 487.4 299.5L506.3 310.8C515.8 316.5 518.8 328.8 513.1 338.3C507.5 347.8 495.2 350.8 485.7 345.1L466.8 333.8C462.4 331.1 457.1 328.3 453.7 325.3C443.2 332.8 431.8 339.3 419.8 344.7L416.1 346.3C406 350.8 394.2 346.2 389.7 336.1C385.2 326 389.8 314.2 399.9 309.7L403.5 308.1C409.9 305.2 416.1 301.1 422 298.3L409.9 286.1C402 278.3 402 265.7 409.9 257.9C417.7 250 430.3 250 438.1 257.9L452.7 272.4L453.3 272.1C465.7 259.9 475.8 244.7 483.1 227.1H376C364.1 227.1 356 219 356 207.1C356 196.1 364.1 187.1 376 187.1H428V183.1C428 172.1 436.1 163.1 448 163.1L448 164zM160 233.2L179 276H140.1L160 233.2zM0 128C0 92.65 28.65 64 64 64H576C611.3 64 640 92.65 640 128V384C640 419.3 611.3 448 576 448H64C28.65 448 0 419.3 0 384V128zM320 384H576V128H320V384zM178.3 175.9C175.1 168.7 167.9 164 160 164C152.1 164 144.9 168.7 141.7 175.9L77.72 319.9C73.24 329.1 77.78 341.8 87.88 346.3C97.97 350.8 109.8 346.2 114.3 336.1L123.2 315.1H196.8L205.7 336.1C210.2 346.2 222 350.8 232.1 346.3C242.2 341.8 246.8 329.1 242.3 319.9L178.3 175.9z"></path></svg>Language</a>
- <ul class="dropdown-menu start-0 lang-hover-list top-100 sf-hidden">
- 
- 
- 
- 
- 
- 
- 
- </ul>
- </li>
- </ul>
- </div>
- </div>
- </div>
- 
- <div class="vcard-two__profile position-relative">
- <div class="avatar position-absolute top-0 translate-middle">
- <img src="<?= $profileImg ?>" alt=profile-img class=rounded-circle loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-12)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- </div>
- 
- <div class="vcard-two__profile-details py-3 px-3">
- <h4 class=vcard-two-heading><?= htmlspecialchars($fullName) ?></h4>
- <span class=profile-designation><?= htmlspecialchars($vcard["occupation"] ?? "") ?></span>
- <br>
- <span class="profile-description d-flex pt-4"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars(trim(html_entity_decode(strip_tags($vcard["description"]),ENT_QUOTES)))) ?><?php else: ?> I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery<?php endif; ?></span>
- <div class="social-icons d-flex pt-4"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
- </div>
- 
- <div class="vcard-two__event py-3 px-3">
- <div class="event-details d-flex">
- <div class=event-image>
- <img src="/images/templates/executiveprofilex/exe-008.webp" alt=email loading=lazy>
- </div>
- <span>trickywart376@gmail.com</span>
- </div>
- <div class="event-details d-flex">
- <div class=event-image>
- <img src="/images/templates/executiveprofilex/exe-009.webp" alt=birthday loading=lazy>
- </div>
- <span>30 - october 1997</span>
- </div>
- <div class="event-details d-flex">
- <div class=event-image>
- <img src="/images/templates/executiveprofilex/exe-010.webp" alt=phone loading=lazy>
- </div>
- <span>+94 83066 14769</span>
- </div>
- <div class="event-details d-flex">
- <div class=event-image>
- <img src=/images/templates/executiveprofilex/exe-011.webp alt=location loading=lazy>
- </div>
- <span>Surat - India</span>
- </div>
- </div>
- 
- <div class="vcard-two__appointment py-3">
- <h4 class="vcard-two-heading text-center pb-4">Make an Appointment</h4>
- <div class=container>
- <div class="appointment p-4">
- <div class="row d-flex align-items-center justify-content-center mb-3">
- <div class=col-md-2>
- <label for=date class="me-4 appoint-date mb-2">Date</label>
- </div>
- <div class=col-md-10>
- <input id=myID type=text class="appoint-input flatpickr-input" placeholder="Pick a Date" readonly fdprocessedid=9kzgk value>
- </div>
- </div>
- <div class="row d-flex align-items-center justify-content-center mb-md-3">
- <div class=col-md-2>
- <label for=text class="me-4 appoint-date mb-2">Hour</label>
- </div>
- <div class="col-md-5 mb-md-0 mb-3">
- <div class="card appoint-input flex-row">
- <span>08:10 - 20:00</span>
- </div>
- </div>
- <div class="col-md-5 mb-md-0 mb-3">
- <div class="card appoint-input flex-row">
- <span>08:10 - 20:00</span>
- </div>
- </div>
- </div>
- <div class="row d-flex align-items-center justify-content-center">
- <div class=col-md-2>
- </div>
- <div class="col-md-5 mb-md-0 mb-3">
- <div class="card appoint-input flex-row">
- <span>08:10 - 20:00</span>
- </div>
- </div>
- <div class="col-md-5 mb-md-0 mb-3">
- <div class="card appoint-input flex-row">
- <span>08:10 - 20:00</span>
- </div>
- </div>
- </div>
- <button type=button class="appoint-btn text-white mt-4 d-block mx-auto" fdprocessedid=pomzs>Make an Appointment
+ */.mc-interactive-balloon{position:absolute;right:-50px;bottom:8px;box-shadow:rgba(0,0,0,.12) 0px 0px 10px;height:40px;width:40px;background:#1671ee;border-radius:20px;display:flex;justify-content:center;align-items:center}</style><style>html,body{overflow-y:auto!important;height:auto!important;min-height:100%!important;position:relative!important;}html,body{background-color:#e5e5e5!important;}.container{max-width:540px!important;margin-left:auto!important;margin-right:auto!important;}.add-to-contact-btn,.add-to-contact-section,[class*=add-to-contact]{left:50%!important;right:auto!important;transform:translateX(-50%)!important;max-width:540px!important;width:100%!important;}.blog-section,.blog-card,[class*=blog-],[class*=__blog],[class*=blog-section]{display:none!important;}.product-slider,.gallery-slider,.testimonial-slider{overflow:hidden;}.product-slider .slick-slide,.gallery-slider .slick-slide{padding:0 8px;box-sizing:border-box;}.pwa-support,.news-modal,#newsLatter-content{display:none!important}.social-icon i,.social-icon svg,.social-icon .icon{color:#212529!important;fill:#212529!important;opacity:1!important}.our-services-section .section-heading,.business-hour-section .section-heading{text-align:center!important}.our-services-section .section-heading h2,.business-hour-section .section-heading h2,.qr-code-section .section-heading h2{color:#212529!important}.business-hour-section .business-hour-card{background:rgba(127,127,127,.14)!important;border:1px solid rgba(127,127,127,.3)!important;border-radius:10px!important;padding:10px!important;margin-bottom:10px!important}.business-hour-section .business-hour-card span,.business-hour-section .business-hour-card .time-icon{color:#212529!important}.qr-code-section p,.qr-code-section span,.qr-code-section h4,.qr-code-section h5{color:#212529!important}</style><?php if(!empty($vcard["custom_css"])): ?><style><?= $vcard["custom_css"] ?></style><?php endif; ?></head><body><div class="banner-section position-relative w-100"><div class="banner-img" style="position:relative;overflow:hidden;height:315px;"><?php $cvType=$vcard["cover_type"]??"image";$cvVal=$vcard["cover_image"]??"";$isVid=($cvType==="video")||preg_match("#youtube\.com|youtu\.be|instagram\.com|\.mp4#i",$cvVal);if($isVid&&!empty($cvVal)){if(preg_match("#(?:youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^\"&?/\s]{11})#i",$cvVal,$mm)){$yt=$mm[1];echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"https://www.youtube.com/embed/".$yt."?autoplay=1&mute=1&loop=1&playlist=".$yt."&controls=0&showinfo=0&rel=0&playsinline=1\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen>";}elseif(stripos($cvVal,"instagram.com")!==false){echo "<iframe allowtransparency='\"true\"' src='\"".htmlspecialchars(rtrim($cvVal,"/")."/embed")."\"' style='\"width:100%;height:100%;display:block;border:none;\"'></iframe>";}else{echo "<video autoplay="" loop="" muted="" playsinline="" src='\"".htmlspecialchars(imgUrl($cvVal))."\"' style='\"width:100%;height:100%;object-fit:cover;display:block;\"'></video>";}}else{echo "<img alt='\"".htmlspecialchars($fullName)."\"' src='\"".htmlspecialchars($coverImg)."\"' style='\"width:100%;height:100%;object-fit:cover;display:block;\"'/>";} ?><div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.1),rgba(0,0,0,0.5));"></div></div></div>
+<div class="container">
+<div class="vcard-two main-content w-100 mx-auto overflow-hidden">
+<div class="vcard-two__banner w-100 position-relative">
+<img alt="background" class="img-fluid banner-image position-relative" loading="lazy" src="/images/templates/executiveprofilexxxxxx/exe-006.webp"/>
+<img alt="shape" class="banner-shape position-absolute end-0" loading="lazy" src="/images/templates/executiveprofilexxxxxx/exe-007.webp"/>
+<div class="d-flex justify-content-end position-absolute top-0 end-0 me-3 custom-language">
+<div class="language pt-4 me-2">
+<ul class="text-decoration-none">
+<li class="dropdown1 dropdown lang-list">
+<a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle lang-head text-decoration-none" data-toggle="dropdown" role="button">
+<svg aria-hidden="true" class="svg-inline--fa fa-language me-2" data-fa-i2svg="" data-icon="language" data-prefix="fas" focusable="false" role="img" viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M448 164C459 164 468 172.1 468 184V188H528C539 188 548 196.1 548 208C548 219 539 228 528 228H526L524.4 232.5C515.5 256.1 501.9 279.1 484.7 297.9C485.6 298.4 486.5 298.1 487.4 299.5L506.3 310.8C515.8 316.5 518.8 328.8 513.1 338.3C507.5 347.8 495.2 350.8 485.7 345.1L466.8 333.8C462.4 331.1 457.1 328.3 453.7 325.3C443.2 332.8 431.8 339.3 419.8 344.7L416.1 346.3C406 350.8 394.2 346.2 389.7 336.1C385.2 326 389.8 314.2 399.9 309.7L403.5 308.1C409.9 305.2 416.1 301.1 422 298.3L409.9 286.1C402 278.3 402 265.7 409.9 257.9C417.7 250 430.3 250 438.1 257.9L452.7 272.4L453.3 272.1C465.7 259.9 475.8 244.7 483.1 227.1H376C364.1 227.1 356 219 356 207.1C356 196.1 364.1 187.1 376 187.1H428V183.1C428 172.1 436.1 163.1 448 163.1L448 164zM160 233.2L179 276H140.1L160 233.2zM0 128C0 92.65 28.65 64 64 64H576C611.3 64 640 92.65 640 128V384C640 419.3 611.3 448 576 448H64C28.65 448 0 419.3 0 384V128zM320 384H576V128H320V384zM178.3 175.9C175.1 168.7 167.9 164 160 164C152.1 164 144.9 168.7 141.7 175.9L77.72 319.9C73.24 329.1 77.78 341.8 87.88 346.3C97.97 350.8 109.8 346.2 114.3 336.1L123.2 315.1H196.8L205.7 336.1C210.2 346.2 222 350.8 232.1 346.3C242.2 341.8 246.8 329.1 242.3 319.9L178.3 175.9z" fill="currentColor"></path></svg>Language</a>
+<ul class="dropdown-menu start-0 lang-hover-list top-100 sf-hidden">
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="vcard-two__profile position-relative">
+<div class="avatar position-absolute top-0 translate-middle">
+<img alt="profile-img" class="rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-12)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+</div>
+<div class="vcard-two__profile-details py-3 px-3">
+<h4 class="vcard-two-heading">Tricky Stewart</h4>
+<span class="profile-designation">A Full Stack Developer</span>
+<br/>
+<span class="profile-description d-flex pt-4"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars(trim(html_entity_decode(strip_tags($vcard["description"]),ENT_QUOTES)))) ?><?php else: ?> I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery<?php endif; ?></span>
+<div class="social-icons d-flex pt-4"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a ?="" href="<?= htmlspecialchars($s[" url"])="">" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
+</div>
+<div class="vcard-two__event py-3 px-3">
+<div class="event-details d-flex">
+<div class="event-image">
+<img alt="email" loading="lazy" src="/images/templates/executiveprofilexxxxxx/exe-008.webp"/>
+</div>
+<span>trickywart376@gmail.com</span>
+</div>
+<div class="event-details d-flex">
+<div class="event-image">
+<img alt="birthday" loading="lazy" src="/images/templates/executiveprofilexxxxxx/exe-009.webp"/>
+</div>
+<span>30 - october 1997</span>
+</div>
+<div class="event-details d-flex">
+<div class="event-image">
+<img alt="phone" loading="lazy" src="/images/templates/executiveprofilexxxxxx/exe-010.webp"/>
+</div>
+<span>+94 83066 14769</span>
+</div>
+<div class="event-details d-flex">
+<div class="event-image">
+<img alt="location" loading="lazy" src="/images/templates/executiveprofilexxxxxx/exe-011.webp"/>
+</div>
+<span>Surat - India</span>
+</div>
+</div>
+<div class="vcard-two__appointment py-3">
+<h4 class="vcard-two-heading text-center pb-4">Make an Appointment</h4>
+<div class="container">
+<div class="appointment p-4">
+<div class="row d-flex align-items-center justify-content-center mb-3">
+<div class="col-md-2">
+<label class="me-4 appoint-date mb-2" for="date">Date</label>
+</div>
+<div class="col-md-10">
+<input class="appoint-input flatpickr-input" fdprocessedid="9kzgk" id="myID" placeholder="Pick a Date" readonly="" type="text" value=""/>
+</div>
+</div>
+<div class="row d-flex align-items-center justify-content-center mb-md-3">
+<div class="col-md-2">
+<label class="me-4 appoint-date mb-2" for="text">Hour</label>
+</div>
+<div class="col-md-5 mb-md-0 mb-3">
+<div class="card appoint-input flex-row">
+<span>08:10 - 20:00</span>
+</div>
+</div>
+<div class="col-md-5 mb-md-0 mb-3">
+<div class="card appoint-input flex-row">
+<span>08:10 - 20:00</span>
+</div>
+</div>
+</div>
+<div class="row d-flex align-items-center justify-content-center">
+<div class="col-md-2">
+</div>
+<div class="col-md-5 mb-md-0 mb-3">
+<div class="card appoint-input flex-row">
+<span>08:10 - 20:00</span>
+</div>
+</div>
+<div class="col-md-5 mb-md-0 mb-3">
+<div class="card appoint-input flex-row">
+<span>08:10 - 20:00</span>
+</div>
+</div>
+</div>
+<button class="appoint-btn text-white mt-4 d-block mx-auto" fdprocessedid="pomzs" type="button">Make an Appointment
  </button>
- </div>
- </div>
- </div>
- 
- <div class="vcard-two__service my-3 py-3 position-relative">
- 
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="banner-shape-two position-absolute end-0" alt=shape loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-17)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- <img src=/images/templates/executiveprofilex/exe-012.webp class="banner-shape-three position-absolute start-0" alt=shape loading=lazy>
- <h4 class="vcard-two-heading text-center pb-4">Our Services</h4>
- <div class=container>
- <div class="row g-3"><?php if(!empty($services)): ?><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/executiveprofilex/exe-010.webp"; ?><div class="col-sm-6 col-6 mb-4 px-2"><div class="card service-card h-100"><div class="service-img card-img" style="overflow:hidden;border-radius:12px 12px 0 0"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 object-fit-cover" style="height:170px" loading="lazy"></div><div class="card-body text-center p-3"><h3 class="card-title fs-6 fw-6"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="card-text small mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></div><?php endforeach; ?><?php endif; ?></div>
- </div>
- </div>
- 
- <div class="vcard-two__gallery mt-3 py-3 position-relative px-3">
- <h4 class="vcard-two-heading text-center pb-4">Gallery</h4>
- <div class=container>
- <div class="gallery-slider"><?php foreach ((isset($__ga)?$__ga:($galleries ?? [])) as $g): foreach (($g["images"] ?? []) as $im): $gi=imgUrl($im["image_url"] ?? ($im["image"] ?? "")); ?><div class="px-2"><div class="gallery-img-wrapper"><div class="gallery-img" style="background-image:url('<?= htmlspecialchars($gi) ?>');background-size:cover;background-position:center;height:280px;border-radius:12px;"></div></div></div><?php endforeach; endforeach; ?></div>
- </div>
- </div>
- <div class="modal fade sf-hidden" id=exampleModal tabindex=-1 aria-labelledby=exampleModalLabel aria-hidden=true>
- 
- </div>
- 
- <div class="vcard-two__product mt-3 py-3 position-relative px-3">
- <h4 class="vcard-two-heading text-center pb-4">Products</h4>
- <div class=container>
- <div class="product-slider"><?php foreach ((isset($__pr)?$__pr:($products ?? [])) as $p): $pi=!empty($p["image"])?imgUrl($p["image"]):"/images/templates/executiveprofilex/exe-010.webp"; ?><div class="px-2"><div class="product-card card"><div class="product-img card-img"><img src="<?= htmlspecialchars($pi) ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></div><div class="product-desc card-body d-flex flex-column align-items-center justify-content-between"><div class="product-title"><h3 class="text-dark text-center"><?= htmlspecialchars($p["name"] ?? "") ?></h3></div><?php if(isset($p["price"]) && $p["price"]!==""): ?><div class="product-amount"><span>₹ <?= htmlspecialchars($p["price"]) ?></span></div><?php endif; ?></div></div></div><?php endforeach; ?></div>
- </div>
- </div>
- 
- <div class="vcard-two__testimonial mt-3 py-3 position-relative px-3">
- <h4 class="vcard-two-heading text-center pb-4">Testimonial</h4>
- <div class=container>
- <div class="testimonial-slider"><?php foreach ((isset($__te)?$__te:($testimonials ?? [])) as $t): ?><div class="px-2"><div class="testimonial-card p-0"><div class="card-body text-center position-relative"><div class="text-center"><p class="text-gray mb-0">“<?= htmlspecialchars($t["message"] ?? "") ?>”</p></div></div><div class="d-flex flex-column align-items-center justify-content-center gap-2 profile-desc"><?php if(!empty($t["image"])): ?><div class="card-img" style="width:60px;height:60px;border-radius:50%;overflow:hidden;"><img src="<?= htmlspecialchars(imgUrl($t["image"])) ?>" class="w-100 h-100 object-fit-cover"></div><?php endif; ?><h5 class="fw-6 mb-0"><?= htmlspecialchars($t["author_name"] ?? ($t["author"] ?? "")) ?></h5></div></div></div><?php endforeach; ?></div>
- </div>
- </div>
- 
- <div class="vcard-two__blog py-3">
- <h4 class="vcard-two-heading text-center pb-4">Blog</h4>
- <div class=container>
- <div class="row g-4 blog-slider overflow-hidden slick-initialized slick-slider"><div class="slick-list draggable"><div class=slick-track style=opacity:1;width:576px;transform:translate3d(0px,0px,0px)><div class="slick-slide slick-current slick-active" data-slick-index=0 aria-hidden=false style=width:520px><div><div class="col-6 mb-2" style=width:100%;display:inline-block>
- <div class="card blog-card p-4 border-0 w-100 h-100">
- <div class=blog-image>
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-23)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="blog-details mt-5">
- <h4 class=text-center>men's Wear</h4>
- <p class="mt-2 mb-0 text-center">
+</div>
+</div>
+</div>
+<?php if(!empty($services)): ?>
+<div class="vcard-two__service my-3 py-3 position-relative">
+<img alt="shape" class="banner-shape-two position-absolute end-0" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-17)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+<img alt="shape" class="banner-shape-three position-absolute start-0" loading="lazy" src="/images/templates/executiveprofilexxxxxx/exe-012.webp"/>
+<h4 class="vcard-two-heading text-center pb-4">Our Services</h4>
+<div class="container">
+<div class="row g-3"><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): ?>
+<div class="col-sm-6 col-12">
+<div class="card service-card d-flex align-items-center p-2 h-100 border-0">
+<div class="service-image d-flex justify-content-center align-items-center">
+<img alt="Ui/Ux" loading="lazy" src="<?= htmlspecialchars(!empty($sv["image"]) ? imgUrl($sv["image"]) : "/images/default.jpg") ?>" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-19)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="service-details mt-3">
+<h4 class="service-title text-center"><?= htmlspecialchars($sv["name"] ?? "") ?></h4>
+<?php if(!empty($sv["description"])): ?><p class="service-paragraph mb-0 text-center"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?>
+</div>
+</div>
+</div>
+<?php endforeach; ?></div>
+</div>
+</div>
+<?php endif; ?>
+<?php if(!empty($galleries)): ?>
+<div class="vcard-two__gallery mt-3 py-3 position-relative px-3">
+<h4 class="vcard-two-heading text-center pb-4">Gallery</h4>
+<div class="container">
+<div class="row g-3 gallery-slider slick-initialized slick-slider"><?php foreach ((isset($__ga)?$__ga:($galleries ?? [])) as $g): foreach (($g["images"] ?? []) as $im): ?>
+<div class="slick-list draggable"><div class="slick-track" style="opacity:1;width:536px;transform:translate3d(0px,0px,0px)"><div aria-hidden="false" class="slick-slide slick-current slick-active" data-slick-index="0" style="width:268px"><div><div class="col-6 p-2" style="width:100%;display:inline-block">
+<div class="card gallery-card p-3 border-0 w-100 h-100">
+<div class="gallery-profile">
+<div>
+<a class="gallery-link" data-bs-target="#exampleModal" data-bs-toggle="modal" href="javascript:void(0)" tabindex="0">
+<img alt="profile" class="w-100" loading="lazy" src="<?= htmlspecialchars(imgUrl($im["image_url"] ?? $im["image"] ?? "")) ?>"/>
+</a>
+</div>
+</div>
+</div>
+</div></div></div><div aria-hidden="false" class="slick-slide slick-active" data-slick-index="1" style="width:268px"><div><div class="col-6 p-2" style="width:100%;display:inline-block">
+<div class="card gallery-card p-3 border-0 w-100 h-100">
+<div class="gallery-profile">
+<img alt="profile" class="w-100" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-22)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+</div>
+</div></div></div></div></div>
+<?php endforeach; endforeach; ?></div>
+</div>
+</div>
+<?php endif; ?>
+<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade sf-hidden" id="exampleModal" tabindex="-1">
+</div>
+<?php if(!empty($products)): ?>
+<div class="vcard-two__product mt-3 py-3 position-relative px-3">
+<h4 class="vcard-two-heading text-center pb-4">Products</h4>
+<div class="container">
+<div class="row g-3 product-slider slick-initialized slick-slider"><?php foreach ((isset($__pr)?$__pr:($products ?? [])) as $p): ?>
+<div class="slick-list draggable"><div class="slick-track" style="opacity:1;width:536px;transform:translate3d(0px,0px,0px)"><div aria-hidden="false" class="slick-slide slick-current slick-active" data-slick-index="0" style="width:268px"><div><div class="col-6 p-2" style="width:100%;display:inline-block">
+<div class="card product-card p-3 border-0 w-100 h-100">
+<div class="product-profile">
+<img alt="profile" class="w-100" loading="lazy" src="<?= htmlspecialchars(!empty($p["image"]) ? imgUrl($p["image"]) : "/images/default.jpg") ?>" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-23)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="product-details mt-3">
+<h4><?= htmlspecialchars($p["name"] ?? "") ?></h4>
+<?php if(!empty($p["description"])): ?><p class="mb-2"><?= htmlspecialchars($p["description"]) ?></p><?php endif; ?>
+<span class="text-black">$150</span>
+</div>
+</div>
+</div></div></div><div aria-hidden="false" class="slick-slide slick-active" data-slick-index="1" style="width:268px"><div><div class="col-6 p-2" style="width:100%;display:inline-block">
+<div class="card product-card p-3 border-0 w-100 h-100">
+<div class="product-profile">
+<img alt="profile" class="w-100" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-22)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="product-details mt-3">
+<h4>men's Wear</h4>
+<p class="mb-2">
+ Men Regular Formal Suit
+ </p>
+<span class="text-black">$150</span>
+</div>
+</div>
+</div></div></div></div></div>
+<?php endforeach; ?></div>
+</div>
+</div>
+<?php endif; ?>
+<div class="vcard-two__testimonial mt-3 py-3 position-relative px-3">
+<h4 class="vcard-two-heading text-center pb-4">Testimonial</h4>
+<div class="container">
+<div class="row g-3 testimonial-slider slick-initialized slick-slider"><div class="slick-list draggable"><div class="slick-track" style="opacity:1;width:536px;transform:translate3d(0px,0px,0px)"><div aria-hidden="false" class="slick-slide slick-current slick-active" data-slick-index="0" style="width:536px"><div><div class="col-12 p-2" style="width:100%;display:inline-block">
+<div class="card testimonial-card flex-sm-row flex-column-reverse p-3 border-0 align-items-center w-100">
+<div class="me-sm-3">
+<p class="review-message mb-2 text-sm-start text-center">
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+ Proin dignissim porttitor sollicitudin. Duis tellus ante,
+ aliquet a nisl ac, pharetra suscipit quam. In eu volutpat
+ eros, et bibendum turpis.
+ </p>
+<div class="user-details d-flex justify-content-sm-start justify-content-center">
+<span class="user-name">Shane Watson</span>
+<span class="user-designation">- CEO at Tarsons</span>
+</div>
+</div>
+<div class="testimonial-profile mb-sm-0 mb-3 ms-sm-auto">
+<img alt="profile" class="rounded-circle" loading="lazy" src="/images/templates/executiveprofilexxxxxx/exe-014.webp"/>
+</div>
+</div>
+</div></div></div></div></div></div>
+</div>
+</div>
+<div class="vcard-two__blog py-3">
+<h4 class="vcard-two-heading text-center pb-4">Blog</h4>
+<div class="container">
+<div class="row g-4 blog-slider overflow-hidden slick-initialized slick-slider"><div class="slick-list draggable"><div class="slick-track" style="opacity:1;width:576px;transform:translate3d(0px,0px,0px)"><div aria-hidden="false" class="slick-slide slick-current slick-active" data-slick-index="0" style="width:520px"><div><div class="col-6 mb-2" style="width:100%;display:inline-block">
+<div class="card blog-card p-4 border-0 w-100 h-100">
+<div class="blog-image">
+<img alt="profile" class="w-100" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-23)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="blog-details mt-5">
+<h4 class="text-center">men's Wear</h4>
+<p class="mt-2 mb-0 text-center">
  Men Regular Formal SuitMen Regular Formal SuitMen Regular Formal SuitMen Regular Formal SuitMen Regular Formal SuitMen Regular Formal SuitMen Regular Formal SuitMen Regular Formal Suit
  </p>
- </div>
- </div>
- </div></div></div></div></div></div>
- </div>
- </div>
- 
- <div class="vcard-two__qr-code py-3 position-relative px-3">
- 
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="banner-shape-four position-absolute end-0 d-sm-block d-none" alt=shape loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-17)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- <div class=container>
- <div class=row>
- <div class=col-12>
- <div class="card qr-code-card p-3 border-0">
- <h4 class="vcard-two-heading text-center pb-4">QR Code</h4>
- <div class=row>
- <div class="col-sm-6 col-12 mb-sm-0 mb-4">
- <div class="qr-profile d-flex justify-content-center">
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class=rounded-circle alt=qr-profile loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-12)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <button type=button class="qr-code-btn text-white mt-4 d-sm-block d-none mx-auto" fdprocessedid=druddo>Download My QR Code</button>
- </div>
- <div class="col-sm-6 col-12">
- <div class="qr-code-image d-flex justify-content-center">
- <img src="/images/templates/executiveprofilex/exe-015.webp" alt=qr-profile loading=lazy>
- </div>
- <button type=button class="qr-code-btn text-white mt-4 d-sm-none d-block mx-auto sf-hidden">
+</div>
+</div>
+</div></div></div></div></div></div>
+</div>
+</div>
+<div class="vcard-two__qr-code py-3 position-relative px-3">
+<img alt="shape" class="banner-shape-four position-absolute end-0 d-sm-block d-none" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-17)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="card qr-code-card p-3 border-0">
+<h4 class="vcard-two-heading text-center pb-4">QR Code</h4>
+<div class="row">
+<div class="col-sm-6 col-12 mb-sm-0 mb-4">
+<div class="qr-profile d-flex justify-content-center">
+<img alt="qr-profile" class="rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-12)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<button class="qr-code-btn text-white mt-4 d-sm-block d-none mx-auto" fdprocessedid="druddo" type="button">Download My QR Code</button>
+</div>
+<div class="col-sm-6 col-12">
+<div class="qr-code-image d-flex justify-content-center">
+<img alt="qr-profile" loading="lazy" src="/images/templates/executiveprofilexxxxxx/exe-015.webp"/>
+</div>
+<button class="qr-code-btn text-white mt-4 d-sm-none d-block mx-auto sf-hidden" type="button">
  Download My QR Code
  </button>
- </div>
- </div>
- </div>
- </div>
- </div>
- </div>
- </div>
- 
- <?php if(!empty($businessHours)): ?><div class="business-hour-section pt-50 px-30 position-relative"><div class="section-heading"><h2>Business Hours</h2></div><div class="px-30"><div class="row justify-content-center"><?php foreach ((isset($__bh)?$__bh:($businessHours ?? [])) as $bh): ?><div class="col-sm-6"><div class="business-hour-card d-flex gap-2 align-items-center mb-3"><div class="time-icon"><i class="bi bi-clock fs-3"></i></div><div class="d-flex flex-column align-items-start"><span class="fs-14 text-gray lh-1 fw-5"><?= htmlspecialchars(ucfirst(strtolower($bh["day_name"] ?? ""))) ?></span><span class="fs-16 fw-5"><?= !empty($bh["is_open"]) ? htmlspecialchars(trim(($bh["open_time"] ?? "")." - ".($bh["close_time"] ?? ""))) : "Closed" ?></span></div></div></div><?php endforeach; ?></div></div></div><?php endif; ?>
- 
- <div class="vcard-two__contact py-4 position-relative">
- <img src=/images/templates/executiveprofilex/exe-017.webp class="position-absolute start-0 bottom-0 d-sm-block d-none" alt=shape loading=lazy>
- <h4 class="vcard-two-heading text-center pb-4">Inquiries</h4>
- <div class=container>
- <div class=row>
- <div class=col-12>
- <div class="contact-form px-sm-5">
- <div class=mb-3>
- <input type=text class=form-control id=name placeholder="Full Name" fdprocessedid=oafjha value>
- </div>
- <div class=mb-3>
- <input type=email class=form-control id=email placeholder="E-mail Address" fdprocessedid=2zx3y value>
- </div>
- <div class=mb-3>
- <input type=tel class=form-control id=mobile placeholder="Mobile Number" fdprocessedid=d6ekpb value>
- </div>
- <div class=mb-3>
- <textarea class=form-control placeholder="Type a message here..." id=message rows=5></textarea>
- </div>
- <button type=button class="contact-btn text-white mt-4 d-block ms-auto" fdprocessedid=il56m>Send Message
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="vcard-two__business-hour py-4 position-relative">
+<div class="container">
+<div class="row">
+<div class="col-sm-5 d-sm-block d-none ps-0">
+<div class="shape-image">
+<img alt="business time" class="img-fluid" loading="lazy" src="/images/templates/executiveprofilexxxxxx/exe-016.webp"/>
+</div>
+</div>
+<div class="col-sm-7 col-12 pe-md-4">
+<h4 class="vcard-two-heading text-center pb-4">Business Hours</h4>
+<div class="d-flex justify-content-center time-zone">
+<span class="me-2">Sunday :</span>
+<span>08:10 - 20:00</span>
+</div>
+<div class="d-flex justify-content-center time-zone">
+<span class="me-2">Monday :</span>
+<span>08:10 - 20:00</span>
+</div>
+<div class="d-flex justify-content-center time-zone">
+<span class="me-2">Tuesday :</span>
+<span>08:10 - 20:00</span>
+</div>
+<div class="d-flex justify-content-center time-zone">
+<span class="me-2">Wednesday :</span>
+<span>08:10 - 20:00</span>
+</div>
+<div class="d-flex justify-content-center time-zone">
+<span class="me-2">Thursday :</span>
+<span>08:10 - 20:00</span>
+</div>
+<div class="d-flex justify-content-center time-zone">
+<span class="me-2">Friday :</span>
+<span>08:10 - 20:00</span>
+</div>
+<div class="d-flex justify-content-center time-zone">
+<span class="me-2">Saturday :</span>
+<span>08:10 - 20:00</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="vcard-two__contact py-4 position-relative">
+<img alt="shape" class="position-absolute start-0 bottom-0 d-sm-block d-none" loading="lazy" src="/images/templates/executiveprofilexxxxxx/exe-017.webp"/>
+<h4 class="vcard-two-heading text-center pb-4">Inquiries</h4>
+<div class="container">
+<div class="row">
+<div class="col-12">
+<div class="contact-form px-sm-5">
+<div class="mb-3">
+<input class="form-control" fdprocessedid="oafjha" id="name" placeholder="Full Name" type="text" value=""/>
+</div>
+<div class="mb-3">
+<input class="form-control" fdprocessedid="2zx3y" id="email" placeholder="E-mail Address" type="email" value=""/>
+</div>
+<div class="mb-3">
+<input class="form-control" fdprocessedid="d6ekpb" id="mobile" placeholder="Mobile Number" type="tel" value=""/>
+</div>
+<div class="mb-3">
+<textarea class="form-control" id="message" placeholder="Type a message here..." rows="5"></textarea>
+</div>
+<button class="contact-btn text-white mt-4 d-block ms-auto" fdprocessedid="il56m" type="button">Send Message
  </button>
- </div>
- </div>
- </div>
- </div>
- <div class="d-sm-flex justify-content-center mt-5">
- <button type=submit class="vcard-two-btn text-white mt-4 d-block" fdprocessedid=iiuywd>
- <svg class="svg-inline--fa fa-download me-2" aria-hidden=true focusable=false data-prefix=fas data-icon=download role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M480 352h-133.5l-45.25 45.25C289.2 409.3 273.1 416 256 416s-33.16-6.656-45.25-18.75L165.5 352H32c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h448c17.67 0 32-14.33 32-32v-96C512 366.3 497.7 352 480 352zM432 456c-13.2 0-24-10.8-24-24c0-13.2 10.8-24 24-24s24 10.8 24 24C456 445.2 445.2 456 432 456zM233.4 374.6C239.6 380.9 247.8 384 256 384s16.38-3.125 22.62-9.375l128-128c12.49-12.5 12.49-32.75 0-45.25c-12.5-12.5-32.76-12.5-45.25 0L288 274.8V32c0-17.67-14.33-32-32-32C238.3 0 224 14.33 224 32v242.8L150.6 201.4c-12.49-12.5-32.75-12.5-45.25 0c-12.49 12.5-12.49 32.75 0 45.25L233.4 374.6z"></path></svg> Download vCard
+</div>
+</div>
+</div>
+</div>
+<div class="d-sm-flex justify-content-center mt-5">
+<button class="vcard-two-btn text-white mt-4 d-block" fdprocessedid="iiuywd" type="submit">
+<svg aria-hidden="true" class="svg-inline--fa fa-download me-2" data-fa-i2svg="" data-icon="download" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M480 352h-133.5l-45.25 45.25C289.2 409.3 273.1 416 256 416s-33.16-6.656-45.25-18.75L165.5 352H32c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h448c17.67 0 32-14.33 32-32v-96C512 366.3 497.7 352 480 352zM432 456c-13.2 0-24-10.8-24-24c0-13.2 10.8-24 24-24s24 10.8 24 24C456 445.2 445.2 456 432 456zM233.4 374.6C239.6 380.9 247.8 384 256 384s16.38-3.125 22.62-9.375l128-128c12.49-12.5 12.49-32.75 0-45.25c-12.5-12.5-32.76-12.5-45.25 0L288 274.8V32c0-17.67-14.33-32-32-32C238.3 0 224 14.33 224 32v242.8L150.6 201.4c-12.49-12.5-32.75-12.5-45.25 0c-12.49 12.5-12.49 32.75 0 45.25L233.4 374.6z" fill="currentColor"></path></svg> Download vCard
  </button>
- 
- <button type=button class="share-btn text-white d-block btn mt-4 ms-sm-3" fdprocessedid=31jae>
- <a href=# class="text-white text-decoration-none">
- <svg class="svg-inline--fa fa-share-nodes me-2" aria-hidden=true focusable=false data-prefix=fas data-icon=share-nodes role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 448 512" data-fa-i2svg><path fill=currentColor d="M448 127.1C448 181 405 223.1 352 223.1C326.1 223.1 302.6 213.8 285.4 197.1L191.3 244.1C191.8 248 191.1 251.1 191.1 256C191.1 260 191.8 263.1 191.3 267.9L285.4 314.9C302.6 298.2 326.1 288 352 288C405 288 448 330.1 448 384C448 437 405 480 352 480C298.1 480 256 437 256 384C256 379.1 256.2 376 256.7 372.1L162.6 325.1C145.4 341.8 121.9 352 96 352C42.98 352 0 309 0 256C0 202.1 42.98 160 96 160C121.9 160 145.4 170.2 162.6 186.9L256.7 139.9C256.2 135.1 256 132 256 128C256 74.98 298.1 32 352 32C405 32 448 74.98 448 128L448 127.1zM95.1 287.1C113.7 287.1 127.1 273.7 127.1 255.1C127.1 238.3 113.7 223.1 95.1 223.1C78.33 223.1 63.1 238.3 63.1 255.1C63.1 273.7 78.33 287.1 95.1 287.1zM352 95.1C334.3 95.1 320 110.3 320 127.1C320 145.7 334.3 159.1 352 159.1C369.7 159.1 384 145.7 384 127.1C384 110.3 369.7 95.1 352 95.1zM352 416C369.7 416 384 401.7 384 384C384 366.3 369.7 352 352 352C334.3 352 320 366.3 320 384C320 401.7 334.3 416 352 416z"></path></svg> Share</a>
- </button>
- </div>
- <br>
- <div class=m-2>
- <div style=&quot;pointer-events:none;width:100%;height:100%;box-sizing:border-box;position:absolute;z-index:1000002;opacity:0;border:2px solid rgb(26,115,232)&quot;></div></div></div></div>
+<button class="share-btn text-white d-block btn mt-4 ms-sm-3" fdprocessedid="31jae" type="button">
+<a class="text-white text-decoration-none" href="#">
+<svg aria-hidden="true" class="svg-inline--fa fa-share-nodes me-2" data-fa-i2svg="" data-icon="share-nodes" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M448 127.1C448 181 405 223.1 352 223.1C326.1 223.1 302.6 213.8 285.4 197.1L191.3 244.1C191.8 248 191.1 251.1 191.1 256C191.1 260 191.8 263.1 191.3 267.9L285.4 314.9C302.6 298.2 326.1 288 352 288C405 288 448 330.1 448 384C448 437 405 480 352 480C298.1 480 256 437 256 384C256 379.1 256.2 376 256.7 372.1L162.6 325.1C145.4 341.8 121.9 352 96 352C42.98 352 0 309 0 256C0 202.1 42.98 160 96 160C121.9 160 145.4 170.2 162.6 186.9L256.7 139.9C256.2 135.1 256 132 256 128C256 74.98 298.1 32 352 32C405 32 448 74.98 448 128L448 127.1zM95.1 287.1C113.7 287.1 127.1 273.7 127.1 255.1C127.1 238.3 113.7 223.1 95.1 223.1C78.33 223.1 63.1 238.3 63.1 255.1C63.1 273.7 78.33 287.1 95.1 287.1zM352 95.1C334.3 95.1 320 110.3 320 127.1C320 145.7 334.3 159.1 352 159.1C369.7 159.1 384 145.7 384 127.1C384 110.3 369.7 95.1 352 95.1zM352 416C369.7 416 384 401.7 384 384C384 366.3 369.7 352 352 352C334.3 352 320 366.3 320 384C320 401.7 334.3 416 352 416z" fill="currentColor"></path></svg> Share</a>
+</button>
+</div>
+<br/>
+<div class="m-2">
+<div rgb(26,115,232)&quot;="" solid="" style='"pointer-events:none;width:100%;height:100%;box-sizing:border-box;position:absolute;z-index:1000002;opacity:0;border:2px'></div></div></div></div>
  
  
  
@@ -346,11 +443,51 @@ html,body,#mapDiv{height:100%;margin:0;padding:0}
  
 ">
  </div>
- </div>
- </div>
+
+
+
+<div class="flatpickr-calendar animate sf-hidden" tabindex="-1"></div>
+<span id="PING_CONTENT_DLS_POPUP" style="display:none"></span><div style="background-color:transparent;border-width:medium;border-style:none;border-color:currentcolor;border-image:initial;bottom:15px;display:block;margin:0px;opacity:1;padding:0px;position:fixed;right:15px;z-index:2147483647"><div style="display:contents"><style class="sf-hidden">/*!
+ * 
+ *     MCAFEE RESTRICTED CONFIDENTIAL
+ *     Copyright (c) 2026 McAfee, LLC
+ *
+ *     The source code contained or described herein and all documents related
+ *     to the source code ("Material") are owned by McAfee or its
+ *     suppliers or licensors. Title to the Material remains with McAfee
+ *     or its suppliers and licensors. The Material contains trade
+ *     secrets and proprietary and confidential information of McAfee or its
+ *     suppliers and licensors. The Material is protected by worldwide copyright
+ *     and trade secret laws and treaty provisions. No part of the Material may
+ *     be used, copied, reproduced, modified, published, uploaded, posted,
+ *     transmitted, distributed, or disclosed in any way without McAfee's prior
+ *     express written permission.
+ *
+ *     No license under any patent, copyright, trade secret or other intellectual
+ *     property right is granted to or conferred upon you by disclosure or
+ *     delivery of the Materials, either expressly, by implication, inducement,
+ *     estoppel or otherwise. Any license under such intellectual property rights
+ *     must be expressed and approved by McAfee in writing.
+ *
+ */*{border:0;box-sizing:border-box;font:inherit;font-family:"McAfeePoppins",Helvetica,Arial;font-size:100%;margin:0;padding:0;vertical-align:baseline;outline:none}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}html,body{background-color:#f5f6fa;font-family:"McAfeePoppins",Helvetica,Arial;line-height:1;height:100%;width:100%}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:"";content:none}table{border-collapse:collapse;border-spacing:0}b{font-weight:bold}img{display:block}.dls__container{align-items:center;display:flex;margin:0 auto;margin-top:50px;position:relative}.dls__popup__expanded{align-items:center;overflow:hidden;border-radius:100px;cursor:pointer;display:flex;left:0;padding:15px;position:absolute;height:95px;width:383px;background-color:#fff;transition:all .3s ease-in-out}.dls__popup__expanded .dls__icon{height:65px;width:73px}.content{margin-left:12px}.content .content__images{display:flex;align-items:center;width:250px}.content .content__images .seperator__line{margin-left:5px;margin-right:10px}.content .content__images #dls_close_icon{cursor:pointer;margin-left:auto;margin-right:0px}.content p{font-family:"McAfeePoppins",Helvetica,Arial;font-weight:"400";font-size:14px;line-height:20px;margin-top:8px;color:#4258ff;width:250px;cursor:pointer}.shield{overflow:hidden;box-shadow:0px 2px 4px 0px rgba(33,41,52,.12),0px -1px 2px 0px rgba(0,0,0,.08);align-items:center;border-radius:100px;bottom:0;display:flex;height:95px;justify-content:center;position:absolute;right:0;width:383px;transition:all .3s ease-in-out}.shield__circle{display:flex;justify-content:center;align-items:center;width:55px;height:55px;background-color:#c01818;transition:all .6s ease-in-out .2s;z-index:1;opacity:0}</style><div class="dls__container">
+<div class="shield">
+<div class="shield__circle">
+<img id="dls_ballon_icon" src="data:," x-mcsrc="" x-mcsrcparsed="true"/>
 </div>
-<div class="flatpickr-calendar animate sf-hidden" tabindex=-1></div>
-<span id=PING_CONTENT_DLS_POPUP style=display:none></span><div style=background-color:transparent;border-width:medium;border-style:none;border-color:currentcolor;border-image:initial;bottom:15px;display:block;margin:0px;opacity:1;padding:0px;position:fixed;right:15px;z-index:2147483647><div style="display:contents"><style class=sf-hidden>/*!
+<div class="dls__popup__expanded">
+<img class="dls__icon" src="data:," x-mcsrc="" x-mcsrcparsed="true"/>
+<div class="content">
+<div class="content__images">
+<img id="dls_mcafee_logo" src="data:," x-mcsrc="" x-mcsrcparsed="true"/>
+<img class="seperator__line" src="data:," x-mcsrc="" x-mcsrcparsed="true"/>
+<img src="data:," x-mcsrc="" x-mcsrcparsed="true"/>
+<img id="dls_close_icon" src="data:," x-mcsrc="" x-mcsrcparsed="true"/>
+</div>
+<p id="download_scan_popup_expanded_descriptions">Your download's being scanned. We'll let you know if there's an issue.</p>
+</div>
+</div>
+</div>
+</div><style class="sf-hidden">/*!
  * 
  *     MCAFEE RESTRICTED CONFIDENTIAL
  *     Copyright (c) 2026 McAfee, LLC
@@ -372,44 +509,4 @@ html,body,#mapDiv{height:100%;margin:0;padding:0}
  *     estoppel or otherwise. Any license under such intellectual property rights
  *     must be expressed and approved by McAfee in writing.
  *
- */*{border:0;box-sizing:border-box;font:inherit;font-family:"McAfeePoppins",Helvetica,Arial;font-size:100%;margin:0;padding:0;vertical-align:baseline;outline:none}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}html,body{background-color:#f5f6fa;font-family:"McAfeePoppins",Helvetica,Arial;line-height:1;height:100%;width:100%}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:after,blockquote:before,q:after,q:before{content:"";content:none}table{border-collapse:collapse;border-spacing:0}b{font-weight:bold}img{display:block}.dls__container{align-items:center;display:flex;margin:0 auto;margin-top:50px;position:relative}.dls__popup__expanded{align-items:center;overflow:hidden;border-radius:100px;cursor:pointer;display:flex;left:0;padding:15px;position:absolute;height:95px;width:383px;background-color:#fff;transition:all .3s ease-in-out}.dls__popup__expanded .dls__icon{height:65px;width:73px}.content{margin-left:12px}.content .content__images{display:flex;align-items:center;width:250px}.content .content__images .seperator__line{margin-left:5px;margin-right:10px}.content .content__images #dls_close_icon{cursor:pointer;margin-left:auto;margin-right:0px}.content p{font-family:"McAfeePoppins",Helvetica,Arial;font-weight:"400";font-size:14px;line-height:20px;margin-top:8px;color:#4258ff;width:250px;cursor:pointer}.shield{overflow:hidden;box-shadow:0px 2px 4px 0px rgba(33,41,52,.12),0px -1px 2px 0px rgba(0,0,0,.08);align-items:center;border-radius:100px;bottom:0;display:flex;height:95px;justify-content:center;position:absolute;right:0;width:383px;transition:all .3s ease-in-out}.shield__circle{display:flex;justify-content:center;align-items:center;width:55px;height:55px;background-color:#c01818;transition:all .6s ease-in-out .2s;z-index:1;opacity:0}</style><div class=dls__container>
- <div class=shield>
- <div class=shield__circle>
- <img src=data:, x-mcsrc id=dls_ballon_icon x-mcsrcparsed=true>
- </div>
- <div class=dls__popup__expanded>
- <img src=data:, x-mcsrc class=dls__icon x-mcsrcparsed=true>
- <div class=content>
- <div class=content__images>
- <img src=data:, x-mcsrc id=dls_mcafee_logo x-mcsrcparsed=true>
- <img src=data:, x-mcsrc class=seperator__line x-mcsrcparsed=true>
- <img src=data:, x-mcsrc x-mcsrcparsed=true>
- <img src=data:, x-mcsrc id=dls_close_icon x-mcsrcparsed=true>
- </div>
- <p id=download_scan_popup_expanded_descriptions>Your download's being scanned. We'll let you know if there's an issue.</p>
- </div>
- </div>
- </div>
-</div><style class=sf-hidden>/*!
- * 
- *     MCAFEE RESTRICTED CONFIDENTIAL
- *     Copyright (c) 2026 McAfee, LLC
- *
- *     The source code contained or described herein and all documents related
- *     to the source code ("Material") are owned by McAfee or its
- *     suppliers or licensors. Title to the Material remains with McAfee
- *     or its suppliers and licensors. The Material contains trade
- *     secrets and proprietary and confidential information of McAfee or its
- *     suppliers and licensors. The Material is protected by worldwide copyright
- *     and trade secret laws and treaty provisions. No part of the Material may
- *     be used, copied, reproduced, modified, published, uploaded, posted,
- *     transmitted, distributed, or disclosed in any way without McAfee's prior
- *     express written permission.
- *
- *     No license under any patent, copyright, trade secret or other intellectual
- *     property right is granted to or conferred upon you by disclosure or
- *     delivery of the Materials, either expressly, by implication, inducement,
- *     estoppel or otherwise. Any license under such intellectual property rights
- *     must be expressed and approved by McAfee in writing.
- *
- */.mc-interactive-balloon{position:absolute;right:-50px;bottom:8px;box-shadow:rgba(0,0,0,.12) 0px 0px 10px;height:40px;width:40px;background:#1671ee;border-radius:20px;display:flex;justify-content:center;align-items:center}</style></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"><script src="https://cdn.jsdelivr.net/npm/flatpickr"></script><script>function tfInit(){if(typeof jQuery==="undefined"||!jQuery.fn||!jQuery.fn.slick){return setTimeout(tfInit,120);}jQuery(function($){$(".product-slider,.gallery-slider,.testimonial-slider,.blog-slider").each(function(){if($(this).children().length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=instagram],[class*=insta-feed],[class*=insta-section],[class*=insta-feed-section]").each(function(){if($(this).find("img,iframe,.slick-slide,.insta-item,a[href*=instagram]").length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=__gallery],[class*=__product],[class*=__testimonial]").each(function(){var sl=$(this).find(".gallery-slider,.product-slider,.testimonial-slider").first();if(sl.length&&sl.children().length===0){$(this).hide();}});$("a").each(function(){var h=$(this).attr("href")||"";var tx=$(this).text().replace(/\s+/g,"");if((h==="mailto:"||h==="tel:")&&tx===""){$(this).closest(".contact-box,.contact-item,li,.col-sm-6,.col-md-6,.col-6,.col-12,.col").hide();}});$("[class*=contact-box],[class*=contact-item]").each(function(){if($(this).text().replace(/\s+/g,"")===""){$(this).hide();}});window.tfSubmitInquiry=async function(ev){ev.preventDefault();var f=ev.target;var b=f.querySelector("button[type=submit]");var fd=new FormData(f);if(b)b.disabled=true;try{var r=await fetch("/inquiry-submit.php",{method:"POST",body:fd});var j=await r.json();if(j.success){if(window.showToast)showToast("Message sent!","success");f.reset();}else{if(window.showToast)showToast(j.message||"Failed","error");}}catch(e){if(window.showToast)showToast("Connection error","error");}finally{if(b)b.disabled=false;}};function ini(s,o){var $s=$(s);if(!$s.length||$s.hasClass("slick-initialized"))return;$s.slick(o);}ini(".product-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".gallery-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".testimonial-slider",{slidesToShow:1,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:4000});if(window.flatpickr){flatpickr("#pickUpDate",{minDate:"today",dateFormat:"Y-m-d"});flatpickr(".flatpickr-input",{minDate:"today",dateFormat:"Y-m-d"});}});}tfInit();</script><?php if(!empty($vcard["custom_js"])): ?><script><?= $vcard["custom_js"] ?></script><?php endif; ?><?php include __DIR__ . "/_shared-scripts.php"; ?><style>/*tf-fixups*/.flatpickr-calendar:not(.open){display:none!important}</style></body></html>
+ */.mc-interactive-balloon{position:absolute;right:-50px;bottom:8px;box-shadow:rgba(0,0,0,.12) 0px 0px 10px;height:40px;width:40px;background:#1671ee;border-radius:20px;display:flex;justify-content:center;align-items:center}</style></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet"/><script src="https://cdn.jsdelivr.net/npm/flatpickr"></script><script>function tfInit(){if(typeof jQuery==="undefined"||!jQuery.fn||!jQuery.fn.slick){return setTimeout(tfInit,120);}jQuery(function($){$(".product-slider,.gallery-slider,.testimonial-slider,.blog-slider").each(function(){if($(this).children().length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=instagram],[class*=insta-feed],[class*=insta-section],[class*=insta-feed-section]").each(function(){if($(this).find("img,iframe,.slick-slide,.insta-item,a[href*=instagram]").length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=__gallery],[class*=__product],[class*=__testimonial]").each(function(){var sl=$(this).find(".gallery-slider,.product-slider,.testimonial-slider").first();if(sl.length&&sl.children().length===0){$(this).hide();}});$("a").each(function(){var h=$(this).attr("href")||"";var tx=$(this).text().replace(/\s+/g,"");if((h==="mailto:"||h==="tel:")&&tx===""){$(this).closest(".contact-box,.contact-item,li,.col-sm-6,.col-md-6,.col-6,.col-12,.col").hide();}});$("[class*=contact-box],[class*=contact-item]").each(function(){if($(this).text().replace(/\s+/g,"")===""){$(this).hide();}});window.tfSubmitInquiry=async function(ev){ev.preventDefault();var f=ev.target;var b=f.querySelector("button[type=submit]");var fd=new FormData(f);if(b)b.disabled=true;try{var r=await fetch("/inquiry-submit.php",{method:"POST",body:fd});var j=await r.json();if(j.success){if(window.showToast)showToast("Message sent!","success");f.reset();}else{if(window.showToast)showToast(j.message||"Failed","error");}}catch(e){if(window.showToast)showToast("Connection error","error");}finally{if(b)b.disabled=false;}};function ini(s,o){var $s=$(s);if(!$s.length||$s.hasClass("slick-initialized"))return;$s.slick(o);}ini(".product-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".gallery-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".testimonial-slider",{slidesToShow:1,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:4000});if(window.flatpickr){flatpickr("#pickUpDate",{minDate:"today",dateFormat:"Y-m-d"});flatpickr(".flatpickr-input",{minDate:"today",dateFormat:"Y-m-d"});}});}tfInit();</script><?php if(!empty($vcard["custom_js"])): ?><script><?= $vcard["custom_js"] ?></script><?php endif; ?><?php include __DIR__ . "/_shared-scripts.php"; ?></body></html>

@@ -4,12 +4,13 @@ $cardUrl='https://app.tapify.co.in/'.($vcard['url_alias'] ?? $vcardId);
 $waPhone=preg_replace('/\D/','',$vcard['phone'] ?? '');
 $locationUrl=!empty($vcard['location_url'])?$vcard['location_url']:'https://maps.google.com/?q='.urlencode($vcard['location'] ?? '');
 $profileImg=!empty($vcard['profile_image'])?imgUrl($vcard['profile_image']):'https://ui-avatars.com/api/?name='.urlencode($fullName).'&size=200&background=2563eb&color=ffffff';
-$coverImg=!empty($vcard['cover_image'])?imgUrl($vcard['cover_image']):'/images/templates/dynamickidstoystore/dyn-012.webp';
+$coverImg=!empty($vcard['cover_image'])?imgUrl($vcard['cover_image']):'/images/templates/dynamickidstoystorexxxxx/dyn-012.webp';
 $qrUrl='https://api.qrserver.com/v1/create-qr-code/?size=200x200&data='.urlencode($cardUrl);
 $platformIcons=['linkedin-in'=>'fa-linkedin-in','linkedin'=>'fa-linkedin-in','instagram'=>'fa-instagram','x-twitter'=>'fa-x-twitter','twitter'=>'fa-x-twitter','facebook'=>'fa-facebook-f','facebook-f'=>'fa-facebook-f','whatsapp'=>'fa-whatsapp','youtube'=>'fa-youtube','spotify'=>'fa-spotify','github'=>'fa-github','tiktok'=>'fa-tiktok','pinterest'=>'fa-pinterest-p','behance'=>'fa-behance','dribbble'=>'fa-dribbble','telegram'=>'fa-telegram','globe'=>'fa-globe'];
-$socialSvgs=['facebook'=>'<svg viewBox="0 0 320 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>','facebook-f'=>'<svg viewBox="0 0 320 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>','instagram'=>'<svg viewBox="0 0 448 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>','whatsapp'=>'<svg viewBox="0 0 448 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.2-157zM223.9 438.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.5-186.6 184.5zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>','linkedin'=>'<svg viewBox="0 0 448 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>','linkedin-in'=>'<svg viewBox="0 0 448 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>','youtube'=>'<svg viewBox="0 0 576 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>','x-twitter'=>'<svg viewBox="0 0 512 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>','twitter'=>'<svg viewBox="0 0 512 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>','globe'=>'<svg viewBox="0 0 512 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6 78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7 10.5-23.6 22.2-40.7 33.5-51.5C260.5 3.2 269.8 0 288 0s27.5 3.2 44.3 13.8c11.3 10.8 23 27.9 33.5 51.5 11.6 26 20.9 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4 165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 363.5 0 342.1 0 320s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.6-22.2 40.7-33.5 51.5C267.5 508.8 258.2 512 240 512l-16 0c-18.2 0-27.5-3.2-44.3-13.8-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6 25.5-34.2 45.3-87.7 55.3-151.6H493.4z"/></svg>'];
+$socialSvgs=['facebook'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 320 512" width="22"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>','facebook-f'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 320 512" width="22"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>','instagram'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 448 512" width="22"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>','whatsapp'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 448 512" width="22"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.2-157zM223.9 438.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.5-186.6 184.5zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg>','linkedin'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 448 512" width="22"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>','linkedin-in'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 448 512" width="22"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>','youtube'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 576 512" width="22"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>','x-twitter'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 512 512" width="22"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg>','twitter'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 512 512" width="22"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg>','globe'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 512 512" width="22"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6 78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7 10.5-23.6 22.2-40.7 33.5-51.5C260.5 3.2 269.8 0 288 0s27.5 3.2 44.3 13.8c11.3 10.8 23 27.9 33.5 51.5 11.6 26 20.9 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4 165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 363.5 0 342.1 0 320s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.6-22.2 40.7-33.5 51.5C267.5 508.8 258.2 512 240 512l-16 0c-18.2 0-27.5-3.2-44.3-13.8-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6 25.5-34.2 45.3-87.7 55.3-151.6H493.4z"></path></svg>'];
 ?>
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title><?= htmlspecialchars($fullName) ?></title><link rel="icon" href="<?= !empty($vcard['favicon_image'])?imgUrl($vcard['favicon_image']):'/images/tapify-logo-green.png' ?>"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><style>:root{--sf-img-22: url("/images/templates/dynamickidstoystore/dyn-000.webp");--sf-img-23: url("/images/templates/dynamickidstoystore/dyn-001.webp");--sf-img-24: url("/images/templates/dynamickidstoystore/dyn-002.webp");--sf-img-25: url("/images/templates/dynamickidstoystore/dyn-003.webp");--sf-img-26: url("/images/templates/dynamickidstoystore/dyn-004.webp");--sf-img-27: url("/images/templates/dynamickidstoystore/dyn-005.webp");--sf-img-28: url("/images/templates/dynamickidstoystore/dyn-005.webp");--sf-img-29: url("/images/templates/dynamickidstoystore/dyn-006.webp");--sf-img-30: url("/images/templates/dynamickidstoystore/dyn-007.webp");--sf-img-31: url("/images/templates/dynamickidstoystore/dyn-008.webp");--sf-img-32: url("/images/templates/dynamickidstoystore/dyn-009.webp");--sf-img-33: url("/images/templates/dynamickidstoystore/dyn-010.webp");--sf-img-34: url("/images/templates/dynamickidstoystore/dyn-011.webp");--sf-img-35: url("/images/templates/dynamickidstoystore/dyn-012.webp");--sf-img-36: url("/images/templates/dynamickidstoystore/dyn-013.webp");--sf-img-37: url("/images/templates/dynamickidstoystore/dyn-014.webp")}
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title><?= htmlspecialchars($fullName) ?></title><link href="<?= !empty($vcard['favicon_image'])?imgUrl($vcard['favicon_image']):'/images/tapify-logo-green.png' ?>" rel="icon"/><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/><style>:root{--sf-img-22: url("/images/templates/dynamickidstoystorexxxxx/dyn-000.webp");--sf-img-23: url("/images/templates/dynamickidstoystorexxxxx/dyn-001.webp");--sf-img-24: url("/images/templates/dynamickidstoystorexxxxx/dyn-002.webp");--sf-img-25: url("/images/templates/dynamickidstoystorexxxxx/dyn-003.webp");--sf-img-26: url("/images/templates/dynamickidstoystorexxxxx/dyn-004.webp");--sf-img-27: url("/images/templates/dynamickidstoystorexxxxx/dyn-005.webp");--sf-img-28: url("/images/templates/dynamickidstoystorexxxxx/dyn-005.webp");--sf-img-29: url("/images/templates/dynamickidstoystorexxxxx/dyn-006.webp");--sf-img-30: url("/images/templates/dynamickidstoystorexxxxx/dyn-007.webp");--sf-img-31: url("/images/templates/dynamickidstoystorexxxxx/dyn-008.webp");--sf-img-32: url("/images/templates/dynamickidstoystorexxxxx/dyn-009.webp");--sf-img-33: url("/images/templates/dynamickidstoystorexxxxx/dyn-010.webp");--sf-img-34: url("/images/templates/dynamickidstoystorexxxxx/dyn-011.webp");--sf-img-35: url("/images/templates/dynamickidstoystorexxxxx/dyn-012.webp");--sf-img-36: url("/images/templates/dynamickidstoystorexxxxx/dyn-013.webp");--sf-img-37: url("/images/templates/dynamickidstoystorexxxxx/dyn-014.webp")}
 :host,:root{--fa-font-solid:normal 900 1em/1"Font Awesome 6 Solid";--fa-font-regular:normal 400 1em/1"Font Awesome 6 Regular";--fa-font-light:normal 300 1em/1"Font Awesome 6 Light";--fa-font-thin:normal 100 1em/1"Font Awesome 6 Thin";--fa-font-duotone:normal 900 1em/1"Font Awesome 6 Duotone";--fa-font-brands:normal 400 1em/1"Font Awesome 6 Brands"}svg:not(:host).svg-inline--fa,svg:not(:root).svg-inline--fa{overflow:visible;box-sizing:content-box}.svg-inline--fa{display:var(--fa-display,inline-block);height:1em;vertical-align:-.125em}@-webkit-keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@-webkit-keyframes fa-bounce{0%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}100%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}}@keyframes fa-bounce{0%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}100%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}}@-webkit-keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@-webkit-keyframes fa-beat-fade{0%,100%{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@keyframes fa-beat-fade{0%,100%{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@-webkit-keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@-webkit-keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}100%,40%{-webkit-transform:rotate(0);transform:rotate(0)}}@keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}100%,40%{-webkit-transform:rotate(0);transform:rotate(0)}}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-sr-only-focusable:not(:focus),.sr-only-focusable:not(:focus){position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
 @-webkit-keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@-webkit-keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@-webkit-keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}@keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}.swal-icon--success:after,.swal-icon--success:before{content:"";border-radius:50%;position:absolute;width:60px;height:120px;background:#fff;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal-icon--success:before{border-radius:120px 0 0 120px;top:-7px;left:-33px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:60px 60px;transform-origin:60px 60px}.swal-icon--success:after{border-radius:0 120px 120px 0;top:-11px;left:30px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:0 60px;transform-origin:0 60px;-webkit-animation:rotatePlaceholder 4.25s ease-in;animation:rotatePlaceholder 4.25s ease-in}@-webkit-keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@-webkit-keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@-webkit-keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}@keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}.swal-icon--info:before{width:5px;height:29px;bottom:17px;border-radius:2px;margin-left:-2px}.swal-icon--info:after,.swal-icon--info:before{content:"";position:absolute;left:50%;background-color:#c9dae1}.swal-icon--info:after{width:7px;height:7px;border-radius:50%;margin-left:-3px;top:19px}.swal-button:not([disabled]):hover{background-color:#78cbf2}.swal-button:active{background-color:#70bce0}.swal-button:focus{outline:none;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(43,114,165,.29)}.swal-button::-moz-focus-inner{border:0}.swal-button--cancel:not([disabled]):hover{background-color:#e8e8e8}.swal-button--cancel:active{background-color:#d7d7d7}.swal-button--cancel:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(116,136,150,.29)}.swal-button--danger:not([disabled]):hover{background-color:#df4740}.swal-button--danger:active{background-color:#cf423b}.swal-button--danger:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(165,43,43,.29)}.swal-content__input:focus,.swal-content__textarea:focus{outline:none;border-color:#6db8ff}@-webkit-keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}@keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}.swal-overlay:before{content:" ";display:inline-block;vertical-align:middle;height:100%}@-webkit-keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}
 /*!
@@ -67,551 +68,1283 @@ body{background-color:var(--primary-100)!important;font-family:Poppins!important
 .lightbox{text-align:center;line-height:0;position:absolute;left:0}.lightboxOverlay{position:absolute;top:0;left:0;z-index:9999;background-color:#000;opacity:.8}.lightbox{width:100%;z-index:10000;font-weight:400;outline:0}.lb-outerContainer:after{content:"";display:table;clear:both}.lb-nav a.lb-prev:hover{opacity:1}.lb-nav a.lb-next:hover{opacity:1}.lb-dataContainer:after{content:"";display:table;clear:both}.lb-data .lb-close:hover{cursor:pointer;opacity:1}
 .sf-hidden{display:none!important}
 @keyframes rzp-rot{to{transform:rotate(360deg)}}@-webkit-keyframes rzp-rot{to{-webkit-transform:rotate(360deg)}}</style><style>html,body{overflow-y:auto!important;height:auto!important;min-height:100%!important;position:relative!important;}.container{max-width:540px!important;margin-left:auto!important;margin-right:auto!important;}.add-to-contact-btn,.add-to-contact-section,[class*=add-to-contact]{left:50%!important;right:auto!important;transform:translateX(-50%)!important;max-width:540px!important;width:100%!important;}.blog-section,.blog-card,[class*=blog-],[class*=__blog],[class*=blog-section]{display:none!important;}.product-slider,.gallery-slider,.testimonial-slider{overflow:hidden;}.product-slider .slick-slide,.gallery-slider .slick-slide{padding:0 8px;box-sizing:border-box;}.pwa-support,.news-modal,#newsLatter-content{display:none!important}.social-icon i,.social-icon svg,.social-icon .icon{color:#2563eb!important;fill:#2563eb!important;opacity:1!important}.our-services-section .section-heading,.business-hour-section .section-heading{text-align:center!important}.our-services-section .section-heading h2,.business-hour-section .section-heading h2,.qr-code-section .section-heading h2{color:#2563eb!important}.business-hour-section .business-hour-card{background:rgba(127,127,127,.14)!important;border:1px solid rgba(127,127,127,.3)!important;border-radius:10px!important;padding:10px!important;margin-bottom:10px!important}.business-hour-section .business-hour-card span,.business-hour-section .business-hour-card .time-icon{color:#2563eb!important}.qr-code-section p,.qr-code-section span,.qr-code-section h4,.qr-code-section h5{color:#2563eb!important}</style><?php if(!empty($vcard["custom_css"])): ?><style><?= $vcard["custom_css"] ?></style><?php endif; ?></head><body>
- <div class="container p-0 vcard22-main">
- <div id=passwordModal class="modal fade sf-hidden" role=dialog data-bs-backdrop=static data-bs-keyboard=false>
- 
+<?php if(!empty($services)): ?>
+<?php if(!empty($products)): ?>
+<?php if(!empty($testimonials)): ?>
+<?php if(!empty($galleries)): ?>
+<?php if(!empty($businessHours)): ?>
+<div class="container p-0 vcard22-main">
+<div class="modal fade sf-hidden" data-bs-backdrop="static" data-bs-keyboard="false" id="passwordModal" role="dialog">
 </div>
- <div class="main-content mx-auto w-100 overflow-hidden bg-green">
- <div class="banner-section position-relative w-100"><div class="banner-img" style="position:relative;overflow:hidden;height:315px;"><?php $cvType=$vcard["cover_type"]??"image";$cvVal=$vcard["cover_image"]??"";$isVid=($cvType==="video")||preg_match("#youtube\.com|youtu\.be|instagram\.com|\.mp4#i",$cvVal);if($isVid&&!empty($cvVal)){if(preg_match("#(?:youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^\"&?/\s]{11})#i",$cvVal,$mm)){$yt=$mm[1];echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"https://www.youtube.com/embed/".$yt."?autoplay=1&mute=1&loop=1&playlist=".$yt."&controls=0&showinfo=0&rel=0&playsinline=1\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";}elseif(stripos($cvVal,"instagram.com")!==false){echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"".htmlspecialchars(rtrim($cvVal,"/")."/embed")."\" allowtransparency=\"true\"></iframe>";}else{echo "<video src=\"".htmlspecialchars(imgUrl($cvVal))."\" autoplay loop muted playsinline style=\"width:100%;height:100%;object-fit:cover;display:block;\"></video>";}}else{echo "<img src=\"".htmlspecialchars($coverImg)."\" alt=\"".htmlspecialchars($fullName)."\" style=\"width:100%;height:100%;object-fit:cover;display:block;\">";} ?><div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.1),rgba(0,0,0,0.5));"></div></div></div>
- <div class="profile-section pt-40 pb-40 px-30 position-relative">
- <div class="position-absolute vcard22-bg-hero-1">
- <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 255 248" fill=currentColor>
- <path d="M5.60284e-06 0C3.31284 1.80644 6.56782 4.03303 9.77801 6.44863C25.2739 18.1974 29.5563 43.5694 34.9906 76.7846C41.0781 113.992 46.6943 148.505 60.7916 179.951C66.2418 192.228 74.3641 200.487 82.7586 199.611C92.8266 198.856 100.86 185.311 108.685 174.27C117.528 161.844 127.43 148.26 138.792 149.646C145.198 150.47 149.892 157.126 153.009 168.024C155.59 177.019 160.926 186.667 165.313 193.671C169.469 200.307 176.498 204.432 184.239 205.608L218.759 210.852C227.195 212.134 234.686 216.948 239.358 224.089L255 248H5.60284e-06V0Z" fill=currentColor></path>
- </svg>
+<div class="main-content mx-auto w-100 overflow-hidden bg-green">
+<div class="banner-section position-relative w-100"><div class="banner-img" style="position:relative;overflow:hidden;height:315px;"><?php $cvType=$vcard["cover_type"]??"image";$cvVal=$vcard["cover_image"]??"";$isVid=($cvType==="video")||preg_match("#youtube\.com|youtu\.be|instagram\.com|\.mp4#i",$cvVal);if($isVid&&!empty($cvVal)){if(preg_match("#(?:youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^\"&?/\s]{11})#i",$cvVal,$mm)){$yt=$mm[1];echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"https://www.youtube.com/embed/".$yt."?autoplay=1&mute=1&loop=1&playlist=".$yt."&controls=0&showinfo=0&rel=0&playsinline=1\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen>";}elseif(stripos($cvVal,"instagram.com")!==false){echo "<iframe allowtransparency='\"true\"' src='\"".htmlspecialchars(rtrim($cvVal,"/")."/embed")."\"' style='\"width:100%;height:100%;display:block;border:none;\"'></iframe>";}else{echo "<video autoplay="" loop="" muted="" playsinline="" src='\"".htmlspecialchars(imgUrl($cvVal))."\"' style='\"width:100%;height:100%;object-fit:cover;display:block;\"'></video>";}}else{echo "<img alt='\"".htmlspecialchars($fullName)."\"' src='\"".htmlspecialchars($coverImg)."\"' style='\"width:100%;height:100%;object-fit:cover;display:block;\"'/>";} ?><div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.1),rgba(0,0,0,0.5));"></div></div></div>
+<div class="profile-section pt-40 pb-40 px-30 position-relative">
+<div class="position-absolute vcard22-bg-hero-1">
+<svg fill="currentColor" viewbox="0 0 255 248" xmlns="http://www.w3.org/2000/svg">
+<path d="M5.60284e-06 0C3.31284 1.80644 6.56782 4.03303 9.77801 6.44863C25.2739 18.1974 29.5563 43.5694 34.9906 76.7846C41.0781 113.992 46.6943 148.505 60.7916 179.951C66.2418 192.228 74.3641 200.487 82.7586 199.611C92.8266 198.856 100.86 185.311 108.685 174.27C117.528 161.844 127.43 148.26 138.792 149.646C145.198 150.47 149.892 157.126 153.009 168.024C155.59 177.019 160.926 186.667 165.313 193.671C169.469 200.307 176.498 204.432 184.239 205.608L218.759 210.852C227.195 212.134 234.686 216.948 239.358 224.089L255 248H5.60284e-06V0Z" fill="currentColor"></path>
+</svg>
+</div>
+<div class="position-absolute vcard22-bg-hero-2">
+<svg fill="currentColor" viewbox="0 0 221 97" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.5 0.5C73.1 0.5 145.7 0.5 220.5 0.5C220.5 29.5688 220.5 58.6376 220.5 88.5873C205.006 96.3086 202.782 98.6149 193.923 94.4598C187.293 91.3503 186.589 86.0967 181.323 80.4878C180.874 80.0094 180.466 79.4875 180.009 79.0168C178.401 77.3622 175.619 76.2059 174.177 75.6852C173.566 75.4642 172.926 75.3433 172.277 75.2969C170.707 75.1847 167.438 75.0005 163.931 75.099C165.62 75.0892 162.292 75.1084 163.931 75.099C159.223 75.3355 149.842 76.0658 145.198 76.8424C129.011 77.958 127.021 79.2055 120.549 76.8565C119.269 76.3918 118.115 75.6188 117.22 74.5918C112.091 68.703 108.795 61.1543 104.871 54.442C104.262 53.4163 103.653 52.3905 103.025 51.3337C102.506 50.414 101.986 49.4942 101.451 48.5466C97.7653 43.9322 93.6962 41.9035 87.914 40.8676C77.5861 40.6639 72.2134 42.2386 64.0245 48.4262C61.4402 50.1476 61.0913 50.3799 57.5201 51.0646C56.2498 51.3081 54.9353 51.3077 53.6822 50.9871C48.8572 49.7529 45.6281 47.8384 42.4612 43.8767C42.0413 43.3515 41.6966 42.7696 41.4151 42.1589C39.5222 38.0526 37.8738 33.8877 36.2189 29.6732C31.1798 17.5989 21.9646 13.4603 10.8356 7.84061C8.76622 6.69317 6.70367 5.5334 4.65268 4.35382C3.2823 3.56654 1.91191 2.77926 0.5 1.96812C0.5 1.48364 0.5 0.999162 0.5 0.5Z"></path>
+</svg>
+<div class="after-img">
+<svg fill="currentColor" viewbox="0 0 230 101" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0C75.9 0 151.8 0 230 0C230 30.5828 230 61.1656 230 92.6752C213.801 100.799 211.477 103.225 202.215 98.8536C195.269 95.5754 194.545 90.0321 189.009 84.1175C188.561 83.639 188.155 83.1171 187.703 82.6424C186.015 80.8684 183.043 79.6333 181.536 79.0882C180.921 78.8656 180.277 78.7427 179.624 78.6954C177.999 78.5777 174.556 78.3799 170.86 78.4843C172.625 78.4741 169.147 78.4943 170.86 78.4843C165.937 78.7332 156.13 79.5016 151.275 80.3185C134.282 81.4972 132.254 82.8156 125.421 80.3024C124.14 79.8312 122.985 79.0535 122.089 78.0236C116.69 71.8175 113.234 63.841 109.115 56.7515C108.478 55.6723 107.841 54.5932 107.185 53.4813C106.642 52.5137 106.099 51.546 105.539 50.549C101.686 45.6943 97.4324 43.5599 91.3874 42.4701C80.59 42.2557 74.9731 43.9125 66.412 50.4223C63.6917 52.2457 63.3406 52.4811 59.5349 53.213C58.2569 53.4588 56.9357 53.4577 55.6747 53.1359C50.572 51.8338 47.1734 49.8113 43.8357 45.5945C43.4196 45.0688 43.0771 44.4876 42.7976 43.8782C40.8091 39.542 39.0792 35.1436 37.3424 30.6926C32.0743 17.9895 22.4402 13.6353 10.8054 7.72293C8.64196 6.51574 6.48566 5.29555 4.34144 4.05454C2.90877 3.22626 1.47609 2.39797 0 1.54459C0 1.03487 0 0.52516 0 0Z"></path>
+</svg>
+</div>
+</div>
+<div class="card d-flex flex-sm-row gap-3 gap-sm-4 align-items-center"><?php foreach ((isset($__bh)?$__bh:($businessHours ?? [])) as $bh): ?>
+<div class="col-sm-6"><div class="business-hour-card d-flex gap-2 align-items-center mb-3"><div class="time-icon"><i class="bi bi-clock fs-3"></i></div><div class="d-flex flex-column align-items-start"><span class="fs-14 text-gray lh-1 fw-5"><?= htmlspecialchars(ucfirst(strtolower($bh["day_name"] ?? ""))) ?></span><span class="fs-16 fw-5"><?= !empty($bh["is_open"]) ? htmlspecialchars(trim(($bh["open_time"] ?? "")." - ".($bh["close_time"] ?? ""))) : "Closed" ?></span></div></div></div>
+<?php endforeach; ?></div>
+</div>
+<div class="text-gray-100 profile-desc px-30 pt-4 fs-14 text-center"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars(trim(html_entity_decode(strip_tags($vcard["description"]),ENT_QUOTES)))) ?><?php else: ?>
+<p> <?= htmlspecialchars($fullName) ?> is your one-stop destination for fun, learning, and creativity. We offer a wide range of high-quality toys, from educational games and puzzles to action figures and soft toys. Our collection is carefully curated to suit children of all ages and interests. With a welcoming play area, helpful staff, and exciting gift options, we make every visit a joyful experience. Whether you're shopping for birthdays, holidays, or everyday fun, <?= htmlspecialchars($fullName) ?> brings smiles to little faces and peace of mind to parents.</p>
+<?php endif; ?></div>
+<div class="social-media-section px-30 pt-40"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a ?="" href="<?= htmlspecialchars($s[" url"])="">" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
+<div class="contact-section pt-40 pb-40 px-30 position-relative">
+<div class="rotate-vector">
+<div class="position-absolute vcard22-bg-hero-2">
+<svg fill="currentColor" viewbox="0 0 221 97" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.5 0.5C73.1 0.5 145.7 0.5 220.5 0.5C220.5 29.5688 220.5 58.6376 220.5 88.5873C205.006 96.3086 202.782 98.6149 193.923 94.4598C187.293 91.3503 186.589 86.0967 181.323 80.4878C180.874 80.0094 180.466 79.4875 180.009 79.0168C178.401 77.3622 175.619 76.2059 174.177 75.6852C173.566 75.4642 172.926 75.3433 172.277 75.2969C170.707 75.1847 167.438 75.0005 163.931 75.099C165.62 75.0892 162.292 75.1084 163.931 75.099C159.223 75.3355 149.842 76.0658 145.198 76.8424C129.011 77.958 127.021 79.2055 120.549 76.8565C119.269 76.3918 118.115 75.6188 117.22 74.5918C112.091 68.703 108.795 61.1543 104.871 54.442C104.262 53.4163 103.653 52.3905 103.025 51.3337C102.506 50.414 101.986 49.4942 101.451 48.5466C97.7653 43.9322 93.6962 41.9035 87.914 40.8676C77.5861 40.6639 72.2134 42.2386 64.0245 48.4262C61.4402 50.1476 61.0913 50.3799 57.5201 51.0646C56.2498 51.3081 54.9353 51.3077 53.6822 50.9871C48.8572 49.7529 45.6281 47.8384 42.4612 43.8767C42.0413 43.3515 41.6966 42.7696 41.4151 42.1589C39.5222 38.0526 37.8738 33.8877 36.2189 29.6732C31.1798 17.5989 21.9646 13.4603 10.8356 7.84061C8.76622 6.69317 6.70367 5.5334 4.65268 4.35382C3.2823 3.56654 1.91191 2.77926 0.5 1.96812C0.5 1.48364 0.5 0.999162 0.5 0.5Z"></path>
+</svg>
+<div class="after-img">
+<svg fill="currentColor" viewbox="0 0 230 101" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0C75.9 0 151.8 0 230 0C230 30.5828 230 61.1656 230 92.6752C213.801 100.799 211.477 103.225 202.215 98.8536C195.269 95.5754 194.545 90.0321 189.009 84.1175C188.561 83.639 188.155 83.1171 187.703 82.6424C186.015 80.8684 183.043 79.6333 181.536 79.0882C180.921 78.8656 180.277 78.7427 179.624 78.6954C177.999 78.5777 174.556 78.3799 170.86 78.4843C172.625 78.4741 169.147 78.4943 170.86 78.4843C165.937 78.7332 156.13 79.5016 151.275 80.3185C134.282 81.4972 132.254 82.8156 125.421 80.3024C124.14 79.8312 122.985 79.0535 122.089 78.0236C116.69 71.8175 113.234 63.841 109.115 56.7515C108.478 55.6723 107.841 54.5932 107.185 53.4813C106.642 52.5137 106.099 51.546 105.539 50.549C101.686 45.6943 97.4324 43.5599 91.3874 42.4701C80.59 42.2557 74.9731 43.9125 66.412 50.4223C63.6917 52.2457 63.3406 52.4811 59.5349 53.213C58.2569 53.4588 56.9357 53.4577 55.6747 53.1359C50.572 51.8338 47.1734 49.8113 43.8357 45.5945C43.4196 45.0688 43.0771 44.4876 42.7976 43.8782C40.8091 39.542 39.0792 35.1436 37.3424 30.6926C32.0743 17.9895 22.4402 13.6353 10.8054 7.72293C8.64196 6.51574 6.48566 5.29555 4.34144 4.05454C2.90877 3.22626 1.47609 2.39797 0 1.54459C0 1.03487 0 0.52516 0 0Z"></path>
+</svg>
+</div>
+</div>
+</div>
+<div class="rotate-vector-bottom">
+<div class="position-absolute vcard22-bg-hero-2">
+<svg fill="currentColor" viewbox="0 0 221 97" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.5 0.5C73.1 0.5 145.7 0.5 220.5 0.5C220.5 29.5688 220.5 58.6376 220.5 88.5873C205.006 96.3086 202.782 98.6149 193.923 94.4598C187.293 91.3503 186.589 86.0967 181.323 80.4878C180.874 80.0094 180.466 79.4875 180.009 79.0168C178.401 77.3622 175.619 76.2059 174.177 75.6852C173.566 75.4642 172.926 75.3433 172.277 75.2969C170.707 75.1847 167.438 75.0005 163.931 75.099C165.62 75.0892 162.292 75.1084 163.931 75.099C159.223 75.3355 149.842 76.0658 145.198 76.8424C129.011 77.958 127.021 79.2055 120.549 76.8565C119.269 76.3918 118.115 75.6188 117.22 74.5918C112.091 68.703 108.795 61.1543 104.871 54.442C104.262 53.4163 103.653 52.3905 103.025 51.3337C102.506 50.414 101.986 49.4942 101.451 48.5466C97.7653 43.9322 93.6962 41.9035 87.914 40.8676C77.5861 40.6639 72.2134 42.2386 64.0245 48.4262C61.4402 50.1476 61.0913 50.3799 57.5201 51.0646C56.2498 51.3081 54.9353 51.3077 53.6822 50.9871C48.8572 49.7529 45.6281 47.8384 42.4612 43.8767C42.0413 43.3515 41.6966 42.7696 41.4151 42.1589C39.5222 38.0526 37.8738 33.8877 36.2189 29.6732C31.1798 17.5989 21.9646 13.4603 10.8356 7.84061C8.76622 6.69317 6.70367 5.5334 4.65268 4.35382C3.2823 3.56654 1.91191 2.77926 0.5 1.96812C0.5 1.48364 0.5 0.999162 0.5 0.5Z"></path>
+</svg>
+<div class="after-img">
+<svg fill="currentColor" viewbox="0 0 230 101" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0C75.9 0 151.8 0 230 0C230 30.5828 230 61.1656 230 92.6752C213.801 100.799 211.477 103.225 202.215 98.8536C195.269 95.5754 194.545 90.0321 189.009 84.1175C188.561 83.639 188.155 83.1171 187.703 82.6424C186.015 80.8684 183.043 79.6333 181.536 79.0882C180.921 78.8656 180.277 78.7427 179.624 78.6954C177.999 78.5777 174.556 78.3799 170.86 78.4843C172.625 78.4741 169.147 78.4943 170.86 78.4843C165.937 78.7332 156.13 79.5016 151.275 80.3185C134.282 81.4972 132.254 82.8156 125.421 80.3024C124.14 79.8312 122.985 79.0535 122.089 78.0236C116.69 71.8175 113.234 63.841 109.115 56.7515C108.478 55.6723 107.841 54.5932 107.185 53.4813C106.642 52.5137 106.099 51.546 105.539 50.549C101.686 45.6943 97.4324 43.5599 91.3874 42.4701C80.59 42.2557 74.9731 43.9125 66.412 50.4223C63.6917 52.2457 63.3406 52.4811 59.5349 53.213C58.2569 53.4588 56.9357 53.4577 55.6747 53.1359C50.572 51.8338 47.1734 49.8113 43.8357 45.5945C43.4196 45.0688 43.0771 44.4876 42.7976 43.8782C40.8091 39.542 39.0792 35.1436 37.3424 30.6926C32.0743 17.9895 22.4402 13.6353 10.8054 7.72293C8.64196 6.51574 6.48566 5.29555 4.34144 4.05454C2.90877 3.22626 1.47609 2.39797 0 1.54459C0 1.03487 0 0.52516 0 0Z"></path>
+</svg>
+</div>
+</div>
+</div>
+<div class="section-heading text-center">
+<h2>Contact</h2>
+</div>
+<div class="row row-gap-20px">
+<div class="col-sm-6">
+<div class="contact-box d-flex align-items-center">
+<div class="contact-icon d-flex justify-content-center align-items-center">
+<svg aria-hidden="true" class="svg-inline--fa fa-envelope fs-4" data-fa-i2svg="" data-icon="envelope" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512 176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z" fill="currentColor"></path></svg>
+</div>
+<div class="contact-desc w-100 text-center">
+<a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["email"]=""> class="fw-5 contact-desc w-100 text-center"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="contact-box d-flex align-items-center">
+<div class="contact-icon d-flex justify-content-center align-items-center">
+<svg aria-hidden="true" class="svg-inline--fa fa-envelope fs-4" data-fa-i2svg="" data-icon="envelope" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512 176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z" fill="currentColor"></path></svg>
+</div>
+<div class="contact-desc w-100 text-center">
+<a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["alternate_email"]=""> class="fw-5 contact-desc w-100 text-center"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="contact-box d-flex align-items-center">
+<div class="contact-icon d-flex justify-content-center align-items-center">
+<svg aria-hidden="true" class="svg-inline--fa fa-phone fs-4" data-fa-i2svg="" data-icon="phone" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M511.2 387l-23.25 100.8c-3.266 14.25-15.79 24.22-30.46 24.22C205.2 512 0 306.8 0 54.5c0-14.66 9.969-27.2 24.22-30.45l100.8-23.25C139.7-2.602 154.7 5.018 160.8 18.92l46.52 108.5c5.438 12.78 1.77 27.67-8.98 36.45L144.5 207.1c33.98 69.22 90.26 125.5 159.5 159.5l44.08-53.8c8.688-10.78 23.69-14.51 36.47-8.975l108.5 46.51C506.1 357.2 514.6 372.4 511.2 387z" fill="currentColor"></path></svg>
+</div>
+<div class="contact-desc w-100 text-center">
+<a "")="" ?="" ??="" href="tel:<?=" htmlspecialchars($vcard["phone"]=""> class="contact-desc w-100 text-center fw-5" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="contact-box d-flex align-items-center">
+<div class="contact-icon d-flex justify-content-center align-items-center">
+<svg aria-hidden="true" class="svg-inline--fa fa-phone fs-4" data-fa-i2svg="" data-icon="phone" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M511.2 387l-23.25 100.8c-3.266 14.25-15.79 24.22-30.46 24.22C205.2 512 0 306.8 0 54.5c0-14.66 9.969-27.2 24.22-30.45l100.8-23.25C139.7-2.602 154.7 5.018 160.8 18.92l46.52 108.5c5.438 12.78 1.77 27.67-8.98 36.45L144.5 207.1c33.98 69.22 90.26 125.5 159.5 159.5l44.08-53.8c8.688-10.78 23.69-14.51 36.47-8.975l108.5 46.51C506.1 357.2 514.6 372.4 511.2 387z" fill="currentColor"></path></svg>
+</div>
+<div class="contact-desc w-100 text-center">
+<a "")="" ?="" ??="" href="tel:<?=" htmlspecialchars($vcard["alternate_phone"]=""> class="contact-desc w-100 text-center fw-5" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="contact-box d-flex align-items-center">
+<div class="contact-icon d-flex justify-content-center align-items-center">
+<svg aria-hidden="true" class="svg-inline--fa fa-cake-candles fs-4" data-fa-i2svg="" data-icon="cake-candles" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M352 111.1c22.09 0 40-17.88 40-39.97S352 0 352 0s-40 49.91-40 72S329.9 111.1 352 111.1zM224 111.1c22.09 0 40-17.88 40-39.97S224 0 224 0S184 49.91 184 72S201.9 111.1 224 111.1zM383.1 223.1L384 160c0-8.836-7.164-16-16-16h-32C327.2 144 320 151.2 320 160v64h-64V160c0-8.836-7.164-16-16-16h-32C199.2 144 192 151.2 192 160v64H128V160c0-8.836-7.164-16-16-16h-32C71.16 144 64 151.2 64 160v63.97c-35.35 0-64 28.65-64 63.1v68.7c9.814 6.102 21.39 11.33 32 11.33c20.64 0 45.05-19.73 52.7-27.33c6.25-6.219 16.34-6.219 22.59 0C114.1 348.3 139.4 367.1 160 367.1s45.05-19.73 52.7-27.33c6.25-6.219 16.34-6.219 22.59 0C242.1 348.3 267.4 367.1 288 367.1s45.05-19.73 52.7-27.33c6.25-6.219 16.34-6.219 22.59 0C370.1 348.3 395.4 367.1 416 367.1c10.61 0 22.19-5.227 32-11.33V287.1C448 252.6 419.3 223.1 383.1 223.1zM352 373.3c-13.75 10.95-38.03 26.66-64 26.66s-50.25-15.7-64-26.66c-13.75 10.95-38.03 26.66-64 26.66s-50.25-15.7-64-26.66c-13.75 10.95-38.03 26.66-64 26.66c-11.27 0-22.09-3.121-32-7.377v87.38C0 497.7 14.33 512 32 512h384c17.67 0 32-14.33 32-32v-87.38c-9.91 4.256-20.73 7.377-32 7.377C390 399.1 365.8 384.3 352 373.3zM96 111.1c22.09 0 40-17.88 40-39.97S96 0 96 0S56 49.91 56 72S73.91 111.1 96 111.1z" fill="currentColor"></path></svg>
+</div>
+<div class="contact-desc w-100 text-center">
+<p class="mb-0 fw-5"><?= !empty($vcard["dob"]) ? htmlspecialchars(date("jS F, Y", strtotime($vcard["dob"]))) : "" ?></p>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="contact-box d-flex align-items-center">
+<div class="contact-icon d-flex justify-content-center align-items-center">
+<svg aria-hidden="true" class="svg-inline--fa fa-location-dot fs-4" data-fa-i2svg="" data-icon="location-dot" data-prefix="fas" focusable="false" role="img" viewbox="0 0 384 512" xmlns="http://www.w3.org/2000/svg"><path d="M168.3 499.2C116.1 435 0 279.4 0 192C0 85.96 85.96 0 192 0C298 0 384 85.96 384 192C384 279.4 267 435 215.7 499.2C203.4 514.5 180.6 514.5 168.3 499.2H168.3zM192 256C227.3 256 256 227.3 256 192C256 156.7 227.3 128 192 128C156.7 128 128 156.7 128 192C128 227.3 156.7 256 192 256z" fill="currentColor"></path></svg>
+</div>
+<div class="contact-desc w-100 text-center">
+<p class="mb-0 fw-5">Kolkata , West Bengal</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="our-services-section pt-40">
+<div class="section-heading text-center">
+<h2>Our Services</h2>
+</div>
+<div class="services">
+<div class="px-30">
+<div class="row row-gap-20px">
+<div class="col-sm-6">
+<div class="service-card h-100 position-relative">
+<div class="position-absolute w-100 bottom-0 start-0 service-wave-img">
+<svg fill="currentColor" viewbox="0 0 295 151" xmlns="http://www.w3.org/2000/svg">
+<path d="M295 0C287.266 22.245 276.158 43.4108 258.016 58.6495C247.073 67.5107 232.68 75.2668 218.439 71.2667C193.78 64.3405 185.374 46.1297 168.563 46.9727C148.971 47.9553 130.907 68.0502 115.339 78.9288C104.34 86.6146 93.1685 94.4111 80.4557 98.9509C71.2827 102.175 61.0837 103.487 51.6903 100.382C35.6269 94.932 22.5643 80.4402 13.2035 66.743C8.49563 59.8752 4.14642 52.7665 0 45.5451V47.042V151H295V0Z"></path>
+</svg>
+</div>
+<div>
+<a class="text-decoration-none card-img pe-none" href="javascript:void(0)" target="">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/dynamickidstoystorexxxxx/dyn-018.webp"/>
+</a>
+</div>
+<div class="card-body text-center px-0 pb-0 position-relative">
+<h3 class="card-title mb-10 text-center">
+ Seasonal Sales & Exclusive Launch Events
+ </h3>
+<div class="mb-0 text-gray-100 description-text text-center">
+ Access to discounts, flash sales, and early releases of trending or limited-edition toys.
  </div>
- <div class="position-absolute vcard22-bg-hero-2">
- <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 221 97" fill=currentColor>
- <path d="M0.5 0.5C73.1 0.5 145.7 0.5 220.5 0.5C220.5 29.5688 220.5 58.6376 220.5 88.5873C205.006 96.3086 202.782 98.6149 193.923 94.4598C187.293 91.3503 186.589 86.0967 181.323 80.4878C180.874 80.0094 180.466 79.4875 180.009 79.0168C178.401 77.3622 175.619 76.2059 174.177 75.6852C173.566 75.4642 172.926 75.3433 172.277 75.2969C170.707 75.1847 167.438 75.0005 163.931 75.099C165.62 75.0892 162.292 75.1084 163.931 75.099C159.223 75.3355 149.842 76.0658 145.198 76.8424C129.011 77.958 127.021 79.2055 120.549 76.8565C119.269 76.3918 118.115 75.6188 117.22 74.5918C112.091 68.703 108.795 61.1543 104.871 54.442C104.262 53.4163 103.653 52.3905 103.025 51.3337C102.506 50.414 101.986 49.4942 101.451 48.5466C97.7653 43.9322 93.6962 41.9035 87.914 40.8676C77.5861 40.6639 72.2134 42.2386 64.0245 48.4262C61.4402 50.1476 61.0913 50.3799 57.5201 51.0646C56.2498 51.3081 54.9353 51.3077 53.6822 50.9871C48.8572 49.7529 45.6281 47.8384 42.4612 43.8767C42.0413 43.3515 41.6966 42.7696 41.4151 42.1589C39.5222 38.0526 37.8738 33.8877 36.2189 29.6732C31.1798 17.5989 21.9646 13.4603 10.8356 7.84061C8.76622 6.69317 6.70367 5.5334 4.65268 4.35382C3.2823 3.56654 1.91191 2.77926 0.5 1.96812C0.5 1.48364 0.5 0.999162 0.5 0.5Z"></path>
- </svg>
- <div class=after-img>
- <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 230 101" fill=currentColor>
- <path d="M0 0C75.9 0 151.8 0 230 0C230 30.5828 230 61.1656 230 92.6752C213.801 100.799 211.477 103.225 202.215 98.8536C195.269 95.5754 194.545 90.0321 189.009 84.1175C188.561 83.639 188.155 83.1171 187.703 82.6424C186.015 80.8684 183.043 79.6333 181.536 79.0882C180.921 78.8656 180.277 78.7427 179.624 78.6954C177.999 78.5777 174.556 78.3799 170.86 78.4843C172.625 78.4741 169.147 78.4943 170.86 78.4843C165.937 78.7332 156.13 79.5016 151.275 80.3185C134.282 81.4972 132.254 82.8156 125.421 80.3024C124.14 79.8312 122.985 79.0535 122.089 78.0236C116.69 71.8175 113.234 63.841 109.115 56.7515C108.478 55.6723 107.841 54.5932 107.185 53.4813C106.642 52.5137 106.099 51.546 105.539 50.549C101.686 45.6943 97.4324 43.5599 91.3874 42.4701C80.59 42.2557 74.9731 43.9125 66.412 50.4223C63.6917 52.2457 63.3406 52.4811 59.5349 53.213C58.2569 53.4588 56.9357 53.4577 55.6747 53.1359C50.572 51.8338 47.1734 49.8113 43.8357 45.5945C43.4196 45.0688 43.0771 44.4876 42.7976 43.8782C40.8091 39.542 39.0792 35.1436 37.3424 30.6926C32.0743 17.9895 22.4402 13.6353 10.8054 7.72293C8.64196 6.51574 6.48566 5.29555 4.34144 4.05454C2.90877 3.22626 1.47609 2.39797 0 1.54459C0 1.03487 0 0.52516 0 0Z"></path>
- </svg>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="service-card h-100 position-relative">
+<div class="position-absolute w-100 bottom-0 start-0 service-wave-img">
+<svg fill="currentColor" viewbox="0 0 295 151" xmlns="http://www.w3.org/2000/svg">
+<path d="M295 0C287.266 22.245 276.158 43.4108 258.016 58.6495C247.073 67.5107 232.68 75.2668 218.439 71.2667C193.78 64.3405 185.374 46.1297 168.563 46.9727C148.971 47.9553 130.907 68.0502 115.339 78.9288C104.34 86.6146 93.1685 94.4111 80.4557 98.9509C71.2827 102.175 61.0837 103.487 51.6903 100.382C35.6269 94.932 22.5643 80.4402 13.2035 66.743C8.49563 59.8752 4.14642 52.7665 0 45.5451V47.042V151H295V0Z"></path>
+</svg>
+</div>
+<div>
+<a class="text-decoration-none card-img pe-none" href="javascript:void(0)" target="">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/dynamickidstoystorexxxxx/dyn-019.webp"/>
+</a>
+</div>
+<div class="card-body text-center px-0 pb-0 position-relative">
+<h3 class="card-title mb-10 text-center">
+ Toy Repair Or Battery Replacement
+ </h3>
+<div class="mb-0 text-gray-100 description-text text-center">
+ Fixing broken toys or replacing batteries in electronic toys and gadgets.
  </div>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="service-card h-100 position-relative">
+<div class="position-absolute w-100 bottom-0 start-0 service-wave-img">
+<svg fill="currentColor" viewbox="0 0 295 151" xmlns="http://www.w3.org/2000/svg">
+<path d="M295 0C287.266 22.245 276.158 43.4108 258.016 58.6495C247.073 67.5107 232.68 75.2668 218.439 71.2667C193.78 64.3405 185.374 46.1297 168.563 46.9727C148.971 47.9553 130.907 68.0502 115.339 78.9288C104.34 86.6146 93.1685 94.4111 80.4557 98.9509C71.2827 102.175 61.0837 103.487 51.6903 100.382C35.6269 94.932 22.5643 80.4402 13.2035 66.743C8.49563 59.8752 4.14642 52.7665 0 45.5451V47.042V151H295V0Z"></path>
+</svg>
+</div>
+<div>
+<a class="text-decoration-none card-img pe-none" href="javascript:void(0)" target="">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/dynamickidstoystorexxxxx/dyn-020.webp"/>
+</a>
+</div>
+<div class="card-body text-center px-0 pb-0 position-relative">
+<h3 class="card-title mb-10 text-center">
+ In-Store Play Areas Or Demonstrations
+ </h3>
+<div class="mb-0 text-gray-100 description-text text-center">
+ Interactive zones where children can try out toys before purchase.
  </div>
- <div class="card d-flex flex-sm-row gap-3 gap-sm-4 align-items-center">
- <div class=card-img>
- <img src="/images/templates/dynamickidstoystore/dyn-017.webp" class="w-100 h-100 object-fit-cover" loading=lazy>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="service-card h-100 position-relative">
+<div class="position-absolute w-100 bottom-0 start-0 service-wave-img">
+<svg fill="currentColor" viewbox="0 0 295 151" xmlns="http://www.w3.org/2000/svg">
+<path d="M295 0C287.266 22.245 276.158 43.4108 258.016 58.6495C247.073 67.5107 232.68 75.2668 218.439 71.2667C193.78 64.3405 185.374 46.1297 168.563 46.9727C148.971 47.9553 130.907 68.0502 115.339 78.9288C104.34 86.6146 93.1685 94.4111 80.4557 98.9509C71.2827 102.175 61.0837 103.487 51.6903 100.382C35.6269 94.932 22.5643 80.4402 13.2035 66.743C8.49563 59.8752 4.14642 52.7665 0 45.5451V47.042V151H295V0Z"></path>
+</svg>
+</div>
+<div>
+<a class="text-decoration-none card-img pe-none" href="javascript:void(0)" target="">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/dynamickidstoystorexxxxx/dyn-021.webp"/>
+</a>
+</div>
+<div class="card-body text-center px-0 pb-0 position-relative">
+<h3 class="card-title mb-10 text-center">
+ Pre-order And Home Delivery
+ </h3>
+<div class="mb-0 text-gray-100 description-text text-center">
+ Options to pre-order upcoming toys and get them delivered to your home.
  </div>
- <div class="card-body text-sm-start text-center profile-details p-0 position-relative">
- <div class=profile-name>
- <h2 class="text-primary mb-0 fs-24">
- <?= htmlspecialchars($fullName) ?>
- <i class="verification-icon bi-patch-check-fill"></i>
- </h2>
- 
- <p class="fs-18 text-label-color mb-0"></p>
- <p class="fs-14 text-gray-100 mb-0"></p>
- <p class="fs-14 text-gray-100 mb-0"></p>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="service-card h-100 position-relative">
+<div class="position-absolute w-100 bottom-0 start-0 service-wave-img">
+<svg fill="currentColor" viewbox="0 0 295 151" xmlns="http://www.w3.org/2000/svg">
+<path d="M295 0C287.266 22.245 276.158 43.4108 258.016 58.6495C247.073 67.5107 232.68 75.2668 218.439 71.2667C193.78 64.3405 185.374 46.1297 168.563 46.9727C148.971 47.9553 130.907 68.0502 115.339 78.9288C104.34 86.6146 93.1685 94.4111 80.4557 98.9509C71.2827 102.175 61.0837 103.487 51.6903 100.382C35.6269 94.932 22.5643 80.4402 13.2035 66.743C8.49563 59.8752 4.14642 52.7665 0 45.5451V47.042V151H295V0Z"></path>
+</svg>
+</div>
+<div>
+<a class="text-decoration-none card-img pe-none" href="javascript:void(0)" target="">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/dynamickidstoystorexxxxx/dyn-022.webp"/>
+</a>
+</div>
+<div class="card-body text-center px-0 pb-0 position-relative">
+<h3 class="card-title mb-10 text-center">
+ Birthday Party Supplies & Packages
+ </h3>
+<div class="mb-0 text-gray-100 description-text text-center">
+ Bundled toy and décor packages or themed items for kids’ birthday parties.
  </div>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="service-card h-100 position-relative">
+<div class="position-absolute w-100 bottom-0 start-0 service-wave-img">
+<svg fill="currentColor" viewbox="0 0 295 151" xmlns="http://www.w3.org/2000/svg">
+<path d="M295 0C287.266 22.245 276.158 43.4108 258.016 58.6495C247.073 67.5107 232.68 75.2668 218.439 71.2667C193.78 64.3405 185.374 46.1297 168.563 46.9727C148.971 47.9553 130.907 68.0502 115.339 78.9288C104.34 86.6146 93.1685 94.4111 80.4557 98.9509C71.2827 102.175 61.0837 103.487 51.6903 100.382C35.6269 94.932 22.5643 80.4402 13.2035 66.743C8.49563 59.8752 4.14642 52.7665 0 45.5451V47.042V151H295V0Z"></path>
+</svg>
+</div>
+<div>
+<a class="text-decoration-none card-img pe-none" href="javascript:void(0)" target="">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="/images/templates/dynamickidstoystorexxxxx/dyn-023.webp"/>
+</a>
+</div>
+<div class="card-body text-center px-0 pb-0 position-relative">
+<h3 class="card-title mb-10 text-center">
+ Gift Wrapping Services
+ </h3>
+<div class="mb-0 text-gray-100 description-text text-center">
+ Complimentary or paid gift-wrapping options for special occasions like birthdays or holidays.
  </div>
- </div>
- </div>
- <div class="text-gray-100 profile-desc px-30 pt-4 fs-14 text-center"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars(trim(html_entity_decode(strip_tags($vcard["description"]),ENT_QUOTES)))) ?><?php else: ?>
- <p> <?= htmlspecialchars($fullName) ?> is your one-stop destination for fun, learning, and creativity. We offer a wide range of high-quality toys, from educational games and puzzles to action figures and soft toys. Our collection is carefully curated to suit children of all ages and interests. With a welcoming play area, helpful staff, and exciting gift options, we make every visit a joyful experience. Whether you're shopping for birthdays, holidays, or everyday fun, <?= htmlspecialchars($fullName) ?> brings smiles to little faces and peace of mind to parents.</p>
- <?php endif; ?></div>
- 
- <div class="social-media-section px-30 pt-40"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
- 
- 
- 
- <div class="contact-section pt-40 pb-40 px-30 position-relative">
- <div class=rotate-vector>
- <div class="position-absolute vcard22-bg-hero-2">
- <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 221 97" fill=currentColor>
- <path d="M0.5 0.5C73.1 0.5 145.7 0.5 220.5 0.5C220.5 29.5688 220.5 58.6376 220.5 88.5873C205.006 96.3086 202.782 98.6149 193.923 94.4598C187.293 91.3503 186.589 86.0967 181.323 80.4878C180.874 80.0094 180.466 79.4875 180.009 79.0168C178.401 77.3622 175.619 76.2059 174.177 75.6852C173.566 75.4642 172.926 75.3433 172.277 75.2969C170.707 75.1847 167.438 75.0005 163.931 75.099C165.62 75.0892 162.292 75.1084 163.931 75.099C159.223 75.3355 149.842 76.0658 145.198 76.8424C129.011 77.958 127.021 79.2055 120.549 76.8565C119.269 76.3918 118.115 75.6188 117.22 74.5918C112.091 68.703 108.795 61.1543 104.871 54.442C104.262 53.4163 103.653 52.3905 103.025 51.3337C102.506 50.414 101.986 49.4942 101.451 48.5466C97.7653 43.9322 93.6962 41.9035 87.914 40.8676C77.5861 40.6639 72.2134 42.2386 64.0245 48.4262C61.4402 50.1476 61.0913 50.3799 57.5201 51.0646C56.2498 51.3081 54.9353 51.3077 53.6822 50.9871C48.8572 49.7529 45.6281 47.8384 42.4612 43.8767C42.0413 43.3515 41.6966 42.7696 41.4151 42.1589C39.5222 38.0526 37.8738 33.8877 36.2189 29.6732C31.1798 17.5989 21.9646 13.4603 10.8356 7.84061C8.76622 6.69317 6.70367 5.5334 4.65268 4.35382C3.2823 3.56654 1.91191 2.77926 0.5 1.96812C0.5 1.48364 0.5 0.999162 0.5 0.5Z"></path>
- </svg>
- <div class=after-img>
- <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 230 101" fill=currentColor>
- <path d="M0 0C75.9 0 151.8 0 230 0C230 30.5828 230 61.1656 230 92.6752C213.801 100.799 211.477 103.225 202.215 98.8536C195.269 95.5754 194.545 90.0321 189.009 84.1175C188.561 83.639 188.155 83.1171 187.703 82.6424C186.015 80.8684 183.043 79.6333 181.536 79.0882C180.921 78.8656 180.277 78.7427 179.624 78.6954C177.999 78.5777 174.556 78.3799 170.86 78.4843C172.625 78.4741 169.147 78.4943 170.86 78.4843C165.937 78.7332 156.13 79.5016 151.275 80.3185C134.282 81.4972 132.254 82.8156 125.421 80.3024C124.14 79.8312 122.985 79.0535 122.089 78.0236C116.69 71.8175 113.234 63.841 109.115 56.7515C108.478 55.6723 107.841 54.5932 107.185 53.4813C106.642 52.5137 106.099 51.546 105.539 50.549C101.686 45.6943 97.4324 43.5599 91.3874 42.4701C80.59 42.2557 74.9731 43.9125 66.412 50.4223C63.6917 52.2457 63.3406 52.4811 59.5349 53.213C58.2569 53.4588 56.9357 53.4577 55.6747 53.1359C50.572 51.8338 47.1734 49.8113 43.8357 45.5945C43.4196 45.0688 43.0771 44.4876 42.7976 43.8782C40.8091 39.542 39.0792 35.1436 37.3424 30.6926C32.0743 17.9895 22.4402 13.6353 10.8054 7.72293C8.64196 6.51574 6.48566 5.29555 4.34144 4.05454C2.90877 3.22626 1.47609 2.39797 0 1.54459C0 1.03487 0 0.52516 0 0Z"></path>
- </svg>
- </div>
- </div>
- </div>
- <div class=rotate-vector-bottom>
- <div class="position-absolute vcard22-bg-hero-2">
- <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 221 97" fill=currentColor>
- <path d="M0.5 0.5C73.1 0.5 145.7 0.5 220.5 0.5C220.5 29.5688 220.5 58.6376 220.5 88.5873C205.006 96.3086 202.782 98.6149 193.923 94.4598C187.293 91.3503 186.589 86.0967 181.323 80.4878C180.874 80.0094 180.466 79.4875 180.009 79.0168C178.401 77.3622 175.619 76.2059 174.177 75.6852C173.566 75.4642 172.926 75.3433 172.277 75.2969C170.707 75.1847 167.438 75.0005 163.931 75.099C165.62 75.0892 162.292 75.1084 163.931 75.099C159.223 75.3355 149.842 76.0658 145.198 76.8424C129.011 77.958 127.021 79.2055 120.549 76.8565C119.269 76.3918 118.115 75.6188 117.22 74.5918C112.091 68.703 108.795 61.1543 104.871 54.442C104.262 53.4163 103.653 52.3905 103.025 51.3337C102.506 50.414 101.986 49.4942 101.451 48.5466C97.7653 43.9322 93.6962 41.9035 87.914 40.8676C77.5861 40.6639 72.2134 42.2386 64.0245 48.4262C61.4402 50.1476 61.0913 50.3799 57.5201 51.0646C56.2498 51.3081 54.9353 51.3077 53.6822 50.9871C48.8572 49.7529 45.6281 47.8384 42.4612 43.8767C42.0413 43.3515 41.6966 42.7696 41.4151 42.1589C39.5222 38.0526 37.8738 33.8877 36.2189 29.6732C31.1798 17.5989 21.9646 13.4603 10.8356 7.84061C8.76622 6.69317 6.70367 5.5334 4.65268 4.35382C3.2823 3.56654 1.91191 2.77926 0.5 1.96812C0.5 1.48364 0.5 0.999162 0.5 0.5Z"></path>
- </svg>
- <div class=after-img>
- <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 230 101" fill=currentColor>
- <path d="M0 0C75.9 0 151.8 0 230 0C230 30.5828 230 61.1656 230 92.6752C213.801 100.799 211.477 103.225 202.215 98.8536C195.269 95.5754 194.545 90.0321 189.009 84.1175C188.561 83.639 188.155 83.1171 187.703 82.6424C186.015 80.8684 183.043 79.6333 181.536 79.0882C180.921 78.8656 180.277 78.7427 179.624 78.6954C177.999 78.5777 174.556 78.3799 170.86 78.4843C172.625 78.4741 169.147 78.4943 170.86 78.4843C165.937 78.7332 156.13 79.5016 151.275 80.3185C134.282 81.4972 132.254 82.8156 125.421 80.3024C124.14 79.8312 122.985 79.0535 122.089 78.0236C116.69 71.8175 113.234 63.841 109.115 56.7515C108.478 55.6723 107.841 54.5932 107.185 53.4813C106.642 52.5137 106.099 51.546 105.539 50.549C101.686 45.6943 97.4324 43.5599 91.3874 42.4701C80.59 42.2557 74.9731 43.9125 66.412 50.4223C63.6917 52.2457 63.3406 52.4811 59.5349 53.213C58.2569 53.4588 56.9357 53.4577 55.6747 53.1359C50.572 51.8338 47.1734 49.8113 43.8357 45.5945C43.4196 45.0688 43.0771 44.4876 42.7976 43.8782C40.8091 39.542 39.0792 35.1436 37.3424 30.6926C32.0743 17.9895 22.4402 13.6353 10.8054 7.72293C8.64196 6.51574 6.48566 5.29555 4.34144 4.05454C2.90877 3.22626 1.47609 2.39797 0 1.54459C0 1.03487 0 0.52516 0 0Z"></path>
- </svg>
- </div>
- </div>
- </div>
- <div class="section-heading text-center">
- <h2>Contact</h2>
- </div>
- <div class="row row-gap-20px">
- <div class=col-sm-6>
- <div class="contact-box d-flex align-items-center">
- <div class="contact-icon d-flex justify-content-center align-items-center">
- <svg class="svg-inline--fa fa-envelope fs-4" aria-hidden=true focusable=false data-prefix=fas data-icon=envelope role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512 176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z"></path></svg>
- </div>
- <div class="contact-desc w-100 text-center">
- <a href=mailto:<?= htmlspecialchars($vcard["email"] ?? "") ?> class="fw-5 contact-desc w-100 text-center"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="contact-box d-flex align-items-center">
- <div class="contact-icon d-flex justify-content-center align-items-center">
- <svg class="svg-inline--fa fa-envelope fs-4" aria-hidden=true focusable=false data-prefix=fas data-icon=envelope role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M464 64C490.5 64 512 85.49 512 112C512 127.1 504.9 141.3 492.8 150.4L275.2 313.6C263.8 322.1 248.2 322.1 236.8 313.6L19.2 150.4C7.113 141.3 0 127.1 0 112C0 85.49 21.49 64 48 64H464zM217.6 339.2C240.4 356.3 271.6 356.3 294.4 339.2L512 176V384C512 419.3 483.3 448 448 448H64C28.65 448 0 419.3 0 384V176L217.6 339.2z"></path></svg>
- </div>
- <div class="contact-desc w-100 text-center">
- <a href=mailto:<?= htmlspecialchars($vcard["alternate_email"] ?? "") ?> class="fw-5 contact-desc w-100 text-center"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="contact-box d-flex align-items-center">
- <div class="contact-icon d-flex justify-content-center align-items-center">
- <svg class="svg-inline--fa fa-phone fs-4" aria-hidden=true focusable=false data-prefix=fas data-icon=phone role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M511.2 387l-23.25 100.8c-3.266 14.25-15.79 24.22-30.46 24.22C205.2 512 0 306.8 0 54.5c0-14.66 9.969-27.2 24.22-30.45l100.8-23.25C139.7-2.602 154.7 5.018 160.8 18.92l46.52 108.5c5.438 12.78 1.77 27.67-8.98 36.45L144.5 207.1c33.98 69.22 90.26 125.5 159.5 159.5l44.08-53.8c8.688-10.78 23.69-14.51 36.47-8.975l108.5 46.51C506.1 357.2 514.6 372.4 511.2 387z"></path></svg>
- </div>
- <div class="contact-desc w-100 text-center">
- <a href=tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?> class="contact-desc w-100 text-center fw-5" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="contact-box d-flex align-items-center">
- <div class="contact-icon d-flex justify-content-center align-items-center">
- <svg class="svg-inline--fa fa-phone fs-4" aria-hidden=true focusable=false data-prefix=fas data-icon=phone role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M511.2 387l-23.25 100.8c-3.266 14.25-15.79 24.22-30.46 24.22C205.2 512 0 306.8 0 54.5c0-14.66 9.969-27.2 24.22-30.45l100.8-23.25C139.7-2.602 154.7 5.018 160.8 18.92l46.52 108.5c5.438 12.78 1.77 27.67-8.98 36.45L144.5 207.1c33.98 69.22 90.26 125.5 159.5 159.5l44.08-53.8c8.688-10.78 23.69-14.51 36.47-8.975l108.5 46.51C506.1 357.2 514.6 372.4 511.2 387z"></path></svg>
- </div>
- <div class="contact-desc w-100 text-center">
- <a href=tel:<?= htmlspecialchars($vcard["alternate_phone"] ?? "") ?> class="contact-desc w-100 text-center fw-5" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="contact-box d-flex align-items-center">
- <div class="contact-icon d-flex justify-content-center align-items-center">
- <svg class="svg-inline--fa fa-cake-candles fs-4" aria-hidden=true focusable=false data-prefix=fas data-icon=cake-candles role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 448 512" data-fa-i2svg><path fill=currentColor d="M352 111.1c22.09 0 40-17.88 40-39.97S352 0 352 0s-40 49.91-40 72S329.9 111.1 352 111.1zM224 111.1c22.09 0 40-17.88 40-39.97S224 0 224 0S184 49.91 184 72S201.9 111.1 224 111.1zM383.1 223.1L384 160c0-8.836-7.164-16-16-16h-32C327.2 144 320 151.2 320 160v64h-64V160c0-8.836-7.164-16-16-16h-32C199.2 144 192 151.2 192 160v64H128V160c0-8.836-7.164-16-16-16h-32C71.16 144 64 151.2 64 160v63.97c-35.35 0-64 28.65-64 63.1v68.7c9.814 6.102 21.39 11.33 32 11.33c20.64 0 45.05-19.73 52.7-27.33c6.25-6.219 16.34-6.219 22.59 0C114.1 348.3 139.4 367.1 160 367.1s45.05-19.73 52.7-27.33c6.25-6.219 16.34-6.219 22.59 0C242.1 348.3 267.4 367.1 288 367.1s45.05-19.73 52.7-27.33c6.25-6.219 16.34-6.219 22.59 0C370.1 348.3 395.4 367.1 416 367.1c10.61 0 22.19-5.227 32-11.33V287.1C448 252.6 419.3 223.1 383.1 223.1zM352 373.3c-13.75 10.95-38.03 26.66-64 26.66s-50.25-15.7-64-26.66c-13.75 10.95-38.03 26.66-64 26.66s-50.25-15.7-64-26.66c-13.75 10.95-38.03 26.66-64 26.66c-11.27 0-22.09-3.121-32-7.377v87.38C0 497.7 14.33 512 32 512h384c17.67 0 32-14.33 32-32v-87.38c-9.91 4.256-20.73 7.377-32 7.377C390 399.1 365.8 384.3 352 373.3zM96 111.1c22.09 0 40-17.88 40-39.97S96 0 96 0S56 49.91 56 72S73.91 111.1 96 111.1z"></path></svg>
- </div>
- <div class="contact-desc w-100 text-center">
- <p class="mb-0 fw-5"><?= !empty($vcard["dob"]) ? htmlspecialchars(date("jS F, Y", strtotime($vcard["dob"]))) : "" ?></p>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class="contact-box d-flex align-items-center">
- <div class="contact-icon d-flex justify-content-center align-items-center">
- <svg class="svg-inline--fa fa-location-dot fs-4" aria-hidden=true focusable=false data-prefix=fas data-icon=location-dot role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 384 512" data-fa-i2svg><path fill=currentColor d="M168.3 499.2C116.1 435 0 279.4 0 192C0 85.96 85.96 0 192 0C298 0 384 85.96 384 192C384 279.4 267 435 215.7 499.2C203.4 514.5 180.6 514.5 168.3 499.2H168.3zM192 256C227.3 256 256 227.3 256 192C256 156.7 227.3 128 192 128C156.7 128 128 156.7 128 192C128 227.3 156.7 256 192 256z"></path></svg>
- </div>
- <div class="contact-desc w-100 text-center">
- <p class="mb-0 fw-5">Kolkata , West Bengal</p>
- </div>
- </div>
- </div>
- </div>
- </div>
- 
- <?php if(!empty($services)): ?><div class="our-services-section pt-50 position-relative"><div class="section-heading"><h2>Our Services</h2></div><div class="services"><div class="px-30"><div class="row"><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/dynamickidstoystore/dyn-012.webp"; ?><div class="col-sm-6 mb-sm-0 mb-40 p-3"><div class="card-wrapper h-100"><a href="javascript:void(0)" class="text-decoration-none"><div class="service-card card h-100"><div class="card-img mx-auto"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></div><div class="card-body text-center"><h3 class="card-title text-primary"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></a></div></div><?php endforeach; ?></div></div></div></div><?php endif; ?>
- 
- <div class="appointment-section pt-40 px-30">
- <div class="section-heading text-center">
- <h2>Make an Appointment</h2>
- </div>
- <div class="appointment pb-0 p-3">
- <div class=row>
- <div class=col-12>
- <div class=position-relative>
- <input class="date appoint-input form-control appointment-input flatpickr-input" placeholder="Pick a Date" id=pickUpDate name=date type=text readonly fdprocessedid=u1oxc value>
- <span class=calendar-icon>
- <svg xmlns=http://www.w3.org/2000/svg width=20 height=20 viewBox="0 0 20 20" fill=currentColor>
- <path d="M2.5 3H2.625V3.125C2.625 4.08946 3.40959 4.875 4.375 4.875H5.625C6.59041 4.875 7.375 4.08946 7.375 3.125V3H12.625V3.125C12.625 4.08962 13.4104 4.875 14.375 4.875H15.625C16.5896 4.875 17.375 4.08962 17.375 3.125V3H17.5C18.6045 3 19.5 3.89552 19.5 5V17.5C19.5 18.6045 18.6045 19.5 17.5 19.5H2.5C1.39552 19.5 0.5 18.6045 0.5 17.5V5C0.5 3.89552 1.39552 3 2.5 3ZM2.5 5.75C1.53459 5.75 0.75 6.53554 0.75 7.5V17.5C0.75 18.466 1.53491 19.25 2.5 19.25H17.5C18.4658 19.25 19.25 18.4658 19.25 17.5V7.5C19.25 6.5357 18.4661 5.75 17.5 5.75H2.5ZM4.375 14.25H5.625C5.69433 14.25 5.75 14.3057 5.75 14.375V15.625C5.75 15.6943 5.69433 15.75 5.625 15.75H4.375C4.30567 15.75 4.25 15.6943 4.25 15.625V14.375C4.25 14.3057 4.30567 14.25 4.375 14.25ZM9.375 14.25H10.625C10.6943 14.25 10.75 14.3057 10.75 14.375V15.625C10.75 15.6943 10.6943 15.75 10.625 15.75H9.375C9.30567 15.75 9.25 15.6943 9.25 15.625V14.375C9.25 14.3057 9.30567 14.25 9.375 14.25ZM14.375 14.25H15.625C15.6943 14.25 15.75 14.3057 15.75 14.375V15.625C15.75 15.6943 15.6943 15.75 15.625 15.75H14.375C14.3057 15.75 14.25 15.6943 14.25 15.625V14.375C14.25 14.3057 14.3057 14.25 14.375 14.25ZM4.375 9.25H5.625C5.69433 9.25 5.75 9.30567 5.75 9.375V10.625C5.75 10.6943 5.69433 10.75 5.625 10.75H4.375C4.30567 10.75 4.25 10.6943 4.25 10.625V9.375C4.25 9.30567 4.30567 9.25 4.375 9.25ZM9.375 9.25H10.625C10.6943 9.25 10.75 9.30567 10.75 9.375V10.625C10.75 10.6943 10.6943 10.75 10.625 10.75H9.375C9.30567 10.75 9.25 10.6943 9.25 10.625V9.375C9.25 9.30567 9.30567 9.25 9.375 9.25ZM14.375 9.25H15.625C15.6943 9.25 15.75 9.30567 15.75 9.375V10.625C15.75 10.6943 15.6943 10.75 15.625 10.75H14.375C14.3057 10.75 14.25 10.6943 14.25 10.625V9.375C14.25 9.30567 14.3057 9.25 14.375 9.25ZM4.375 0.5H5.625C5.69433 0.5 5.75 0.555674 5.75 0.625V3.125C5.75 3.19433 5.69433 3.25 5.625 3.25H4.375C4.30567 3.25 4.25 3.19433 4.25 3.125V0.625C4.25 0.555674 4.30567 0.5 4.375 0.5ZM14.375 0.5H15.625C15.6943 0.5 15.75 0.555674 15.75 0.625V3.125C15.75 3.19433 15.6943 3.25 15.625 3.25H14.375C14.3057 3.25 14.25 3.19433 14.25 3.125V0.625C14.25 0.555674 14.3057 0.5 14.375 0.5Z"></path>
- </svg>
- </span>
- </div>
- </div>
- </div>
- <div class=appointment-slots-section>
- <div id=slotData class="row text-white fw-5 mx-0 gap-3 flex-wrap">
- </div>
- <div class=text-center>
- <button type=submit class="appointmentAdd btn w-70 d-none dynamic-btn-9 sf-hidden" id=appointment-btn data-button-style=9>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="appointment-section pt-40 px-30">
+<div class="section-heading text-center">
+<h2>Make an Appointment</h2>
+</div>
+<div class="appointment pb-0 p-3">
+<div class="row">
+<div class="col-12">
+<div class="position-relative">
+<input class="date appoint-input form-control appointment-input flatpickr-input" fdprocessedid="u1oxc" id="pickUpDate" name="date" placeholder="Pick a Date" readonly="" type="text" value=""/>
+<span class="calendar-icon">
+<svg fill="currentColor" height="20" viewbox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.5 3H2.625V3.125C2.625 4.08946 3.40959 4.875 4.375 4.875H5.625C6.59041 4.875 7.375 4.08946 7.375 3.125V3H12.625V3.125C12.625 4.08962 13.4104 4.875 14.375 4.875H15.625C16.5896 4.875 17.375 4.08962 17.375 3.125V3H17.5C18.6045 3 19.5 3.89552 19.5 5V17.5C19.5 18.6045 18.6045 19.5 17.5 19.5H2.5C1.39552 19.5 0.5 18.6045 0.5 17.5V5C0.5 3.89552 1.39552 3 2.5 3ZM2.5 5.75C1.53459 5.75 0.75 6.53554 0.75 7.5V17.5C0.75 18.466 1.53491 19.25 2.5 19.25H17.5C18.4658 19.25 19.25 18.4658 19.25 17.5V7.5C19.25 6.5357 18.4661 5.75 17.5 5.75H2.5ZM4.375 14.25H5.625C5.69433 14.25 5.75 14.3057 5.75 14.375V15.625C5.75 15.6943 5.69433 15.75 5.625 15.75H4.375C4.30567 15.75 4.25 15.6943 4.25 15.625V14.375C4.25 14.3057 4.30567 14.25 4.375 14.25ZM9.375 14.25H10.625C10.6943 14.25 10.75 14.3057 10.75 14.375V15.625C10.75 15.6943 10.6943 15.75 10.625 15.75H9.375C9.30567 15.75 9.25 15.6943 9.25 15.625V14.375C9.25 14.3057 9.30567 14.25 9.375 14.25ZM14.375 14.25H15.625C15.6943 14.25 15.75 14.3057 15.75 14.375V15.625C15.75 15.6943 15.6943 15.75 15.625 15.75H14.375C14.3057 15.75 14.25 15.6943 14.25 15.625V14.375C14.25 14.3057 14.3057 14.25 14.375 14.25ZM4.375 9.25H5.625C5.69433 9.25 5.75 9.30567 5.75 9.375V10.625C5.75 10.6943 5.69433 10.75 5.625 10.75H4.375C4.30567 10.75 4.25 10.6943 4.25 10.625V9.375C4.25 9.30567 4.30567 9.25 4.375 9.25ZM9.375 9.25H10.625C10.6943 9.25 10.75 9.30567 10.75 9.375V10.625C10.75 10.6943 10.6943 10.75 10.625 10.75H9.375C9.30567 10.75 9.25 10.6943 9.25 10.625V9.375C9.25 9.30567 9.30567 9.25 9.375 9.25ZM14.375 9.25H15.625C15.6943 9.25 15.75 9.30567 15.75 9.375V10.625C15.75 10.6943 15.6943 10.75 15.625 10.75H14.375C14.3057 10.75 14.25 10.6943 14.25 10.625V9.375C14.25 9.30567 14.3057 9.25 14.375 9.25ZM4.375 0.5H5.625C5.69433 0.5 5.75 0.555674 5.75 0.625V3.125C5.75 3.19433 5.69433 3.25 5.625 3.25H4.375C4.30567 3.25 4.25 3.19433 4.25 3.125V0.625C4.25 0.555674 4.30567 0.5 4.375 0.5ZM14.375 0.5H15.625C15.6943 0.5 15.75 0.555674 15.75 0.625V3.125C15.75 3.19433 15.6943 3.25 15.625 3.25H14.375C14.3057 3.25 14.25 3.19433 14.25 3.125V0.625C14.25 0.555674 14.3057 0.5 14.375 0.5Z"></path>
+</svg>
+</span>
+</div>
+</div>
+</div>
+<div class="appointment-slots-section">
+<div class="row text-white fw-5 mx-0 gap-3 flex-wrap" id="slotData">
+</div>
+<div class="text-center">
+<button class="appointmentAdd btn w-70 d-none dynamic-btn-9 sf-hidden" data-button-style="9" id="appointment-btn" type="submit">
  Make an Appointment
  </button>
- </div>
- </div>
- </div>
- </div>
- <div class="modal fade appointment-modal sf-hidden" id=AppointmentModal tabindex=-1 aria-hidden=true>
- 
 </div>
- 
- <div class="gallery-section position-relative pt-40 px-20">
- <div class="section-heading text-center">
- <h2>Gallery</h2>
- </div>
- <div class="gallery-slider"><?php foreach ((isset($__ga)?$__ga:($galleries ?? [])) as $g): foreach (($g["images"] ?? []) as $im): $gi=imgUrl($im["image_url"] ?? ($im["image"] ?? "")); ?><div class="px-2"><div class="gallery-img-wrapper"><div class="gallery-img" style="background-image:url('<?= htmlspecialchars($gi) ?>');background-size:cover;background-position:center;height:280px;border-radius:12px;"></div></div></div><?php endforeach; endforeach; ?></div>
- </div>
- 
- <div class="product-section px-20 pt-40">
- <div class="section-heading text-center px-3">
- <h2 class=product-heading>Products</h2>
- </div>
- <div class="product-slider"><?php foreach ((isset($__pr)?$__pr:($products ?? [])) as $p): $pi=!empty($p["image"])?imgUrl($p["image"]):"/images/templates/dynamickidstoystore/dyn-012.webp"; ?><div class="px-2"><div class="product-card card"><div class="product-img card-img"><img src="<?= htmlspecialchars($pi) ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></div><div class="product-desc card-body d-flex flex-column align-items-center justify-content-between"><div class="product-title"><h3 class="text-dark text-center"><?= htmlspecialchars($p["name"] ?? "") ?></h3></div><?php if(isset($p["price"]) && $p["price"]!==""): ?><div class="product-amount"><span>₹ <?= htmlspecialchars($p["price"]) ?></span></div><?php endif; ?></div></div></div><?php endforeach; ?></div>
- <div class="mt-4 text-center view-more">
- <a class="fs-6 text btn-primary btn text-decoration-none" href=https://tapifyworld.com/products/41/dynamic>View More Products
- <svg class="svg-inline--fa fa-arrow-right-long right-arrow-animation" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z"></path></svg>
- </a>
- </div>
- </div>
- 
- <div class="testimonial-section pt-40">
- <div class=px-20>
- <div class="section-heading text-center">
- <h2 class=testimonial-head>Testimonials</h2>
- </div>
- <div class="testimonial-slider"><?php foreach ((isset($__te)?$__te:($testimonials ?? [])) as $t): ?><div class="px-2"><div class="testimonial-card p-0"><div class="card-body text-center position-relative"><div class="text-center"><p class="text-gray mb-0">“<?= htmlspecialchars($t["message"] ?? "") ?>”</p></div></div><div class="d-flex flex-column align-items-center justify-content-center gap-2 profile-desc"><?php if(!empty($t["image"])): ?><div class="card-img" style="width:60px;height:60px;border-radius:50%;overflow:hidden;"><img src="<?= htmlspecialchars(imgUrl($t["image"])) ?>" class="w-100 h-100 object-fit-cover"></div><?php endif; ?><h5 class="fw-6 mb-0"><?= htmlspecialchars($t["author_name"] ?? ($t["author"] ?? "")) ?></h5></div></div></div><?php endforeach; ?></div>
- </div>
- </div>
- 
- 
- <div class="blog-section pt-40 px-20">
- <div class="section-heading text-center">
- <h2 class=blog-head>Blog</h2>
- </div>
- <div class="blog-slider slick-initialized slick-slider slick-dotted"><div class="slick-list draggable"><div class=slick-track style=opacity:1;width:5670px;transform:translate3d(-630px,0px,0px)><div class="slick-slide slick-cloned" data-slick-index=-1 aria-hidden=true tabindex=-1 style=width:630px><div><div style=width:100%;display:inline-block>
- <div class="blog-card overflow-hidden">
- <div class=card-img>
- <a href=https://tapifyworld.com/dynamic/blog/92 tabindex=-1>
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-34)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </a>
- </div>
- <div class="card-body position-relative">
- <div class="text-label-color fs-18 card-title">How to Choose the Perfect Toy for Your Child's Age</div>
- <div class="text-gray-100 mb-0 fs-12 blog-description">
- <h3 data-start=264 data-end=327 style=color:rgb(108,117,125);font-family:Poppins,Helvetica,sans-serif><span style=font-size:0.875rem>A guide to selecting age-appropriate toys that support developmental milestones.</span></h3>
- </div>
- <div class="d-flex align-items-center justify-content-end read-more">
- <a href=https://tapifyworld.com/dynamic/blog/92 class="text-primary d-inline-flex align-items-center justify-content-end gap-2" tabindex=-1>
+</div>
+</div>
+</div>
+<div aria-hidden="true" class="modal fade appointment-modal sf-hidden" id="AppointmentModal" tabindex="-1">
+</div>
+<div class="gallery-section position-relative pt-40 px-20">
+<div class="section-heading text-center">
+<h2>Gallery</h2>
+</div>
+<div class="gallery-slider slick-initialized slick-slider slick-dotted"><div class="slick-list draggable"><div class="slick-track" style="opacity:1;width:6930px;transform:translate3d(-1260px,0px,0px)"><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="-1" style="width:630px" tabindex="-1"><div><div class="gallery-img d-block" style="width:100%;display:inline-block">
+<div class="expand-icon pe-none">
+<svg aria-hidden="true" class="svg-inline--fa fa-expand text-light-100" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
+</div>
+<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/816/Frame-190.jpg" tabindex="-1"><img alt="profile" class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-22)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
+</div></div></div><div aria-describedby="slick-slide-control00" aria-hidden="true" class="slick-slide" data-slick-index="0" id="slick-slide00" role="tabpanel" style="width:630px" tabindex="-1"><div><div class="gallery-img d-block" style="width:100%;display:inline-block">
+<div class="expand-icon pe-none">
+<svg aria-hidden="true" class="svg-inline--fa fa-expand text-light-100" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
+</div>
+<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/812/Frame-186.jpg" tabindex="-1"><img alt="profile" class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-23)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
+</div></div></div><div aria-describedby="slick-slide-control01" aria-hidden="false" class="slick-slide slick-current slick-active" data-slick-index="1" id="slick-slide01" role="tabpanel" style="width:630px"><div><div class="gallery-img d-block" style="width:100%;display:inline-block">
+<div class="expand-icon pe-none">
+<svg aria-hidden="true" class="svg-inline--fa fa-expand text-light-100" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
+</div>
+<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/813/Frame-188.jpg" tabindex="0"><img alt="profile" class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-24)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
+</div></div></div><div aria-describedby="slick-slide-control02" aria-hidden="true" class="slick-slide" data-slick-index="2" id="slick-slide02" role="tabpanel" style="width:630px" tabindex="-1"><div><div class="gallery-img d-block" style="width:100%;display:inline-block">
+<div class="expand-icon pe-none">
+<svg aria-hidden="true" class="svg-inline--fa fa-expand text-light-100" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
+</div>
+<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/814/Frame-187.jpg" tabindex="-1"><img alt="profile" class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-25)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
+</div></div></div><div aria-describedby="slick-slide-control03" aria-hidden="true" class="slick-slide" data-slick-index="3" id="slick-slide03" role="tabpanel" style="width:630px" tabindex="-1"><div><div class="gallery-img d-block" style="width:100%;display:inline-block">
+<div class="expand-icon pe-none">
+<svg aria-hidden="true" class="svg-inline--fa fa-expand text-light-100" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
+</div>
+<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/815/Frame-189.jpg" tabindex="-1"><img alt="profile" class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-26)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
+</div></div></div><div aria-describedby="slick-slide-control04" aria-hidden="true" class="slick-slide" data-slick-index="4" id="slick-slide04" role="tabpanel" style="width:630px" tabindex="-1"><div><div class="gallery-img d-block" style="width:100%;display:inline-block">
+<div class="expand-icon pe-none">
+<svg aria-hidden="true" class="svg-inline--fa fa-expand text-light-100" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
+</div>
+<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/816/Frame-190.jpg" tabindex="-1"><img alt="profile" class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-22)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="5" style="width:630px" tabindex="-1"><div><div class="gallery-img d-block" style="width:100%;display:inline-block">
+<div class="expand-icon pe-none">
+<svg aria-hidden="true" class="svg-inline--fa fa-expand text-light-100" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
+</div>
+<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/812/Frame-186.jpg" tabindex="-1"><img alt="profile" class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-23)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="6" style="width:630px" tabindex="-1"><div><div class="gallery-img d-block" style="width:100%;display:inline-block">
+<div class="expand-icon pe-none">
+<svg aria-hidden="true" class="svg-inline--fa fa-expand text-light-100" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
+</div>
+<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/813/Frame-188.jpg" tabindex="-1"><img alt="profile" class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-24)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="7" style="width:630px" tabindex="-1"><div><div class="gallery-img d-block" style="width:100%;display:inline-block">
+<div class="expand-icon pe-none">
+<svg aria-hidden="true" class="svg-inline--fa fa-expand text-light-100" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
+</div>
+<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/814/Frame-187.jpg" tabindex="-1"><img alt="profile" class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-25)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="8" style="width:630px" tabindex="-1"><div><div class="gallery-img d-block" style="width:100%;display:inline-block">
+<div class="expand-icon pe-none">
+<svg aria-hidden="true" class="svg-inline--fa fa-expand text-light-100" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
+</div>
+<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/815/Frame-189.jpg" tabindex="-1"><img alt="profile" class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-26)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="9" style="width:630px" tabindex="-1"><div><div class="gallery-img d-block" style="width:100%;display:inline-block">
+<div class="expand-icon pe-none">
+<svg aria-hidden="true" class="svg-inline--fa fa-expand text-light-100" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
+</div>
+<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/816/Frame-190.jpg" tabindex="-1"><img alt="profile" class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-22)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
+</div></div></div></div></div><ul class="slick-dots" role="tablist"><li role="presentation"><button aria-controls="slick-slide00" aria-label="1 of 5" fdprocessedid="z2dknm" id="slick-slide-control00" role="tab" tabindex="-1" type="button">1</button><li class="slick-active" role="presentation"><button aria-controls="slick-slide01" aria-label="2 of 5" aria-selected="true" id="slick-slide-control01" role="tab" tabindex="0" type="button">2</button><li role="presentation"><button aria-controls="slick-slide02" aria-label="3 of 5" id="slick-slide-control02" role="tab" tabindex="-1" type="button">3</button><li role="presentation"><button aria-controls="slick-slide03" aria-label="4 of 5" id="slick-slide-control03" role="tab" tabindex="-1" type="button">4</button><li role="presentation"><button aria-controls="slick-slide04" aria-label="5 of 5" id="slick-slide-control04" role="tab" tabindex="-1" type="button">5</button></li></li></li></li></li></ul></div>
+</div>
+<div class="product-section px-20 pt-40">
+<div class="section-heading text-center px-3">
+<h2 class="product-heading">Products</h2>
+</div>
+<div class="product-slider slick-initialized slick-slider"><button aria-label="Previous" class="slick-prev slick-arrow" fdprocessedid="0r3yzr" type="button">Previous</button><div class="slick-list draggable"><div class="slick-track" style="opacity:1;width:3150px;transform:translate3d(-630px,0px,0px)"><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="-2" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="product-card card position-relative">
+<div class="position-absolute w-100 bottom-0 start-0 service-wave-img">
+<svg fill="currentColor" viewbox="0 0 295 151" xmlns="http://www.w3.org/2000/svg">
+<path d="M295 0C287.266 22.245 276.158 43.4108 258.016 58.6495C247.073 67.5107 232.68 75.2668 218.439 71.2667C193.78 64.3405 185.374 46.1297 168.563 46.9727C148.971 47.9553 130.907 68.0502 115.339 78.9288C104.34 86.6146 93.1685 94.4111 80.4557 98.9509C71.2827 102.175 61.0837 103.487 51.6903 100.382C35.6269 94.932 22.5643 80.4402 13.2035 66.743C8.49563 59.8752 4.14642 52.7665 0 45.5451V47.042V151H295V0Z"></path>
+</svg>
+</div>
+<div class="product-img card-img position-relative">
+<a class="text-decoration-none fs-6" tabindex="-1" target="_blank"><img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-27)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
+</div>
+<div class="product-desc card-body p-0 pt-3 text-center position-relative">
+<h3 class="product-head fw-5 mb-2">Sports Collection</h3>
+<p class="product-amount mb-0 text-primary">
+<span class="fw-6 text-primary">₹1,500</span>
+</p>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="-1" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="product-card card position-relative">
+<div class="position-absolute w-100 bottom-0 start-0 service-wave-img">
+<svg fill="currentColor" viewbox="0 0 295 151" xmlns="http://www.w3.org/2000/svg">
+<path d="M295 0C287.266 22.245 276.158 43.4108 258.016 58.6495C247.073 67.5107 232.68 75.2668 218.439 71.2667C193.78 64.3405 185.374 46.1297 168.563 46.9727C148.971 47.9553 130.907 68.0502 115.339 78.9288C104.34 86.6146 93.1685 94.4111 80.4557 98.9509C71.2827 102.175 61.0837 103.487 51.6903 100.382C35.6269 94.932 22.5643 80.4402 13.2035 66.743C8.49563 59.8752 4.14642 52.7665 0 45.5451V47.042V151H295V0Z"></path>
+</svg>
+</div>
+<div class="product-img card-img position-relative">
+<a class="text-decoration-none fs-6" tabindex="-1" target="_blank"><img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-28)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
+</div>
+<div class="product-desc card-body p-0 pt-3 text-center position-relative">
+<h3 class="product-head fw-5 mb-2">Premium Plush Teddy Bears</h3>
+<p class="product-amount mb-0 text-primary">
+<span class="fw-6 text-primary">₹799</span>
+</p>
+</div>
+</div>
+</div></div></div><div aria-hidden="false" class="slick-slide slick-current slick-active" data-slick-index="0" style="width:315px"><div><div style="width:100%;display:inline-block">
+<div class="product-card card position-relative">
+<div class="position-absolute w-100 bottom-0 start-0 service-wave-img">
+<svg fill="currentColor" viewbox="0 0 295 151" xmlns="http://www.w3.org/2000/svg">
+<path d="M295 0C287.266 22.245 276.158 43.4108 258.016 58.6495C247.073 67.5107 232.68 75.2668 218.439 71.2667C193.78 64.3405 185.374 46.1297 168.563 46.9727C148.971 47.9553 130.907 68.0502 115.339 78.9288C104.34 86.6146 93.1685 94.4111 80.4557 98.9509C71.2827 102.175 61.0837 103.487 51.6903 100.382C35.6269 94.932 22.5643 80.4402 13.2035 66.743C8.49563 59.8752 4.14642 52.7665 0 45.5451V47.042V151H295V0Z"></path>
+</svg>
+</div>
+<div class="product-img card-img position-relative">
+<a class="text-decoration-none fs-6" tabindex="0" target="_blank"><img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-29)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
+</div>
+<div class="product-desc card-body p-0 pt-3 text-center position-relative">
+<h3 class="product-head fw-5 mb-2">Toy Vehicle Collection</h3>
+<p class="product-amount mb-0 text-primary">
+<span class="fw-6 text-primary">₹1,299</span>
+</p>
+</div>
+</div>
+</div></div></div><div aria-hidden="false" class="slick-slide slick-active" data-slick-index="1" style="width:315px"><div><div style="width:100%;display:inline-block">
+<div class="product-card card position-relative">
+<div class="position-absolute w-100 bottom-0 start-0 service-wave-img">
+<svg fill="currentColor" viewbox="0 0 295 151" xmlns="http://www.w3.org/2000/svg">
+<path d="M295 0C287.266 22.245 276.158 43.4108 258.016 58.6495C247.073 67.5107 232.68 75.2668 218.439 71.2667C193.78 64.3405 185.374 46.1297 168.563 46.9727C148.971 47.9553 130.907 68.0502 115.339 78.9288C104.34 86.6146 93.1685 94.4111 80.4557 98.9509C71.2827 102.175 61.0837 103.487 51.6903 100.382C35.6269 94.932 22.5643 80.4402 13.2035 66.743C8.49563 59.8752 4.14642 52.7665 0 45.5451V47.042V151H295V0Z"></path>
+</svg>
+</div>
+<div class="product-img card-img position-relative">
+<a class="text-decoration-none fs-6" tabindex="0" target="_blank"><img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-30)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
+</div>
+<div class="product-desc card-body p-0 pt-3 text-center position-relative">
+<h3 class="product-head fw-5 mb-2">Wooden Xylophone Toy</h3>
+<p class="product-amount mb-0 text-primary">
+<span class="fw-6 text-primary">₹1,299</span>
+</p>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide" data-slick-index="2" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="product-card card position-relative">
+<div class="position-absolute w-100 bottom-0 start-0 service-wave-img">
+<svg fill="currentColor" viewbox="0 0 295 151" xmlns="http://www.w3.org/2000/svg">
+<path d="M295 0C287.266 22.245 276.158 43.4108 258.016 58.6495C247.073 67.5107 232.68 75.2668 218.439 71.2667C193.78 64.3405 185.374 46.1297 168.563 46.9727C148.971 47.9553 130.907 68.0502 115.339 78.9288C104.34 86.6146 93.1685 94.4111 80.4557 98.9509C71.2827 102.175 61.0837 103.487 51.6903 100.382C35.6269 94.932 22.5643 80.4402 13.2035 66.743C8.49563 59.8752 4.14642 52.7665 0 45.5451V47.042V151H295V0Z"></path>
+</svg>
+</div>
+<div class="product-img card-img position-relative">
+<a class="text-decoration-none fs-6" tabindex="-1" target="_blank"><img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-27)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
+</div>
+<div class="product-desc card-body p-0 pt-3 text-center position-relative">
+<h3 class="product-head fw-5 mb-2">Sports Collection</h3>
+<p class="product-amount mb-0 text-primary">
+<span class="fw-6 text-primary">₹1,500</span>
+</p>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide" data-slick-index="3" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="product-card card position-relative">
+<div class="position-absolute w-100 bottom-0 start-0 service-wave-img">
+<svg fill="currentColor" viewbox="0 0 295 151" xmlns="http://www.w3.org/2000/svg">
+<path d="M295 0C287.266 22.245 276.158 43.4108 258.016 58.6495C247.073 67.5107 232.68 75.2668 218.439 71.2667C193.78 64.3405 185.374 46.1297 168.563 46.9727C148.971 47.9553 130.907 68.0502 115.339 78.9288C104.34 86.6146 93.1685 94.4111 80.4557 98.9509C71.2827 102.175 61.0837 103.487 51.6903 100.382C35.6269 94.932 22.5643 80.4402 13.2035 66.743C8.49563 59.8752 4.14642 52.7665 0 45.5451V47.042V151H295V0Z"></path>
+</svg>
+</div>
+<div class="product-img card-img position-relative">
+<a class="text-decoration-none fs-6" tabindex="-1" target="_blank"><img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-28)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
+</div>
+<div class="product-desc card-body p-0 pt-3 text-center position-relative">
+<h3 class="product-head fw-5 mb-2">Premium Plush Teddy Bears</h3>
+<p class="product-amount mb-0 text-primary">
+<span class="fw-6 text-primary">₹799</span>
+</p>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="4" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="product-card card position-relative">
+<div class="position-absolute w-100 bottom-0 start-0 service-wave-img">
+<svg fill="currentColor" viewbox="0 0 295 151" xmlns="http://www.w3.org/2000/svg">
+<path d="M295 0C287.266 22.245 276.158 43.4108 258.016 58.6495C247.073 67.5107 232.68 75.2668 218.439 71.2667C193.78 64.3405 185.374 46.1297 168.563 46.9727C148.971 47.9553 130.907 68.0502 115.339 78.9288C104.34 86.6146 93.1685 94.4111 80.4557 98.9509C71.2827 102.175 61.0837 103.487 51.6903 100.382C35.6269 94.932 22.5643 80.4402 13.2035 66.743C8.49563 59.8752 4.14642 52.7665 0 45.5451V47.042V151H295V0Z"></path>
+</svg>
+</div>
+<div class="product-img card-img position-relative">
+<a class="text-decoration-none fs-6" tabindex="-1" target="_blank"><img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-29)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
+</div>
+<div class="product-desc card-body p-0 pt-3 text-center position-relative">
+<h3 class="product-head fw-5 mb-2">Toy Vehicle Collection</h3>
+<p class="product-amount mb-0 text-primary">
+<span class="fw-6 text-primary">₹1,299</span>
+</p>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="5" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="product-card card position-relative">
+<div class="position-absolute w-100 bottom-0 start-0 service-wave-img">
+<svg fill="currentColor" viewbox="0 0 295 151" xmlns="http://www.w3.org/2000/svg">
+<path d="M295 0C287.266 22.245 276.158 43.4108 258.016 58.6495C247.073 67.5107 232.68 75.2668 218.439 71.2667C193.78 64.3405 185.374 46.1297 168.563 46.9727C148.971 47.9553 130.907 68.0502 115.339 78.9288C104.34 86.6146 93.1685 94.4111 80.4557 98.9509C71.2827 102.175 61.0837 103.487 51.6903 100.382C35.6269 94.932 22.5643 80.4402 13.2035 66.743C8.49563 59.8752 4.14642 52.7665 0 45.5451V47.042V151H295V0Z"></path>
+</svg>
+</div>
+<div class="product-img card-img position-relative">
+<a class="text-decoration-none fs-6" tabindex="-1" target="_blank"><img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-30)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
+</div>
+<div class="product-desc card-body p-0 pt-3 text-center position-relative">
+<h3 class="product-head fw-5 mb-2">Wooden Xylophone Toy</h3>
+<p class="product-amount mb-0 text-primary">
+<span class="fw-6 text-primary">₹1,299</span>
+</p>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="6" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="product-card card position-relative">
+<div class="position-absolute w-100 bottom-0 start-0 service-wave-img">
+<svg fill="currentColor" viewbox="0 0 295 151" xmlns="http://www.w3.org/2000/svg">
+<path d="M295 0C287.266 22.245 276.158 43.4108 258.016 58.6495C247.073 67.5107 232.68 75.2668 218.439 71.2667C193.78 64.3405 185.374 46.1297 168.563 46.9727C148.971 47.9553 130.907 68.0502 115.339 78.9288C104.34 86.6146 93.1685 94.4111 80.4557 98.9509C71.2827 102.175 61.0837 103.487 51.6903 100.382C35.6269 94.932 22.5643 80.4402 13.2035 66.743C8.49563 59.8752 4.14642 52.7665 0 45.5451V47.042V151H295V0Z"></path>
+</svg>
+</div>
+<div class="product-img card-img position-relative">
+<a class="text-decoration-none fs-6" tabindex="-1" target="_blank"><img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-27)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
+</div>
+<div class="product-desc card-body p-0 pt-3 text-center position-relative">
+<h3 class="product-head fw-5 mb-2">Sports Collection</h3>
+<p class="product-amount mb-0 text-primary">
+<span class="fw-6 text-primary">₹1,500</span>
+</p>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="7" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="product-card card position-relative">
+<div class="position-absolute w-100 bottom-0 start-0 service-wave-img">
+<svg fill="currentColor" viewbox="0 0 295 151" xmlns="http://www.w3.org/2000/svg">
+<path d="M295 0C287.266 22.245 276.158 43.4108 258.016 58.6495C247.073 67.5107 232.68 75.2668 218.439 71.2667C193.78 64.3405 185.374 46.1297 168.563 46.9727C148.971 47.9553 130.907 68.0502 115.339 78.9288C104.34 86.6146 93.1685 94.4111 80.4557 98.9509C71.2827 102.175 61.0837 103.487 51.6903 100.382C35.6269 94.932 22.5643 80.4402 13.2035 66.743C8.49563 59.8752 4.14642 52.7665 0 45.5451V47.042V151H295V0Z"></path>
+</svg>
+</div>
+<div class="product-img card-img position-relative">
+<a class="text-decoration-none fs-6" tabindex="-1" target="_blank"><img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-28)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/></a>
+</div>
+<div class="product-desc card-body p-0 pt-3 text-center position-relative">
+<h3 class="product-head fw-5 mb-2">Premium Plush Teddy Bears</h3>
+<p class="product-amount mb-0 text-primary">
+<span class="fw-6 text-primary">₹799</span>
+</p>
+</div>
+</div>
+</div></div></div></div></div><button aria-label="Next" class="slick-next slick-arrow" fdprocessedid="v67tyt" type="button">Next</button></div>
+<div class="mt-4 text-center view-more">
+<a class="fs-6 text btn-primary btn text-decoration-none" href="https://tapifyworld.com/products/41/dynamic">View More Products
+ <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long right-arrow-animation" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor"></path></svg>
+</a>
+</div>
+</div>
+<div class="testimonial-section pt-40">
+<div class="px-20">
+<div class="section-heading text-center">
+<h2 class="testimonial-head">Testimonials</h2>
+</div>
+<div class="testimonial-slider slick-initialized slick-slider slick-dotted"><div class="slick-list draggable"><div class="slick-track" style="opacity:1;width:4410px;transform:translate3d(-630px,0px,0px)"><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="-1" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="testimonial-card card position-relative overflow-hidden">
+<div class="position-absolute bottom-0 start-0 w-100 wave-vcard22">
+<svg fill="currentColor" viewbox="0 0 610 214" xmlns="http://www.w3.org/2000/svg">
+<path d="M610 36.004C598.396 27.0003 584.168 19.1541 567.854 13.0478C497.696 -13.1631 404.494 2.94081 363.824 36.2989C349.83 47.7761 339.095 60.3949 328.448 73.0136C318.194 85.0699 310.176 97.7142 300.177 109.838C289.242 123.317 274.845 135.968 256.074 146.191C217.755 167.138 163.55 180.442 110.613 175.051C69.0012 170.259 31.3228 156.699 1.61566 139.35C1.07417 139.028 0.535761 138.704 0 138.378V139.68V214H610V36.004Z"></path>
+</svg>
+</div>
+<div class="card-body text-start p-0 position-relative">
+<p class="desc text-gray-100 fs-14 mb-0 more">
+ This toy store is my go-to for all birthday gifts! They offer unique and high-quality toys that you can't find just anywhere. Plus, the online ordering process is super easy.
+ </p>
+<div class="d-flex justify-content-between align-items-end">
+<div class="d-flex flex-wrap align-items-center">
+<div class="testimonial-profile-img mt-3">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-31)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="profile-desc mt-3">
+<h3 class="text-primary fs-20 mb-1">
+ Rhea Kapoor</h3>
+</div>
+</div>
+</div>
+<div class="text-end d-flex justify-content-end align-items-center">
+<div class="quote-img">
+<svg fill="CurrentColor" height="45" viewbox="0 0 60 45" width="60" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.6998 14.9451C20.1159 15.5618 23.7601 17.5038 26.2528 21.3091C31.9342 30.0087 27.9104 42.6448 16.5729 44.7705C8.58861 46.2664 1.59126 40.0861 0.249999 32.6199C-0.0789903 30.8222 -0.0789879 29.0246 0.224695 27.2138C0.629605 24.7863 0.832058 22.3063 1.40146 19.9182C3.21091 12.4258 6.91836 6.02241 12.2075 0.61631C12.6757 0.13081 13.1945 -0.157865 13.8524 0.0914457C14.5231 0.353878 14.7508 0.931228 14.8015 1.65292C15.0672 5.90432 15.3582 10.1557 15.6366 14.4071C15.6492 14.5908 15.6745 14.7483 15.6998 14.9451Z"></path>
+<path d="M46.9157 14.9582C49.4337 15.26 51.7367 16.0604 53.7739 17.5432C58.5695 21.0073 60.5434 25.9148 59.8728 31.8064C59.1642 37.9079 55.7858 42.0543 50.2056 44.1144C40.7788 47.5917 32.4275 40.2698 31.352 31.8851C31.1369 30.2187 31.2128 28.5785 31.4912 26.9251C31.8581 24.7601 32.0226 22.5425 32.5034 20.4037C34.2749 12.7013 38.0203 6.1405 43.4487 0.603183C43.9295 0.117684 44.4356 -0.157873 45.0936 0.10456C45.7642 0.380113 45.9793 0.970586 46.03 1.67915C46.283 5.8387 46.5614 10.0114 46.8271 14.1709C46.8398 14.4202 46.8777 14.6564 46.9157 14.9582Z"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div></div></div><div aria-describedby="slick-slide-control20" aria-hidden="false" class="slick-slide slick-current slick-active" data-slick-index="0" id="slick-slide20" role="tabpanel" style="width:630px"><div><div style="width:100%;display:inline-block">
+<div class="testimonial-card card position-relative overflow-hidden">
+<div class="position-absolute bottom-0 start-0 w-100 wave-vcard22">
+<svg fill="currentColor" viewbox="0 0 610 214" xmlns="http://www.w3.org/2000/svg">
+<path d="M610 36.004C598.396 27.0003 584.168 19.1541 567.854 13.0478C497.696 -13.1631 404.494 2.94081 363.824 36.2989C349.83 47.7761 339.095 60.3949 328.448 73.0136C318.194 85.0699 310.176 97.7142 300.177 109.838C289.242 123.317 274.845 135.968 256.074 146.191C217.755 167.138 163.55 180.442 110.613 175.051C69.0012 170.259 31.3228 156.699 1.61566 139.35C1.07417 139.028 0.535761 138.704 0 138.378V139.68V214H610V36.004Z"></path>
+</svg>
+</div>
+<div class="card-body text-start p-0 position-relative">
+<p class="desc text-gray-100 fs-14 mb-0 more">
+ I’m so happy I found this store! Not only do they have the latest toys, but they also have eco-friendly options. It's wonderful to support a business that cares about the environment and offers such a fantastic variety!
+ </p>
+<div class="d-flex justify-content-between align-items-end">
+<div class="d-flex flex-wrap align-items-center">
+<div class="testimonial-profile-img mt-3">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-32)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="profile-desc mt-3">
+<h3 class="text-primary fs-20 mb-1">
+ Priya Mehta</h3>
+</div>
+</div>
+</div>
+<div class="text-end d-flex justify-content-end align-items-center">
+<div class="quote-img">
+<svg fill="CurrentColor" height="45" viewbox="0 0 60 45" width="60" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.6998 14.9451C20.1159 15.5618 23.7601 17.5038 26.2528 21.3091C31.9342 30.0087 27.9104 42.6448 16.5729 44.7705C8.58861 46.2664 1.59126 40.0861 0.249999 32.6199C-0.0789903 30.8222 -0.0789879 29.0246 0.224695 27.2138C0.629605 24.7863 0.832058 22.3063 1.40146 19.9182C3.21091 12.4258 6.91836 6.02241 12.2075 0.61631C12.6757 0.13081 13.1945 -0.157865 13.8524 0.0914457C14.5231 0.353878 14.7508 0.931228 14.8015 1.65292C15.0672 5.90432 15.3582 10.1557 15.6366 14.4071C15.6492 14.5908 15.6745 14.7483 15.6998 14.9451Z"></path>
+<path d="M46.9157 14.9582C49.4337 15.26 51.7367 16.0604 53.7739 17.5432C58.5695 21.0073 60.5434 25.9148 59.8728 31.8064C59.1642 37.9079 55.7858 42.0543 50.2056 44.1144C40.7788 47.5917 32.4275 40.2698 31.352 31.8851C31.1369 30.2187 31.2128 28.5785 31.4912 26.9251C31.8581 24.7601 32.0226 22.5425 32.5034 20.4037C34.2749 12.7013 38.0203 6.1405 43.4487 0.603183C43.9295 0.117684 44.4356 -0.157873 45.0936 0.10456C45.7642 0.380113 45.9793 0.970586 46.03 1.67915C46.283 5.8387 46.5614 10.0114 46.8271 14.1709C46.8398 14.4202 46.8777 14.6564 46.9157 14.9582Z"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div></div></div><div aria-describedby="slick-slide-control21" aria-hidden="true" class="slick-slide" data-slick-index="1" id="slick-slide21" role="tabpanel" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="testimonial-card card position-relative overflow-hidden">
+<div class="position-absolute bottom-0 start-0 w-100 wave-vcard22">
+<svg fill="currentColor" viewbox="0 0 610 214" xmlns="http://www.w3.org/2000/svg">
+<path d="M610 36.004C598.396 27.0003 584.168 19.1541 567.854 13.0478C497.696 -13.1631 404.494 2.94081 363.824 36.2989C349.83 47.7761 339.095 60.3949 328.448 73.0136C318.194 85.0699 310.176 97.7142 300.177 109.838C289.242 123.317 274.845 135.968 256.074 146.191C217.755 167.138 163.55 180.442 110.613 175.051C69.0012 170.259 31.3228 156.699 1.61566 139.35C1.07417 139.028 0.535761 138.704 0 138.378V139.68V214H610V36.004Z"></path>
+</svg>
+</div>
+<div class="card-body text-start p-0 position-relative">
+<p class="desc text-gray-100 fs-14 mb-0 more">
+ A great experience every time! The store is always well-organized, and I feel confident that I’m buying safe and age-appropriate toys for my children. Highly recommend!
+ </p>
+<div class="d-flex justify-content-between align-items-end">
+<div class="d-flex flex-wrap align-items-center">
+<div class="testimonial-profile-img mt-3">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-33)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="profile-desc mt-3">
+<h3 class="text-primary fs-20 mb-1">
+ Ananya Desai</h3>
+</div>
+</div>
+</div>
+<div class="text-end d-flex justify-content-end align-items-center">
+<div class="quote-img">
+<svg fill="CurrentColor" height="45" viewbox="0 0 60 45" width="60" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.6998 14.9451C20.1159 15.5618 23.7601 17.5038 26.2528 21.3091C31.9342 30.0087 27.9104 42.6448 16.5729 44.7705C8.58861 46.2664 1.59126 40.0861 0.249999 32.6199C-0.0789903 30.8222 -0.0789879 29.0246 0.224695 27.2138C0.629605 24.7863 0.832058 22.3063 1.40146 19.9182C3.21091 12.4258 6.91836 6.02241 12.2075 0.61631C12.6757 0.13081 13.1945 -0.157865 13.8524 0.0914457C14.5231 0.353878 14.7508 0.931228 14.8015 1.65292C15.0672 5.90432 15.3582 10.1557 15.6366 14.4071C15.6492 14.5908 15.6745 14.7483 15.6998 14.9451Z"></path>
+<path d="M46.9157 14.9582C49.4337 15.26 51.7367 16.0604 53.7739 17.5432C58.5695 21.0073 60.5434 25.9148 59.8728 31.8064C59.1642 37.9079 55.7858 42.0543 50.2056 44.1144C40.7788 47.5917 32.4275 40.2698 31.352 31.8851C31.1369 30.2187 31.2128 28.5785 31.4912 26.9251C31.8581 24.7601 32.0226 22.5425 32.5034 20.4037C34.2749 12.7013 38.0203 6.1405 43.4487 0.603183C43.9295 0.117684 44.4356 -0.157873 45.0936 0.10456C45.7642 0.380113 45.9793 0.970586 46.03 1.67915C46.283 5.8387 46.5614 10.0114 46.8271 14.1709C46.8398 14.4202 46.8777 14.6564 46.9157 14.9582Z"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div></div></div><div aria-describedby="slick-slide-control22" aria-hidden="true" class="slick-slide" data-slick-index="2" id="slick-slide22" role="tabpanel" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="testimonial-card card position-relative overflow-hidden">
+<div class="position-absolute bottom-0 start-0 w-100 wave-vcard22">
+<svg fill="currentColor" viewbox="0 0 610 214" xmlns="http://www.w3.org/2000/svg">
+<path d="M610 36.004C598.396 27.0003 584.168 19.1541 567.854 13.0478C497.696 -13.1631 404.494 2.94081 363.824 36.2989C349.83 47.7761 339.095 60.3949 328.448 73.0136C318.194 85.0699 310.176 97.7142 300.177 109.838C289.242 123.317 274.845 135.968 256.074 146.191C217.755 167.138 163.55 180.442 110.613 175.051C69.0012 170.259 31.3228 156.699 1.61566 139.35C1.07417 139.028 0.535761 138.704 0 138.378V139.68V214H610V36.004Z"></path>
+</svg>
+</div>
+<div class="card-body text-start p-0 position-relative">
+<p class="desc text-gray-100 fs-14 mb-0 more">
+ This toy store is my go-to for all birthday gifts! They offer unique and high-quality toys that you can't find just anywhere. Plus, the online ordering process is super easy.
+ </p>
+<div class="d-flex justify-content-between align-items-end">
+<div class="d-flex flex-wrap align-items-center">
+<div class="testimonial-profile-img mt-3">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-31)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="profile-desc mt-3">
+<h3 class="text-primary fs-20 mb-1">
+ Rhea Kapoor</h3>
+</div>
+</div>
+</div>
+<div class="text-end d-flex justify-content-end align-items-center">
+<div class="quote-img">
+<svg fill="CurrentColor" height="45" viewbox="0 0 60 45" width="60" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.6998 14.9451C20.1159 15.5618 23.7601 17.5038 26.2528 21.3091C31.9342 30.0087 27.9104 42.6448 16.5729 44.7705C8.58861 46.2664 1.59126 40.0861 0.249999 32.6199C-0.0789903 30.8222 -0.0789879 29.0246 0.224695 27.2138C0.629605 24.7863 0.832058 22.3063 1.40146 19.9182C3.21091 12.4258 6.91836 6.02241 12.2075 0.61631C12.6757 0.13081 13.1945 -0.157865 13.8524 0.0914457C14.5231 0.353878 14.7508 0.931228 14.8015 1.65292C15.0672 5.90432 15.3582 10.1557 15.6366 14.4071C15.6492 14.5908 15.6745 14.7483 15.6998 14.9451Z"></path>
+<path d="M46.9157 14.9582C49.4337 15.26 51.7367 16.0604 53.7739 17.5432C58.5695 21.0073 60.5434 25.9148 59.8728 31.8064C59.1642 37.9079 55.7858 42.0543 50.2056 44.1144C40.7788 47.5917 32.4275 40.2698 31.352 31.8851C31.1369 30.2187 31.2128 28.5785 31.4912 26.9251C31.8581 24.7601 32.0226 22.5425 32.5034 20.4037C34.2749 12.7013 38.0203 6.1405 43.4487 0.603183C43.9295 0.117684 44.4356 -0.157873 45.0936 0.10456C45.7642 0.380113 45.9793 0.970586 46.03 1.67915C46.283 5.8387 46.5614 10.0114 46.8271 14.1709C46.8398 14.4202 46.8777 14.6564 46.9157 14.9582Z"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="3" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="testimonial-card card position-relative overflow-hidden">
+<div class="position-absolute bottom-0 start-0 w-100 wave-vcard22">
+<svg fill="currentColor" viewbox="0 0 610 214" xmlns="http://www.w3.org/2000/svg">
+<path d="M610 36.004C598.396 27.0003 584.168 19.1541 567.854 13.0478C497.696 -13.1631 404.494 2.94081 363.824 36.2989C349.83 47.7761 339.095 60.3949 328.448 73.0136C318.194 85.0699 310.176 97.7142 300.177 109.838C289.242 123.317 274.845 135.968 256.074 146.191C217.755 167.138 163.55 180.442 110.613 175.051C69.0012 170.259 31.3228 156.699 1.61566 139.35C1.07417 139.028 0.535761 138.704 0 138.378V139.68V214H610V36.004Z"></path>
+</svg>
+</div>
+<div class="card-body text-start p-0 position-relative">
+<p class="desc text-gray-100 fs-14 mb-0 more">
+ I’m so happy I found this store! Not only do they have the latest toys, but they also have eco-friendly options. It's wonderful to support a business that cares about the environment and offers such a fantastic variety!
+ </p>
+<div class="d-flex justify-content-between align-items-end">
+<div class="d-flex flex-wrap align-items-center">
+<div class="testimonial-profile-img mt-3">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-32)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="profile-desc mt-3">
+<h3 class="text-primary fs-20 mb-1">
+ Priya Mehta</h3>
+</div>
+</div>
+</div>
+<div class="text-end d-flex justify-content-end align-items-center">
+<div class="quote-img">
+<svg fill="CurrentColor" height="45" viewbox="0 0 60 45" width="60" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.6998 14.9451C20.1159 15.5618 23.7601 17.5038 26.2528 21.3091C31.9342 30.0087 27.9104 42.6448 16.5729 44.7705C8.58861 46.2664 1.59126 40.0861 0.249999 32.6199C-0.0789903 30.8222 -0.0789879 29.0246 0.224695 27.2138C0.629605 24.7863 0.832058 22.3063 1.40146 19.9182C3.21091 12.4258 6.91836 6.02241 12.2075 0.61631C12.6757 0.13081 13.1945 -0.157865 13.8524 0.0914457C14.5231 0.353878 14.7508 0.931228 14.8015 1.65292C15.0672 5.90432 15.3582 10.1557 15.6366 14.4071C15.6492 14.5908 15.6745 14.7483 15.6998 14.9451Z"></path>
+<path d="M46.9157 14.9582C49.4337 15.26 51.7367 16.0604 53.7739 17.5432C58.5695 21.0073 60.5434 25.9148 59.8728 31.8064C59.1642 37.9079 55.7858 42.0543 50.2056 44.1144C40.7788 47.5917 32.4275 40.2698 31.352 31.8851C31.1369 30.2187 31.2128 28.5785 31.4912 26.9251C31.8581 24.7601 32.0226 22.5425 32.5034 20.4037C34.2749 12.7013 38.0203 6.1405 43.4487 0.603183C43.9295 0.117684 44.4356 -0.157873 45.0936 0.10456C45.7642 0.380113 45.9793 0.970586 46.03 1.67915C46.283 5.8387 46.5614 10.0114 46.8271 14.1709C46.8398 14.4202 46.8777 14.6564 46.9157 14.9582Z"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="4" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="testimonial-card card position-relative overflow-hidden">
+<div class="position-absolute bottom-0 start-0 w-100 wave-vcard22">
+<svg fill="currentColor" viewbox="0 0 610 214" xmlns="http://www.w3.org/2000/svg">
+<path d="M610 36.004C598.396 27.0003 584.168 19.1541 567.854 13.0478C497.696 -13.1631 404.494 2.94081 363.824 36.2989C349.83 47.7761 339.095 60.3949 328.448 73.0136C318.194 85.0699 310.176 97.7142 300.177 109.838C289.242 123.317 274.845 135.968 256.074 146.191C217.755 167.138 163.55 180.442 110.613 175.051C69.0012 170.259 31.3228 156.699 1.61566 139.35C1.07417 139.028 0.535761 138.704 0 138.378V139.68V214H610V36.004Z"></path>
+</svg>
+</div>
+<div class="card-body text-start p-0 position-relative">
+<p class="desc text-gray-100 fs-14 mb-0 more">
+ A great experience every time! The store is always well-organized, and I feel confident that I’m buying safe and age-appropriate toys for my children. Highly recommend!
+ </p>
+<div class="d-flex justify-content-between align-items-end">
+<div class="d-flex flex-wrap align-items-center">
+<div class="testimonial-profile-img mt-3">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-33)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="profile-desc mt-3">
+<h3 class="text-primary fs-20 mb-1">
+ Ananya Desai</h3>
+</div>
+</div>
+</div>
+<div class="text-end d-flex justify-content-end align-items-center">
+<div class="quote-img">
+<svg fill="CurrentColor" height="45" viewbox="0 0 60 45" width="60" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.6998 14.9451C20.1159 15.5618 23.7601 17.5038 26.2528 21.3091C31.9342 30.0087 27.9104 42.6448 16.5729 44.7705C8.58861 46.2664 1.59126 40.0861 0.249999 32.6199C-0.0789903 30.8222 -0.0789879 29.0246 0.224695 27.2138C0.629605 24.7863 0.832058 22.3063 1.40146 19.9182C3.21091 12.4258 6.91836 6.02241 12.2075 0.61631C12.6757 0.13081 13.1945 -0.157865 13.8524 0.0914457C14.5231 0.353878 14.7508 0.931228 14.8015 1.65292C15.0672 5.90432 15.3582 10.1557 15.6366 14.4071C15.6492 14.5908 15.6745 14.7483 15.6998 14.9451Z"></path>
+<path d="M46.9157 14.9582C49.4337 15.26 51.7367 16.0604 53.7739 17.5432C58.5695 21.0073 60.5434 25.9148 59.8728 31.8064C59.1642 37.9079 55.7858 42.0543 50.2056 44.1144C40.7788 47.5917 32.4275 40.2698 31.352 31.8851C31.1369 30.2187 31.2128 28.5785 31.4912 26.9251C31.8581 24.7601 32.0226 22.5425 32.5034 20.4037C34.2749 12.7013 38.0203 6.1405 43.4487 0.603183C43.9295 0.117684 44.4356 -0.157873 45.0936 0.10456C45.7642 0.380113 45.9793 0.970586 46.03 1.67915C46.283 5.8387 46.5614 10.0114 46.8271 14.1709C46.8398 14.4202 46.8777 14.6564 46.9157 14.9582Z"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="5" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="testimonial-card card position-relative overflow-hidden">
+<div class="position-absolute bottom-0 start-0 w-100 wave-vcard22">
+<svg fill="currentColor" viewbox="0 0 610 214" xmlns="http://www.w3.org/2000/svg">
+<path d="M610 36.004C598.396 27.0003 584.168 19.1541 567.854 13.0478C497.696 -13.1631 404.494 2.94081 363.824 36.2989C349.83 47.7761 339.095 60.3949 328.448 73.0136C318.194 85.0699 310.176 97.7142 300.177 109.838C289.242 123.317 274.845 135.968 256.074 146.191C217.755 167.138 163.55 180.442 110.613 175.051C69.0012 170.259 31.3228 156.699 1.61566 139.35C1.07417 139.028 0.535761 138.704 0 138.378V139.68V214H610V36.004Z"></path>
+</svg>
+</div>
+<div class="card-body text-start p-0 position-relative">
+<p class="desc text-gray-100 fs-14 mb-0 more">
+ This toy store is my go-to for all birthday gifts! They offer unique and high-quality toys that you can't find just anywhere. Plus, the online ordering process is super easy.
+ </p>
+<div class="d-flex justify-content-between align-items-end">
+<div class="d-flex flex-wrap align-items-center">
+<div class="testimonial-profile-img mt-3">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-31)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="profile-desc mt-3">
+<h3 class="text-primary fs-20 mb-1">
+ Rhea Kapoor</h3>
+</div>
+</div>
+</div>
+<div class="text-end d-flex justify-content-end align-items-center">
+<div class="quote-img">
+<svg fill="CurrentColor" height="45" viewbox="0 0 60 45" width="60" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.6998 14.9451C20.1159 15.5618 23.7601 17.5038 26.2528 21.3091C31.9342 30.0087 27.9104 42.6448 16.5729 44.7705C8.58861 46.2664 1.59126 40.0861 0.249999 32.6199C-0.0789903 30.8222 -0.0789879 29.0246 0.224695 27.2138C0.629605 24.7863 0.832058 22.3063 1.40146 19.9182C3.21091 12.4258 6.91836 6.02241 12.2075 0.61631C12.6757 0.13081 13.1945 -0.157865 13.8524 0.0914457C14.5231 0.353878 14.7508 0.931228 14.8015 1.65292C15.0672 5.90432 15.3582 10.1557 15.6366 14.4071C15.6492 14.5908 15.6745 14.7483 15.6998 14.9451Z"></path>
+<path d="M46.9157 14.9582C49.4337 15.26 51.7367 16.0604 53.7739 17.5432C58.5695 21.0073 60.5434 25.9148 59.8728 31.8064C59.1642 37.9079 55.7858 42.0543 50.2056 44.1144C40.7788 47.5917 32.4275 40.2698 31.352 31.8851C31.1369 30.2187 31.2128 28.5785 31.4912 26.9251C31.8581 24.7601 32.0226 22.5425 32.5034 20.4037C34.2749 12.7013 38.0203 6.1405 43.4487 0.603183C43.9295 0.117684 44.4356 -0.157873 45.0936 0.10456C45.7642 0.380113 45.9793 0.970586 46.03 1.67915C46.283 5.8387 46.5614 10.0114 46.8271 14.1709C46.8398 14.4202 46.8777 14.6564 46.9157 14.9582Z"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div></div></div></div></div><ul class="slick-dots" role="tablist"><li class="slick-active" role="presentation"><button aria-controls="slick-slide20" aria-label="1 of 3" aria-selected="true" fdprocessedid="7x24gum" id="slick-slide-control20" role="tab" tabindex="0" type="button">1</button><li role="presentation"><button aria-controls="slick-slide21" aria-label="2 of 3" id="slick-slide-control21" role="tab" tabindex="-1" type="button">2</button><li role="presentation"><button aria-controls="slick-slide22" aria-label="3 of 3" fdprocessedid="wjpun6" id="slick-slide-control22" role="tab" tabindex="-1" type="button">3</button></li></li></li></ul></div>
+</div>
+</div>
+<div class="blog-section pt-40 px-20">
+<div class="section-heading text-center">
+<h2 class="blog-head">Blog</h2>
+</div>
+<div class="blog-slider slick-initialized slick-slider slick-dotted"><div class="slick-list draggable"><div class="slick-track" style="opacity:1;width:5670px;transform:translate3d(-630px,0px,0px)"><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="-1" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="blog-card overflow-hidden">
+<div class="card-img">
+<a href="https://tapifyworld.com/dynamic/blog/92" tabindex="-1">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-34)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="card-body position-relative">
+<div class="text-label-color fs-18 card-title">How to Choose the Perfect Toy for Your Child's Age</div>
+<div class="text-gray-100 mb-0 fs-12 blog-description">
+<h3 data-end="327" data-start="264" style="color:rgb(108,117,125);font-family:Poppins,Helvetica,sans-serif"><span style="font-size:0.875rem">A guide to selecting age-appropriate toys that support developmental milestones.</span></h3>
+</div>
+<div class="d-flex align-items-center justify-content-end read-more">
+<a class="text-primary d-inline-flex align-items-center justify-content-end gap-2" href="https://tapifyworld.com/dynamic/blog/92" tabindex="-1">
  Read More
- <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
- <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
- </path>
- </svg>
- </a>
- </div>
- </div>
- </div>
- </div></div></div><div class="slick-slide slick-current slick-active" data-slick-index=0 aria-hidden=false role=tabpanel id=slick-slide30 style=width:630px aria-describedby=slick-slide-control30><div><div style=width:100%;display:inline-block>
- <div class="blog-card overflow-hidden">
- <div class=card-img>
- <a href=https://tapifyworld.com/dynamic/blog/89 tabindex=0>
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-35)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </a>
- </div>
- <div class="card-body position-relative">
- <div class="text-label-color fs-18 card-title">The benefits of RC toys for hand-eye coordination, problem-solving, and creativity.</div>
- <div class="text-gray-100 mb-0 fs-12 blog-description">
- <p><span style=color:rgb(108,117,125);font-family:Poppins,Helvetica,sans-serif>The benefits of RC toys for hand-eye coordination, problem-solving, and creativity.</span></p>
- </div>
- <div class="d-flex align-items-center justify-content-end read-more">
- <a href=https://tapifyworld.com/dynamic/blog/89 class="text-primary d-inline-flex align-items-center justify-content-end gap-2" tabindex=0>
+ <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long text-decoration-none" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor">
+</path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</div></div></div><div aria-describedby="slick-slide-control30" aria-hidden="false" class="slick-slide slick-current slick-active" data-slick-index="0" id="slick-slide30" role="tabpanel" style="width:630px"><div><div style="width:100%;display:inline-block">
+<div class="blog-card overflow-hidden">
+<div class="card-img">
+<a href="https://tapifyworld.com/dynamic/blog/89" tabindex="0">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-35)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="card-body position-relative">
+<div class="text-label-color fs-18 card-title">The benefits of RC toys for hand-eye coordination, problem-solving, and creativity.</div>
+<div class="text-gray-100 mb-0 fs-12 blog-description">
+<p><span style="color:rgb(108,117,125);font-family:Poppins,Helvetica,sans-serif">The benefits of RC toys for hand-eye coordination, problem-solving, and creativity.</span></p>
+</div>
+<div class="d-flex align-items-center justify-content-end read-more">
+<a class="text-primary d-inline-flex align-items-center justify-content-end gap-2" href="https://tapifyworld.com/dynamic/blog/89" tabindex="0">
  Read More
- <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
- <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
- </path>
- </svg>
- </a>
- </div>
- </div>
- </div>
- </div></div></div><div class=slick-slide data-slick-index=1 aria-hidden=true role=tabpanel id=slick-slide31 style=width:630px aria-describedby=slick-slide-control31 tabindex=-1><div><div style=width:100%;display:inline-block>
- <div class="blog-card overflow-hidden">
- <div class=card-img>
- <a href=https://tapifyworld.com/dynamic/blog/90 tabindex=-1>
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-36)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </a>
- </div>
- <div class="card-body position-relative">
- <div class="text-label-color fs-18 card-title">The Power of Puzzle Games for Kids</div>
- <div class="text-gray-100 mb-0 fs-12 blog-description">
- <h3 data-start=64 data-end=132 style=color:rgb(108,117,125);font-family:Poppins,Helvetica,sans-serif><span style=font-size:0.875rem>In a world filled with flashy toys and digital distractions, puzzle games remain a timeless favorite — and for good reason. These seemingly simple games offer far more than entertainment. They’re powerful tools that help children build essential life skills in a fun and engaging way.</span></h3>
- </div>
- <div class="d-flex align-items-center justify-content-end read-more">
- <a href=https://tapifyworld.com/dynamic/blog/90 class="text-primary d-inline-flex align-items-center justify-content-end gap-2" tabindex=-1>
+ <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long text-decoration-none" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor">
+</path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</div></div></div><div aria-describedby="slick-slide-control31" aria-hidden="true" class="slick-slide" data-slick-index="1" id="slick-slide31" role="tabpanel" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="blog-card overflow-hidden">
+<div class="card-img">
+<a href="https://tapifyworld.com/dynamic/blog/90" tabindex="-1">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-36)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="card-body position-relative">
+<div class="text-label-color fs-18 card-title">The Power of Puzzle Games for Kids</div>
+<div class="text-gray-100 mb-0 fs-12 blog-description">
+<h3 data-end="132" data-start="64" style="color:rgb(108,117,125);font-family:Poppins,Helvetica,sans-serif"><span style="font-size:0.875rem">In a world filled with flashy toys and digital distractions, puzzle games remain a timeless favorite — and for good reason. These seemingly simple games offer far more than entertainment. They’re powerful tools that help children build essential life skills in a fun and engaging way.</span></h3>
+</div>
+<div class="d-flex align-items-center justify-content-end read-more">
+<a class="text-primary d-inline-flex align-items-center justify-content-end gap-2" href="https://tapifyworld.com/dynamic/blog/90" tabindex="-1">
  Read More
- <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
- <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
- </path>
- </svg>
- </a>
- </div>
- </div>
- </div>
- </div></div></div><div class=slick-slide data-slick-index=2 aria-hidden=true role=tabpanel id=slick-slide32 style=width:630px aria-describedby=slick-slide-control32 tabindex=-1><div><div style=width:100%;display:inline-block>
- <div class="blog-card overflow-hidden">
- <div class=card-img>
- <a href=https://tapifyworld.com/dynamic/blog/91 tabindex=-1>
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-37)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </a>
- </div>
- <div class="card-body position-relative">
- <div class="text-label-color fs-18 card-title">Best Board Games for Family Bonding</div>
- <div class="text-gray-100 mb-0 fs-12 blog-description">
- <h3 data-start=550 data-end=625 style=color:rgb(108,117,125);font-family:Poppins,Helvetica,sans-serif><span style=font-size:0.875rem>Highlight classic and modern board games that promote family interaction.</span></h3>
- </div>
- <div class="d-flex align-items-center justify-content-end read-more">
- <a href=https://tapifyworld.com/dynamic/blog/91 class="text-primary d-inline-flex align-items-center justify-content-end gap-2" tabindex=-1>
+ <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long text-decoration-none" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor">
+</path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</div></div></div><div aria-describedby="slick-slide-control32" aria-hidden="true" class="slick-slide" data-slick-index="2" id="slick-slide32" role="tabpanel" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="blog-card overflow-hidden">
+<div class="card-img">
+<a href="https://tapifyworld.com/dynamic/blog/91" tabindex="-1">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-37)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="card-body position-relative">
+<div class="text-label-color fs-18 card-title">Best Board Games for Family Bonding</div>
+<div class="text-gray-100 mb-0 fs-12 blog-description">
+<h3 data-end="625" data-start="550" style="color:rgb(108,117,125);font-family:Poppins,Helvetica,sans-serif"><span style="font-size:0.875rem">Highlight classic and modern board games that promote family interaction.</span></h3>
+</div>
+<div class="d-flex align-items-center justify-content-end read-more">
+<a class="text-primary d-inline-flex align-items-center justify-content-end gap-2" href="https://tapifyworld.com/dynamic/blog/91" tabindex="-1">
  Read More
- <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
- <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
- </path>
- </svg>
- </a>
- </div>
- </div>
- </div>
- </div></div></div><div class=slick-slide data-slick-index=3 aria-hidden=true role=tabpanel id=slick-slide33 style=width:630px aria-describedby=slick-slide-control33 tabindex=-1><div><div style=width:100%;display:inline-block>
- <div class="blog-card overflow-hidden">
- <div class=card-img>
- <a href=https://tapifyworld.com/dynamic/blog/92 tabindex=-1>
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-34)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </a>
- </div>
- <div class="card-body position-relative">
- <div class="text-label-color fs-18 card-title">How to Choose the Perfect Toy for Your Child's Age</div>
- <div class="text-gray-100 mb-0 fs-12 blog-description">
- <h3 data-start=264 data-end=327 style=color:rgb(108,117,125);font-family:Poppins,Helvetica,sans-serif><span style=font-size:0.875rem>A guide to selecting age-appropriate toys that support developmental milestones.</span></h3>
- </div>
- <div class="d-flex align-items-center justify-content-end read-more">
- <a href=https://tapifyworld.com/dynamic/blog/92 class="text-primary d-inline-flex align-items-center justify-content-end gap-2" tabindex=-1>
+ <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long text-decoration-none" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor">
+</path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</div></div></div><div aria-describedby="slick-slide-control33" aria-hidden="true" class="slick-slide" data-slick-index="3" id="slick-slide33" role="tabpanel" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="blog-card overflow-hidden">
+<div class="card-img">
+<a href="https://tapifyworld.com/dynamic/blog/92" tabindex="-1">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-34)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="card-body position-relative">
+<div class="text-label-color fs-18 card-title">How to Choose the Perfect Toy for Your Child's Age</div>
+<div class="text-gray-100 mb-0 fs-12 blog-description">
+<h3 data-end="327" data-start="264" style="color:rgb(108,117,125);font-family:Poppins,Helvetica,sans-serif"><span style="font-size:0.875rem">A guide to selecting age-appropriate toys that support developmental milestones.</span></h3>
+</div>
+<div class="d-flex align-items-center justify-content-end read-more">
+<a class="text-primary d-inline-flex align-items-center justify-content-end gap-2" href="https://tapifyworld.com/dynamic/blog/92" tabindex="-1">
  Read More
- <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
- <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
- </path>
- </svg>
- </a>
- </div>
- </div>
- </div>
- </div></div></div><div class="slick-slide slick-cloned" data-slick-index=4 aria-hidden=true tabindex=-1 style=width:630px><div><div style=width:100%;display:inline-block>
- <div class="blog-card overflow-hidden">
- <div class=card-img>
- <a href=https://tapifyworld.com/dynamic/blog/89 tabindex=-1>
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-35)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </a>
- </div>
- <div class="card-body position-relative">
- <div class="text-label-color fs-18 card-title">The benefits of RC toys for hand-eye coordination, problem-solving, and creativity.</div>
- <div class="text-gray-100 mb-0 fs-12 blog-description">
- <p><span style=color:rgb(108,117,125);font-family:Poppins,Helvetica,sans-serif>The benefits of RC toys for hand-eye coordination, problem-solving, and creativity.</span></p>
- </div>
- <div class="d-flex align-items-center justify-content-end read-more">
- <a href=https://tapifyworld.com/dynamic/blog/89 class="text-primary d-inline-flex align-items-center justify-content-end gap-2" tabindex=-1>
+ <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long text-decoration-none" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor">
+</path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="4" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="blog-card overflow-hidden">
+<div class="card-img">
+<a href="https://tapifyworld.com/dynamic/blog/89" tabindex="-1">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-35)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="card-body position-relative">
+<div class="text-label-color fs-18 card-title">The benefits of RC toys for hand-eye coordination, problem-solving, and creativity.</div>
+<div class="text-gray-100 mb-0 fs-12 blog-description">
+<p><span style="color:rgb(108,117,125);font-family:Poppins,Helvetica,sans-serif">The benefits of RC toys for hand-eye coordination, problem-solving, and creativity.</span></p>
+</div>
+<div class="d-flex align-items-center justify-content-end read-more">
+<a class="text-primary d-inline-flex align-items-center justify-content-end gap-2" href="https://tapifyworld.com/dynamic/blog/89" tabindex="-1">
  Read More
- <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
- <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
- </path>
- </svg>
- </a>
- </div>
- </div>
- </div>
- </div></div></div><div class="slick-slide slick-cloned" data-slick-index=5 aria-hidden=true tabindex=-1 style=width:630px><div><div style=width:100%;display:inline-block>
- <div class="blog-card overflow-hidden">
- <div class=card-img>
- <a href=https://tapifyworld.com/dynamic/blog/90 tabindex=-1>
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-36)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </a>
- </div>
- <div class="card-body position-relative">
- <div class="text-label-color fs-18 card-title">The Power of Puzzle Games for Kids</div>
- <div class="text-gray-100 mb-0 fs-12 blog-description">
- <h3 data-start=64 data-end=132 style=color:rgb(108,117,125);font-family:Poppins,Helvetica,sans-serif><span style=font-size:0.875rem>In a world filled with flashy toys and digital distractions, puzzle games remain a timeless favorite — and for good reason. These seemingly simple games offer far more than entertainment. They’re powerful tools that help children build essential life skills in a fun and engaging way.</span></h3>
- </div>
- <div class="d-flex align-items-center justify-content-end read-more">
- <a href=https://tapifyworld.com/dynamic/blog/90 class="text-primary d-inline-flex align-items-center justify-content-end gap-2" tabindex=-1>
+ <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long text-decoration-none" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor">
+</path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="5" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="blog-card overflow-hidden">
+<div class="card-img">
+<a href="https://tapifyworld.com/dynamic/blog/90" tabindex="-1">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-36)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="card-body position-relative">
+<div class="text-label-color fs-18 card-title">The Power of Puzzle Games for Kids</div>
+<div class="text-gray-100 mb-0 fs-12 blog-description">
+<h3 data-end="132" data-start="64" style="color:rgb(108,117,125);font-family:Poppins,Helvetica,sans-serif"><span style="font-size:0.875rem">In a world filled with flashy toys and digital distractions, puzzle games remain a timeless favorite — and for good reason. These seemingly simple games offer far more than entertainment. They’re powerful tools that help children build essential life skills in a fun and engaging way.</span></h3>
+</div>
+<div class="d-flex align-items-center justify-content-end read-more">
+<a class="text-primary d-inline-flex align-items-center justify-content-end gap-2" href="https://tapifyworld.com/dynamic/blog/90" tabindex="-1">
  Read More
- <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
- <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
- </path>
- </svg>
- </a>
- </div>
- </div>
- </div>
- </div></div></div><div class="slick-slide slick-cloned" data-slick-index=6 aria-hidden=true tabindex=-1 style=width:630px><div><div style=width:100%;display:inline-block>
- <div class="blog-card overflow-hidden">
- <div class=card-img>
- <a href=https://tapifyworld.com/dynamic/blog/91 tabindex=-1>
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-37)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </a>
- </div>
- <div class="card-body position-relative">
- <div class="text-label-color fs-18 card-title">Best Board Games for Family Bonding</div>
- <div class="text-gray-100 mb-0 fs-12 blog-description">
- <h3 data-start=550 data-end=625 style=color:rgb(108,117,125);font-family:Poppins,Helvetica,sans-serif><span style=font-size:0.875rem>Highlight classic and modern board games that promote family interaction.</span></h3>
- </div>
- <div class="d-flex align-items-center justify-content-end read-more">
- <a href=https://tapifyworld.com/dynamic/blog/91 class="text-primary d-inline-flex align-items-center justify-content-end gap-2" tabindex=-1>
+ <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long text-decoration-none" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor">
+</path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="6" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="blog-card overflow-hidden">
+<div class="card-img">
+<a href="https://tapifyworld.com/dynamic/blog/91" tabindex="-1">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-37)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="card-body position-relative">
+<div class="text-label-color fs-18 card-title">Best Board Games for Family Bonding</div>
+<div class="text-gray-100 mb-0 fs-12 blog-description">
+<h3 data-end="625" data-start="550" style="color:rgb(108,117,125);font-family:Poppins,Helvetica,sans-serif"><span style="font-size:0.875rem">Highlight classic and modern board games that promote family interaction.</span></h3>
+</div>
+<div class="d-flex align-items-center justify-content-end read-more">
+<a class="text-primary d-inline-flex align-items-center justify-content-end gap-2" href="https://tapifyworld.com/dynamic/blog/91" tabindex="-1">
  Read More
- <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
- <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
- </path>
- </svg>
- </a>
- </div>
- </div>
- </div>
- </div></div></div><div class="slick-slide slick-cloned" data-slick-index=7 aria-hidden=true tabindex=-1 style=width:630px><div><div style=width:100%;display:inline-block>
- <div class="blog-card overflow-hidden">
- <div class=card-img>
- <a href=https://tapifyworld.com/dynamic/blog/92 tabindex=-1>
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-34)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </a>
- </div>
- <div class="card-body position-relative">
- <div class="text-label-color fs-18 card-title">How to Choose the Perfect Toy for Your Child's Age</div>
- <div class="text-gray-100 mb-0 fs-12 blog-description">
- <h3 data-start=264 data-end=327 style=color:rgb(108,117,125);font-family:Poppins,Helvetica,sans-serif><span style=font-size:0.875rem>A guide to selecting age-appropriate toys that support developmental milestones.</span></h3>
- </div>
- <div class="d-flex align-items-center justify-content-end read-more">
- <a href=https://tapifyworld.com/dynamic/blog/92 class="text-primary d-inline-flex align-items-center justify-content-end gap-2" tabindex=-1>
+ <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long text-decoration-none" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor">
+</path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="7" style="width:630px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="blog-card overflow-hidden">
+<div class="card-img">
+<a href="https://tapifyworld.com/dynamic/blog/92" tabindex="-1">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-34)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="card-body position-relative">
+<div class="text-label-color fs-18 card-title">How to Choose the Perfect Toy for Your Child's Age</div>
+<div class="text-gray-100 mb-0 fs-12 blog-description">
+<h3 data-end="327" data-start="264" style="color:rgb(108,117,125);font-family:Poppins,Helvetica,sans-serif"><span style="font-size:0.875rem">A guide to selecting age-appropriate toys that support developmental milestones.</span></h3>
+</div>
+<div class="d-flex align-items-center justify-content-end read-more">
+<a class="text-primary d-inline-flex align-items-center justify-content-end gap-2" href="https://tapifyworld.com/dynamic/blog/92" tabindex="-1">
  Read More
- <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
- <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
- </path>
- </svg>
- </a>
- </div>
- </div>
- </div>
- </div></div></div></div></div><ul class=slick-dots role=tablist><li class=slick-active role=presentation><button type=button role=tab id=slick-slide-control30 aria-controls=slick-slide30 aria-label="1 of 4" tabindex=0 fdprocessedid=xmdcua aria-selected=true>1</button><li role=presentation><button type=button role=tab id=slick-slide-control31 aria-controls=slick-slide31 aria-label="2 of 4" tabindex=-1>2</button><li role=presentation><button type=button role=tab id=slick-slide-control32 aria-controls=slick-slide32 aria-label="3 of 4" tabindex=-1>3</button><li role=presentation><button type=button role=tab id=slick-slide-control33 aria-controls=slick-slide33 aria-label="4 of 4" tabindex=-1 fdprocessedid=h8v32>4</button></ul></div>
- </div>
- 
- <?php if(!empty($businessHours)): ?><div class="business-hour-section pt-50 px-30 position-relative"><div class="section-heading"><h2>Business Hours</h2></div><div class="px-30"><div class="row justify-content-center"><?php foreach ((isset($__bh)?$__bh:($businessHours ?? [])) as $bh): ?><div class="col-sm-6"><div class="business-hour-card d-flex gap-2 align-items-center mb-3"><div class="time-icon"><i class="bi bi-clock fs-3"></i></div><div class="d-flex flex-column align-items-start"><span class="fs-14 text-gray lh-1 fw-5"><?= htmlspecialchars(ucfirst(strtolower($bh["day_name"] ?? ""))) ?></span><span class="fs-16 fw-5"><?= !empty($bh["is_open"]) ? htmlspecialchars(trim(($bh["open_time"] ?? "")." - ".($bh["close_time"] ?? ""))) : "Closed" ?></span></div></div></div><?php endforeach; ?></div></div></div><?php endif; ?>
- 
- <div class="qr-code-section pt-40 px-30">
- <div class="section-heading text-center">
- <h2>QR Code</h2>
- </div>
- <div class="qr-code mx-auto position-relative">
- <div class="position-absolute w-100 bottom-0 start-0 wave-vcard22">
- <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 550 174" fill=currentColor>
- <path d="M550 0C525.099 19.2233 494.755 30.5356 460.233 35.2539C429.715 39.4249 392.522 37.6852 368.74 46.1567C349.509 53.007 338.712 62.7163 326.119 73.329C306.167 90.4114 284.495 107.628 255.754 113.819C229.775 119.415 203.702 119.039 177.8 116.397C134.47 111.977 97.6201 97.7437 62.3907 79.5407C41.0473 68.3807 19.3961 57.2624 0 43.8141V45.3638V174H550V0Z"></path>
- </svg>
- </div>
- <div class="d-flex qr-code-box flex-sm-row flex-column align-items-center">
- <div class="qr-code-img text-center" id=qr-code-thirtysix>
- 
-<svg xmlns=http://www.w3.org/2000/svg version=1.1 width=130 height=130 viewBox="0 0 130 130"><rect x=0 y=0 width=130 height=130 fill=#ffffff></rect><g transform=scale(5.2)><g transform=translate(0,0)><path fill-rule=evenodd d="M8 0L8 2L9 2L9 4L8 4L8 9L7 9L7 8L5 8L5 9L3 9L3 8L0 8L0 13L1 13L1 14L0 14L0 15L2 15L2 16L0 16L0 17L2 17L2 16L3 16L3 17L5 17L5 16L6 16L6 17L8 17L8 18L9 18L9 19L8 19L8 20L9 20L9 22L8 22L8 25L9 25L9 23L10 23L10 22L11 22L11 24L12 24L12 25L13 25L13 23L14 23L14 25L15 25L15 23L14 23L14 21L13 21L13 18L14 18L14 17L10 17L10 18L9 18L9 17L8 17L8 15L9 15L9 16L11 16L11 15L12 15L12 14L13 14L13 10L14 10L14 9L15 9L15 14L14 14L14 16L15 16L15 15L16 15L16 14L17 14L17 15L19 15L19 16L16 16L16 17L15 17L15 18L16 18L16 19L14 19L14 20L15 20L15 21L16 21L16 25L17 25L17 23L18 23L18 25L19 25L19 24L21 24L21 25L22 25L22 24L21 24L21 23L22 23L22 22L23 22L23 23L25 23L25 22L24 22L24 21L22 21L22 22L21 22L21 16L22 16L22 15L23 15L23 14L24 14L24 15L25 15L25 12L24 12L24 13L23 13L23 14L21 14L21 15L19 15L19 14L20 14L20 13L19 13L19 12L20 12L20 11L21 11L21 12L22 12L22 11L23 11L23 10L24 10L24 11L25 11L25 8L23 8L23 10L22 10L22 9L21 9L21 8L17 8L17 5L16 5L16 7L15 7L15 0L14 0L14 2L13 2L13 1L12 1L12 2L11 2L11 3L10 3L10 2L9 2L9 0ZM10 0L10 1L11 1L11 0ZM12 2L12 4L11 4L11 5L10 5L10 6L9 6L9 8L10 8L10 6L11 6L11 8L13 8L13 9L14 9L14 8L15 8L15 9L16 9L16 8L15 8L15 7L14 7L14 5L13 5L13 2ZM16 2L16 4L17 4L17 2ZM12 5L12 7L13 7L13 5ZM1 9L1 11L3 11L3 10L2 10L2 9ZM6 9L6 10L5 10L5 11L6 11L6 12L5 12L5 15L6 15L6 16L7 16L7 15L6 15L6 14L7 14L7 13L9 13L9 12L8 12L8 10L9 10L9 11L10 11L10 14L9 14L9 15L10 15L10 14L11 14L11 13L12 13L12 12L11 12L11 9L10 9L10 10L9 10L9 9L8 9L8 10L7 10L7 9ZM17 9L17 10L16 10L16 11L17 11L17 10L18 10L18 9ZM20 9L20 10L21 10L21 9ZM6 10L6 11L7 11L7 10ZM18 11L18 12L16 12L16 13L18 13L18 12L19 12L19 11ZM2 12L2 14L4 14L4 13L3 13L3 12ZM6 12L6 13L7 13L7 12ZM3 15L3 16L4 16L4 15ZM23 16L23 17L24 17L24 19L23 19L23 20L25 20L25 17L24 17L24 16ZM17 17L17 20L20 20L20 17ZM18 18L18 19L19 19L19 18ZM10 19L10 21L11 21L11 20L12 20L12 19ZM18 21L18 23L19 23L19 22L20 22L20 21ZM12 22L12 23L13 23L13 22ZM24 24L24 25L25 25L25 24ZM0 0L0 7L7 7L7 0ZM1 1L1 6L6 6L6 1ZM2 2L2 5L5 5L5 2ZM18 0L18 7L25 7L25 0ZM19 1L19 6L24 6L24 1ZM20 2L20 5L23 5L23 2ZM0 18L0 25L7 25L7 18ZM1 19L1 24L6 24L6 19ZM2 20L2 23L5 23L5 20Z" fill=#000000></path></g></g></svg>
- </div>
- <div class="text-center text-sm-start">
- <h5 class="fw-6 text-primary">Scan to Contact</h5>
- <p class="fs-14 text-black mb-0">Point your phone’s camera at the QR code to quickly add our contact information. You can also use the "Add to Contacts" button below for fast saving.</p>
- </div>
- </div>
- </div>
- </div>
- 
- 
- <div class="contact-us-section pt-40 px-30">
- <div class="section-heading text-center">
- <h2>Inquiries</h2>
- </div>
- <div class=contact-form>
- <form id="enquiryForm" onsubmit="tfSubmitInquiry(event)" enctype="multipart/form-data"><input type="hidden" name="vcard_id" value="<?= $vcardId ?>"><label class="w-100 mb-2" style="display:block;text-align:left"><span style="font-size:13px;opacity:.85">Attachment (optional)</span><input type="file" name="attachment" class="form-control" accept="image/*,.pdf" style="margin-top:4px"></label>
- <div class=row>
- <div id=enquiryError class="alert alert-danger d-none sf-hidden"></div>
- <div class=col-12>
- <input type=text class=form-control name=name placeholder="Your Name" fdprocessedid=ma1w0a value>
- </div>
- <div class=col-12>
- <input type=email class=form-control name=email placeholder="Email Address" fdprocessedid=lhif5g value>
- </div>
- <div class=col-12>
- <input type=tel class=form-control name=phone placeholder="Enter Phone Number" fdprocessedid=95udlq value>
- </div>
- <div class="col-12 mb-3">
- <textarea class="form-control h-100" name=message placeholder="Type a message here..." rows=3></textarea>
- </div>
- <div class="mb-3 mt-3">
- <div class=wrapper-file-input>
- <div class=input-box id=fileInputTrigger>
- <h4> <svg class="svg-inline--fa fa-upload me-2" aria-hidden=true focusable=false data-prefix=fas data-icon=upload role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M105.4 182.6c12.5 12.49 32.76 12.5 45.25 .001L224 109.3V352c0 17.67 14.33 32 32 32c17.67 0 32-14.33 32-32V109.3l73.38 73.38c12.49 12.49 32.75 12.49 45.25-.001c12.49-12.49 12.49-32.75 0-45.25l-128-128C272.4 3.125 264.2 0 256 0S239.6 3.125 233.4 9.375L105.4 137.4C92.88 149.9 92.88 170.1 105.4 182.6zM480 352h-160c0 35.35-28.65 64-64 64s-64-28.65-64-64H32c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h448c17.67 0 32-14.33 32-32v-96C512 366.3 497.7 352 480 352zM432 456c-13.2 0-24-10.8-24-24c0-13.2 10.8-24 24-24s24 10.8 24 24C456 445.2 445.2 456 432 456z"></path></svg>Choose File to upload
- </h4> <input type=file id=attachment name=attachment hidden multiple value class=sf-hidden>
- </div> <small>Files Supported: JPG, PNG, JPEG</small>
- </div>
- <div class=wrapper-file-section>
- <div class=selected-files id=selectedFilesSection style=display:none>
- 
- 
- </div>
- </div>
- </div>
- <div class="col-12 text-center">
- <button id=send-btn data-button-style=9 class="contact-btn send-btn dynamic-btn-9" type=submit fdprocessedid=aogjxe>
+ <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long text-decoration-none" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor">
+</path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</div></div></div></div></div><ul class="slick-dots" role="tablist"><li class="slick-active" role="presentation"><button aria-controls="slick-slide30" aria-label="1 of 4" aria-selected="true" fdprocessedid="xmdcua" id="slick-slide-control30" role="tab" tabindex="0" type="button">1</button><li role="presentation"><button aria-controls="slick-slide31" aria-label="2 of 4" id="slick-slide-control31" role="tab" tabindex="-1" type="button">2</button><li role="presentation"><button aria-controls="slick-slide32" aria-label="3 of 4" id="slick-slide-control32" role="tab" tabindex="-1" type="button">3</button><li role="presentation"><button aria-controls="slick-slide33" aria-label="4 of 4" fdprocessedid="h8v32" id="slick-slide-control33" role="tab" tabindex="-1" type="button">4</button></li></li></li></li></ul></div>
+</div>
+<div class="business-hour-section px-30 pt-40 pb-40 position-relative">
+<div class="rotate-vector">
+<div class="position-absolute vcard22-bg-hero-2">
+<svg fill="currentColor" viewbox="0 0 221 97" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.5 0.5C73.1 0.5 145.7 0.5 220.5 0.5C220.5 29.5688 220.5 58.6376 220.5 88.5873C205.006 96.3086 202.782 98.6149 193.923 94.4598C187.293 91.3503 186.589 86.0967 181.323 80.4878C180.874 80.0094 180.466 79.4875 180.009 79.0168C178.401 77.3622 175.619 76.2059 174.177 75.6852C173.566 75.4642 172.926 75.3433 172.277 75.2969C170.707 75.1847 167.438 75.0005 163.931 75.099C165.62 75.0892 162.292 75.1084 163.931 75.099C159.223 75.3355 149.842 76.0658 145.198 76.8424C129.011 77.958 127.021 79.2055 120.549 76.8565C119.269 76.3918 118.115 75.6188 117.22 74.5918C112.091 68.703 108.795 61.1543 104.871 54.442C104.262 53.4163 103.653 52.3905 103.025 51.3337C102.506 50.414 101.986 49.4942 101.451 48.5466C97.7653 43.9322 93.6962 41.9035 87.914 40.8676C77.5861 40.6639 72.2134 42.2386 64.0245 48.4262C61.4402 50.1476 61.0913 50.3799 57.5201 51.0646C56.2498 51.3081 54.9353 51.3077 53.6822 50.9871C48.8572 49.7529 45.6281 47.8384 42.4612 43.8767C42.0413 43.3515 41.6966 42.7696 41.4151 42.1589C39.5222 38.0526 37.8738 33.8877 36.2189 29.6732C31.1798 17.5989 21.9646 13.4603 10.8356 7.84061C8.76622 6.69317 6.70367 5.5334 4.65268 4.35382C3.2823 3.56654 1.91191 2.77926 0.5 1.96812C0.5 1.48364 0.5 0.999162 0.5 0.5Z"></path>
+</svg>
+<div class="after-img">
+<svg fill="currentColor" viewbox="0 0 230 101" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0C75.9 0 151.8 0 230 0C230 30.5828 230 61.1656 230 92.6752C213.801 100.799 211.477 103.225 202.215 98.8536C195.269 95.5754 194.545 90.0321 189.009 84.1175C188.561 83.639 188.155 83.1171 187.703 82.6424C186.015 80.8684 183.043 79.6333 181.536 79.0882C180.921 78.8656 180.277 78.7427 179.624 78.6954C177.999 78.5777 174.556 78.3799 170.86 78.4843C172.625 78.4741 169.147 78.4943 170.86 78.4843C165.937 78.7332 156.13 79.5016 151.275 80.3185C134.282 81.4972 132.254 82.8156 125.421 80.3024C124.14 79.8312 122.985 79.0535 122.089 78.0236C116.69 71.8175 113.234 63.841 109.115 56.7515C108.478 55.6723 107.841 54.5932 107.185 53.4813C106.642 52.5137 106.099 51.546 105.539 50.549C101.686 45.6943 97.4324 43.5599 91.3874 42.4701C80.59 42.2557 74.9731 43.9125 66.412 50.4223C63.6917 52.2457 63.3406 52.4811 59.5349 53.213C58.2569 53.4588 56.9357 53.4577 55.6747 53.1359C50.572 51.8338 47.1734 49.8113 43.8357 45.5945C43.4196 45.0688 43.0771 44.4876 42.7976 43.8782C40.8091 39.542 39.0792 35.1436 37.3424 30.6926C32.0743 17.9895 22.4402 13.6353 10.8054 7.72293C8.64196 6.51574 6.48566 5.29555 4.34144 4.05454C2.90877 3.22626 1.47609 2.39797 0 1.54459C0 1.03487 0 0.52516 0 0Z"></path>
+</svg>
+</div>
+</div>
+</div>
+<div class="rotate-vector-bottom">
+<div class="position-absolute vcard22-bg-hero-2">
+<svg fill="currentColor" viewbox="0 0 221 97" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.5 0.5C73.1 0.5 145.7 0.5 220.5 0.5C220.5 29.5688 220.5 58.6376 220.5 88.5873C205.006 96.3086 202.782 98.6149 193.923 94.4598C187.293 91.3503 186.589 86.0967 181.323 80.4878C180.874 80.0094 180.466 79.4875 180.009 79.0168C178.401 77.3622 175.619 76.2059 174.177 75.6852C173.566 75.4642 172.926 75.3433 172.277 75.2969C170.707 75.1847 167.438 75.0005 163.931 75.099C165.62 75.0892 162.292 75.1084 163.931 75.099C159.223 75.3355 149.842 76.0658 145.198 76.8424C129.011 77.958 127.021 79.2055 120.549 76.8565C119.269 76.3918 118.115 75.6188 117.22 74.5918C112.091 68.703 108.795 61.1543 104.871 54.442C104.262 53.4163 103.653 52.3905 103.025 51.3337C102.506 50.414 101.986 49.4942 101.451 48.5466C97.7653 43.9322 93.6962 41.9035 87.914 40.8676C77.5861 40.6639 72.2134 42.2386 64.0245 48.4262C61.4402 50.1476 61.0913 50.3799 57.5201 51.0646C56.2498 51.3081 54.9353 51.3077 53.6822 50.9871C48.8572 49.7529 45.6281 47.8384 42.4612 43.8767C42.0413 43.3515 41.6966 42.7696 41.4151 42.1589C39.5222 38.0526 37.8738 33.8877 36.2189 29.6732C31.1798 17.5989 21.9646 13.4603 10.8356 7.84061C8.76622 6.69317 6.70367 5.5334 4.65268 4.35382C3.2823 3.56654 1.91191 2.77926 0.5 1.96812C0.5 1.48364 0.5 0.999162 0.5 0.5Z"></path>
+</svg>
+<div class="after-img">
+<svg fill="currentColor" viewbox="0 0 230 101" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0C75.9 0 151.8 0 230 0C230 30.5828 230 61.1656 230 92.6752C213.801 100.799 211.477 103.225 202.215 98.8536C195.269 95.5754 194.545 90.0321 189.009 84.1175C188.561 83.639 188.155 83.1171 187.703 82.6424C186.015 80.8684 183.043 79.6333 181.536 79.0882C180.921 78.8656 180.277 78.7427 179.624 78.6954C177.999 78.5777 174.556 78.3799 170.86 78.4843C172.625 78.4741 169.147 78.4943 170.86 78.4843C165.937 78.7332 156.13 79.5016 151.275 80.3185C134.282 81.4972 132.254 82.8156 125.421 80.3024C124.14 79.8312 122.985 79.0535 122.089 78.0236C116.69 71.8175 113.234 63.841 109.115 56.7515C108.478 55.6723 107.841 54.5932 107.185 53.4813C106.642 52.5137 106.099 51.546 105.539 50.549C101.686 45.6943 97.4324 43.5599 91.3874 42.4701C80.59 42.2557 74.9731 43.9125 66.412 50.4223C63.6917 52.2457 63.3406 52.4811 59.5349 53.213C58.2569 53.4588 56.9357 53.4577 55.6747 53.1359C50.572 51.8338 47.1734 49.8113 43.8357 45.5945C43.4196 45.0688 43.0771 44.4876 42.7976 43.8782C40.8091 39.542 39.0792 35.1436 37.3424 30.6926C32.0743 17.9895 22.4402 13.6353 10.8054 7.72293C8.64196 6.51574 6.48566 5.29555 4.34144 4.05454C2.90877 3.22626 1.47609 2.39797 0 1.54459C0 1.03487 0 0.52516 0 0Z"></path>
+</svg>
+</div>
+</div>
+</div>
+<div class="section-heading text-center">
+<h2>Business Hours</h2>
+</div>
+<div class="business-hour-card row row-gap-20px justify-content-center position-relative">
+<div class="col-sm-6 px-custome">
+<div class="business-hour align-items-center">
+<div class="time-icons d-flex align-items-center justify-content-center">
+<svg class="icon icon-tabler icon-tabler-calendar-time text-white" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none">
+</path>
+<path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4">
+</path>
+<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+<path d="M15 3v4"></path>
+<path d="M7 3v4"></path>
+<path d="M3 11h16"></path>
+<path d="M18 16.496v1.504l1 1"></path>
+</svg>
+</div>
+<div class="text-start d-flex gap-2 gap-sm-1 gap-md-2">
+<span class="text-label-color">Monday:</span>
+<span class="text-label-color">12:00 AM - 12:00 AM</span>
+</div>
+</div>
+</div>
+<div class="col-sm-6 px-custome">
+<div class="business-hour align-items-center">
+<div class="time-icons d-flex align-items-center justify-content-center">
+<svg class="icon icon-tabler icon-tabler-calendar-time text-white" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none">
+</path>
+<path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4">
+</path>
+<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+<path d="M15 3v4"></path>
+<path d="M7 3v4"></path>
+<path d="M3 11h16"></path>
+<path d="M18 16.496v1.504l1 1"></path>
+</svg>
+</div>
+<div class="text-start d-flex gap-2 gap-sm-1 gap-md-2">
+<span class="text-label-color">Tuesday:</span>
+<span class="text-label-color">12:00 AM - 12:00 AM</span>
+</div>
+</div>
+</div>
+<div class="col-sm-6 px-custome">
+<div class="business-hour align-items-center">
+<div class="time-icons d-flex align-items-center justify-content-center">
+<svg class="icon icon-tabler icon-tabler-calendar-time text-white" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none">
+</path>
+<path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4">
+</path>
+<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+<path d="M15 3v4"></path>
+<path d="M7 3v4"></path>
+<path d="M3 11h16"></path>
+<path d="M18 16.496v1.504l1 1"></path>
+</svg>
+</div>
+<div class="text-start d-flex gap-2 gap-sm-1 gap-md-2">
+<span class="text-label-color">Wednesday:</span>
+<span class="text-label-color">12:00 AM - 12:00 AM</span>
+</div>
+</div>
+</div>
+<div class="col-sm-6 px-custome">
+<div class="business-hour align-items-center">
+<div class="time-icons d-flex align-items-center justify-content-center">
+<svg class="icon icon-tabler icon-tabler-calendar-time text-white" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none">
+</path>
+<path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4">
+</path>
+<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+<path d="M15 3v4"></path>
+<path d="M7 3v4"></path>
+<path d="M3 11h16"></path>
+<path d="M18 16.496v1.504l1 1"></path>
+</svg>
+</div>
+<div class="text-start d-flex gap-2 gap-sm-1 gap-md-2">
+<span class="text-label-color">Thursday:</span>
+<span class="text-label-color">12:00 AM - 12:00 AM</span>
+</div>
+</div>
+</div>
+<div class="col-sm-6 px-custome">
+<div class="business-hour align-items-center">
+<div class="time-icons d-flex align-items-center justify-content-center">
+<svg class="icon icon-tabler icon-tabler-calendar-time text-white" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none">
+</path>
+<path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4">
+</path>
+<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+<path d="M15 3v4"></path>
+<path d="M7 3v4"></path>
+<path d="M3 11h16"></path>
+<path d="M18 16.496v1.504l1 1"></path>
+</svg>
+</div>
+<div class="text-start d-flex gap-2 gap-sm-1 gap-md-2">
+<span class="text-label-color">Friday:</span>
+<span class="text-label-color">12:00 AM - 12:00 AM</span>
+</div>
+</div>
+</div>
+<div class="col-sm-6 px-custome">
+<div class="business-hour align-items-center">
+<div class="time-icons d-flex align-items-center justify-content-center">
+<svg class="icon icon-tabler icon-tabler-calendar-time text-white" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none">
+</path>
+<path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4">
+</path>
+<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+<path d="M15 3v4"></path>
+<path d="M7 3v4"></path>
+<path d="M3 11h16"></path>
+<path d="M18 16.496v1.504l1 1"></path>
+</svg>
+</div>
+<div class="text-start d-flex gap-2 gap-sm-1 gap-md-2">
+<span class="text-label-color">Saturday:</span>
+<span class="text-label-color">12:00 AM - 12:00 AM</span>
+</div>
+</div>
+</div>
+<div class="col-sm-6 px-custome">
+<div class="business-hour align-items-center">
+<div class="time-icons d-flex align-items-center justify-content-center">
+<svg class="icon icon-tabler icon-tabler-calendar-time text-white" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 0h24v24H0z" fill="none" stroke="none">
+</path>
+<path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4">
+</path>
+<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+<path d="M15 3v4"></path>
+<path d="M7 3v4"></path>
+<path d="M3 11h16"></path>
+<path d="M18 16.496v1.504l1 1"></path>
+</svg>
+</div>
+<div class="text-start d-flex gap-2 gap-sm-1 gap-md-2">
+<span class="text-label-color">Sunday:</span>
+<span class="text-label-color">12:00 AM - 12:00 AM</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="qr-code-section pt-40 px-30">
+<div class="section-heading text-center">
+<h2>QR Code</h2>
+</div>
+<div class="qr-code mx-auto position-relative">
+<div class="position-absolute w-100 bottom-0 start-0 wave-vcard22">
+<svg fill="currentColor" viewbox="0 0 550 174" xmlns="http://www.w3.org/2000/svg">
+<path d="M550 0C525.099 19.2233 494.755 30.5356 460.233 35.2539C429.715 39.4249 392.522 37.6852 368.74 46.1567C349.509 53.007 338.712 62.7163 326.119 73.329C306.167 90.4114 284.495 107.628 255.754 113.819C229.775 119.415 203.702 119.039 177.8 116.397C134.47 111.977 97.6201 97.7437 62.3907 79.5407C41.0473 68.3807 19.3961 57.2624 0 43.8141V45.3638V174H550V0Z"></path>
+</svg>
+</div>
+<div class="d-flex qr-code-box flex-sm-row flex-column align-items-center">
+<div class="qr-code-img text-center" id="qr-code-thirtysix">
+<svg height="130" version="1.1" viewbox="0 0 130 130" width="130" xmlns="http://www.w3.org/2000/svg"><rect fill="#ffffff" height="130" width="130" x="0" y="0"></rect><g transform="scale(5.2)"><g transform="translate(0,0)"><path d="M8 0L8 2L9 2L9 4L8 4L8 9L7 9L7 8L5 8L5 9L3 9L3 8L0 8L0 13L1 13L1 14L0 14L0 15L2 15L2 16L0 16L0 17L2 17L2 16L3 16L3 17L5 17L5 16L6 16L6 17L8 17L8 18L9 18L9 19L8 19L8 20L9 20L9 22L8 22L8 25L9 25L9 23L10 23L10 22L11 22L11 24L12 24L12 25L13 25L13 23L14 23L14 25L15 25L15 23L14 23L14 21L13 21L13 18L14 18L14 17L10 17L10 18L9 18L9 17L8 17L8 15L9 15L9 16L11 16L11 15L12 15L12 14L13 14L13 10L14 10L14 9L15 9L15 14L14 14L14 16L15 16L15 15L16 15L16 14L17 14L17 15L19 15L19 16L16 16L16 17L15 17L15 18L16 18L16 19L14 19L14 20L15 20L15 21L16 21L16 25L17 25L17 23L18 23L18 25L19 25L19 24L21 24L21 25L22 25L22 24L21 24L21 23L22 23L22 22L23 22L23 23L25 23L25 22L24 22L24 21L22 21L22 22L21 22L21 16L22 16L22 15L23 15L23 14L24 14L24 15L25 15L25 12L24 12L24 13L23 13L23 14L21 14L21 15L19 15L19 14L20 14L20 13L19 13L19 12L20 12L20 11L21 11L21 12L22 12L22 11L23 11L23 10L24 10L24 11L25 11L25 8L23 8L23 10L22 10L22 9L21 9L21 8L17 8L17 5L16 5L16 7L15 7L15 0L14 0L14 2L13 2L13 1L12 1L12 2L11 2L11 3L10 3L10 2L9 2L9 0ZM10 0L10 1L11 1L11 0ZM12 2L12 4L11 4L11 5L10 5L10 6L9 6L9 8L10 8L10 6L11 6L11 8L13 8L13 9L14 9L14 8L15 8L15 9L16 9L16 8L15 8L15 7L14 7L14 5L13 5L13 2ZM16 2L16 4L17 4L17 2ZM12 5L12 7L13 7L13 5ZM1 9L1 11L3 11L3 10L2 10L2 9ZM6 9L6 10L5 10L5 11L6 11L6 12L5 12L5 15L6 15L6 16L7 16L7 15L6 15L6 14L7 14L7 13L9 13L9 12L8 12L8 10L9 10L9 11L10 11L10 14L9 14L9 15L10 15L10 14L11 14L11 13L12 13L12 12L11 12L11 9L10 9L10 10L9 10L9 9L8 9L8 10L7 10L7 9ZM17 9L17 10L16 10L16 11L17 11L17 10L18 10L18 9ZM20 9L20 10L21 10L21 9ZM6 10L6 11L7 11L7 10ZM18 11L18 12L16 12L16 13L18 13L18 12L19 12L19 11ZM2 12L2 14L4 14L4 13L3 13L3 12ZM6 12L6 13L7 13L7 12ZM3 15L3 16L4 16L4 15ZM23 16L23 17L24 17L24 19L23 19L23 20L25 20L25 17L24 17L24 16ZM17 17L17 20L20 20L20 17ZM18 18L18 19L19 19L19 18ZM10 19L10 21L11 21L11 20L12 20L12 19ZM18 21L18 23L19 23L19 22L20 22L20 21ZM12 22L12 23L13 23L13 22ZM24 24L24 25L25 25L25 24ZM0 0L0 7L7 7L7 0ZM1 1L1 6L6 6L6 1ZM2 2L2 5L5 5L5 2ZM18 0L18 7L25 7L25 0ZM19 1L19 6L24 6L24 1ZM20 2L20 5L23 5L23 2ZM0 18L0 25L7 25L7 18ZM1 19L1 24L6 24L6 19ZM2 20L2 23L5 23L5 20Z" fill="#000000" fill-rule="evenodd"></path></g></g></svg>
+</div>
+<div class="text-center text-sm-start">
+<h5 class="fw-6 text-primary">Scan to Contact</h5>
+<p class="fs-14 text-black mb-0">Point your phone’s camera at the QR code to quickly add our contact information. You can also use the "Add to Contacts" button below for fast saving.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="contact-us-section pt-40 px-30">
+<div class="section-heading text-center">
+<h2>Inquiries</h2>
+</div>
+<div class="contact-form">
+<form enctype="multipart/form-data" id="enquiryForm" onsubmit="tfSubmitInquiry(event)"><input name="vcard_id" type="hidden" value="<?= $vcardId ?>"/><label class="w-100 mb-2" style="display:block;text-align:left"><span style="font-size:13px;opacity:.85">Attachment (optional)</span><input accept="image/*,.pdf" class="form-control" name="attachment" style="margin-top:4px" type="file"/></label>
+<div class="row">
+<div class="alert alert-danger d-none sf-hidden" id="enquiryError"></div>
+<div class="col-12">
+<input class="form-control" fdprocessedid="ma1w0a" name="name" placeholder="Your Name" type="text" value=""/>
+</div>
+<div class="col-12">
+<input class="form-control" fdprocessedid="lhif5g" name="email" placeholder="Email Address" type="email" value=""/>
+</div>
+<div class="col-12">
+<input class="form-control" fdprocessedid="95udlq" name="phone" placeholder="Enter Phone Number" type="tel" value=""/>
+</div>
+<div class="col-12 mb-3">
+<textarea class="form-control h-100" name="message" placeholder="Type a message here..." rows="3"></textarea>
+</div>
+<div class="mb-3 mt-3">
+<div class="wrapper-file-input">
+<div class="input-box" id="fileInputTrigger">
+<h4> <svg aria-hidden="true" class="svg-inline--fa fa-upload me-2" data-fa-i2svg="" data-icon="upload" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M105.4 182.6c12.5 12.49 32.76 12.5 45.25 .001L224 109.3V352c0 17.67 14.33 32 32 32c17.67 0 32-14.33 32-32V109.3l73.38 73.38c12.49 12.49 32.75 12.49 45.25-.001c12.49-12.49 12.49-32.75 0-45.25l-128-128C272.4 3.125 264.2 0 256 0S239.6 3.125 233.4 9.375L105.4 137.4C92.88 149.9 92.88 170.1 105.4 182.6zM480 352h-160c0 35.35-28.65 64-64 64s-64-28.65-64-64H32c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h448c17.67 0 32-14.33 32-32v-96C512 366.3 497.7 352 480 352zM432 456c-13.2 0-24-10.8-24-24c0-13.2 10.8-24 24-24s24 10.8 24 24C456 445.2 445.2 456 432 456z" fill="currentColor"></path></svg>Choose File to upload
+ </h4> <input class="sf-hidden" hidden="" id="attachment" multiple="" name="attachment" type="file" value=""/>
+</div> <small>Files Supported: JPG, PNG, JPEG</small>
+</div>
+<div class="wrapper-file-section">
+<div class="selected-files" id="selectedFilesSection" style="display:none">
+</div>
+</div>
+</div>
+<div class="col-12 text-center">
+<button class="contact-btn send-btn dynamic-btn-9" data-button-style="9" fdprocessedid="aogjxe" id="send-btn" type="submit">
  Send Message
  </button>
- </div>
- </div>
- </form>
- </div>
- </div>
- 
- 
- 
- <div class=add-to-contact-section>
- <div class=text-center>
- <a href=https://tapifyworld.com/add-contact/41 id=dynamic-btn data-button-style=9 class="add-contact-btn btn dynamic-btn-9">
- <svg class="svg-inline--fa fa-address-book" aria-hidden=true focusable=false data-prefix=fas data-icon=address-book role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M384 0H96C60.65 0 32 28.65 32 64v384c0 35.35 28.65 64 64 64h288c35.35 0 64-28.65 64-64V64C448 28.65 419.3 0 384 0zM240 128c35.35 0 64 28.65 64 64s-28.65 64-64 64c-35.34 0-64-28.65-64-64S204.7 128 240 128zM336 384h-192C135.2 384 128 376.8 128 368C128 323.8 163.8 288 208 288h64c44.18 0 80 35.82 80 80C352 376.8 344.8 384 336 384zM496 64H480v96h16C504.8 160 512 152.8 512 144v-64C512 71.16 504.8 64 496 64zM496 192H480v96h16C504.8 288 512 280.8 512 272v-64C512 199.2 504.8 192 496 192zM496 320H480v96h16c8.836 0 16-7.164 16-16v-64C512 327.2 504.8 320 496 320z"></path></svg>&nbsp;Add to contact
- </a>
- </div>
- </div>
- <div class="modal fade py-3 sf-hidden" id=askContactDetailFormModel tabindex=-1 aria-hidden=true aria-labelledby=askContactDetailFormModelLabel>
- 
 </div>
- 
- <div class="d-flex justify-content-evenly position-relative z-index-2 py-2 made-by-section">
- <div class=text-center>
- <small class=text-primary>Made By
+</div>
+</form>
+</div>
+</div>
+<div class="add-to-contact-section">
+<div class="text-center">
+<a class="add-contact-btn btn dynamic-btn-9" data-button-style="9" href="https://tapifyworld.com/add-contact/41" id="dynamic-btn">
+<svg aria-hidden="true" class="svg-inline--fa fa-address-book" data-fa-i2svg="" data-icon="address-book" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M384 0H96C60.65 0 32 28.65 32 64v384c0 35.35 28.65 64 64 64h288c35.35 0 64-28.65 64-64V64C448 28.65 419.3 0 384 0zM240 128c35.35 0 64 28.65 64 64s-28.65 64-64 64c-35.34 0-64-28.65-64-64S204.7 128 240 128zM336 384h-192C135.2 384 128 376.8 128 368C128 323.8 163.8 288 208 288h64c44.18 0 80 35.82 80 80C352 376.8 344.8 384 336 384zM496 64H480v96h16C504.8 160 512 152.8 512 144v-64C512 71.16 504.8 64 496 64zM496 192H480v96h16C504.8 288 512 280.8 512 272v-64C512 199.2 504.8 192 496 192zM496 320H480v96h16c8.836 0 16-7.164 16-16v-64C512 327.2 504.8 320 496 320z" fill="currentColor"></path></svg> Add to contact
+ </a>
+</div>
+</div>
+<div aria-hidden="true" aria-labelledby="askContactDetailFormModelLabel" class="modal fade py-3 sf-hidden" id="askContactDetailFormModel" tabindex="-1">
+</div>
+<div class="d-flex justify-content-evenly position-relative z-index-2 py-2 made-by-section">
+<div class="text-center">
+<small class="text-primary">Made By
  Tapify</small>
- </div>
- </div>
- 
- <div class="btn-section cursor-pointer">
- <div class=fixed-btn-section>
- <div class="bars-btn dynamic-bars-btn">
- <svg width=25 height=25 viewBox="0 0 25 25" xmlns=http://www.w3.org/2000/svg>
- <path d="M15.4135 0.540405H22.4891C23.5721 0.540405 24.4602 1.42855 24.4602 2.51152V9.58713C24.4602 10.6773 23.5732 11.5582 22.4891 11.5582H15.4135C14.3223 11.5582 13.4424 10.6783 13.4424 9.58713V2.51152C13.4424 1.42746 14.3234 0.540405 15.4135 0.540405Z"></path>
- <path d="M2.97143 0.5H8.74589C10.1129 0.5 11.2173 1.6122 11.2173 2.97143V8.74589C11.2173 10.1139 10.1139 11.2173 8.74589 11.2173H2.97143C1.6122 11.2173 0.5 10.1129 0.5 8.74589V2.97143C0.5 1.61328 1.61328 0.5 2.97143 0.5Z"></path>
- <path d="M2.97143 13.7828H8.74589C10.1139 13.7828 11.2173 14.8862 11.2173 16.2543V22.0287C11.2173 23.388 10.1129 24.5002 8.74589 24.5002H2.97143C1.61328 24.5002 0.5 23.3869 0.5 22.0287V16.2543C0.5 14.8873 1.6122 13.7828 2.97143 13.7828Z"></path>
- <path d="M16.2537 13.7828H22.0281C23.3873 13.7828 24.4995 14.8873 24.4995 16.2543V22.0287C24.4995 23.3869 23.3863 24.5002 22.0281 24.5002H16.2537C14.8867 24.5002 13.7822 23.388 13.7822 22.0287V16.2543C13.7822 14.8862 14.8856 13.7828 16.2537 13.7828Z"></path>
- </svg>
- </div>
- <div class="sub-btn d-none sf-hidden">
- 
- </div>
- </div>
- </div>
- 
- <div class=mt-0>
- <div class="pwa-support d-flex align-items-center justify-content-center">
- <div>
- <h1 class=pwa-heading>Install as App</h1>
- <p class="pwa-text text-dark">Get a seamless experience by adding this website to your home screen—just like an app! </p>
- <div class="text-end d-flex gap-2">
- <button id=installPwaBtn class="pwa-install-button w-50 mb-1 btn" fdprocessedid=en41l9>Install
+</div>
+</div>
+<div class="btn-section cursor-pointer">
+<div class="fixed-btn-section">
+<div class="bars-btn dynamic-bars-btn">
+<svg height="25" viewbox="0 0 25 25" width="25" xmlns="http://www.w3.org/2000/svg">
+<path d="M15.4135 0.540405H22.4891C23.5721 0.540405 24.4602 1.42855 24.4602 2.51152V9.58713C24.4602 10.6773 23.5732 11.5582 22.4891 11.5582H15.4135C14.3223 11.5582 13.4424 10.6783 13.4424 9.58713V2.51152C13.4424 1.42746 14.3234 0.540405 15.4135 0.540405Z"></path>
+<path d="M2.97143 0.5H8.74589C10.1129 0.5 11.2173 1.6122 11.2173 2.97143V8.74589C11.2173 10.1139 10.1139 11.2173 8.74589 11.2173H2.97143C1.6122 11.2173 0.5 10.1129 0.5 8.74589V2.97143C0.5 1.61328 1.61328 0.5 2.97143 0.5Z"></path>
+<path d="M2.97143 13.7828H8.74589C10.1139 13.7828 11.2173 14.8862 11.2173 16.2543V22.0287C11.2173 23.388 10.1129 24.5002 8.74589 24.5002H2.97143C1.61328 24.5002 0.5 23.3869 0.5 22.0287V16.2543C0.5 14.8873 1.6122 13.7828 2.97143 13.7828Z"></path>
+<path d="M16.2537 13.7828H22.0281C23.3873 13.7828 24.4995 14.8873 24.4995 16.2543V22.0287C24.4995 23.3869 23.3863 24.5002 22.0281 24.5002H16.2537C14.8867 24.5002 13.7822 23.388 13.7822 22.0287V16.2543C13.7822 14.8862 14.8856 13.7828 16.2537 13.7828Z"></path>
+</svg>
+</div>
+<div class="sub-btn d-none sf-hidden">
+</div>
+</div>
+</div>
+<div class="mt-0">
+<div class="pwa-support d-flex align-items-center justify-content-center">
+<div>
+<h1 class="pwa-heading">Install as App</h1>
+<p class="pwa-text text-dark">Get a seamless experience by adding this website to your home screen—just like an app! </p>
+<div class="text-end d-flex gap-2">
+<button class="pwa-install-button w-50 mb-1 btn" fdprocessedid="en41l9" id="installPwaBtn">Install
  </button>
- <button class="pwa-cancel-button w-50 pwa-close btn btn-secondary mb-1" fdprocessedid=me9rlu>Cancel</button>
- </div>
- </div>
- </div>
- </div>
- 
- </div>
- </div>
- <div class="modal fade sf-hidden" id=newsLatterModal tabindex=-1 aria-labelledby=newsLatterModalLabel aria-hidden=true>
- 
- </div>
- 
- <div id=vcard22-shareModel class="modal fade sf-hidden" role=dialog>
- 
- </div>
-<div class=razorpay-container style=z-index:2147483647;position:fixed;top:0px;display:none;left:0px;height:100%;width:100%;max-height:100dvh;backface-visibility:hidden;overflow-y:visible><style>@keyframes rzp-rot{to{transform:rotate(360deg)}}@-webkit-keyframes rzp-rot{to{-webkit-transform:rotate(360deg)}}</style></div>
-<div class="flatpickr-calendar animate arrowLeft arrowTop sf-hidden" tabindex=-1 style=top:2579.28px;left:341.667px;right:auto></div><div id=lightboxOverlay tabindex=-1 class=lightboxOverlay style=display:none></div><div id=lightbox tabindex=-1 class=lightbox style=display:none></div>"><script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"><script src="https://cdn.jsdelivr.net/npm/flatpickr"></script><script>function tfInit(){if(typeof jQuery==="undefined"||!jQuery.fn||!jQuery.fn.slick){return setTimeout(tfInit,120);}jQuery(function($){$(".product-slider,.gallery-slider,.testimonial-slider,.blog-slider").each(function(){if($(this).children().length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=instagram],[class*=insta-feed],[class*=insta-section],[class*=insta-feed-section]").each(function(){if($(this).find("img,iframe,.slick-slide,.insta-item,a[href*=instagram]").length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=__gallery],[class*=__product],[class*=__testimonial]").each(function(){var sl=$(this).find(".gallery-slider,.product-slider,.testimonial-slider").first();if(sl.length&&sl.children().length===0){$(this).hide();}});$("a").each(function(){var h=$(this).attr("href")||"";var tx=$(this).text().replace(/\s+/g,"");if((h==="mailto:"||h==="tel:")&&tx===""){$(this).closest(".contact-box,.contact-item,li,.col-sm-6,.col-md-6,.col-6,.col-12,.col").hide();}});$("[class*=contact-box],[class*=contact-item]").each(function(){if($(this).text().replace(/\s+/g,"")===""){$(this).hide();}});window.tfSubmitInquiry=async function(ev){ev.preventDefault();var f=ev.target;var b=f.querySelector("button[type=submit]");var fd=new FormData(f);if(b)b.disabled=true;try{var r=await fetch("/inquiry-submit.php",{method:"POST",body:fd});var j=await r.json();if(j.success){if(window.showToast)showToast("Message sent!","success");f.reset();}else{if(window.showToast)showToast(j.message||"Failed","error");}}catch(e){if(window.showToast)showToast("Connection error","error");}finally{if(b)b.disabled=false;}};function ini(s,o){var $s=$(s);if(!$s.length||$s.hasClass("slick-initialized"))return;$s.slick(o);}ini(".product-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".gallery-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".testimonial-slider",{slidesToShow:1,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:4000});if(window.flatpickr){flatpickr("#pickUpDate",{minDate:"today",dateFormat:"Y-m-d"});flatpickr(".flatpickr-input",{minDate:"today",dateFormat:"Y-m-d"});}});}tfInit();</script><?php if(!empty($vcard["custom_js"])): ?><script><?= $vcard["custom_js"] ?></script><?php endif; ?><?php include __DIR__ . "/_shared-scripts.php"; ?><style>/*tf-fixups*/.contact-box a,.contact-box p,.contact-box span,.contact-desc a,.contact-desc p{color:#2563eb!important}.our-services-section .row,.business-hour-section .row{justify-content:center!important}.flatpickr-calendar:not(.open){display:none!important}</style></body></html>
+<button class="pwa-cancel-button w-50 pwa-close btn btn-secondary mb-1" fdprocessedid="me9rlu">Cancel</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<?php endif; ?>
+<?php endif; ?>
+<?php endif; ?>
+<?php endif; ?>
+<?php endif; ?>
+<div aria-hidden="true" aria-labelledby="newsLatterModalLabel" class="modal fade sf-hidden" id="newsLatterModal" tabindex="-1">
+</div>
+<div class="modal fade sf-hidden" id="vcard22-shareModel" role="dialog">
+</div>
+<div class="razorpay-container" style="z-index:2147483647;position:fixed;top:0px;display:none;left:0px;height:100%;width:100%;max-height:100dvh;backface-visibility:hidden;overflow-y:visible"><style>@keyframes rzp-rot{to{transform:rotate(360deg)}}@-webkit-keyframes rzp-rot{to{-webkit-transform:rotate(360deg)}}</style></div>
+<div class="flatpickr-calendar animate arrowLeft arrowTop sf-hidden" style="top:2579.28px;left:341.667px;right:auto" tabindex="-1"></div><div class="lightboxOverlay" id="lightboxOverlay" style="display:none" tabindex="-1"></div><div class="lightbox" id="lightbox" style="display:none" tabindex="-1"></div>"><script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet"/><script src="https://cdn.jsdelivr.net/npm/flatpickr"></script><script>function tfInit(){if(typeof jQuery==="undefined"||!jQuery.fn||!jQuery.fn.slick){return setTimeout(tfInit,120);}jQuery(function($){$(".product-slider,.gallery-slider,.testimonial-slider,.blog-slider").each(function(){if($(this).children().length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=instagram],[class*=insta-feed],[class*=insta-section],[class*=insta-feed-section]").each(function(){if($(this).find("img,iframe,.slick-slide,.insta-item,a[href*=instagram]").length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=__gallery],[class*=__product],[class*=__testimonial]").each(function(){var sl=$(this).find(".gallery-slider,.product-slider,.testimonial-slider").first();if(sl.length&&sl.children().length===0){$(this).hide();}});$("a").each(function(){var h=$(this).attr("href")||"";var tx=$(this).text().replace(/\s+/g,"");if((h==="mailto:"||h==="tel:")&&tx===""){$(this).closest(".contact-box,.contact-item,li,.col-sm-6,.col-md-6,.col-6,.col-12,.col").hide();}});$("[class*=contact-box],[class*=contact-item]").each(function(){if($(this).text().replace(/\s+/g,"")===""){$(this).hide();}});window.tfSubmitInquiry=async function(ev){ev.preventDefault();var f=ev.target;var b=f.querySelector("button[type=submit]");var fd=new FormData(f);if(b)b.disabled=true;try{var r=await fetch("/inquiry-submit.php",{method:"POST",body:fd});var j=await r.json();if(j.success){if(window.showToast)showToast("Message sent!","success");f.reset();}else{if(window.showToast)showToast(j.message||"Failed","error");}}catch(e){if(window.showToast)showToast("Connection error","error");}finally{if(b)b.disabled=false;}};function ini(s,o){var $s=$(s);if(!$s.length||$s.hasClass("slick-initialized"))return;$s.slick(o);}ini(".product-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".gallery-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".testimonial-slider",{slidesToShow:1,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:4000});if(window.flatpickr){flatpickr("#pickUpDate",{minDate:"today",dateFormat:"Y-m-d"});flatpickr(".flatpickr-input",{minDate:"today",dateFormat:"Y-m-d"});}});}tfInit();</script><?php if(!empty($vcard["custom_js"])): ?><script><?= $vcard["custom_js"] ?></script><?php endif; ?><?php include __DIR__ . "/_shared-scripts.php"; ?></body></html>

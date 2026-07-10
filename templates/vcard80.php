@@ -4,12 +4,13 @@ $cardUrl='https://app.tapify.co.in/'.($vcard['url_alias'] ?? $vcardId);
 $waPhone=preg_replace('/\D/','',$vcard['phone'] ?? '');
 $locationUrl=!empty($vcard['location_url'])?$vcard['location_url']:'https://maps.google.com/?q='.urlencode($vcard['location'] ?? '');
 $profileImg=!empty($vcard['profile_image'])?imgUrl($vcard['profile_image']):'https://ui-avatars.com/api/?name='.urlencode($fullName).'&size=200&background=2563eb&color=ffffff';
-$coverImg=!empty($vcard['cover_image'])?imgUrl($vcard['cover_image']):'/images/templates/fashionbeautyx/fas-027.webp';
+$coverImg=!empty($vcard['cover_image'])?imgUrl($vcard['cover_image']):'/images/templates/fashionbeautyxxxxxx/fas-027.webp';
 $qrUrl='https://api.qrserver.com/v1/create-qr-code/?size=200x200&data='.urlencode($cardUrl);
 $platformIcons=['linkedin-in'=>'fa-linkedin-in','linkedin'=>'fa-linkedin-in','instagram'=>'fa-instagram','x-twitter'=>'fa-x-twitter','twitter'=>'fa-x-twitter','facebook'=>'fa-facebook-f','facebook-f'=>'fa-facebook-f','whatsapp'=>'fa-whatsapp','youtube'=>'fa-youtube','spotify'=>'fa-spotify','github'=>'fa-github','tiktok'=>'fa-tiktok','pinterest'=>'fa-pinterest-p','behance'=>'fa-behance','dribbble'=>'fa-dribbble','telegram'=>'fa-telegram','globe'=>'fa-globe'];
-$socialSvgs=['facebook'=>'<svg viewBox="0 0 320 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>','facebook-f'=>'<svg viewBox="0 0 320 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>','instagram'=>'<svg viewBox="0 0 448 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>','whatsapp'=>'<svg viewBox="0 0 448 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.2-157zM223.9 438.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.5-186.6 184.5zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>','linkedin'=>'<svg viewBox="0 0 448 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>','linkedin-in'=>'<svg viewBox="0 0 448 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>','youtube'=>'<svg viewBox="0 0 576 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>','x-twitter'=>'<svg viewBox="0 0 512 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>','twitter'=>'<svg viewBox="0 0 512 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>','globe'=>'<svg viewBox="0 0 512 512" fill="currentColor" width="22" height="22" style="display:inline-block;vertical-align:middle"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6 78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7 10.5-23.6 22.2-40.7 33.5-51.5C260.5 3.2 269.8 0 288 0s27.5 3.2 44.3 13.8c11.3 10.8 23 27.9 33.5 51.5 11.6 26 20.9 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4 165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 363.5 0 342.1 0 320s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.6-22.2 40.7-33.5 51.5C267.5 508.8 258.2 512 240 512l-16 0c-18.2 0-27.5-3.2-44.3-13.8-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6 25.5-34.2 45.3-87.7 55.3-151.6H493.4z"/></svg>'];
+$socialSvgs=['facebook'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 320 512" width="22"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>','facebook-f'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 320 512" width="22"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"></path></svg>','instagram'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 448 512" width="22"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>','whatsapp'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 448 512" width="22"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.2-157zM223.9 438.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.5-186.6 184.5zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"></path></svg>','linkedin'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 448 512" width="22"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>','linkedin-in'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 448 512" width="22"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"></path></svg>','youtube'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 576 512" width="22"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"></path></svg>','x-twitter'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 512 512" width="22"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg>','twitter'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 512 512" width="22"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path></svg>','globe'=>'<svg fill="currentColor" height="22" style="display:inline-block;vertical-align:middle" viewbox="0 0 512 512" width="22"><path d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6 78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7 10.5-23.6 22.2-40.7 33.5-51.5C260.5 3.2 269.8 0 288 0s27.5 3.2 44.3 13.8c11.3 10.8 23 27.9 33.5 51.5 11.6 26 20.9 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4 165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 363.5 0 342.1 0 320s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6-10.5 23.6-22.2 40.7-33.5 51.5C267.5 508.8 258.2 512 240 512l-16 0c-18.2 0-27.5-3.2-44.3-13.8-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6 25.5-34.2 45.3-87.7 55.3-151.6H493.4z"></path></svg>'];
 ?>
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title><?= htmlspecialchars($fullName) ?></title><link rel="icon" href="<?= !empty($vcard['favicon_image'])?imgUrl($vcard['favicon_image']):'/images/tapify-logo-green.png' ?>"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><style>:root{--sf-img-8: url("/images/templates/fashionbeautyx/fas-000.webp");--sf-img-15: url("/images/templates/fashionbeautyx/fas-001.webp");--sf-img-18: url("/images/templates/fashionbeautyx/fas-002.webp");--sf-img-19: url("/images/templates/fashionbeautyx/fas-003.webp");--sf-img-20: url("/images/templates/fashionbeautyx/fas-004.webp");--sf-img-28: url("/images/templates/fashionbeautyx/fas-005.webp");--sf-img-27: url("/images/templates/fashionbeautyx/fas-006.webp");--sf-img-29: url("/images/templates/fashionbeautyx/fas-007.webp");--sf-img-26: url("/images/templates/fashionbeautyx/fas-008.webp");--sf-img-30: url("/images/templates/fashionbeautyx/fas-009.webp");--sf-img-33: url("/images/templates/fashionbeautyx/fas-010.webp");--sf-img-34: url("/images/templates/fashionbeautyx/fas-011.webp");--sf-img-36: url("/images/templates/fashionbeautyx/fas-012.webp");--sf-img-35: url("/images/templates/fashionbeautyx/fas-013.webp");--sf-img-37: url("/images/templates/fashionbeautyx/fas-014.webp");--sf-img-45: url("/images/templates/fashionbeautyx/fas-015.webp");--sf-img-47: url("/images/templates/fashionbeautyx/fas-016.webp");--sf-img-48: url("/images/templates/fashionbeautyx/fas-017.webp");--sf-img-50: url("/images/templates/fashionbeautyx/fas-018.webp");--sf-img-49: url("/images/templates/fashionbeautyx/fas-019.webp");--sf-img-51: url("/images/templates/fashionbeautyx/fas-020.webp");--sf-img-54: url("/images/templates/fashionbeautyx/fas-021.webp");--sf-img-55: url("/images/templates/fashionbeautyx/fas-022.webp");--sf-img-56: url("/images/templates/fashionbeautyx/fas-023.webp");--sf-img-57: url("/images/templates/fashionbeautyx/fas-024.webp");--sf-img-60: url("/images/templates/fashionbeautyx/fas-025.webp");--sf-img-61: url("/images/templates/fashionbeautyx/fas-026.webp")}
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title><?= htmlspecialchars($fullName) ?></title><link href="<?= !empty($vcard['favicon_image'])?imgUrl($vcard['favicon_image']):'/images/tapify-logo-green.png' ?>" rel="icon"/><link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/><style>:root{--sf-img-8: url("/images/templates/fashionbeautyxxxxxx/fas-000.webp");--sf-img-15: url("/images/templates/fashionbeautyxxxxxx/fas-001.webp");--sf-img-18: url("/images/templates/fashionbeautyxxxxxx/fas-002.webp");--sf-img-19: url("/images/templates/fashionbeautyxxxxxx/fas-003.webp");--sf-img-20: url("/images/templates/fashionbeautyxxxxxx/fas-004.webp");--sf-img-28: url("/images/templates/fashionbeautyxxxxxx/fas-005.webp");--sf-img-27: url("/images/templates/fashionbeautyxxxxxx/fas-006.webp");--sf-img-29: url("/images/templates/fashionbeautyxxxxxx/fas-007.webp");--sf-img-26: url("/images/templates/fashionbeautyxxxxxx/fas-008.webp");--sf-img-30: url("/images/templates/fashionbeautyxxxxxx/fas-009.webp");--sf-img-33: url("/images/templates/fashionbeautyxxxxxx/fas-010.webp");--sf-img-34: url("/images/templates/fashionbeautyxxxxxx/fas-011.webp");--sf-img-36: url("/images/templates/fashionbeautyxxxxxx/fas-012.webp");--sf-img-35: url("/images/templates/fashionbeautyxxxxxx/fas-013.webp");--sf-img-37: url("/images/templates/fashionbeautyxxxxxx/fas-014.webp");--sf-img-45: url("/images/templates/fashionbeautyxxxxxx/fas-015.webp");--sf-img-47: url("/images/templates/fashionbeautyxxxxxx/fas-016.webp");--sf-img-48: url("/images/templates/fashionbeautyxxxxxx/fas-017.webp");--sf-img-50: url("/images/templates/fashionbeautyxxxxxx/fas-018.webp");--sf-img-49: url("/images/templates/fashionbeautyxxxxxx/fas-019.webp");--sf-img-51: url("/images/templates/fashionbeautyxxxxxx/fas-020.webp");--sf-img-54: url("/images/templates/fashionbeautyxxxxxx/fas-021.webp");--sf-img-55: url("/images/templates/fashionbeautyxxxxxx/fas-022.webp");--sf-img-56: url("/images/templates/fashionbeautyxxxxxx/fas-023.webp");--sf-img-57: url("/images/templates/fashionbeautyxxxxxx/fas-024.webp");--sf-img-60: url("/images/templates/fashionbeautyxxxxxx/fas-025.webp");--sf-img-61: url("/images/templates/fashionbeautyxxxxxx/fas-026.webp")}
 :host,:root{--fa-font-solid:normal 900 1em/1"Font Awesome 6 Solid";--fa-font-regular:normal 400 1em/1"Font Awesome 6 Regular";--fa-font-light:normal 300 1em/1"Font Awesome 6 Light";--fa-font-thin:normal 100 1em/1"Font Awesome 6 Thin";--fa-font-duotone:normal 900 1em/1"Font Awesome 6 Duotone";--fa-font-brands:normal 400 1em/1"Font Awesome 6 Brands"}svg:not(:host).svg-inline--fa,svg:not(:root).svg-inline--fa{overflow:visible;box-sizing:content-box}.svg-inline--fa{display:var(--fa-display,inline-block);height:1em;vertical-align:-.125em}@-webkit-keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@-webkit-keyframes fa-bounce{0%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}100%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}}@keyframes fa-bounce{0%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1,1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}100%{-webkit-transform:scale(1,1) translateY(0);transform:scale(1,1) translateY(0)}}@-webkit-keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@-webkit-keyframes fa-beat-fade{0%,100%{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@keyframes fa-beat-fade{0%,100%{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@-webkit-keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@-webkit-keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}100%,40%{-webkit-transform:rotate(0);transform:rotate(0)}}@keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}100%,40%{-webkit-transform:rotate(0);transform:rotate(0)}}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-sr-only-focusable:not(:focus),.sr-only-focusable:not(:focus){position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border-width:0}
 @-webkit-keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@keyframes animateErrorIcon{0%{-webkit-transform:rotateX(100deg);transform:rotateX(100deg);opacity:0}to{-webkit-transform:rotateX(0deg);transform:rotateX(0deg);opacity:1}}@-webkit-keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@keyframes animateXMark{0%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}50%{-webkit-transform:scale(.4);transform:scale(.4);margin-top:26px;opacity:0}80%{-webkit-transform:scale(1.15);transform:scale(1.15);margin-top:-6px}to{-webkit-transform:scale(1);transform:scale(1);margin-top:0;opacity:1}}@-webkit-keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}@keyframes pulseWarning{0%{border-color:#f8d486}to{border-color:#f8bb86}}.swal-icon--success:after,.swal-icon--success:before{content:"";border-radius:50%;position:absolute;width:60px;height:120px;background:#fff;-webkit-transform:rotate(45deg);transform:rotate(45deg)}.swal-icon--success:before{border-radius:120px 0 0 120px;top:-7px;left:-33px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:60px 60px;transform-origin:60px 60px}.swal-icon--success:after{border-radius:0 120px 120px 0;top:-11px;left:30px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transform-origin:0 60px;transform-origin:0 60px;-webkit-animation:rotatePlaceholder 4.25s ease-in;animation:rotatePlaceholder 4.25s ease-in}@-webkit-keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@keyframes rotatePlaceholder{0%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}5%{-webkit-transform:rotate(-45deg);transform:rotate(-45deg)}12%{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}to{-webkit-transform:rotate(-405deg);transform:rotate(-405deg)}}@-webkit-keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@keyframes animateSuccessTip{0%{width:0;left:1px;top:19px}54%{width:0;left:1px;top:19px}70%{width:50px;left:-8px;top:37px}84%{width:17px;left:21px;top:48px}to{width:25px;left:14px;top:45px}}@-webkit-keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}@keyframes animateSuccessLong{0%{width:0;right:46px;top:54px}65%{width:0;right:46px;top:54px}84%{width:55px;right:0;top:35px}to{width:47px;right:8px;top:38px}}.swal-icon--info:before{width:5px;height:29px;bottom:17px;border-radius:2px;margin-left:-2px}.swal-icon--info:after,.swal-icon--info:before{content:"";position:absolute;left:50%;background-color:#c9dae1}.swal-icon--info:after{width:7px;height:7px;border-radius:50%;margin-left:-3px;top:19px}.swal-button:not([disabled]):hover{background-color:#78cbf2}.swal-button:active{background-color:#70bce0}.swal-button:focus{outline:none;box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(43,114,165,.29)}.swal-button::-moz-focus-inner{border:0}.swal-button--cancel:not([disabled]):hover{background-color:#e8e8e8}.swal-button--cancel:active{background-color:#d7d7d7}.swal-button--cancel:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(116,136,150,.29)}.swal-button--danger:not([disabled]):hover{background-color:#df4740}.swal-button--danger:active{background-color:#cf423b}.swal-button--danger:focus{box-shadow:0 0 0 1px #fff,0 0 0 3px rgba(165,43,43,.29)}.swal-content__input:focus,.swal-content__textarea:focus{outline:none;border-color:#6db8ff}@-webkit-keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}@keyframes swal-loading-anim{0%{opacity:.4}20%{opacity:.4}50%{opacity:1}to{opacity:.4}}.swal-overlay:before{content:" ";display:inline-block;vertical-align:middle;height:100%}@-webkit-keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}@keyframes showSweetAlert{0%{-webkit-transform:scale(1);transform:scale(1)}1%{-webkit-transform:scale(.5);transform:scale(.5)}45%{-webkit-transform:scale(1.05);transform:scale(1.05)}80%{-webkit-transform:scale(.95);transform:scale(.95)}to{-webkit-transform:scale(1);transform:scale(1)}}
 /*!
@@ -61,687 +62,1348 @@ $socialSvgs=['facebook'=>'<svg viewBox="0 0 320 512" fill="currentColor" width="
 */.select2-container--bootstrap-5 :focus{outline:0}.select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__clear:hover,.select2-container--bootstrap-5 .select2-selection--single .select2-selection__clear:hover{background:transparent url(data:image/svg+xml;charset=utf-8,%3Csvg\ xmlns=\'http://www.w3.org/2000/svg\'\ viewBox=\'0\ 0\ 16\ 16\'\ fill=\'%23ADB5BD\'%3E%3Cpath\ d=\'M.293.293a1\ 1\ 0\ 0\ 1\ 1.414\ 0L8\ 6.586\ 14.293.293a1\ 1\ 0\ 1\ 1\ 1.414\ 1.414L9.414\ 8l6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414\ 1.414L8\ 9.414l-6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414-1.414L6.586\ 8\ .293\ 1.707a1\ 1\ 0\ 0\ 1\ 0-1.414z\'/%3E%3C/svg%3E)50%/.75rem auto no-repeat}.select2-container--bootstrap-5 .select2-dropdown .select2-search .select2-search__field:focus{border-color:#ced4da;box-shadow:none}.select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__rendered .select2-selection__choice .select2-selection__choice__remove:hover{background:transparent url(data:image/svg+xml;charset=utf-8,%3Csvg\ xmlns=\'http://www.w3.org/2000/svg\'\ viewBox=\'0\ 0\ 16\ 16\'\ fill=\'%23ADB5BD\'%3E%3Cpath\ d=\'M.293.293a1\ 1\ 0\ 0\ 1\ 1.414\ 0L8\ 6.586\ 14.293.293a1\ 1\ 0\ 1\ 1\ 1.414\ 1.414L9.414\ 8l6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414\ 1.414L8\ 9.414l-6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414-1.414L6.586\ 8\ .293\ 1.707a1\ 1\ 0\ 0\ 1\ 0-1.414z\'/%3E%3C/svg%3E)50%/.75rem auto no-repeat}.was-validated select:valid+.select2-container--bootstrap-5 .select2-selection{border-color:#0ac074}.was-validated select:valid+.select2-container--bootstrap-5.select2-container--focus .select2-selection,.was-validated select:valid+.select2-container--bootstrap-5.select2-container--open .select2-selection{border-color:#0ac074;box-shadow:0 0 0 .25rem rgba(10,192,116,.25)}.was-validated select:valid+.select2-container--bootstrap-5.select2-container--open.select2-container--below .select2-selection{border-bottom:0 solid transparent}.was-validated select:valid+.select2-container--bootstrap-5.select2-container--open.select2-container--above .select2-selection{border-top:0 solid transparent;border-top-left-radius:0;border-top-right-radius:0}.was-validated select:invalid+.select2-container--bootstrap-5 .select2-selection{border-color:#f62947}.was-validated select:invalid+.select2-container--bootstrap-5.select2-container--focus .select2-selection,.was-validated select:invalid+.select2-container--bootstrap-5.select2-container--open .select2-selection{border-color:#f62947;box-shadow:0 0 0 .25rem rgba(246,41,71,.25)}.was-validated select:invalid+.select2-container--bootstrap-5.select2-container--open.select2-container--below .select2-selection{border-bottom:0 solid transparent}.was-validated select:invalid+.select2-container--bootstrap-5.select2-container--open.select2-container--above .select2-selection{border-top:0 solid transparent;border-top-left-radius:0;border-top-right-radius:0}.select2-container--bootstrap-5 .select2--small.select2-selection--multiple .select2-selection__clear:hover,.select2-container--bootstrap-5 .select2--small.select2-selection--single .select2-selection__clear:hover{background:transparent url(data:image/svg+xml;charset=utf-8,%3Csvg\ xmlns=\'http://www.w3.org/2000/svg\'\ viewBox=\'0\ 0\ 16\ 16\'\ fill=\'%23ADB5BD\'%3E%3Cpath\ d=\'M.293.293a1\ 1\ 0\ 0\ 1\ 1.414\ 0L8\ 6.586\ 14.293.293a1\ 1\ 0\ 1\ 1\ 1.414\ 1.414L9.414\ 8l6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414\ 1.414L8\ 9.414l-6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414-1.414L6.586\ 8\ .293\ 1.707a1\ 1\ 0\ 0\ 1\ 0-1.414z\'/%3E%3C/svg%3E)50%/.5rem auto no-repeat}.select2-container--bootstrap-5 .select2--small.select2-selection--multiple .select2-selection__rendered .select2-selection__choice .select2-selection__choice__remove:hover{background:transparent url(data:image/svg+xml;charset=utf-8,%3Csvg\ xmlns=\'http://www.w3.org/2000/svg\'\ viewBox=\'0\ 0\ 16\ 16\'\ fill=\'%23ADB5BD\'%3E%3Cpath\ d=\'M.293.293a1\ 1\ 0\ 0\ 1\ 1.414\ 0L8\ 6.586\ 14.293.293a1\ 1\ 0\ 1\ 1\ 1.414\ 1.414L9.414\ 8l6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414\ 1.414L8\ 9.414l-6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414-1.414L6.586\ 8\ .293\ 1.707a1\ 1\ 0\ 0\ 1\ 0-1.414z\'/%3E%3C/svg%3E)50%/.5rem auto no-repeat}.select2-container--bootstrap-5 .select2--large.select2-selection--multiple .select2-selection__clear:hover,.select2-container--bootstrap-5 .select2--large.select2-selection--single .select2-selection__clear:hover{background:transparent url(data:image/svg+xml;charset=utf-8,%3Csvg\ xmlns=\'http://www.w3.org/2000/svg\'\ viewBox=\'0\ 0\ 16\ 16\'\ fill=\'%23ADB5BD\'%3E%3Cpath\ d=\'M.293.293a1\ 1\ 0\ 0\ 1\ 1.414\ 0L8\ 6.586\ 14.293.293a1\ 1\ 0\ 1\ 1\ 1.414\ 1.414L9.414\ 8l6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414\ 1.414L8\ 9.414l-6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414-1.414L6.586\ 8\ .293\ 1.707a1\ 1\ 0\ 0\ 1\ 0-1.414z\'/%3E%3C/svg%3E)50%/1rem auto no-repeat}.select2-container--bootstrap-5 .select2--large.select2-selection--multiple .select2-selection__rendered .select2-selection__choice .select2-selection__choice__remove:hover{background:transparent url(data:image/svg+xml;charset=utf-8,%3Csvg\ xmlns=\'http://www.w3.org/2000/svg\'\ viewBox=\'0\ 0\ 16\ 16\'\ fill=\'%23ADB5BD\'%3E%3Cpath\ d=\'M.293.293a1\ 1\ 0\ 0\ 1\ 1.414\ 0L8\ 6.586\ 14.293.293a1\ 1\ 0\ 1\ 1\ 1.414\ 1.414L9.414\ 8l6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414\ 1.414L8\ 9.414l-6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414-1.414L6.586\ 8\ .293\ 1.707a1\ 1\ 0\ 0\ 1\ 0-1.414z\'/%3E%3C/svg%3E)50%/1rem auto no-repeat}.form-select-sm~.select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__clear:hover,.form-select-sm~.select2-container--bootstrap-5 .select2-selection--single .select2-selection__clear:hover{background:transparent url(data:image/svg+xml;charset=utf-8,%3Csvg\ xmlns=\'http://www.w3.org/2000/svg\'\ viewBox=\'0\ 0\ 16\ 16\'\ fill=\'%23ADB5BD\'%3E%3Cpath\ d=\'M.293.293a1\ 1\ 0\ 0\ 1\ 1.414\ 0L8\ 6.586\ 14.293.293a1\ 1\ 0\ 1\ 1\ 1.414\ 1.414L9.414\ 8l6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414\ 1.414L8\ 9.414l-6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414-1.414L6.586\ 8\ .293\ 1.707a1\ 1\ 0\ 0\ 1\ 0-1.414z\'/%3E%3C/svg%3E)50%/.5rem auto no-repeat}.form-select-sm~.select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__rendered .select2-selection__choice .select2-selection__choice__remove:hover{background:transparent url(data:image/svg+xml;charset=utf-8,%3Csvg\ xmlns=\'http://www.w3.org/2000/svg\'\ viewBox=\'0\ 0\ 16\ 16\'\ fill=\'%23ADB5BD\'%3E%3Cpath\ d=\'M.293.293a1\ 1\ 0\ 0\ 1\ 1.414\ 0L8\ 6.586\ 14.293.293a1\ 1\ 0\ 1\ 1\ 1.414\ 1.414L9.414\ 8l6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414\ 1.414L8\ 9.414l-6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414-1.414L6.586\ 8\ .293\ 1.707a1\ 1\ 0\ 0\ 1\ 0-1.414z\'/%3E%3C/svg%3E)50%/.5rem auto no-repeat}.form-select-lg~.select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__clear:hover,.form-select-lg~.select2-container--bootstrap-5 .select2-selection--single .select2-selection__clear:hover{background:transparent url(data:image/svg+xml;charset=utf-8,%3Csvg\ xmlns=\'http://www.w3.org/2000/svg\'\ viewBox=\'0\ 0\ 16\ 16\'\ fill=\'%23ADB5BD\'%3E%3Cpath\ d=\'M.293.293a1\ 1\ 0\ 0\ 1\ 1.414\ 0L8\ 6.586\ 14.293.293a1\ 1\ 0\ 1\ 1\ 1.414\ 1.414L9.414\ 8l6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414\ 1.414L8\ 9.414l-6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414-1.414L6.586\ 8\ .293\ 1.707a1\ 1\ 0\ 0\ 1\ 0-1.414z\'/%3E%3C/svg%3E)50%/1rem auto no-repeat}.form-select-lg~.select2-container--bootstrap-5 .select2-selection--multiple .select2-selection__rendered .select2-selection__choice .select2-selection__choice__remove:hover{background:transparent url(data:image/svg+xml;charset=utf-8,%3Csvg\ xmlns=\'http://www.w3.org/2000/svg\'\ viewBox=\'0\ 0\ 16\ 16\'\ fill=\'%23ADB5BD\'%3E%3Cpath\ d=\'M.293.293a1\ 1\ 0\ 0\ 1\ 1.414\ 0L8\ 6.586\ 14.293.293a1\ 1\ 0\ 1\ 1\ 1.414\ 1.414L9.414\ 8l6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414\ 1.414L8\ 9.414l-6.293\ 6.293a1\ 1\ 0\ 0\ 1-1.414-1.414L6.586\ 8\ .293\ 1.707a1\ 1\ 0\ 0\ 1\ 0-1.414z\'/%3E%3C/svg%3E)50%/1rem auto no-repeat}#toast-container>div:hover{box-shadow:0 0 20px rgba(173,181,189,.1)}.flatpickr-calendar{background-color:#fff;border-color:#fff;box-shadow:0 5px 20px rgba(173,181,189,.2)!important;padding:1.25rem .875rem .875rem!important;width:320px!important}.flatpickr-calendar:after,.flatpickr-calendar:before{content:none}.flatpickr-calendar .flatpickr-months .flatpickr-monthDropdown-months,.flatpickr-calendar .flatpickr-months .numInputWrapper{color:#212529;font-size:1rem;font-weight:500}.flatpickr-calendar .flatpickr-months .flatpickr-month .flatpickr-current-month{align-items:center;display:flex;justify-content:center;padding-top:0}.flatpickr-calendar .flatpickr-months .flatpickr-month .flatpickr-current-month .flatpickr-monthDropdown-months:hover,.flatpickr-calendar .flatpickr-months .flatpickr-month .flatpickr-current-month .numInputWrapper:hover{background:0 0}.flatpickr-calendar .flatpickr-months .flatpickr-month .flatpickr-current-month .flatpickr-monthDropdown-months{padding-left:0}.flatpickr-calendar .flatpickr-months .flatpickr-month .flatpickr-current-month .numInputWrapper{padding-left:.313rem}.flatpickr-calendar .flatpickr-months .flatpickr-next-month,.flatpickr-calendar .flatpickr-months .flatpickr-prev-month{padding:0;top:24px}.flatpickr-calendar .flatpickr-months .flatpickr-next-month:hover svg,.flatpickr-calendar .flatpickr-months .flatpickr-prev-month:hover svg{fill:#6571ff}.flatpickr-calendar .flatpickr-months .flatpickr-prev-month{left:30px!important}.flatpickr-calendar .flatpickr-months .flatpickr-next-month{right:30px!important}.flatpickr-calendar .flatpickr-innerContainer{margin-top:.625rem}.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-weekdays{margin-bottom:.75rem}.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-weekdays .flatpickr-weekday{color:#212529;font-size:0;font-weight:500}.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-weekdays .flatpickr-weekday:first-letter{font-size:.875rem}.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-days{width:290px}.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-days .dayContainer{max-width:290px;min-width:290px;width:290px}.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-days .dayContainer .flatpickr-day{border-radius:.313rem;color:#495057;height:35px;line-height:35px;margin-bottom:.375rem;max-width:unset;width:35px}.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-days .dayContainer .flatpickr-day:hover{background-color:#f8f9fa;border-color:#f8f9fa}.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-days .dayContainer .flatpickr-day.today{background-color:#e0e3ff;border-color:#e0e3ff;color:#6571ff}.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-days .dayContainer .flatpickr-day.nextMonthDay,.flatpickr-calendar .flatpickr-innerContainer .flatpickr-rContainer .flatpickr-days .dayContainer .flatpickr-day.prevMonthDay{color:#ced4da}.flatpickr-calendar .flatpickr-time .numInputWrapper:hover{background-color:transparent}.flatpickr-calendar .flatpickr-time .flatpickr-am-pm:focus,.flatpickr-calendar .flatpickr-time .flatpickr-am-pm:hover,.flatpickr-calendar .flatpickr-time .numInput:focus,.flatpickr-calendar .flatpickr-time .numInput:hover,.flatpickr-calendar .flatpickr-time span:focus,.flatpickr-calendar .flatpickr-time span:hover{background-color:transparent}.flatpickr-calendar .flatpickr-time .arrowUp:after{border-bottom-color:#495057}.flatpickr-calendar .flatpickr-time .arrowDown:after{border-top-color:#495057}.datepicker.datepicker-dropdown.dropdown-menu:after,.datepicker.datepicker-dropdown.dropdown-menu:before{content:none}.datepicker.datepicker-dropdown.dropdown-menu .table-condensed .day:hover,.datepicker.datepicker-dropdown.dropdown-menu .table-condensed .month:hover{background:#f8f9fa;color:#212529}.datepicker.datepicker-dropdown.dropdown-menu .table-condensed .datepicker-switch:hover{background:0 0}.datepicker.datepicker-dropdown.dropdown-menu .datepicker-days .table-condensed thead tr th.dow:first-letter{font-size:.875rem}.daterangepicker:after,.daterangepicker:before{content:none}.daterangepicker .drp-calendar .calendar-table .table-condensed thead tr:nth-child(2) th:first-letter{font-size:.875rem}.daterangepicker .drp-calendar .calendar-table tr .available:hover{background:#f8f9fa;color:#212529}.daterangepicker .ranges ul li:hover{background-color:#f8f9fa;color:#212529}.swal-modal .swal-icon--success:after,.swal-modal .swal-icon--success:before{background-color:#fff}.swal-modal .swal-icon--success:after{left:29px}.swal-modal .swal-icon--success:before{left:-32px}.swal-modal .swal-footer .swal-button:focus{box-shadow:none}.dataTables_wrapper div.dataTables_paginate .paginate_button.current:active,.dataTables_wrapper div.dataTables_paginate .paginate_button.current:focus,.dataTables_wrapper div.dataTables_paginate .paginate_button.current:hover{background:#6571ff;border-color:#6571ff;color:#fff!important}.dataTables_wrapper div.dataTables_paginate .paginate_button:active,.dataTables_wrapper div.dataTables_paginate .paginate_button:focus,.dataTables_wrapper div.dataTables_paginate .paginate_button:hover{background:#e9ecef;border-color:#e9ecef;box-shadow:none;color:#6571ff!important}.fc-media-screen .fc-header-toolbar .fc-toolbar-chunk .btn-primary:hover{background-color:#6571ff;border-color:#6571ff;color:#fff}.fc-media-screen .fc-header-toolbar .fc-toolbar-chunk .btn-primary span:before{font-weight:600!important}
 *{box-sizing:border-box;margin:0;padding:0}.modal .modal-dialog .modal-content .modal-body .required:after{color:#f62947;content:"*";font-size:inherit;font-weight:700;position:relative}.modal .modal-dialog .modal-content .modal-body .input-box:focus{background-color:#eef3f7;box-shadow:unset}.modal .modal-dialog .modal-content .modal-footer .submit-btn:hover{background-color:#6571ff!important}.modal .modal-dialog .modal-content .modal-footer .submit-btn:focus{box-shadow:unset}input::-moz-placeholder{overflow:visible}input::placeholder{overflow:visible}.lightbox{flex-direction:column-reverse}#wpNumber::-webkit-inner-spin-button{display:none}.input:focus{outline:none}.input::-webkit-input-placeholder{color:#aaa}.input:focus::-webkit-input-placeholder{color:#969696}.input:focus+.underline{transform:scale(1)}.vcard11-input:focus+.vcard11-underline{transform:scale(1)!important}.vcard11-input:focus{outline:none}.sub-btn{border-radius:20px;flex-direction:column;left:0;top:0;width:100%}
 .lightbox{text-align:center;line-height:0;position:absolute;left:0}.lightboxOverlay{position:absolute;top:0;left:0;z-index:9999;background-color:#000;opacity:.8}.lightbox{width:100%;z-index:10000;font-weight:400;outline:0}.lb-outerContainer:after{content:"";display:table;clear:both}.lb-nav a.lb-prev:hover{opacity:1}.lb-nav a.lb-next:hover{opacity:1}.lb-dataContainer:after{content:"";display:table;clear:both}.lb-data .lb-close:hover{cursor:pointer;opacity:1}
-.text-gray-100{color:#767676!important}.text-primary{color:#c29c77!important}.text-black{color:#3f3e3e!important}.right-10{right:10px}.left-10{left:10px}.top-10{top:10px}.top-40{top:40px}@media (max-width:575px){.bg-vector img{width:60%!important}}.vector1{left:-50px;top:20px}.vector2{top:40px}.vector3{transform:rotateY(180deg)}body{background-color:hsla(30,38%,61%,.4)!important;font-weight:400!important}body{padding-right:0!important}.fs-24{font-size:24px!important}@media (max-width:575px){.fs-24{font-size:20px!important}}.fs-16{font-size:16px}@media (max-width:575px){.fs-16{font-size:14px!important}}.section-heading{margin-bottom:25px}.section-heading h2{display:inline-block;font-family:Playwrite HU,cursive;font-size:30px;font-weight:700;padding-bottom:6px;position:relative}@media (max-width:575px){.section-heading h2{font-size:24px}}.section-heading svg{fill:#c29c77;width:10px}.section-heading span{background-color:#c29c77;height:3px;width:50px}.btn{border-radius:10px!important;padding:8px 30px!important}.btn:focus{box-shadow:none!important;outline:none!important}.slick-slider{margin-bottom:0!important}.max-w-fit{max-width:fit-content}.btn-primary{background-color:#c29c77!important;border:1px solid #c29c77!important;color:#fff;transition:all .3s ease}.btn-primary a{color:#fff!important}.btn-primary:focus,.btn-primary:hover{background-color:#fff!important;border:1px solid #c29c77!important;box-shadow:none!important;color:#c29c77!important}.btn-primary:focus a,.btn-primary:hover a{color:#c29c77!important}.btn-primary:focus{background-color:#c29c77;border:1px solid #c29c77;box-shadow:none!important;color:#fff}.row-gap-20{row-gap:20px}@keyframes right-arrow{0%{transform:translateX(0)}to{transform:translateX(8px)}}.right-arrow-animation{animation:right-arrow 1s linear 1s infinite alternate}.flower-left{bottom:0;left:0;position:absolute}.z-1{z-index:1}.-z-1{z-index:-1}.banner-section .banner-img{aspect-ratio:1/1;height:300px;position:relative;width:100%}@media (max-width:575px){.banner-section .banner-img{aspect-ratio:auto!important;height:auto!important}}.profile-section{position:relative}.profile-section .card{background-color:#f1e8e0!important;border:2px solid #c29c77;border-radius:20px;padding:20px 20px 20px 60px}@media (max-width:575px){.profile-section .card{padding:20px}}.profile-section .card .card-img{border-radius:100%;height:150px;min-width:150px;position:relative;width:150px;z-index:1}.profile-section .card .card-img:after{background-image:url(/images/templates/fashionbeautyx/fas-027.webp);background-size:cover;bottom:-21px;content:"";height:160px;left:57%;position:absolute;transform:translateX(-50%);width:220px;z-index:-1}.profile-section .card .bags-img{opacity:.4;width:140px}.profile-section .card .card-body{z-index:1}.profile-section .profile-desc{color:#3f3e3e}.profile-section .profile-desc p{margin-bottom:0}.contact-section .contact-box{align-items:center;background-color:#f1e8e0;border:2px solid #c29c77;border-radius:10px;display:flex;justify-content:center;margin-top:28px;padding:16px 20px 8px;position:relative}.contact-section .contact-box .contact-desc{margin-top:6px;word-break:break-all}.contact-section .contact-box .contact-icon{background-color:#c29c77;border-bottom-right-radius:16px;border-top-left-radius:16px;height:45px;left:50%;min-width:45px;position:absolute;top:-30px;transform:translateX(-50%);width:45px}.contact-section .contact-box .contact-icon:after{border:2px solid #c29c77;border-top-left-radius:16px;content:"";height:45px;left:-5px;position:absolute;top:-5px;width:45px}.contact-section .contact-box .contact-icon img{height:auto;width:20px}.social-media{position:relative}.social-media .leaf-image{left:0;position:absolute;top:0;width:60px}.social-media .social-icons{gap:10px}.social-media .social-icons .social-effect:hover img,.social-media .social-icons .social-effect:hover svg{fill:#c29c77!important;color:#c29c77!important}.social-media .social-icons .social-effect:hover a{background-color:transparent}.social-media .social-icons .social-effect:hover a:after{transform:rotate(1turn)}.social-media .social-icons .social-effect a{align-items:center;background-color:#c29c77;border:1px solid #c29c77;border-radius:50%;display:flex;height:50px;justify-content:center;margin:4px;min-width:50px;transition:all .4s ease;width:50px}.social-media .social-icons .social-effect a:after{background-image:var(--sf-img-8);background-repeat:no-repeat;background-size:cover;border-radius:50%;content:"";height:100%;left:0;position:absolute;top:0;transition:all .3s ease;width:100%}@media (max-width:575px){.social-media .social-icons .social-effect a{height:36px;min-width:36px;width:36px}}.social-media .social-icons .social-effect a svg{fill:#fff!important;border-radius:50%;color:#fff!important;height:22px!important;-o-object-fit:cover;object-fit:cover;width:22px!important;z-index:1}.gallery-section .gallery-slider{position:relative}.gallery-section .gallery-slider .slick-slide{padding:0 10px}.gallery-section .gallery-slider .expand-icon{align-items:center;background-color:#c29c77;border:1px solid #c29c77;border-radius:50%;cursor:pointer;display:inline-flex;height:40px;justify-content:center;position:absolute;right:10px;top:10px;width:40px}.gallery-section .gallery-slider .gallery-img{border:1px solid #c29c77}.gallery-section .gallery-slider .gallery-img{background-position:50%;background-repeat:no-repeat;background-size:contain;border-radius:10px;height:280px;margin:0 auto;max-height:280px;max-width:560px;overflow:hidden}.gallery-section .gallery-slider .gallery-img img{-o-object-fit:contain;object-fit:contain}.product-section .flower-left{width:70px}.product-section .product-slider .slick-slide{padding:0 10px}.product-section .product-slider .product-card{background-color:#fff;border:1px solid #c29c77;border-radius:10px;overflow:hidden}@media (max-width:575px){.product-section .product-slider .product-card{margin:0 auto}}.product-section .product-slider .product-card .product-img{aspect-ratio:.955;border-radius:8px 8px 0 0;height:200px;max-width:100%;overflow:hidden;width:100%}.product-section .product-slider .product-card .product-desc{background-color:#f1e8e0;min-height:110px;padding:16px}.product-section .product-slider .product-card .product-desc h3{-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:18px;min-height:44px;overflow:hidden}.product-section .product-slider .product-card .product-desc .product-amount{color:#c29c77;font-size:22px;font-weight:600}.our-services-section .services .service-card{background-color:transparent;border:1px solid #c29c77;border-radius:10px;overflow:hidden;position:relative}.our-services-section .services .service-card .card-title{-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:18px;font-weight:600;margin-bottom:8px;min-height:44px;overflow:hidden}@media (max-width:500px){.our-services-section .services .service-card .card-title{margin-left:0}}.our-services-section .services .service-card .card-body{background-color:#f1e8e0;min-height:147px;padding:16px}.our-services-section .services .service-card .card-body .description-text{-webkit-line-clamp:3;-webkit-box-orient:vertical;font-size:14px;min-height:63px;overflow:hidden}@media (max-width:500px){.our-services-section .services .service-card .card-body .description-text{-webkit-line-clamp:3}}.our-services-section .services .service-card .img{display:inline;height:176px;width:100%}.appointment-section{z-index:1}.appointment-section .flower-right{position:absolute;right:0;top:0;width:70px}.appointment-section .appointment{background-color:#f1e8e0;border:1px solid #c29c77;border-radius:15px;padding:16px}.appointment-section .appointment .appointment-input{background-color:#fff;border:1px solid #d9c5bb;border-radius:10px;color:#c29c77;height:50px;padding:12px 20px;width:100%}.appointment-section .appointment .appointment-input::-moz-placeholder{color:#c29c77}.appointment-section .appointment .appointment-input::placeholder{color:#c29c77}.appointment-section .appointment .appointment-input:focus{box-shadow:none;outline:none}.appointment-section .appointment .calendar-icon{position:absolute;right:18px;top:11px}.time-slot:hover{border:1px solid #c29c77}.activeSlot:hover{border:1px solid #fff}.blog-section,.blog-section .blog-slider{position:relative}.blog-section .blog-slider .slick-slide{padding:0 5px}.blog-section .blog-slider .blog-card{border:1px solid #d9c5bb;border-radius:10px;margin:0 auto}.blog-section .blog-slider .blog-card .card-img{height:280px;position:relative}@media (max-width:374px){.blog-section .blog-slider .blog-card .card-img{height:160px}}.blog-section .blog-slider .blog-card .card-img img{border-top-left-radius:10px;border-top-right-radius:10px}.blog-section .blog-slider .blog-card .card-body{background-color:#f1e8e0;border-bottom-left-radius:10px;border-bottom-right-radius:10px;min-height:160px;overflow:hidden;padding:10px 15px}.blog-section .blog-slider .blog-card .card-body .blog-desc{-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:14px!important;min-height:42px;overflow:hidden}.blog-section .blog-slider .blog-card .card-body h2{-webkit-line-clamp:2!important;-webkit-box-orient:vertical;font-size:20px;line-height:1.2!important;min-height:48px;overflow:hidden}.blog-section .blog-slider .blog-card .card-body .read-more{border-radius:100px;padding:4px 10px}.blog-section .blog-slider .slick-next:before{opacity:1!important}.blog-section .blog-slider .slick-prev:before{opacity:1!important}.slick-next:before,.slick-prev:before{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;color:#c29c77!important;font-family:slick;font-size:25px!important;line-height:1;opacity:.75}.testimonial-section .testimonial-vector{position:absolute;top:-20px;width:100px}.testimonial-section .testimonial-slider .slick-slide{padding:0 10px}.testimonial-section .testimonial-slider .slick-list{padding:50px 0 4px}.testimonial-section .testimonial-slider .main-testimonial-img{align-items:center;display:flex;gap:30px;justify-content:center;left:50%;position:absolute;top:-50px;transform:translateX(-50%)}.testimonial-section .testimonial-slider .main-testimonial-img .quote-img{align-items:center;background:#c29c77;border-radius:50%;display:flex;height:40px;justify-content:center;width:40px}.testimonial-section .testimonial-slider .main-testimonial-img .quote-img svg{width:18px}.testimonial-section .testimonial-slider .testimonial-card{border:1px solid #c29c77;border-radius:15px;padding:40px 20px 20px;position:relative}.testimonial-section .testimonial-slider .testimonial-card .testimonial-profile-img{border:3px solid #fff;height:100px;min-width:100px;position:relative;width:100px;z-index:1}@media (max-width:575px){.testimonial-section .testimonial-slider .testimonial-card .testimonial-profile-img{margin:0 auto 15px}}.testimonial-section .testimonial-slider .testimonial-card .card-body{border-radius:10px;position:relative;z-index:1}.testimonial-section .testimonial-slider .testimonial-card .card-body .testi-desc{background:hsla(30,38%,61%,.24);border:1px solid #c29c77;border-radius:10px}.testimonial-section .testimonial-slider .testimonial-card .card-body p{-webkit-line-clamp:4;-webkit-box-orient:vertical;font-size:14px;min-height:84px;overflow:hidden}.qr-code-section .qr-code{background-color:#f1e8e0;border:1px solid #c29c77;border-radius:15px;max-width:500px;padding:25px;width:100%}.qr-code-section .qr-code .qr-code-img{align-items:center;border:1px solid #c29c77;border-radius:10px;display:flex;height:130px;justify-content:center;min-width:130px;padding:8px!important;width:130px}.business-hour-section .business-hours .business-hour{background-color:hsla(30,38%,61%,.24);border:2px solid #c29c77;border-radius:10px;margin-top:34px;padding:16px 20px 8px}@media (max-width:767px){.business-hour-section .business-hours .business-hour{padding:16px 10px 8px}}.business-hour-section .business-hours .business-hour .business-text{margin-top:8px}.business-hour-section .business-hours .business-hour .left-circle{background-color:#c29c77;border-bottom-right-radius:16px;border-top-left-radius:16px;height:45px;left:50%;min-width:45px;position:absolute;top:-30px;transform:translateX(-50%);width:45px}.business-hour-section .business-hours .business-hour .left-circle:after{border:2px solid #c29c77;border-top-left-radius:16px;content:"";height:45px;left:-8px;position:absolute;top:-8px;width:45px}.contact-us-section .contact-form{background-color:#f1e8e0;border:1px solid #c29c77;border-radius:15px;padding:20px}.contact-us-section .contact-form form .form-control{background-color:#fff;border:1px solid #c29c77;border-radius:10px;color:#767676;font-size:14px;font-weight:500;height:50px;margin-bottom:16px;padding:13px 20px}.contact-us-section .contact-form form .form-control::-moz-placeholder{color:#9da5ae}.contact-us-section .contact-form form .form-control::placeholder{color:#9da5ae}.contact-us-section .contact-form form .form-control:focus{box-shadow:none;outline:none}.map-section .location-icon:after{background-image:var(--sf-img-8);background-repeat:no-repeat;background-size:cover;border-radius:50%;content:"";height:100%;left:0;position:absolute;top:0;transition:all .3s ease;width:100%}.add-to-contact-section{bottom:60px;left:0;position:fixed;width:100%;z-index:2}.btn-section .fixed-btn-section .fashion-bars-btn{background-color:#c29c77;box-shadow:0 5px 20px rgba(26,36,44,.15)}.slick-dots{bottom:0!important;display:flex!important;justify-content:center!important;padding-top:20px!important;position:relative!important}.slick-dots li{height:8px;margin:0 5px;width:8px}.slick-dots li button,.slick-dots li button:before{font-size:0;height:8px;width:8px}.slick-dots li button:before{background-color:#c29c77;border-radius:10px}.slick-dots li.slick-active,.slick-dots li.slick-active button{width:30px}.slick-dots li.slick-active button:before{background-color:#c29c77;opacity:1;width:30px}.px-30{padding-left:30px;padding-right:30px}@media (max-width:575px){.px-30{padding-left:20px;padding-right:20px}}.px-20{padding-left:20px;padding-right:20px}@media (max-width:575px){.px-20{padding-left:10px;padding-right:10px}}.fs-14{font-size:14px}@media (max-width:575px){.fs-18{font-size:16px}}.fs-20{font-size:20px}.pt-50{padding-top:50px}@media (max-width:575px){.pt-50{padding-top:40px}}.fw-5{font-weight:500}.fw-6{font-weight:600}a{text-decoration:none}.main-content{background-color:#fff;border-radius:15px;margin-bottom:4px;margin-top:4px;max-width:670px;min-height:100vh;position:relative}.object-fit-cover{-o-object-fit:cover;object-fit:cover}.cursor-pointer{cursor:pointer}.btn-section{position:absolute;right:80px;top:50%;z-index:9}.btn-section .fixed-btn-section{align-items:center;display:flex;position:fixed;top:50%}.btn-section .fixed-btn-section .bars-btn{align-items:center;border-radius:50%;display:flex;height:60px;justify-content:center;min-width:60px;width:60px}.btn-section .fixed-btn-section .sub-btn{position:absolute;right:75px}.add-contact-btn{background-color:#c29c77;border:none;border-radius:10px!important;color:#fff!important;padding:14px 28px;transition:all .3s ease-in}.add-contact-btn:hover{transform:scale(1.05);transition:all .3s ease-in}.language ul{list-style:none}.language ul .lang-list{background-color:#c29c77;border:none;border-radius:6px;font-size:14px;outline:none;padding:3px 9px;transition:all .3s ease;width:fit-content}.language ul .lang-list .lang-head{color:#fff}.language ul .lang-list .lang-hover-list{font-size:14px;margin:15px 0 0;min-width:70px;padding:0;right:0;width:100%}.language ul .lang-list .lang-hover-list li:hover{background-color:#f1e8e0!important}.language ul .lang-list .lang-hover-list li:hover a{color:#c29c77!important}.vcard-nineteen .slick-dots li button:before{background-color:#c29c77;border-radius:10px;content:""!important;font-size:0;height:8px;width:8px}.vcard-nineteen .slick-dots li.slick-active button:before{background-color:#c29c77;opacity:1;width:30px}.vcard-nineteen-btn:hover{background-color:#fff!important;color:#c29c77!important}.save-btn{width:240px!important}@media (max-width:575px){.profile-name{text-align:center}}.product-btn:hover{background-color:#fff!important;color:#c29c77!important}.modal{background-color:#00000080;z-index:99999!important}.modal .news-modal #newsLatter-content .modal-body .required:after{color:#f62947;content:"*";font-size:inherit;font-weight:700;position:relative}.modal .news-modal #newsLatter-content .modal-body .input-box:focus{background-color:#eef3f7;box-shadow:unset}.modal .news-modal #newsLatter-content .modal-footer .submit-btn:hover{background-color:#6571ff!important}.modal .news-modal #newsLatter-content .modal-footer .submit-btn:focus{box-shadow:unset}@keyframes animatebottom{0%{bottom:-300px;opacity:0}to{bottom:0;opacity:1}}.view-more{border-radius:10px;padding:8px 20px}.instagram-btn:before{background-color:#c29c77;content:"";height:2px;position:absolute;top:100%;transition:width .3s ease;width:0}.instagram-btn.active:before{width:80%}.support-banner .support_text::-webkit-scrollbar{width:4px}.support-banner .support_text::-webkit-scrollbar-track{background:transparent}.support-banner .support_text::-webkit-scrollbar-thumb{background:#888}.iframe-slider .slick-next:before{opacity:1!important}.iframe-slider .slick-prev:before{opacity:1!important}.verification-icon{color:#c29c77}.input-box{background-color:#fff!important;border:1px solid #c29c77!important;border-radius:10px!important;cursor:pointer;display:grid;margin-bottom:5px;padding:20px;place-items:center}@media (max-width:575px){.input-box{padding:20px 10px}}.input-box h4{font-size:medium!important;margin:0}small{color:#a0a8b1!important;font-size:12px}.modal{padding-right:0!important}.pwa-support{background:#f1e8e0;border:1px solid #c29c77;border-radius:20px;bottom:20px;height:auto!important;left:0;margin:0 auto;max-width:400px;padding:24px;position:fixed!important;right:0;width:100%;z-index:99999!important}.pwa-support .pwa-heading{font-size:20px;margin-bottom:12px}.pwa-support .pwa-text{font-size:.875rem!important;margin-bottom:16px}.pwa-install-button{background:#c29c77!important;color:#fff!important;padding:.563rem 1.563rem!important}.pwa-cancel-button,.pwa-install-button{font-size:.875rem!important;font-weight:400!important}.pwa-cancel-button{background-color:hsla(0,0%,46%,.24)!important;border:none!important;border-radius:15px!important;color:#000}.pwa-cancel-button:hover{background-color:hsla(0,0%,46%,.5)!important;border:none!important;color:#000!important}@keyframes rotate{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}.bg-animation{height:100%;left:0;min-height:800px;position:fixed;top:0;width:100%;z-index:-1}.bg-animation .vector img{opacity:30%;width:70%}.bg-animation .vector-1{animation:topbottom 1s linear infinite alternate;left:80px;position:absolute;top:80px;z-index:1}.bg-animation .vector-2{left:300px;position:absolute;top:240px;z-index:1}.bg-animation .vector-2 img{animation:rotateleft 3s linear infinite alternate!important}.bg-animation .vector-4{animation:skewanimated 3s linear infinite alternate!important;position:absolute;right:130px;top:120px;width:40px}.bg-animation .vector-5{animation:rotate 3s linear infinite alternate!important;position:absolute;right:40%;top:30%;width:50px}.bg-animation .vector-12{bottom:290px;left:100px;position:absolute}.bg-animation .vector-12 img{animation:leftright 3s linear infinite alternate!important}.bg-animation .vector-6{animation:rotateleft 3s linear infinite alternate!important;bottom:420px;position:absolute;right:150px}.bg-animation .vector-14{bottom:130px;left:360px}.bg-animation .vector-14,.bg-animation .vector-9{animation:leftright 3s linear infinite alternate!important;position:absolute}.bg-animation .vector-9{bottom:300px;left:380px}.bg-animation .vector-10{animation:rotateleft 3s linear infinite alternate!important;bottom:40px;left:600px;position:absolute}.bg-animation .vector-13{animation:rotateline 3s linear infinite alternate!important;position:absolute;right:410px;top:0}.bg-animation .vector-16{animation:skewanimated 3s linear infinite alternate!important;bottom:30px;left:40px;position:absolute}.bg-animation .vector-15{animation:leftright 3s linear infinite alternate!important;left:50%;position:absolute;top:20px}.bg-animation .fashion-text{left:200px}.bg-animation .beauty-text,.bg-animation .fashion-text{animation:fadeshow 1s linear infinite alternate;position:absolute;top:340px;width:400px}.bg-animation .beauty-text{left:360px}.bg-animation .vector-11{bottom:160px;position:absolute;right:19px}.bg-animation .vector-11 .sub-img{animation:subimage 3s linear infinite alternate!important;top:0}@keyframes topbottom{0%{transform:translateY(10px)}to{transform:translateY(0)}}@keyframes subimage{0%{top:-6px;transform:translateX(-6px)}to{top:0;transform:translateX(0)}}@keyframes leftright{0%{transform:translateX(10px)}to{transform:translateX(0)}}@keyframes rotateleft{0%{transform:rotate(20deg)}50%{transform:rotate(0deg)}to{transform:rotate(-20deg)}}@keyframes rotateline{0%{transform:rotate(10deg)}to{transform:rotate(0deg)}}@keyframes skewanimated{0%{transform:skewX(25deg)}to{transform:skewX(0deg)}}@keyframes fadeshow{0%{opacity:10%}25%{opacity:25%}50%{opacity:50%}75%{opacity:75%}to{opacity:100%}}.bottom-imge{height:330px;opacity:.7}
+.text-gray-100{color:#767676!important}.text-primary{color:#c29c77!important}.text-black{color:#3f3e3e!important}.right-10{right:10px}.left-10{left:10px}.top-10{top:10px}.top-40{top:40px}@media (max-width:575px){.bg-vector img{width:60%!important}}.vector1{left:-50px;top:20px}.vector2{top:40px}.vector3{transform:rotateY(180deg)}body{background-color:hsla(30,38%,61%,.4)!important;font-weight:400!important}body{padding-right:0!important}.fs-24{font-size:24px!important}@media (max-width:575px){.fs-24{font-size:20px!important}}.fs-16{font-size:16px}@media (max-width:575px){.fs-16{font-size:14px!important}}.section-heading{margin-bottom:25px}.section-heading h2{display:inline-block;font-family:Playwrite HU,cursive;font-size:30px;font-weight:700;padding-bottom:6px;position:relative}@media (max-width:575px){.section-heading h2{font-size:24px}}.section-heading svg{fill:#c29c77;width:10px}.section-heading span{background-color:#c29c77;height:3px;width:50px}.btn{border-radius:10px!important;padding:8px 30px!important}.btn:focus{box-shadow:none!important;outline:none!important}.slick-slider{margin-bottom:0!important}.max-w-fit{max-width:fit-content}.btn-primary{background-color:#c29c77!important;border:1px solid #c29c77!important;color:#fff;transition:all .3s ease}.btn-primary a{color:#fff!important}.btn-primary:focus,.btn-primary:hover{background-color:#fff!important;border:1px solid #c29c77!important;box-shadow:none!important;color:#c29c77!important}.btn-primary:focus a,.btn-primary:hover a{color:#c29c77!important}.btn-primary:focus{background-color:#c29c77;border:1px solid #c29c77;box-shadow:none!important;color:#fff}.row-gap-20{row-gap:20px}@keyframes right-arrow{0%{transform:translateX(0)}to{transform:translateX(8px)}}.right-arrow-animation{animation:right-arrow 1s linear 1s infinite alternate}.flower-left{bottom:0;left:0;position:absolute}.z-1{z-index:1}.-z-1{z-index:-1}.banner-section .banner-img{aspect-ratio:1/1;height:300px;position:relative;width:100%}@media (max-width:575px){.banner-section .banner-img{aspect-ratio:auto!important;height:auto!important}}.profile-section{position:relative}.profile-section .card{background-color:#f1e8e0!important;border:2px solid #c29c77;border-radius:20px;padding:20px 20px 20px 60px}@media (max-width:575px){.profile-section .card{padding:20px}}.profile-section .card .card-img{border-radius:100%;height:150px;min-width:150px;position:relative;width:150px;z-index:1}.profile-section .card .card-img:after{background-image:url(/images/templates/fashionbeautyxxxxxx/fas-027.webp);background-size:cover;bottom:-21px;content:"";height:160px;left:57%;position:absolute;transform:translateX(-50%);width:220px;z-index:-1}.profile-section .card .bags-img{opacity:.4;width:140px}.profile-section .card .card-body{z-index:1}.profile-section .profile-desc{color:#3f3e3e}.profile-section .profile-desc p{margin-bottom:0}.contact-section .contact-box{align-items:center;background-color:#f1e8e0;border:2px solid #c29c77;border-radius:10px;display:flex;justify-content:center;margin-top:28px;padding:16px 20px 8px;position:relative}.contact-section .contact-box .contact-desc{margin-top:6px;word-break:break-all}.contact-section .contact-box .contact-icon{background-color:#c29c77;border-bottom-right-radius:16px;border-top-left-radius:16px;height:45px;left:50%;min-width:45px;position:absolute;top:-30px;transform:translateX(-50%);width:45px}.contact-section .contact-box .contact-icon:after{border:2px solid #c29c77;border-top-left-radius:16px;content:"";height:45px;left:-5px;position:absolute;top:-5px;width:45px}.contact-section .contact-box .contact-icon img{height:auto;width:20px}.social-media{position:relative}.social-media .leaf-image{left:0;position:absolute;top:0;width:60px}.social-media .social-icons{gap:10px}.social-media .social-icons .social-effect:hover img,.social-media .social-icons .social-effect:hover svg{fill:#c29c77!important;color:#c29c77!important}.social-media .social-icons .social-effect:hover a{background-color:transparent}.social-media .social-icons .social-effect:hover a:after{transform:rotate(1turn)}.social-media .social-icons .social-effect a{align-items:center;background-color:#c29c77;border:1px solid #c29c77;border-radius:50%;display:flex;height:50px;justify-content:center;margin:4px;min-width:50px;transition:all .4s ease;width:50px}.social-media .social-icons .social-effect a:after{background-image:var(--sf-img-8);background-repeat:no-repeat;background-size:cover;border-radius:50%;content:"";height:100%;left:0;position:absolute;top:0;transition:all .3s ease;width:100%}@media (max-width:575px){.social-media .social-icons .social-effect a{height:36px;min-width:36px;width:36px}}.social-media .social-icons .social-effect a svg{fill:#fff!important;border-radius:50%;color:#fff!important;height:22px!important;-o-object-fit:cover;object-fit:cover;width:22px!important;z-index:1}.gallery-section .gallery-slider{position:relative}.gallery-section .gallery-slider .slick-slide{padding:0 10px}.gallery-section .gallery-slider .expand-icon{align-items:center;background-color:#c29c77;border:1px solid #c29c77;border-radius:50%;cursor:pointer;display:inline-flex;height:40px;justify-content:center;position:absolute;right:10px;top:10px;width:40px}.gallery-section .gallery-slider .gallery-img{border:1px solid #c29c77}.gallery-section .gallery-slider .gallery-img{background-position:50%;background-repeat:no-repeat;background-size:contain;border-radius:10px;height:280px;margin:0 auto;max-height:280px;max-width:560px;overflow:hidden}.gallery-section .gallery-slider .gallery-img img{-o-object-fit:contain;object-fit:contain}.product-section .flower-left{width:70px}.product-section .product-slider .slick-slide{padding:0 10px}.product-section .product-slider .product-card{background-color:#fff;border:1px solid #c29c77;border-radius:10px;overflow:hidden}@media (max-width:575px){.product-section .product-slider .product-card{margin:0 auto}}.product-section .product-slider .product-card .product-img{aspect-ratio:.955;border-radius:8px 8px 0 0;height:200px;max-width:100%;overflow:hidden;width:100%}.product-section .product-slider .product-card .product-desc{background-color:#f1e8e0;min-height:110px;padding:16px}.product-section .product-slider .product-card .product-desc h3{-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:18px;min-height:44px;overflow:hidden}.product-section .product-slider .product-card .product-desc .product-amount{color:#c29c77;font-size:22px;font-weight:600}.our-services-section .services .service-card{background-color:transparent;border:1px solid #c29c77;border-radius:10px;overflow:hidden;position:relative}.our-services-section .services .service-card .card-title{-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:18px;font-weight:600;margin-bottom:8px;min-height:44px;overflow:hidden}@media (max-width:500px){.our-services-section .services .service-card .card-title{margin-left:0}}.our-services-section .services .service-card .card-body{background-color:#f1e8e0;min-height:147px;padding:16px}.our-services-section .services .service-card .card-body .description-text{-webkit-line-clamp:3;-webkit-box-orient:vertical;font-size:14px;min-height:63px;overflow:hidden}@media (max-width:500px){.our-services-section .services .service-card .card-body .description-text{-webkit-line-clamp:3}}.our-services-section .services .service-card .img{display:inline;height:176px;width:100%}.appointment-section{z-index:1}.appointment-section .flower-right{position:absolute;right:0;top:0;width:70px}.appointment-section .appointment{background-color:#f1e8e0;border:1px solid #c29c77;border-radius:15px;padding:16px}.appointment-section .appointment .appointment-input{background-color:#fff;border:1px solid #d9c5bb;border-radius:10px;color:#c29c77;height:50px;padding:12px 20px;width:100%}.appointment-section .appointment .appointment-input::-moz-placeholder{color:#c29c77}.appointment-section .appointment .appointment-input::placeholder{color:#c29c77}.appointment-section .appointment .appointment-input:focus{box-shadow:none;outline:none}.appointment-section .appointment .calendar-icon{position:absolute;right:18px;top:11px}.time-slot:hover{border:1px solid #c29c77}.activeSlot:hover{border:1px solid #fff}.blog-section,.blog-section .blog-slider{position:relative}.blog-section .blog-slider .slick-slide{padding:0 5px}.blog-section .blog-slider .blog-card{border:1px solid #d9c5bb;border-radius:10px;margin:0 auto}.blog-section .blog-slider .blog-card .card-img{height:280px;position:relative}@media (max-width:374px){.blog-section .blog-slider .blog-card .card-img{height:160px}}.blog-section .blog-slider .blog-card .card-img img{border-top-left-radius:10px;border-top-right-radius:10px}.blog-section .blog-slider .blog-card .card-body{background-color:#f1e8e0;border-bottom-left-radius:10px;border-bottom-right-radius:10px;min-height:160px;overflow:hidden;padding:10px 15px}.blog-section .blog-slider .blog-card .card-body .blog-desc{-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:14px!important;min-height:42px;overflow:hidden}.blog-section .blog-slider .blog-card .card-body h2{-webkit-line-clamp:2!important;-webkit-box-orient:vertical;font-size:20px;line-height:1.2!important;min-height:48px;overflow:hidden}.blog-section .blog-slider .blog-card .card-body .read-more{border-radius:100px;padding:4px 10px}.blog-section .blog-slider .slick-next:before{opacity:1!important}.blog-section .blog-slider .slick-prev:before{opacity:1!important}.slick-next:before,.slick-prev:before{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;color:#c29c77!important;font-family:slick;font-size:25px!important;line-height:1;opacity:.75}.testimonial-section .testimonial-vector{position:absolute;top:-20px;width:100px}.testimonial-section .testimonial-slider .slick-slide{padding:0 10px}.testimonial-section .testimonial-slider .slick-list{padding:50px 0 4px}.testimonial-section .testimonial-slider .main-testimonial-img{align-items:center;display:flex;gap:30px;justify-content:center;left:50%;position:absolute;top:-50px;transform:translateX(-50%)}.testimonial-section .testimonial-slider .main-testimonial-img .quote-img{align-items:center;background:#c29c77;border-radius:50%;display:flex;height:40px;justify-content:center;width:40px}.testimonial-section .testimonial-slider .main-testimonial-img .quote-img svg{width:18px}.testimonial-section .testimonial-slider .testimonial-card{border:1px solid #c29c77;border-radius:15px;padding:40px 20px 20px;position:relative}.testimonial-section .testimonial-slider .testimonial-card .testimonial-profile-img{border:3px solid #fff;height:100px;min-width:100px;position:relative;width:100px;z-index:1}@media (max-width:575px){.testimonial-section .testimonial-slider .testimonial-card .testimonial-profile-img{margin:0 auto 15px}}.testimonial-section .testimonial-slider .testimonial-card .card-body{border-radius:10px;position:relative;z-index:1}.testimonial-section .testimonial-slider .testimonial-card .card-body .testi-desc{background:hsla(30,38%,61%,.24);border:1px solid #c29c77;border-radius:10px}.testimonial-section .testimonial-slider .testimonial-card .card-body p{-webkit-line-clamp:4;-webkit-box-orient:vertical;font-size:14px;min-height:84px;overflow:hidden}.qr-code-section .qr-code{background-color:#f1e8e0;border:1px solid #c29c77;border-radius:15px;max-width:500px;padding:25px;width:100%}.qr-code-section .qr-code .qr-code-img{align-items:center;border:1px solid #c29c77;border-radius:10px;display:flex;height:130px;justify-content:center;min-width:130px;padding:8px!important;width:130px}.business-hour-section .business-hours .business-hour{background-color:hsla(30,38%,61%,.24);border:2px solid #c29c77;border-radius:10px;margin-top:34px;padding:16px 20px 8px}@media (max-width:767px){.business-hour-section .business-hours .business-hour{padding:16px 10px 8px}}.business-hour-section .business-hours .business-hour .business-text{margin-top:8px}.business-hour-section .business-hours .business-hour .left-circle{background-color:#c29c77;border-bottom-right-radius:16px;border-top-left-radius:16px;height:45px;left:50%;min-width:45px;position:absolute;top:-30px;transform:translateX(-50%);width:45px}.business-hour-section .business-hours .business-hour .left-circle:after{border:2px solid #c29c77;border-top-left-radius:16px;content:"";height:45px;left:-8px;position:absolute;top:-8px;width:45px}.contact-us-section .contact-form{background-color:#f1e8e0;border:1px solid #c29c77;border-radius:15px;padding:20px}.contact-us-section .contact-form form .form-control{background-color:#fff;border:1px solid #c29c77;border-radius:10px;color:#767676;font-size:14px;font-weight:500;height:50px;margin-bottom:16px;padding:13px 20px}.contact-us-section .contact-form form .form-control::-moz-placeholder{color:#9da5ae}.contact-us-section .contact-form form .form-control::placeholder{color:#9da5ae}.contact-us-section .contact-form form .form-control:focus{box-shadow:none;outline:none}.map-section .location-icon:after{background-image:var(--sf-img-8);background-repeat:no-repeat;background-size:cover;border-radius:50%;content:"";height:100%;left:0;position:absolute;top:0;transition:all .3s ease;width:100%}.add-to-contact-section{bottom:60px;left:0;position:fixed;width:100%;z-index:2}.btn-section .fixed-btn-section .fashion-bars-btn{background-color:#c29c77;box-shadow:0 5px 20px rgba(26,36,44,.15)}.slick-dots{bottom:0!important;display:flex!important;justify-content:center!important;padding-top:20px!important;position:relative!important}.slick-dots li{height:8px;margin:0 5px;width:8px}.slick-dots li button,.slick-dots li button:before{font-size:0;height:8px;width:8px}.slick-dots li button:before{background-color:#c29c77;border-radius:10px}.slick-dots li.slick-active,.slick-dots li.slick-active button{width:30px}.slick-dots li.slick-active button:before{background-color:#c29c77;opacity:1;width:30px}.px-30{padding-left:30px;padding-right:30px}@media (max-width:575px){.px-30{padding-left:20px;padding-right:20px}}.px-20{padding-left:20px;padding-right:20px}@media (max-width:575px){.px-20{padding-left:10px;padding-right:10px}}.fs-14{font-size:14px}@media (max-width:575px){.fs-18{font-size:16px}}.fs-20{font-size:20px}.pt-50{padding-top:50px}@media (max-width:575px){.pt-50{padding-top:40px}}.fw-5{font-weight:500}.fw-6{font-weight:600}a{text-decoration:none}.main-content{background-color:#fff;border-radius:15px;margin-bottom:4px;margin-top:4px;max-width:670px;min-height:100vh;position:relative}.object-fit-cover{-o-object-fit:cover;object-fit:cover}.cursor-pointer{cursor:pointer}.btn-section{position:absolute;right:80px;top:50%;z-index:9}.btn-section .fixed-btn-section{align-items:center;display:flex;position:fixed;top:50%}.btn-section .fixed-btn-section .bars-btn{align-items:center;border-radius:50%;display:flex;height:60px;justify-content:center;min-width:60px;width:60px}.btn-section .fixed-btn-section .sub-btn{position:absolute;right:75px}.add-contact-btn{background-color:#c29c77;border:none;border-radius:10px!important;color:#fff!important;padding:14px 28px;transition:all .3s ease-in}.add-contact-btn:hover{transform:scale(1.05);transition:all .3s ease-in}.language ul{list-style:none}.language ul .lang-list{background-color:#c29c77;border:none;border-radius:6px;font-size:14px;outline:none;padding:3px 9px;transition:all .3s ease;width:fit-content}.language ul .lang-list .lang-head{color:#fff}.language ul .lang-list .lang-hover-list{font-size:14px;margin:15px 0 0;min-width:70px;padding:0;right:0;width:100%}.language ul .lang-list .lang-hover-list li:hover{background-color:#f1e8e0!important}.language ul .lang-list .lang-hover-list li:hover a{color:#c29c77!important}.vcard-nineteen .slick-dots li button:before{background-color:#c29c77;border-radius:10px;content:""!important;font-size:0;height:8px;width:8px}.vcard-nineteen .slick-dots li.slick-active button:before{background-color:#c29c77;opacity:1;width:30px}.vcard-nineteen-btn:hover{background-color:#fff!important;color:#c29c77!important}.save-btn{width:240px!important}@media (max-width:575px){.profile-name{text-align:center}}.product-btn:hover{background-color:#fff!important;color:#c29c77!important}.modal{background-color:#00000080;z-index:99999!important}.modal .news-modal #newsLatter-content .modal-body .required:after{color:#f62947;content:"*";font-size:inherit;font-weight:700;position:relative}.modal .news-modal #newsLatter-content .modal-body .input-box:focus{background-color:#eef3f7;box-shadow:unset}.modal .news-modal #newsLatter-content .modal-footer .submit-btn:hover{background-color:#6571ff!important}.modal .news-modal #newsLatter-content .modal-footer .submit-btn:focus{box-shadow:unset}@keyframes animatebottom{0%{bottom:-300px;opacity:0}to{bottom:0;opacity:1}}.view-more{border-radius:10px;padding:8px 20px}.instagram-btn:before{background-color:#c29c77;content:"";height:2px;position:absolute;top:100%;transition:width .3s ease;width:0}.instagram-btn.active:before{width:80%}.support-banner .support_text::-webkit-scrollbar{width:4px}.support-banner .support_text::-webkit-scrollbar-track{background:transparent}.support-banner .support_text::-webkit-scrollbar-thumb{background:#888}.iframe-slider .slick-next:before{opacity:1!important}.iframe-slider .slick-prev:before{opacity:1!important}.verification-icon{color:#c29c77}.input-box{background-color:#fff!important;border:1px solid #c29c77!important;border-radius:10px!important;cursor:pointer;display:grid;margin-bottom:5px;padding:20px;place-items:center}@media (max-width:575px){.input-box{padding:20px 10px}}.input-box h4{font-size:medium!important;margin:0}small{color:#a0a8b1!important;font-size:12px}.modal{padding-right:0!important}.pwa-support{background:#f1e8e0;border:1px solid #c29c77;border-radius:20px;bottom:20px;height:auto!important;left:0;margin:0 auto;max-width:400px;padding:24px;position:fixed!important;right:0;width:100%;z-index:99999!important}.pwa-support .pwa-heading{font-size:20px;margin-bottom:12px}.pwa-support .pwa-text{font-size:.875rem!important;margin-bottom:16px}.pwa-install-button{background:#c29c77!important;color:#fff!important;padding:.563rem 1.563rem!important}.pwa-cancel-button,.pwa-install-button{font-size:.875rem!important;font-weight:400!important}.pwa-cancel-button{background-color:hsla(0,0%,46%,.24)!important;border:none!important;border-radius:15px!important;color:#000}.pwa-cancel-button:hover{background-color:hsla(0,0%,46%,.5)!important;border:none!important;color:#000!important}@keyframes rotate{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}.bg-animation{height:100%;left:0;min-height:800px;position:fixed;top:0;width:100%;z-index:-1}.bg-animation .vector img{opacity:30%;width:70%}.bg-animation .vector-1{animation:topbottom 1s linear infinite alternate;left:80px;position:absolute;top:80px;z-index:1}.bg-animation .vector-2{left:300px;position:absolute;top:240px;z-index:1}.bg-animation .vector-2 img{animation:rotateleft 3s linear infinite alternate!important}.bg-animation .vector-4{animation:skewanimated 3s linear infinite alternate!important;position:absolute;right:130px;top:120px;width:40px}.bg-animation .vector-5{animation:rotate 3s linear infinite alternate!important;position:absolute;right:40%;top:30%;width:50px}.bg-animation .vector-12{bottom:290px;left:100px;position:absolute}.bg-animation .vector-12 img{animation:leftright 3s linear infinite alternate!important}.bg-animation .vector-6{animation:rotateleft 3s linear infinite alternate!important;bottom:420px;position:absolute;right:150px}.bg-animation .vector-14{bottom:130px;left:360px}.bg-animation .vector-14,.bg-animation .vector-9{animation:leftright 3s linear infinite alternate!important;position:absolute}.bg-animation .vector-9{bottom:300px;left:380px}.bg-animation .vector-10{animation:rotateleft 3s linear infinite alternate!important;bottom:40px;left:600px;position:absolute}.bg-animation .vector-13{animation:rotateline 3s linear infinite alternate!important;position:absolute;right:410px;top:0}.bg-animation .vector-16{animation:skewanimated 3s linear infinite alternate!important;bottom:30px;left:40px;position:absolute}.bg-animation .vector-15{animation:leftright 3s linear infinite alternate!important;left:50%;position:absolute;top:20px}.bg-animation .fashion-text{left:200px}.bg-animation .beauty-text,.bg-animation .fashion-text{animation:fadeshow 1s linear infinite alternate;position:absolute;top:340px;width:400px}.bg-animation .beauty-text{left:360px}.bg-animation .vector-11{bottom:160px;position:absolute;right:19px}.bg-animation .vector-11 .sub-img{animation:subimage 3s linear infinite alternate!important;top:0}@keyframes topbottom{0%{transform:translateY(10px)}to{transform:translateY(0)}}@keyframes subimage{0%{top:-6px;transform:translateX(-6px)}to{top:0;transform:translateX(0)}}@keyframes leftright{0%{transform:translateX(10px)}to{transform:translateX(0)}}@keyframes rotateleft{0%{transform:rotate(20deg)}50%{transform:rotate(0deg)}to{transform:rotate(-20deg)}}@keyframes rotateline{0%{transform:rotate(10deg)}to{transform:rotate(0deg)}}@keyframes skewanimated{0%{transform:skewX(25deg)}to{transform:skewX(0deg)}}@keyframes fadeshow{0%{opacity:10%}25%{opacity:25%}50%{opacity:50%}75%{opacity:75%}to{opacity:100%}}.bottom-imge{height:330px;opacity:.7}
 
 body{font-family:Poppins}
 .sf-hidden{display:none!important}
 @keyframes rzp-rot{to{transform:rotate(360deg)}}@-webkit-keyframes rzp-rot{to{-webkit-transform:rotate(360deg)}}</style><style>html,body{overflow-y:auto!important;height:auto!important;min-height:100%!important;position:relative!important;}.container{max-width:540px!important;margin-left:auto!important;margin-right:auto!important;}.add-to-contact-btn,.add-to-contact-section,[class*=add-to-contact]{left:50%!important;right:auto!important;transform:translateX(-50%)!important;max-width:540px!important;width:100%!important;}.blog-section,.blog-card,[class*=blog-],[class*=__blog],[class*=blog-section]{display:none!important;}.product-slider,.gallery-slider,.testimonial-slider{overflow:hidden;}.product-slider .slick-slide,.gallery-slider .slick-slide{padding:0 8px;box-sizing:border-box;}.pwa-support,.news-modal,#newsLatter-content{display:none!important}.social-icon i,.social-icon svg,.social-icon .icon{color:#2563eb!important;fill:#2563eb!important;opacity:1!important}.our-services-section .section-heading,.business-hour-section .section-heading{text-align:center!important}.our-services-section .section-heading h2,.business-hour-section .section-heading h2,.qr-code-section .section-heading h2{color:#2563eb!important}.business-hour-section .business-hour-card{background:rgba(127,127,127,.14)!important;border:1px solid rgba(127,127,127,.3)!important;border-radius:10px!important;padding:10px!important;margin-bottom:10px!important}.business-hour-section .business-hour-card span,.business-hour-section .business-hour-card .time-icon{color:#2563eb!important}.qr-code-section p,.qr-code-section span,.qr-code-section h4,.qr-code-section h5{color:#2563eb!important}</style><?php if(!empty($vcard["custom_css"])): ?><style><?= $vcard["custom_css"] ?></style><?php endif; ?></head><body>
- <div class="container p-0">
- <div id=passwordModal class="modal fade sf-hidden" role=dialog data-bs-backdrop=static data-bs-keyboard=false>
- 
+<?php if(!empty($services)): ?>
+<?php if(!empty($products)): ?>
+<?php if(!empty($testimonials)): ?>
+<?php if(!empty($galleries)): ?>
+<?php if(!empty($businessHours)): ?>
+<div class="container p-0">
+<div class="modal fade sf-hidden" data-bs-backdrop="static" data-bs-keyboard="false" id="passwordModal" role="dialog">
 </div>
- <div class="main-content mx-auto w-100 overflow-hidden">
- 
- <div class=mt-0>
- <div class="pwa-support d-flex align-items-center justify-content-center">
- <div>
- <h1 class="text-start pwa-heading">Install as App</h1>
- <p class="text-start pwa-text text-dark">Get a seamless experience by adding this website to your home screen—just like an app! </p>
- <div class="text-end d-flex">
- <button id=installPwaBtn class="pwa-install-button w-50 mb-1 btn-primary btn" fdprocessedid=ku7lar>Install </button>
- <button class="pwa-cancel-button w-50 ms-2 pwa-close btn btn-secondary mb-1" fdprocessedid=w118kk>Cancel</button>
- </div>
- </div>
- </div>
- </div>
- 
- 
- <div class="banner-section position-relative w-100"><div class="banner-img" style="position:relative;overflow:hidden;height:315px;"><?php $cvType=$vcard["cover_type"]??"image";$cvVal=$vcard["cover_image"]??"";$isVid=($cvType==="video")||preg_match("#youtube\.com|youtu\.be|instagram\.com|\.mp4#i",$cvVal);if($isVid&&!empty($cvVal)){if(preg_match("#(?:youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^\"&?/\s]{11})#i",$cvVal,$mm)){$yt=$mm[1];echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"https://www.youtube.com/embed/".$yt."?autoplay=1&mute=1&loop=1&playlist=".$yt."&controls=0&showinfo=0&rel=0&playsinline=1\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";}elseif(stripos($cvVal,"instagram.com")!==false){echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"".htmlspecialchars(rtrim($cvVal,"/")."/embed")."\" allowtransparency=\"true\"></iframe>";}else{echo "<video src=\"".htmlspecialchars(imgUrl($cvVal))."\" autoplay loop muted playsinline style=\"width:100%;height:100%;object-fit:cover;display:block;\"></video>";}}else{echo "<img src=\"".htmlspecialchars($coverImg)."\" alt=\"".htmlspecialchars($fullName)."\" style=\"width:100%;height:100%;object-fit:cover;display:block;\">";} ?><div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.1),rgba(0,0,0,0.5));"></div></div></div>
- <div class="profile-section px-30 pt-50 z-1">
- <div class="bg-vector position-absolute end-0 top-0 text-end">
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=images class=w-100 style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-15)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="card d-flex flex-sm-row align-items-center position-relative gap-sm-5 gap-2 overflow-hidden">
- <div class=card-img>
- <img src="/images/templates/fashionbeautyx/fas-030.webp" class="w-100 h-100 object-fit-cover rounded-circle" loading=lazy>
- </div>
- <div class="card-body position-relative z-1">
- <div class=profile-name>
- <h2 class="text-black mb-0 fs-24">
- <?= htmlspecialchars($fullName) ?>
- <i class="verification-icon bi-patch-check-fill"></i>
- </h2>
- <p class="fs-16 text-primary text-decoration-underline mb-0 fw-5"></p>
- <p class="fs-14 text-black mb-0 fw-5"><?= htmlspecialchars($vcard["occupation"] ?? "") ?></p>
- <p class="fs-14 text-black mb-0 fw-5"></p>
- </div>
- </div>
- <div class="position-absolute bottom-0 end-0 bags-img">
- <img src="/images/templates/fashionbeautyx/fas-031.webp" alt=flower-bg class="w-100 h-100" loading=lazy>
- </div>
- </div>
- 
- <div class="profile-desc pt-50 fs-14 text-center position-relative">
- <div class="bg-vector position-absolute vector1">
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=images class=w-100 style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-18)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <p><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars(trim(html_entity_decode(strip_tags($vcard["description"]),ENT_QUOTES)))) ?><?php else: ?>A <strong>Makeup Artist</strong> is a professional who specializes in enhancing or transforming a person's appearance using cosmetic products. They work across various industries including beauty, fashion, film, television, theater, and events.<?php endif; ?></p>
- </div>
- </div>
- 
- <div class="contact-section pt-50 position-relative">
- <div class="bg-vector position-absolute end-0 text-end vector2">
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=images class=w-100 style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-19)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="bg-vector position-absolute start-0 top-10">
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=images class=w-100 style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-20)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class=px-30>
- <div class="section-heading text-center">
- <h2 class="text-primary text-center mb-0">Contact</h2>
- <div class="d-flex align-items-center justify-content-center gap-2">
- <span class=d-block></span>
- <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 100 100"><path d="M1,50L50,1l49,49L50,99L1,50z M50,31.6c-4.9,0-9.5,1.9-13,5.4c-3.5,3.5-5.4,8.1-5.4,13c0,10.1,8.2,18.4,18.4,18.4 c4.9,0,9.5-1.9,13-5.4c3.5-3.5,5.4-8.1,5.4-13s-1.9-9.5-5.4-13C59.5,33.5,54.9,31.6,50,31.6z"></path></svg>
- <span class=d-block></span>
- </div>
- </div>
- <div class="row row-gap-20">
- <div class=col-sm-6>
- <div class=contact-box>
- <div class="contact-icon d-flex justify-content-center align-items-center">
- <img src=/images/templates/fashionbeautyx/fas-032.svg alt loading=lazy>
- </div>
- <div class=contact-desc>
- <a href=mailto:<?= htmlspecialchars($vcard["email"] ?? "") ?> class="text-black fs-14 fw-5"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class=contact-box>
- <div class="contact-icon d-flex justify-content-center align-items-center">
- <img src=/images/templates/fashionbeautyx/fas-033.svg alt>
- </div>
- <div class=contact-desc>
- <a href=tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?> class="text-black fs-14 fw-5" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class=contact-box>
- <div class="contact-icon d-flex justify-content-center align-items-center">
- <img src=/images/templates/fashionbeautyx/fas-033.svg alt>
- </div>
- <div class=contact-desc>
- <a href=tel:<?= htmlspecialchars($vcard["alternate_phone"] ?? "") ?> class="text-black fs-14 fw-5" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class=contact-box>
- <div class="contact-icon d-flex justify-content-center align-items-center">
- <img src="/images/templates/fashionbeautyx/fas-034.svg" alt>
- </div>
- <div class=contact-desc>
- <a href=https://tapifyworld.com/artist-makeup class="mb-0 text-black fs-14 fw-5"><?= !empty($vcard["dob"]) ? htmlspecialchars(date("jS F, Y", strtotime($vcard["dob"]))) : "" ?></a>
- </div>
- </div>
- </div>
- <div class=col-sm-6>
- <div class=contact-box>
- <div class="contact-icon d-flex justify-content-center align-items-center">
- <img src=/images/templates/fashionbeautyx/fas-035.svg alt>
- </div>
- <div class=contact-desc>
- <a href=https://tapifyworld.com/artist-makeup class="text-black mb-0 fs-14 fw-5">Delhi - Noida</a>
- </div>
- </div>
- </div>
- </div>
- </div>
- </div>
- 
- <div class="social-media d-flex justify-content-center pt-50 position-relative"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
- 
- 
- 
- <div class="gallery-section pt-50 position-relative">
- <div class="bg-vector position-absolute left-10 top-40">
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=images class=w-100 style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-26)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="section-heading text-center">
- <h2 class="text-primary text-center mb-0">Gallery</h2>
- <div class="d-flex align-items-center justify-content-center gap-2">
- <span class=d-block></span>
- <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 100 100"><path d="M1,50L50,1l49,49L50,99L1,50z M50,31.6c-4.9,0-9.5,1.9-13,5.4c-3.5,3.5-5.4,8.1-5.4,13c0,10.1,8.2,18.4,18.4,18.4 c4.9,0,9.5-1.9,13-5.4c3.5-3.5,5.4-8.1,5.4-13s-1.9-9.5-5.4-13C59.5,33.5,54.9,31.6,50,31.6z"></path></svg>
- <span class=d-block></span>
- </div>
- </div>
- <div class="gallery-slider"><?php foreach ((isset($__ga)?$__ga:($galleries ?? [])) as $g): foreach (($g["images"] ?? []) as $im): $gi=imgUrl($im["image_url"] ?? ($im["image"] ?? "")); ?><div class="px-2"><div class="gallery-img-wrapper"><div class="gallery-img" style="background-image:url('<?= htmlspecialchars($gi) ?>');background-size:cover;background-position:center;height:280px;border-radius:12px;"></div></div></div><?php endforeach; endforeach; ?></div>
- </div>
- <div class="modal fade sf-hidden" id=exampleModal tabindex=-1 aria-labelledby=exampleModalLabel aria-hidden=true>
- 
- </div>
- 
- <div class="product-section pt-50 position-relative">
- <div class="bg-vector position-absolute right-10 top-40 text-end">
- <img src="/images/templates/fashionbeautyx/fas-037.webp" alt=images class=w-100>
- </div>
- <div class=flower-left>
- <img src="/images/templates/fashionbeautyx/fas-038.webp" alt=flower-bg class="w-100 h-100" loading=lazy>
- </div>
- <div class="section-heading text-center">
- <h2 class="text-primary mb-0">Products</h2>
- <div class="d-flex align-items-center justify-content-center gap-2">
- <span class=d-block></span>
- <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 100 100"><path d="M1,50L50,1l49,49L50,99L1,50z M50,31.6c-4.9,0-9.5,1.9-13,5.4c-3.5,3.5-5.4,8.1-5.4,13c0,10.1,8.2,18.4,18.4,18.4 c4.9,0,9.5-1.9,13-5.4c3.5-3.5,5.4-8.1,5.4-13s-1.9-9.5-5.4-13C59.5,33.5,54.9,31.6,50,31.6z"></path></svg>
- <span class=d-block></span>
- </div>
- </div>
- <div class=px-20>
- <div class="product-slider"><?php foreach ((isset($__pr)?$__pr:($products ?? [])) as $p): $pi=!empty($p["image"])?imgUrl($p["image"]):"/images/templates/fashionbeautyx/fas-027.webp"; ?><div class="px-2"><div class="product-card card"><div class="product-img card-img"><img src="<?= htmlspecialchars($pi) ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></div><div class="product-desc card-body d-flex flex-column align-items-center justify-content-between"><div class="product-title"><h3 class="text-dark text-center"><?= htmlspecialchars($p["name"] ?? "") ?></h3></div><?php if(isset($p["price"]) && $p["price"]!==""): ?><div class="product-amount"><span>₹ <?= htmlspecialchars($p["price"]) ?></span></div><?php endif; ?></div></div></div><?php endforeach; ?></div>
- <div class="text-center mt-4 view-more btn-primary max-w-fit mx-auto">
- <a class="fs-6 text-decoration-none mb-0 d-flex align-items-center gap-2" href=https://tapifyworld.com/products/24/artist-makeup>View More Products
- <svg class="svg-inline--fa fa-arrow-right right-arrow-animation" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 448 512" data-fa-i2svg><path fill=currentColor d="M438.6 278.6l-160 160C272.4 444.9 264.2 448 256 448s-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L338.8 288H32C14.33 288 .0016 273.7 .0016 256S14.33 224 32 224h306.8l-105.4-105.4c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160C451.1 245.9 451.1 266.1 438.6 278.6z"></path></svg>
- </a>
- </div>
- </div>
- </div>
- 
- <?php if(!empty($services)): ?><div class="our-services-section pt-50 position-relative"><div class="section-heading"><h2>Our Services</h2></div><div class="services"><div class="px-30"><div class="row"><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/fashionbeautyx/fas-027.webp"; ?><div class="col-sm-6 mb-sm-0 mb-40 p-3"><div class="card-wrapper h-100"><a href="javascript:void(0)" class="text-decoration-none"><div class="service-card card h-100"><div class="card-img mx-auto"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></div><div class="card-body text-center"><h3 class="card-title text-primary"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></a></div></div><?php endforeach; ?></div></div></div></div><?php endif; ?>
- 
- <div class="appointment-section pt-50 px-30 position-relative">
- <div class="bg-vector position-absolute left-10 top-40">
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=images class=w-100 style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-45)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class=flower-right>
- <img src="/images/templates/fashionbeautyx/fas-046.webp" alt=appointment class="w-100 h-100 object-fit-cover">
- </div>
- <div class="section-heading text-center">
- <h2 class="text-primary mb-0">Make an Appointment</h2>
- <div class="d-flex align-items-center justify-content-center gap-2">
- <span class=d-block></span>
- <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 100 100"><path d="M1,50L50,1l49,49L50,99L1,50z M50,31.6c-4.9,0-9.5,1.9-13,5.4c-3.5,3.5-5.4,8.1-5.4,13c0,10.1,8.2,18.4,18.4,18.4 c4.9,0,9.5-1.9,13-5.4c3.5-3.5,5.4-8.1,5.4-13s-1.9-9.5-5.4-13C59.5,33.5,54.9,31.6,50,31.6z"></path></svg>
- <span class=d-block></span>
- </div>
- </div>
- <div class=position-relative>
- <div class=appointment>
- <div class=position-relative>
- <input class="date appoint-input form-control appointment-input text-start flatpickr-input active" placeholder="Pick a Date" id=pickUpDate name=date type=text readonly fdprocessedid=s08hpp value>
- <span class="calendar-icon pe-none">
- <svg width=20 height=20 viewBox="0 0 20 20" fill=none xmlns=http://www.w3.org/2000/svg>
- <path d="M6.25 9.375V10.625C6.25 10.9705 5.97047 11.25 5.625 11.25H4.375C4.02953 11.25 3.75 10.9705 3.75 10.625V9.375C3.75 9.02953 4.02953 8.75 4.375 8.75H5.625C5.97047 8.75 6.25 9.02953 6.25 9.375ZM5.625 13.75H4.375C4.02953 13.75 3.75 14.0295 3.75 14.375V15.625C3.75 15.9705 4.02953 16.25 4.375 16.25H5.625C5.97047 16.25 6.25 15.9705 6.25 15.625V14.375C6.25 14.0295 5.97047 13.75 5.625 13.75ZM10.625 8.75H9.375C9.02953 8.75 8.75 9.02953 8.75 9.375V10.625C8.75 10.9705 9.02953 11.25 9.375 11.25H10.625C10.9705 11.25 11.25 10.9705 11.25 10.625V9.375C11.25 9.02953 10.9705 8.75 10.625 8.75ZM10.625 13.75H9.375C9.02953 13.75 8.75 14.0295 8.75 14.375V15.625C8.75 15.9705 9.02953 16.25 9.375 16.25H10.625C10.9705 16.25 11.25 15.9705 11.25 15.625V14.375C11.25 14.0295 10.9705 13.75 10.625 13.75ZM15.625 8.75H14.375C14.0295 8.75 13.75 9.02953 13.75 9.375V10.625C13.75 10.9705 14.0295 11.25 14.375 11.25H15.625C15.9705 11.25 16.25 10.9705 16.25 10.625V9.375C16.25 9.02953 15.9705 8.75 15.625 8.75ZM15.625 13.75H14.375C14.0295 13.75 13.75 14.0295 13.75 14.375V15.625C13.75 15.9705 14.0295 16.25 14.375 16.25H15.625C15.9705 16.25 16.25 15.9705 16.25 15.625V14.375C16.25 14.0295 15.9705 13.75 15.625 13.75ZM4.375 3.75H5.625C5.97047 3.75 6.25 3.47047 6.25 3.125V0.625C6.25 0.279531 5.97047 0 5.625 0H4.375C4.02953 0 3.75 0.279531 3.75 0.625V3.125C3.75 3.47047 4.02953 3.75 4.375 3.75ZM20 5V17.5C20 18.8806 18.8806 20 17.5 20H2.5C1.11937 20 0 18.8806 0 17.5V5C0 3.61937 1.11937 2.5 2.5 2.5H3.125V3.125C3.125 3.81348 3.6859 4.375 4.375 4.375H5.625C6.3141 4.375 6.875 3.81348 6.875 3.125V2.5H13.125V3.125C13.125 3.81348 13.6865 4.375 14.375 4.375H15.625C16.3135 4.375 16.875 3.81348 16.875 3.125V2.5H17.5C18.8806 2.5 20 3.61937 20 5ZM18.75 7.5C18.75 6.81152 18.1897 6.25 17.5 6.25H2.5C1.8109 6.25 1.25 6.81152 1.25 7.5V17.5C1.25 18.1897 1.8109 18.75 2.5 18.75H17.5C18.1897 18.75 18.75 18.1897 18.75 17.5V7.5ZM14.375 3.75H15.625C15.9705 3.75 16.25 3.47047 16.25 3.125V0.625C16.25 0.279531 15.9705 0 15.625 0H14.375C14.0295 0 13.75 0.279531 13.75 0.625V3.125C13.75 3.47047 14.0295 3.75 14.375 3.75Z" fill=#c29c77></path>
- </svg>
- </span>
- </div>
- <div class=row>
- <div class=col-12>
- <div id=slotData class=row>
- </div>
- </div>
- </div>
- <div class=text-center>
- <button type=submit class="appointmentAdd btn btn-primary w-100 d-none max-w-fit sf-hidden">
+<div class="main-content mx-auto w-100 overflow-hidden">
+<div class="mt-0">
+<div class="pwa-support d-flex align-items-center justify-content-center">
+<div>
+<h1 class="text-start pwa-heading">Install as App</h1>
+<p class="text-start pwa-text text-dark">Get a seamless experience by adding this website to your home screen—just like an app! </p>
+<div class="text-end d-flex">
+<button class="pwa-install-button w-50 mb-1 btn-primary btn" fdprocessedid="ku7lar" id="installPwaBtn">Install </button>
+<button class="pwa-cancel-button w-50 ms-2 pwa-close btn btn-secondary mb-1" fdprocessedid="w118kk">Cancel</button>
+</div>
+</div>
+</div>
+</div>
+<div class="banner-section position-relative w-100"><div class="banner-img" style="position:relative;overflow:hidden;height:315px;"><?php $cvType=$vcard["cover_type"]??"image";$cvVal=$vcard["cover_image"]??"";$isVid=($cvType==="video")||preg_match("#youtube\.com|youtu\.be|instagram\.com|\.mp4#i",$cvVal);if($isVid&&!empty($cvVal)){if(preg_match("#(?:youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^\"&?/\s]{11})#i",$cvVal,$mm)){$yt=$mm[1];echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"https://www.youtube.com/embed/".$yt."?autoplay=1&mute=1&loop=1&playlist=".$yt."&controls=0&showinfo=0&rel=0&playsinline=1\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen>";}elseif(stripos($cvVal,"instagram.com")!==false){echo "<iframe allowtransparency='\"true\"' src='\"".htmlspecialchars(rtrim($cvVal,"/")."/embed")."\"' style='\"width:100%;height:100%;display:block;border:none;\"'></iframe>";}else{echo "<video autoplay="" loop="" muted="" playsinline="" src='\"".htmlspecialchars(imgUrl($cvVal))."\"' style='\"width:100%;height:100%;object-fit:cover;display:block;\"'></video>";}}else{echo "<img alt='\"".htmlspecialchars($fullName)."\"' src='\"".htmlspecialchars($coverImg)."\"' style='\"width:100%;height:100%;object-fit:cover;display:block;\"'/>";} ?><div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.1),rgba(0,0,0,0.5));"></div></div></div>
+<div class="profile-section px-30 pt-50 z-1">
+<div class="bg-vector position-absolute end-0 top-0 text-end">
+<img alt="images" class="w-100" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-15)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="card d-flex flex-sm-row align-items-center position-relative gap-sm-5 gap-2 overflow-hidden"><?php foreach ((isset($__bh)?$__bh:($businessHours ?? [])) as $bh): ?>
+<div class="col-sm-6"><div class="business-hour-card d-flex gap-2 align-items-center mb-3"><div class="time-icon"><i class="bi bi-clock fs-3"></i></div><div class="d-flex flex-column align-items-start"><span class="fs-14 text-gray lh-1 fw-5"><?= htmlspecialchars(ucfirst(strtolower($bh["day_name"] ?? ""))) ?></span><span class="fs-16 fw-5"><?= !empty($bh["is_open"]) ? htmlspecialchars(trim(($bh["open_time"] ?? "")." - ".($bh["close_time"] ?? ""))) : "Closed" ?></span></div></div></div>
+<?php endforeach; ?></div>
+<div class="profile-desc pt-50 fs-14 text-center position-relative">
+<div class="bg-vector position-absolute vector1">
+<img alt="images" class="w-100" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-18)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<p>A <strong>Makeup Artist</strong> is a professional who specializes in enhancing or transforming a person's appearance using cosmetic products. They work across various industries including beauty, fashion, film, television, theater, and events.</p>
+</div>
+</div>
+<div class="contact-section pt-50 position-relative">
+<div class="bg-vector position-absolute end-0 text-end vector2">
+<img alt="images" class="w-100" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-19)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="bg-vector position-absolute start-0 top-10">
+<img alt="images" class="w-100" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-20)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="px-30">
+<div class="section-heading text-center">
+<h2 class="text-primary text-center mb-0">Contact</h2>
+<div class="d-flex align-items-center justify-content-center gap-2">
+<span class="d-block"></span>
+<svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M1,50L50,1l49,49L50,99L1,50z M50,31.6c-4.9,0-9.5,1.9-13,5.4c-3.5,3.5-5.4,8.1-5.4,13c0,10.1,8.2,18.4,18.4,18.4 c4.9,0,9.5-1.9,13-5.4c3.5-3.5,5.4-8.1,5.4-13s-1.9-9.5-5.4-13C59.5,33.5,54.9,31.6,50,31.6z"></path></svg>
+<span class="d-block"></span>
+</div>
+</div>
+<div class="row row-gap-20">
+<div class="col-sm-6">
+<div class="contact-box">
+<div class="contact-icon d-flex justify-content-center align-items-center">
+<img alt="" loading="lazy" src="/images/templates/fashionbeautyxxxxxx/fas-032.svg"/>
+</div>
+<div class="contact-desc">
+<a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["email"]=""> class="text-black fs-14 fw-5"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="contact-box">
+<div class="contact-icon d-flex justify-content-center align-items-center">
+<img alt="" src="/images/templates/fashionbeautyxxxxxx/fas-033.svg"/>
+</div>
+<div class="contact-desc">
+<a "")="" ?="" ??="" href="tel:<?=" htmlspecialchars($vcard["phone"]=""> class="text-black fs-14 fw-5" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="contact-box">
+<div class="contact-icon d-flex justify-content-center align-items-center">
+<img alt="" src="/images/templates/fashionbeautyxxxxxx/fas-033.svg"/>
+</div>
+<div class="contact-desc">
+<a "")="" ?="" ??="" href="tel:<?=" htmlspecialchars($vcard["alternate_phone"]=""> class="text-black fs-14 fw-5" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="contact-box">
+<div class="contact-icon d-flex justify-content-center align-items-center">
+<img alt="" src="/images/templates/fashionbeautyxxxxxx/fas-034.svg"/>
+</div>
+<div class="contact-desc">
+<a class="mb-0 text-black fs-14 fw-5" href="https://tapifyworld.com/artist-makeup"><?= !empty($vcard["dob"]) ? htmlspecialchars(date("jS F, Y", strtotime($vcard["dob"]))) : "" ?></a>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="contact-box">
+<div class="contact-icon d-flex justify-content-center align-items-center">
+<img alt="" src="/images/templates/fashionbeautyxxxxxx/fas-035.svg"/>
+</div>
+<div class="contact-desc">
+<a class="text-black mb-0 fs-14 fw-5" href="https://tapifyworld.com/artist-makeup">Delhi - Noida</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="social-media d-flex justify-content-center pt-50 position-relative"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a ?="" href="<?= htmlspecialchars($s[" url"])="">" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
+<div class="gallery-section pt-50 position-relative">
+<div class="bg-vector position-absolute left-10 top-40">
+<img alt="images" class="w-100" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-26)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="section-heading text-center">
+<h2 class="text-primary text-center mb-0">Gallery</h2>
+<div class="d-flex align-items-center justify-content-center gap-2">
+<span class="d-block"></span>
+<svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M1,50L50,1l49,49L50,99L1,50z M50,31.6c-4.9,0-9.5,1.9-13,5.4c-3.5,3.5-5.4,8.1-5.4,13c0,10.1,8.2,18.4,18.4,18.4 c4.9,0,9.5-1.9,13-5.4c3.5-3.5,5.4-8.1,5.4-13s-1.9-9.5-5.4-13C59.5,33.5,54.9,31.6,50,31.6z"></path></svg>
+<span class="d-block"></span>
+</div>
+</div>
+<div class="gallery-slider px-20 slick-initialized slick-slider slick-dotted"><div class="slick-list draggable"><div class="slick-track" style="opacity:1;width:5670px;transform:translate3d(-630px,0px,0px)"><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="-1" style="width:630px" tabindex="-1"><div><div class="slide position-relative" style="width:100%;display:inline-block">
+<div class="gallery-img position-relative">
+<div class="expand-icon pe-none">
+<svg aria-hidden="true" class="svg-inline--fa fa-expand text-white" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
+</div>
+<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/438/G5.png" tabindex="-1">
+<img alt="profile" class="w-100 h-100 d-block" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-27)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+</div></div></div><div aria-describedby="slick-slide-control00" aria-hidden="false" class="slick-slide slick-current slick-active" data-slick-index="0" id="slick-slide00" role="tabpanel" style="width:630px"><div><div class="slide position-relative" style="width:100%;display:inline-block">
+<div class="gallery-img position-relative">
+<div class="expand-icon pe-none">
+<svg aria-hidden="true" class="svg-inline--fa fa-expand text-white" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
+</div>
+<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/435/G2.png" tabindex="0">
+<img alt="profile" class="w-100 h-100 d-block" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-28)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+</div></div></div><div aria-describedby="slick-slide-control01" aria-hidden="true" class="slick-slide" data-slick-index="1" id="slick-slide01" role="tabpanel" style="width:630px" tabindex="-1"><div><div class="slide position-relative" style="width:100%;display:inline-block">
+<div class="gallery-img position-relative">
+<div class="expand-icon pe-none">
+<svg aria-hidden="true" class="svg-inline--fa fa-expand text-white" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
+</div>
+<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/436/G3.png" tabindex="-1">
+<img alt="profile" class="w-100 h-100 d-block" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-29)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+</div></div></div><div aria-describedby="slick-slide-control02" aria-hidden="true" class="slick-slide" data-slick-index="2" id="slick-slide02" role="tabpanel" style="width:630px" tabindex="-1"><div><div class="slide position-relative" style="width:100%;display:inline-block">
+<div class="gallery-img position-relative">
+<div class="expand-icon pe-none">
+<svg aria-hidden="true" class="svg-inline--fa fa-expand text-white" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
+</div>
+<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/437/G4.png" tabindex="-1">
+<img alt="profile" class="w-100 h-100 d-block" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-30)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+</div></div></div><div aria-describedby="slick-slide-control03" aria-hidden="true" class="slick-slide" data-slick-index="3" id="slick-slide03" role="tabpanel" style="width:630px" tabindex="-1"><div><div class="slide position-relative" style="width:100%;display:inline-block">
+<div class="gallery-img position-relative">
+<div class="expand-icon pe-none">
+<svg aria-hidden="true" class="svg-inline--fa fa-expand text-white" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
+</div>
+<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/438/G5.png" tabindex="-1">
+<img alt="profile" class="w-100 h-100 d-block" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-27)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="4" style="width:630px" tabindex="-1"><div><div class="slide position-relative" style="width:100%;display:inline-block">
+<div class="gallery-img position-relative">
+<div class="expand-icon pe-none">
+<svg aria-hidden="true" class="svg-inline--fa fa-expand text-white" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
+</div>
+<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/435/G2.png" tabindex="-1">
+<img alt="profile" class="w-100 h-100 d-block" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-28)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="5" style="width:630px" tabindex="-1"><div><div class="slide position-relative" style="width:100%;display:inline-block">
+<div class="gallery-img position-relative">
+<div class="expand-icon pe-none">
+<svg aria-hidden="true" class="svg-inline--fa fa-expand text-white" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
+</div>
+<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/436/G3.png" tabindex="-1">
+<img alt="profile" class="w-100 h-100 d-block" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-29)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="6" style="width:630px" tabindex="-1"><div><div class="slide position-relative" style="width:100%;display:inline-block">
+<div class="gallery-img position-relative">
+<div class="expand-icon pe-none">
+<svg aria-hidden="true" class="svg-inline--fa fa-expand text-white" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
+</div>
+<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/437/G4.png" tabindex="-1">
+<img alt="profile" class="w-100 h-100 d-block" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-30)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="7" style="width:630px" tabindex="-1"><div><div class="slide position-relative" style="width:100%;display:inline-block">
+<div class="gallery-img position-relative">
+<div class="expand-icon pe-none">
+<svg aria-hidden="true" class="svg-inline--fa fa-expand text-white" data-fa-i2svg="" data-icon="expand" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M128 32H32C14.31 32 0 46.31 0 64v96c0 17.69 14.31 32 32 32s32-14.31 32-32V96h64c17.69 0 32-14.31 32-32S145.7 32 128 32zM416 32h-96c-17.69 0-32 14.31-32 32s14.31 32 32 32h64v64c0 17.69 14.31 32 32 32s32-14.31 32-32V64C448 46.31 433.7 32 416 32zM128 416H64v-64c0-17.69-14.31-32-32-32s-32 14.31-32 32v96c0 17.69 14.31 32 32 32h96c17.69 0 32-14.31 32-32S145.7 416 128 416zM416 320c-17.69 0-32 14.31-32 32v64h-64c-17.69 0-32 14.31-32 32s14.31 32 32 32h96c17.69 0 32-14.31 32-32v-96C448 334.3 433.7 320 416 320z" fill="currentColor"></path></svg>
+</div>
+<a data-lightbox="gallery-images" href="https://tapifyworld.com//uploads/vcards/gallery/438/G5.png" tabindex="-1">
+<img alt="profile" class="w-100 h-100 d-block" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-27)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+</div></div></div></div></div><ul class="slick-dots" role="tablist"><li class="slick-active" role="presentation"><button aria-controls="slick-slide00" aria-label="1 of 4" aria-selected="true" fdprocessedid="u669ln" id="slick-slide-control00" role="tab" tabindex="0" type="button">1</button><li role="presentation"><button aria-controls="slick-slide01" aria-label="2 of 4" id="slick-slide-control01" role="tab" tabindex="-1" type="button">2</button><li role="presentation"><button aria-controls="slick-slide02" aria-label="3 of 4" id="slick-slide-control02" role="tab" tabindex="-1" type="button">3</button><li role="presentation"><button aria-controls="slick-slide03" aria-label="4 of 4" fdprocessedid="zlut9f" id="slick-slide-control03" role="tab" tabindex="-1" type="button">4</button></li></li></li></li></ul></div>
+</div>
+<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade sf-hidden" id="exampleModal" tabindex="-1">
+</div>
+<div class="product-section pt-50 position-relative">
+<div class="bg-vector position-absolute right-10 top-40 text-end">
+<img alt="images" class="w-100" src="/images/templates/fashionbeautyxxxxxx/fas-037.webp"/>
+</div>
+<div class="flower-left">
+<img alt="flower-bg" class="w-100 h-100" loading="lazy" src="/images/templates/fashionbeautyxxxxxx/fas-038.webp"/>
+</div>
+<div class="section-heading text-center">
+<h2 class="text-primary mb-0">Products</h2>
+<div class="d-flex align-items-center justify-content-center gap-2">
+<span class="d-block"></span>
+<svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M1,50L50,1l49,49L50,99L1,50z M50,31.6c-4.9,0-9.5,1.9-13,5.4c-3.5,3.5-5.4,8.1-5.4,13c0,10.1,8.2,18.4,18.4,18.4 c4.9,0,9.5-1.9,13-5.4c3.5-3.5,5.4-8.1,5.4-13s-1.9-9.5-5.4-13C59.5,33.5,54.9,31.6,50,31.6z"></path></svg>
+<span class="d-block"></span>
+</div>
+</div>
+<div class="px-20">
+<div class="product-slider slick-initialized slick-slider"><div class="slick-list draggable"><div class="slick-track" style="opacity:1;width:3150px;transform:translate3d(-630px,0px,0px)"><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="-2" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="product-card card">
+<div class="product-img card-img">
+<a class="text-decoration-none" tabindex="-1" target="_blank">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-33)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="product-desc card-body text-center">
+<h3 class="text-black fs-18 fw-5 mb-0">Chick Mekeup ArtistChick Mekeup Artist</h3>
+<div class="text-center fs-20 fw-5">
+<span class="product-amount">₹2,500</span>
+</div>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="-1" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="product-card card">
+<div class="product-img card-img">
+<a class="text-decoration-none" tabindex="-1" target="_blank">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-34)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="product-desc card-body text-center">
+<h3 class="text-black fs-18 fw-5 mb-0">Lipstick Artist</h3>
+<div class="text-center fs-20 fw-5">
+<span class="product-amount">₹2,500</span>
+</div>
+</div>
+</div>
+</div></div></div><div aria-hidden="false" class="slick-slide slick-current slick-active" data-slick-index="0" style="width:315px"><div><div style="width:100%;display:inline-block">
+<div class="product-card card">
+<div class="product-img card-img">
+<a class="text-decoration-none" tabindex="0" target="_blank">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-35)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="product-desc card-body text-center">
+<h3 class="text-black fs-18 fw-5 mb-0">Face Makeup Artist</h3>
+<div class="text-center fs-20 fw-5">
+<span class="product-amount">₹3,500</span>
+</div>
+</div>
+</div>
+</div></div></div><div aria-hidden="false" class="slick-slide slick-active" data-slick-index="1" style="width:315px"><div><div style="width:100%;display:inline-block">
+<div class="product-card card">
+<div class="product-img card-img">
+<a class="text-decoration-none" tabindex="0" target="_blank">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-36)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="product-desc card-body text-center">
+<h3 class="text-black fs-18 fw-5 mb-0">Eye-shadow Artist</h3>
+<div class="text-center fs-20 fw-5">
+<span class="product-amount">₹699</span>
+</div>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide" data-slick-index="2" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="product-card card">
+<div class="product-img card-img">
+<a class="text-decoration-none" tabindex="-1" target="_blank">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-33)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="product-desc card-body text-center">
+<h3 class="text-black fs-18 fw-5 mb-0">Chick Mekeup ArtistChick Mekeup Artist</h3>
+<div class="text-center fs-20 fw-5">
+<span class="product-amount">₹2,500</span>
+</div>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide" data-slick-index="3" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="product-card card">
+<div class="product-img card-img">
+<a class="text-decoration-none" tabindex="-1" target="_blank">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-34)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="product-desc card-body text-center">
+<h3 class="text-black fs-18 fw-5 mb-0">Lipstick Artist</h3>
+<div class="text-center fs-20 fw-5">
+<span class="product-amount">₹2,500</span>
+</div>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="4" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="product-card card">
+<div class="product-img card-img">
+<a class="text-decoration-none" tabindex="-1" target="_blank">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-35)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="product-desc card-body text-center">
+<h3 class="text-black fs-18 fw-5 mb-0">Face Makeup Artist</h3>
+<div class="text-center fs-20 fw-5">
+<span class="product-amount">₹3,500</span>
+</div>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="5" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="product-card card">
+<div class="product-img card-img">
+<a class="text-decoration-none" tabindex="-1" target="_blank">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-36)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="product-desc card-body text-center">
+<h3 class="text-black fs-18 fw-5 mb-0">Eye-shadow Artist</h3>
+<div class="text-center fs-20 fw-5">
+<span class="product-amount">₹699</span>
+</div>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="6" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="product-card card">
+<div class="product-img card-img">
+<a class="text-decoration-none" tabindex="-1" target="_blank">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-33)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="product-desc card-body text-center">
+<h3 class="text-black fs-18 fw-5 mb-0">Chick Mekeup ArtistChick Mekeup Artist</h3>
+<div class="text-center fs-20 fw-5">
+<span class="product-amount">₹2,500</span>
+</div>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="7" style="width:315px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="product-card card">
+<div class="product-img card-img">
+<a class="text-decoration-none" tabindex="-1" target="_blank">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-34)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="product-desc card-body text-center">
+<h3 class="text-black fs-18 fw-5 mb-0">Lipstick Artist</h3>
+<div class="text-center fs-20 fw-5">
+<span class="product-amount">₹2,500</span>
+</div>
+</div>
+</div>
+</div></div></div></div></div></div>
+<div class="text-center mt-4 view-more btn-primary max-w-fit mx-auto">
+<a class="fs-6 text-decoration-none mb-0 d-flex align-items-center gap-2" href="https://tapifyworld.com/products/24/artist-makeup">View More Products
+ <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right right-arrow-animation" data-fa-i2svg="" data-icon="arrow-right" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M438.6 278.6l-160 160C272.4 444.9 264.2 448 256 448s-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L338.8 288H32C14.33 288 .0016 273.7 .0016 256S14.33 224 32 224h306.8l-105.4-105.4c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160C451.1 245.9 451.1 266.1 438.6 278.6z" fill="currentColor"></path></svg>
+</a>
+</div>
+</div>
+</div>
+<div class="our-services-section pt-50 position-relative">
+<div class="bg-vector position-absolute left-10 top-40">
+<img alt="images" class="w-100" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-37)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="bg-vector position-absolute right-10 top-0 text-end">
+<img alt="images" class="w-100" src="/images/templates/fashionbeautyxxxxxx/fas-039.webp"/>
+</div>
+<div class="section-heading text-center">
+<h2 class="text-primary text-center mb-0">Our Services</h2>
+<div class="d-flex align-items-center justify-content-center gap-2">
+<span class="d-block"></span>
+<svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M1,50L50,1l49,49L50,99L1,50z M50,31.6c-4.9,0-9.5,1.9-13,5.4c-3.5,3.5-5.4,8.1-5.4,13c0,10.1,8.2,18.4,18.4,18.4 c4.9,0,9.5-1.9,13-5.4c3.5-3.5,5.4-8.1,5.4-13s-1.9-9.5-5.4-13C59.5,33.5,54.9,31.6,50,31.6z"></path></svg>
+<span class="d-block"></span>
+</div>
+</div>
+<div class="services">
+<div class="row px-30 row-gap-20">
+<div class="col-sm-6">
+<div class="service-card h-100 card">
+<a class="text-decoration-none img pe-none" href="javascript:void(0)" target="">
+<img alt="Airbrush Makeup" class="card-img-top service-new-image h-100 w-100 object-fit-cover" loading="lazy" src="/images/templates/fashionbeautyxxxxxx/fas-040.webp"/>
+</a>
+<div class="card-body text-center position-relative">
+<a class="text-decoration-none" href="javascript:void(0)" target="">
+<h5 class="card-title title-text text-primary"> Airbrush Makeup </h5>
+</a>
+<p class="card-text description-text mb-0 text-black px-3">
+ Lightweight, long-lasting makeup applied with an airbrush tool for a natural and smooth look.
+ </p>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="service-card h-100 card">
+<a class="text-decoration-none img pe-none" href="javascript:void(0)" target="">
+<img alt="Theater & Stage Makeup" class="card-img-top service-new-image h-100 w-100 object-fit-cover" loading="lazy" src="/images/templates/fashionbeautyxxxxxx/fas-041.webp"/>
+</a>
+<div class="card-body text-center position-relative">
+<a class="text-decoration-none" href="javascript:void(0)" target="">
+<h5 class="card-title title-text text-primary"> Theater & Stage Makeup </h5>
+</a>
+<p class="card-text description-text mb-0 text-black px-3">
+ Bold and expressive makeup for actors, dancers, and performers suited to stage lighting.
+ </p>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="service-card h-100 card">
+<a class="text-decoration-none img pe-none" href="javascript:void(0)" target="">
+<img alt="HD Makeup" class="card-img-top service-new-image h-100 w-100 object-fit-cover" loading="lazy" src="/images/templates/fashionbeautyxxxxxx/fas-042.webp"/>
+</a>
+<div class="card-body text-center position-relative">
+<a class="text-decoration-none" href="javascript:void(0)" target="">
+<h5 class="card-title title-text text-primary"> HD Makeup </h5>
+</a>
+<p class="card-text description-text mb-0 text-black px-3">
+ Flawless finish makeup using high-definition products ideal for photos and videos.
+ </p>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="service-card h-100 card">
+<a class="text-decoration-none img pe-none" href="javascript:void(0)" target="">
+<img alt="Fashion & Editorial Makeup" class="card-img-top service-new-image h-100 w-100 object-fit-cover" loading="lazy" src="/images/templates/fashionbeautyxxxxxx/fas-043.webp"/>
+</a>
+<div class="card-body text-center position-relative">
+<a class="text-decoration-none" href="javascript:void(0)" target="">
+<h5 class="card-title title-text text-primary"> Fashion & Editorial Makeup </h5>
+</a>
+<p class="card-text description-text mb-0 text-black px-3">
+ High-definition, creative looks for photo shoots, runway shows, and fashion campaigns.
+ </p>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="service-card h-100 card">
+<a class="text-decoration-none img pe-none" href="javascript:void(0)" target="">
+<img alt="Party & Occasion Makeup" class="card-img-top service-new-image h-100 w-100 object-fit-cover" loading="lazy" src="/images/templates/fashionbeautyxxxxxx/fas-044.webp"/>
+</a>
+<div class="card-body text-center position-relative">
+<a class="text-decoration-none" href="javascript:void(0)" target="">
+<h5 class="card-title title-text text-primary"> Party & Occasion Makeup </h5>
+</a>
+<p class="card-text description-text mb-0 text-black px-3">
+ Glamorous looks for birthdays, engagements, receptions, and festive events.
+ </p>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="service-card h-100 card">
+<a class="text-decoration-none img pe-none" href="javascript:void(0)" target="">
+<img alt="Bridal Makeup" class="card-img-top service-new-image h-100 w-100 object-fit-cover" loading="lazy" src="/images/templates/fashionbeautyxxxxxx/fas-045.webp"/>
+</a>
+<div class="card-body text-center position-relative">
+<a class="text-decoration-none" href="javascript:void(0)" target="">
+<h5 class="card-title title-text text-primary"> Bridal Makeup </h5>
+</a>
+<p class="card-text description-text mb-0 text-black px-3">
+ Customized makeup for brides on their wedding day, including trial sessions and long-lasting products.
+ </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="appointment-section pt-50 px-30 position-relative">
+<div class="bg-vector position-absolute left-10 top-40">
+<img alt="images" class="w-100" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-45)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="flower-right">
+<img alt="appointment" class="w-100 h-100 object-fit-cover" src="/images/templates/fashionbeautyxxxxxx/fas-046.webp"/>
+</div>
+<div class="section-heading text-center">
+<h2 class="text-primary mb-0">Make an Appointment</h2>
+<div class="d-flex align-items-center justify-content-center gap-2">
+<span class="d-block"></span>
+<svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M1,50L50,1l49,49L50,99L1,50z M50,31.6c-4.9,0-9.5,1.9-13,5.4c-3.5,3.5-5.4,8.1-5.4,13c0,10.1,8.2,18.4,18.4,18.4 c4.9,0,9.5-1.9,13-5.4c3.5-3.5,5.4-8.1,5.4-13s-1.9-9.5-5.4-13C59.5,33.5,54.9,31.6,50,31.6z"></path></svg>
+<span class="d-block"></span>
+</div>
+</div>
+<div class="position-relative">
+<div class="appointment">
+<div class="position-relative">
+<input class="date appoint-input form-control appointment-input text-start flatpickr-input active" fdprocessedid="s08hpp" id="pickUpDate" name="date" placeholder="Pick a Date" readonly="" type="text" value=""/>
+<span class="calendar-icon pe-none">
+<svg fill="none" height="20" viewbox="0 0 20 20" width="20" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.25 9.375V10.625C6.25 10.9705 5.97047 11.25 5.625 11.25H4.375C4.02953 11.25 3.75 10.9705 3.75 10.625V9.375C3.75 9.02953 4.02953 8.75 4.375 8.75H5.625C5.97047 8.75 6.25 9.02953 6.25 9.375ZM5.625 13.75H4.375C4.02953 13.75 3.75 14.0295 3.75 14.375V15.625C3.75 15.9705 4.02953 16.25 4.375 16.25H5.625C5.97047 16.25 6.25 15.9705 6.25 15.625V14.375C6.25 14.0295 5.97047 13.75 5.625 13.75ZM10.625 8.75H9.375C9.02953 8.75 8.75 9.02953 8.75 9.375V10.625C8.75 10.9705 9.02953 11.25 9.375 11.25H10.625C10.9705 11.25 11.25 10.9705 11.25 10.625V9.375C11.25 9.02953 10.9705 8.75 10.625 8.75ZM10.625 13.75H9.375C9.02953 13.75 8.75 14.0295 8.75 14.375V15.625C8.75 15.9705 9.02953 16.25 9.375 16.25H10.625C10.9705 16.25 11.25 15.9705 11.25 15.625V14.375C11.25 14.0295 10.9705 13.75 10.625 13.75ZM15.625 8.75H14.375C14.0295 8.75 13.75 9.02953 13.75 9.375V10.625C13.75 10.9705 14.0295 11.25 14.375 11.25H15.625C15.9705 11.25 16.25 10.9705 16.25 10.625V9.375C16.25 9.02953 15.9705 8.75 15.625 8.75ZM15.625 13.75H14.375C14.0295 13.75 13.75 14.0295 13.75 14.375V15.625C13.75 15.9705 14.0295 16.25 14.375 16.25H15.625C15.9705 16.25 16.25 15.9705 16.25 15.625V14.375C16.25 14.0295 15.9705 13.75 15.625 13.75ZM4.375 3.75H5.625C5.97047 3.75 6.25 3.47047 6.25 3.125V0.625C6.25 0.279531 5.97047 0 5.625 0H4.375C4.02953 0 3.75 0.279531 3.75 0.625V3.125C3.75 3.47047 4.02953 3.75 4.375 3.75ZM20 5V17.5C20 18.8806 18.8806 20 17.5 20H2.5C1.11937 20 0 18.8806 0 17.5V5C0 3.61937 1.11937 2.5 2.5 2.5H3.125V3.125C3.125 3.81348 3.6859 4.375 4.375 4.375H5.625C6.3141 4.375 6.875 3.81348 6.875 3.125V2.5H13.125V3.125C13.125 3.81348 13.6865 4.375 14.375 4.375H15.625C16.3135 4.375 16.875 3.81348 16.875 3.125V2.5H17.5C18.8806 2.5 20 3.61937 20 5ZM18.75 7.5C18.75 6.81152 18.1897 6.25 17.5 6.25H2.5C1.8109 6.25 1.25 6.81152 1.25 7.5V17.5C1.25 18.1897 1.8109 18.75 2.5 18.75H17.5C18.1897 18.75 18.75 18.1897 18.75 17.5V7.5ZM14.375 3.75H15.625C15.9705 3.75 16.25 3.47047 16.25 3.125V0.625C16.25 0.279531 15.9705 0 15.625 0H14.375C14.0295 0 13.75 0.279531 13.75 0.625V3.125C13.75 3.47047 14.0295 3.75 14.375 3.75Z" fill="#c29c77"></path>
+</svg>
+</span>
+</div>
+<div class="row">
+<div class="col-12">
+<div class="row" id="slotData">
+</div>
+</div>
+</div>
+<div class="text-center">
+<button class="appointmentAdd btn btn-primary w-100 d-none max-w-fit sf-hidden" type="submit">
  Make an Appointment
  </button>
- </div>
- <div class="modal fade appointment-modal sf-hidden" id=AppointmentModal tabindex=-1 aria-hidden=true>
- 
 </div>
- </div>
- </div>
- </div>
- 
- 
- <div class="blog-section pt-50 position-relative">
- <div class="bg-vector position-absolute start-10 top-40">
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=images class=w-100 style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-47)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class=px-30>
- <div class="section-heading text-center">
- <h2 class="mb-0 text-primary">Blog</h2>
- <div class="d-flex align-items-center justify-content-center gap-2">
- <span class=d-block></span>
- <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 100 100"><path d="M1,50L50,1l49,49L50,99L1,50z M50,31.6c-4.9,0-9.5,1.9-13,5.4c-3.5,3.5-5.4,8.1-5.4,13c0,10.1,8.2,18.4,18.4,18.4 c4.9,0,9.5-1.9,13-5.4c3.5-3.5,5.4-8.1,5.4-13s-1.9-9.5-5.4-13C59.5,33.5,54.9,31.6,50,31.6z"></path></svg>
- <span class=d-block></span>
- </div>
- </div>
- <div class="blog-slider slick-initialized slick-slider slick-dotted"><div class="slick-list draggable"><div class=slick-track style=opacity:1;width:5490px;transform:translate3d(-610px,0px,0px)><div class="slick-slide slick-cloned" data-slick-index=-1 aria-hidden=true tabindex=-1 style=width:610px><div><div style=width:100%;display:inline-block>
- <div class="blog-card card">
- <div class=card-img>
- <a href=https://tapifyworld.com/artist-makeup/blog/28 tabindex=-1>
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-48)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </a>
- </div>
- <div class=card-body>
- <a href=https://tapifyworld.com/artist-makeup/blog/28 tabindex=-1>
- <h2 class="fs-20 text-primary">How to Prep Your Skin for Flawless Makeup
+<div aria-hidden="true" class="modal fade appointment-modal sf-hidden" id="AppointmentModal" tabindex="-1">
+</div>
+</div>
+</div>
+</div>
+<div class="blog-section pt-50 position-relative">
+<div class="bg-vector position-absolute start-10 top-40">
+<img alt="images" class="w-100" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-47)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="px-30">
+<div class="section-heading text-center">
+<h2 class="mb-0 text-primary">Blog</h2>
+<div class="d-flex align-items-center justify-content-center gap-2">
+<span class="d-block"></span>
+<svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M1,50L50,1l49,49L50,99L1,50z M50,31.6c-4.9,0-9.5,1.9-13,5.4c-3.5,3.5-5.4,8.1-5.4,13c0,10.1,8.2,18.4,18.4,18.4 c4.9,0,9.5-1.9,13-5.4c3.5-3.5,5.4-8.1,5.4-13s-1.9-9.5-5.4-13C59.5,33.5,54.9,31.6,50,31.6z"></path></svg>
+<span class="d-block"></span>
+</div>
+</div>
+<div class="blog-slider slick-initialized slick-slider slick-dotted"><div class="slick-list draggable"><div class="slick-track" style="opacity:1;width:5490px;transform:translate3d(-610px,0px,0px)"><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="-1" style="width:610px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="blog-card card">
+<div class="card-img">
+<a href="https://tapifyworld.com/artist-makeup/blog/28" tabindex="-1">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-48)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="card-body">
+<a href="https://tapifyworld.com/artist-makeup/blog/28" tabindex="-1">
+<h2 class="fs-20 text-primary">How to Prep Your Skin for Flawless Makeup
  </h2>
- </a>
- <p class="text-gray-300 blog-desc mb-2">
+</a>
+<p class="text-gray-300 blog-desc mb-2">
  Educate your audience on the importance of skincare before makeup. Talk about cleansing, moisturizing, priming, and share your favorite pre-makeup skincare steps.
  </p>
- <div class="d-flex align-items-center justify-content-end blog-btn">
- <a href=https://tapifyworld.com/artist-makeup/blog/28 class="d-inline-flex align-items-center justify-content-end gap-2 read-more btn-primary" tabindex=-1>
+<div class="d-flex align-items-center justify-content-end blog-btn">
+<a class="d-inline-flex align-items-center justify-content-end gap-2 read-more btn-primary" href="https://tapifyworld.com/artist-makeup/blog/28" tabindex="-1">
  Read More
- <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
- <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
- </path>
- </svg>
- </a>
- </div>
- </div>
- </div>
- </div></div></div><div class="slick-slide slick-current slick-active" data-slick-index=0 aria-hidden=false role=tabpanel id=slick-slide30 style=width:610px aria-describedby=slick-slide-control30><div><div style=width:100%;display:inline-block>
- <div class="blog-card card">
- <div class=card-img>
- <a href=https://tapifyworld.com/artist-makeup/blog/25 tabindex=0>
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-49)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </a>
- </div>
- <div class=card-body>
- <a href=https://tapifyworld.com/artist-makeup/blog/25 tabindex=0>
- <h2 class="fs-20 text-primary">Seasonal Makeup Looks
+ <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long text-decoration-none" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor">
+</path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</div></div></div><div aria-describedby="slick-slide-control30" aria-hidden="false" class="slick-slide slick-current slick-active" data-slick-index="0" id="slick-slide30" role="tabpanel" style="width:610px"><div><div style="width:100%;display:inline-block">
+<div class="blog-card card">
+<div class="card-img">
+<a href="https://tapifyworld.com/artist-makeup/blog/25" tabindex="0">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-49)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="card-body">
+<a href="https://tapifyworld.com/artist-makeup/blog/25" tabindex="0">
+<h2 class="fs-20 text-primary">Seasonal Makeup Looks
  </h2>
- </a>
- <p class="text-gray-300 blog-desc mb-2">
+</a>
+<p class="text-gray-300 blog-desc mb-2">
  Highlight makeup trends for the current season (spring pastels, summer glow, fall tones, winter glam). Include product suggestions and mini tutorials to keep readers inspired year-round.
  </p>
- <div class="d-flex align-items-center justify-content-end blog-btn">
- <a href=https://tapifyworld.com/artist-makeup/blog/25 class="d-inline-flex align-items-center justify-content-end gap-2 read-more btn-primary" tabindex=0>
+<div class="d-flex align-items-center justify-content-end blog-btn">
+<a class="d-inline-flex align-items-center justify-content-end gap-2 read-more btn-primary" href="https://tapifyworld.com/artist-makeup/blog/25" tabindex="0">
  Read More
- <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
- <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
- </path>
- </svg>
- </a>
- </div>
- </div>
- </div>
- </div></div></div><div class=slick-slide data-slick-index=1 aria-hidden=true role=tabpanel id=slick-slide31 style=width:610px aria-describedby=slick-slide-control31 tabindex=-1><div><div style=width:100%;display:inline-block>
- <div class="blog-card card">
- <div class=card-img>
- <a href=https://tapifyworld.com/artist-makeup/blog/26 tabindex=-1>
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-50)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </a>
- </div>
- <div class=card-body>
- <a href=https://tapifyworld.com/artist-makeup/blog/26 tabindex=-1>
- <h2 class="fs-20 text-primary">Bridal Makeup Trends to Watch This Year
+ <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long text-decoration-none" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor">
+</path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</div></div></div><div aria-describedby="slick-slide-control31" aria-hidden="true" class="slick-slide" data-slick-index="1" id="slick-slide31" role="tabpanel" style="width:610px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="blog-card card">
+<div class="card-img">
+<a href="https://tapifyworld.com/artist-makeup/blog/26" tabindex="-1">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-50)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="card-body">
+<a href="https://tapifyworld.com/artist-makeup/blog/26" tabindex="-1">
+<h2 class="fs-20 text-primary">Bridal Makeup Trends to Watch This Year
  </h2>
- </a>
- <p class="text-gray-300 blog-desc mb-2">
+</a>
+<p class="text-gray-300 blog-desc mb-2">
  Break down the hottest bridal looks of the year — dewy skin, soft glam, or bold lips. Add inspiration photos, tips for brides, and a glimpse into your bridal service offerings.
  </p>
- <div class="d-flex align-items-center justify-content-end blog-btn">
- <a href=https://tapifyworld.com/artist-makeup/blog/26 class="d-inline-flex align-items-center justify-content-end gap-2 read-more btn-primary" tabindex=-1>
+<div class="d-flex align-items-center justify-content-end blog-btn">
+<a class="d-inline-flex align-items-center justify-content-end gap-2 read-more btn-primary" href="https://tapifyworld.com/artist-makeup/blog/26" tabindex="-1">
  Read More
- <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
- <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
- </path>
- </svg>
- </a>
- </div>
- </div>
- </div>
- </div></div></div><div class=slick-slide data-slick-index=2 aria-hidden=true role=tabpanel id=slick-slide32 style=width:610px aria-describedby=slick-slide-control32 tabindex=-1><div><div style=width:100%;display:inline-block>
- <div class="blog-card card">
- <div class=card-img>
- <a href=https://tapifyworld.com/artist-makeup/blog/27 tabindex=-1>
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-51)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </a>
- </div>
- <div class=card-body>
- <a href=https://tapifyworld.com/artist-makeup/blog/27 tabindex=-1>
- <h2 class="fs-20 text-primary">Best Lip Colors for Every Skin Tone
+ <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long text-decoration-none" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor">
+</path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</div></div></div><div aria-describedby="slick-slide-control32" aria-hidden="true" class="slick-slide" data-slick-index="2" id="slick-slide32" role="tabpanel" style="width:610px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="blog-card card">
+<div class="card-img">
+<a href="https://tapifyworld.com/artist-makeup/blog/27" tabindex="-1">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-51)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="card-body">
+<a href="https://tapifyworld.com/artist-makeup/blog/27" tabindex="-1">
+<h2 class="fs-20 text-primary">Best Lip Colors for Every Skin Tone
  </h2>
- </a>
- <p class="text-gray-300 blog-desc mb-2">
+</a>
+<p class="text-gray-300 blog-desc mb-2">
  Help your audience pick the perfect lipstick shade based on undertone and occasion. Include swatches or real client examples for extra engagement.
  </p>
- <div class="d-flex align-items-center justify-content-end blog-btn">
- <a href=https://tapifyworld.com/artist-makeup/blog/27 class="d-inline-flex align-items-center justify-content-end gap-2 read-more btn-primary" tabindex=-1>
+<div class="d-flex align-items-center justify-content-end blog-btn">
+<a class="d-inline-flex align-items-center justify-content-end gap-2 read-more btn-primary" href="https://tapifyworld.com/artist-makeup/blog/27" tabindex="-1">
  Read More
- <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
- <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
- </path>
- </svg>
- </a>
- </div>
- </div>
- </div>
- </div></div></div><div class=slick-slide data-slick-index=3 aria-hidden=true role=tabpanel id=slick-slide33 style=width:610px aria-describedby=slick-slide-control33 tabindex=-1><div><div style=width:100%;display:inline-block>
- <div class="blog-card card">
- <div class=card-img>
- <a href=https://tapifyworld.com/artist-makeup/blog/28 tabindex=-1>
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-48)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </a>
- </div>
- <div class=card-body>
- <a href=https://tapifyworld.com/artist-makeup/blog/28 tabindex=-1>
- <h2 class="fs-20 text-primary">How to Prep Your Skin for Flawless Makeup
+ <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long text-decoration-none" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor">
+</path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</div></div></div><div aria-describedby="slick-slide-control33" aria-hidden="true" class="slick-slide" data-slick-index="3" id="slick-slide33" role="tabpanel" style="width:610px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="blog-card card">
+<div class="card-img">
+<a href="https://tapifyworld.com/artist-makeup/blog/28" tabindex="-1">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-48)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="card-body">
+<a href="https://tapifyworld.com/artist-makeup/blog/28" tabindex="-1">
+<h2 class="fs-20 text-primary">How to Prep Your Skin for Flawless Makeup
  </h2>
- </a>
- <p class="text-gray-300 blog-desc mb-2">
+</a>
+<p class="text-gray-300 blog-desc mb-2">
  Educate your audience on the importance of skincare before makeup. Talk about cleansing, moisturizing, priming, and share your favorite pre-makeup skincare steps.
  </p>
- <div class="d-flex align-items-center justify-content-end blog-btn">
- <a href=https://tapifyworld.com/artist-makeup/blog/28 class="d-inline-flex align-items-center justify-content-end gap-2 read-more btn-primary" tabindex=-1>
+<div class="d-flex align-items-center justify-content-end blog-btn">
+<a class="d-inline-flex align-items-center justify-content-end gap-2 read-more btn-primary" href="https://tapifyworld.com/artist-makeup/blog/28" tabindex="-1">
  Read More
- <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
- <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
- </path>
- </svg>
- </a>
- </div>
- </div>
- </div>
- </div></div></div><div class="slick-slide slick-cloned" data-slick-index=4 aria-hidden=true tabindex=-1 style=width:610px><div><div style=width:100%;display:inline-block>
- <div class="blog-card card">
- <div class=card-img>
- <a href=https://tapifyworld.com/artist-makeup/blog/25 tabindex=-1>
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-49)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </a>
- </div>
- <div class=card-body>
- <a href=https://tapifyworld.com/artist-makeup/blog/25 tabindex=-1>
- <h2 class="fs-20 text-primary">Seasonal Makeup Looks
+ <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long text-decoration-none" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor">
+</path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="4" style="width:610px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="blog-card card">
+<div class="card-img">
+<a href="https://tapifyworld.com/artist-makeup/blog/25" tabindex="-1">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-49)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="card-body">
+<a href="https://tapifyworld.com/artist-makeup/blog/25" tabindex="-1">
+<h2 class="fs-20 text-primary">Seasonal Makeup Looks
  </h2>
- </a>
- <p class="text-gray-300 blog-desc mb-2">
+</a>
+<p class="text-gray-300 blog-desc mb-2">
  Highlight makeup trends for the current season (spring pastels, summer glow, fall tones, winter glam). Include product suggestions and mini tutorials to keep readers inspired year-round.
  </p>
- <div class="d-flex align-items-center justify-content-end blog-btn">
- <a href=https://tapifyworld.com/artist-makeup/blog/25 class="d-inline-flex align-items-center justify-content-end gap-2 read-more btn-primary" tabindex=-1>
+<div class="d-flex align-items-center justify-content-end blog-btn">
+<a class="d-inline-flex align-items-center justify-content-end gap-2 read-more btn-primary" href="https://tapifyworld.com/artist-makeup/blog/25" tabindex="-1">
  Read More
- <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
- <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
- </path>
- </svg>
- </a>
- </div>
- </div>
- </div>
- </div></div></div><div class="slick-slide slick-cloned" data-slick-index=5 aria-hidden=true tabindex=-1 style=width:610px><div><div style=width:100%;display:inline-block>
- <div class="blog-card card">
- <div class=card-img>
- <a href=https://tapifyworld.com/artist-makeup/blog/26 tabindex=-1>
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-50)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </a>
- </div>
- <div class=card-body>
- <a href=https://tapifyworld.com/artist-makeup/blog/26 tabindex=-1>
- <h2 class="fs-20 text-primary">Bridal Makeup Trends to Watch This Year
+ <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long text-decoration-none" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor">
+</path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="5" style="width:610px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="blog-card card">
+<div class="card-img">
+<a href="https://tapifyworld.com/artist-makeup/blog/26" tabindex="-1">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-50)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="card-body">
+<a href="https://tapifyworld.com/artist-makeup/blog/26" tabindex="-1">
+<h2 class="fs-20 text-primary">Bridal Makeup Trends to Watch This Year
  </h2>
- </a>
- <p class="text-gray-300 blog-desc mb-2">
+</a>
+<p class="text-gray-300 blog-desc mb-2">
  Break down the hottest bridal looks of the year — dewy skin, soft glam, or bold lips. Add inspiration photos, tips for brides, and a glimpse into your bridal service offerings.
  </p>
- <div class="d-flex align-items-center justify-content-end blog-btn">
- <a href=https://tapifyworld.com/artist-makeup/blog/26 class="d-inline-flex align-items-center justify-content-end gap-2 read-more btn-primary" tabindex=-1>
+<div class="d-flex align-items-center justify-content-end blog-btn">
+<a class="d-inline-flex align-items-center justify-content-end gap-2 read-more btn-primary" href="https://tapifyworld.com/artist-makeup/blog/26" tabindex="-1">
  Read More
- <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
- <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
- </path>
- </svg>
- </a>
- </div>
- </div>
- </div>
- </div></div></div><div class="slick-slide slick-cloned" data-slick-index=6 aria-hidden=true tabindex=-1 style=width:610px><div><div style=width:100%;display:inline-block>
- <div class="blog-card card">
- <div class=card-img>
- <a href=https://tapifyworld.com/artist-makeup/blog/27 tabindex=-1>
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-51)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </a>
- </div>
- <div class=card-body>
- <a href=https://tapifyworld.com/artist-makeup/blog/27 tabindex=-1>
- <h2 class="fs-20 text-primary">Best Lip Colors for Every Skin Tone
+ <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long text-decoration-none" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor">
+</path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="6" style="width:610px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="blog-card card">
+<div class="card-img">
+<a href="https://tapifyworld.com/artist-makeup/blog/27" tabindex="-1">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-51)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="card-body">
+<a href="https://tapifyworld.com/artist-makeup/blog/27" tabindex="-1">
+<h2 class="fs-20 text-primary">Best Lip Colors for Every Skin Tone
  </h2>
- </a>
- <p class="text-gray-300 blog-desc mb-2">
+</a>
+<p class="text-gray-300 blog-desc mb-2">
  Help your audience pick the perfect lipstick shade based on undertone and occasion. Include swatches or real client examples for extra engagement.
  </p>
- <div class="d-flex align-items-center justify-content-end blog-btn">
- <a href=https://tapifyworld.com/artist-makeup/blog/27 class="d-inline-flex align-items-center justify-content-end gap-2 read-more btn-primary" tabindex=-1>
+<div class="d-flex align-items-center justify-content-end blog-btn">
+<a class="d-inline-flex align-items-center justify-content-end gap-2 read-more btn-primary" href="https://tapifyworld.com/artist-makeup/blog/27" tabindex="-1">
  Read More
- <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
- <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
- </path>
- </svg>
- </a>
- </div>
- </div>
- </div>
- </div></div></div><div class="slick-slide slick-cloned" data-slick-index=7 aria-hidden=true tabindex=-1 style=width:610px><div><div style=width:100%;display:inline-block>
- <div class="blog-card card">
- <div class=card-img>
- <a href=https://tapifyworld.com/artist-makeup/blog/28 tabindex=-1>
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="w-100 h-100 object-fit-cover" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-48)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </a>
- </div>
- <div class=card-body>
- <a href=https://tapifyworld.com/artist-makeup/blog/28 tabindex=-1>
- <h2 class="fs-20 text-primary">How to Prep Your Skin for Flawless Makeup
+ <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long text-decoration-none" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor">
+</path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="7" style="width:610px" tabindex="-1"><div><div style="width:100%;display:inline-block">
+<div class="blog-card card">
+<div class="card-img">
+<a href="https://tapifyworld.com/artist-makeup/blog/28" tabindex="-1">
+<img class="w-100 h-100 object-fit-cover" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-48)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</a>
+</div>
+<div class="card-body">
+<a href="https://tapifyworld.com/artist-makeup/blog/28" tabindex="-1">
+<h2 class="fs-20 text-primary">How to Prep Your Skin for Flawless Makeup
  </h2>
- </a>
- <p class="text-gray-300 blog-desc mb-2">
+</a>
+<p class="text-gray-300 blog-desc mb-2">
  Educate your audience on the importance of skincare before makeup. Talk about cleansing, moisturizing, priming, and share your favorite pre-makeup skincare steps.
  </p>
- <div class="d-flex align-items-center justify-content-end blog-btn">
- <a href=https://tapifyworld.com/artist-makeup/blog/28 class="d-inline-flex align-items-center justify-content-end gap-2 read-more btn-primary" tabindex=-1>
+<div class="d-flex align-items-center justify-content-end blog-btn">
+<a class="d-inline-flex align-items-center justify-content-end gap-2 read-more btn-primary" href="https://tapifyworld.com/artist-makeup/blog/28" tabindex="-1">
  Read More
- <svg class="svg-inline--fa fa-arrow-right-long text-decoration-none" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right-long role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg>
- <path fill=currentColor d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z">
- </path>
- </svg>
- </a>
- </div>
- </div>
- </div>
- </div></div></div></div></div><ul class=slick-dots role=tablist><li class=slick-active role=presentation><button type=button role=tab id=slick-slide-control30 aria-controls=slick-slide30 aria-label="1 of 4" tabindex=0 fdprocessedid=dfb5tb aria-selected=true>1</button><li role=presentation><button type=button role=tab id=slick-slide-control31 aria-controls=slick-slide31 aria-label="2 of 4" tabindex=-1>2</button><li role=presentation><button type=button role=tab id=slick-slide-control32 aria-controls=slick-slide32 aria-label="3 of 4" tabindex=-1>3</button><li role=presentation><button type=button role=tab id=slick-slide-control33 aria-controls=slick-slide33 aria-label="4 of 4" tabindex=-1 fdprocessedid=7tpoxi>4</button></ul></div>
- </div>
- </div>
- 
- <div class="testimonial-section pt-50 position-relative">
- <div class="bg-vector position-absolute end-0 top-40 vector3">
- <img src="/images/templates/fashionbeautyx/fas-047.webp" alt=images class=w-100>
- </div>
- <div class=testimonial-vector>
- <img src=/images/templates/fashionbeautyx/fas-048.webp alt=testimonial-vector class=w-100>
- </div>
- <div class="section-heading text-center">
- <h2 class="text-center mb-0 text-primary"> Testimonials</h2>
- <div class="d-flex align-items-center justify-content-center gap-2">
- <span class=d-block></span>
- <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 100 100"><path d="M1,50L50,1l49,49L50,99L1,50z M50,31.6c-4.9,0-9.5,1.9-13,5.4c-3.5,3.5-5.4,8.1-5.4,13c0,10.1,8.2,18.4,18.4,18.4 c4.9,0,9.5-1.9,13-5.4c3.5-3.5,5.4-8.1,5.4-13s-1.9-9.5-5.4-13C59.5,33.5,54.9,31.6,50,31.6z"></path></svg>
- <span class=d-block></span>
- </div>
- </div>
- <div class="testimonial-slider"><?php foreach ((isset($__te)?$__te:($testimonials ?? [])) as $t): ?><div class="px-2"><div class="testimonial-card p-0"><div class="card-body text-center position-relative"><div class="text-center"><p class="text-gray mb-0">“<?= htmlspecialchars($t["message"] ?? "") ?>”</p></div></div><div class="d-flex flex-column align-items-center justify-content-center gap-2 profile-desc"><?php if(!empty($t["image"])): ?><div class="card-img" style="width:60px;height:60px;border-radius:50%;overflow:hidden;"><img src="<?= htmlspecialchars(imgUrl($t["image"])) ?>" class="w-100 h-100 object-fit-cover"></div><?php endif; ?><h5 class="fw-6 mb-0"><?= htmlspecialchars($t["author_name"] ?? ($t["author"] ?? "")) ?></h5></div></div></div><?php endforeach; ?></div>
- </div>
- 
- <div class="qr-code-section pt-50 position-relative">
- <div class="bg-vector position-absolute left-10 top-40">
- <img src="/images/templates/fashionbeautyx/fas-049.webp" alt=images class=w-100>
- </div>
- <div class="bg-vector position-absolute end-0 top-0 text-end">
- <img src=/images/templates/fashionbeautyx/fas-050.webp alt=images class=w-100>
- </div>
- <div class=px-30>
- <div class="section-heading text-center">
- <h2 class="text-primary mb-0">QR Code</h2>
- <div class="d-flex align-items-center justify-content-center gap-2">
- <span class=d-block></span>
- <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 100 100"><path d="M1,50L50,1l49,49L50,99L1,50z M50,31.6c-4.9,0-9.5,1.9-13,5.4c-3.5,3.5-5.4,8.1-5.4,13c0,10.1,8.2,18.4,18.4,18.4 c4.9,0,9.5-1.9,13-5.4c3.5-3.5,5.4-8.1,5.4-13s-1.9-9.5-5.4-13C59.5,33.5,54.9,31.6,50,31.6z"></path></svg>
- <span class=d-block></span>
- </div>
- </div>
- <div class="qr-code mx-auto position-relative">
- <div class="d-flex flex-sm-row flex-column gap-3 position-relative z-1 align-items-center">
- <div class="qr-code-img text-center" id=qr-code-thirtysix>
- 
-<svg xmlns=http://www.w3.org/2000/svg version=1.1 width=130 height=130 viewBox="0 0 130 130"><rect x=0 y=0 width=130 height=130 fill=#ffffff></rect><g transform=scale(4.483)><g transform=translate(0,0)><path fill-rule=evenodd d="M8 0L8 1L10 1L10 0ZM14 0L14 2L11 2L11 4L10 4L10 3L9 3L9 2L8 2L8 5L9 5L9 6L8 6L8 7L9 7L9 8L8 8L8 9L7 9L7 8L6 8L6 9L7 9L7 10L5 10L5 11L4 11L4 8L0 8L0 9L1 9L1 10L0 10L0 11L1 11L1 10L3 10L3 11L2 11L2 12L1 12L1 14L0 14L0 16L1 16L1 18L0 18L0 19L1 19L1 18L2 18L2 19L4 19L4 21L7 21L7 20L5 20L5 19L4 19L4 18L2 18L2 17L3 17L3 16L4 16L4 17L5 17L5 18L6 18L6 19L7 19L7 18L6 18L6 17L8 17L8 16L9 16L9 18L8 18L8 19L9 19L9 18L11 18L11 19L12 19L12 20L11 20L11 21L12 21L12 22L10 22L10 20L9 20L9 21L8 21L8 22L10 22L10 23L14 23L14 22L15 22L15 21L16 21L16 23L18 23L18 24L17 24L17 26L16 26L16 25L15 25L15 24L14 24L14 26L13 26L13 24L12 24L12 25L11 25L11 24L10 24L10 25L11 25L11 28L12 28L12 29L13 29L13 28L12 28L12 26L13 26L13 27L14 27L14 29L15 29L15 28L16 28L16 29L17 29L17 27L18 27L18 26L19 26L19 28L18 28L18 29L23 29L23 27L24 27L24 28L25 28L25 29L26 29L26 27L27 27L27 29L28 29L28 27L29 27L29 25L28 25L28 27L27 27L27 26L26 26L26 25L27 25L27 24L29 24L29 23L28 23L28 22L29 22L29 21L27 21L27 18L28 18L28 15L29 15L29 13L27 13L27 12L25 12L25 11L24 11L24 12L25 12L25 13L26 13L26 15L27 15L27 17L26 17L26 16L25 16L25 15L24 15L24 17L23 17L23 19L21 19L21 20L20 20L20 22L19 22L19 20L18 20L18 19L17 19L17 18L16 18L16 17L15 17L15 19L16 19L16 20L15 20L15 21L14 21L14 20L13 20L13 18L14 18L14 17L12 17L12 16L14 16L14 15L15 15L15 16L16 16L16 15L15 15L15 14L17 14L17 15L18 15L18 18L19 18L19 15L20 15L20 18L22 18L22 16L21 16L21 15L20 15L20 14L23 14L23 13L20 13L20 12L21 12L21 11L22 11L22 10L25 10L25 9L27 9L27 8L24 8L24 9L22 9L22 8L21 8L21 5L20 5L20 3L21 3L21 2L20 2L20 3L19 3L19 1L21 1L21 0L16 0L16 2L18 2L18 3L15 3L15 4L13 4L13 5L12 5L12 3L14 3L14 2L15 2L15 0ZM17 4L17 5L15 5L15 9L13 9L13 7L14 7L14 5L13 5L13 7L12 7L12 5L10 5L10 6L9 6L9 7L10 7L10 8L9 8L9 9L8 9L8 10L7 10L7 11L5 11L5 12L4 12L4 13L6 13L6 14L3 14L3 15L6 15L6 16L7 16L7 15L6 15L6 14L7 14L7 13L8 13L8 15L9 15L9 16L10 16L10 17L11 17L11 18L12 18L12 17L11 17L11 16L12 16L12 14L13 14L13 15L14 15L14 14L15 14L15 13L17 13L17 12L18 12L18 13L19 13L19 12L20 12L20 10L18 10L18 9L17 9L17 10L18 10L18 11L17 11L17 12L12 12L12 14L11 14L11 15L9 15L9 14L10 14L10 13L11 13L11 11L14 11L14 10L15 10L15 11L16 11L16 6L17 6L17 7L18 7L18 6L17 6L17 5L19 5L19 4ZM10 6L10 7L11 7L11 8L12 8L12 7L11 7L11 6ZM19 6L19 7L20 7L20 6ZM20 8L20 9L21 9L21 8ZM28 8L28 10L26 10L26 11L28 11L28 12L29 12L29 11L28 11L28 10L29 10L29 8ZM9 9L9 10L10 10L10 9ZM18 11L18 12L19 12L19 11ZM6 12L6 13L7 13L7 12ZM9 12L9 13L10 13L10 12ZM13 13L13 14L14 14L14 13ZM1 14L1 15L2 15L2 14ZM18 14L18 15L19 15L19 14ZM24 17L24 18L25 18L25 19L24 19L24 20L26 20L26 18L25 18L25 17ZM1 20L1 21L3 21L3 20ZM21 21L21 24L24 24L24 21ZM18 22L18 23L19 23L19 24L18 24L18 25L19 25L19 26L20 26L20 27L21 27L21 28L22 28L22 27L23 27L23 25L22 25L22 26L21 26L21 25L20 25L20 23L19 23L19 22ZM22 22L22 23L23 23L23 22ZM26 22L26 24L25 24L25 25L26 25L26 24L27 24L27 22ZM8 25L8 29L10 29L10 26L9 26L9 25ZM14 26L14 27L16 27L16 26ZM24 26L24 27L26 27L26 26ZM0 0L0 7L7 7L7 0ZM1 1L1 6L6 6L6 1ZM2 2L2 5L5 5L5 2ZM22 0L22 7L29 7L29 0ZM23 1L23 6L28 6L28 1ZM24 2L24 5L27 5L27 2ZM0 22L0 29L7 29L7 22ZM1 23L1 28L6 28L6 23ZM2 24L2 27L5 27L5 24Z" fill=#000000></path></g></g></svg>
- </div>
- <div class="text-center text-sm-start">
- <h5 class="fw-6 text-primary">Scan to Contact</h5>
- <p class="fs-14 text-gray-100 mb-0">Point your phone’s camera at the QR code to quickly add our contact information. You can also use the "Add to Contacts" button below for fast saving.</p>
- </div>
- </div>
- </div>
- </div>
- </div>
- 
- <?php if(!empty($businessHours)): ?><div class="business-hour-section pt-50 px-30 position-relative"><div class="section-heading"><h2>Business Hours</h2></div><div class="px-30"><div class="row justify-content-center"><?php foreach ((isset($__bh)?$__bh:($businessHours ?? [])) as $bh): ?><div class="col-sm-6"><div class="business-hour-card d-flex gap-2 align-items-center mb-3"><div class="time-icon"><i class="bi bi-clock fs-3"></i></div><div class="d-flex flex-column align-items-start"><span class="fs-14 text-gray lh-1 fw-5"><?= htmlspecialchars(ucfirst(strtolower($bh["day_name"] ?? ""))) ?></span><span class="fs-16 fw-5"><?= !empty($bh["is_open"]) ? htmlspecialchars(trim(($bh["open_time"] ?? "")." - ".($bh["close_time"] ?? ""))) : "Closed" ?></span></div></div></div><?php endforeach; ?></div></div></div><?php endif; ?>
- 
- 
- <div class="contact-us-section pt-50 px-30 position-relative">
- <div class="bg-vector position-absolute end-0 text-end top-40">
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=images class=w-100 style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-61)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="bg-vector position-absolute start-0 top-0">
- <img src="/images/templates/fashionbeautyx/fas-051.webp" alt=images class=w-100>
- </div>
- <div class="section-heading text-center">
- <h2 class="text-primary text-center mb-0">Inquiries</h2>
- <div class="d-flex align-items-center justify-content-center gap-2">
- <span class=d-block></span>
- <svg xmlns=http://www.w3.org/2000/svg viewBox="0 0 100 100"><path d="M1,50L50,1l49,49L50,99L1,50z M50,31.6c-4.9,0-9.5,1.9-13,5.4c-3.5,3.5-5.4,8.1-5.4,13c0,10.1,8.2,18.4,18.4,18.4 c4.9,0,9.5-1.9,13-5.4c3.5-3.5,5.4-8.1,5.4-13s-1.9-9.5-5.4-13C59.5,33.5,54.9,31.6,50,31.6z"></path></svg>
- <span class=d-block></span>
- </div>
- </div>
- <div class="contact-form position-relative">
- <form id="enquiryForm" onsubmit="tfSubmitInquiry(event)" enctype="multipart/form-data"><input type="hidden" name="vcard_id" value="<?= $vcardId ?>"><label class="w-100 mb-2" style="display:block;text-align:left"><span style="font-size:13px;opacity:.85">Attachment (optional)</span><input type="file" name="attachment" class="form-control" accept="image/*,.pdf" style="margin-top:4px"></label>
- <div class=row>
- <div id=enquiryError class="alert alert-danger d-none sf-hidden"></div>
- <div class=col-12>
- <input type=text class=form-control name=name placeholder="Your Name" fdprocessedid=6dvn7k value>
- </div>
- <div class=col-12>
- <input type=email class=form-control name=email placeholder="Email Address" fdprocessedid=ckxn1s value>
- </div>
- <div class=col-12>
- <input type=tel class=form-control name=phone placeholder="Enter Phone Number" fdprocessedid=ecquab value>
- </div>
- <div class=col-12>
- <textarea class="form-control h-100" name=message placeholder="Type a message here..." rows=3></textarea>
- </div>
- <div class=mt-3>
- <div class=wrapper-file-input>
- <div class=input-box id=fileInputTrigger>
- <h4 class=text-primary> <svg class="svg-inline--fa fa-upload me-2" aria-hidden=true focusable=false data-prefix=fas data-icon=upload role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M105.4 182.6c12.5 12.49 32.76 12.5 45.25 .001L224 109.3V352c0 17.67 14.33 32 32 32c17.67 0 32-14.33 32-32V109.3l73.38 73.38c12.49 12.49 32.75 12.49 45.25-.001c12.49-12.49 12.49-32.75 0-45.25l-128-128C272.4 3.125 264.2 0 256 0S239.6 3.125 233.4 9.375L105.4 137.4C92.88 149.9 92.88 170.1 105.4 182.6zM480 352h-160c0 35.35-28.65 64-64 64s-64-28.65-64-64H32c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h448c17.67 0 32-14.33 32-32v-96C512 366.3 497.7 352 480 352zM432 456c-13.2 0-24-10.8-24-24c0-13.2 10.8-24 24-24s24 10.8 24 24C456 445.2 445.2 456 432 456z"></path></svg>Choose File to upload
- </h4> <input type=file id=attachment name=attachment hidden multiple value class=sf-hidden>
- </div> <small class=text-black>Files Supported: JPG, PNG, JPEG</small>
- </div>
- <div class=wrapper-file-section>
- <div class=selected-files id=selectedFilesSection style=display:none>
- 
- 
- </div>
- </div>
- </div>
- <div class="col-12 text-center mt-1">
- <button class="contact-btn save-btn btn btn-primary" type=submit fdprocessedid=osajhn>
+ <svg aria-hidden="true" class="svg-inline--fa fa-arrow-right-long text-decoration-none" data-fa-i2svg="" data-icon="arrow-right-long" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<path d="M502.6 278.6l-128 128c-12.51 12.51-32.76 12.49-45.25 0c-12.5-12.5-12.5-32.75 0-45.25L402.8 288H32C14.31 288 0 273.7 0 255.1S14.31 224 32 224h370.8l-73.38-73.38c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l128 128C515.1 245.9 515.1 266.1 502.6 278.6z" fill="currentColor">
+</path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</div></div></div></div></div><ul class="slick-dots" role="tablist"><li class="slick-active" role="presentation"><button aria-controls="slick-slide30" aria-label="1 of 4" aria-selected="true" fdprocessedid="dfb5tb" id="slick-slide-control30" role="tab" tabindex="0" type="button">1</button><li role="presentation"><button aria-controls="slick-slide31" aria-label="2 of 4" id="slick-slide-control31" role="tab" tabindex="-1" type="button">2</button><li role="presentation"><button aria-controls="slick-slide32" aria-label="3 of 4" id="slick-slide-control32" role="tab" tabindex="-1" type="button">3</button><li role="presentation"><button aria-controls="slick-slide33" aria-label="4 of 4" fdprocessedid="7tpoxi" id="slick-slide-control33" role="tab" tabindex="-1" type="button">4</button></li></li></li></li></ul></div>
+</div>
+</div>
+<div class="testimonial-section pt-50 position-relative">
+<div class="bg-vector position-absolute end-0 top-40 vector3">
+<img alt="images" class="w-100" src="/images/templates/fashionbeautyxxxxxx/fas-047.webp"/>
+</div>
+<div class="testimonial-vector">
+<img alt="testimonial-vector" class="w-100" src="/images/templates/fashionbeautyxxxxxx/fas-048.webp"/>
+</div>
+<div class="section-heading text-center">
+<h2 class="text-center mb-0 text-primary"> Testimonials</h2>
+<div class="d-flex align-items-center justify-content-center gap-2">
+<span class="d-block"></span>
+<svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M1,50L50,1l49,49L50,99L1,50z M50,31.6c-4.9,0-9.5,1.9-13,5.4c-3.5,3.5-5.4,8.1-5.4,13c0,10.1,8.2,18.4,18.4,18.4 c4.9,0,9.5-1.9,13-5.4c3.5-3.5,5.4-8.1,5.4-13s-1.9-9.5-5.4-13C59.5,33.5,54.9,31.6,50,31.6z"></path></svg>
+<span class="d-block"></span>
+</div>
+</div>
+<div class="testimonial-slider mb-0 px-20 slick-initialized slick-slider slick-dotted"><div class="slick-list draggable"><div class="slick-track" style="opacity:1;width:5670px;transform:translate3d(-630px,0px,0px)"><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="-1" style="width:630px" tabindex="-1"><div><div class="testimonial-card card flex-row align-items-center gap-5 d-flex" style="width:100%;display:inline-block">
+<div class="main-testimonial-img">
+<div class="quote-left-img quote-img">
+<svg aria-hidden="true" class="svg-inline--fa fa-quote-left text-white fs-3" data-fa-i2svg="" data-icon="quote-left" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M96 224C84.72 224 74.05 226.3 64 229.9V224c0-35.3 28.7-64 64-64c17.67 0 32-14.33 32-32S145.7 96 128 96C57.42 96 0 153.4 0 224v96c0 53.02 42.98 96 96 96s96-42.98 96-96S149 224 96 224zM352 224c-11.28 0-21.95 2.305-32 5.879V224c0-35.3 28.7-64 64-64c17.67 0 32-14.33 32-32s-14.33-32-32-32c-70.58 0-128 57.42-128 128v96c0 53.02 42.98 96 96 96s96-42.98 96-96S405 224 352 224z" fill="currentColor"></path></svg>
+</div>
+<div class="testimonial-profile-img">
+<img class="w-100 h-100 object-fit-cover rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-54)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="quote-right-img quote-img">
+<svg aria-hidden="true" class="svg-inline--fa fa-quote-right text-white fs-3" data-fa-i2svg="" data-icon="quote-right" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M96 96C42.98 96 0 138.1 0 192s42.98 96 96 96c11.28 0 21.95-2.305 32-5.879V288c0 35.3-28.7 64-64 64c-17.67 0-32 14.33-32 32s14.33 32 32 32c70.58 0 128-57.42 128-128V192C192 138.1 149 96 96 96zM448 192c0-53.02-42.98-96-96-96s-96 42.98-96 96s42.98 96 96 96c11.28 0 21.95-2.305 32-5.879V288c0 35.3-28.7 64-64 64c-17.67 0-32 14.33-32 32s14.33 32 32 32c70.58 0 128-57.42 128-128V192z" fill="currentColor"></path></svg>
+</div>
+</div>
+<div class="card-body p-0">
+<div class="text-center testi-desc mt-4 p-2">
+<h3 class="text-primary fs-20 mb-3">Neha Singh </h3>
+<p class="desc text-black mb-0 more">
+ The store has everything a makeup lover could dream of. From foundation to false lashes – all top-notch. The staff helped me pick the perfect shades too!
+ </p>
+</div>
+</div>
+</div></div></div><div aria-describedby="slick-slide-control20" aria-hidden="false" class="slick-slide slick-current slick-active" data-slick-index="0" id="slick-slide20" role="tabpanel" style="width:630px"><div><div class="testimonial-card card flex-row align-items-center gap-5 d-flex" style="width:100%;display:inline-block">
+<div class="main-testimonial-img">
+<div class="quote-left-img quote-img">
+<svg aria-hidden="true" class="svg-inline--fa fa-quote-left text-white fs-3" data-fa-i2svg="" data-icon="quote-left" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M96 224C84.72 224 74.05 226.3 64 229.9V224c0-35.3 28.7-64 64-64c17.67 0 32-14.33 32-32S145.7 96 128 96C57.42 96 0 153.4 0 224v96c0 53.02 42.98 96 96 96s96-42.98 96-96S149 224 96 224zM352 224c-11.28 0-21.95 2.305-32 5.879V224c0-35.3 28.7-64 64-64c17.67 0 32-14.33 32-32s-14.33-32-32-32c-70.58 0-128 57.42-128 128v96c0 53.02 42.98 96 96 96s96-42.98 96-96S405 224 352 224z" fill="currentColor"></path></svg>
+</div>
+<div class="testimonial-profile-img">
+<img class="w-100 h-100 object-fit-cover rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-55)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="quote-right-img quote-img">
+<svg aria-hidden="true" class="svg-inline--fa fa-quote-right text-white fs-3" data-fa-i2svg="" data-icon="quote-right" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M96 96C42.98 96 0 138.1 0 192s42.98 96 96 96c11.28 0 21.95-2.305 32-5.879V288c0 35.3-28.7 64-64 64c-17.67 0-32 14.33-32 32s14.33 32 32 32c70.58 0 128-57.42 128-128V192C192 138.1 149 96 96 96zM448 192c0-53.02-42.98-96-96-96s-96 42.98-96 96s42.98 96 96 96c11.28 0 21.95-2.305 32-5.879V288c0 35.3-28.7 64-64 64c-17.67 0-32 14.33-32 32s14.33 32 32 32c70.58 0 128-57.42 128-128V192z" fill="currentColor"></path></svg>
+</div>
+</div>
+<div class="card-body p-0">
+<div class="text-center testi-desc mt-4 p-2">
+<h3 class="text-primary fs-20 mb-3">Riya Sharma </h3>
+<p class="desc text-black mb-0 more">
+ Absolutely loved my makeover! The products were high quality, and the artist was super professional. I felt like a queen on my big day!
+ </p>
+</div>
+</div>
+</div></div></div><div aria-describedby="slick-slide-control21" aria-hidden="true" class="slick-slide" data-slick-index="1" id="slick-slide21" role="tabpanel" style="width:630px" tabindex="-1"><div><div class="testimonial-card card flex-row align-items-center gap-5 d-flex" style="width:100%;display:inline-block">
+<div class="main-testimonial-img">
+<div class="quote-left-img quote-img">
+<svg aria-hidden="true" class="svg-inline--fa fa-quote-left text-white fs-3" data-fa-i2svg="" data-icon="quote-left" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M96 224C84.72 224 74.05 226.3 64 229.9V224c0-35.3 28.7-64 64-64c17.67 0 32-14.33 32-32S145.7 96 128 96C57.42 96 0 153.4 0 224v96c0 53.02 42.98 96 96 96s96-42.98 96-96S149 224 96 224zM352 224c-11.28 0-21.95 2.305-32 5.879V224c0-35.3 28.7-64 64-64c17.67 0 32-14.33 32-32s-14.33-32-32-32c-70.58 0-128 57.42-128 128v96c0 53.02 42.98 96 96 96s96-42.98 96-96S405 224 352 224z" fill="currentColor"></path></svg>
+</div>
+<div class="testimonial-profile-img">
+<img class="w-100 h-100 object-fit-cover rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-56)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="quote-right-img quote-img">
+<svg aria-hidden="true" class="svg-inline--fa fa-quote-right text-white fs-3" data-fa-i2svg="" data-icon="quote-right" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M96 96C42.98 96 0 138.1 0 192s42.98 96 96 96c11.28 0 21.95-2.305 32-5.879V288c0 35.3-28.7 64-64 64c-17.67 0-32 14.33-32 32s14.33 32 32 32c70.58 0 128-57.42 128-128V192C192 138.1 149 96 96 96zM448 192c0-53.02-42.98-96-96-96s-96 42.98-96 96s42.98 96 96 96c11.28 0 21.95-2.305 32-5.879V288c0 35.3-28.7 64-64 64c-17.67 0-32 14.33-32 32s14.33 32 32 32c70.58 0 128-57.42 128-128V192z" fill="currentColor"></path></svg>
+</div>
+</div>
+<div class="card-body p-0">
+<div class="text-center testi-desc mt-4 p-2">
+<h3 class="text-primary fs-20 mb-3">Ankita Verma </h3>
+<p class="desc text-black mb-0 more">
+ Their makeup artists are magicians! I got so many compliments at my party. Book in advance because they’re always in demand.
+ </p>
+</div>
+</div>
+</div></div></div><div aria-describedby="slick-slide-control22" aria-hidden="true" class="slick-slide" data-slick-index="2" id="slick-slide22" role="tabpanel" style="width:630px" tabindex="-1"><div><div class="testimonial-card card flex-row align-items-center gap-5 d-flex" style="width:100%;display:inline-block">
+<div class="main-testimonial-img">
+<div class="quote-left-img quote-img">
+<svg aria-hidden="true" class="svg-inline--fa fa-quote-left text-white fs-3" data-fa-i2svg="" data-icon="quote-left" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M96 224C84.72 224 74.05 226.3 64 229.9V224c0-35.3 28.7-64 64-64c17.67 0 32-14.33 32-32S145.7 96 128 96C57.42 96 0 153.4 0 224v96c0 53.02 42.98 96 96 96s96-42.98 96-96S149 224 96 224zM352 224c-11.28 0-21.95 2.305-32 5.879V224c0-35.3 28.7-64 64-64c17.67 0 32-14.33 32-32s-14.33-32-32-32c-70.58 0-128 57.42-128 128v96c0 53.02 42.98 96 96 96s96-42.98 96-96S405 224 352 224z" fill="currentColor"></path></svg>
+</div>
+<div class="testimonial-profile-img">
+<img class="w-100 h-100 object-fit-cover rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-57)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="quote-right-img quote-img">
+<svg aria-hidden="true" class="svg-inline--fa fa-quote-right text-white fs-3" data-fa-i2svg="" data-icon="quote-right" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M96 96C42.98 96 0 138.1 0 192s42.98 96 96 96c11.28 0 21.95-2.305 32-5.879V288c0 35.3-28.7 64-64 64c-17.67 0-32 14.33-32 32s14.33 32 32 32c70.58 0 128-57.42 128-128V192C192 138.1 149 96 96 96zM448 192c0-53.02-42.98-96-96-96s-96 42.98-96 96s42.98 96 96 96c11.28 0 21.95-2.305 32-5.879V288c0 35.3-28.7 64-64 64c-17.67 0-32 14.33-32 32s14.33 32 32 32c70.58 0 128-57.42 128-128V192z" fill="currentColor"></path></svg>
+</div>
+</div>
+<div class="card-body p-0">
+<div class="text-center testi-desc mt-4 p-2">
+<h3 class="text-primary fs-20 mb-3">Aarushi Mehta </h3>
+<p class="desc text-black mb-0 more">
+ I’m new to makeup, but they made it easy. The artist showed me how to use each product, and now I feel confident doing my own glam.
+ </p>
+</div>
+</div>
+</div></div></div><div aria-describedby="slick-slide-control23" aria-hidden="true" class="slick-slide" data-slick-index="3" id="slick-slide23" role="tabpanel" style="width:630px" tabindex="-1"><div><div class="testimonial-card card flex-row align-items-center gap-5 d-flex" style="width:100%;display:inline-block">
+<div class="main-testimonial-img">
+<div class="quote-left-img quote-img">
+<svg aria-hidden="true" class="svg-inline--fa fa-quote-left text-white fs-3" data-fa-i2svg="" data-icon="quote-left" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M96 224C84.72 224 74.05 226.3 64 229.9V224c0-35.3 28.7-64 64-64c17.67 0 32-14.33 32-32S145.7 96 128 96C57.42 96 0 153.4 0 224v96c0 53.02 42.98 96 96 96s96-42.98 96-96S149 224 96 224zM352 224c-11.28 0-21.95 2.305-32 5.879V224c0-35.3 28.7-64 64-64c17.67 0 32-14.33 32-32s-14.33-32-32-32c-70.58 0-128 57.42-128 128v96c0 53.02 42.98 96 96 96s96-42.98 96-96S405 224 352 224z" fill="currentColor"></path></svg>
+</div>
+<div class="testimonial-profile-img">
+<img class="w-100 h-100 object-fit-cover rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-54)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="quote-right-img quote-img">
+<svg aria-hidden="true" class="svg-inline--fa fa-quote-right text-white fs-3" data-fa-i2svg="" data-icon="quote-right" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M96 96C42.98 96 0 138.1 0 192s42.98 96 96 96c11.28 0 21.95-2.305 32-5.879V288c0 35.3-28.7 64-64 64c-17.67 0-32 14.33-32 32s14.33 32 32 32c70.58 0 128-57.42 128-128V192C192 138.1 149 96 96 96zM448 192c0-53.02-42.98-96-96-96s-96 42.98-96 96s42.98 96 96 96c11.28 0 21.95-2.305 32-5.879V288c0 35.3-28.7 64-64 64c-17.67 0-32 14.33-32 32s14.33 32 32 32c70.58 0 128-57.42 128-128V192z" fill="currentColor"></path></svg>
+</div>
+</div>
+<div class="card-body p-0">
+<div class="text-center testi-desc mt-4 p-2">
+<h3 class="text-primary fs-20 mb-3">Neha Singh </h3>
+<p class="desc text-black mb-0 more">
+ The store has everything a makeup lover could dream of. From foundation to false lashes – all top-notch. The staff helped me pick the perfect shades too!
+ </p>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="4" style="width:630px" tabindex="-1"><div><div class="testimonial-card card flex-row align-items-center gap-5 d-flex" style="width:100%;display:inline-block">
+<div class="main-testimonial-img">
+<div class="quote-left-img quote-img">
+<svg aria-hidden="true" class="svg-inline--fa fa-quote-left text-white fs-3" data-fa-i2svg="" data-icon="quote-left" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M96 224C84.72 224 74.05 226.3 64 229.9V224c0-35.3 28.7-64 64-64c17.67 0 32-14.33 32-32S145.7 96 128 96C57.42 96 0 153.4 0 224v96c0 53.02 42.98 96 96 96s96-42.98 96-96S149 224 96 224zM352 224c-11.28 0-21.95 2.305-32 5.879V224c0-35.3 28.7-64 64-64c17.67 0 32-14.33 32-32s-14.33-32-32-32c-70.58 0-128 57.42-128 128v96c0 53.02 42.98 96 96 96s96-42.98 96-96S405 224 352 224z" fill="currentColor"></path></svg>
+</div>
+<div class="testimonial-profile-img">
+<img class="w-100 h-100 object-fit-cover rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-55)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="quote-right-img quote-img">
+<svg aria-hidden="true" class="svg-inline--fa fa-quote-right text-white fs-3" data-fa-i2svg="" data-icon="quote-right" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M96 96C42.98 96 0 138.1 0 192s42.98 96 96 96c11.28 0 21.95-2.305 32-5.879V288c0 35.3-28.7 64-64 64c-17.67 0-32 14.33-32 32s14.33 32 32 32c70.58 0 128-57.42 128-128V192C192 138.1 149 96 96 96zM448 192c0-53.02-42.98-96-96-96s-96 42.98-96 96s42.98 96 96 96c11.28 0 21.95-2.305 32-5.879V288c0 35.3-28.7 64-64 64c-17.67 0-32 14.33-32 32s14.33 32 32 32c70.58 0 128-57.42 128-128V192z" fill="currentColor"></path></svg>
+</div>
+</div>
+<div class="card-body p-0">
+<div class="text-center testi-desc mt-4 p-2">
+<h3 class="text-primary fs-20 mb-3">Riya Sharma </h3>
+<p class="desc text-black mb-0 more">
+ Absolutely loved my makeover! The products were high quality, and the artist was super professional. I felt like a queen on my big day!
+ </p>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="5" style="width:630px" tabindex="-1"><div><div class="testimonial-card card flex-row align-items-center gap-5 d-flex" style="width:100%;display:inline-block">
+<div class="main-testimonial-img">
+<div class="quote-left-img quote-img">
+<svg aria-hidden="true" class="svg-inline--fa fa-quote-left text-white fs-3" data-fa-i2svg="" data-icon="quote-left" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M96 224C84.72 224 74.05 226.3 64 229.9V224c0-35.3 28.7-64 64-64c17.67 0 32-14.33 32-32S145.7 96 128 96C57.42 96 0 153.4 0 224v96c0 53.02 42.98 96 96 96s96-42.98 96-96S149 224 96 224zM352 224c-11.28 0-21.95 2.305-32 5.879V224c0-35.3 28.7-64 64-64c17.67 0 32-14.33 32-32s-14.33-32-32-32c-70.58 0-128 57.42-128 128v96c0 53.02 42.98 96 96 96s96-42.98 96-96S405 224 352 224z" fill="currentColor"></path></svg>
+</div>
+<div class="testimonial-profile-img">
+<img class="w-100 h-100 object-fit-cover rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-56)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="quote-right-img quote-img">
+<svg aria-hidden="true" class="svg-inline--fa fa-quote-right text-white fs-3" data-fa-i2svg="" data-icon="quote-right" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M96 96C42.98 96 0 138.1 0 192s42.98 96 96 96c11.28 0 21.95-2.305 32-5.879V288c0 35.3-28.7 64-64 64c-17.67 0-32 14.33-32 32s14.33 32 32 32c70.58 0 128-57.42 128-128V192C192 138.1 149 96 96 96zM448 192c0-53.02-42.98-96-96-96s-96 42.98-96 96s42.98 96 96 96c11.28 0 21.95-2.305 32-5.879V288c0 35.3-28.7 64-64 64c-17.67 0-32 14.33-32 32s14.33 32 32 32c70.58 0 128-57.42 128-128V192z" fill="currentColor"></path></svg>
+</div>
+</div>
+<div class="card-body p-0">
+<div class="text-center testi-desc mt-4 p-2">
+<h3 class="text-primary fs-20 mb-3">Ankita Verma </h3>
+<p class="desc text-black mb-0 more">
+ Their makeup artists are magicians! I got so many compliments at my party. Book in advance because they’re always in demand.
+ </p>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="6" style="width:630px" tabindex="-1"><div><div class="testimonial-card card flex-row align-items-center gap-5 d-flex" style="width:100%;display:inline-block">
+<div class="main-testimonial-img">
+<div class="quote-left-img quote-img">
+<svg aria-hidden="true" class="svg-inline--fa fa-quote-left text-white fs-3" data-fa-i2svg="" data-icon="quote-left" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M96 224C84.72 224 74.05 226.3 64 229.9V224c0-35.3 28.7-64 64-64c17.67 0 32-14.33 32-32S145.7 96 128 96C57.42 96 0 153.4 0 224v96c0 53.02 42.98 96 96 96s96-42.98 96-96S149 224 96 224zM352 224c-11.28 0-21.95 2.305-32 5.879V224c0-35.3 28.7-64 64-64c17.67 0 32-14.33 32-32s-14.33-32-32-32c-70.58 0-128 57.42-128 128v96c0 53.02 42.98 96 96 96s96-42.98 96-96S405 224 352 224z" fill="currentColor"></path></svg>
+</div>
+<div class="testimonial-profile-img">
+<img class="w-100 h-100 object-fit-cover rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-57)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="quote-right-img quote-img">
+<svg aria-hidden="true" class="svg-inline--fa fa-quote-right text-white fs-3" data-fa-i2svg="" data-icon="quote-right" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M96 96C42.98 96 0 138.1 0 192s42.98 96 96 96c11.28 0 21.95-2.305 32-5.879V288c0 35.3-28.7 64-64 64c-17.67 0-32 14.33-32 32s14.33 32 32 32c70.58 0 128-57.42 128-128V192C192 138.1 149 96 96 96zM448 192c0-53.02-42.98-96-96-96s-96 42.98-96 96s42.98 96 96 96c11.28 0 21.95-2.305 32-5.879V288c0 35.3-28.7 64-64 64c-17.67 0-32 14.33-32 32s14.33 32 32 32c70.58 0 128-57.42 128-128V192z" fill="currentColor"></path></svg>
+</div>
+</div>
+<div class="card-body p-0">
+<div class="text-center testi-desc mt-4 p-2">
+<h3 class="text-primary fs-20 mb-3">Aarushi Mehta </h3>
+<p class="desc text-black mb-0 more">
+ I’m new to makeup, but they made it easy. The artist showed me how to use each product, and now I feel confident doing my own glam.
+ </p>
+</div>
+</div>
+</div></div></div><div aria-hidden="true" class="slick-slide slick-cloned" data-slick-index="7" style="width:630px" tabindex="-1"><div><div class="testimonial-card card flex-row align-items-center gap-5 d-flex" style="width:100%;display:inline-block">
+<div class="main-testimonial-img">
+<div class="quote-left-img quote-img">
+<svg aria-hidden="true" class="svg-inline--fa fa-quote-left text-white fs-3" data-fa-i2svg="" data-icon="quote-left" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M96 224C84.72 224 74.05 226.3 64 229.9V224c0-35.3 28.7-64 64-64c17.67 0 32-14.33 32-32S145.7 96 128 96C57.42 96 0 153.4 0 224v96c0 53.02 42.98 96 96 96s96-42.98 96-96S149 224 96 224zM352 224c-11.28 0-21.95 2.305-32 5.879V224c0-35.3 28.7-64 64-64c17.67 0 32-14.33 32-32s-14.33-32-32-32c-70.58 0-128 57.42-128 128v96c0 53.02 42.98 96 96 96s96-42.98 96-96S405 224 352 224z" fill="currentColor"></path></svg>
+</div>
+<div class="testimonial-profile-img">
+<img class="w-100 h-100 object-fit-cover rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-54)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="quote-right-img quote-img">
+<svg aria-hidden="true" class="svg-inline--fa fa-quote-right text-white fs-3" data-fa-i2svg="" data-icon="quote-right" data-prefix="fas" focusable="false" role="img" viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M96 96C42.98 96 0 138.1 0 192s42.98 96 96 96c11.28 0 21.95-2.305 32-5.879V288c0 35.3-28.7 64-64 64c-17.67 0-32 14.33-32 32s14.33 32 32 32c70.58 0 128-57.42 128-128V192C192 138.1 149 96 96 96zM448 192c0-53.02-42.98-96-96-96s-96 42.98-96 96s42.98 96 96 96c11.28 0 21.95-2.305 32-5.879V288c0 35.3-28.7 64-64 64c-17.67 0-32 14.33-32 32s14.33 32 32 32c70.58 0 128-57.42 128-128V192z" fill="currentColor"></path></svg>
+</div>
+</div>
+<div class="card-body p-0">
+<div class="text-center testi-desc mt-4 p-2">
+<h3 class="text-primary fs-20 mb-3">Neha Singh </h3>
+<p class="desc text-black mb-0 more">
+ The store has everything a makeup lover could dream of. From foundation to false lashes – all top-notch. The staff helped me pick the perfect shades too!
+ </p>
+</div>
+</div>
+</div></div></div></div></div><ul class="slick-dots" role="tablist"><li class="slick-active" role="presentation"><button aria-controls="slick-slide20" aria-label="1 of 4" aria-selected="true" fdprocessedid="8czenk" id="slick-slide-control20" role="tab" tabindex="0" type="button">1</button><li role="presentation"><button aria-controls="slick-slide21" aria-label="2 of 4" id="slick-slide-control21" role="tab" tabindex="-1" type="button">2</button><li role="presentation"><button aria-controls="slick-slide22" aria-label="3 of 4" id="slick-slide-control22" role="tab" tabindex="-1" type="button">3</button><li role="presentation"><button aria-controls="slick-slide23" aria-label="4 of 4" fdprocessedid="mchmfi" id="slick-slide-control23" role="tab" tabindex="-1" type="button">4</button></li></li></li></li></ul></div>
+</div>
+<div class="qr-code-section pt-50 position-relative">
+<div class="bg-vector position-absolute left-10 top-40">
+<img alt="images" class="w-100" src="/images/templates/fashionbeautyxxxxxx/fas-049.webp"/>
+</div>
+<div class="bg-vector position-absolute end-0 top-0 text-end">
+<img alt="images" class="w-100" src="/images/templates/fashionbeautyxxxxxx/fas-050.webp"/>
+</div>
+<div class="px-30">
+<div class="section-heading text-center">
+<h2 class="text-primary mb-0">QR Code</h2>
+<div class="d-flex align-items-center justify-content-center gap-2">
+<span class="d-block"></span>
+<svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M1,50L50,1l49,49L50,99L1,50z M50,31.6c-4.9,0-9.5,1.9-13,5.4c-3.5,3.5-5.4,8.1-5.4,13c0,10.1,8.2,18.4,18.4,18.4 c4.9,0,9.5-1.9,13-5.4c3.5-3.5,5.4-8.1,5.4-13s-1.9-9.5-5.4-13C59.5,33.5,54.9,31.6,50,31.6z"></path></svg>
+<span class="d-block"></span>
+</div>
+</div>
+<div class="qr-code mx-auto position-relative">
+<div class="d-flex flex-sm-row flex-column gap-3 position-relative z-1 align-items-center">
+<div class="qr-code-img text-center" id="qr-code-thirtysix">
+<svg height="130" version="1.1" viewbox="0 0 130 130" width="130" xmlns="http://www.w3.org/2000/svg"><rect fill="#ffffff" height="130" width="130" x="0" y="0"></rect><g transform="scale(4.483)"><g transform="translate(0,0)"><path d="M8 0L8 1L10 1L10 0ZM14 0L14 2L11 2L11 4L10 4L10 3L9 3L9 2L8 2L8 5L9 5L9 6L8 6L8 7L9 7L9 8L8 8L8 9L7 9L7 8L6 8L6 9L7 9L7 10L5 10L5 11L4 11L4 8L0 8L0 9L1 9L1 10L0 10L0 11L1 11L1 10L3 10L3 11L2 11L2 12L1 12L1 14L0 14L0 16L1 16L1 18L0 18L0 19L1 19L1 18L2 18L2 19L4 19L4 21L7 21L7 20L5 20L5 19L4 19L4 18L2 18L2 17L3 17L3 16L4 16L4 17L5 17L5 18L6 18L6 19L7 19L7 18L6 18L6 17L8 17L8 16L9 16L9 18L8 18L8 19L9 19L9 18L11 18L11 19L12 19L12 20L11 20L11 21L12 21L12 22L10 22L10 20L9 20L9 21L8 21L8 22L10 22L10 23L14 23L14 22L15 22L15 21L16 21L16 23L18 23L18 24L17 24L17 26L16 26L16 25L15 25L15 24L14 24L14 26L13 26L13 24L12 24L12 25L11 25L11 24L10 24L10 25L11 25L11 28L12 28L12 29L13 29L13 28L12 28L12 26L13 26L13 27L14 27L14 29L15 29L15 28L16 28L16 29L17 29L17 27L18 27L18 26L19 26L19 28L18 28L18 29L23 29L23 27L24 27L24 28L25 28L25 29L26 29L26 27L27 27L27 29L28 29L28 27L29 27L29 25L28 25L28 27L27 27L27 26L26 26L26 25L27 25L27 24L29 24L29 23L28 23L28 22L29 22L29 21L27 21L27 18L28 18L28 15L29 15L29 13L27 13L27 12L25 12L25 11L24 11L24 12L25 12L25 13L26 13L26 15L27 15L27 17L26 17L26 16L25 16L25 15L24 15L24 17L23 17L23 19L21 19L21 20L20 20L20 22L19 22L19 20L18 20L18 19L17 19L17 18L16 18L16 17L15 17L15 19L16 19L16 20L15 20L15 21L14 21L14 20L13 20L13 18L14 18L14 17L12 17L12 16L14 16L14 15L15 15L15 16L16 16L16 15L15 15L15 14L17 14L17 15L18 15L18 18L19 18L19 15L20 15L20 18L22 18L22 16L21 16L21 15L20 15L20 14L23 14L23 13L20 13L20 12L21 12L21 11L22 11L22 10L25 10L25 9L27 9L27 8L24 8L24 9L22 9L22 8L21 8L21 5L20 5L20 3L21 3L21 2L20 2L20 3L19 3L19 1L21 1L21 0L16 0L16 2L18 2L18 3L15 3L15 4L13 4L13 5L12 5L12 3L14 3L14 2L15 2L15 0ZM17 4L17 5L15 5L15 9L13 9L13 7L14 7L14 5L13 5L13 7L12 7L12 5L10 5L10 6L9 6L9 7L10 7L10 8L9 8L9 9L8 9L8 10L7 10L7 11L5 11L5 12L4 12L4 13L6 13L6 14L3 14L3 15L6 15L6 16L7 16L7 15L6 15L6 14L7 14L7 13L8 13L8 15L9 15L9 16L10 16L10 17L11 17L11 18L12 18L12 17L11 17L11 16L12 16L12 14L13 14L13 15L14 15L14 14L15 14L15 13L17 13L17 12L18 12L18 13L19 13L19 12L20 12L20 10L18 10L18 9L17 9L17 10L18 10L18 11L17 11L17 12L12 12L12 14L11 14L11 15L9 15L9 14L10 14L10 13L11 13L11 11L14 11L14 10L15 10L15 11L16 11L16 6L17 6L17 7L18 7L18 6L17 6L17 5L19 5L19 4ZM10 6L10 7L11 7L11 8L12 8L12 7L11 7L11 6ZM19 6L19 7L20 7L20 6ZM20 8L20 9L21 9L21 8ZM28 8L28 10L26 10L26 11L28 11L28 12L29 12L29 11L28 11L28 10L29 10L29 8ZM9 9L9 10L10 10L10 9ZM18 11L18 12L19 12L19 11ZM6 12L6 13L7 13L7 12ZM9 12L9 13L10 13L10 12ZM13 13L13 14L14 14L14 13ZM1 14L1 15L2 15L2 14ZM18 14L18 15L19 15L19 14ZM24 17L24 18L25 18L25 19L24 19L24 20L26 20L26 18L25 18L25 17ZM1 20L1 21L3 21L3 20ZM21 21L21 24L24 24L24 21ZM18 22L18 23L19 23L19 24L18 24L18 25L19 25L19 26L20 26L20 27L21 27L21 28L22 28L22 27L23 27L23 25L22 25L22 26L21 26L21 25L20 25L20 23L19 23L19 22ZM22 22L22 23L23 23L23 22ZM26 22L26 24L25 24L25 25L26 25L26 24L27 24L27 22ZM8 25L8 29L10 29L10 26L9 26L9 25ZM14 26L14 27L16 27L16 26ZM24 26L24 27L26 27L26 26ZM0 0L0 7L7 7L7 0ZM1 1L1 6L6 6L6 1ZM2 2L2 5L5 5L5 2ZM22 0L22 7L29 7L29 0ZM23 1L23 6L28 6L28 1ZM24 2L24 5L27 5L27 2ZM0 22L0 29L7 29L7 22ZM1 23L1 28L6 28L6 23ZM2 24L2 27L5 27L5 24Z" fill="#000000" fill-rule="evenodd"></path></g></g></svg>
+</div>
+<div class="text-center text-sm-start">
+<h5 class="fw-6 text-primary">Scan to Contact</h5>
+<p class="fs-14 text-gray-100 mb-0">Point your phone’s camera at the QR code to quickly add our contact information. You can also use the "Add to Contacts" button below for fast saving.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="business-hour-section pt-50 position-relative">
+<div class="bg-vector position-absolute right-10 top-40 text-end">
+<img alt="images" class="w-100" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-60)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="px-30">
+<div class="section-heading text-center">
+<h2 class="text-primary mb-0"> Business Hours</h2>
+<div class="d-flex align-items-center justify-content-center gap-2">
+<span class="d-block"></span>
+<svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M1,50L50,1l49,49L50,99L1,50z M50,31.6c-4.9,0-9.5,1.9-13,5.4c-3.5,3.5-5.4,8.1-5.4,13c0,10.1,8.2,18.4,18.4,18.4 c4.9,0,9.5-1.9,13-5.4c3.5-3.5,5.4-8.1,5.4-13s-1.9-9.5-5.4-13C59.5,33.5,54.9,31.6,50,31.6z"></path></svg>
+<span class="d-block"></span>
+</div>
+</div>
+<div class="business-hours mt-3">
+<div class="row row-gap-20 justify-content-center">
+<div class="col-sm-6">
+<div class="business-hour position-relative">
+<div class="left-circle d-flex align-items-center justify-content-center">
+<span class="calender-icon">
+<svg fill="none" height="24" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3">
+</path>
+<path d="M16 3v4"></path>
+<path d="M8 3v4"></path>
+<path d="M4 11h10"></path>
+<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+<path d="M18 16.5v1.5l.5 .5"></path>
+</svg>
+</span>
+</div>
+<div class="text-black fs-14 d-flex justify-content-center gap-2 business-text">
+<span>
+ Monday:
+ </span>
+<span>
+ 12:00 AM - 12:00 AM
+ </span>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="business-hour position-relative">
+<div class="left-circle d-flex align-items-center justify-content-center">
+<span class="calender-icon">
+<svg fill="none" height="24" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3">
+</path>
+<path d="M16 3v4"></path>
+<path d="M8 3v4"></path>
+<path d="M4 11h10"></path>
+<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+<path d="M18 16.5v1.5l.5 .5"></path>
+</svg>
+</span>
+</div>
+<div class="text-black fs-14 d-flex justify-content-center gap-2 business-text">
+<span>
+ Tuesday:
+ </span>
+<span>
+ 12:00 AM - 12:00 AM
+ </span>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="business-hour position-relative">
+<div class="left-circle d-flex align-items-center justify-content-center">
+<span class="calender-icon">
+<svg fill="none" height="24" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3">
+</path>
+<path d="M16 3v4"></path>
+<path d="M8 3v4"></path>
+<path d="M4 11h10"></path>
+<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+<path d="M18 16.5v1.5l.5 .5"></path>
+</svg>
+</span>
+</div>
+<div class="text-black fs-14 d-flex justify-content-center gap-2 business-text">
+<span>
+ Wednesday:
+ </span>
+<span>
+ 12:00 AM - 12:00 AM
+ </span>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="business-hour position-relative">
+<div class="left-circle d-flex align-items-center justify-content-center">
+<span class="calender-icon">
+<svg fill="none" height="24" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3">
+</path>
+<path d="M16 3v4"></path>
+<path d="M8 3v4"></path>
+<path d="M4 11h10"></path>
+<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+<path d="M18 16.5v1.5l.5 .5"></path>
+</svg>
+</span>
+</div>
+<div class="text-black fs-14 d-flex justify-content-center gap-2 business-text">
+<span>
+ Thursday:
+ </span>
+<span>
+ 12:00 AM - 12:00 AM
+ </span>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="business-hour position-relative">
+<div class="left-circle d-flex align-items-center justify-content-center">
+<span class="calender-icon">
+<svg fill="none" height="24" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3">
+</path>
+<path d="M16 3v4"></path>
+<path d="M8 3v4"></path>
+<path d="M4 11h10"></path>
+<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+<path d="M18 16.5v1.5l.5 .5"></path>
+</svg>
+</span>
+</div>
+<div class="text-black fs-14 d-flex justify-content-center gap-2 business-text">
+<span>
+ Friday:
+ </span>
+<span>
+ 12:00 AM - 12:00 AM
+ </span>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="business-hour position-relative">
+<div class="left-circle d-flex align-items-center justify-content-center">
+<span class="calender-icon">
+<svg fill="none" height="24" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3">
+</path>
+<path d="M16 3v4"></path>
+<path d="M8 3v4"></path>
+<path d="M4 11h10"></path>
+<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+<path d="M18 16.5v1.5l.5 .5"></path>
+</svg>
+</span>
+</div>
+<div class="text-black fs-14 d-flex justify-content-center gap-2 business-text">
+<span>
+ Saturday:
+ </span>
+<span>
+ 12:00 AM - 12:00 AM
+ </span>
+</div>
+</div>
+</div>
+<div class="col-sm-6">
+<div class="business-hour position-relative">
+<div class="left-circle d-flex align-items-center justify-content-center">
+<span class="calender-icon">
+<svg fill="none" height="24" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.5 21h-4.5a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v3">
+</path>
+<path d="M16 3v4"></path>
+<path d="M8 3v4"></path>
+<path d="M4 11h10"></path>
+<path d="M18 18m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0"></path>
+<path d="M18 16.5v1.5l.5 .5"></path>
+</svg>
+</span>
+</div>
+<div class="text-black fs-14 d-flex justify-content-center gap-2 business-text">
+<span>
+ Sunday:
+ </span>
+<span>
+ 12:00 AM - 12:00 AM
+ </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="contact-us-section pt-50 px-30 position-relative">
+<div class="bg-vector position-absolute end-0 text-end top-40">
+<img alt="images" class="w-100" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-61)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="bg-vector position-absolute start-0 top-0">
+<img alt="images" class="w-100" src="/images/templates/fashionbeautyxxxxxx/fas-051.webp"/>
+</div>
+<div class="section-heading text-center">
+<h2 class="text-primary text-center mb-0">Inquiries</h2>
+<div class="d-flex align-items-center justify-content-center gap-2">
+<span class="d-block"></span>
+<svg viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M1,50L50,1l49,49L50,99L1,50z M50,31.6c-4.9,0-9.5,1.9-13,5.4c-3.5,3.5-5.4,8.1-5.4,13c0,10.1,8.2,18.4,18.4,18.4 c4.9,0,9.5-1.9,13-5.4c3.5-3.5,5.4-8.1,5.4-13s-1.9-9.5-5.4-13C59.5,33.5,54.9,31.6,50,31.6z"></path></svg>
+<span class="d-block"></span>
+</div>
+</div>
+<div class="contact-form position-relative">
+<form enctype="multipart/form-data" id="enquiryForm" onsubmit="tfSubmitInquiry(event)"><input name="vcard_id" type="hidden" value="<?= $vcardId ?>"/><label class="w-100 mb-2" style="display:block;text-align:left"><span style="font-size:13px;opacity:.85">Attachment (optional)</span><input accept="image/*,.pdf" class="form-control" name="attachment" style="margin-top:4px" type="file"/></label>
+<div class="row">
+<div class="alert alert-danger d-none sf-hidden" id="enquiryError"></div>
+<div class="col-12">
+<input class="form-control" fdprocessedid="6dvn7k" name="name" placeholder="Your Name" type="text" value=""/>
+</div>
+<div class="col-12">
+<input class="form-control" fdprocessedid="ckxn1s" name="email" placeholder="Email Address" type="email" value=""/>
+</div>
+<div class="col-12">
+<input class="form-control" fdprocessedid="ecquab" name="phone" placeholder="Enter Phone Number" type="tel" value=""/>
+</div>
+<div class="col-12">
+<textarea class="form-control h-100" name="message" placeholder="Type a message here..." rows="3"></textarea>
+</div>
+<div class="mt-3">
+<div class="wrapper-file-input">
+<div class="input-box" id="fileInputTrigger">
+<h4 class="text-primary"> <svg aria-hidden="true" class="svg-inline--fa fa-upload me-2" data-fa-i2svg="" data-icon="upload" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M105.4 182.6c12.5 12.49 32.76 12.5 45.25 .001L224 109.3V352c0 17.67 14.33 32 32 32c17.67 0 32-14.33 32-32V109.3l73.38 73.38c12.49 12.49 32.75 12.49 45.25-.001c12.49-12.49 12.49-32.75 0-45.25l-128-128C272.4 3.125 264.2 0 256 0S239.6 3.125 233.4 9.375L105.4 137.4C92.88 149.9 92.88 170.1 105.4 182.6zM480 352h-160c0 35.35-28.65 64-64 64s-64-28.65-64-64H32c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h448c17.67 0 32-14.33 32-32v-96C512 366.3 497.7 352 480 352zM432 456c-13.2 0-24-10.8-24-24c0-13.2 10.8-24 24-24s24 10.8 24 24C456 445.2 445.2 456 432 456z" fill="currentColor"></path></svg>Choose File to upload
+ </h4> <input class="sf-hidden" hidden="" id="attachment" multiple="" name="attachment" type="file" value=""/>
+</div> <small class="text-black">Files Supported: JPG, PNG, JPEG</small>
+</div>
+<div class="wrapper-file-section">
+<div class="selected-files" id="selectedFilesSection" style="display:none">
+</div>
+</div>
+</div>
+<div class="col-12 text-center mt-1">
+<button class="contact-btn save-btn btn btn-primary" fdprocessedid="osajhn" type="submit">
  Send Message
  </button>
- </div>
- </div>
- </form>
- </div>
- </div>
- 
- 
- <div class=add-to-contact-section>
- <div class="d-flex justify-content-center align-items-center">
- <a href=https://tapifyworld.com/add-contact/24 class="add-contact-btn gap-2 rounded-2 d-flex align-items-center justify-content-center"><svg class="svg-inline--fa fa-address-book" aria-hidden=true focusable=false data-prefix=fas data-icon=address-book role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M384 0H96C60.65 0 32 28.65 32 64v384c0 35.35 28.65 64 64 64h288c35.35 0 64-28.65 64-64V64C448 28.65 419.3 0 384 0zM240 128c35.35 0 64 28.65 64 64s-28.65 64-64 64c-35.34 0-64-28.65-64-64S204.7 128 240 128zM336 384h-192C135.2 384 128 376.8 128 368C128 323.8 163.8 288 208 288h64c44.18 0 80 35.82 80 80C352 376.8 344.8 384 336 384zM496 64H480v96h16C504.8 160 512 152.8 512 144v-64C512 71.16 504.8 64 496 64zM496 192H480v96h16C504.8 288 512 280.8 512 272v-64C512 199.2 504.8 192 496 192zM496 320H480v96h16c8.836 0 16-7.164 16-16v-64C512 327.2 504.8 320 496 320z"></path></svg>
- &nbsp;Add to contact</a>
- </div>
- <div class="modal fade py-3 sf-hidden" id=askContactDetailFormModel tabindex=-1 aria-hidden=true aria-labelledby=askContactDetailFormModelLabel>
- 
 </div>
- </div>
- 
- <div class="btn-section cursor-pointer">
- <div class=fixed-btn-section>
- <div class="bars-btn fashion-bars-btn">
- <img src=/images/templates/fashionbeautyx/fas-052.svg loading=lazy>
- </div>
- <div class="sub-btn d-none sf-hidden">
- 
- </div>
- </div>
- </div>
- <div class=bottom-imge>
- <img src=/images/templates/fashionbeautyx/fas-053.webp alt=images class="w-100 h-100 object-fit-cover">
- </div>
- 
- <div class="d-flex justify-content-evenly py-2">
- <div class=text-center>
- <small class="text-primar fs-14y">Made By
+</div>
+</form>
+</div>
+</div>
+<div class="add-to-contact-section">
+<div class="d-flex justify-content-center align-items-center">
+<a class="add-contact-btn gap-2 rounded-2 d-flex align-items-center justify-content-center" href="https://tapifyworld.com/add-contact/24"><svg aria-hidden="true" class="svg-inline--fa fa-address-book" data-fa-i2svg="" data-icon="address-book" data-prefix="fas" focusable="false" role="img" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M384 0H96C60.65 0 32 28.65 32 64v384c0 35.35 28.65 64 64 64h288c35.35 0 64-28.65 64-64V64C448 28.65 419.3 0 384 0zM240 128c35.35 0 64 28.65 64 64s-28.65 64-64 64c-35.34 0-64-28.65-64-64S204.7 128 240 128zM336 384h-192C135.2 384 128 376.8 128 368C128 323.8 163.8 288 208 288h64c44.18 0 80 35.82 80 80C352 376.8 344.8 384 336 384zM496 64H480v96h16C504.8 160 512 152.8 512 144v-64C512 71.16 504.8 64 496 64zM496 192H480v96h16C504.8 288 512 280.8 512 272v-64C512 199.2 504.8 192 496 192zM496 320H480v96h16c8.836 0 16-7.164 16-16v-64C512 327.2 504.8 320 496 320z" fill="currentColor"></path></svg>
+  Add to contact</a>
+</div>
+<div aria-hidden="true" aria-labelledby="askContactDetailFormModelLabel" class="modal fade py-3 sf-hidden" id="askContactDetailFormModel" tabindex="-1">
+</div>
+</div>
+<div class="btn-section cursor-pointer">
+<div class="fixed-btn-section">
+<div class="bars-btn fashion-bars-btn">
+<img loading="lazy" src="/images/templates/fashionbeautyxxxxxx/fas-052.svg"/>
+</div>
+<div class="sub-btn d-none sf-hidden">
+</div>
+</div>
+</div>
+<div class="bottom-imge">
+<img alt="images" class="w-100 h-100 object-fit-cover" src="/images/templates/fashionbeautyxxxxxx/fas-053.webp"/>
+</div>
+<div class="d-flex justify-content-evenly py-2">
+<div class="text-center">
+<small class="text-primar fs-14y">Made By
  Tapify</small>
- </div>
- </div>
- </div>
- </div>
- <div class="bg-animation d-flex align-items-center">
- <div class="w-50 h-100 position-relative">
- <div class="vector-13 vector">
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=images style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-18)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="vector-1 vector">
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=images style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-47)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="vector-2 vector">
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=images style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-20)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="vector-12 vector">
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=images style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-37)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="vector-14 vector">
- <img src="/images/templates/fashionbeautyx/fas-054.webp" alt=images>
- </div>
- <div class="vector-16 vector">
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=images style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-60)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class=fashion-text>
- <img src=/images/templates/fashionbeautyx/fas-055.webp alt=images class=w-100>
- </div>
- </div>
- <div class="w-50 h-100 position-relative">
- <div class="vector-4 vector">
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=images style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-15)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="vector-5 vector">
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=images style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-26)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="vector-6 vector">
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=images style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-45)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="vector-11 vector">
- <div class=position-relative>
- <img src=/images/templates/fashionbeautyx/fas-056.webp alt=images>
- <div class="position-absolute sub-img">
- <img src="/images/templates/fashionbeautyx/fas-057.webp" alt>
- </div>
- </div>
- </div>
- <div class="vector-9 vector">
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=images style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-19)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- <div class="vector-15 vector">
- <img src="/images/templates/fashionbeautyx/fas-058.webp" alt=images>
- </div>
- <div class=beauty-text>
- <img src="/images/templates/fashionbeautyx/fas-059.webp" alt=images class=w-100>
- </div>
- <div class="vector-10 vector">
- <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=images style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-61)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important">
- </div>
- </div>
- </div>
- 
- <div class="modal fade sf-hidden" id=newsLatterModal tabindex=-1 aria-labelledby=newsLatterModalLabel aria-hidden=true>
- 
- </div>
- 
- 
- <div id=vcard19-shareModel class="modal fade sf-hidden" role=dialog>
- 
- </div>
-<div class=razorpay-container style=z-index:2147483647;position:fixed;top:0px;display:none;left:0px;height:100%;width:100%;max-height:100dvh;backface-visibility:hidden;overflow-y:visible><style>@keyframes rzp-rot{to{transform:rotate(360deg)}}@-webkit-keyframes rzp-rot{to{-webkit-transform:rotate(360deg)}}</style></div>
-<div class="flatpickr-calendar animate open arrowLeft arrowTop" tabindex=-1 style=top:3475.22px;left:342.556px;right:auto><div class=flatpickr-months><span class="flatpickr-prev-month flatpickr-disabled sf-hidden"><svg version=1.1 xmlns=http://www.w3.org/2000/svg xmlns:xlink=http://www.w3.org/1999/xlink viewBox="0 0 17 17"><g></g><path d="M5.207 8.471l7.146 7.147-0.707 0.707-7.853-7.854 7.854-7.853 0.707 0.707-7.147 7.146z"></path></svg></span><div class=flatpickr-month><div class=flatpickr-current-month><select class=flatpickr-monthDropdown-months aria-label=Month tabindex=-1><option class=flatpickr-monthDropdown-month value=6 tabindex=-1 selected>July<option class=flatpickr-monthDropdown-month value=7 tabindex=-1>August<option class=flatpickr-monthDropdown-month value=8 tabindex=-1>September<option class=flatpickr-monthDropdown-month value=9 tabindex=-1>October<option class=flatpickr-monthDropdown-month value=10 tabindex=-1>November<option class=flatpickr-monthDropdown-month value=11 tabindex=-1>December</select><div class=numInputWrapper><input class="numInput cur-year" type=number tabindex=-1 aria-label=Year min=2026 value=2026><span class=arrowUp></span><span class=arrowDown></span></div></div></div><span class=flatpickr-next-month><svg version=1.1 xmlns=http://www.w3.org/2000/svg xmlns:xlink=http://www.w3.org/1999/xlink viewBox="0 0 17 17"><g></g><path d="M13.207 8.472l-7.854 7.854-0.707-0.707 7.146-7.146-7.146-7.148 0.707-0.707 7.854 7.854z"></path></svg></span></div><div class=flatpickr-innerContainer><div class=flatpickr-rContainer><div class=flatpickr-weekdays><div class=flatpickr-weekdaycontainer>
- <span class=flatpickr-weekday>
- Sun</span><span class=flatpickr-weekday>Mon</span><span class=flatpickr-weekday>Tue</span><span class=flatpickr-weekday>Wed</span><span class=flatpickr-weekday>Thu</span><span class=flatpickr-weekday>Fri</span><span class=flatpickr-weekday>Sat
+</div>
+</div>
+</div>
+</div>
+<?php endif; ?>
+<?php endif; ?>
+<?php endif; ?>
+<?php endif; ?>
+<?php endif; ?>
+<div class="bg-animation d-flex align-items-center">
+<div class="w-50 h-100 position-relative">
+<div class="vector-13 vector">
+<img alt="images" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-18)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="vector-1 vector">
+<img alt="images" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-47)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="vector-2 vector">
+<img alt="images" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-20)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="vector-12 vector">
+<img alt="images" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-37)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="vector-14 vector">
+<img alt="images" src="/images/templates/fashionbeautyxxxxxx/fas-054.webp"/>
+</div>
+<div class="vector-16 vector">
+<img alt="images" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-60)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="fashion-text">
+<img alt="images" class="w-100" src="/images/templates/fashionbeautyxxxxxx/fas-055.webp"/>
+</div>
+</div>
+<div class="w-50 h-100 position-relative">
+<div class="vector-4 vector">
+<img alt="images" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-15)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="vector-5 vector">
+<img alt="images" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-26)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="vector-6 vector">
+<img alt="images" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-45)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="vector-11 vector">
+<div class="position-relative">
+<img alt="images" src="/images/templates/fashionbeautyxxxxxx/fas-056.webp"/>
+<div class="position-absolute sub-img">
+<img alt="" src="/images/templates/fashionbeautyxxxxxx/fas-057.webp"/>
+</div>
+</div>
+</div>
+<div class="vector-9 vector">
+<img alt="images" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-19)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+<div class="vector-15 vector">
+<img alt="images" src="/images/templates/fashionbeautyxxxxxx/fas-058.webp"/>
+</div>
+<div class="beauty-text">
+<img alt="images" class="w-100" src="/images/templates/fashionbeautyxxxxxx/fas-059.webp"/>
+</div>
+<div class="vector-10 vector">
+<img alt="images" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-61)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+</div>
+</div>
+</div>
+<div aria-hidden="true" aria-labelledby="newsLatterModalLabel" class="modal fade sf-hidden" id="newsLatterModal" tabindex="-1">
+</div>
+<div class="modal fade sf-hidden" id="vcard19-shareModel" role="dialog">
+</div>
+<div class="razorpay-container" style="z-index:2147483647;position:fixed;top:0px;display:none;left:0px;height:100%;width:100%;max-height:100dvh;backface-visibility:hidden;overflow-y:visible"><style>@keyframes rzp-rot{to{transform:rotate(360deg)}}@-webkit-keyframes rzp-rot{to{-webkit-transform:rotate(360deg)}}</style></div>
+<div class="flatpickr-calendar animate open arrowLeft arrowTop" style="top:3475.22px;left:342.556px;right:auto" tabindex="-1"><div class="flatpickr-months"><span class="flatpickr-prev-month flatpickr-disabled sf-hidden"><svg version="1.1" viewbox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g></g><path d="M5.207 8.471l7.146 7.147-0.707 0.707-7.853-7.854 7.854-7.853 0.707 0.707-7.147 7.146z"></path></svg></span><div class="flatpickr-month"><div class="flatpickr-current-month"><select aria-label="Month" class="flatpickr-monthDropdown-months" tabindex="-1"><option class="flatpickr-monthDropdown-month" selected="" tabindex="-1" value="6">July<option class="flatpickr-monthDropdown-month" tabindex="-1" value="7">August<option class="flatpickr-monthDropdown-month" tabindex="-1" value="8">September<option class="flatpickr-monthDropdown-month" tabindex="-1" value="9">October<option class="flatpickr-monthDropdown-month" tabindex="-1" value="10">November<option class="flatpickr-monthDropdown-month" tabindex="-1" value="11">December</option></option></option></option></option></option></select><div class="numInputWrapper"><input aria-label="Year" class="numInput cur-year" min="2026" tabindex="-1" type="number" value="2026"/><span class="arrowUp"></span><span class="arrowDown"></span></div></div></div><span class="flatpickr-next-month"><svg version="1.1" viewbox="0 0 17 17" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g></g><path d="M13.207 8.472l-7.854 7.854-0.707-0.707 7.146-7.146-7.146-7.148 0.707-0.707 7.854 7.854z"></path></svg></span></div><div class="flatpickr-innerContainer"><div class="flatpickr-rContainer"><div class="flatpickr-weekdays"><div class="flatpickr-weekdaycontainer">
+<span class="flatpickr-weekday">
+ Sun</span><span class="flatpickr-weekday">Mon</span><span class="flatpickr-weekday">Tue</span><span class="flatpickr-weekday">Wed</span><span class="flatpickr-weekday">Thu</span><span class="flatpickr-weekday">Fri</span><span class="flatpickr-weekday">Sat
  </span>
- </div></div><div class=flatpickr-days tabindex=-1><div class=dayContainer><span class="flatpickr-day prevMonthDay flatpickr-disabled" aria-label="June 28, 2026">28</span><span class="flatpickr-day prevMonthDay flatpickr-disabled" aria-label="June 29, 2026">29</span><span class="flatpickr-day prevMonthDay flatpickr-disabled" aria-label="June 30, 2026">30</span><span class="flatpickr-day flatpickr-disabled" aria-label="July 1, 2026">1</span><span class="flatpickr-day flatpickr-disabled" aria-label="July 2, 2026">2</span><span class="flatpickr-day flatpickr-disabled" aria-label="July 3, 2026">3</span><span class="flatpickr-day flatpickr-disabled" aria-label="July 4, 2026">4</span><span class="flatpickr-day flatpickr-disabled" aria-label="July 5, 2026">5</span><span class="flatpickr-day today" aria-label="July 6, 2026" aria-current=date tabindex=-1>6</span><span class=flatpickr-day aria-label="July 7, 2026" tabindex=-1>7</span><span class=flatpickr-day aria-label="July 8, 2026" tabindex=-1>8</span><span class=flatpickr-day aria-label="July 9, 2026" tabindex=-1>9</span><span class=flatpickr-day aria-label="July 10, 2026" tabindex=-1>10</span><span class=flatpickr-day aria-label="July 11, 2026" tabindex=-1>11</span><span class=flatpickr-day aria-label="July 12, 2026" tabindex=-1>12</span><span class=flatpickr-day aria-label="July 13, 2026" tabindex=-1>13</span><span class=flatpickr-day aria-label="July 14, 2026" tabindex=-1>14</span><span class=flatpickr-day aria-label="July 15, 2026" tabindex=-1>15</span><span class=flatpickr-day aria-label="July 16, 2026" tabindex=-1>16</span><span class=flatpickr-day aria-label="July 17, 2026" tabindex=-1>17</span><span class=flatpickr-day aria-label="July 18, 2026" tabindex=-1>18</span><span class=flatpickr-day aria-label="July 19, 2026" tabindex=-1>19</span><span class=flatpickr-day aria-label="July 20, 2026" tabindex=-1>20</span><span class=flatpickr-day aria-label="July 21, 2026" tabindex=-1>21</span><span class=flatpickr-day aria-label="July 22, 2026" tabindex=-1>22</span><span class=flatpickr-day aria-label="July 23, 2026" tabindex=-1>23</span><span class=flatpickr-day aria-label="July 24, 2026" tabindex=-1>24</span><span class=flatpickr-day aria-label="July 25, 2026" tabindex=-1>25</span><span class=flatpickr-day aria-label="July 26, 2026" tabindex=-1>26</span><span class=flatpickr-day aria-label="July 27, 2026" tabindex=-1>27</span><span class=flatpickr-day aria-label="July 28, 2026" tabindex=-1>28</span><span class=flatpickr-day aria-label="July 29, 2026" tabindex=-1>29</span><span class=flatpickr-day aria-label="July 30, 2026" tabindex=-1>30</span><span class=flatpickr-day aria-label="July 31, 2026" tabindex=-1>31</span><span class="flatpickr-day nextMonthDay" aria-label="August 1, 2026" tabindex=-1>1</span><span class="flatpickr-day nextMonthDay" aria-label="August 2, 2026" tabindex=-1>2</span><span class="flatpickr-day nextMonthDay" aria-label="August 3, 2026" tabindex=-1>3</span><span class="flatpickr-day nextMonthDay" aria-label="August 4, 2026" tabindex=-1>4</span><span class="flatpickr-day nextMonthDay" aria-label="August 5, 2026" tabindex=-1>5</span><span class="flatpickr-day nextMonthDay" aria-label="August 6, 2026" tabindex=-1>6</span><span class="flatpickr-day nextMonthDay" aria-label="August 7, 2026" tabindex=-1>7</span><span class="flatpickr-day nextMonthDay" aria-label="August 8, 2026" tabindex=-1>8</span></div></div></div></div></div><div id=lightboxOverlay tabindex=-1 class=lightboxOverlay style=display:none></div><div id=lightbox tabindex=-1 class=lightbox style=display:none></div>"><script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"><script src="https://cdn.jsdelivr.net/npm/flatpickr"></script><script>function tfInit(){if(typeof jQuery==="undefined"||!jQuery.fn||!jQuery.fn.slick){return setTimeout(tfInit,120);}jQuery(function($){$(".product-slider,.gallery-slider,.testimonial-slider,.blog-slider").each(function(){if($(this).children().length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=instagram],[class*=insta-feed],[class*=insta-section],[class*=insta-feed-section]").each(function(){if($(this).find("img,iframe,.slick-slide,.insta-item,a[href*=instagram]").length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=__gallery],[class*=__product],[class*=__testimonial]").each(function(){var sl=$(this).find(".gallery-slider,.product-slider,.testimonial-slider").first();if(sl.length&&sl.children().length===0){$(this).hide();}});$("a").each(function(){var h=$(this).attr("href")||"";var tx=$(this).text().replace(/\s+/g,"");if((h==="mailto:"||h==="tel:")&&tx===""){$(this).closest(".contact-box,.contact-item,li,.col-sm-6,.col-md-6,.col-6,.col-12,.col").hide();}});$("[class*=contact-box],[class*=contact-item]").each(function(){if($(this).text().replace(/\s+/g,"")===""){$(this).hide();}});window.tfSubmitInquiry=async function(ev){ev.preventDefault();var f=ev.target;var b=f.querySelector("button[type=submit]");var fd=new FormData(f);if(b)b.disabled=true;try{var r=await fetch("/inquiry-submit.php",{method:"POST",body:fd});var j=await r.json();if(j.success){if(window.showToast)showToast("Message sent!","success");f.reset();}else{if(window.showToast)showToast(j.message||"Failed","error");}}catch(e){if(window.showToast)showToast("Connection error","error");}finally{if(b)b.disabled=false;}};function ini(s,o){var $s=$(s);if(!$s.length||$s.hasClass("slick-initialized"))return;$s.slick(o);}ini(".product-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".gallery-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".testimonial-slider",{slidesToShow:1,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:4000});if(window.flatpickr){flatpickr("#pickUpDate",{minDate:"today",dateFormat:"Y-m-d"});flatpickr(".flatpickr-input",{minDate:"today",dateFormat:"Y-m-d"});}});}tfInit();</script><?php if(!empty($vcard["custom_js"])): ?><script><?= $vcard["custom_js"] ?></script><?php endif; ?><?php include __DIR__ . "/_shared-scripts.php"; ?><style>/*tf-fixups*/.service-card .card-body{padding-bottom:6px!important}.our-services-section input,.services input{display:none!important}.service-card img{display:block!important;object-fit:cover!important;min-height:150px}.flatpickr-calendar:not(.open){display:none!important}</style></body></html>
+</div></div><div class="flatpickr-days" tabindex="-1"><div class="dayContainer"><span aria-label="June 28, 2026" class="flatpickr-day prevMonthDay flatpickr-disabled">28</span><span aria-label="June 29, 2026" class="flatpickr-day prevMonthDay flatpickr-disabled">29</span><span aria-label="June 30, 2026" class="flatpickr-day prevMonthDay flatpickr-disabled">30</span><span aria-label="July 1, 2026" class="flatpickr-day flatpickr-disabled">1</span><span aria-label="July 2, 2026" class="flatpickr-day flatpickr-disabled">2</span><span aria-label="July 3, 2026" class="flatpickr-day flatpickr-disabled">3</span><span aria-label="July 4, 2026" class="flatpickr-day flatpickr-disabled">4</span><span aria-label="July 5, 2026" class="flatpickr-day flatpickr-disabled">5</span><span aria-current="date" aria-label="July 6, 2026" class="flatpickr-day today" tabindex="-1">6</span><span aria-label="July 7, 2026" class="flatpickr-day" tabindex="-1">7</span><span aria-label="July 8, 2026" class="flatpickr-day" tabindex="-1">8</span><span aria-label="July 9, 2026" class="flatpickr-day" tabindex="-1">9</span><span aria-label="July 10, 2026" class="flatpickr-day" tabindex="-1">10</span><span aria-label="July 11, 2026" class="flatpickr-day" tabindex="-1">11</span><span aria-label="July 12, 2026" class="flatpickr-day" tabindex="-1">12</span><span aria-label="July 13, 2026" class="flatpickr-day" tabindex="-1">13</span><span aria-label="July 14, 2026" class="flatpickr-day" tabindex="-1">14</span><span aria-label="July 15, 2026" class="flatpickr-day" tabindex="-1">15</span><span aria-label="July 16, 2026" class="flatpickr-day" tabindex="-1">16</span><span aria-label="July 17, 2026" class="flatpickr-day" tabindex="-1">17</span><span aria-label="July 18, 2026" class="flatpickr-day" tabindex="-1">18</span><span aria-label="July 19, 2026" class="flatpickr-day" tabindex="-1">19</span><span aria-label="July 20, 2026" class="flatpickr-day" tabindex="-1">20</span><span aria-label="July 21, 2026" class="flatpickr-day" tabindex="-1">21</span><span aria-label="July 22, 2026" class="flatpickr-day" tabindex="-1">22</span><span aria-label="July 23, 2026" class="flatpickr-day" tabindex="-1">23</span><span aria-label="July 24, 2026" class="flatpickr-day" tabindex="-1">24</span><span aria-label="July 25, 2026" class="flatpickr-day" tabindex="-1">25</span><span aria-label="July 26, 2026" class="flatpickr-day" tabindex="-1">26</span><span aria-label="July 27, 2026" class="flatpickr-day" tabindex="-1">27</span><span aria-label="July 28, 2026" class="flatpickr-day" tabindex="-1">28</span><span aria-label="July 29, 2026" class="flatpickr-day" tabindex="-1">29</span><span aria-label="July 30, 2026" class="flatpickr-day" tabindex="-1">30</span><span aria-label="July 31, 2026" class="flatpickr-day" tabindex="-1">31</span><span aria-label="August 1, 2026" class="flatpickr-day nextMonthDay" tabindex="-1">1</span><span aria-label="August 2, 2026" class="flatpickr-day nextMonthDay" tabindex="-1">2</span><span aria-label="August 3, 2026" class="flatpickr-day nextMonthDay" tabindex="-1">3</span><span aria-label="August 4, 2026" class="flatpickr-day nextMonthDay" tabindex="-1">4</span><span aria-label="August 5, 2026" class="flatpickr-day nextMonthDay" tabindex="-1">5</span><span aria-label="August 6, 2026" class="flatpickr-day nextMonthDay" tabindex="-1">6</span><span aria-label="August 7, 2026" class="flatpickr-day nextMonthDay" tabindex="-1">7</span><span aria-label="August 8, 2026" class="flatpickr-day nextMonthDay" tabindex="-1">8</span></div></div></div></div></div><div class="lightboxOverlay" id="lightboxOverlay" style="display:none" tabindex="-1"></div><div class="lightbox" id="lightbox" style="display:none" tabindex="-1"></div>"><script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" rel="stylesheet"/><link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet"/><script src="https://cdn.jsdelivr.net/npm/flatpickr"></script><script>function tfInit(){if(typeof jQuery==="undefined"||!jQuery.fn||!jQuery.fn.slick){return setTimeout(tfInit,120);}jQuery(function($){$(".product-slider,.gallery-slider,.testimonial-slider,.blog-slider").each(function(){if($(this).children().length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=instagram],[class*=insta-feed],[class*=insta-section],[class*=insta-feed-section]").each(function(){if($(this).find("img,iframe,.slick-slide,.insta-item,a[href*=instagram]").length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=__gallery],[class*=__product],[class*=__testimonial]").each(function(){var sl=$(this).find(".gallery-slider,.product-slider,.testimonial-slider").first();if(sl.length&&sl.children().length===0){$(this).hide();}});$("a").each(function(){var h=$(this).attr("href")||"";var tx=$(this).text().replace(/\s+/g,"");if((h==="mailto:"||h==="tel:")&&tx===""){$(this).closest(".contact-box,.contact-item,li,.col-sm-6,.col-md-6,.col-6,.col-12,.col").hide();}});$("[class*=contact-box],[class*=contact-item]").each(function(){if($(this).text().replace(/\s+/g,"")===""){$(this).hide();}});window.tfSubmitInquiry=async function(ev){ev.preventDefault();var f=ev.target;var b=f.querySelector("button[type=submit]");var fd=new FormData(f);if(b)b.disabled=true;try{var r=await fetch("/inquiry-submit.php",{method:"POST",body:fd});var j=await r.json();if(j.success){if(window.showToast)showToast("Message sent!","success");f.reset();}else{if(window.showToast)showToast(j.message||"Failed","error");}}catch(e){if(window.showToast)showToast("Connection error","error");}finally{if(b)b.disabled=false;}};function ini(s,o){var $s=$(s);if(!$s.length||$s.hasClass("slick-initialized"))return;$s.slick(o);}ini(".product-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".gallery-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".testimonial-slider",{slidesToShow:1,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:4000});if(window.flatpickr){flatpickr("#pickUpDate",{minDate:"today",dateFormat:"Y-m-d"});flatpickr(".flatpickr-input",{minDate:"today",dateFormat:"Y-m-d"});}});}tfInit();</script><?php if(!empty($vcard["custom_js"])): ?><script><?= $vcard["custom_js"] ?></script><?php endif; ?><?php include __DIR__ . "/_shared-scripts.php"; ?></body></html>
