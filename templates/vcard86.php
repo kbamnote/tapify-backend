@@ -362,7 +362,7 @@ body{font-family:Poppins}
 <img src="/images/templates/petclinicxxxxxx/pet-042.svg"/>
 </div>
 <div class="contact-desc ps-3">
-<a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["email"]=""> class="text-black fw-5"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
+<a href="mailto:<?= htmlspecialchars($vcard["email"] ?? "") ?>" class="text-black fw-5"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
 </div>
 </div>
 </div>
@@ -372,7 +372,7 @@ body{font-family:Poppins}
 <img src="/images/templates/petclinicxxxxxx/pet-042.svg"/>
 </div>
 <div class="contact-desc ps-3">
-<a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["alternate_email"]=""> class="text-black fw-5"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
+<a href="mailto:<?= htmlspecialchars($vcard["alternate_email"] ?? "") ?>" class="text-black fw-5"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
 </div>
 </div>
 </div>
@@ -382,7 +382,7 @@ body{font-family:Poppins}
 <img src="/images/templates/petclinicxxxxxx/pet-043.svg"/>
 </div>
 <div class="contact-desc ps-3">
-<a "")="" ?="" ??="" href="tel:<?=" htmlspecialchars($vcard["phone"]=""> class="text-black fw-5" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="text-black fw-5" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
 </div>
 </div>
 </div>
@@ -392,7 +392,7 @@ body{font-family:Poppins}
 <img src="/images/templates/petclinicxxxxxx/pet-043.svg"/>
 </div>
 <div class="contact-desc ps-3">
-<a "")="" ?="" ??="" href="tel:<?=" htmlspecialchars($vcard["alternate_phone"]=""> class="text-black fw-5" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="text-black fw-5" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
 </div>
 </div>
 </div>

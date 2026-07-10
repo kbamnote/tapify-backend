@@ -146,7 +146,7 @@ body{font-family:Poppins}
 <img class="img-fluid mb-2" src="/images/templates/businessbeaconxxxxxx/bus-039.webp"/>
 </div>
 <span class="event-title">Email</span><br/>
-<a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["email"]=""> class="mb-0 event-text text-decoration-none"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
+<a href="mailto:<?= htmlspecialchars($vcard["email"] ?? "") ?>" class="mb-0 event-text text-decoration-none"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
 </div>
 </div>
 </div>
@@ -157,7 +157,7 @@ body{font-family:Poppins}
 <img class="img-fluid mb-2" height="33" src="/images/templates/businessbeaconxxxxxx/bus-040.webp" width="34"/>
 </div>
 <span class="event-title">Alternate Email</span>
-<a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["alternate_email"]=""> class="mb-0 event-text text-decoration-none"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
+<a href="mailto:<?= htmlspecialchars($vcard["alternate_email"] ?? "") ?>" class="mb-0 event-text text-decoration-none"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
 </div>
 </div>
 </div>
@@ -169,7 +169,7 @@ body{font-family:Poppins}
 </div>
 <span class="event-title">Mobile Number</span>
 <br/>
-<a "")="" ?="" ??="" href="tel:<?=" htmlspecialchars($vcard["phone"]=""> class="mb-0 event-text text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="mb-0 event-text text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
 </div>
 </div>
 </div>
@@ -181,7 +181,7 @@ body{font-family:Poppins}
 </div>
 <span class="event-title">Alternate Mobile Number</span>
 <br/>
-<a "")="" ?="" ??="" alternate_phone"]="" href="tel:<?= htmlspecialchars($vcard[">" class="mb-0 event-text text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="mb-0 event-text text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
 </div>
 </div>
 </div>

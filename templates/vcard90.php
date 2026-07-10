@@ -199,7 +199,7 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
 <div class="event-detail ms-sm-3 mt-sm-0 mt-4">
 <h6 class="event-title text-sm-start text-center">
  Email</h6>
-<h5><a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["email"]=""> class="event-name text-sm-start text-center mb-0 text-decoration-none"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
+<h5><a href="mailto:<?= htmlspecialchars($vcard["email"] ?? "") ?>" class="event-name text-sm-start text-center mb-0 text-decoration-none"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
 </h5>
 </div>
 </div>
@@ -212,7 +212,7 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
 <div class="event-detail ms-sm-3 mt-sm-0 mt-4">
 <h6 class="event-title text-sm-start text-center">
  Alternate Email</h6>
-<h5><a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["alternate_email"]=""> class="event-name text-sm-start text-center mb-0 text-decoration-none"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
+<h5><a href="mailto:<?= htmlspecialchars($vcard["alternate_email"] ?? "") ?>" class="event-name text-sm-start text-center mb-0 text-decoration-none"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
 </h5>
 </div>
 </div>
@@ -225,7 +225,7 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
 <div class="event-detail ms-sm-3 mt-sm-0 mt-4">
 <h6 class="event-title text-sm-start text-center">
  Mobile Number</h6>
-<h5><a "")="" ?="" ??="" href="tel:<?=" htmlspecialchars($vcard["phone"]=""> class="event-name text-sm-start text-center mb-0 text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<h5><a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="event-name text-sm-start text-center mb-0 text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
 </h5>
 </div>
 </div>
@@ -239,7 +239,7 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
 <h6 class="event-title text-sm-start text-center">
  Alternate Mobile Number</h6>
 <h5>
-<a "")="" ?="" ??="" alternate_phone"]="" href="tel:<?= htmlspecialchars($vcard[">" class="event-name text-sm-start text-center mb-0 text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="event-name text-sm-start text-center mb-0 text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
 </h5>
 </div>
 </div>

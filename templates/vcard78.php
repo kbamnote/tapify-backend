@@ -3152,7 +3152,7 @@ body{font-family:{
 <img src="/images/templates/eventmanagementxxxxxx/eve-045.svg"/>
 </div>
 <div class="contact-desc">
-<a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["email"]="">><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
+<a href="mailto:<?= htmlspecialchars($vcard["email"] ?? "") ?>"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
 </div>
 </div>
 </div>
@@ -3162,7 +3162,7 @@ body{font-family:{
 <img src="/images/templates/eventmanagementxxxxxx/eve-045.svg"/>
 </div>
 <div class="contact-desc">
-<a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["alternate_email"]="">><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
+<a href="mailto:<?= htmlspecialchars($vcard["alternate_email"] ?? "") ?>"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
 </div>
 </div>
 </div>
@@ -3172,7 +3172,7 @@ body{font-family:{
 <img src="/images/templates/eventmanagementxxxxxx/eve-046.svg"/>
 </div>
 <div class="contact-desc">
-<a "")="" ?="" ??="" href="tel:<?= htmlspecialchars($vcard[" phone"]="">" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
 </div>
 </div>
 </div>
@@ -3182,7 +3182,7 @@ body{font-family:{
 <img src="/images/templates/eventmanagementxxxxxx/eve-046.svg"/>
 </div>
 <div class="contact-desc">
-<a "")="" ?="" ??="" alternate_phone"]="" href="tel:<?= htmlspecialchars($vcard[">" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
 </div>
 </div>
 </div>

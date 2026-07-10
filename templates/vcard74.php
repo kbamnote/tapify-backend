@@ -122,7 +122,7 @@ body{font-family:Poppins}
 </div>
 <div class="event-details">
 <span class="text-white text-center d-block mb-1">Email</span>
-<h5 class="text-center mb-0 text-white"><a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["email"]=""> class="text-white text-decoration-none"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
+<h5 class="text-center mb-0 text-white"><a href="mailto:<?= htmlspecialchars($vcard["email"] ?? "") ?>" class="text-white text-decoration-none"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
 </h5>
 </div>
 </div>
@@ -132,7 +132,7 @@ body{font-family:Poppins}
 </div>
 <div class="event-details">
 <span class="text-white text-center d-block mb-1">Alternate Email</span>
-<h5 class="text-center mb-0 text-white"><a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["alternate_email"]=""> class="text-white text-decoration-none"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
+<h5 class="text-center mb-0 text-white"><a href="mailto:<?= htmlspecialchars($vcard["alternate_email"] ?? "") ?>" class="text-white text-decoration-none"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
 </h5>
 </div>
 </div>
@@ -142,7 +142,7 @@ body{font-family:Poppins}
 </div>
 <div class="event-details">
 <span class="text-white text-center d-block mb-1">Mobile Number</span>
-<h5 class="text-center mb-0 text-white"><a "")="" ?="" ??="" href="tel:<?=" htmlspecialchars($vcard["phone"]=""> class="text-white text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<h5 class="text-center mb-0 text-white"><a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="text-white text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
 </h5>
 </div>
 </div>
@@ -152,7 +152,7 @@ body{font-family:Poppins}
 </div>
 <div class="event-details">
 <span class="text-white text-center d-block mb-1">Alternate Mobile Number</span>
-<h5 class="text-center mb-0 text-white"><a "")="" ?="" ??="" alternate_phone"]="" href="tel:<?= htmlspecialchars($vcard[">" class="text-white text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<h5 class="text-center mb-0 text-white"><a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="text-white text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
 </h5>
 </div>
 </div>

@@ -123,7 +123,7 @@ body{font-family:{
 <img src="/images/templates/lawyerxxxxx/law-039.svg"/>
 </div>
 <div class="contact-desc">
-<a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["email"]=""> class="event-name text-center mb-0 text-decoration-none"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
+<a href="mailto:<?= htmlspecialchars($vcard["email"] ?? "") ?>" class="event-name text-center mb-0 text-decoration-none"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
 </div>
 </div>
 </div>
@@ -133,7 +133,7 @@ body{font-family:{
 <img src="/images/templates/lawyerxxxxx/law-039.svg"/>
 </div>
 <div class="contact-desc">
-<a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["alternate_email"]=""> class="event-name text-center mb-0 text-decoration-none"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
+<a href="mailto:<?= htmlspecialchars($vcard["alternate_email"] ?? "") ?>" class="event-name text-center mb-0 text-decoration-none"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
 </div>
 </div>
 </div>
@@ -153,7 +153,7 @@ body{font-family:{
 <img src="/images/templates/lawyerxxxxx/law-040.svg"/>
 </div>
 <div class="contact-desc">
-<a "")="" ?="" ??="" href="tel:<?= htmlspecialchars($vcard[" phone"]="">" class="text-primary mb-0 fs-14" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="text-primary mb-0 fs-14" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
 </div>
 </div>
 </div>

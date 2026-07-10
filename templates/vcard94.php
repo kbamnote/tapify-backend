@@ -179,7 +179,7 @@ body{font-family:Poppins}
 <img loading="lazy" src="/images/templates/schooltemplatexxxxx/sch-033.svg"/>
 </div>
 <div class="contact-desc">
-<a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["email"]=""> class="text-black fw-5 fs-14"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
+<a href="mailto:<?= htmlspecialchars($vcard["email"] ?? "") ?>" class="text-black fw-5 fs-14"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
 </div>
 </div>
 </div>
@@ -189,7 +189,7 @@ body{font-family:Poppins}
 <img loading="lazy" src="/images/templates/schooltemplatexxxxx/sch-033.svg"/>
 </div>
 <div class="contact-desc">
-<a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["alternate_email"]=""> class="text-black fw-5 fs-14"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
+<a href="mailto:<?= htmlspecialchars($vcard["alternate_email"] ?? "") ?>" class="text-black fw-5 fs-14"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
 </div>
 </div>
 </div>
@@ -199,7 +199,7 @@ body{font-family:Poppins}
 <img loading="lazy" src="/images/templates/schooltemplatexxxxx/sch-034.svg"/>
 </div>
 <div class="contact-desc">
-<a "")="" ?="" ??="" href="tel:<?=" htmlspecialchars($vcard["phone"]=""> class="text-black fw-5 fs-14" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="text-black fw-5 fs-14" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
 </div>
 </div>
 </div>
@@ -209,7 +209,7 @@ body{font-family:Poppins}
 <img loading="lazy" src="/images/templates/schooltemplatexxxxx/sch-034.svg"/>
 </div>
 <div class="contact-desc">
-<a "")="" ?="" ??="" href="tel:<?=" htmlspecialchars($vcard["alternate_phone"]=""> class="text-black fw-5 fs-14" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="text-black fw-5 fs-14" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
 </div>
 </div>
 </div>

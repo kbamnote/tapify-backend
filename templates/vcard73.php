@@ -137,7 +137,7 @@ body{font-family:Poppins}
 <span class="event-icon d-flex justify-content-center">
 <img alt="email" src="/images/templates/cleancanvasxxxxxx/cle-039.webp"/>
 </span>
-<a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["email"]=""> class="event-name text-center pt-3 mb-0 text-decoration-none"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
+<a href="mailto:<?= htmlspecialchars($vcard["email"] ?? "") ?>" class="event-name text-center pt-3 mb-0 text-decoration-none"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
 </div>
 </div>
 <div class="col-sm-6 col-12">
@@ -145,7 +145,7 @@ body{font-family:Poppins}
 <span class="event-icon d-flex justify-content-center">
 <img alt="email" height="31" src="/images/templates/cleancanvasxxxxxx/cle-040.webp" width="40"/>
 </span>
-<a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["alternate_email"]=""> class="event-name text-center pt-3 mb-0 text-decoration-none"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
+<a href="mailto:<?= htmlspecialchars($vcard["alternate_email"] ?? "") ?>" class="event-name text-center pt-3 mb-0 text-decoration-none"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
 </div>
 </div>
 <div class="col-sm-6 col-12">
@@ -161,7 +161,7 @@ body{font-family:Poppins}
 <span class="event-icon d-flex justify-content-center">
 <img alt="email" src="/images/templates/cleancanvasxxxxxx/cle-042.webp"/>
 </span>
-<a "")="" ?="" ??="" href="tel:<?=" htmlspecialchars($vcard["phone"]=""> class="event-name text-center pt-3 mb-0 text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="event-name text-center pt-3 mb-0 text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
 </div>
 </div>
 <div class="col-sm-6 col-12">
@@ -169,7 +169,7 @@ body{font-family:Poppins}
 <span class="event-icon d-flex justify-content-center">
 <img alt="email" src="/images/templates/cleancanvasxxxxxx/cle-043.webp"/>
 </span>
-<a "")="" ?="" ??="" alternate_phone"]="" href="tel:<?= htmlspecialchars($vcard[">" class="event-name text-center pt-3 mb-0 text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="event-name text-center pt-3 mb-0 text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
 </div>
 </div>
 <div class="col-sm-6 col-12">

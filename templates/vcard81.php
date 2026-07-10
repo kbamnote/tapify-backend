@@ -221,7 +221,7 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
 <img src="/images/templates/gymxxxxxx/gym-042.svg"/>
 </div>
 <div class="contact-desc text-center">
-<a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["email"]=""> class="event-name text-center mb-0 text-decoration-none text-white"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
+<a href="mailto:<?= htmlspecialchars($vcard["email"] ?? "") ?>" class="event-name text-center mb-0 text-decoration-none text-white"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
 </div>
 </div>
 </div>
@@ -231,7 +231,7 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
 <img src="/images/templates/gymxxxxxx/gym-042.svg"/>
 </div>
 <div class="contact-desc text-center">
-<a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["alternate_email"]=""> class="event-name text-center mb-0 text-decoration-none text-white">rmadden.official@gmail.com</a>
+<a href="mailto:<?= htmlspecialchars($vcard["alternate_email"] ?? "") ?>" class="event-name text-center mb-0 text-decoration-none text-white"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
 </div>
 </div>
 </div>

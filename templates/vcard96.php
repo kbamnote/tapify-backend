@@ -139,7 +139,7 @@ body{font-family:Poppins}
 <img src="/images/templates/socialmediaxxxxxx/soc-023.svg"/>
 </div>
 <div class="contact-desc">
-<a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["email"]=""> class="text-primary fw-5"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
+<a href="mailto:<?= htmlspecialchars($vcard["email"] ?? "") ?>" class="text-primary fw-5"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
 </div>
 </div>
 </div>
@@ -151,7 +151,7 @@ body{font-family:Poppins}
 <img src="/images/templates/socialmediaxxxxxx/soc-023.svg"/>
 </div>
 <div class="contact-desc">
-<a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["alternate_email"]=""> class="text-primary fw-5"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
+<a href="mailto:<?= htmlspecialchars($vcard["alternate_email"] ?? "") ?>" class="text-primary fw-5"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
 </div>
 </div>
 </div>
@@ -163,7 +163,7 @@ body{font-family:Poppins}
 <img src="/images/templates/socialmediaxxxxxx/soc-024.svg"/>
 </div>
 <div class="contact-desc">
-<a "")="" ?="" ??="" href="tel:<?=" htmlspecialchars($vcard["phone"]=""> class="text-primary fw-5" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="text-primary fw-5" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
 </div>
 </div>
 </div>
@@ -175,7 +175,7 @@ body{font-family:Poppins}
 <img src="/images/templates/socialmediaxxxxxx/soc-024.svg"/>
 </div>
 <div class="contact-desc">
-<a "")="" ?="" ??="" href="tel:<?=" htmlspecialchars($vcard["alternate_phone"]=""> class="text-primary fw-5" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="text-primary fw-5" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
 </div>
 </div>
 </div>

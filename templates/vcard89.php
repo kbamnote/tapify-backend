@@ -284,8 +284,8 @@ a{text-decoration:none}#body{background-color:#1d2336!important;font-family:popp
 <div class="d-flex">
 <span>Contact :</span>
 <div class="d-flex flex-wrap">
-<a "")="" ?="" ??="" href="tel:<?=" htmlspecialchars($vcard["phone"]=""> class="ps-2 fs-14" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
-<a "")="" ?="" ??="" href="tel:<?=" htmlspecialchars($vcard["alternate_phone"]=""> class="ps-2 fs-14" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="ps-2 fs-14" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="ps-2 fs-14" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
 </div>
 </div>
 </div>

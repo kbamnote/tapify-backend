@@ -216,7 +216,7 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
 <span class="event-icon">
 <img class="img-fluid" src="/images/templates/professionalxxxxxx/pro-038.webp"/>
 </span>
-<a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["email"]=""> class="event-name text-center mb-0 pt-2 text-decoration-none"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
+<a href="mailto:<?= htmlspecialchars($vcard["email"] ?? "") ?>" class="event-name text-center mb-0 pt-2 text-decoration-none"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
 </div>
 </div>
 <div class="col-sm-6 col-12">
@@ -224,7 +224,7 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
 <span class="event-icon">
 <img alt="" class="img-fluid" height="22" src="/images/templates/professionalxxxxxx/pro-039.webp" width="30"/>
 </span>
-<a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["alternate_email"]=""> class="event-name text-center mb-0 pt-2 text-decoration-none"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
+<a href="mailto:<?= htmlspecialchars($vcard["alternate_email"] ?? "") ?>" class="event-name text-center mb-0 pt-2 text-decoration-none"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
 </div>
 </div>
 <div class="col-sm-6 col-12">
@@ -240,7 +240,7 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
 <span class="event-icon">
 <img class="img-fluid" src="/images/templates/professionalxxxxxx/pro-041.webp"/>
 </span>
-<a "")="" ?="" ??="" href="tel:<?=" htmlspecialchars($vcard["phone"]=""> class="event-name text-center mb-0 pt-2 text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="event-name text-center mb-0 pt-2 text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
 </div>
 </div>
 <div class="col-sm-6 col-12">
@@ -248,7 +248,7 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
 <span class="event-icon">
 <img class="img-fluid" src="/images/templates/professionalxxxxxx/pro-042.webp"/>
 </span>
-<a "")="" ?="" ??="" alternate_phone"]="" href="tel:<?= htmlspecialchars($vcard[">" class="event-name text-center mb-0 pt-2 text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="event-name text-center mb-0 pt-2 text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
 </div>
 </div>
 <div class="col-sm-6 col-12">

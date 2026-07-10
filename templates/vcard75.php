@@ -179,14 +179,14 @@ body{font-family:Poppins}
 <div class="col-sm-6 pb-4">
 <div class="about-details">
 <img class="mb-2" src="/images/templates/corporateconnectxxxxxx/cor-020.webp"/>
-<p><a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["email"]=""> class="about-title mb-0 text-decoration-none"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
+<p><a href="mailto:<?= htmlspecialchars($vcard["email"] ?? "") ?>" class="about-title mb-0 text-decoration-none"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
 </p>
 </div>
 </div>
 <div class="col-sm-6 pb-4">
 <div class="about-details">
 <img class="mb-2" height="31" src="/images/templates/corporateconnectxxxxxx/cor-021.webp" width="40"/>
-<p><a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["alternate_email"]=""> class="about-title mb-0 text-decoration-none"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
+<p><a href="mailto:<?= htmlspecialchars($vcard["alternate_email"] ?? "") ?>" class="about-title mb-0 text-decoration-none"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
 </p>
 </div>
 </div>
@@ -199,7 +199,7 @@ body{font-family:Poppins}
 <div class="col-sm-6 pb-4">
 <div class="about-details">
 <img class="mb-2" src="/images/templates/corporateconnectxxxxxx/cor-023.webp"/>
-<p><a "")="" ?="" ??="" href="tel:<?=" htmlspecialchars($vcard["phone"]=""> class="about-title mb-0 text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<p><a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="about-title mb-0 text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
 </p>
 </div>
 </div>
@@ -207,7 +207,7 @@ body{font-family:Poppins}
 <div class="about-details">
 <img class="mb-2" src="/images/templates/corporateconnectxxxxxx/cor-024.webp"/>
 <p>
-<a "")="" ?="" ??="" href="tel:<?=" htmlspecialchars($vcard["alternate_phone"]=""> class="about-title mb-0 text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="about-title mb-0 text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
 </p>
 </div>
 </div>

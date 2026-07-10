@@ -210,7 +210,7 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
 <div class="card border-0 bg-transparent">
 <div class="event-icon text-white">
 <img class="img-fluid me-3" src="/images/templates/modernedgexxxxxx/mod-049.webp"/>
-<a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["email"]=""> class="email-text text-white text-decoration-none"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
+<a href="mailto:<?= htmlspecialchars($vcard["email"] ?? "") ?>" class="email-text text-white text-decoration-none"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
 </div>
 </div>
 </div>
@@ -218,7 +218,7 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
 <div class="card border-0 bg-transparent">
 <div class="event-icon text-white">
 <img class="img-fluid me-3" src="/images/templates/modernedgexxxxxx/mod-050.webp" style="height:22px!important"/>
-<a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["alternate_email"]=""> class="email-text text-white text-decoration-none"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
+<a href="mailto:<?= htmlspecialchars($vcard["alternate_email"] ?? "") ?>" class="email-text text-white text-decoration-none"><?= htmlspecialchars($vcard["alternate_email"] ?? "") ?></a>
 </div>
 </div>
 </div>
@@ -226,7 +226,7 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
 <div class="card border-0 bg-transparent">
 <div class="event-icon text-white">
 <img class="img-fluid me-3" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-30)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-<a "")="" ?="" ??="" href="tel:<?=" htmlspecialchars($vcard["phone"]=""> class="email-text text-white text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="email-text text-white text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
 </div>
 </div>
 </div>
@@ -234,7 +234,7 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
 <div class="card border-0 bg-transparent">
 <div class="event-icon text-white">
 <img class="img-fluid me-3" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-30)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
-<a "")="" ?="" ??="" href="tel:<?=" htmlspecialchars($vcard["alternate_phone"]=""> class="email-text text-white text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="email-text text-white text-decoration-none" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
 </div>
 </div>
 </div>

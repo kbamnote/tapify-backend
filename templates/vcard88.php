@@ -353,7 +353,7 @@ body{font-family:{
 <span class="animated-border"></span>
 <span class="animated-border"></span>
 <div class="text-center position-relative z-2">
-<a "")="" ?="" ??="" href="mailto:<?=" htmlspecialchars($vcard["email"]=""> class="fs-14 fw-5 lh-base text-white mb-0 text-break"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
+<a href="mailto:<?= htmlspecialchars($vcard["email"] ?? "") ?>" class="fs-14 fw-5 lh-base text-white mb-0 text-break"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
 </div>
 </div>
 </div>
@@ -371,7 +371,7 @@ body{font-family:{
 <span class="animated-border"></span>
 <span class="animated-border"></span>
 <div class="text-center position-relative z-2">
-<a "")="" ?="" ??="" href="tel:<?=" htmlspecialchars($vcard["phone"]=""> class="fs-14 fw-5 lh-base text-white mb-0"><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+<a href="tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?>" class="fs-14 fw-5 lh-base text-white mb-0"><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
 </div>
 </div>
 </div>
