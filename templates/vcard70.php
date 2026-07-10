@@ -632,7 +632,7 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
  </h2>
  </div>
  <div class="contact-form mt-3 position-relative">
- <form id="enquiryForm" onsubmit="submitInquiry(event)" enctype="multipart/form-data"><input type="hidden" name="vcard_id" value="<?= $vcardId ?>">
+ <form id="enquiryForm" onsubmit="tfSubmitInquiry(event)" enctype="multipart/form-data"><input type="hidden" name="vcard_id" value="<?= $vcardId ?><label class="w-100 mb-2" style="display:block;text-align:left"><span style="font-size:13px;opacity:.85">Attachment (optional)</span><input type="file" name="attachment" class="form-control" accept="image/*,.pdf" style="margin-top:4px"></label>">
  <div class=row>
  <div id=enquiryError class="alert alert-danger d-none sf-hidden"></div>
  <div class="col-sm-12 mb-sm-4 mb-3">
@@ -783,4 +783,4 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
   }
   if(btn){btn.addEventListener('click',openBookForm);}
 })();
-</script><?php include __DIR__ . "/_shared-scripts.php"; ?></body></html>
+</script><?php include __DIR__ . "/_shared-scripts.php"; ?><style>/*tf-fixups*/.flatpickr-calendar:not(.open){display:none!important}</style><script>window.tfSubmitInquiry=async function(ev){ev.preventDefault();var f=ev.target;var b=f.querySelector("button[type=submit]");var fd=new FormData(f);if(b)b.disabled=true;try{var r=await fetch("/inquiry-submit.php",{method:"POST",body:fd});var j=await r.json();if(j.success){if(window.showToast)showToast("Message sent!","success");f.reset();}else{if(window.showToast)showToast(j.message||"Failed","error");}}catch(e){if(window.showToast)showToast("Connection error","error");}finally{if(b)b.disabled=false;}};</script></body></html>

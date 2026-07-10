@@ -39,9 +39,26 @@ try {
     $vcard = $stmt->fetch();
     if (!$vcard) sendError('vCard not found');
 
-    // Save inquiry
-    $stmt = $pdo->prepare("INSERT INTO vcard_inquiries (vcard_id, name, email, phone, message, created_at) VALUES (?, ?, ?, ?, ?, NOW())");
-    $stmt->execute([$vcardId, $name, $email, $phone, $message]);
+    // Optional file attachment (multipart submissions from Pro templates)
+    $attachment = null;
+    if (isset($_FILES['attachment']) && $_FILES['attachment']['error'] === UPLOAD_ERR_OK) {
+        $up = uploadToCloudinary($_FILES['attachment']);
+        if (empty($up['success'])) {
+            $up = uploadFile($_FILES['attachment'], ['jpg','jpeg','png','gif','webp','pdf']);
+        }
+        if (!empty($up['success'])) {
+            $attachment = $up['url'] ?? ($up['path'] ?? null);
+        }
+    }
+
+    // Save inquiry (fall back to legacy column set if `attachment` doesn't exist yet)
+    try {
+        $stmt = $pdo->prepare("INSERT INTO vcard_inquiries (vcard_id, name, email, phone, message, attachment, created_at) VALUES (?, ?, ?, ?, ?, ?, NOW())");
+        $stmt->execute([$vcardId, $name, $email, $phone, $message, $attachment]);
+    } catch (Exception $eCol) {
+        $stmt = $pdo->prepare("INSERT INTO vcard_inquiries (vcard_id, name, email, phone, message, created_at) VALUES (?, ?, ?, ?, ?, NOW())");
+        $stmt->execute([$vcardId, $name, $email, $phone, $message]);
+    }
     $inquiryId = $pdo->lastInsertId();
 
     // === EMAIL NOTIFICATIONS (silent failure) ===
