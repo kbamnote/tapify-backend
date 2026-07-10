@@ -127,7 +127,7 @@ body{font-family:Poppins}
 <span class="profile-designation pt-2 fw-light"> </span>
 <p><span class="profile-company d-block"></span></p>
 <span class="mt-4 profile-description fs-6"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars(trim(html_entity_decode(strip_tags($vcard["description"]),ENT_QUOTES)))) ?><?php else: ?> <p>A Canvas Artist is a visual storyteller who brings ideas to life on white, clean canvas paper. Using brushes, pencils, or mixed media, they create expressive and intentional artwork that captures emotion, thought, and narrative. With a deep appreciation for space and form, their work ranges from abstract concepts to detailed realism—perfect for galleries, collectors, and creative showcases.</p><?php endif; ?></span>
-<div class="social-icons d-flex flex-wrap justify-content-center pt-4 w-100"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a ?="" href="<?= htmlspecialchars($s[" url"])="">" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
+<div class="social-icons d-flex flex-wrap justify-content-center pt-4 w-100"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
 </div>
 <div class="vcard-one__event py-3 px-3">
 <div class="container">

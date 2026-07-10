@@ -171,7 +171,7 @@ body{font-family:Poppins}
 <br/>
 </div>
 <div class="container">
-<div class="social-section pb-4 px-sm-5 mb-3"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a ?="" href="<?= htmlspecialchars($s[" url"])="">" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
+<div class="social-section pb-4 px-sm-5 mb-3"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
 </div>
 <div class="container">
 <div class="about-section mb-4">

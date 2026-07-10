@@ -127,7 +127,7 @@ body{font-family:{
 <div class="profile-desc mb-0 fs-14 text-center pt-40 px-30"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars(trim(html_entity_decode(strip_tags($vcard["description"]),ENT_QUOTES)))) ?><?php else: ?>
 <p class="ql-align-center">🎶 <strong>Experience the Magic of Arijit Sharma Live! </strong>🎤<p class="ql-align-center">Join us for an unforgettable evening as the maestro of melodies takes the stage, weaving magic with his soulful voice and timeless hits. Don’t miss this extraordinary musical journey—mark your calendar and be part of the enchantment! 🌟<p><br/></p>
 <?php endif; ?></p></p></div>
-<div class="social-media-section pt-40 position-relative px-30"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a ?="" href="<?= htmlspecialchars($s[" url"])="">" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
+<div class="social-media-section pt-40 position-relative px-30"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
 <div class="pt-50 px-30 position-relative">
 <div class="position-absolute vector-all vector-2 text-end">
 <img alt="images" class="w-100" src="/images/templates/musicianxxxxx/mus-023.webp"/>

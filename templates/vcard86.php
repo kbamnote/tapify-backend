@@ -346,7 +346,7 @@ body{font-family:Poppins}
 <p>Welcome to <strong>PetCare</strong> Pet Clinic, where your pet's health is our top priority. We offer expert veterinary care, routine checkups, vaccinations, and emergency services for dogs, cats, and other small animals. Our experienced team ensures compassionate treatment in a clean, stress-free environment. Whether it’s a minor illness or a major procedure, your furry friends are in safe hands. We also provide grooming, dental care, and nutrition advice to keep pets happy and healthy. Trust us to be your partner in lifelong pet wellness!</p>
 <p></p>
 </p></div>
-<div class="social-media px-30 d-flex flex-wrap justify-content-sm-start justify-content-center pt-40 position-relative"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a ?="" href="<?= htmlspecialchars($s[" url"])="">" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
+<div class="social-media px-30 d-flex flex-wrap justify-content-sm-start justify-content-center pt-40 position-relative"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
 </div>
 <div class="contact-section pt-50 px-30 position-relative">
 <div class="position-absolute vector-all vector-3 text-end">

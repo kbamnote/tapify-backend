@@ -195,7 +195,7 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
 <div class="d-flex align-items-center justify-content-center mb-5">
 <span class="pt-5 profile-description fs-6"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars(trim(html_entity_decode(strip_tags($vcard["description"]),ENT_QUOTES)))) ?><?php else: ?><p>Crafting compelling content that speaks, sells, and ranks. As a skilled content writer, I specialize in creating SEO-friendly blogs, web copy, product descriptions, social media posts, and marketing materials tailored to your audience and brand voice. Whether you need engaging storytelling, persuasive sales copy, or educational articles, I deliver well-researched, clear, and impactful content that drives results.</p><?php endif; ?></span>
 </div>
-<div class="social-icons d-flex justify-content-center pt-sm-5 pt-4 flex-wrap mx-auto"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a ?="" href="<?= htmlspecialchars($s[" url"])="">" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
+<div class="social-icons d-flex justify-content-center pt-sm-5 pt-4 flex-wrap mx-auto"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
 </div>
 <div class="vcard-nine__event py-3 px-3 mt-2 position-relative">
 <div class="container">

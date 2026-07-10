@@ -203,7 +203,7 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
 <p></p>
 <?php endif; ?></p></div>
 </div>
-<div class="social-media d-flex text-light justify-content-center px-30 pt-50 position-relative"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a ?="" href="<?= htmlspecialchars($s[" url"])="">" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
+<div class="social-media d-flex text-light justify-content-center px-30 pt-50 position-relative"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
 <div class="contact-section position-relative px-30 pt-50">
 <div class="section-heading text-center overflow-hidden">
 <h2 class="text-white mb-0 d-inline-block">

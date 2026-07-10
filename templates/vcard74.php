@@ -109,7 +109,7 @@ body{font-family:Poppins}
 </div>
 </div>
 <div class="vcard-eight__social py-3 px-sm-3 px-2 position-relative">
-<div class="social-icons d-flex justify-content-center pt-4 flex-wrap"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a ?="" href="<?= htmlspecialchars($s[" url"])="">" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
+<div class="social-icons d-flex justify-content-center pt-4 flex-wrap"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
 </div>
 <div class="vcard-eight__event py-3 px-sm-4 px-3 mt-2 position-relative">
 <div class="row">

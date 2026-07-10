@@ -202,7 +202,7 @@ body{font-family:Poppins}
 <p>Welcome to <strong><?= htmlspecialchars($fullName) ?>e Supplies</strong>, your friendly neighborhood pet shop where every paw counts! We offer a wide range of premium pet products and services — from nutritious food and fun toys to grooming essentials and accessories for dogs, cats, birds, fish, and more.</p>
 <p></p>
 <?php endif; ?></p></div>
-<div class="social-media pt-40 d-flex flex-wrap justify-content-center px-30 position-relative"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a ?="" href="<?= htmlspecialchars($s[" url"])="">" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
+<div class="social-media pt-40 d-flex flex-wrap justify-content-center px-30 position-relative"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
 <div class="contact-section pt-50 px-30 position-relative">
 <div class="position-absolute vector-all vector-bg-4 text-end">
 <img alt="images" class="w-100" src="/images/templates/petshopxxxxxx/pet-057.webp"/>

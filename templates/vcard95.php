@@ -132,7 +132,7 @@ img[src=&quot;data:,&quot;],source[src=&quot;data:,&quot;]{display:none!importan
 <h4 class="profile-name pt-2 mb-0"><?= htmlspecialchars($fullName) ?></h4>
 <span class="profile-designation pt-2 fw-light"><?= htmlspecialchars($vcard["occupation"] ?? "") ?></span>
 <span class="mt-4 profile-description"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars(trim(html_entity_decode(strip_tags($vcard["description"]),ENT_QUOTES)))) ?><?php else: ?> I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery,I am a heart surgeon. I have 10 year experience in surgery<?php endif; ?></span>
-<div class="social-icons d-flex justify-content-center pt-4"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a ?="" href="<?= htmlspecialchars($s[" url"])="">" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
+<div class="social-icons d-flex justify-content-center pt-4"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
 </div>
 <div class="vcard-one__event py-3 px-3">
 <div class="container">

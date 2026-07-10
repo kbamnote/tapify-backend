@@ -136,7 +136,7 @@ body{font-family:Poppins}
 <div class="d-flex align-items-center justify-content-center mb-5">
 <span class="pt-2 profile-description"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars(trim(html_entity_decode(strip_tags($vcard["description"]),ENT_QUOTES)))) ?><?php else: ?><p>The <strong>Marketing Director</strong> is a senior leader responsible for crafting and executing strategic marketing plans that drive brand awareness, customer engagement, and business growth. With a strong grasp of both traditional and digital marketing channels, they lead cross-functional teams to deliver impactful campaigns and measurable results.</p><?php endif; ?></span>
 </div>
-<div class="social-section mb-4"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a ?="" href="<?= htmlspecialchars($s[" url"])="">" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
+<div class="social-section mb-4"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
 </div>
 <div class="row">
 <div class="col-sm-6 mb-4">

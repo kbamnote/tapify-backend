@@ -842,7 +842,7 @@ body{font-family:{
 <div class="profile-desc px-30 fs-14 text-center">
 <p><strong><?= htmlspecialchars($fullName) ?></strong> is your dependable companion on the journey to love and lifelong commitment. We offer expert matchmaking services designed to connect individuals and families with compatible partners who share values, beliefs, and future goals.</p>
 </div>
-<div class="social-media-section px-30 pt-30"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a ?="" href="<?= htmlspecialchars($s[" url"])="">" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
+<div class="social-media-section px-30 pt-30"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
 </div>
 </div>
 <div class="main-section">

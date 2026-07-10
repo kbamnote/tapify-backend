@@ -100,7 +100,7 @@ body{font-family:Poppins}
 <img alt="profile-bg" src="/images/templates/socialservicesxxxxxx/soc-019.webp"/>
 </div>
 </div>
-<div class="social-media d-flex justify-content-center flex-wrap position-relative"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a ?="" href="<?= htmlspecialchars($s[" url"])="">" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
+<div class="social-media d-flex justify-content-center flex-wrap position-relative"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
 </div>
 <div class="contact-section position-relative">
 <div class="position-absolute top-0 end-0 all-bg-img img-2">

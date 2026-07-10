@@ -327,7 +327,7 @@ body{font-family:{
 <div class="fs-14 text-gray-100 profile-desc pt-50 px-30 text-center">
 <p><strong style="color:rgb(64,64,64)">A photographer is an artist and storyteller who captures moments, emotions, and scenes through the lens of a camera. They use light, composition, and timing to create visually compelling images that evoke feelings or convey messages. Photographers may specialize in various fields, such as portraits, landscapes, fashion, or documentary work. Their work often requires technical skill, creativity, and a keen eye for detail. Through their photographs, they preserve memories, document history, and inspire audiences.</strong></p>
 </div>
-<div class="social-media pt-50 px-30 position-relative"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a ?="" href="<?= htmlspecialchars($s[" url"])="">" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
+<div class="social-media pt-50 px-30 position-relative"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
 <div class="personal-section position-relative pt-50 px-30 overflow-hidden">
 <div class="position-absolute vector-2 vector-all text-end">
 <img alt="images" class="w-100" src="/images/templates/photographerxxxxxx/pho-012.webp"/>

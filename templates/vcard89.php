@@ -188,7 +188,7 @@ a{text-decoration:none}#body{background-color:#1d2336!important;font-family:popp
 <img class="w-100 custom-border-radius h-100 object-fit-cover br-15" src="/images/templates/portfolioxxxxxx/por-005.webp"/>
 </div>
 <div class="d-flex icon-box justify-content-center flex-wrap custom-social-position mt-3">
-<div class="social-icon mb-2 me-2 border-gradient border-gradient-orange d-flex justify-content-center align-items-center"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a ?="" href="<?= htmlspecialchars($s[" url"])="">" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
+<div class="social-icon mb-2 me-2 border-gradient border-gradient-orange d-flex justify-content-center align-items-center"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
 <div class="social-icon mb-2 me-2 border-gradient border-gradient-orange d-flex justify-content-center align-items-center">
 <a href="https://x.com/" target="_blank">
 <svg class="twitter_icon" fill="currentColor" viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">

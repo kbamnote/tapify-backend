@@ -123,7 +123,7 @@ body{font-family:Poppins}
 <div class="desc pt-30 text-dark fs-14 text-center px-30">
 <p>A <strong>fashion influencer</strong> is an individual who has established credibility in the fashion industry and has a significant following on social media platforms. These individuals use their influence to impact the purchasing decisions and style choices of their</p>
 </div>
-<div class="social-media pt-40 px-30 d-flex flex-wrap justify-content-sm-start justify-content-center position-relative"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a ?="" href="<?= htmlspecialchars($s[" url"])="">" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
+<div class="social-media pt-40 px-30 d-flex flex-wrap justify-content-sm-start justify-content-center position-relative"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
 <div class="contact-section position-relative px-30 pt-50">
 <div class="position-absolute vector-2 vector-all">
 <img alt="vector-img" class="w-100" src="/images/templates/socialmediaxxxxxx/soc-022.webp"/>

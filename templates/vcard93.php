@@ -102,7 +102,7 @@ body{font-family:{
 <div class="mb-0 text-center fs-14 pt-40 profile-desc px-30 position-relative"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars(trim(html_entity_decode(strip_tags($vcard["description"]),ENT_QUOTES)))) ?><?php else: ?>
 <p>Welcome to <strong>Luxury Salon</strong>, where beauty meets expertise. Our salon offers a relaxing and modern space designed to pamper you from the moment you walk in. Whether you're looking for a fresh haircut, vibrant color, sleek blowout, or nourishing hair treatment, our talented team of stylists is here to bring your vision to life. We specialize in personalized hair care, the latest styling trends, and exceptional customer service. At Luxury salon, your hair isn’t just styled—it’s transformed."</p>
 <?php endif; ?></div>
-<div class="social-media d-flex flex-wrap justify-content-center pt-40 px-30 position-relative"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a ?="" href="<?= htmlspecialchars($s[" url"])="">" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
+<div class="social-media d-flex flex-wrap justify-content-center pt-40 px-30 position-relative"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
 <div class="contact-section pt-50 position-relative">
 <div class="position-absolute vector-all vector-bg-2 text-end">
 <img alt="images" class="w-100" src="/images/templates/salonxxxxxx/sal-042.webp"/>

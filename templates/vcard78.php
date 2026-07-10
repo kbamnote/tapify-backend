@@ -3135,7 +3135,7 @@ body{font-family:{
 <div class="text-white mb-0 fs-14 text-center profile-desc"><?php if(!empty($vcard["description"])): ?><?= nl2br(htmlspecialchars(trim(html_entity_decode(strip_tags($vcard["description"]),ENT_QUOTES)))) ?><?php else: ?>
 <p>As an <strong>Event Planner</strong>, I specialize in organizing and coordinating events, ensuring every detail is planned meticulously. From corporate events to weddings, my goal is to create unforgettable experiences for clients. I work closely with vendors, clients, and teams to ensure seamless execution and satisfaction.</p>
 <?php endif; ?></div>
-<div class="social-media d-flex justify-content-end"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a ?="" href="<?= htmlspecialchars($s[" url"])="">" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
+<div class="social-media d-flex justify-content-end"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
 </div>
 <div class="contact-section main-section pt-30 pb-30 px-30 position-relative">
 <div class="position-absolute vector-all vector-2">
