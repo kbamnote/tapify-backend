@@ -129,7 +129,7 @@ body{font-family:Poppins}
  *     estoppel or otherwise. Any license under such intellectual property rights
  *     must be expressed and approved by McAfee in writing.
  *
- */.mc-interactive-balloon{position:absolute;right:-50px;bottom:8px;box-shadow:rgba(0,0,0,.12) 0px 0px 10px;height:40px;width:40px;background:#1671ee;border-radius:20px;display:flex;justify-content:center;align-items:center}</style><style>html,body{overflow-y:auto!important;height:auto!important;min-height:100%!important;position:relative!important;}.container{max-width:540px!important;margin-left:auto!important;margin-right:auto!important;}.add-to-contact-btn,.add-to-contact-section,[class*=add-to-contact]{left:50%!important;right:auto!important;transform:translateX(-50%)!important;max-width:540px!important;width:100%!important;}.blog-section,.blog-card,[class*=blog-]{display:none!important;}.product-slider,.gallery-slider,.testimonial-slider{overflow:hidden;}.product-slider .slick-slide,.gallery-slider .slick-slide{padding:0 8px;box-sizing:border-box;}.pwa-support,.news-modal,#newsLatter-content{display:none!important}.social-icon i,.social-icon svg,.social-icon .icon{color:#2563eb!important;fill:#2563eb!important;opacity:1!important}.our-services-section .section-heading,.business-hour-section .section-heading{text-align:center!important}.our-services-section .section-heading h2,.business-hour-section .section-heading h2,.qr-code-section .section-heading h2{color:#2563eb!important}.business-hour-section .business-hour-card{background:rgba(127,127,127,.14)!important;border:1px solid rgba(127,127,127,.3)!important;border-radius:10px!important;padding:10px!important;margin-bottom:10px!important}.business-hour-section .business-hour-card span,.business-hour-section .business-hour-card .time-icon{color:#2563eb!important}.qr-code-section p,.qr-code-section span,.qr-code-section h4,.qr-code-section h5{color:#2563eb!important}</style><?php if(!empty($vcard["custom_css"])): ?><style><?= $vcard["custom_css"] ?></style><?php endif; ?></head><body><div class="banner-section position-relative w-100"><div class="banner-img" style="position:relative;overflow:hidden;height:315px;"><?php $cvType=$vcard["cover_type"]??"image";$cvVal=$vcard["cover_image"]??"";$isVid=($cvType==="video")||preg_match("#youtube\.com|youtu\.be|instagram\.com|\.mp4#i",$cvVal);if($isVid&&!empty($cvVal)){if(preg_match("#(?:youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^\"&?/\s]{11})#i",$cvVal,$mm)){$yt=$mm[1];echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"https://www.youtube.com/embed/".$yt."?autoplay=1&mute=1&loop=1&playlist=".$yt."&controls=0&showinfo=0&rel=0&playsinline=1\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";}elseif(stripos($cvVal,"instagram.com")!==false){echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"".htmlspecialchars(rtrim($cvVal,"/")."/embed")."\" allowtransparency=\"true\"></iframe>";}else{echo "<video src=\"".htmlspecialchars(imgUrl($cvVal))."\" autoplay loop muted playsinline style=\"width:100%;height:100%;object-fit:cover;display:block;\"></video>";}}else{echo "<img src=\"".htmlspecialchars($coverImg)."\" alt=\"".htmlspecialchars($fullName)."\" style=\"width:100%;height:100%;object-fit:cover;display:block;\">";} ?><div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.1),rgba(0,0,0,0.5));"></div></div></div>
+ */.mc-interactive-balloon{position:absolute;right:-50px;bottom:8px;box-shadow:rgba(0,0,0,.12) 0px 0px 10px;height:40px;width:40px;background:#1671ee;border-radius:20px;display:flex;justify-content:center;align-items:center}</style><style>html,body{overflow-y:auto!important;height:auto!important;min-height:100%!important;position:relative!important;}.container{max-width:540px!important;margin-left:auto!important;margin-right:auto!important;}.add-to-contact-btn,.add-to-contact-section,[class*=add-to-contact]{left:50%!important;right:auto!important;transform:translateX(-50%)!important;max-width:540px!important;width:100%!important;}.blog-section,.blog-card,[class*=blog-],[class*=__blog],[class*=blog-section]{display:none!important;}.product-slider,.gallery-slider,.testimonial-slider{overflow:hidden;}.product-slider .slick-slide,.gallery-slider .slick-slide{padding:0 8px;box-sizing:border-box;}.pwa-support,.news-modal,#newsLatter-content{display:none!important}.social-icon i,.social-icon svg,.social-icon .icon{color:#2563eb!important;fill:#2563eb!important;opacity:1!important}.our-services-section .section-heading,.business-hour-section .section-heading{text-align:center!important}.our-services-section .section-heading h2,.business-hour-section .section-heading h2,.qr-code-section .section-heading h2{color:#2563eb!important}.business-hour-section .business-hour-card{background:rgba(127,127,127,.14)!important;border:1px solid rgba(127,127,127,.3)!important;border-radius:10px!important;padding:10px!important;margin-bottom:10px!important}.business-hour-section .business-hour-card span,.business-hour-section .business-hour-card .time-icon{color:#2563eb!important}.qr-code-section p,.qr-code-section span,.qr-code-section h4,.qr-code-section h5{color:#2563eb!important}</style><?php if(!empty($vcard["custom_css"])): ?><style><?= $vcard["custom_css"] ?></style><?php endif; ?></head><body><div class="banner-section position-relative w-100"><div class="banner-img" style="position:relative;overflow:hidden;height:315px;"><?php $cvType=$vcard["cover_type"]??"image";$cvVal=$vcard["cover_image"]??"";$isVid=($cvType==="video")||preg_match("#youtube\.com|youtu\.be|instagram\.com|\.mp4#i",$cvVal);if($isVid&&!empty($cvVal)){if(preg_match("#(?:youtube\.com/(?:[^/]+/.+/|(?:v|e(?:mbed)?)/|.*[?&]v=)|youtu\.be/)([^\"&?/\s]{11})#i",$cvVal,$mm)){$yt=$mm[1];echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"https://www.youtube.com/embed/".$yt."?autoplay=1&mute=1&loop=1&playlist=".$yt."&controls=0&showinfo=0&rel=0&playsinline=1\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" allowfullscreen></iframe>";}elseif(stripos($cvVal,"instagram.com")!==false){echo "<iframe style=\"width:100%;height:100%;display:block;border:none;\" src=\"".htmlspecialchars(rtrim($cvVal,"/")."/embed")."\" allowtransparency=\"true\"></iframe>";}else{echo "<video src=\"".htmlspecialchars(imgUrl($cvVal))."\" autoplay loop muted playsinline style=\"width:100%;height:100%;object-fit:cover;display:block;\"></video>";}}else{echo "<img src=\"".htmlspecialchars($coverImg)."\" alt=\"".htmlspecialchars($fullName)."\" style=\"width:100%;height:100%;object-fit:cover;display:block;\">";} ?><div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,0.1),rgba(0,0,0,0.5));"></div></div></div>
  <div class="container main-section px-0">
  <div id=passwordModal class="modal fade sf-hidden" role=dialog data-bs-backdrop=static data-bs-keyboard=false>
  
@@ -167,7 +167,7 @@ body{font-family:Poppins}
  </div>
  <div class=mb-15>
  <div class="profile-img align-items-start top-0">
- <img src="<?= $profileImg ?>" xmlns="http://www.w3.org/2000/svg" width="600" height="600"><rect fill-opacity="0"/></svg>' width=150px class="pro-img me-sm-4 rounded-circle mb-4" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-25)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src="<?= $profileImg ?>" width=150px class="pro-img me-sm-4 rounded-circle mb-4" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-25)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  <div>
  <h3 class=big-title><?= htmlspecialchars($fullName) ?>
  <i class="verification-icon bi-patch-check-fill"></i>
@@ -250,7 +250,7 @@ body{font-family:Poppins}
  </div>
  <div class=col-lg-6>
  <div class=text-center>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600"><rect fill-opacity="0"/></svg>' width=125px class="qr-logo rounded-circle" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-25)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' width=125px class="qr-logo rounded-circle" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-25)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  </div>
  </div>
  </div>
@@ -273,70 +273,70 @@ body{font-family:Poppins}
  <div class="row gallery-vcard d-flex justify-content-center g-3 slick-initialized slick-slider slick-dotted"><div class="slick-list draggable"><div class=slick-track style=opacity:1;width:2600px;transform:translate3d(-520px,0px,0px)><div class="slick-slide slick-cloned" data-slick-index=-2 aria-hidden=true tabindex=-1 style=width:260px><div><div class=col-6 style=width:100%;display:inline-block>
  <div class="card gallery-shadow w-100">
  <div class=gallery-profile>
- <a href=https://tapifyworld.com//uploads/vcards/gallery/994/G3-(8).jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="480" height="348"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-36)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
+ <a href=https://tapifyworld.com//uploads/vcards/gallery/994/G3-(8).jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-36)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
  
  </div>
  </div>
  </div></div></div><div class="slick-slide slick-cloned" data-slick-index=-1 aria-hidden=true tabindex=-1 style=width:260px><div><div class=col-6 style=width:100%;display:inline-block>
  <div class="card gallery-shadow w-100">
  <div class=gallery-profile>
- <a href=https://tapifyworld.com//uploads/vcards/gallery/995/G4-(10).jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="480" height="348"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-37)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
+ <a href=https://tapifyworld.com//uploads/vcards/gallery/995/G4-(10).jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-37)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
  
  </div>
  </div>
  </div></div></div><div class="slick-slide slick-current slick-active" data-slick-index=0 aria-hidden=false role=tabpanel id=slick-slide20 style=width:260px aria-describedby=slick-slide-control20><div><div class=col-6 style=width:100%;display:inline-block>
  <div class="card gallery-shadow w-100">
  <div class=gallery-profile>
- <a href=https://tapifyworld.com//uploads/vcards/gallery/992/G1-(6).jpg data-lightbox=gallery-images tabindex=0><img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="480" height="348"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-38)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
+ <a href=https://tapifyworld.com//uploads/vcards/gallery/992/G1-(6).jpg data-lightbox=gallery-images tabindex=0><img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-38)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
  
  </div>
  </div>
  </div></div></div><div class="slick-slide slick-active" data-slick-index=1 aria-hidden=false role=tabpanel id=slick-slide21 style=width:260px aria-describedby=slick-slide-control21><div><div class=col-6 style=width:100%;display:inline-block>
  <div class="card gallery-shadow w-100">
  <div class=gallery-profile>
- <a href=https://tapifyworld.com//uploads/vcards/gallery/993/G2-(9).jpg data-lightbox=gallery-images tabindex=0><img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="480" height="348"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-39)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
+ <a href=https://tapifyworld.com//uploads/vcards/gallery/993/G2-(9).jpg data-lightbox=gallery-images tabindex=0><img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-39)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
  
  </div>
  </div>
  </div></div></div><div class=slick-slide data-slick-index=2 aria-hidden=true role=tabpanel id=slick-slide22 style=width:260px aria-describedby=slick-slide-control22 tabindex=-1><div><div class=col-6 style=width:100%;display:inline-block>
  <div class="card gallery-shadow w-100">
  <div class=gallery-profile>
- <a href=https://tapifyworld.com//uploads/vcards/gallery/994/G3-(8).jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="480" height="348"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-36)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
+ <a href=https://tapifyworld.com//uploads/vcards/gallery/994/G3-(8).jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-36)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
  
  </div>
  </div>
  </div></div></div><div class=slick-slide data-slick-index=3 aria-hidden=true role=tabpanel id=slick-slide23 style=width:260px aria-describedby=slick-slide-control23 tabindex=-1><div><div class=col-6 style=width:100%;display:inline-block>
  <div class="card gallery-shadow w-100">
  <div class=gallery-profile>
- <a href=https://tapifyworld.com//uploads/vcards/gallery/995/G4-(10).jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="480" height="348"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-37)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
+ <a href=https://tapifyworld.com//uploads/vcards/gallery/995/G4-(10).jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-37)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
  
  </div>
  </div>
  </div></div></div><div class="slick-slide slick-cloned" data-slick-index=4 aria-hidden=true tabindex=-1 style=width:260px><div><div class=col-6 style=width:100%;display:inline-block>
  <div class="card gallery-shadow w-100">
  <div class=gallery-profile>
- <a href=https://tapifyworld.com//uploads/vcards/gallery/992/G1-(6).jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="480" height="348"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-38)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
+ <a href=https://tapifyworld.com//uploads/vcards/gallery/992/G1-(6).jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-38)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
  
  </div>
  </div>
  </div></div></div><div class="slick-slide slick-cloned" data-slick-index=5 aria-hidden=true tabindex=-1 style=width:260px><div><div class=col-6 style=width:100%;display:inline-block>
  <div class="card gallery-shadow w-100">
  <div class=gallery-profile>
- <a href=https://tapifyworld.com//uploads/vcards/gallery/993/G2-(9).jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="480" height="348"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-39)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
+ <a href=https://tapifyworld.com//uploads/vcards/gallery/993/G2-(9).jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-39)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
  
  </div>
  </div>
  </div></div></div><div class="slick-slide slick-cloned" data-slick-index=6 aria-hidden=true tabindex=-1 style=width:260px><div><div class=col-6 style=width:100%;display:inline-block>
  <div class="card gallery-shadow w-100">
  <div class=gallery-profile>
- <a href=https://tapifyworld.com//uploads/vcards/gallery/994/G3-(8).jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="480" height="348"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-36)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
+ <a href=https://tapifyworld.com//uploads/vcards/gallery/994/G3-(8).jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-36)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
  
  </div>
  </div>
  </div></div></div><div class="slick-slide slick-cloned" data-slick-index=7 aria-hidden=true tabindex=-1 style=width:260px><div><div class=col-6 style=width:100%;display:inline-block>
  <div class="card gallery-shadow w-100">
  <div class=gallery-profile>
- <a href=https://tapifyworld.com//uploads/vcards/gallery/995/G4-(10).jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="480" height="348"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-37)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
+ <a href=https://tapifyworld.com//uploads/vcards/gallery/995/G4-(10).jpg data-lightbox=gallery-images tabindex=-1><img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-37)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important"></a>
  
  </div>
  </div>
@@ -354,7 +354,7 @@ body{font-family:Poppins}
  <a target=_blank class="text-decoration-none fs-6" tabindex=-1>
  <div class="card product-shadow w-100">
  <div class=product-profile>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="740" height="740"><rect fill-opacity="0"/></svg>' alt=profile class="w-100 object-fit-contain" height=208px loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-40)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class="w-100 object-fit-contain" height=208px loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-40)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  </div>
  <div class="product-details mt-3">
  <h4>DetoxHerbal Juice</h4>
@@ -368,7 +368,7 @@ body{font-family:Poppins}
  <a target=_blank class="text-decoration-none fs-6" tabindex=-1>
  <div class="card product-shadow w-100">
  <div class=product-profile>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="740" height="740"><rect fill-opacity="0"/></svg>' alt=profile class="w-100 object-fit-contain" height=208px loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-41)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class="w-100 object-fit-contain" height=208px loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-41)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  </div>
  <div class="product-details mt-3">
  <h4>NutriGlow Protein Shake</h4>
@@ -382,7 +382,7 @@ body{font-family:Poppins}
  <a target=_blank class="text-decoration-none fs-6" tabindex=0>
  <div class="card product-shadow w-100">
  <div class=product-profile>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="740" height="740"><rect fill-opacity="0"/></svg>' alt=profile class="w-100 object-fit-contain" height=208px loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-42)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class="w-100 object-fit-contain" height=208px loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-42)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  </div>
  <div class="product-details mt-3">
  <h4>FiberFuel Powder</h4>
@@ -396,7 +396,7 @@ body{font-family:Poppins}
  <a target=_blank class="text-decoration-none fs-6" tabindex=0>
  <div class="card product-shadow w-100">
  <div class=product-profile>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="740" height="740"><rect fill-opacity="0"/></svg>' alt=profile class="w-100 object-fit-contain" height=208px loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-43)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class="w-100 object-fit-contain" height=208px loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-43)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  </div>
  <div class="product-details mt-3">
  <h4>GreenZen Tea</h4>
@@ -410,7 +410,7 @@ body{font-family:Poppins}
  <a target=_blank class="text-decoration-none fs-6" tabindex=-1>
  <div class="card product-shadow w-100">
  <div class=product-profile>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="740" height="740"><rect fill-opacity="0"/></svg>' alt=profile class="w-100 object-fit-contain" height=208px loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-40)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class="w-100 object-fit-contain" height=208px loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-40)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  </div>
  <div class="product-details mt-3">
  <h4>DetoxHerbal Juice</h4>
@@ -424,7 +424,7 @@ body{font-family:Poppins}
  <a target=_blank class="text-decoration-none fs-6" tabindex=-1>
  <div class="card product-shadow w-100">
  <div class=product-profile>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="740" height="740"><rect fill-opacity="0"/></svg>' alt=profile class="w-100 object-fit-contain" height=208px loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-41)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class="w-100 object-fit-contain" height=208px loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-41)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  </div>
  <div class="product-details mt-3">
  <h4>NutriGlow Protein Shake</h4>
@@ -438,7 +438,7 @@ body{font-family:Poppins}
  <a target=_blank class="text-decoration-none fs-6" tabindex=-1>
  <div class="card product-shadow w-100">
  <div class=product-profile>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="740" height="740"><rect fill-opacity="0"/></svg>' alt=profile class="w-100 object-fit-contain" height=208px loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-42)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class="w-100 object-fit-contain" height=208px loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-42)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  </div>
  <div class="product-details mt-3">
  <h4>FiberFuel Powder</h4>
@@ -452,7 +452,7 @@ body{font-family:Poppins}
  <a target=_blank class="text-decoration-none fs-6" tabindex=-1>
  <div class="card product-shadow w-100">
  <div class=product-profile>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="740" height="740"><rect fill-opacity="0"/></svg>' alt=profile class="w-100 object-fit-contain" height=208px loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-43)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class="w-100 object-fit-contain" height=208px loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-43)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  </div>
  <div class="product-details mt-3">
  <h4>GreenZen Tea</h4>
@@ -466,7 +466,7 @@ body{font-family:Poppins}
  <a target=_blank class="text-decoration-none fs-6" tabindex=-1>
  <div class="card product-shadow w-100">
  <div class=product-profile>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="740" height="740"><rect fill-opacity="0"/></svg>' alt=profile class="w-100 object-fit-contain" height=208px loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-40)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class="w-100 object-fit-contain" height=208px loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-40)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  </div>
  <div class="product-details mt-3">
  <h4>DetoxHerbal Juice</h4>
@@ -480,7 +480,7 @@ body{font-family:Poppins}
  <a target=_blank class="text-decoration-none fs-6" tabindex=-1>
  <div class="card product-shadow w-100">
  <div class=product-profile>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="740" height="740"><rect fill-opacity="0"/></svg>' alt=profile class="w-100 object-fit-contain" height=208px loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-41)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class="w-100 object-fit-contain" height=208px loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-41)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  </div>
  <div class="product-details mt-3">
  <h4>NutriGlow Protein Shake</h4>
@@ -513,7 +513,7 @@ body{font-family:Poppins}
  <div class="row d-flex justify-content-between align-items-end">
  <div class=col-lg-6>
  <div class="d-flex align-items-center">
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="405" height="405"><rect fill-opacity="0"/></svg>' class="me-3 testi-logo rounded-circle ms-2" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-44)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="me-3 testi-logo rounded-circle ms-2" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-44)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  <div class="d-flex flex-column justify-content-center">
  <h6 class="testi-card-title mb-0">
  Rajesh K.</h6>
@@ -533,7 +533,7 @@ body{font-family:Poppins}
  <div class="row d-flex justify-content-between align-items-end">
  <div class=col-lg-6>
  <div class="d-flex align-items-center">
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="405" height="405"><rect fill-opacity="0"/></svg>' class="me-3 testi-logo rounded-circle ms-2" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-45)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="me-3 testi-logo rounded-circle ms-2" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-45)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  <div class="d-flex flex-column justify-content-center">
  <h6 class="testi-card-title mb-0">
  Meera T.</h6>
@@ -553,7 +553,7 @@ body{font-family:Poppins}
  <div class="row d-flex justify-content-between align-items-end">
  <div class=col-lg-6>
  <div class="d-flex align-items-center">
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="405" height="405"><rect fill-opacity="0"/></svg>' class="me-3 testi-logo rounded-circle ms-2" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-46)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="me-3 testi-logo rounded-circle ms-2" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-46)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  <div class="d-flex flex-column justify-content-center">
  <h6 class="testi-card-title mb-0">
  Arjun V.</h6>
@@ -573,7 +573,7 @@ body{font-family:Poppins}
  <div class="row d-flex justify-content-between align-items-end">
  <div class=col-lg-6>
  <div class="d-flex align-items-center">
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="405" height="405"><rect fill-opacity="0"/></svg>' class="me-3 testi-logo rounded-circle ms-2" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-47)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="me-3 testi-logo rounded-circle ms-2" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-47)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  <div class="d-flex flex-column justify-content-center">
  <h6 class="testi-card-title mb-0">
  Priya S.</h6>
@@ -593,7 +593,7 @@ body{font-family:Poppins}
  <div class="row d-flex justify-content-between align-items-end">
  <div class=col-lg-6>
  <div class="d-flex align-items-center">
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="405" height="405"><rect fill-opacity="0"/></svg>' class="me-3 testi-logo rounded-circle ms-2" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-44)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="me-3 testi-logo rounded-circle ms-2" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-44)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  <div class="d-flex flex-column justify-content-center">
  <h6 class="testi-card-title mb-0">
  Rajesh K.</h6>
@@ -613,7 +613,7 @@ body{font-family:Poppins}
  <div class="row d-flex justify-content-between align-items-end">
  <div class=col-lg-6>
  <div class="d-flex align-items-center">
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="405" height="405"><rect fill-opacity="0"/></svg>' class="me-3 testi-logo rounded-circle ms-2" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-45)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="me-3 testi-logo rounded-circle ms-2" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-45)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  <div class="d-flex flex-column justify-content-center">
  <h6 class="testi-card-title mb-0">
  Meera T.</h6>
@@ -633,7 +633,7 @@ body{font-family:Poppins}
  <div class="row d-flex justify-content-between align-items-end">
  <div class=col-lg-6>
  <div class="d-flex align-items-center">
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="405" height="405"><rect fill-opacity="0"/></svg>' class="me-3 testi-logo rounded-circle ms-2" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-46)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="me-3 testi-logo rounded-circle ms-2" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-46)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  <div class="d-flex flex-column justify-content-center">
  <h6 class="testi-card-title mb-0">
  Arjun V.</h6>
@@ -653,7 +653,7 @@ body{font-family:Poppins}
  <div class="row d-flex justify-content-between align-items-end">
  <div class=col-lg-6>
  <div class="d-flex align-items-center">
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="405" height="405"><rect fill-opacity="0"/></svg>' class="me-3 testi-logo rounded-circle ms-2" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-47)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="me-3 testi-logo rounded-circle ms-2" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-47)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  <div class="d-flex flex-column justify-content-center">
  <h6 class="testi-card-title mb-0">
  Priya S.</h6>
@@ -673,7 +673,7 @@ body{font-family:Poppins}
  <div class="row d-flex justify-content-between align-items-end">
  <div class=col-lg-6>
  <div class="d-flex align-items-center">
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="405" height="405"><rect fill-opacity="0"/></svg>' class="me-3 testi-logo rounded-circle ms-2" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-44)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' class="me-3 testi-logo rounded-circle ms-2" loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-44)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  <div class="d-flex flex-column justify-content-center">
  <h6 class="testi-card-title mb-0">
  Rajesh K.</h6>
@@ -695,7 +695,7 @@ body{font-family:Poppins}
  <div class="card blog-card border-0 w-100 h-100">
  <div class=blog-image>
  <a href=https://tapifyworld.com/cor-connect/blog/119 tabindex=-1>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="900" height="400"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-48)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-48)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  </a>
  </div>
  <div class="blog-details mt-3">
@@ -709,7 +709,7 @@ body{font-family:Poppins}
  <div class="card blog-card border-0 w-100 h-100">
  <div class=blog-image>
  <a href=https://tapifyworld.com/cor-connect/blog/116 tabindex=0>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="900" height="400"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-49)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-49)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  </a>
  </div>
  <div class="blog-details mt-3">
@@ -723,7 +723,7 @@ body{font-family:Poppins}
  <div class="card blog-card border-0 w-100 h-100">
  <div class=blog-image>
  <a href=https://tapifyworld.com/cor-connect/blog/117 tabindex=-1>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="900" height="400"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-50)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-50)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  </a>
  </div>
  <div class="blog-details mt-3">
@@ -737,7 +737,7 @@ body{font-family:Poppins}
  <div class="card blog-card border-0 w-100 h-100">
  <div class=blog-image>
  <a href=https://tapifyworld.com/cor-connect/blog/118 tabindex=-1>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="900" height="400"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-51)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-51)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  </a>
  </div>
  <div class="blog-details mt-3">
@@ -751,7 +751,7 @@ body{font-family:Poppins}
  <div class="card blog-card border-0 w-100 h-100">
  <div class=blog-image>
  <a href=https://tapifyworld.com/cor-connect/blog/119 tabindex=-1>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="900" height="400"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-48)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-48)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  </a>
  </div>
  <div class="blog-details mt-3">
@@ -765,7 +765,7 @@ body{font-family:Poppins}
  <div class="card blog-card border-0 w-100 h-100">
  <div class=blog-image>
  <a href=https://tapifyworld.com/cor-connect/blog/116 tabindex=-1>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="900" height="400"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-49)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-49)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  </a>
  </div>
  <div class="blog-details mt-3">
@@ -779,7 +779,7 @@ body{font-family:Poppins}
  <div class="card blog-card border-0 w-100 h-100">
  <div class=blog-image>
  <a href=https://tapifyworld.com/cor-connect/blog/117 tabindex=-1>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="900" height="400"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-50)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-50)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  </a>
  </div>
  <div class="blog-details mt-3">
@@ -793,7 +793,7 @@ body{font-family:Poppins}
  <div class="card blog-card border-0 w-100 h-100">
  <div class=blog-image>
  <a href=https://tapifyworld.com/cor-connect/blog/118 tabindex=-1>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="900" height="400"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-51)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-51)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  </a>
  </div>
  <div class="blog-details mt-3">
@@ -807,7 +807,7 @@ body{font-family:Poppins}
  <div class="card blog-card border-0 w-100 h-100">
  <div class=blog-image>
  <a href=https://tapifyworld.com/cor-connect/blog/119 tabindex=-1>
- <img src='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="900" height="400"><rect fill-opacity="0"/></svg>' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-48)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
+ <img src='data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==' alt=profile class=w-100 loading=lazy style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-48)!important;background-size:contain!important;background-origin:content-box!important;background-repeat:no-repeat!important">
  </a>
  </div>
  <div class="blog-details mt-3">
@@ -1082,7 +1082,7 @@ body{font-family:Poppins}
  
  
  
-</div></div><div class=razorpay-container style=z-index:2147483647;position:fixed;top:0px;display:none;left:0px;height:100%;width:100%;max-height:100dvh;backface-visibility:hidden;overflow-y:visible><style>@keyframes rzp-rot{to{transform:rotate(360deg)}}@-webkit-keyframes rzp-rot{to{-webkit-transform:rotate(360deg)}}</style></div><div class="flatpickr-calendar animate sf-hidden" tabindex=-1></div><div id=lightboxOverlay tabindex=-1 class=lightboxOverlay style=display:none></div><div id=lightbox tabindex=-1 class=lightbox style=display:none></div>"><span id=PING_CONTENT_DLS_POPUP style=display:none></span><div style=background-color:transparent;border-width:medium;border-style:none;border-color:currentcolor;border-image:initial;bottom:15px;display:block;margin:0px;opacity:1;padding:0px;position:fixed;right:15px;z-index:2147483647><template shadowrootmode=closed><style class=sf-hidden>/*!
+</div></div><div class=razorpay-container style=z-index:2147483647;position:fixed;top:0px;display:none;left:0px;height:100%;width:100%;max-height:100dvh;backface-visibility:hidden;overflow-y:visible><style>@keyframes rzp-rot{to{transform:rotate(360deg)}}@-webkit-keyframes rzp-rot{to{-webkit-transform:rotate(360deg)}}</style></div><div class="flatpickr-calendar animate sf-hidden" tabindex=-1></div><div id=lightboxOverlay tabindex=-1 class=lightboxOverlay style=display:none></div><div id=lightbox tabindex=-1 class=lightbox style=display:none></div>"><span id=PING_CONTENT_DLS_POPUP style=display:none></span><div style=background-color:transparent;border-width:medium;border-style:none;border-color:currentcolor;border-image:initial;bottom:15px;display:block;margin:0px;opacity:1;padding:0px;position:fixed;right:15px;z-index:2147483647><div style="display:contents"><style class=sf-hidden>/*!
  * 
  *     MCAFEE RESTRICTED CONFIDENTIAL
  *     Copyright (c) 2026 McAfee, LLC
@@ -1131,4 +1131,4 @@ body{font-family:Poppins}
  *     estoppel or otherwise. Any license under such intellectual property rights
  *     must be expressed and approved by McAfee in writing.
  *
- */.mc-interactive-balloon{position:absolute;right:-50px;bottom:8px;box-shadow:rgba(0,0,0,.12) 0px 0px 10px;height:40px;width:40px;background:#1671ee;border-radius:20px;display:flex;justify-content:center;align-items:center}</style></template></div<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"><script src="https://cdn.jsdelivr.net/npm/flatpickr"></script><script>function tfInit(){if(typeof jQuery==="undefined"||!jQuery.fn||!jQuery.fn.slick){return setTimeout(tfInit,120);}jQuery(function($){$(".product-slider,.gallery-slider,.testimonial-slider,.blog-slider").each(function(){if($(this).children().length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=instagram],[class*=insta-feed],[class*=insta-section],[class*=insta-feed-section]").each(function(){if($(this).find("img,iframe,.slick-slide,.insta-item,a[href*=instagram]").length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("a").each(function(){var h=$(this).attr("href")||"";var tx=$(this).text().replace(/\s+/g,"");if((h==="mailto:"||h==="tel:")&&tx===""){$(this).closest(".contact-box,.contact-item,li,.col-sm-6,.col-md-6,.col-6,.col-12,.col").hide();}});$("[class*=contact-box],[class*=contact-item]").each(function(){if($(this).text().replace(/\s+/g,"")===""){$(this).hide();}});window.tfSubmitInquiry=async function(ev){ev.preventDefault();var f=ev.target;var b=f.querySelector("button[type=submit]");var fd=new FormData(f);if(b)b.disabled=true;try{var r=await fetch("/inquiry-submit.php",{method:"POST",body:fd});var j=await r.json();if(j.success){if(window.showToast)showToast("Message sent!","success");f.reset();}else{if(window.showToast)showToast(j.message||"Failed","error");}}catch(e){if(window.showToast)showToast("Connection error","error");}finally{if(b)b.disabled=false;}};function ini(s,o){var $s=$(s);if(!$s.length||$s.hasClass("slick-initialized"))return;$s.slick(o);}ini(".product-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".gallery-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".testimonial-slider",{slidesToShow:1,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:4000});if(window.flatpickr){flatpickr("#pickUpDate",{minDate:"today",dateFormat:"Y-m-d"});flatpickr(".flatpickr-input",{minDate:"today",dateFormat:"Y-m-d"});}});}tfInit();</script><?php if(!empty($vcard["custom_js"])): ?><script><?= $vcard["custom_js"] ?></script><?php endif; ?><?php include __DIR__ . "/_shared-scripts.php"; ?><style>/*tf-fixups*/.flatpickr-calendar:not(.open){display:none!important}</style></body></html>
+ */.mc-interactive-balloon{position:absolute;right:-50px;bottom:8px;box-shadow:rgba(0,0,0,.12) 0px 0px 10px;height:40px;width:40px;background:#1671ee;border-radius:20px;display:flex;justify-content:center;align-items:center}</style></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"><script src="https://cdn.jsdelivr.net/npm/flatpickr"></script><script>function tfInit(){if(typeof jQuery==="undefined"||!jQuery.fn||!jQuery.fn.slick){return setTimeout(tfInit,120);}jQuery(function($){$(".product-slider,.gallery-slider,.testimonial-slider,.blog-slider").each(function(){if($(this).children().length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=instagram],[class*=insta-feed],[class*=insta-section],[class*=insta-feed-section]").each(function(){if($(this).find("img,iframe,.slick-slide,.insta-item,a[href*=instagram]").length===0){var s=$(this).closest("[class*=section]");if(s.length&&!/main|wrapper|content|page|body/i.test(s.attr("class")||"")&&s.find("[class*=section]").length===0){s.hide();}$(this).hide();}});$("[class*=__gallery],[class*=__product],[class*=__testimonial]").each(function(){var sl=$(this).find(".gallery-slider,.product-slider,.testimonial-slider").first();if(sl.length&&sl.children().length===0){$(this).hide();}});$("a").each(function(){var h=$(this).attr("href")||"";var tx=$(this).text().replace(/\s+/g,"");if((h==="mailto:"||h==="tel:")&&tx===""){$(this).closest(".contact-box,.contact-item,li,.col-sm-6,.col-md-6,.col-6,.col-12,.col").hide();}});$("[class*=contact-box],[class*=contact-item]").each(function(){if($(this).text().replace(/\s+/g,"")===""){$(this).hide();}});window.tfSubmitInquiry=async function(ev){ev.preventDefault();var f=ev.target;var b=f.querySelector("button[type=submit]");var fd=new FormData(f);if(b)b.disabled=true;try{var r=await fetch("/inquiry-submit.php",{method:"POST",body:fd});var j=await r.json();if(j.success){if(window.showToast)showToast("Message sent!","success");f.reset();}else{if(window.showToast)showToast(j.message||"Failed","error");}}catch(e){if(window.showToast)showToast("Connection error","error");}finally{if(b)b.disabled=false;}};function ini(s,o){var $s=$(s);if(!$s.length||$s.hasClass("slick-initialized"))return;$s.slick(o);}ini(".product-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".gallery-slider",{slidesToShow:2,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:2500,responsive:[{breakpoint:576,settings:{slidesToShow:1}}]});ini(".testimonial-slider",{slidesToShow:1,arrows:false,dots:true,infinite:true,autoplay:true,autoplaySpeed:4000});if(window.flatpickr){flatpickr("#pickUpDate",{minDate:"today",dateFormat:"Y-m-d"});flatpickr(".flatpickr-input",{minDate:"today",dateFormat:"Y-m-d"});}});}tfInit();</script><?php if(!empty($vcard["custom_js"])): ?><script><?= $vcard["custom_js"] ?></script><?php endif; ?><?php include __DIR__ . "/_shared-scripts.php"; ?><style>/*tf-fixups*/.flatpickr-calendar:not(.open){display:none!important}</style></body></html>
