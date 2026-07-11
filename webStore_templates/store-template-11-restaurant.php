@@ -14,7 +14,7 @@ $A = !empty($store['accent_color']) ? $store['accent_color'] : ($defC['accent'] 
 $shopName  = htmlspecialchars($store['store_name'] ?? 'Store');
 $initial   = function_exists('mb_substr') ? mb_substr($shopName, 0, 1) : substr($shopName, 0, 1);
 $logo      = !empty($store['logo_image']) ? imgUrl($store['logo_image']) : '';
-$bannerImg = !empty($store['cover_image']) ? imgUrl($store['cover_image']) : "$asset/vector.webp";
+$bannerImg = !empty($store['cover_image']) ? imgUrl($store['cover_image']) : "$asset/hero.webp";
 $waPhone   = preg_replace('/\D/', '', $store['whatsapp_number'] ?? '');
 $address   = htmlspecialchars($store['address'] ?? '');
 $deliveryFee = (float)($store['delivery_charge'] ?? 0);
@@ -67,10 +67,9 @@ $cartAddIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" v
 .product-card .addToCartBtn{min-width:44px;height:44px;}
 .product-card{transition:all .3s;}
 .product-card:hover{box-shadow:0 8px 25px rgba(0,0,0,.1);transform:translateY(-3px);}
-.hero-img{width:100%;height:350px;overflow:hidden;position:relative;}
-.hero-img img{width:100%;height:100%;object-fit:cover;}
+.hero-img{width:100%;overflow:hidden;position:relative;}
+.hero-img img{width:100%;height:auto;object-fit:cover;display:block;}
 @media(max-width:992px){
-  .hero-img{height:220px;}
   .items-section .row{flex-direction:column;}
   .items-section .col-xl-3,.items-section .col-lg-4{width:100%;max-width:100%;flex:0 0 100%;}
   .items-section .col-xl-9,.items-section .col-lg-8{width:100%;max-width:100%;flex:0 0 100%;}
