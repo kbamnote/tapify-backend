@@ -85,6 +85,48 @@ $cartIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" view
 .tp-filter-head h5{margin:0;font-weight:700;}
 .tp-filter-body{flex:1;overflow-y:auto;padding:18px 20px;}
 .item-card{cursor:default;}
+/* ── View More button ── */
+.tp-view-more-btn{display:inline-flex;align-items:center;gap:0;padding:12px 28px 12px 24px;border:none;border-radius:50px;background:var(--tp);color:#fff;font-size:1rem;font-weight:600;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,.12);transition:all .3s;font-family:inherit;}
+.tp-view-more-btn:hover{filter:brightness(.94);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.18);}
+.tp-view-more-arrow{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#fff;color:var(--tp);font-size:.95rem;margin-left:12px;transition:transform .3s;}
+.tp-view-more-btn:hover .tp-view-more-arrow{transform:translateX(3px);}
+/* ── Filtered View (sidebar + grid) ── */
+.tp-filtered-view{padding:20px 30px 40px;}
+.tp-filtered-topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px;}
+.tp-reset-filters{display:flex;align-items:center;gap:10px;font-size:1.3rem;font-weight:700;cursor:pointer;color:#212529;}
+.tp-reset-icon-btn{width:36px;height:36px;border-radius:8px;border:none;background:var(--tp);color:#fff;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;}
+.tp-reset-icon-btn:hover{filter:brightness(.9);}
+.tp-filtered-search{display:flex;align-items:center;gap:10px;background:#f5f5f5;border-radius:12px;padding:10px 18px;min-width:280px;}
+.tp-filtered-search i{color:#999;}
+.tp-filtered-search input{border:none;background:transparent;outline:none;font-size:.95rem;width:100%;font-family:inherit;}
+.tp-filtered-layout{display:flex;gap:24px;align-items:flex-start;}
+.tp-filter-sidebar{width:280px;flex-shrink:0;display:flex;flex-direction:column;gap:16px;}
+.tp-price-row{display:flex;gap:8px;align-items:center;}
+.tp-price-row .form-control{padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-size:.9rem;}
+.tp-price-row .form-control:first-child{width:80px;}
+.tp-price-row .form-control:nth-child(2){width:80px;}
+.tp-apply-btn{padding:10px 20px;border:none;border-radius:8px;background:var(--tp);color:#fff;font-weight:600;cursor:pointer;font-size:.9rem;transition:all .3s;}
+.tp-apply-btn:hover{filter:brightness(.9);}
+.tp-price-select-wrap select{padding:12px 14px;border:1px solid #ddd;border-radius:8px;font-size:.95rem;width:100%;background:#fff;cursor:pointer;}
+.tp-filter-section{background:#fff;border:1px solid #eee;border-radius:12px;padding:16px;}
+.tp-filter-section h3{font-size:1.05rem;font-weight:700;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid #eee;}
+.tp-filter-section .form-check-input{accent-color:var(--tp);width:18px;height:18px;cursor:pointer;}
+.tp-filter-section .form-check-label{cursor:pointer;font-size:.95rem;}
+.tp-cat-check{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:.95rem;cursor:pointer;}
+.tp-cat-check input{accent-color:var(--tp);width:18px;height:18px;cursor:pointer;}
+.tp-filtered-grid{flex:1;min-width:0;}
+.tp-product-card2{background:#fff;border:1px solid #eee;border-radius:16px;overflow:hidden;transition:all .3s;}
+.tp-product-card2:hover{box-shadow:0 8px 25px rgba(0,0,0,.1);transform:translateY(-3px);}
+.tp-product-card2 .item-img{width:100%;aspect-ratio:1;overflow:hidden;border-radius:16px 16px 0 0;}
+.tp-product-card2 .item-img img{width:100%;height:100%;object-fit:cover;}
+.tp-add-cart-btn2{background:var(--tp)!important;border:1px solid var(--tp)!important;color:#fff!important;padding:10px 24px!important;border-radius:10px!important;font-weight:600!important;font-size:.9rem!important;margin:0 16px 16px!important;width:calc(100% - 32px)!important;transition:all .3s!important;}
+.tp-add-cart-btn2:hover{filter:brightness(.94)!important;}
+@media(max-width:768px){
+  .tp-filtered-layout{flex-direction:column;}
+  .tp-filter-sidebar{width:100%;}
+  .tp-filtered-search{min-width:100%;}
+  .tp-filtered-topbar{flex-direction:column;align-items:flex-start;}
+}
 </style>
 </head>
 <body style="position:relative;min-height:100%;top:0px">
@@ -130,8 +172,8 @@ $cartIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" view
       <div class="banner-img"><img src="<?= $bannerImg ?>" class="w-100 h-100 object-fit-cover" alt="banner"></div>
     </div>
 
-    <!-- ITEMS -->
-    <div class="items-section px-3 pt-3 mt-1 position-relative">
+    <!-- ITEMS (initial full-width view) -->
+    <div class="items-section px-3 pt-3 mt-1 position-relative" id="tpInitialView">
       <div class="section-heading text-center mb-4"><h2>Choose your Products</h2></div>
       <div class="row" id="tpProductsRow">
               <?php if (!empty($products)): foreach ($products as $p):
@@ -178,7 +220,95 @@ $cartIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" view
               <?php endif; ?>
               <div class="col-12 text-center py-5 d-none" id="tpNoResults"><i class="fas fa-search" style="font-size:2.4rem;color:#e8a0bc"></i><p class="mt-3 fs-16">No products match your filters</p></div>
       </div>
-      <div class="text-center mt-3 mb-40"><button class="btn btn-primary px-5 py-2" type="button" onclick="tpOpenFilters()"><i class="fas fa-sliders-h me-2"></i>View More</button></div>
+      <div class="text-center mt-3 mb-40">
+        <button class="tp-view-more-btn" type="button" onclick="tpShowFilters()">
+          <span>View More</span>
+          <span class="tp-view-more-arrow"><i class="fas fa-arrow-right"></i></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- FILTERED VIEW (sidebar + grid, shown after clicking View More) -->
+    <div class="tp-filtered-view d-none" id="tpFilteredView">
+      <div class="tp-filtered-topbar">
+        <div class="tp-reset-filters" onclick="tpResetFilters()">
+          <span>Reset Filters</span>
+          <button type="button" class="tp-reset-icon-btn"><i class="fas fa-sync-alt"></i></button>
+        </div>
+        <div class="tp-filtered-search">
+          <i class="fas fa-search"></i>
+          <input type="text" id="tpSearch2" placeholder="Search For Products" oninput="tpSearch2()">
+        </div>
+      </div>
+      <div class="tp-filtered-layout">
+        <!-- Sidebar -->
+        <aside class="tp-filter-sidebar">
+          <div class="tp-price-row">
+            <input type="number" min="0" id="tpMinPrice2" class="form-control" placeholder="Min">
+            <input type="number" min="1" id="tpMaxPrice2" class="form-control" placeholder="Max">
+            <button class="tp-apply-btn" type="button" onclick="tpApplyPrice2()">Apply</button>
+          </div>
+          <div class="tp-price-select-wrap">
+            <select id="tpPriceRange2" class="form-control" onchange="tpApplyPriceRange2(this.value)">
+              <option value="">Select Price Range</option>
+            </select>
+          </div>
+          <div class="tp-filter-section">
+            <h3>Date Posted</h3>
+            <?php $__dates = ['3_days'=>'3 Days Ago','1_week'=>'1 Week Ago','1_month'=>'1 Month Ago','6_months'=>'6 Months Ago','1_year'=>'1 Year Ago']; $__i=0; foreach ($__dates as $val=>$lbl): $__i++; ?>
+            <div class="form-check mb-2"><input class="form-check-input" type="radio" name="tpDateFilter2" id="tpDate2_<?= $__i ?>" value="<?= $val ?>" onchange="tpApplyDate2('<?= $val ?>')"><label class="form-check-label fs-16 fw-5" for="tpDate2_<?= $__i ?>"><?= $lbl ?></label></div>
+            <?php endforeach; ?>
+          </div>
+          <div class="tp-filter-section">
+            <h3>All Categories</h3>
+            <?php foreach ($categories as $c): ?>
+            <div class="tp-cat-check"><input type="checkbox" class="tp-cat-cb" data-cat="<?= (int)$c['id'] ?>" onchange="tpToggleCategory2(<?= (int)$c['id'] ?>)"><span><?= htmlspecialchars($c['name']) ?></span></div>
+            <?php endforeach; ?>
+          </div>
+        </aside>
+        <!-- Product Grid -->
+        <div class="tp-filtered-grid">
+          <div class="row" id="tpFilteredProductsRow">
+            <?php if (!empty($products)): foreach ($products as $p):
+                  $pimg = $p['img'] ?? (!empty($p['image']) ? imgUrl($p['image']) : ''); ?>
+            <div class="col-xl-3 col-lg-4 col-sm-6 mb-20 tp-product2"
+                 data-cat="<?= (int)$p['category_id'] ?>"
+                 data-name="<?= htmlspecialchars(strtolower($p['name'])) ?>"
+                 data-price="<?= (float)$p['effective_price'] ?>"
+                 data-created="<?= strtotime($p['created_at'] ?? 'now') ?>">
+              <div class="item-card h-100 tp-product-card2">
+                <div class="item-img">
+                  <?php if ($pimg): ?><img src="<?= $pimg ?>" alt="item" class="w-100 h-100 object-fit-cover product-image">
+                  <?php else: ?><div class="w-100 h-100 d-flex align-items-center justify-content-center" style="background:#f0f0f0;color:#999;font-size:2.4rem"><i class="fas fa-image"></i></div><?php endif; ?>
+                </div>
+                <div class="item-details text-center px-2">
+                  <h5 class="fs-20 fw-7 mb-1 product-name"><?= htmlspecialchars(strtoupper($p['name'])) ?></h5>
+                  <?php if (!empty($p['category_name'])): ?><p class="fs-14 fw-5 mb-1 product-category" style="color:#888"><?= htmlspecialchars($p['category_name']) ?></p><?php endif; ?>
+                  <p class="fs-18 fw-7 mb-2">
+                    <span class="currency_icon"><?= $currency ?></span>
+                    <span class="selling_price"><?= number_format($p['effective_price'], 2) ?></span>
+                    <?php if (!empty($p['has_discount'])): ?><del class="fs-14 fw-5" style="color:#aaa"><?= $currency ?> <?= number_format((float)$p['price'], 2) ?></del><?php endif; ?>
+                  </p>
+                </div>
+                <?php if (!empty($p['in_stock'])): ?>
+                <button type="button" class="btn tp-add-cart-btn2 d-flex justify-content-center align-items-center mx-auto gap-2"
+                        data-id="<?= (int)$p['id'] ?>" data-name="<?= htmlspecialchars($p['name'], ENT_QUOTES) ?>"
+                        data-price="<?= (float)$p['effective_price'] ?>" data-img="<?= htmlspecialchars($pimg, ENT_QUOTES) ?>"
+                        onclick="tpAddToCart(this)">
+                  <span><?= $cartIcon ?></span> <?= htmlspecialchars($cta) ?>
+                </button>
+                <?php else: ?>
+                <button type="button" class="btn tp-add-cart-btn2 d-flex justify-content-center align-items-center mx-auto gap-2" disabled style="opacity:.5">Sold Out</button>
+                <?php endif; ?>
+              </div>
+            </div>
+            <?php endforeach; else: ?>
+            <div class="col-12 text-center py-5"><i class="fas fa-box-open" style="font-size:3rem;color:#ccc"></i><p class="mt-3 fs-18">No products available yet</p></div>
+            <?php endif; ?>
+            <div class="col-12 text-center py-5 d-none" id="tpNoResults2"><i class="fas fa-search" style="font-size:2.4rem;color:#ccc"></i><p class="mt-3 fs-16">No products match your filters</p></div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -199,35 +329,6 @@ $cartIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" view
   <div class="tp-cart-foot" id="tpCartFoot"></div>
 </div>
 
-<!-- FILTER DRAWER (opens from "View More") -->
-<div id="tpFilterOverlay" onclick="tpCloseFilters()"></div>
-<aside id="tpFilterDrawer">
-  <div class="tp-filter-head"><h5>🔍 Filter Products</h5><button class="tp-cart-close" type="button" onclick="tpCloseFilters()">×</button></div>
-  <div class="tp-filter-body">
-    <div class="mb-3"><input type="text" id="tpSearch" placeholder="Search For Products" class="form-control" oninput="tpSearch()"></div>
-    <div class="row mx-0 mb-4">
-      <div class="col-4 ps-0 px-1"><input type="number" min="0" id="tpMinPrice" class="form-control" placeholder="Min"></div>
-      <div class="col-4 px-1"><input type="number" min="1" id="tpMaxPrice" class="form-control" placeholder="Max"></div>
-      <div class="col-4 pe-0 px-1"><button class="btn btn-primary w-100" type="button" onclick="tpApplyPrice()">Apply</button></div>
-    </div>
-    <div class="mb-4">
-      <div class="heading-text mb-3"><h3>Date Posted</h3></div>
-      <?php $__dates = ['3_days'=>'3 Days Ago','1_week'=>'1 Week Ago','1_month'=>'1 Month Ago','6_months'=>'6 Months Ago','1_year'=>'1 Year Ago']; $__i=0; foreach ($__dates as $val=>$lbl): $__i++; ?>
-      <div class="form-check mb-2"><input class="form-check-input" type="radio" name="tpDateFilter" id="tpDate<?= $__i ?>" value="<?= $val ?>" onchange="tpApplyDate('<?= $val ?>')"><label class="form-check-label fs-16 fw-5" for="tpDate<?= $__i ?>"><?= $lbl ?></label></div>
-      <?php endforeach; ?>
-    </div>
-    <div class="mb-4">
-      <div class="heading-text mb-3"><h3>All Categories</h3></div>
-      <div id="tpCategoryList">
-        <?php foreach ($categories as $c): $cimg = !empty($c['image']) ? imgUrl($c['image']) : ''; ?>
-        <div class="category-item"><button class="category-button w-100" type="button" data-cat="<?= (int)$c['id'] ?>" onclick="tpSetCategory(<?= (int)$c['id'] ?>, this)"><div class="category-category-img"><?php if ($cimg): ?><img src="<?= $cimg ?>" class="w-100 rounded" alt="category"><?php else: ?><i class="fas fa-tag" style="color:var(--tp)"></i><?php endif; ?></div><span class="text-start flex-grow-1"><?= htmlspecialchars($c['name']) ?></span></button></div>
-        <?php endforeach; ?>
-      </div>
-    </div>
-    <button type="button" class="btn btn-primary w-100" onclick="tpResetFilters()">Reset Filters</button>
-  </div>
-</aside>
-
 
 <?php if ($enableTranslate): ?>
 <script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:'en'},'google_translate_element');}</script>
@@ -245,64 +346,70 @@ const TP = {
   priceMax: <?= (float)$priceMax ?>
 };
 let tpCart = [];
-let tpFilters = { cat: 'all', q: '', min: null, max: null, date: null };
+let tpFilters = { cat: 'all', cats: [], q: '', min: null, max: null, date: null };
 
-// ── Price-range dropdown (derived from products) ──
-(function(){
-  const menu = document.getElementById('customSelectMenu');
-  if (!menu) return;
+// ── Show filtered view (sidebar + grid) ──
+function tpShowFilters(){
+  document.getElementById('tpInitialView').classList.add('d-none');
+  document.getElementById('tpFilteredView').classList.remove('d-none');
+  tpPopulatePriceRange2();
+}
+
+// ── Price range dropdown for filtered view ──
+function tpPopulatePriceRange2(){
+  const sel = document.getElementById('tpPriceRange2');
+  if (!sel) return;
   const max = Math.ceil(TP.priceMax);
   if (max <= 0) return;
   const step = Math.max(1, Math.ceil(max / 4));
   const ranges = [[0, step],[step, step*2],[step*2, step*3],[step*3, max+1]];
-  menu.innerHTML = '<li><a class="dropdown-item" href="#" data-min="" data-max="">All Prices</a></li>' +
-    ranges.map(r => `<li><a class="dropdown-item" href="#" data-min="${r[0]}" data-max="${r[1]}">${TP.currency}${r[0]} - ${TP.currency}${r[1]>max?max:r[1]}</a></li>`).join('');
-  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', e => {
-    e.preventDefault();
-    document.getElementById('customSelectBtn').textContent = a.textContent;
-    tpFilters.min = a.dataset.min === '' ? null : parseFloat(a.dataset.min);
-    tpFilters.max = a.dataset.max === '' ? null : parseFloat(a.dataset.max);
-    tpRender();
-  }));
-})();
-
-function tpSetCategory(id, el){
-  tpFilters.cat = (tpFilters.cat == id) ? 'all' : id;
-  document.querySelectorAll('.category-button').forEach(b => b.classList.remove('active'));
-  if (tpFilters.cat != 'all') el.classList.add('active');
-  tpRender();
+  sel.innerHTML = '<option value="">Select Price Range</option>' +
+    ranges.map(r => `<option value="${r[0]}-${r[1]}">${TP.currency}${r[0]} - ${TP.currency}${r[1]>max?max:r[1]}</option>`).join('');
 }
-function tpSearch(){ tpFilters.q = (document.getElementById('tpSearch').value || '').toLowerCase(); tpRender(); }
-function tpApplyPrice(){
-  const mn = parseFloat(document.getElementById('tpMinPrice').value);
-  const mx = parseFloat(document.getElementById('tpMaxPrice').value);
+
+function tpApplyPriceRange2(val){
+  if (!val) { tpFilters.min = null; tpFilters.max = null; }
+  else { const parts = val.split('-'); tpFilters.min = parseFloat(parts[0]); tpFilters.max = parseFloat(parts[1]); }
+  tpRender2();
+}
+
+function tpSearch2(){ tpFilters.q = (document.getElementById('tpSearch2').value || '').toLowerCase(); tpRender2(); }
+function tpApplyPrice2(){
+  const mn = parseFloat(document.getElementById('tpMinPrice2').value);
+  const mx = parseFloat(document.getElementById('tpMaxPrice2').value);
   tpFilters.min = isNaN(mn) ? null : mn;
   tpFilters.max = isNaN(mx) ? null : mx;
-  tpRender();
+  document.getElementById('tpPriceRange2').value = '';
+  tpRender2();
 }
-function tpApplyDate(val){
+function tpApplyDate2(val){
   const now = Date.now()/1000;
   const map = { '3_days':3*86400, '1_week':7*86400, '1_month':30*86400, '6_months':182*86400, '1_year':365*86400 };
   tpFilters.date = now - (map[val] || 0);
-  tpRender();
+  tpRender2();
+}
+function tpToggleCategory2(id){
+  const idx = tpFilters.cats.indexOf(id);
+  if (idx > -1) tpFilters.cats.splice(idx, 1); else tpFilters.cats.push(id);
+  tpRender2();
 }
 function tpResetFilters(){
-  tpFilters = { cat:'all', q:'', min:null, max:null, date:null };
-  document.getElementById('tpSearch').value = '';
-  document.getElementById('tpMinPrice').value = '';
-  document.getElementById('tpMaxPrice').value = '';
-  document.querySelectorAll('input[name="tpDateFilter"]').forEach(r => r.checked = false);
-  document.querySelectorAll('.category-button').forEach(b => b.classList.remove('active'));
-  document.getElementById('customSelectBtn').textContent = 'Select Price Range';
-  tpRender();
+  tpFilters = { cat:'all', cats:[], q:'', min:null, max:null, date:null };
+  const s2 = document.getElementById('tpSearch2'); if (s2) s2.value = '';
+  const mp2 = document.getElementById('tpMinPrice2'); if (mp2) mp2.value = '';
+  const xp2 = document.getElementById('tpMaxPrice2'); if (xp2) xp2.value = '';
+  const pr2 = document.getElementById('tpPriceRange2'); if (pr2) pr2.value = '';
+  document.querySelectorAll('input[name="tpDateFilter2"]').forEach(r => r.checked = false);
+  document.querySelectorAll('.tp-cat-cb').forEach(cb => cb.checked = false);
+  tpRender2();
 }
-function tpRender(){
+function tpRender2(){
   let shown = 0;
-  document.querySelectorAll('.tp-product').forEach(card => {
+  document.querySelectorAll('.tp-product2').forEach(card => {
     const cat = card.dataset.cat, name = card.dataset.name;
     const price = parseFloat(card.dataset.price), created = parseInt(card.dataset.created);
     let ok = true;
-    if (tpFilters.cat !== 'all' && cat != tpFilters.cat) ok = false;
+    if (tpFilters.cats.length > 0 && !tpFilters.cats.includes(parseInt(cat))) ok = false;
     if (tpFilters.q && !name.includes(tpFilters.q)) ok = false;
     if (tpFilters.min !== null && price < tpFilters.min) ok = false;
     if (tpFilters.max !== null && price > tpFilters.max) ok = false;
@@ -310,7 +417,7 @@ function tpRender(){
     card.style.display = ok ? '' : 'none';
     if (ok) shown++;
   });
-  document.getElementById('tpNoResults').classList.toggle('d-none', shown > 0);
+  document.getElementById('tpNoResults2').classList.toggle('d-none', shown > 0);
 }
 
 // ── Cart ──
@@ -367,8 +474,6 @@ function tpPlaceOrder(){
     body:JSON.stringify({store_id:TP.id,customer_name:name,customer_phone:phone,customer_address:addr,items:tpCart,subtotal:sub,delivery_charge:TP.deliveryFee,total_amount:total,notes:notes})}).catch(()=>{});
   window.location.href=`https://wa.me/${TP.whatsapp}?text=${encodeURIComponent(msg)}`;
 }
-function tpOpenFilters(){ document.getElementById('tpFilterDrawer').classList.add('open'); document.getElementById('tpFilterOverlay').style.display='block'; }
-function tpCloseFilters(){ document.getElementById('tpFilterDrawer').classList.remove('open'); document.getElementById('tpFilterOverlay').style.display='none'; }
 function tpToast(m,t){ const e=document.createElement('div'); e.className='tp-toast'; if(t==='err') e.style.background='#c0392b'; e.textContent=m; document.body.appendChild(e); setTimeout(()=>e.classList.add('show'),10); setTimeout(()=>{e.classList.remove('show');setTimeout(()=>e.remove(),350);},2200); }
 </script>
 </body>
