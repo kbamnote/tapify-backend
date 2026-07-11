@@ -67,7 +67,10 @@ $cartAddIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" v
 .product-card .addToCartBtn{min-width:44px;height:44px;}
 .product-card{transition:all .3s;}
 .product-card:hover{box-shadow:0 8px 25px rgba(0,0,0,.1);transform:translateY(-3px);}
+.hero-img{width:100%;height:350px;overflow:hidden;position:relative;}
+.hero-img img{width:100%;height:100%;object-fit:cover;}
 @media(max-width:992px){
+  .hero-img{height:220px;}
   .items-section .row{flex-direction:column;}
   .items-section .col-xl-3,.items-section .col-lg-4{width:100%;max-width:100%;flex:0 0 100%;}
   .items-section .col-xl-9,.items-section .col-lg-8{width:100%;max-width:100%;flex:0 0 100%;}
