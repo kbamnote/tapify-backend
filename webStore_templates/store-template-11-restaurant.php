@@ -65,6 +65,13 @@ $cartAddIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" v
 .tp-toast{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-90px);background:#111;color:#fff;padding:11px 22px;border-radius:50px;font-weight:600;z-index:9999;transition:transform .35s;}
 .tp-toast.show{transform:translateX(-50%) translateY(0);}
 .product-card .addToCartBtn{min-width:44px;height:44px;}
+.product-card{transition:all .3s;}
+.product-card:hover{box-shadow:0 8px 25px rgba(0,0,0,.1);transform:translateY(-3px);}
+@media(max-width:992px){
+  .items-section .row{flex-direction:column;}
+  .items-section .col-xl-3,.items-section .col-lg-4{width:100%;max-width:100%;flex:0 0 100%;}
+  .items-section .col-xl-9,.items-section .col-lg-8{width:100%;max-width:100%;flex:0 0 100%;}
+}
 </style>
 </head>
 <body style="position:relative;min-height:100%;top:0px">
@@ -93,91 +100,88 @@ $cartAddIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" v
 
     <div class="items-section px-3 pt-3 mt-1 position-relative">
       <div class="row">
+        <!-- Sidebar Filters -->
         <div class="col-xl-3 col-lg-4 mb-40">
-          <div class="items-tabs bg-white">
-            <div class="tabs-heading mb-20"><p class="fs-20 fw-6 text-black mb-0 lh-sm">Filter</p></div>
-            <div class="row mx-0 mb-30">
+          <div class="items-tabs bg-white p-3" style="border-radius:12px;">
+            <div class="tabs-heading mb-3"><p class="fs-20 fw-6 text-black mb-0">Filter</p></div>
+            <div class="row mx-0 mb-3">
               <div class="col-4 ps-0 px-1"><input type="number" min="0" id="tpMinPrice" class="form-control" placeholder="Min"></div>
               <div class="col-4 px-1"><input type="number" min="1" id="tpMaxPrice" class="form-control" placeholder="Max"></div>
-              <div class="col-4 pe-0 px-1"><button class="apply-btn btn btn-primary w-100 h-100" type="button" onclick="tpApplyPrice()">Apply</button></div>
+              <div class="col-4 pe-0 px-1"><button class="btn btn-primary w-100" type="button" onclick="tpApplyPrice()">Apply</button></div>
             </div>
-            <div class="mb-20 date-posted">
-              <div class="heading-text mb-20"><h3 class="mb-0 fs-20 fw-6">Date Posted</h3></div>
-              <div>
-                <?php $__dates = ['3_days'=>'3 Days Ago','1_week'=>'1 Week Ago','1_month'=>'1 Month Ago','6_months'=>'6 Months Ago','1_year'=>'1 Year Ago']; $__i=0; foreach ($__dates as $val=>$lbl): $__i++; ?>
-                <div class="form-check mb-2"><input class="form-check-input" type="radio" name="tpDateFilter" id="tpDate<?= $__i ?>" value="<?= $val ?>" onchange="tpApplyDate('<?= $val ?>')"><label class="form-check-label fs-20 fw-5 text-black lh-sm" for="tpDate<?= $__i ?>"><?= $lbl ?></label></div>
-                <?php endforeach; ?>
+            <div class="mb-3">
+              <select id="tpPriceRange" class="form-control" onchange="tpApplyPriceRange(this.value)">
+                <option value="">Select Price Range</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <h3 class="fs-18 fw-6 mb-2" style="border-bottom:1px solid #eee;padding-bottom:8px;">Date Posted</h3>
+              <?php $__dates = ['3_days'=>'3 Days Ago','1_week'=>'1 Week Ago','1_month'=>'1 Month Ago','6_months'=>'6 Months Ago','1_year'=>'1 Year Ago']; $__i=0; foreach ($__dates as $val=>$lbl): $__i++; ?>
+              <div class="form-check mb-2"><input class="form-check-input" type="radio" name="tpDateFilter" id="tpDate<?= $__i ?>" value="<?= $val ?>" onchange="tpApplyDate('<?= $val ?>')"><label class="form-check-label fs-16 fw-5" for="tpDate<?= $__i ?>"><?= $lbl ?></label></div>
+              <?php endforeach; ?>
+            </div>
+            <div class="mb-3">
+              <h3 class="fs-18 fw-6 mb-2" style="border-bottom:1px solid #eee;padding-bottom:8px;">All Categories</h3>
+              <?php foreach ($categories as $c): ?>
+              <div class="form-check mb-2">
+                <input class="form-check-input tpCatCheck" type="checkbox" value="<?= (int)$c['id'] ?>" id="tpCat<?= (int)$c['id'] ?>" onchange="tpApplyCats()">
+                <label class="form-check-label fs-16 fw-5" for="tpCat<?= (int)$c['id'] ?>"><?= htmlspecialchars($c['name']) ?></label>
               </div>
+              <?php endforeach; ?>
             </div>
-            <div class="date-posted">
-              <div class="heading-text mb-20"><h3 class="mb-0 fs-20 fw-6">All Categories</h3></div>
-              <div id="tpCategoryList">
-                <?php foreach ($categories as $c): ?>
-                <div class="form-check mb-2">
-                  <input class="form-check-input tpCatCheck" type="checkbox" value="<?= (int)$c['id'] ?>" id="tpCat<?= (int)$c['id'] ?>" onchange="tpApplyCats()">
-                  <label class="form-check-label fs-20 fw-5 text-black lh-sm" for="tpCat<?= (int)$c['id'] ?>"><?= htmlspecialchars($c['name']) ?></label>
-                </div>
-                <?php endforeach; ?>
-              </div>
-            </div>
-            <div class="mt-4"><button type="button" class="apply-btn btn btn-primary w-100" onclick="tpResetFilters()">Reset Filters</button></div>
+            <button type="button" class="btn btn-primary w-100" onclick="tpResetFilters()">Reset Filters</button>
           </div>
         </div>
 
+        <!-- Products Area -->
         <div class="col-xl-9 col-lg-8">
-          <div class="row justify-content-end">
-            <div class="col-xl-4 col-sm-6 mb-20">
+          <!-- Search + Price Range Top Bar -->
+          <div class="row mb-3 align-items-center">
+            <div class="col-md-6 mb-2">
               <div class="position-relative">
-                <input type="search" id="tpSearch" placeholder="Search For Products" class="form-control ps-45" oninput="tpSearch()">
-                <div class="search-icon"><i class="fas fa-search" style="color:#999"></i></div>
+                <input type="search" id="tpSearch" placeholder="Search For Products" class="form-control" style="padding-left:40px;border-radius:10px;" oninput="tpSearch()">
+                <i class="fas fa-search position-absolute" style="left:14px;top:50%;transform:translateY(-50%);color:#999;"></i>
               </div>
             </div>
-            <div class="col-xl-4 col-sm-6 mb-20">
-              <div class="dropdown">
-                <button class="btn btn-light text-start w-100 border" type="button" id="customSelectBtn" data-bs-toggle="dropdown" style="height:100%">Select Price Range</button>
-                <ul class="dropdown-menu w-100" id="customSelectMenu"></ul>
-              </div>
-            </div>
-            <div class="section-heading position-relative"><h2>All Items</h2></div>
-            <div class="row mb-40 product-section" id="tpProductsRow">
-              <?php if (!empty($products)): foreach ($products as $p): $pimg = $p['img'] ?? ''; ?>
-              <div class="col-xl-3 col-sm-6 mb-20 tp-product"
-                   data-cat="<?= (int)$p['category_id'] ?>" data-name="<?= htmlspecialchars(strtolower($p['name'])) ?>"
-                   data-price="<?= (float)$p['effective_price'] ?>" data-created="<?= strtotime($p['created_at'] ?? 'now') ?>">
-                <div class="h-100 product-card d-flex flex-column">
-                  <div class="d-flex flex-column h-100 text-black" style="text-decoration:none">
-                    <div class="product-img w-100 h-100 m-auto">
-                      <?php if ($pimg): ?><img src="<?= $pimg ?>" alt="product" class="w-100 h-100 object-fit-cover product-image">
-                      <?php else: ?><div class="w-100 d-flex align-items-center justify-content-center" style="aspect-ratio:1;background:#eef1fb;color:#9fb0e0;font-size:2.4rem"><i class="fas fa-box-open"></i></div><?php endif; ?>
-                    </div>
-                    <div class="product-details" style="flex-grow:1">
-                      <div class="d-flex justify-content-between h-100 flex-column">
-                        <div>
-                          <h5 class="fs-20 fw-6 mb-1 product-name"><?= htmlspecialchars($p['name']) ?></h5>
-                          <?php if (!empty($p['category_name'])): ?><p class="fs-14 fw-5 mb-2 text-gray-200 lh-sm product-category"><?= htmlspecialchars($p['category_name']) ?></p><?php endif; ?>
-                        </div>
-                        <div class="d-flex gap-2 align-items-center justify-content-between">
-                          <p class="fs-30 fw-6 lh-sm mb-0">
-                            <span class="currency_icon"><?= $currency ?></span>
-                            <span class="selling_price"><?= number_format($p['effective_price'], 2) ?></span>
-                            <?php if (!empty($p['has_discount'])): ?><del class="fs-20 fw-5 text-gray-200 text-nowrap"><?= $currency ?> <?= number_format((float)$p['price'], 2) ?></del><?php endif; ?>
-                          </p>
-                          <?php if (!empty($p['in_stock'])): ?>
-                          <button class="btn btn-primary d-flex justify-content-center align-items-center addToCartBtn" title="<?= htmlspecialchars($cta, ENT_QUOTES) ?>"
-                                  data-id="<?= (int)$p['id'] ?>" data-name="<?= htmlspecialchars($p['name'], ENT_QUOTES) ?>"
-                                  data-price="<?= (float)$p['effective_price'] ?>" data-img="<?= htmlspecialchars($pimg, ENT_QUOTES) ?>" onclick="tpAddToCart(this)"><?= $cartAddIcon ?></button>
-                          <?php else: ?><button class="btn btn-primary addToCartBtn" disabled style="opacity:.5">✕</button><?php endif; ?>
-                        </div>
-                      </div>
-                    </div>
+          </div>
+
+          <div class="section-heading mb-3"><h2>All Items</h2></div>
+          <div class="row mb-40" id="tpProductsRow">
+            <?php if (!empty($products)): foreach ($products as $p): $pimg = $p['img'] ?? ''; ?>
+            <div class="col-xl-4 col-md-6 col-sm-6 mb-20 tp-product"
+                 data-cat="<?= (int)$p['category_id'] ?>" data-name="<?= htmlspecialchars(strtolower($p['name'])) ?>"
+                 data-price="<?= (float)$p['effective_price'] ?>" data-created="<?= strtotime($p['created_at'] ?? 'now') ?>">
+              <div class="h-100 product-card d-flex flex-column" style="background:#fff;border:1px solid #eee;border-radius:14px;overflow:hidden;">
+                <div class="product-img" style="width:100%;aspect-ratio:1;overflow:hidden;">
+                  <?php if ($pimg): ?><img src="<?= $pimg ?>" alt="product" style="width:100%;height:100%;object-fit:cover;">
+                  <?php else: ?><div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:#f0f0f0;color:#999;font-size:2.4rem;"><i class="fas fa-image"></i></div><?php endif; ?>
+                </div>
+                <div class="product-details p-3" style="flex-grow:1;">
+                  <h5 class="fs-18 fw-6 mb-1 product-name"><?= htmlspecialchars($p['name']) ?></h5>
+                  <?php if (!empty($p['category_name'])): ?><p class="fs-14 fw-5 mb-2" style="color:#888;"><?= htmlspecialchars($p['category_name']) ?></p><?php endif; ?>
+                  <div class="d-flex align-items-center justify-content-between mt-2">
+                    <p class="fs-18 fw-7 mb-0">
+                      <span class="currency_icon"><?= $currency ?></span>
+                      <span class="selling_price"><?= number_format($p['effective_price'], 2) ?></span>
+                      <?php if (!empty($p['has_discount'])): ?><del class="fs-13 fw-5" style="color:#aaa;"><?= $currency ?> <?= number_format((float)$p['price'], 2) ?></del><?php endif; ?>
+                    </p>
+                    <?php if (!empty($p['in_stock'])): ?>
+                    <button class="btn btn-primary d-flex justify-content-center align-items-center addToCartBtn"
+                            data-id="<?= (int)$p['id'] ?>" data-name="<?= htmlspecialchars($p['name'], ENT_QUOTES) ?>"
+                            data-price="<?= (float)$p['effective_price'] ?>" data-img="<?= htmlspecialchars($pimg, ENT_QUOTES) ?>" onclick="tpAddToCart(this)" style="padding:8px 16px;border-radius:8px;font-size:.85rem;">
+                      <i class="fas fa-cart-plus me-1"></i> <?= htmlspecialchars($cta) ?>
+                    </button>
+                    <?php else: ?>
+                    <button class="btn btn-primary addToCartBtn" disabled style="opacity:.5;padding:8px 16px;border-radius:8px;">Sold Out</button>
+                    <?php endif; ?>
                   </div>
                 </div>
               </div>
-              <?php endforeach; else: ?>
-              <div class="col-12 text-center py-5"><i class="fas fa-box-open" style="font-size:3rem;color:#9fb0e0"></i><p class="mt-3 fs-18">No products available yet</p></div>
-              <?php endif; ?>
-              <div class="col-12 text-center py-5 d-none" id="tpNoResults"><i class="fas fa-search" style="font-size:2.4rem;color:#9fb0e0"></i><p class="mt-3 fs-16">No products match your filters</p></div>
             </div>
+            <?php endforeach; else: ?>
+            <div class="col-12 text-center py-5"><i class="fas fa-box-open" style="font-size:3rem;color:#ccc"></i><p class="mt-3 fs-18">No products available yet</p></div>
+            <?php endif; ?>
+            <div class="col-12 text-center py-5 d-none" id="tpNoResults"><i class="fas fa-search" style="font-size:2.4rem;color:#ccc"></i><p class="mt-3 fs-16">No products match your filters</p></div>
           </div>
         </div>
       </div>
@@ -207,20 +211,25 @@ $cartAddIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" v
 const TP = { id:<?= (int)$storeId ?>, whatsapp:'<?= $waPhone ?>', currency:<?= json_encode($currency) ?>, deliveryFee:<?= $deliveryFee ?>, minOrder:<?= $minOrder ?>, template:<?= json_encode($waTemplate) ?>, priceMin:<?= (float)$priceMin ?>, priceMax:<?= (float)$priceMax ?> };
 let tpCart = [];
 let tpFilters = { cats: new Set(), q:'', min:null, max:null, date:null };
+
+// Populate price range dropdown
 (function(){
-  const menu = document.getElementById('customSelectMenu'); if(!menu) return;
+  const sel = document.getElementById('tpPriceRange'); if(!sel) return;
   const max = Math.ceil(TP.priceMax); if(max<=0) return;
   const step = Math.max(1, Math.ceil(max/4));
   const ranges = [[0,step],[step,step*2],[step*2,step*3],[step*3,max+1]];
-  menu.innerHTML = '<li><a class="dropdown-item" href="#" data-min="" data-max="">All Prices</a></li>' +
-    ranges.map(r=>`<li><a class="dropdown-item" href="#" data-min="${r[0]}" data-max="${r[1]}">${TP.currency}${r[0]} - ${TP.currency}${r[1]>max?max:r[1]}</a></li>`).join('');
-  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();document.getElementById('customSelectBtn').textContent=a.textContent;tpFilters.min=a.dataset.min===''?null:parseFloat(a.dataset.min);tpFilters.max=a.dataset.max===''?null:parseFloat(a.dataset.max);tpRender();}));
+  sel.innerHTML = '<option value="">Select Price Range</option>' +
+    ranges.map(r=>`<option value="${r[0]}-${r[1]}">${TP.currency}${r[0]} - ${TP.currency}${r[1]>max?max:r[1]}</option>`).join('');
 })();
+
+function tpApplyPriceRange(val){
+  if(!val){tpFilters.min=null;tpFilters.max=null;}else{const p=val.split('-');tpFilters.min=parseFloat(p[0]);tpFilters.max=parseFloat(p[1]);}tpRender();
+}
 function tpApplyCats(){ tpFilters.cats = new Set([...document.querySelectorAll('.tpCatCheck:checked')].map(c=>c.value)); tpRender(); }
 function tpSearch(){ tpFilters.q=(document.getElementById('tpSearch').value||'').toLowerCase(); tpRender(); }
-function tpApplyPrice(){ const mn=parseFloat(document.getElementById('tpMinPrice').value),mx=parseFloat(document.getElementById('tpMaxPrice').value); tpFilters.min=isNaN(mn)?null:mn; tpFilters.max=isNaN(mx)?null:mx; tpRender(); }
+function tpApplyPrice(){ const mn=parseFloat(document.getElementById('tpMinPrice').value),mx=parseFloat(document.getElementById('tpMaxPrice').value); tpFilters.min=isNaN(mn)?null:mn; tpFilters.max=isNaN(mx)?null:mx; document.getElementById('tpPriceRange').value=''; tpRender(); }
 function tpApplyDate(v){ const now=Date.now()/1000, m={'3_days':3*86400,'1_week':7*86400,'1_month':30*86400,'6_months':182*86400,'1_year':365*86400}; tpFilters.date=now-(m[v]||0); tpRender(); }
-function tpResetFilters(){ tpFilters={cats:new Set(),q:'',min:null,max:null,date:null}; document.getElementById('tpSearch').value=''; document.getElementById('tpMinPrice').value=''; document.getElementById('tpMaxPrice').value=''; document.querySelectorAll('input[name=tpDateFilter]').forEach(r=>r.checked=false); document.querySelectorAll('.tpCatCheck').forEach(c=>c.checked=false); document.getElementById('customSelectBtn').textContent='Select Price Range'; tpRender(); }
+function tpResetFilters(){ tpFilters={cats:new Set(),q:'',min:null,max:null,date:null}; document.getElementById('tpSearch').value=''; document.getElementById('tpMinPrice').value=''; document.getElementById('tpMaxPrice').value=''; document.getElementById('tpPriceRange').value=''; document.querySelectorAll('input[name=tpDateFilter]').forEach(r=>r.checked=false); document.querySelectorAll('.tpCatCheck').forEach(c=>c.checked=false); tpRender(); }
 function tpRender(){
   let shown=0;
   document.querySelectorAll('.tp-product').forEach(card=>{
