@@ -7,7 +7,10 @@
 require_once __DIR__ . '/../../../config/database.php';
 require_once __DIR__ . '/../../../includes/functions.php';
 
-requireAdmin(); // Strictly restricted to Admins
+requireAuth();
+if (!isStaffOrAdmin()) {
+    sendError('Access denied.', 403);
+}
 
 try {
     $pdo = getDB();
