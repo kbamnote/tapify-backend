@@ -17,6 +17,8 @@ try {
     // Process input
     $data = json_decode(file_get_contents("php://input"), true) ?? $_POST;
     
+    $ownerId = (isStaffOrAdmin() && !empty($data['user_id'])) ? (int)$data['user_id'] : $userId;
+
     $id = isset($data['id']) && $data['id'] ? (int)$data['id'] : null;
     $name = $data['name'] ?? 'My QR';
     $destination_url = $data['destination_url'] ?? '';
@@ -63,21 +65,21 @@ try {
         if ($hasStyleCol) {
             $stmt = $pdo->prepare("
                 UPDATE dynamic_qrs
-                SET name = ?, short_url = ?, destination_url = ?, qr_type = ?, status = ?,
+                SET user_id = ?, name = ?, short_url = ?, destination_url = ?, qr_type = ?, status = ?,
                     password = ?, expiry_date = ?, custom_color = ?, logo = ?, style_json = ?, updated_at = NOW()
                 $ownSql
             ");
-            $params = [$name, $short_url, $destination_url, $qr_type, $status, $password, $expiry_date, $custom_color, $logo, $style_json, $id];
+            $params = [$ownerId, $name, $short_url, $destination_url, $qr_type, $status, $password, $expiry_date, $custom_color, $logo, $style_json, $id];
             if (!$editAny) { $params[] = $userId; }
             $stmt->execute($params);
         } else {
             $stmt = $pdo->prepare("
                 UPDATE dynamic_qrs
-                SET name = ?, short_url = ?, destination_url = ?, qr_type = ?, status = ?,
+                SET user_id = ?, name = ?, short_url = ?, destination_url = ?, qr_type = ?, status = ?,
                     password = ?, expiry_date = ?, custom_color = ?, logo = ?, updated_at = NOW()
                 $ownSql
             ");
-            $params = [$name, $short_url, $destination_url, $qr_type, $status, $password, $expiry_date, $custom_color, $logo, $id];
+            $params = [$ownerId, $name, $short_url, $destination_url, $qr_type, $status, $password, $expiry_date, $custom_color, $logo, $id];
             if (!$editAny) { $params[] = $userId; }
             $stmt->execute($params);
         }
@@ -90,14 +92,14 @@ try {
                 (user_id, name, short_url, destination_url, qr_type, status, password, expiry_date, custom_color, logo, style_json, created_at)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())
             ");
-            $stmt->execute([$userId, $name, $short_url, $destination_url, $qr_type, $status, $password, $expiry_date, $custom_color, $logo, $style_json]);
+            $stmt->execute([$ownerId, $name, $short_url, $destination_url, $qr_type, $status, $password, $expiry_date, $custom_color, $logo, $style_json]);
         } else {
             $stmt = $pdo->prepare("
                 INSERT INTO dynamic_qrs
                 (user_id, name, short_url, destination_url, qr_type, status, password, expiry_date, custom_color, logo, created_at)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())
             ");
-            $stmt->execute([$userId, $name, $short_url, $destination_url, $qr_type, $status, $password, $expiry_date, $custom_color, $logo]);
+            $stmt->execute([$ownerId, $name, $short_url, $destination_url, $qr_type, $status, $password, $expiry_date, $custom_color, $logo]);
         }
         $id = $pdo->lastInsertId();
         $msg = 'QR created successfully';
