@@ -1,21 +1,12 @@
 <?php
 /**
- * TAPIFY - WhatsApp Store Template 12 — "Grocery Store" (v2, full-width listing)
- * Converted from webStoreTemps/Theme 4 (static export) to a dynamic template.
- * Renders the SHARED store data ($store/$categories/$products) — switching to
- * this template changes only the UI, never the data.
- *
- * Provided by store.php: $store, $categories, $products (enriched: img,
- * category_name, effective_price, has_discount, disc_pct), $currency,
- * $storeId, $templateConfig, $priceMin, $priceMax, imgUrl().
+ * TAPIFY - WhatsApp Store Template 12 — "Grocery Store" (v2, light theme)
+ * Converted from webStoreTemps/Theme 4. Renders shared $store/$categories/$products.
  */
-
-$cfg      = $templateConfig ?? [];
-$asset    = '/webStore_templates/assets/store_template_12';
-$defC     = $cfg['default_colors'] ?? ['primary' => '#72bf78', 'secondary' => '#141414', 'accent' => '#ffb300'];
-
-// Treat the legacy WhatsApp-green scheme as "unset" so the theme's native palette wins.
-$legacy   = ['#25D366', '#128C7E', '', null];
+$cfg   = $templateConfig ?? [];
+$asset = '/webStore_templates/assets/store_template_12';
+$defC  = $cfg['default_colors'] ?? ['primary' => '#72bf78', 'secondary' => '#141414', 'accent' => '#ffb300'];
+$legacy = ['#25D366', '#128C7E', '', null];
 $P = (!in_array($store['primary_color']   ?? '', $legacy, true)) ? $store['primary_color']   : $defC['primary'];
 $S = (!in_array($store['secondary_color'] ?? '', $legacy, true)) ? $store['secondary_color'] : $defC['secondary'];
 $A = !empty($store['accent_color']) ? $store['accent_color'] : ($defC['accent'] ?? $P);
@@ -33,9 +24,6 @@ $cta         = $cfg['product_cta'] ?? 'Add to Cart';
 $enableTranslate = !array_key_exists('enable_translate', $store) || !empty($store['enable_translate']);
 $seoTitle  = !empty($store['seo_title']) ? htmlspecialchars($store['seo_title']) : "Product Listing | $shopName";
 $favicon   = !empty($store['favicon_image']) ? imgUrl($store['favicon_image']) : ($logo ?: '/images/tapify-logo-green.png');
-
-// Cart add-to-cart SVG (matches export)
-$cartIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none"><path d="M8.28564 7.41444C8.28564 5.36304 9.94849 3.7002 11.9999 3.7002C14.0513 3.7002 15.7141 5.36304 15.7141 7.41444C15.7141 7.56599 15.6539 7.71134 15.5468 7.8185C15.4396 7.92566 15.2943 7.98587 15.1427 7.98587C14.9912 7.98587 14.8458 7.92566 14.7387 7.8185C14.6315 7.71134 14.5713 7.56599 14.5713 7.41444C14.5713 6.73247 14.3004 6.07842 13.8181 5.59619C13.3359 5.11396 12.6819 4.84304 11.9999 4.84304C11.3179 4.84304 10.6639 5.11396 10.1816 5.59619C9.69941 6.07842 9.42849 6.73247 9.42849 7.41444C9.42849 7.56599 9.36829 7.71134 9.26112 7.8185C9.15396 7.92566 9.00862 7.98587 8.85707 7.98587C8.70552 7.98587 8.56017 7.92566 8.45301 7.8185C8.34585 7.71134 8.28564 7.56599 8.28564 7.41444ZM12.5713 12.5572C12.5713 12.4057 12.5111 12.2604 12.404 12.1532C12.2968 12.046 12.1514 11.9858 11.9999 11.9858C11.8483 11.9858 11.703 12.046 11.5958 12.1532C11.4887 12.2604 11.4285 12.4057 11.4285 12.5572V14.2715H9.7142C9.56265 14.2715 9.41731 14.3317 9.31014 14.4389C9.20298 14.546 9.14278 14.6914 9.14278 14.8429C9.14278 14.9945 9.20298 15.1398 9.31014 15.247C9.41731 15.3542 9.56265 15.4144 9.7142 15.4144H11.4285V17.1286C11.4285 17.2802 11.4887 17.4255 11.5958 17.5327C11.703 17.6399 11.8483 17.7001 11.9999 17.7001C12.1514 17.7001 12.2968 17.6399 12.404 17.5327C12.5111 17.4255 12.5713 17.2802 12.5713 17.1286V15.4144H14.2856C14.4371 15.4144 14.5825 15.3542 14.6896 15.247C14.7968 15.1398 14.857 14.9945 14.857 14.8429C14.857 14.6914 14.7968 14.546 14.6896 14.4389C14.5825 14.3317 14.4371 14.2715 14.2856 14.2715H12.5713V12.5572Z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M5.20225 10.7719C5.28737 10.234 5.56165 9.74422 5.97574 9.39058C6.38982 9.03693 6.91653 8.84268 7.46108 8.84277H16.5384C17.083 8.84261 17.6098 9.03683 18.0239 9.39049C18.4381 9.74414 18.7124 10.234 18.7975 10.7719L19.9715 18.2004C20.1907 19.5884 19.117 20.8427 17.7124 20.8427H6.28738C4.88282 20.8427 3.80912 19.5884 4.02854 18.2004L5.20225 10.7719ZM7.46108 9.98562C7.18873 9.98552 6.92529 10.0826 6.71814 10.2594C6.511 10.4363 6.37375 10.6812 6.33109 10.9502L5.1571 18.3787C5.13137 18.5419 5.14134 18.7088 5.18632 18.8678C5.23131 19.0269 5.31024 19.1742 5.41767 19.2998C5.52511 19.4254 5.65849 19.5262 5.80864 19.5952C5.95878 19.6643 6.12211 19.7 6.28738 19.6998H17.7124C17.8777 19.6999 18.041 19.6642 18.1911 19.5951C18.3412 19.5261 18.4746 19.4253 18.582 19.2997C18.6894 19.1741 18.7684 19.0268 18.8134 18.8678C18.8584 18.7088 18.8684 18.5419 18.8427 18.3787L17.6687 10.9502C17.626 10.6811 17.4887 10.4362 17.2815 10.2593C17.0743 10.0825 16.8108 9.98546 16.5384 9.98562H7.46108Z" fill="currentColor"></path></svg>';
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,437 +32,240 @@ $cartIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" view
 <title><?= $seoTitle ?></title>
 <?php if (!empty($store['seo_description'])): ?><meta name="description" content="<?= htmlspecialchars($store['seo_description']) ?>"><?php endif; ?>
 <link rel="icon" href="<?= $favicon ?>" type="image/png">
-<link rel="stylesheet" href="<?= $asset ?>/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-/* ── utilities the tree-shaken export CSS may omit ── */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:#f8faf8;color:#141414;font-family:'Poppins',sans-serif;overflow-x:hidden;}
 .d-none{display:none!important;}
-/* ── Dynamic brand colours (native theme default = #c29c77) ── */
 :root{--tp:<?= $P ?>;--ts:<?= $S ?>;--ta:<?= $A ?>;}
-.btn-primary{background-color:var(--tp)!important;border:1px solid var(--tp)!important;color:#fff!important;}
-.btn-primary:hover,.btn-primary:focus{background-color:var(--tp)!important;border-color:var(--tp)!important;filter:brightness(.94);}
-.category-button:hover,.category-button.active{color:var(--tp)!important;}
-.category-button.active{font-weight:700;}
-.serach-dropdown:focus,.form-control:focus{border-color:var(--tp)!important;box-shadow:none!important;}
-/* ── Cart drawer (added — export rendered it via Livewire) ── */
-#tpCartOverlay{display:none;position:fixed;inset:0;background:rgba(20,10,15,.5);z-index:1200;}
+
+.tp-bg-vector{position:fixed;pointer-events:none;z-index:0;opacity:.08;}
+.tp-bg-v1{top:5%;left:-3%;width:280px;height:280px;background:var(--tp);border-radius:50%;filter:blur(80px);}
+.tp-bg-v2{top:35%;right:-5%;width:220px;height:220px;background:var(--ta);border-radius:50%;filter:blur(60px);}
+.tp-bg-v3{bottom:20%;left:15%;width:180px;height:180px;background:var(--tp);border-radius:50%;filter:blur(70px);}
+
+.tp-nav{display:flex;align-items:center;justify-content:space-between;padding:12px 24px;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100;box-shadow:0 1px 4px rgba(0,0,0,.04);}
+.tp-nav-brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:#141414;}
+.tp-nav-brand img{width:36px;height:36px;border-radius:50%;object-fit:cover;}
+.tp-nav-brand .brand-letter{width:36px;height:36px;border-radius:50%;background:var(--tp);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;}
+.tp-nav-brand span{font-size:17px;font-weight:600;color:#141414;}
+.tp-nav-right{display:flex;align-items:center;gap:16px;}
+.tp-lang-select{padding:6px 10px;border:1px solid #ddd;border-radius:6px;font-size:13px;color:#555;background:#fff;cursor:pointer;}
+.tp-cart-btn{position:relative;background:none;border:none;cursor:pointer;color:#141414;font-size:22px;}
+.tp-cart-badge{position:absolute;top:-6px;right:-8px;background:var(--tp);color:#fff;font-size:10px;font-weight:700;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+
+.hero-img{width:100%;overflow:hidden;position:relative;z-index:1;}
+.hero-img img{width:100%;height:auto;object-fit:cover;display:block;}
+
+.tp-section-title{font-size:22px;font-weight:700;color:#141414;margin:28px 0 16px;padding:0 24px;position:relative;z-index:1;}
+
+.tp-cat-carousel{position:relative;padding:0 50px 10px;z-index:1;}
+.tp-cat-track{display:flex;gap:16px;overflow-x:auto;padding:10px 0;scroll-behavior:smooth;-ms-overflow-style:none;scrollbar-width:none;}
+.tp-cat-track::-webkit-scrollbar{display:none;}
+.tp-cat-item{min-width:130px;text-align:center;cursor:pointer;transition:transform .2s;}
+.tp-cat-item:hover{transform:scale(1.03);}
+.tp-cat-item.active .tp-cat-circle{border-color:var(--tp);}
+.tp-cat-circle{width:72px;height:72px;border-radius:50%;overflow:hidden;border:3px solid transparent;margin:0 auto 8px;background:#e8f5e9;}
+.tp-cat-circle img{width:100%;height:100%;object-fit:cover;}
+.tp-cat-label{font-size:12px;color:#555;font-weight:500;line-height:1.3;}
+.tp-carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;background:#fff;border:1px solid #ddd;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;color:#333;z-index:5;box-shadow:0 2px 6px rgba(0,0,0,.06);}
+.tp-carousel-arrow.left{left:8px;}
+.tp-carousel-arrow.right{right:8px;}
+
+.tp-products{padding:0 24px 30px;position:relative;z-index:1;}
+.tp-product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+.tp-product-card{background:#fff;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;border:1px solid #e8f5e9;transition:transform .3s,box-shadow .3s;}
+.tp-product-card:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(114,191,120,.12);}
+.tp-product-img{width:100%;aspect-ratio:1;overflow:hidden;background:#f8faf8;}
+.tp-product-img img{width:100%;height:100%;object-fit:cover;}
+.tp-product-img .no-img{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#ccc;font-size:2rem;}
+.tp-product-info{padding:12px 14px;flex-grow:1;display:flex;flex-direction:column;}
+.tp-product-name{font-size:14px;font-weight:600;color:#141414;margin-bottom:2px;}
+.tp-product-cat{font-size:12px;color:#999;margin-bottom:8px;}
+.tp-product-price{font-size:15px;font-weight:700;color:#141414;margin-bottom:10px;}
+.tp-product-price del{color:#bbb;font-size:12px;font-weight:400;margin-left:4px;}
+.tp-add-cart{background:var(--tp);color:#fff;border:none;border-radius:8px;padding:9px 14px;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;width:100%;margin-top:auto;transition:filter .2s;}
+.tp-add-cart:hover{filter:brightness(1.1);}
+.tp-add-cart:disabled{opacity:.5;cursor:not-allowed;}
+
+.tp-view-more-wrap{text-align:center;padding:10px 0 50px;position:relative;z-index:1;}
+.tp-view-more{display:inline-flex;align-items:center;gap:0;background:#fff;border:1px solid #ddd;border-radius:50px;overflow:hidden;text-decoration:none;transition:transform .2s,box-shadow .2s;}
+.tp-view-more:hover{transform:scale(1.03);box-shadow:0 4px 12px rgba(114,191,120,.15);}
+.tp-view-more-arrow{width:40px;height:40px;border-radius:50%;background:var(--tp);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;margin-right:-1px;}
+.tp-view-more-text{padding:10px 22px 10px 14px;color:#333;font-size:14px;font-weight:600;}
+
+.tp-filtered-view{display:none;padding:20px 24px;max-width:1400px;margin:0 auto;position:relative;z-index:1;}
+.tp-filtered-view.active{display:block;}
+.tp-filter-layout{display:flex;gap:24px;}
+.tp-filter-sidebar{width:260px;min-width:260px;background:#fff;border-radius:12px;padding:20px;height:fit-content;position:sticky;top:80px;border:1px solid #e8f5e9;}
+.tp-filter-sidebar input[type="search"],.tp-filter-sidebar input[type="number"],.tp-filter-sidebar select{width:100%;padding:10px 12px;border:1px solid #ddd;border-radius:8px;background:#fff;color:#333;font-size:14px;outline:none;}
+.tp-filter-sidebar input[type="search"]:focus,.tp-filter-sidebar input[type="number"]:focus,.tp-filter-sidebar select:focus{border-color:var(--tp);}
+.tp-filter-sidebar input[type="search"]{padding-left:36px;}
+.tp-search-wrap{position:relative;margin-bottom:16px;}
+.tp-search-wrap i{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:#999;font-size:14px;}
+.tp-price-row{display:flex;gap:8px;margin-bottom:12px;}
+.tp-price-row input{flex:1;}
+.tp-apply-btn{background:var(--tp);color:#fff;border:none;border-radius:8px;padding:10px 16px;font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;}
+.tp-apply-btn:hover{filter:brightness(1.1);}
+.tp-filter-section{margin-bottom:20px;}
+.tp-filter-section h4{font-size:15px;font-weight:700;color:#141414;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid #e8f5e9;}
+.tp-filter-section label{display:flex;align-items:center;gap:8px;font-size:14px;color:#555;margin-bottom:10px;cursor:pointer;}
+.tp-filter-section input[type="radio"],.tp-filter-section input[type="checkbox"]{accent-color:var(--tp);width:16px;height:16px;cursor:pointer;}
+.tp-filter-section select{margin-bottom:12px;}
+.tp-reset-btn{width:100%;background:var(--tp);color:#fff;border:none;border-radius:10px;padding:12px;font-size:14px;font-weight:600;cursor:pointer;margin-top:8px;}
+.tp-reset-btn:hover{filter:brightness(1.1);}
+.tp-filter-products{flex:1;}
+.tp-filter-products .tp-product-grid{max-width:none;margin:0;}
+
+@media(max-width:1024px){.tp-product-grid{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:992px){.tp-filter-layout{flex-direction:column;}.tp-filter-sidebar{width:100%;min-width:100%;position:static;}}
+@media(max-width:768px){.tp-product-grid{grid-template-columns:repeat(2,1fr);gap:12px;}.tp-cat-circle{width:60px;height:60px;}.tp-cat-label{font-size:11px;}.tp-section-title{font-size:18px;padding:0 16px;}.tp-cat-carousel{padding:0 40px 10px;}.tp-products{padding:0 16px 30px;}}
+@media(max-width:480px){.tp-product-grid{grid-template-columns:repeat(2,1fr);gap:10px;}.tp-product-info{padding:10px 12px;}.tp-product-name{font-size:13px;}.tp-product-price{font-size:14px;}.tp-add-cart{padding:8px 12px;font-size:12px;}}
+
+#tpCartOverlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1200;}
 #tpCartDrawer{position:fixed;top:0;right:0;height:100%;width:100%;max-width:400px;background:#fff;z-index:1201;transform:translateX(105%);transition:transform .35s ease;display:flex;flex-direction:column;box-shadow:-10px 0 40px rgba(0,0,0,.15);}
 #tpCartDrawer.open{transform:none;}
-.tp-cart-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid #eee;}
+.tp-cart-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid #eee;color:#141414;}
 .tp-cart-head h5{margin:0;font-weight:700;}
 .tp-cart-close{background:#f3f3f3;border:none;width:34px;height:34px;border-radius:50%;font-size:1.2rem;cursor:pointer;}
 .tp-cart-items{flex:1;overflow-y:auto;padding:10px 20px;}
-.tp-ci{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #f4f4f4;}
+.tp-ci{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #f4f4f4;color:#141414;}
 .tp-ci img{width:56px;height:56px;object-fit:cover;border-radius:8px;background:#f4f4f4;}
 .tp-ci .n{font-weight:600;font-size:.9rem;}
 .tp-ci .p{color:var(--tp);font-weight:700;}
 .tp-qty{display:flex;align-items:center;gap:8px;margin-top:6px;}
 .tp-qty button{width:26px;height:26px;border:1px solid #ddd;background:#fff;border-radius:50%;cursor:pointer;}
-.tp-cart-foot{padding:16px 20px;border-top:1px solid #eee;}
+.tp-cart-foot{padding:16px 20px;border-top:1px solid #eee;color:#141414;}
 .tp-cart-foot .row-l{display:flex;justify-content:space-between;padding:3px 0;font-size:.92rem;}
 .tp-cart-foot .tot{font-weight:700;font-size:1.05rem;}
 .tp-field{margin-bottom:10px;}
 .tp-field input,.tp-field textarea{width:100%;padding:9px 12px;border:1px solid #ddd;border-radius:8px;font-size:.9rem;}
 .tp-checkout{width:100%;padding:13px;border:none;border-radius:10px;background:#25D366;color:#fff;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;}
-.tp-toast{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-90px);background:#2d0a18;color:#fff;padding:11px 22px;border-radius:50px;font-weight:600;z-index:9999;transition:transform .35s;}
+.tp-toast{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-90px);background:#141414;color:#fff;padding:11px 22px;border-radius:50px;font-weight:600;z-index:9999;transition:transform .35s;}
 .tp-toast.show{transform:translateX(-50%) translateY(0);}
-#tpFilterOverlay{display:none;position:fixed;inset:0;background:rgba(20,10,15,.5);z-index:1200;}
-#tpFilterDrawer{position:fixed;top:0;left:0;height:100%;width:100%;max-width:380px;background:#fff;z-index:1201;transform:translateX(-105%);transition:transform .35s ease;display:flex;flex-direction:column;box-shadow:10px 0 40px rgba(0,0,0,.15);}
-#tpFilterDrawer.open{transform:none;}
-.tp-filter-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid #eee;}
-.tp-filter-head h5{margin:0;font-weight:700;}
-.tp-filter-body{flex:1;overflow-y:auto;padding:18px 20px;}
-.item-card{cursor:default;}
-/* ── View More button ── */
-.tp-view-more-btn{display:inline-flex;align-items:center;gap:0;padding:12px 28px 12px 24px;border:none;border-radius:50px;background:var(--tp);color:#fff;font-size:1rem;font-weight:600;cursor:pointer;box-shadow:0 4px 15px rgba(0,0,0,.12);transition:all .3s;font-family:inherit;}
-.tp-view-more-btn:hover{filter:brightness(.94);transform:translateY(-2px);box-shadow:0 6px 20px rgba(0,0,0,.18);}
-.tp-view-more-arrow{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:#fff;color:var(--tp);font-size:.95rem;margin-left:12px;transition:transform .3s;}
-.tp-view-more-btn:hover .tp-view-more-arrow{transform:translateX(3px);}
-/* ── Filtered View (sidebar + grid) ── */
-.tp-filtered-view{padding:20px 30px 40px;}
-.tp-filtered-topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;flex-wrap:wrap;gap:12px;}
-.tp-reset-filters{display:flex;align-items:center;gap:10px;font-size:1.3rem;font-weight:700;cursor:pointer;color:#212529;}
-.tp-reset-icon-btn{width:36px;height:36px;border-radius:8px;border:none;background:var(--tp);color:#fff;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;}
-.tp-reset-icon-btn:hover{filter:brightness(.9);}
-.tp-filtered-search{display:flex;align-items:center;gap:10px;background:#f5f5f5;border-radius:12px;padding:10px 18px;min-width:280px;}
-.tp-filtered-search i{color:#999;}
-.tp-filtered-search input{border:none;background:transparent;outline:none;font-size:.95rem;width:100%;font-family:inherit;}
-.tp-filtered-layout{display:flex;gap:24px;align-items:flex-start;}
-.tp-filter-sidebar{width:280px;flex-shrink:0;display:flex;flex-direction:column;gap:16px;}
-.tp-price-row{display:flex;gap:8px;align-items:center;}
-.tp-price-row .form-control{padding:10px 12px;border:1px solid #ddd;border-radius:8px;font-size:.9rem;}
-.tp-price-row .form-control:first-child{width:80px;}
-.tp-price-row .form-control:nth-child(2){width:80px;}
-.tp-apply-btn{padding:10px 20px;border:none;border-radius:8px;background:var(--tp);color:#fff;font-weight:600;cursor:pointer;font-size:.9rem;transition:all .3s;}
-.tp-apply-btn:hover{filter:brightness(.9);}
-.tp-price-select-wrap select{padding:12px 14px;border:1px solid #ddd;border-radius:8px;font-size:.95rem;width:100%;background:#fff;cursor:pointer;}
-.tp-filter-section{background:#fff;border:1px solid #eee;border-radius:12px;padding:16px;}
-.tp-filter-section h3{font-size:1.05rem;font-weight:700;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid #eee;}
-.tp-filter-section .form-check-input{accent-color:var(--tp);width:18px;height:18px;cursor:pointer;}
-.tp-filter-section .form-check-label{cursor:pointer;font-size:.95rem;}
-.tp-cat-check{display:flex;align-items:center;gap:10px;padding:8px 0;font-size:.95rem;cursor:pointer;}
-.tp-cat-check input{accent-color:var(--tp);width:18px;height:18px;cursor:pointer;}
-.tp-filtered-grid{flex:1;min-width:0;}
-.tp-product-card2{background:#fff;border:1px solid #eee;border-radius:16px;overflow:hidden;transition:all .3s;}
-.tp-product-card2:hover{box-shadow:0 8px 25px rgba(0,0,0,.1);transform:translateY(-3px);}
-.tp-product-card2 .item-img{width:100%;aspect-ratio:1;overflow:hidden;border-radius:16px 16px 0 0;}
-.tp-product-card2 .item-img img{width:100%;height:100%;object-fit:cover;}
-.tp-add-cart-btn2{background:var(--tp)!important;border:1px solid var(--tp)!important;color:#fff!important;padding:10px 24px!important;border-radius:10px!important;font-weight:600!important;font-size:.9rem!important;margin:0 16px 16px!important;width:calc(100% - 32px)!important;transition:all .3s!important;}
-.tp-add-cart-btn2:hover{filter:brightness(.94)!important;}
-@media(max-width:768px){
-  .tp-filtered-layout{flex-direction:column;}
-  .tp-filter-sidebar{width:100%;}
-  .tp-filtered-search{min-width:100%;}
-  .tp-filtered-topbar{flex-direction:column;align-items:flex-start;}
-}
 </style>
 </head>
-<body style="position:relative;min-height:100%;top:0px">
-<div class="main-content mx-auto w-100 overflow-hidden d-flex flex-column justify-content-between">
+<body>
+<div class="tp-bg-vector tp-bg-v1"></div>
+<div class="tp-bg-vector tp-bg-v2"></div>
+<div class="tp-bg-vector tp-bg-v3"></div>
 
-  <!-- decorative background vectors -->
-  <div class="bg-vector bg-vector-1"><img src="<?= $asset ?>/bg-vector.webp" alt="vector" loading="lazy"></div>
-  <div class="bg-vector bg-vector-3"><img src="<?= $asset ?>/bg-vector_2.webp" alt="vector" loading="lazy"></div>
-  <div class="bg-vector bg-vector-4"><img src="<?= $asset ?>/bg-vector_3.webp" alt="vector" loading="lazy"></div>
-  <div class="bg-vector bg-vector-5"><img src="<?= $asset ?>/bg-vector_4.webp" alt="vector" loading="lazy"></div>
-  <div class="bg-vector bg-vector-6"><img src="<?= $asset ?>/bg-vector_5.webp" alt="vector" loading="lazy"></div>
-
-  <div>
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg px-50 position-relative">
-      <div class="container-fluid p-0">
-        <div class="d-flex align-items-center gap-3">
-          <a class="navbar-brand p-0 m-0" href="#">
-            <?php if ($logo): ?>
-              <img src="<?= $logo ?>" alt="logo" class="w-100 h-100 object-fit-cover">
-            <?php else: ?>
-              <span class="fw-7 fs-20" style="display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:var(--tp);color:#fff;border-radius:50%"><?= $initial ?></span>
-            <?php endif; ?>
-          </a>
-          <span class="fw-6 fs-18"><a href="#" style="color:#212529;text-decoration:none"><?= $shopName ?></a></span>
-        </div>
-        <div class="d-flex align-items-center gap-lg-4 gap-sm-3 gap-2">
-          <?php if ($enableTranslate): ?>
-          <div class="language-dropdown position-relative">
-            <div id="google_translate_element"></div>
-          </div>
-          <?php endif; ?>
-          <button class="add-to-cart-btn d-flex align-items-center justify-content-center position-relative" id="addToCartViewBtn" type="button" onclick="tpOpenCart()">
-            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.0048 9.03985C20.0048 9.27694 19.9106 9.50433 19.7429 9.67198C19.5753 9.83964 19.3479 9.93382 19.1108 9.93382C18.8737 9.93382 18.6463 9.83964 18.4787 9.67198C18.311 9.50433 18.2168 9.27694 18.2168 9.03985V7.2519C18.2168 6.38254 17.8715 5.54879 17.2567 4.93406C16.642 4.31934 15.8083 3.97399 14.9389 3.97399C14.0696 3.97399 13.2358 4.31934 12.6211 4.93406C12.0063 5.54879 11.661 6.38254 11.661 7.2519V9.03985C11.661 9.27694 11.5668 9.50433 11.3992 9.67198C11.2315 9.83964 11.0041 9.93382 10.767 9.93382C10.5299 9.93382 10.3025 9.83964 10.1349 9.67198C9.96723 9.50433 9.87305 9.27694 9.87305 9.03985V7.2519C9.87305 5.90835 10.4068 4.61982 11.3568 3.66979C12.3068 2.71976 13.5954 2.18604 14.9389 2.18604C16.2825 2.18604 17.571 2.71976 18.521 3.66979C19.471 4.61982 20.0048 5.90835 20.0048 7.2519V9.03985Z" fill="#292929"></path><path fill-rule="evenodd" clip-rule="evenodd" d="M23.6898 10.6489L24.6434 24.9525C24.6674 25.3188 24.616 25.6862 24.4924 26.0318C24.3688 26.3775 24.1756 26.6942 23.9249 26.9623C23.6741 27.2304 23.371 27.4442 23.0343 27.5905C22.6977 27.7369 22.3346 27.8127 21.9675 27.8132H7.90939C7.54218 27.813 7.17892 27.7375 6.84209 27.5913C6.50526 27.445 6.20204 27.2312 5.95119 26.963C5.70034 26.6948 5.5072 26.378 5.38374 26.0322C5.26028 25.6864 5.20912 25.3189 5.23342 24.9525L6.187 10.6489C6.23235 9.97006 6.534 9.33384 7.03086 8.86907C7.52771 8.40431 8.18262 8.14575 8.86296 8.14575H21.0139C21.6942 8.14575 22.3491 8.40431 22.846 8.86907C23.3428 9.33384 23.6445 9.97006 23.6898 10.6489ZM17.9017 13.4238C17.6351 13.984 17.2153 14.4571 16.6909 14.7884C16.1664 15.1197 15.5588 15.2955 14.9384 15.2955C14.3181 15.2955 13.7105 15.1197 13.186 14.7884C12.6615 14.4571 12.2417 13.984 11.9752 13.4238C11.9248 13.3177 11.854 13.2227 11.7668 13.144C11.6797 13.0653 11.5779 13.0045 11.4673 12.9652C11.3566 12.9258 11.2393 12.9086 11.1221 12.9146C11.0048 12.9206 10.8899 12.9496 10.7838 13C10.6778 13.0504 10.5827 13.1212 10.504 13.2084C10.4253 13.2955 10.3646 13.3973 10.3252 13.508C10.2859 13.6186 10.2687 13.7359 10.2747 13.8532C10.2807 13.9704 10.3097 14.0854 10.3601 14.1914C10.7706 15.0583 11.4188 15.7908 12.2293 16.3037C13.0398 16.8166 13.9793 17.0889 14.9384 17.0889C15.8976 17.0889 16.837 16.8166 17.6475 16.3037C18.458 15.7908 19.1062 15.0583 19.5168 14.1914C19.5672 14.0854 19.5962 13.9704 19.6022 13.8532C19.6082 13.7359 19.591 13.6186 19.5516 13.508C19.5123 13.3973 19.4515 13.2955 19.3728 13.2084C19.2942 13.1212 19.1991 13.0504 19.093 13C18.987 12.9496 18.872 12.9206 18.7548 12.9146C18.6375 12.9086 18.5202 12.9258 18.4096 12.9652C18.2989 13.0045 18.1972 13.0653 18.11 13.144C18.0229 13.2226 17.9521 13.3177 17.9017 13.4238Z" fill="#292929"></path></svg>
-            <span class="position-absolute start-100 translate-middle badge rounded-pill bg-danger product-count-badge" style="font-size:12px;padding:3px 6px;top:7px" id="tpCartCount">0</span>
-          </button>
-        </div>
-      </div>
-    </nav>
-
-    <!-- BANNER -->
-    <div class="banner-section position-relative">
-      <div class="banner-img"><img src="<?= $bannerImg ?>" class="w-100 h-100 object-fit-cover" alt="banner"></div>
+<div class="main-content mx-auto w-100">
+  <nav class="tp-nav">
+    <a class="tp-nav-brand" href="#">
+      <?php if ($logo): ?><img src="<?= $logo ?>" alt="logo">
+      <?php else: ?><span class="brand-letter"><?= $initial ?></span><?php endif; ?>
+      <span><?= $shopName ?></span>
+    </a>
+    <div class="tp-nav-right">
+      <?php if ($enableTranslate): ?><select class="tp-lang-select"><option>Select Language</option></select><?php endif; ?>
+      <button class="tp-cart-btn" onclick="tpOpenCart()"><i class="fas fa-shopping-bag"></i><span class="tp-cart-badge" id="tpCartCount">0</span></button>
     </div>
+  </nav>
 
-    <!-- ITEMS (initial full-width view) -->
-    <div class="items-section px-3 pt-3 mt-1 position-relative" id="tpInitialView">
-      <div class="section-heading text-center mb-4"><h2>Choose your Products</h2></div>
-      <div class="row" id="tpProductsRow">
-              <?php if (!empty($products)): foreach ($products as $p):
-                    $pimg = $p['img'] ?? (!empty($p['image']) ? imgUrl($p['image']) : ''); ?>
-              <div class="col-xl-3 col-lg-4 col-sm-6 mb-20 tp-product"
-                   data-cat="<?= (int)$p['category_id'] ?>"
-                   data-name="<?= htmlspecialchars(strtolower($p['name'])) ?>"
-                   data-price="<?= (float)$p['effective_price'] ?>"
-                   data-created="<?= strtotime($p['created_at'] ?? 'now') ?>">
-                <div class="item-card h-100">
-                  <div class="d-flex flex-column h-100">
-                    <a href="#" onclick="return false" style="color:#212529" class="d-block h-100">
-                      <div class="flex-grow-1 h-100">
-                        <div class="item-img">
-                          <?php if ($pimg): ?><img src="<?= $pimg ?>" alt="item" class="w-100 h-100 object-fit-cover product-image">
-                          <?php else: ?><div class="w-100 h-100 d-flex align-items-center justify-content-center" style="background:#fce8f0;color:#e8a0bc;font-size:2.4rem"><i class="fas fa-spa"></i></div><?php endif; ?>
-                        </div>
-                        <div class="item-details">
-                          <h5 class="fs-20 fw-6 mb-1 product-name"><?= htmlspecialchars($p['name']) ?></h5>
-                          <?php if (!empty($p['category_name'])): ?><p class="fs-16 fw-5 mb-1 product-category"><?= htmlspecialchars($p['category_name']) ?></p><?php endif; ?>
-                          <p class="fs-18 fw-7">
-                            <span class="currency_icon"><?= $currency ?></span>
-                            <span class="selling_price"><?= number_format($p['effective_price'], 2) ?></span>
-                            <?php if (!empty($p['has_discount'])): ?><del class="fs-14 fw-7 text-gray-200"><?= $currency ?> <?= number_format((float)$p['price'], 2) ?></del><?php endif; ?>
-                          </p>
-                        </div>
-                      </div>
-                    </a>
-                    <?php if (!empty($p['in_stock'])): ?>
-                    <button type="button" class="btn btn-primary d-flex justify-content-center align-items-center mx-auto gap-2 addToCartBtn"
-                            data-id="<?= (int)$p['id'] ?>" data-name="<?= htmlspecialchars($p['name'], ENT_QUOTES) ?>"
-                            data-price="<?= (float)$p['effective_price'] ?>" data-img="<?= htmlspecialchars($pimg, ENT_QUOTES) ?>"
-                            onclick="tpAddToCart(this)">
-                      <span><?= $cartIcon ?></span> <?= htmlspecialchars($cta) ?>
-                    </button>
-                    <?php else: ?>
-                    <button type="button" class="btn btn-primary d-flex justify-content-center align-items-center mx-auto gap-2 addToCartBtn" disabled style="opacity:.5">Sold Out</button>
-                    <?php endif; ?>
-                  </div>
-                </div>
-              </div>
-              <?php endforeach; else: ?>
-              <div class="col-12 text-center py-5"><i class="fas fa-box-open" style="font-size:3rem;color:#e8a0bc"></i><p class="mt-3 fs-18">No products available yet</p></div>
-              <?php endif; ?>
-              <div class="col-12 text-center py-5 d-none" id="tpNoResults"><i class="fas fa-search" style="font-size:2.4rem;color:#e8a0bc"></i><p class="mt-3 fs-16">No products match your filters</p></div>
-      </div>
-      <div class="text-center mt-3 mb-40">
-        <button class="tp-view-more-btn" type="button" onclick="tpShowFilters()">
-          <span>View More</span>
-          <span class="tp-view-more-arrow"><i class="fas fa-arrow-right"></i></span>
-        </button>
-      </div>
+  <div class="hero-img"><img src="<?= $bannerImg ?>" alt="banner" onerror="this.style.display='none'"></div>
+
+  <h2 class="tp-section-title">Choose your Category</h2>
+  <div class="tp-cat-carousel">
+    <button class="tp-carousel-arrow left" onclick="tpScrollCats(-1)"><i class="fas fa-chevron-left"></i></button>
+    <div class="tp-cat-track" id="tpCatTrack">
+      <div class="tp-cat-item active" data-cat="all" onclick="tpFilterCat('all',this)"><div class="tp-cat-circle"><img src="<?= $asset ?>/bg-vector.webp" alt="All"></div><div class="tp-cat-label">All</div></div>
+      <?php foreach ($categories as $c): ?>
+      <div class="tp-cat-item" data-cat="<?= (int)$c['id'] ?>" onclick="tpFilterCat(<?= (int)$c['id'] ?>,this)"><div class="tp-cat-circle"><?php if (!empty($c['image'])): ?><img src="<?= imgUrl($c['image']) ?>" alt="<?= htmlspecialchars($c['name']) ?>"><?php else: ?><img src="<?= $asset ?>/bg-vector_2.webp" alt="cat"><?php endif; ?></div><div class="tp-cat-label"><?= htmlspecialchars($c['name']) ?></div></div>
+      <?php endforeach; ?>
     </div>
+    <button class="tp-carousel-arrow right" onclick="tpScrollCats(1)"><i class="fas fa-chevron-right"></i></button>
+  </div>
 
-    <!-- FILTERED VIEW (sidebar + grid, shown after clicking View More) -->
-    <div class="tp-filtered-view d-none" id="tpFilteredView">
-      <div class="tp-filtered-topbar">
-        <div class="tp-reset-filters" onclick="tpResetFilters()">
-          <span>Reset Filters</span>
-          <button type="button" class="tp-reset-icon-btn"><i class="fas fa-sync-alt"></i></button>
-        </div>
-        <div class="tp-filtered-search">
-          <i class="fas fa-search"></i>
-          <input type="text" id="tpSearch2" placeholder="Search For Products" oninput="tpSearch2()">
+  <h2 class="tp-section-title">Choose your Products</h2>
+  <div class="tp-products">
+    <div class="tp-product-grid" id="tpProductGrid">
+      <?php if (!empty($products)): foreach ($products as $p): $pimg = $p['img'] ?? ''; ?>
+      <div class="tp-product-card tp-product" data-cat="<?= (int)$p['category_id'] ?>" data-name="<?= htmlspecialchars(strtolower($p['name'])) ?>" data-price="<?= (float)$p['effective_price'] ?>">
+        <div class="tp-product-img"><?php if ($pimg): ?><img src="<?= $pimg ?>" alt="<?= htmlspecialchars($p['name']) ?>"><?php else: ?><div class="no-img"><i class="fas fa-image"></i></div><?php endif; ?></div>
+        <div class="tp-product-info">
+          <div class="tp-product-name"><?= htmlspecialchars($p['name']) ?></div>
+          <?php if (!empty($p['category_name'])): ?><div class="tp-product-cat"><?= htmlspecialchars($p['category_name']) ?></div><?php endif; ?>
+          <div class="tp-product-price"><span class="currency_icon"><?= $currency ?></span><span class="selling_price"><?= number_format($p['effective_price'], 2) ?></span><?php if (!empty($p['has_discount'])): ?><del><?= $currency ?> <?= number_format((float)$p['price'], 2) ?></del><?php endif; ?></div>
+          <?php if (!empty($p['in_stock'])): ?><button class="tp-add-cart" data-id="<?= (int)$p['id'] ?>" data-name="<?= htmlspecialchars($p['name'], ENT_QUOTES) ?>" data-price="<?= (float)$p['effective_price'] ?>" data-img="<?= htmlspecialchars($pimg, ENT_QUOTES) ?>" onclick="tpAddToCart(this)"><i class="fas fa-shopping-bag"></i> <?= htmlspecialchars($cta) ?></button><?php else: ?><button class="tp-add-cart" disabled>Sold Out</button><?php endif; ?>
         </div>
       </div>
-      <div class="tp-filtered-layout">
-        <!-- Sidebar -->
-        <aside class="tp-filter-sidebar">
-          <div class="tp-price-row">
-            <input type="number" min="0" id="tpMinPrice2" class="form-control" placeholder="Min">
-            <input type="number" min="1" id="tpMaxPrice2" class="form-control" placeholder="Max">
-            <button class="tp-apply-btn" type="button" onclick="tpApplyPrice2()">Apply</button>
-          </div>
-          <div class="tp-price-select-wrap">
-            <select id="tpPriceRange2" class="form-control" onchange="tpApplyPriceRange2(this.value)">
-              <option value="">Select Price Range</option>
-            </select>
-          </div>
-          <div class="tp-filter-section">
-            <h3>Date Posted</h3>
-            <?php $__dates = ['3_days'=>'3 Days Ago','1_week'=>'1 Week Ago','1_month'=>'1 Month Ago','6_months'=>'6 Months Ago','1_year'=>'1 Year Ago']; $__i=0; foreach ($__dates as $val=>$lbl): $__i++; ?>
-            <div class="form-check mb-2"><input class="form-check-input" type="radio" name="tpDateFilter2" id="tpDate2_<?= $__i ?>" value="<?= $val ?>" onchange="tpApplyDate2('<?= $val ?>')"><label class="form-check-label fs-16 fw-5" for="tpDate2_<?= $__i ?>"><?= $lbl ?></label></div>
-            <?php endforeach; ?>
-          </div>
-          <div class="tp-filter-section">
-            <h3>All Categories</h3>
-            <?php foreach ($categories as $c): ?>
-            <div class="tp-cat-check"><input type="checkbox" class="tp-cat-cb" data-cat="<?= (int)$c['id'] ?>" onchange="tpToggleCategory2(<?= (int)$c['id'] ?>)"><span><?= htmlspecialchars($c['name']) ?></span></div>
-            <?php endforeach; ?>
-          </div>
-        </aside>
-        <!-- Product Grid -->
-        <div class="tp-filtered-grid">
-          <div class="row" id="tpFilteredProductsRow">
-            <?php if (!empty($products)): foreach ($products as $p):
-                  $pimg = $p['img'] ?? (!empty($p['image']) ? imgUrl($p['image']) : ''); ?>
-            <div class="col-xl-3 col-lg-4 col-sm-6 mb-20 tp-product2"
-                 data-cat="<?= (int)$p['category_id'] ?>"
-                 data-name="<?= htmlspecialchars(strtolower($p['name'])) ?>"
-                 data-price="<?= (float)$p['effective_price'] ?>"
-                 data-created="<?= strtotime($p['created_at'] ?? 'now') ?>">
-              <div class="item-card h-100 tp-product-card2">
-                <div class="item-img">
-                  <?php if ($pimg): ?><img src="<?= $pimg ?>" alt="item" class="w-100 h-100 object-fit-cover product-image">
-                  <?php else: ?><div class="w-100 h-100 d-flex align-items-center justify-content-center" style="background:#f0f0f0;color:#999;font-size:2.4rem"><i class="fas fa-image"></i></div><?php endif; ?>
-                </div>
-                <div class="item-details text-center px-2">
-                  <h5 class="fs-20 fw-7 mb-1 product-name"><?= htmlspecialchars(strtoupper($p['name'])) ?></h5>
-                  <?php if (!empty($p['category_name'])): ?><p class="fs-14 fw-5 mb-1 product-category" style="color:#888"><?= htmlspecialchars($p['category_name']) ?></p><?php endif; ?>
-                  <p class="fs-18 fw-7 mb-2">
-                    <span class="currency_icon"><?= $currency ?></span>
-                    <span class="selling_price"><?= number_format($p['effective_price'], 2) ?></span>
-                    <?php if (!empty($p['has_discount'])): ?><del class="fs-14 fw-5" style="color:#aaa"><?= $currency ?> <?= number_format((float)$p['price'], 2) ?></del><?php endif; ?>
-                  </p>
-                </div>
-                <?php if (!empty($p['in_stock'])): ?>
-                <button type="button" class="btn tp-add-cart-btn2 d-flex justify-content-center align-items-center mx-auto gap-2"
-                        data-id="<?= (int)$p['id'] ?>" data-name="<?= htmlspecialchars($p['name'], ENT_QUOTES) ?>"
-                        data-price="<?= (float)$p['effective_price'] ?>" data-img="<?= htmlspecialchars($pimg, ENT_QUOTES) ?>"
-                        onclick="tpAddToCart(this)">
-                  <span><?= $cartIcon ?></span> <?= htmlspecialchars($cta) ?>
-                </button>
-                <?php else: ?>
-                <button type="button" class="btn tp-add-cart-btn2 d-flex justify-content-center align-items-center mx-auto gap-2" disabled style="opacity:.5">Sold Out</button>
-                <?php endif; ?>
-              </div>
+      <?php endforeach; else: ?>
+      <div class="text-center py-5" style="grid-column:1/-1;"><i class="fas fa-box-open" style="font-size:3rem;color:#ccc"></i><p class="mt-3" style="color:#999;">No products available yet</p></div>
+      <?php endif; ?>
+    </div>
+    <div class="text-center py-5 d-none" id="tpNoResults" style="grid-column:1/-1;color:#999;"><i class="fas fa-search" style="font-size:2.4rem;color:#ccc"></i><p class="mt-3">No products match your filters</p></div>
+  </div>
+
+  <div class="tp-view-more-wrap" id="tpViewMoreWrap"><a href="#" class="tp-view-more" onclick="tpShowFiltered(event)"><span class="tp-view-more-arrow"><i class="fas fa-arrow-right"></i></span><span class="tp-view-more-text">View More</span></a></div>
+
+  <div class="tp-filtered-view" id="tpFilteredView">
+    <div class="tp-filter-layout">
+      <div class="tp-filter-sidebar">
+        <div class="tp-search-wrap"><i class="fas fa-search"></i><input type="search" id="tpSearch2" placeholder="Search for Items" oninput="tpSearch2()"></div>
+        <div class="tp-price-row"><input type="number" id="tpMinPrice2" placeholder="Min" min="0"><input type="number" id="tpMaxPrice2" placeholder="Max" min="0"><button class="tp-apply-btn" onclick="tpApplyPrice2()">Apply</button></div>
+        <div class="tp-filter-section"><h4>Date Posted</h4><?php foreach (['3_days'=>'3 Days Ago','1_week'=>'1 Week Ago','1_month'=>'1 Month Ago','6_months'=>'6 Months Ago','1_year'=>'1 Year Ago'] as $val=>$lbl): ?><label><input type="radio" name="tpDateFilter2" value="<?= $val ?>" onchange="tpApplyDate2('<?= $val ?>')"> <?= $lbl ?></label><?php endforeach; ?></div>
+        <div class="tp-filter-section"><h4>Select Price Range</h4><select id="tpPriceRange2" onchange="tpApplyPriceRange2(this.value)"><option value="">Select Price Range</option></select></div>
+        <div class="tp-filter-section"><h4>All Categories</h4><?php foreach ($categories as $c): ?><label><input type="checkbox" class="tpCatCheck2" value="<?= (int)$c['id'] ?>" onchange="tpApplyCats2()"> <?= htmlspecialchars($c['name']) ?></label><?php endforeach; ?></div>
+        <button class="tp-reset-btn" onclick="tpResetFilters2()">Reset Filters</button>
+      </div>
+      <div class="tp-filter-products">
+        <div class="tp-product-grid" id="tpFilteredGrid">
+          <?php if (!empty($products)): foreach ($products as $p): $pimg = $p['img'] ?? ''; ?>
+          <div class="tp-product-card tp-product2" data-cat="<?= (int)$p['category_id'] ?>" data-name="<?= htmlspecialchars(strtolower($p['name'])) ?>" data-price="<?= (float)$p['effective_price'] ?>" data-created="<?= strtotime($p['created_at'] ?? 'now') ?>">
+            <div class="tp-product-img"><?php if ($pimg): ?><img src="<?= $pimg ?>" alt="<?= htmlspecialchars($p['name']) ?>"><?php else: ?><div class="no-img"><i class="fas fa-image"></i></div><?php endif; ?></div>
+            <div class="tp-product-info">
+              <div class="tp-product-name"><?= htmlspecialchars($p['name']) ?></div>
+              <?php if (!empty($p['category_name'])): ?><div class="tp-product-cat"><?= htmlspecialchars($p['category_name']) ?></div><?php endif; ?>
+              <div class="tp-product-price"><span class="currency_icon"><?= $currency ?></span><span class="selling_price"><?= number_format($p['effective_price'], 2) ?></span><?php if (!empty($p['has_discount'])): ?><del><?= $currency ?> <?= number_format((float)$p['price'], 2) ?></del><?php endif; ?></div>
+              <?php if (!empty($p['in_stock'])): ?><button class="tp-add-cart" data-id="<?= (int)$p['id'] ?>" data-name="<?= htmlspecialchars($p['name'], ENT_QUOTES) ?>" data-price="<?= (float)$p['effective_price'] ?>" data-img="<?= htmlspecialchars($pimg, ENT_QUOTES) ?>" onclick="tpAddToCart(this)"><i class="fas fa-shopping-bag"></i> <?= htmlspecialchars($cta) ?></button><?php else: ?><button class="tp-add-cart" disabled>Sold Out</button><?php endif; ?>
             </div>
-            <?php endforeach; else: ?>
-            <div class="col-12 text-center py-5"><i class="fas fa-box-open" style="font-size:3rem;color:#ccc"></i><p class="mt-3 fs-18">No products available yet</p></div>
-            <?php endif; ?>
-            <div class="col-12 text-center py-5 d-none" id="tpNoResults2"><i class="fas fa-search" style="font-size:2.4rem;color:#ccc"></i><p class="mt-3 fs-16">No products match your filters</p></div>
           </div>
+          <?php endforeach; endif; ?>
         </div>
+        <div class="text-center py-5 d-none" id="tpNoResults2" style="grid-column:1/-1;color:#999;"><i class="fas fa-search" style="font-size:2.4rem;color:#ccc"></i><p class="mt-3">No products match your filters</p></div>
       </div>
     </div>
   </div>
 
-  <!-- FOOTER -->
-  <footer class="position-relative">
-    <div class="text-center fw-5 fs-16">
-      <?php if ($address): ?><div class="mb-2"><i class="fas fa-map-marker-alt"></i> <?= $address ?></div><?php endif; ?>
-      <div>© Copyright <?= date('Y') ?> Tapify. All Rights Reserved.</div>
-    </div>
+  <footer style="background:#141414;text-align:center;padding:24px 20px;color:#ccc;font-size:14px;position:relative;z-index:1;">
+    <?php if ($address): ?><div class="mb-2" style="color:#aaa;"><i class="fas fa-map-marker-alt"></i> <?= $address ?></div><?php endif; ?>
+    <div>© Copyright <?= date('Y') ?> Tapify. All Rights Reserved.</div>
   </footer>
 </div>
 
-<!-- CART DRAWER -->
 <div id="tpCartOverlay" onclick="tpCloseCart()"></div>
-<div id="tpCartDrawer">
-  <div class="tp-cart-head"><h5>🛍️ Your Cart</h5><button class="tp-cart-close" onclick="tpCloseCart()">×</button></div>
-  <div class="tp-cart-items" id="tpCartItems"></div>
-  <div class="tp-cart-foot" id="tpCartFoot"></div>
-</div>
-
+<div id="tpCartDrawer"><div class="tp-cart-head"><h5>Your Cart</h5><button class="tp-cart-close" onclick="tpCloseCart()">×</button></div><div class="tp-cart-items" id="tpCartItems"></div><div class="tp-cart-foot" id="tpCartFoot"></div></div>
 
 <?php if ($enableTranslate): ?>
 <script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:'en'},'google_translate_element');}</script>
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 <?php endif; ?>
 <script>
-const TP = {
-  id: <?= (int)$storeId ?>,
-  whatsapp: '<?= $waPhone ?>',
-  currency: <?= json_encode($currency) ?>,
-  deliveryFee: <?= $deliveryFee ?>,
-  minOrder: <?= $minOrder ?>,
-  template: <?= json_encode($waTemplate) ?>,
-  priceMin: <?= (float)$priceMin ?>,
-  priceMax: <?= (float)$priceMax ?>
-};
-let tpCart = [];
-let tpFilters = { cat: 'all', cats: [], q: '', min: null, max: null, date: null };
-
-// ── Show filtered view (sidebar + grid) ──
-function tpShowFilters(){
-  document.getElementById('tpInitialView').classList.add('d-none');
-  document.getElementById('tpFilteredView').classList.remove('d-none');
-  tpPopulatePriceRange2();
-}
-
-// ── Price range dropdown for filtered view ──
-function tpPopulatePriceRange2(){
-  const sel = document.getElementById('tpPriceRange2');
-  if (!sel) return;
-  const max = Math.ceil(TP.priceMax);
-  if (max <= 0) return;
-  const step = Math.max(1, Math.ceil(max / 4));
-  const ranges = [[0, step],[step, step*2],[step*2, step*3],[step*3, max+1]];
-  sel.innerHTML = '<option value="">Select Price Range</option>' +
-    ranges.map(r => `<option value="${r[0]}-${r[1]}">${TP.currency}${r[0]} - ${TP.currency}${r[1]>max?max:r[1]}</option>`).join('');
-}
-
-function tpApplyPriceRange2(val){
-  if (!val) { tpFilters.min = null; tpFilters.max = null; }
-  else { const parts = val.split('-'); tpFilters.min = parseFloat(parts[0]); tpFilters.max = parseFloat(parts[1]); }
-  tpRender2();
-}
-
-function tpSearch2(){ tpFilters.q = (document.getElementById('tpSearch2').value || '').toLowerCase(); tpRender2(); }
-function tpApplyPrice2(){
-  const mn = parseFloat(document.getElementById('tpMinPrice2').value);
-  const mx = parseFloat(document.getElementById('tpMaxPrice2').value);
-  tpFilters.min = isNaN(mn) ? null : mn;
-  tpFilters.max = isNaN(mx) ? null : mx;
-  document.getElementById('tpPriceRange2').value = '';
-  tpRender2();
-}
-function tpApplyDate2(val){
-  const now = Date.now()/1000;
-  const map = { '3_days':3*86400, '1_week':7*86400, '1_month':30*86400, '6_months':182*86400, '1_year':365*86400 };
-  tpFilters.date = now - (map[val] || 0);
-  tpRender2();
-}
-function tpToggleCategory2(id){
-  const idx = tpFilters.cats.indexOf(id);
-  if (idx > -1) tpFilters.cats.splice(idx, 1); else tpFilters.cats.push(id);
-  tpRender2();
-}
-function tpResetFilters(){
-  tpFilters = { cat:'all', cats:[], q:'', min:null, max:null, date:null };
-  const s2 = document.getElementById('tpSearch2'); if (s2) s2.value = '';
-  const mp2 = document.getElementById('tpMinPrice2'); if (mp2) mp2.value = '';
-  const xp2 = document.getElementById('tpMaxPrice2'); if (xp2) xp2.value = '';
-  const pr2 = document.getElementById('tpPriceRange2'); if (pr2) pr2.value = '';
-  document.querySelectorAll('input[name="tpDateFilter2"]').forEach(r => r.checked = false);
-  document.querySelectorAll('.tp-cat-cb').forEach(cb => cb.checked = false);
-  tpRender2();
-}
-function tpRender2(){
-  let shown = 0;
-  document.querySelectorAll('.tp-product2').forEach(card => {
-    const cat = card.dataset.cat, name = card.dataset.name;
-    const price = parseFloat(card.dataset.price), created = parseInt(card.dataset.created);
-    let ok = true;
-    if (tpFilters.cats.length > 0 && !tpFilters.cats.includes(parseInt(cat))) ok = false;
-    if (tpFilters.q && !name.includes(tpFilters.q)) ok = false;
-    if (tpFilters.min !== null && price < tpFilters.min) ok = false;
-    if (tpFilters.max !== null && price > tpFilters.max) ok = false;
-    if (tpFilters.date !== null && created < tpFilters.date) ok = false;
-    card.style.display = ok ? '' : 'none';
-    if (ok) shown++;
-  });
-  document.getElementById('tpNoResults2').classList.toggle('d-none', shown > 0);
-}
-
-// ── Cart ──
-function tpAddToCart(btn){
-  const id = +btn.dataset.id;
-  const ex = tpCart.find(i => i.id === id);
-  if (ex) ex.qty++;
-  else tpCart.push({ id, name: btn.dataset.name, price: +btn.dataset.price, img: btn.dataset.img, qty: 1 });
-  tpUpdateCart(); tpToast('✓ Added to cart');
-}
-function tpChangeQty(id, d){ const it = tpCart.find(i=>i.id===id); if(!it) return; it.qty = Math.max(1, it.qty+d); tpUpdateCart(); tpRenderCart(); }
-function tpRemove(id){ tpCart = tpCart.filter(i=>i.id!==id); tpUpdateCart(); tpRenderCart(); }
-function tpCount(){ return tpCart.reduce((s,i)=>s+i.qty,0); }
-function tpSub(){ return tpCart.reduce((s,i)=>s+i.qty*i.price,0); }
-function tpUpdateCart(){ document.getElementById('tpCartCount').textContent = tpCount(); }
-function tpOpenCart(){ tpRenderCart(); document.getElementById('tpCartDrawer').classList.add('open'); document.getElementById('tpCartOverlay').style.display='block'; }
-function tpCloseCart(){ document.getElementById('tpCartDrawer').classList.remove('open'); document.getElementById('tpCartOverlay').style.display='none'; }
-function tpRenderCart(){
-  const items = document.getElementById('tpCartItems'), foot = document.getElementById('tpCartFoot');
-  if (!tpCart.length){ items.innerHTML='<p class="text-center text-muted py-5">Your cart is empty</p>'; foot.innerHTML=''; return; }
-  items.innerHTML = tpCart.map(i=>`
-    <div class="tp-ci">
-      <img src="${i.img||''}" onerror="this.style.visibility='hidden'">
-      <div style="flex:1">
-        <div class="n">${i.name}</div><div class="p">${TP.currency}${i.price.toFixed(2)}</div>
-        <div class="tp-qty"><button onclick="tpChangeQty(${i.id},-1)">−</button><span>${i.qty}</span><button onclick="tpChangeQty(${i.id},1)">+</button>
-        <button onclick="tpRemove(${i.id})" style="margin-left:auto;color:#e11">🗑</button></div>
-      </div>
-    </div>`).join('');
-  const sub = tpSub(), total = sub + TP.deliveryFee;
-  foot.innerHTML = `
-    <div class="row-l"><span>Subtotal</span><span>${TP.currency}${sub.toFixed(2)}</span></div>
-    ${TP.deliveryFee>0?`<div class="row-l"><span>Delivery</span><span>${TP.currency}${TP.deliveryFee.toFixed(2)}</span></div>`:''}
-    <div class="row-l tot"><span>Total</span><span>${TP.currency}${total.toFixed(2)}</span></div>
-    ${sub<TP.minOrder?`<p style="color:#e11;font-size:.8rem;text-align:center;margin:6px 0">Min order ${TP.currency}${TP.minOrder.toFixed(2)}</p>`:`
-    <div style="margin-top:12px">
-      <div class="tp-field"><input id="tpName" placeholder="Your name *"></div>
-      <div class="tp-field"><input id="tpPhone" placeholder="Phone / WhatsApp *"></div>
-      <div class="tp-field"><textarea id="tpAddr" rows="2" placeholder="Delivery address"></textarea></div>
-      <div class="tp-field"><textarea id="tpNotes" rows="1" placeholder="Notes (optional)"></textarea></div>
-      <button class="tp-checkout" onclick="tpPlaceOrder()"><i class="fab fa-whatsapp"></i> Order on WhatsApp</button>
-    </div>`}`;
-}
-function tpPlaceOrder(){
-  const name=(document.getElementById('tpName').value||'').trim(), phone=(document.getElementById('tpPhone').value||'').trim();
-  if(!name||!phone){ tpToast('Enter name & phone','err'); return; }
-  const addr=document.getElementById('tpAddr').value||'', notes=document.getElementById('tpNotes').value||'';
-  const sub=tpSub(), total=sub+TP.deliveryFee;
-  const items=tpCart.map(i=>`• ${i.name} x${i.qty} = ${TP.currency}${(i.qty*i.price).toFixed(2)}`).join('\n');
-  let msg=(TP.template||'🛍️ NEW ORDER\n\nName: {customer_name}\nPhone: {customer_phone}\n\n{items}\n\nTotal: {total}')
-    .replace('{customer_name}',name).replace('{customer_phone}',phone).replace('{items}',items).replace('{total}',TP.currency+total.toFixed(2));
-  if(addr) msg+='\nAddress: '+addr; if(notes) msg+='\nNotes: '+notes;
-  fetch('/store-order-submit.php',{method:'POST',headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({store_id:TP.id,customer_name:name,customer_phone:phone,customer_address:addr,items:tpCart,subtotal:sub,delivery_charge:TP.deliveryFee,total_amount:total,notes:notes})}).catch(()=>{});
-  window.location.href=`https://wa.me/${TP.whatsapp}?text=${encodeURIComponent(msg)}`;
-}
-function tpToast(m,t){ const e=document.createElement('div'); e.className='tp-toast'; if(t==='err') e.style.background='#c0392b'; e.textContent=m; document.body.appendChild(e); setTimeout(()=>e.classList.add('show'),10); setTimeout(()=>{e.classList.remove('show');setTimeout(()=>e.remove(),350);},2200); }
+const TP={id:<?= (int)$storeId ?>,whatsapp:'<?= $waPhone ?>',currency:<?= json_encode($currency) ?>,deliveryFee:<?= $deliveryFee ?>,minOrder:<?= $minOrder ?>,template:<?= json_encode($waTemplate) ?>,priceMin:<?= (float)$priceMin ?>,priceMax:<?= (float)$priceMax ?>};
+let tpCart=[],tpCurrentCat='all',tpFilters2={cats:new Set(),q:'',min:null,max:null,date:null};
+(function(){const s=document.getElementById('tpPriceRange2');if(!s)return;const m=Math.ceil(TP.priceMax);if(m<=0)return;const st=Math.max(1,Math.ceil(m/4));const r=[[0,st],[st,st*2],[st*2,st*3],[st*3,m+1]];s.innerHTML='<option value="">Select Price Range</option>'+r.map(x=>`<option value="${x[0]}-${x[1]}">${TP.currency}${x[0]} - ${TP.currency}${x[1]>m?m:x[1]}</option>`).join('');})();
+function tpScrollCats(d){document.getElementById('tpCatTrack').scrollBy({left:d*200,behavior:'smooth'});}
+function tpFilterCat(c,el){tpCurrentCat=c;document.querySelectorAll('.tp-cat-item').forEach(i=>i.classList.remove('active'));el.classList.add('active');tpRender();}
+function tpShowFiltered(e){e.preventDefault();document.getElementById('tpViewMoreWrap').style.display='none';document.getElementById('tpFilteredView').classList.add('active');document.querySelectorAll('.tp-section-title').forEach(el=>el.style.display='none');document.querySelector('.tp-cat-carousel').style.display='none';document.querySelector('.tp-products').style.display='none';tpRender2();}
+function tpRender(){let s=0;document.querySelectorAll('.tp-product').forEach(c=>{let o=true;if(tpCurrentCat!=='all'&&c.dataset.cat!=tpCurrentCat)o=false;c.style.display=o?'':'none';if(o)s++;});document.getElementById('tpNoResults').classList.toggle('d-none',s>0);}
+function tpApplyPriceRange2(v){if(!v){tpFilters2.min=null;tpFilters2.max=null;}else{const p=v.split('-');tpFilters2.min=parseFloat(p[0]);tpFilters2.max=parseFloat(p[1]);}tpRender2();}
+function tpApplyCats2(){tpFilters2.cats=new Set([...document.querySelectorAll('.tpCatCheck2:checked')].map(c=>c.value));tpRender2();}
+function tpSearch2(){tpFilters2.q=(document.getElementById('tpSearch2').value||'').toLowerCase();tpRender2();}
+function tpApplyPrice2(){const mn=parseFloat(document.getElementById('tpMinPrice2').value),mx=parseFloat(document.getElementById('tpMaxPrice2').value);tpFilters2.min=isNaN(mn)?null:mn;tpFilters2.max=isNaN(mx)?null:mx;document.getElementById('tpPriceRange2').value='';tpRender2();}
+function tpApplyDate2(v){const n=Date.now()/1000,m={'3_days':3*86400,'1_week':7*86400,'1_month':30*86400,'6_months':182*86400,'1_year':365*86400};tpFilters2.date=n-(m[v]||0);tpRender2();}
+function tpResetFilters2(){tpFilters2={cats:new Set(),q:'',min:null,max:null,date:null};document.getElementById('tpSearch2').value='';document.getElementById('tpMinPrice2').value='';document.getElementById('tpMaxPrice2').value='';document.getElementById('tpPriceRange2').value='';document.querySelectorAll('input[name=tpDateFilter2]').forEach(r=>r.checked=false);document.querySelectorAll('.tpCatCheck2').forEach(c=>c.checked=false);tpRender2();}
+function tpRender2(){let s=0;document.querySelectorAll('.tp-product2').forEach(c=>{const p=parseFloat(c.dataset.price),cr=parseInt(c.dataset.created);let o=true;if(tpFilters2.cats.size&&!tpFilters2.cats.has(c.dataset.cat))o=false;if(tpFilters2.q&&!c.dataset.name.includes(tpFilters2.q))o=false;if(tpFilters2.min!==null&&p<tpFilters2.min)o=false;if(tpFilters2.max!==null&&p>tpFilters2.max)o=false;if(tpFilters2.date!==null&&cr<tpFilters2.date)o=false;c.style.display=o?'':'none';if(o)s++;});document.getElementById('tpNoResults2').classList.toggle('d-none',s>0);}
+function tpAddToCart(b){const id=+b.dataset.id,ex=tpCart.find(i=>i.id===id);if(ex)ex.qty++;else tpCart.push({id,name:b.dataset.name,price:+b.dataset.price,img:b.dataset.img,qty:1});tpUpdateCart();tpToast('Added to cart');}
+function tpChangeQty(id,d){const it=tpCart.find(i=>i.id===id);if(!it)return;it.qty=Math.max(1,it.qty+d);tpUpdateCart();tpRenderCart();}
+function tpRemove(id){tpCart=tpCart.filter(i=>i.id!==id);tpUpdateCart();tpRenderCart();}
+function tpCount(){return tpCart.reduce((s,i)=>s+i.qty,0);}function tpSub(){return tpCart.reduce((s,i)=>s+i.qty*i.price,0);}
+function tpUpdateCart(){document.getElementById('tpCartCount').textContent=tpCount();}
+function tpOpenCart(){tpRenderCart();document.getElementById('tpCartDrawer').classList.add('open');document.getElementById('tpCartOverlay').style.display='block';}
+function tpCloseCart(){document.getElementById('tpCartDrawer').classList.remove('open');document.getElementById('tpCartOverlay').style.display='none';}
+function tpRenderCart(){const items=document.getElementById('tpCartItems'),foot=document.getElementById('tpCartFoot');if(!tpCart.length){items.innerHTML='<p class="text-center py-5" style="color:#999;">Your cart is empty</p>';foot.innerHTML='';return;}items.innerHTML=tpCart.map(i=>`<div class="tp-ci"><img src="${i.img||''}" onerror="this.style.visibility='hidden'"><div style="flex:1"><div class="n">${i.name}</div><div class="p">${TP.currency}${i.price.toFixed(2)}</div><div class="tp-qty"><button onclick="tpChangeQty(${i.id},-1)">−</button><span>${i.qty}</span><button onclick="tpChangeQty(${i.id},1)">+</button><button onclick="tpRemove(${i.id})" style="margin-left:auto;color:#e11">🗑</button></div></div></div>`).join('');const sub=tpSub(),total=sub+TP.deliveryFee;foot.innerHTML=`<div class="row-l"><span>Subtotal</span><span>${TP.currency}${sub.toFixed(2)}</span></div>${TP.deliveryFee>0?`<div class="row-l"><span>Delivery</span><span>${TP.currency}${TP.deliveryFee.toFixed(2)}</span></div>`:''}<div class="row-l tot"><span>Total</span><span>${TP.currency}${total.toFixed(2)}</span></div>${sub<TP.minOrder?`<p style="color:#e11;font-size:.8rem;text-align:center;margin:6px 0">Min order ${TP.currency}${TP.minOrder.toFixed(2)}</p>`:`<div style="margin-top:12px"><div class="tp-field"><input id="tpName" placeholder="Your name *"></div><div class="tp-field"><input id="tpPhone" placeholder="Phone / WhatsApp *"></div><div class="tp-field"><textarea id="tpAddr" rows="2" placeholder="Delivery address"></textarea></div><div class="tp-field"><textarea id="tpNotes" rows="1" placeholder="Notes (optional)"></textarea></div><button class="tp-checkout" onclick="tpPlaceOrder()"><i class="fab fa-whatsapp"></i> Order on WhatsApp</button></div>`}`;}
+function tpPlaceOrder(){const name=(document.getElementById('tpName').value||'').trim(),phone=(document.getElementById('tpPhone').value||'').trim();if(!name||!phone){tpToast('Enter name & phone','err');return;}const addr=document.getElementById('tpAddr').value||'',notes=document.getElementById('tpNotes').value||'';const sub=tpSub(),total=sub+TP.deliveryFee;const items=tpCart.map(i=>`• ${i.name} x${i.qty} = ${TP.currency}${(i.qty*i.price).toFixed(2)}`).join('\n');let msg=(TP.template||'🛍️ NEW ORDER\n\nName: {customer_name}\nPhone: {customer_phone}\n\n{items}\n\nTotal: {total}').replace('{customer_name}',name).replace('{customer_phone}',phone).replace('{items}',items).replace('{total}',TP.currency+total.toFixed(2));if(addr)msg+='\nAddress: '+addr;if(notes)msg+='\nNotes: '+notes;fetch('/store-order-submit.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({store_id:TP.id,customer_name:name,customer_phone:phone,customer_address:addr,items:tpCart,subtotal:sub,delivery_charge:TP.deliveryFee,total_amount:total,notes:notes})}).catch(()=>{});window.location.href=`https://wa.me/${TP.whatsapp}?text=${encodeURIComponent(msg)}`;}
+function tpToast(m,t){const e=document.createElement('div');e.className='tp-toast';if(t==='err')e.style.background='#c0392b';e.textContent=m;document.body.appendChild(e);setTimeout(()=>e.classList.add('show'),10);setTimeout(()=>{e.classList.remove('show');setTimeout(()=>e.remove(),350);},2200);}
 </script>
 </body>
 </html>
