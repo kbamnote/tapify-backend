@@ -155,7 +155,7 @@ body{font-family:Poppins}
 </div>
 <div class="mb-15">
 <div class="profile-img align-items-start top-0">
-<img class="pro-img me-sm-4 rounded-circle mb-4" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-25)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important" width="150px"/>
+<img class="pro-img me-sm-4 rounded-circle mb-4" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:url('<?= $profileImg ?>')!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important" width="150px"/>
 <div>
 <h3 class="big-title"><?= htmlspecialchars($fullName) ?>
 <i class="verification-icon bi-patch-check-fill"></i>
@@ -232,7 +232,7 @@ body{font-family:Poppins}
 </div>
 <div class="col-lg-6">
 <div class="text-center">
-<img class="qr-logo rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-25)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important" width="125px"/>
+<img class="qr-logo rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:url('<?= $profileImg ?>')!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important" width="125px"/>
 </div>
 </div>
 </div>

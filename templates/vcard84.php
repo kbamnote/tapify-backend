@@ -183,7 +183,7 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
 <div class="profile-img">
 <div class="row d-flex mb-4 justify-content-center">
 <div class="col-md-4">
-<img class="yt-pro-img pro-img img-fluid position-relative" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-27)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+<img class="yt-pro-img pro-img img-fluid position-relative" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:url('<?= $profileImg ?>')!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
 </div>
 <div class="col-md-8 user-details-section">
 <div>
@@ -279,7 +279,7 @@ img[src="data:,"],source[src="data:,"]{display:none!important}
 </div>
 <div class="col-lg-6">
 <div class="text-center">
-<img class="qr-logo rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-27)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+<img class="qr-logo rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:url('<?= $profileImg ?>')!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
 </div>
 </div>
 </div>

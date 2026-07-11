@@ -122,7 +122,7 @@ body{font-family:Poppins}
 <div class="mb-4">
 <div class="d-flex align-items-center mb-4">
 <div class="user-profile">
-<img class="img-fluid rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-15)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+<img class="img-fluid rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:url('<?= $profileImg ?>')!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
 </div>
 <div class="ms-3">
 <h4 class="big-title">
@@ -227,7 +227,7 @@ body{font-family:Poppins}
 <div class="col-lg-6">
 <div class="text-center">
 <div class="qr-section mt-4">
-<img class="qr-logo rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-15)!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
+<img class="qr-logo rounded-circle" loading="lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:url('<?= $profileImg ?>')!important;background-size:cover!important;background-origin:content-box!important;background-repeat:no-repeat!important"/>
 </div>
 </div>
 </div>
