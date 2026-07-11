@@ -369,6 +369,10 @@ function tpShowFiltered(e){
   e.preventDefault();
   document.getElementById('tpViewMoreWrap').style.display = 'none';
   document.getElementById('tpFilteredView').classList.add('active');
+  // Hide category carousel and initial products section
+  document.querySelectorAll('.tp-section-title').forEach(el => el.style.display = 'none');
+  document.querySelector('.tp-cat-carousel').style.display = 'none';
+  document.querySelector('.tp-products').style.display = 'none';
   tpRender2();
 }
 
