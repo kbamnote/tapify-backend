@@ -78,6 +78,12 @@ $cartIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" view
 .tp-checkout{width:100%;padding:13px;border:none;border-radius:10px;background:#25D366;color:#fff;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;}
 .tp-toast{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-90px);background:#2d0a18;color:#fff;padding:11px 22px;border-radius:50px;font-weight:600;z-index:9999;transition:transform .35s;}
 .tp-toast.show{transform:translateX(-50%) translateY(0);}
+#tpFilterOverlay{display:none;position:fixed;inset:0;background:rgba(20,10,15,.5);z-index:1200;}
+#tpFilterDrawer{position:fixed;top:0;left:0;height:100%;width:100%;max-width:380px;background:#fff;z-index:1201;transform:translateX(-105%);transition:transform .35s ease;display:flex;flex-direction:column;box-shadow:10px 0 40px rgba(0,0,0,.15);}
+#tpFilterDrawer.open{transform:none;}
+.tp-filter-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid #eee;}
+.tp-filter-head h5{margin:0;font-weight:700;}
+.tp-filter-body{flex:1;overflow-y:auto;padding:18px 20px;}
 .item-card{cursor:default;}
 </style>
 </head>
@@ -126,68 +132,11 @@ $cartIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" view
 
     <!-- ITEMS -->
     <div class="items-section px-3 pt-3 mt-1 position-relative">
-      <div class="row mb-40">
-
-        <!-- FILTER SIDEBAR -->
-        <div class="col-xl-3 col-lg-4 mb-40">
-          <div class="items-tabs">
-            <div class="row mx-0 mb-30">
-              <div class="col-4 ps-0 px-1"><input type="number" min="0" id="tpMinPrice" class="form-control" placeholder="Min"></div>
-              <div class="col-4 px-1"><input type="number" min="1" id="tpMaxPrice" class="form-control" placeholder="Max"></div>
-              <div class="col-4 pe-0 px-1"><button class="apply-btn btn btn-primary w-100" type="button" onclick="tpApplyPrice()">Apply</button></div>
-            </div>
-            <div class="mb-30">
-              <div class="heading-text mb-4"><h3>Date Posted</h3></div>
-              <div>
-                <?php $__dates = ['3_days'=>'3 Days Ago','1_week'=>'1 Week Ago','1_month'=>'1 Month Ago','6_months'=>'6 Months Ago','1_year'=>'1 Year Ago']; $__i=0; foreach ($__dates as $val=>$lbl): $__i++; ?>
-                <div class="form-check mb-2">
-                  <input class="form-check-input" type="radio" name="tpDateFilter" id="tpDate<?= $__i ?>" value="<?= $val ?>" onchange="tpApplyDate('<?= $val ?>')">
-                  <label class="form-check-label fs-16 fw-5" for="tpDate<?= $__i ?>"><?= $lbl ?></label>
-                </div>
-                <?php endforeach; ?>
-              </div>
-            </div>
-            <div>
-              <div class="heading-text mb-3"><h3>All Categories</h3></div>
-              <div id="tpCategoryList">
-                <?php foreach ($categories as $c): $cimg = !empty($c['image']) ? imgUrl($c['image']) : ''; ?>
-                <div class="category-item">
-                  <button class="category-button w-100" type="button" data-cat="<?= (int)$c['id'] ?>" onclick="tpSetCategory(<?= (int)$c['id'] ?>, this)">
-                    <div class="category-category-img">
-                      <?php if ($cimg): ?><img src="<?= $cimg ?>" class="w-100 rounded" alt="category"><?php else: ?><i class="fas fa-tag" style="color:var(--tp)"></i><?php endif; ?>
-                    </div>
-                    <span class="text-start flex-grow-1"><?= htmlspecialchars($c['name']) ?></span>
-                  </button>
-                </div>
-                <?php endforeach; ?>
-              </div>
-            </div>
-            <div class="mt-5"><button type="button" class="apply-btn btn btn-primary w-100" onclick="tpResetFilters()">Reset Filters</button></div>
-          </div>
-        </div>
-
-        <!-- PRODUCTS -->
-        <div class="col-xl-9 col-lg-8">
-          <div class="row justify-content-end">
-            <div class="col-xl-4 col-sm-6 mb-20">
-              <div class="position-relative">
-                <input type="text" id="tpSearch" placeholder="Search For Products" class="form-control ps-45" oninput="tpSearch()">
-                <div class="search-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 25 25" fill="none"><path d="M20.6677 19.8511L16.1664 15.3497C16.1661 15.3494 16.1661 15.349 16.1664 15.3488C17.1299 14.2124 17.6898 12.7888 17.7586 11.3005C17.9523 7.26831 14.7436 4.0226 10.7095 4.17169C7.15613 4.30618 4.30643 7.15589 4.17193 10.7093C4.02288 14.7434 7.26862 17.9521 11.3008 17.7582C12.7891 17.6894 14.2126 17.1295 15.349 16.1661C15.3491 16.166 15.3493 16.1659 15.3494 16.1659C15.3496 16.1659 15.3498 16.166 15.3499 16.1661L19.8513 20.6675C20.0785 20.8912 20.4441 20.8883 20.6677 20.6611C20.889 20.4364 20.889 20.0758 20.6677 19.8511ZM5.4683 12.2762C5.02515 10.2981 5.60401 8.34583 6.97507 6.9748C8.34614 5.60376 10.2983 5.02488 12.2765 5.46806C14.1481 5.88748 16.0458 7.78498 16.4652 9.65637C16.9087 11.6347 16.3297 13.5872 14.9586 14.9584C13.5875 16.3295 11.6349 16.9084 9.65651 16.4649C7.78512 16.0454 5.88772 14.1477 5.4683 12.2762Z" fill="#999999"></path></svg>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-4 col-sm-6 mb-20">
-              <div class="dropdown">
-                <button class="serach-dropdown text-start w-100" type="button" id="customSelectBtn" data-bs-toggle="dropdown" aria-expanded="false">Select Price Range</button>
-                <ul class="dropdown-menu w-100" id="customSelectMenu"></ul>
-              </div>
-            </div>
-            <div class="section-heading"><h2>All Items</h2></div>
-            <div class="row" id="tpProductsRow">
+      <div class="section-heading text-center mb-4"><h2>Choose your Products</h2></div>
+      <div class="row" id="tpProductsRow">
               <?php if (!empty($products)): foreach ($products as $p):
                     $pimg = $p['img'] ?? (!empty($p['image']) ? imgUrl($p['image']) : ''); ?>
-              <div class="col-xl-3 col-sm-6 mb-20 tp-product"
+              <div class="col-xl-3 col-lg-4 col-sm-6 mb-20 tp-product"
                    data-cat="<?= (int)$p['category_id'] ?>"
                    data-name="<?= htmlspecialchars(strtolower($p['name'])) ?>"
                    data-price="<?= (float)$p['effective_price'] ?>"
@@ -228,11 +177,8 @@ $cartIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" view
               <div class="col-12 text-center py-5"><i class="fas fa-box-open" style="font-size:3rem;color:#e8a0bc"></i><p class="mt-3 fs-18">No products available yet</p></div>
               <?php endif; ?>
               <div class="col-12 text-center py-5 d-none" id="tpNoResults"><i class="fas fa-search" style="font-size:2.4rem;color:#e8a0bc"></i><p class="mt-3 fs-16">No products match your filters</p></div>
-            </div>
-          </div>
-        </div>
-
       </div>
+      <div class="text-center mt-3 mb-40"><button class="btn btn-primary px-5 py-2" type="button" onclick="tpOpenFilters()"><i class="fas fa-sliders-h me-2"></i>View More</button></div>
     </div>
   </div>
 
@@ -252,6 +198,36 @@ $cartIcon = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" view
   <div class="tp-cart-items" id="tpCartItems"></div>
   <div class="tp-cart-foot" id="tpCartFoot"></div>
 </div>
+
+<!-- FILTER DRAWER (opens from "View More") -->
+<div id="tpFilterOverlay" onclick="tpCloseFilters()"></div>
+<aside id="tpFilterDrawer">
+  <div class="tp-filter-head"><h5>🔍 Filter Products</h5><button class="tp-cart-close" type="button" onclick="tpCloseFilters()">×</button></div>
+  <div class="tp-filter-body">
+    <div class="mb-3"><input type="text" id="tpSearch" placeholder="Search For Products" class="form-control" oninput="tpSearch()"></div>
+    <div class="row mx-0 mb-4">
+      <div class="col-4 ps-0 px-1"><input type="number" min="0" id="tpMinPrice" class="form-control" placeholder="Min"></div>
+      <div class="col-4 px-1"><input type="number" min="1" id="tpMaxPrice" class="form-control" placeholder="Max"></div>
+      <div class="col-4 pe-0 px-1"><button class="btn btn-primary w-100" type="button" onclick="tpApplyPrice()">Apply</button></div>
+    </div>
+    <div class="mb-4">
+      <div class="heading-text mb-3"><h3>Date Posted</h3></div>
+      <?php $__dates = ['3_days'=>'3 Days Ago','1_week'=>'1 Week Ago','1_month'=>'1 Month Ago','6_months'=>'6 Months Ago','1_year'=>'1 Year Ago']; $__i=0; foreach ($__dates as $val=>$lbl): $__i++; ?>
+      <div class="form-check mb-2"><input class="form-check-input" type="radio" name="tpDateFilter" id="tpDate<?= $__i ?>" value="<?= $val ?>" onchange="tpApplyDate('<?= $val ?>')"><label class="form-check-label fs-16 fw-5" for="tpDate<?= $__i ?>"><?= $lbl ?></label></div>
+      <?php endforeach; ?>
+    </div>
+    <div class="mb-4">
+      <div class="heading-text mb-3"><h3>All Categories</h3></div>
+      <div id="tpCategoryList">
+        <?php foreach ($categories as $c): $cimg = !empty($c['image']) ? imgUrl($c['image']) : ''; ?>
+        <div class="category-item"><button class="category-button w-100" type="button" data-cat="<?= (int)$c['id'] ?>" onclick="tpSetCategory(<?= (int)$c['id'] ?>, this)"><div class="category-category-img"><?php if ($cimg): ?><img src="<?= $cimg ?>" class="w-100 rounded" alt="category"><?php else: ?><i class="fas fa-tag" style="color:var(--tp)"></i><?php endif; ?></div><span class="text-start flex-grow-1"><?= htmlspecialchars($c['name']) ?></span></button></div>
+        <?php endforeach; ?>
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary w-100" onclick="tpResetFilters()">Reset Filters</button>
+  </div>
+</aside>
+
 
 <?php if ($enableTranslate): ?>
 <script>function googleTranslateElementInit(){new google.translate.TranslateElement({pageLanguage:'en'},'google_translate_element');}</script>
@@ -391,6 +367,8 @@ function tpPlaceOrder(){
     body:JSON.stringify({store_id:TP.id,customer_name:name,customer_phone:phone,customer_address:addr,items:tpCart,subtotal:sub,delivery_charge:TP.deliveryFee,total_amount:total,notes:notes})}).catch(()=>{});
   window.location.href=`https://wa.me/${TP.whatsapp}?text=${encodeURIComponent(msg)}`;
 }
+function tpOpenFilters(){ document.getElementById('tpFilterDrawer').classList.add('open'); document.getElementById('tpFilterOverlay').style.display='block'; }
+function tpCloseFilters(){ document.getElementById('tpFilterDrawer').classList.remove('open'); document.getElementById('tpFilterOverlay').style.display='none'; }
 function tpToast(m,t){ const e=document.createElement('div'); e.className='tp-toast'; if(t==='err') e.style.background='#c0392b'; e.textContent=m; document.body.appendChild(e); setTimeout(()=>e.classList.add('show'),10); setTimeout(()=>{e.classList.remove('show');setTimeout(()=>e.remove(),350);},2200); }
 </script>
 </body>
