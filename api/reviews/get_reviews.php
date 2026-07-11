@@ -17,7 +17,7 @@ try {
 
     // Admins may request a specific funnel's reviews via ?funnel_id; regular
     // users always get their own funnel's reviews.
-    if (isAdmin() && isset($_GET['funnel_id'])) {
+    if (isStaffOrAdmin() && isset($_GET['funnel_id'])) {
         $funnelId = (int)$_GET['funnel_id'];
     } else {
         $stmt = $pdo->prepare("SELECT id FROM review_funnels WHERE user_id = ? LIMIT 1");

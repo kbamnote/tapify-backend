@@ -26,7 +26,7 @@ if (!isLoggedIn()) {
 try {
     $pdo = getDB();
     $userId = getCurrentUserId();
-    $isAdminUser = isAdmin();
+    $isAdminUser = isStaffOrAdmin();
     $method = $_SERVER['REQUEST_METHOD'];
 
     if ($method === 'GET') {

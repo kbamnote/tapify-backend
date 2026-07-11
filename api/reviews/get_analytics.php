@@ -1,6 +1,8 @@
 <?php
 /**
  * TAPIFY - Get Funnel Analytics
+ * Staff + Admin can query any user's funnel via ?user_id param.
+ * Regular users always get their own funnel analytics.
  */
 header('Content-Type: application/json');
 require_once __DIR__ . '/../../config/database.php';
@@ -15,8 +17,11 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
+    // Staff/Admin may request a specific user's funnel analytics via ?user_id
+    $targetUserId = (isStaffOrAdmin() && isset($_GET['user_id'])) ? (int)$_GET['user_id'] : $userId;
+
     $stmt = $pdo->prepare("SELECT id FROM review_funnels WHERE user_id = ? LIMIT 1");
-    $stmt->execute([$userId]);
+    $stmt->execute([$targetUserId]);
     $funnel = $stmt->fetch();
 
     if (!$funnel) {
