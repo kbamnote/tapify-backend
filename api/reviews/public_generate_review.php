@@ -34,7 +34,29 @@ try {
         sendError('OpenRouter API key is not configured.', 500);
     }
 
-    $prompt = "Write a short, glowing, SEO-friendly 5-star Google review for a business named '{$businessName}'. It should sound natural, like a real customer wrote it. Do not include hashtags. Keep it under 3 sentences. Output only the review text.";
+    // Vary the prompt on every call so the model doesn't keep returning the same review.
+    $aspects = [
+        'the quality of their service',
+        'how friendly and professional the staff were',
+        'the overall experience from start to finish',
+        'the value for money',
+        'how smooth and hassle-free everything was',
+        'their attention to detail',
+        'how quickly and clearly they communicated',
+        'the warm, welcoming atmosphere',
+        'how they went above and beyond',
+    ];
+    $tones   = ['warm and genuine', 'enthusiastic and upbeat', 'calm and sincere', 'casual and friendly', 'appreciative and heartfelt'];
+    $lengths = ['1 to 2 sentences', 'about 2 sentences', '2 to 3 short sentences'];
+
+    $aspect = $aspects[array_rand($aspects)];
+    $tone   = $tones[array_rand($tones)];
+    $length = $lengths[array_rand($lengths)];
+
+    $prompt = "Write a unique, natural-sounding 5-star Google review for a business named '{$businessName}'. "
+        . "Make it {$tone} in tone, {$length} long, and specifically highlight {$aspect}. "
+        . "Vary the wording, the opening and the sentence structure so it never sounds templated or repeated. "
+        . "Write as a real, happy customer would. No hashtags, no emojis, no quotation marks. Output only the review text.";
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, "https://openrouter.ai/api/v1/chat/completions");
@@ -42,10 +64,13 @@ try {
     curl_setopt($ch, CURLOPT_POST, 1);
     
     $payload = json_encode([
-        "model" => "google/gemini-2.5-flash", 
+        "model" => "google/gemini-2.5-flash",
         "messages" => [
             ["role" => "user", "content" => $prompt]
-        ]
+        ],
+        "temperature" => 1.05,   // higher sampling → more varied wording
+        "top_p"       => 0.95,
+        "max_tokens"  => 220,
     ]);
 
     curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
