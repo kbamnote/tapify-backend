@@ -93,7 +93,7 @@ body{background:#f4f8fa;color:#1a2a35;font-family:'Poppins',sans-serif;overflow-
 .tp-view-more-arrow{width:40px;height:40px;border-radius:50%;background:var(--tp);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;margin-right:-1px;}
 .tp-view-more-text{padding:10px 22px 10px 14px;color:#333;font-size:14px;font-weight:600;}
 
-.tp-filtered-view{display:none;padding:20px 24px;max-width:1400px;margin:0 auto;position:relative;z-index:1;}
+.tp-filtered-view{display:block;padding:20px 24px;max-width:1400px;margin:0 auto;position:relative;z-index:1;}
 .tp-filtered-view.active{display:block;}
 .tp-filter-layout{display:flex;gap:24px;}
 .tp-filter-sidebar{width:260px;min-width:260px;background:#fff;border-radius:12px;padding:20px;height:fit-content;position:sticky;top:80px;border:1px solid #e3edf2;}
@@ -142,6 +142,16 @@ body{background:#f4f8fa;color:#1a2a35;font-family:'Poppins',sans-serif;overflow-
 .tp-checkout{width:100%;padding:13px;border:none;border-radius:10px;background:#25D366;color:#fff;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;}
 .tp-toast{position:fixed;top:20px;left:50%;transform:translateX(-50%) translateY(-90px);background:#0d3b4a;color:#fff;padding:11px 22px;border-radius:50px;font-weight:600;z-index:9999;transition:transform .35s;}
 .tp-toast.show{transform:translateX(-50%) translateY(0);}
+/* Pagination */
+.tp-pagination{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-top:26px;padding-top:18px;border-top:1px solid #e4edf1;}
+.tp-pag-info{color:#5b6b74;font-size:14px;}
+.tp-pag-controls{display:flex;align-items:center;gap:6px;flex-wrap:wrap;}
+.tp-pag-btn{min-width:38px;height:38px;padding:0 10px;border:1px solid #d7e2e8;background:#fff;color:#0d3b4a;border-radius:9px;font-size:14px;font-weight:600;cursor:pointer;transition:all .18s;}
+.tp-pag-btn:hover:not(:disabled):not(.active){border-color:var(--tp);color:var(--tp);}
+.tp-pag-btn.active{background:var(--tp);border-color:var(--tp);color:#fff;}
+.tp-pag-btn:disabled{opacity:.4;cursor:not-allowed;}
+.tp-pag-gap{padding:0 4px;color:#9aa8b0;}
+@media(max-width:560px){.tp-pagination{justify-content:center;}}
 </style>
 </head>
 <body>
@@ -163,40 +173,7 @@ body{background:#f4f8fa;color:#1a2a35;font-family:'Poppins',sans-serif;overflow-
 
   <div class="hero-img"><img src="<?= $bannerImg ?>" alt="banner" onerror="this.style.display='none'"></div>
 
-  <h2 class="tp-section-title">Choose your Category</h2>
-  <div class="tp-cat-carousel">
-    <button class="tp-carousel-arrow left" onclick="tpScrollCats(-1)"><i class="fas fa-chevron-left"></i></button>
-    <div class="tp-cat-track" id="tpCatTrack">
-      <div class="tp-cat-item active" data-cat="all" onclick="tpFilterCat('all',this)"><div class="tp-cat-circle"><img src="<?= $asset ?>/vector.webp" alt="All"></div><div class="tp-cat-label">All</div></div>
-      <?php foreach ($categories as $c): ?>
-      <div class="tp-cat-item" data-cat="<?= (int)$c['id'] ?>" onclick="tpFilterCat(<?= (int)$c['id'] ?>,this)"><div class="tp-cat-circle"><?php if (!empty($c['image'])): ?><img src="<?= imgUrl($c['image']) ?>" alt="<?= htmlspecialchars($c['name']) ?>"><?php else: ?><img src="<?= $asset ?>/vector_2.webp" alt="cat"><?php endif; ?></div><div class="tp-cat-label"><?= htmlspecialchars($c['name']) ?></div></div>
-      <?php endforeach; ?>
-    </div>
-    <button class="tp-carousel-arrow right" onclick="tpScrollCats(1)"><i class="fas fa-chevron-right"></i></button>
-  </div>
-
-  <h2 class="tp-section-title">Choose your Package</h2>
-  <div class="tp-products">
-    <div class="tp-product-grid" id="tpProductGrid">
-      <?php if (!empty($products)): foreach ($products as $p): $pimg = $p['img'] ?? ''; ?>
-      <div class="tp-product-card tp-product" data-cat="<?= (int)$p['category_id'] ?>" data-name="<?= htmlspecialchars(strtolower($p['name'])) ?>" data-price="<?= (float)$p['effective_price'] ?>">
-        <div class="tp-product-img"><?php if ($pimg): ?><img src="<?= $pimg ?>" alt="<?= htmlspecialchars($p['name']) ?>"><?php else: ?><div class="no-img"><i class="fas fa-image"></i></div><?php endif; ?></div>
-        <div class="tp-product-info">
-          <div class="tp-product-name"><?= htmlspecialchars($p['name']) ?></div>
-          <?php if (!empty($p['category_name'])): ?><div class="tp-product-cat"><?= htmlspecialchars($p['category_name']) ?></div><?php endif; ?>
-          <div class="tp-product-price"><span class="currency_icon"><?= $currency ?></span><span class="selling_price"><?= number_format($p['effective_price'], 2) ?></span><?php if (!empty($p['has_discount'])): ?><del><?= $currency ?> <?= number_format((float)$p['price'], 2) ?></del><?php endif; ?></div>
-          <?php if (!empty($p['in_stock'])): ?><button class="tp-add-cart" data-id="<?= (int)$p['id'] ?>" data-name="<?= htmlspecialchars($p['name'], ENT_QUOTES) ?>" data-price="<?= (float)$p['effective_price'] ?>" data-img="<?= htmlspecialchars($pimg, ENT_QUOTES) ?>" onclick="tpAddToCart(this)"><i class="fas fa-shopping-bag"></i> <?= htmlspecialchars($cta) ?></button><?php else: ?><button class="tp-add-cart" disabled>Sold Out</button><?php endif; ?>
-        </div>
-      </div>
-      <?php endforeach; else: ?>
-      <div class="text-center py-5" style="grid-column:1/-1;"><i class="fas fa-box-open" style="font-size:3rem;color:#c0d0d8"></i><p class="mt-3" style="color:#8899a3;">No packages available yet</p></div>
-      <?php endif; ?>
-    </div>
-    <div class="text-center py-5 d-none" id="tpNoResults" style="grid-column:1/-1;color:#8899a3;"><i class="fas fa-search" style="font-size:2.4rem;color:#c0d0d8"></i><p class="mt-3">No packages match your filters</p></div>
-  </div>
-
-  <div class="tp-view-more-wrap" id="tpViewMoreWrap"><a href="#" class="tp-view-more" onclick="tpShowFiltered(event)"><span class="tp-view-more-arrow"><i class="fas fa-arrow-right"></i></span><span class="tp-view-more-text">View More</span></a></div>
-
+  <!-- Product Listing (filter sidebar + grid) -->
   <div class="tp-filtered-view" id="tpFilteredView">
     <div class="tp-filter-layout">
       <div class="tp-filter-sidebar">
@@ -222,6 +199,7 @@ body{background:#f4f8fa;color:#1a2a35;font-family:'Poppins',sans-serif;overflow-
           <?php endforeach; endif; ?>
         </div>
         <div class="text-center py-5 d-none" id="tpNoResults2" style="grid-column:1/-1;color:#8899a3;"><i class="fas fa-search" style="font-size:2.4rem;color:#c0d0d8"></i><p class="mt-3">No packages match your filters</p></div>
+        <div class="tp-pagination" id="tpPagination"><div class="tp-pag-info" id="tpPagInfo"></div><div class="tp-pag-controls" id="tpPagControls"></div></div>
       </div>
     </div>
   </div>
@@ -253,7 +231,11 @@ function tpSearch2(){tpFilters2.q=(document.getElementById('tpSearch2').value||'
 function tpApplyPrice2(){const mn=parseFloat(document.getElementById('tpMinPrice2').value),mx=parseFloat(document.getElementById('tpMaxPrice2').value);tpFilters2.min=isNaN(mn)?null:mn;tpFilters2.max=isNaN(mx)?null:mx;document.getElementById('tpPriceRange2').value='';tpRender2();}
 function tpApplyDate2(v){const n=Date.now()/1000,m={'3_days':3*86400,'1_week':7*86400,'1_month':30*86400,'6_months':182*86400,'1_year':365*86400};tpFilters2.date=n-(m[v]||0);tpRender2();}
 function tpResetFilters2(){tpFilters2={cats:new Set(),q:'',min:null,max:null,date:null};document.getElementById('tpSearch2').value='';document.getElementById('tpMinPrice2').value='';document.getElementById('tpMaxPrice2').value='';document.getElementById('tpPriceRange2').value='';document.querySelectorAll('input[name=tpDateFilter2]').forEach(r=>r.checked=false);document.querySelectorAll('.tpCatCheck2').forEach(c=>c.checked=false);tpRender2();}
-function tpRender2(){let s=0;document.querySelectorAll('.tp-product2').forEach(c=>{const p=parseFloat(c.dataset.price),cr=parseInt(c.dataset.created);let o=true;if(tpFilters2.cats.size&&!tpFilters2.cats.has(c.dataset.cat))o=false;if(tpFilters2.q&&!c.dataset.name.includes(tpFilters2.q))o=false;if(tpFilters2.min!==null&&p<tpFilters2.min)o=false;if(tpFilters2.max!==null&&p>tpFilters2.max)o=false;if(tpFilters2.date!==null&&cr<tpFilters2.date)o=false;c.style.display=o?'':'none';if(o)s++;});document.getElementById('tpNoResults2').classList.toggle('d-none',s>0);}
+let tpPage=1;const TP_PER=6;
+function tpRender2(keepPage){if(!keepPage)tpPage=1;const cards=[...document.querySelectorAll('.tp-product2')];const matched=cards.filter(c=>{const p=parseFloat(c.dataset.price),cr=parseInt(c.dataset.created);let o=true;if(tpFilters2.cats.size&&!tpFilters2.cats.has(c.dataset.cat))o=false;if(tpFilters2.q&&!c.dataset.name.includes(tpFilters2.q))o=false;if(tpFilters2.min!==null&&p<tpFilters2.min)o=false;if(tpFilters2.max!==null&&p>tpFilters2.max)o=false;if(tpFilters2.date!==null&&cr<tpFilters2.date)o=false;return o;});const total=matched.length,pages=Math.max(1,Math.ceil(total/TP_PER));if(tpPage>pages)tpPage=pages;const startI=(tpPage-1)*TP_PER,endI=startI+TP_PER;cards.forEach(c=>c.style.display='none');matched.forEach((c,i)=>{c.style.display=(i>=startI&&i<endI)?'':'none';});document.getElementById('tpNoResults2').classList.toggle('d-none',total>0);tpRenderPagination(total,pages,startI,endI);}
+function tpPageList(pages,cur){if(pages<=7)return Array.from({length:pages},(_,i)=>i+1);const set=new Set([1,2,pages-1,pages,cur-1,cur,cur+1]);const arr=[...set].filter(n=>n>=1&&n<=pages).sort((a,b)=>a-b);const out=[];let prev=0;arr.forEach(n=>{if(prev&&n-prev>1)out.push('...');out.push(n);prev=n;});return out;}
+function tpRenderPagination(total,pages,startI,endI){const info=document.getElementById('tpPagInfo'),ctr=document.getElementById('tpPagControls');if(!info||!ctr)return;if(total===0){info.textContent='';ctr.innerHTML='';return;}const from=startI+1,to=Math.min(endI,total);info.textContent=`Showing ${from} to ${to} of ${total} results`;if(pages<=1){ctr.innerHTML='';return;}let h=`<button class="tp-pag-btn" ${tpPage<=1?'disabled':''} onclick="tpGoPage(${tpPage-1})">‹</button>`;tpPageList(pages,tpPage).forEach(n=>{h+=(n==='...')?'<span class="tp-pag-gap">…</span>':`<button class="tp-pag-btn${n===tpPage?' active':''}" onclick="tpGoPage(${n})">${n}</button>`;});h+=`<button class="tp-pag-btn" ${tpPage>=pages?'disabled':''} onclick="tpGoPage(${tpPage+1})">›</button>`;ctr.innerHTML=h;}
+function tpGoPage(n){tpPage=n;tpRender2(true);const g=document.getElementById('tpFilteredGrid');if(g)g.scrollIntoView({behavior:'smooth',block:'start'});}
 function tpAddToCart(b){const id=+b.dataset.id,ex=tpCart.find(i=>i.id===id);if(ex)ex.qty++;else tpCart.push({id,name:b.dataset.name,price:+b.dataset.price,img:b.dataset.img,qty:1});tpUpdateCart();tpToast('Added to cart');}
 function tpChangeQty(id,d){const it=tpCart.find(i=>i.id===id);if(!it)return;it.qty=Math.max(1,it.qty+d);tpUpdateCart();tpRenderCart();}
 function tpRemove(id){tpCart=tpCart.filter(i=>i.id!==id);tpUpdateCart();tpRenderCart();}
@@ -265,6 +247,7 @@ function tpCloseCart(){document.getElementById('tpCartDrawer').classList.remove(
 function tpRenderCart(){const items=document.getElementById('tpCartItems'),foot=document.getElementById('tpCartFoot');if(!tpCart.length){items.innerHTML='<p class="text-center py-5" style="color:#999;">Your cart is empty</p>';foot.innerHTML='';return;}items.innerHTML=tpCart.map(i=>`<div class="tp-ci"><img src="${i.img||''}" onerror="this.style.visibility='hidden'"><div style="flex:1"><div class="n">${i.name}</div><div class="p">${TP.currency}${i.price.toFixed(2)}</div><div class="tp-qty"><button onclick="tpChangeQty(${i.id},-1)">−</button><span>${i.qty}</span><button onclick="tpChangeQty(${i.id},1)">+</button><button onclick="tpRemove(${i.id})" style="margin-left:auto;color:#e11">🗑</button></div></div></div>`).join('');const sub=tpSub(),total=sub+TP.deliveryFee;foot.innerHTML=`<div class="row-l"><span>Subtotal</span><span>${TP.currency}${sub.toFixed(2)}</span></div>${TP.deliveryFee>0?`<div class="row-l"><span>Delivery</span><span>${TP.currency}${TP.deliveryFee.toFixed(2)}</span></div>`:''}<div class="row-l tot"><span>Total</span><span>${TP.currency}${total.toFixed(2)}</span></div>${sub<TP.minOrder?`<p style="color:#e11;font-size:.8rem;text-align:center;margin:6px 0">Min order ${TP.currency}${TP.minOrder.toFixed(2)}</p>`:`<div style="margin-top:12px"><div class="tp-field"><input id="tpName" placeholder="Your name *"></div><div class="tp-field"><input id="tpPhone" placeholder="Phone / WhatsApp *"></div><div class="tp-field"><textarea id="tpAddr" rows="2" placeholder="Delivery address"></textarea></div><div class="tp-field"><textarea id="tpNotes" rows="1" placeholder="Notes (optional)"></textarea></div><button class="tp-checkout" onclick="tpPlaceOrder()"><i class="fab fa-whatsapp"></i> Order on WhatsApp</button></div>`}`;}
 function tpPlaceOrder(){const name=(document.getElementById('tpName').value||'').trim(),phone=(document.getElementById('tpPhone').value||'').trim();if(!name||!phone){tpToast('Enter name & phone','err');return;}const addr=document.getElementById('tpAddr').value||'',notes=document.getElementById('tpNotes').value||'';const sub=tpSub(),total=sub+TP.deliveryFee;const items=tpCart.map(i=>`• ${i.name} x${i.qty} = ${TP.currency}${(i.qty*i.price).toFixed(2)}`).join('\n');let msg=(TP.template||'️ NEW ORDER\n\nName: {customer_name}\nPhone: {customer_phone}\n\n{items}\n\nTotal: {total}').replace('{customer_name}',name).replace('{customer_phone}',phone).replace('{items}',items).replace('{total}',TP.currency+total.toFixed(2));if(addr)msg+='\nAddress: '+addr;if(notes)msg+='\nNotes: '+notes;fetch('/store-order-submit.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({store_id:TP.id,customer_name:name,customer_phone:phone,customer_address:addr,items:tpCart,subtotal:sub,delivery_charge:TP.deliveryFee,total_amount:total,notes:notes})}).catch(()=>{});window.location.href=`https://wa.me/${TP.whatsapp}?text=${encodeURIComponent(msg)}`;}
 function tpToast(m,t){const e=document.createElement('div');e.className='tp-toast';if(t==='err')e.style.background='#c0392b';e.textContent=m;document.body.appendChild(e);setTimeout(()=>e.classList.add('show'),10);setTimeout(()=>{e.classList.remove('show');setTimeout(()=>e.remove(),350);},2200);}
+tpRender2();
 </script>
 </body>
 </html>

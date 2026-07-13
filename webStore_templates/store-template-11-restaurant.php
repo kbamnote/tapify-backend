@@ -94,7 +94,7 @@ body{background:#000;color:#fff;font-family:'Poppins',sans-serif;overflow-x:hidd
 .tp-view-more-text{padding:10px 24px 10px 16px;color:#333;font-size:15px;font-weight:600;}
 
 /* Filtered View (after View More) */
-.tp-filtered-view{display:none;padding:20px;max-width:1400px;margin:0 auto;}
+.tp-filtered-view{display:block;padding:20px;max-width:1400px;margin:0 auto;}
 .tp-filtered-view.active{display:block;}
 .tp-filter-layout{display:flex;gap:24px;}
 .tp-filter-sidebar{width:260px;min-width:260px;background:#1a1a1a;border-radius:16px;padding:20px;height:fit-content;position:sticky;top:20px;}
@@ -183,69 +183,7 @@ body{background:#000;color:#fff;font-family:'Poppins',sans-serif;overflow-x:hidd
   <!-- Hero Image -->
   <div class="hero-img"><img src="<?= $bannerImg ?>" alt="banner" onerror="this.style.display='none'"></div>
 
-  <!-- Category Section -->
-  <h2 class="tp-section-title">Choose your Category</h2>
-  <div class="tp-cat-carousel">
-    <button class="tp-carousel-arrow left" onclick="tpScrollCats(-1)"><i class="fas fa-chevron-left"></i></button>
-    <div class="tp-cat-track" id="tpCatTrack">
-      <div class="tp-cat-item active" data-cat="all" onclick="tpFilterCat('all',this)">
-        <div class="tp-cat-circle"><img src="<?= $asset ?>/vector.webp" alt="All"></div>
-        <div class="tp-cat-label">All</div>
-      </div>
-      <?php foreach ($categories as $c): ?>
-      <div class="tp-cat-item" data-cat="<?= (int)$c['id'] ?>" onclick="tpFilterCat(<?= (int)$c['id'] ?>,this)">
-        <div class="tp-cat-circle"><?php if (!empty($c['image'])): ?><img src="<?= imgUrl($c['image']) ?>" alt="<?= htmlspecialchars($c['name']) ?>"><?php else: ?><img src="<?= $asset ?>/vector_2.webp" alt="cat"><?php endif; ?></div>
-        <div class="tp-cat-label"><?= htmlspecialchars($c['name']) ?></div>
-      </div>
-      <?php endforeach; ?>
-    </div>
-    <button class="tp-carousel-arrow right" onclick="tpScrollCats(1)"><i class="fas fa-chevron-right"></i></button>
-  </div>
-
-  <!-- Products Section -->
-  <h2 class="tp-section-title">Choose your Items</h2>
-  <div class="tp-products">
-    <div class="tp-product-grid" id="tpProductGrid">
-      <?php if (!empty($products)): foreach ($products as $p): $pimg = $p['img'] ?? ''; ?>
-      <div class="tp-product-card tp-product"
-           data-cat="<?= (int)$p['category_id'] ?>" data-name="<?= htmlspecialchars(strtolower($p['name'])) ?>"
-           data-price="<?= (float)$p['effective_price'] ?>">
-        <div class="tp-product-img">
-          <?php if ($pimg): ?><img src="<?= $pimg ?>" alt="<?= htmlspecialchars($p['name']) ?>">
-          <?php else: ?><div class="no-img"><i class="fas fa-image"></i></div><?php endif; ?>
-        </div>
-        <div class="tp-product-info">
-          <div class="tp-product-name"><?= htmlspecialchars($p['name']) ?></div>
-          <div class="tp-product-price">
-            <span class="currency_icon"><?= $currency ?></span>
-            <span class="selling_price"><?= number_format($p['effective_price'], 2) ?></span>
-            <?php if (!empty($p['has_discount'])): ?><del><?= $currency ?> <?= number_format((float)$p['price'], 2) ?></del><?php endif; ?>
-          </div>
-          <?php if (!empty($p['in_stock'])): ?>
-          <button class="tp-add-cart" data-id="<?= (int)$p['id'] ?>" data-name="<?= htmlspecialchars($p['name'], ENT_QUOTES) ?>"
-                  data-price="<?= (float)$p['effective_price'] ?>" data-img="<?= htmlspecialchars($pimg, ENT_QUOTES) ?>" onclick="tpAddToCart(this)">
-            <i class="fas fa-shopping-bag"></i> <?= htmlspecialchars($cta) ?>
-          </button>
-          <?php else: ?>
-          <button class="tp-add-cart" disabled>Sold Out</button>
-          <?php endif; ?>
-        </div>
-      </div>
-      <?php endforeach; else: ?>
-      <div class="text-center py-5"><i class="fas fa-box-open" style="font-size:3rem;color:#555"></i><p class="mt-3" style="color:#888;">No products available yet</p></div>
-      <?php endif; ?>
-    </div>
-    <div class="text-center py-5 d-none" id="tpNoResults" style="color:#888;"><i class="fas fa-search" style="font-size:2.4rem;color:#555"></i><p class="mt-3">No products match your filters</p></div>
-  </div>
-
-  <!-- View More Button -->
-  <div class="tp-view-more-wrap" id="tpViewMoreWrap">
-    <a href="#" class="tp-view-more" onclick="tpShowFiltered(event)">
-      <span class="tp-view-more-arrow"><i class="fas fa-arrow-right"></i></span>
-      <span class="tp-view-more-text">View More</span>
-    </a>
-  </div>
-
+  <!-- Product Listing (filter sidebar + grid) -->
   <!-- Filtered View (shown after View More click) -->
   <div class="tp-filtered-view" id="tpFilteredView">
     <div class="tp-filter-layout">
