@@ -32,7 +32,7 @@ $favicon   = !empty($store['favicon_image']) ? imgUrl($store['favicon_image']) :
 <title><?= $seoTitle ?></title>
 <?php if (!empty($store['seo_description'])): ?><meta name="description" content="<?= htmlspecialchars($store['seo_description']) ?>"><?php endif; ?>
 <link rel="icon" href="<?= $favicon ?>" type="image/png">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:#f8faf8;color:#141414;font-family:'Poppins',sans-serif;overflow-x:hidden;}

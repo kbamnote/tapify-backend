@@ -10,15 +10,13 @@
  * renders). Switching templates only changes which entry is used;
  * the same store rows are rendered by whichever template is selected.
  *
- * ONLY 8 templates are offered for the web store (store_template_9..16,
- * converted from webStoreTemps/Theme 1..8). The older v1 templates
- * (store-template-1-beauty-product.php … store-template-8-travel.php)
- * are no longer selectable or renderable — any store still carrying a
- * legacy template_id (store_template_1..8, whatsapp_store_default, or
- * empty) is transparently mapped to its v2 equivalent by
- * tapify_resolve_store_template_id() below, so no store ever falls
- * back to the old designs. The v1 files are left on disk (unused) in
- * case a rollback is ever needed — nothing in the app references them.
+ * ONLY 8 templates exist for the web store (store_template_9..16,
+ * converted from webStoreTemps/Theme 1..8). The older v1 templates have
+ * been DELETED. Any store still carrying a legacy template_id
+ * (store_template_1..8, whatsapp_store_default, or empty) is transparently
+ * mapped to its v2 equivalent by tapify_resolve_store_template_id() below,
+ * so existing stores keep working and no store ever falls back to a
+ * missing/old design.
  *
  * To add a future template: drop a new file in this folder and add
  * one entry below. No backend/schema change required.
