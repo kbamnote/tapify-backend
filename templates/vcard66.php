@@ -9,10 +9,20 @@ $qrUrl='https://api.qrserver.com/v1/create-qr-code/?size=200x200&data='.urlencod
 $platformIcons=['linkedin-in'=>'fa-linkedin-in','linkedin'=>'fa-linkedin-in','instagram'=>'fa-instagram','x-twitter'=>'fa-x-twitter','twitter'=>'fa-x-twitter','facebook'=>'fa-facebook-f','facebook-f'=>'fa-facebook-f','whatsapp'=>'fa-whatsapp','youtube'=>'fa-youtube','spotify'=>'fa-spotify','github'=>'fa-github','tiktok'=>'fa-tiktok','pinterest'=>'fa-pinterest-p','behance'=>'fa-behance','dribbble'=>'fa-dribbble','telegram'=>'fa-telegram','globe'=>'fa-globe'];
 
 /* --- Dynamic color theme (Tapify): driven by the vCard's saved colors --- */
-$primaryColor   = !empty($vcard['primary_color'])   ? trim($vcard['primary_color'])   : '#40b5c5';
-$secondaryColor = !empty($vcard['secondary_color']) ? trim($vcard['secondary_color']) : '#144660';
-if (!preg_match('/^#[0-9a-fA-F]{6}$/', $primaryColor))   $primaryColor   = '#40b5c5';
-if (!preg_match('/^#[0-9a-fA-F]{6}$/', $secondaryColor)) $secondaryColor = '#144660';
+/* The shared color pickers pre-fill generic defaults (#8338ec / #a855f7) and the
+   editor saves them even when the user never picked a color for this template.
+   Treat those placeholders (and empty/invalid values) as "not chosen" so the
+   design keeps its own colors and only changes on a REAL colour pick. */
+$tfPlaceholders = ['#8338ec', '#a855f7'];
+$tfPick = function ($val, $fallback) use ($tfPlaceholders) {
+    $val = strtolower(trim((string)$val));
+    if ($val === '' || in_array($val, $tfPlaceholders, true) || !preg_match('/^#[0-9a-f]{6}$/', $val)) {
+        return $fallback;
+    }
+    return $val;
+};
+$primaryColor   = $tfPick($vcard['primary_color']   ?? '', '#40b5c5');
+$secondaryColor = $tfPick($vcard['secondary_color'] ?? '', '#144660');
 ?>
 <!DOCTYPE html><!-- tapify-travelagency build v12 --><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title><?= htmlspecialchars($fullName) ?></title><link rel="icon" href="<?= !empty($vcard['favicon_image'])?imgUrl($vcard['favicon_image']):'/images/tapify-logo-green.png' ?>"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css"><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=New+Rocker&display=swap" rel="stylesheet"><style id="tf-theme">:root{--tf-primary:<?= htmlspecialchars($primaryColor, ENT_QUOTES) ?>;--tf-secondary:<?= htmlspecialchars($secondaryColor, ENT_QUOTES) ?>;}</style><style>.section-heading h2{font-family:'New Rocker','NewRocker',cursive!important;}.section-heading{overflow:visible!important;}</style><style>:root{--sf-img-13: url("/images/templates/travelagency/tra-001.webp");--sf-img-15: url("/images/templates/travelagency/tra-002.webp");--sf-img-31: url("/images/templates/travelagency/tra-003.webp");--sf-img-33: url("/images/templates/travelagency/tra-004.webp");--sf-img-36: url("/images/templates/travelagency/tra-005.webp");--sf-img-34: url("/images/templates/travelagency/tra-006.webp");--sf-img-35: url("/images/templates/travelagency/tra-007.webp");--sf-img-48: url("/images/templates/travelagency/tra-008.webp");--sf-img-47: url("/images/templates/travelagency/tra-009.webp");--sf-img-49: url("/images/templates/travelagency/tra-010.webp");--sf-img-50: url("/images/templates/travelagency/tra-011.webp");--sf-img-53: url("/images/templates/travelagency/tra-012.webp");--sf-img-54: url("/images/templates/travelagency/tra-013.webp");--sf-img-55: url("/images/templates/travelagency/tra-014.webp");--sf-img-56: url("/images/templates/travelagency/tra-015.webp");--sf-img-57: url("/images/templates/travelagency/tra-016.webp");--sf-img-59: url("/images/templates/travelagency/tra-017.webp");--sf-img-61: url("/images/templates/travelagency/tra-018.webp");--sf-img-62: url("/images/templates/travelagency/tra-019.webp");--sf-img-60: url("/images/templates/travelagency/tra-006.webp")}
 .sf-hidden{display:none!important}
