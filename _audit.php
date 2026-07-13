@@ -32,8 +32,8 @@ foreach ([['Residential Design','fa-home'],['Commercial Spaces','fa-building'],[
 
 $galleries = [['id'=>1,'name'=>'Recent Work','images'=>array_map(fn($i)=>['id'=>$i,'image'=>$img('gal'.$i,600,600)], range(1,6))]];
 $testimonials = [];
-foreach ([['Priya Mehta','Absolutely transformed our apartment. Highly recommend!'],['Arjun Kapoor','Professional, punctual and creative. 5 stars.']] as $i=>$d)
-  $testimonials[] = ['id'=>$i+1,'name'=>$d[0],'message'=>$d[1],'image'=>$img('testi'.$i,200,200),'rating'=>5,'designation'=>'Home Owner'];
+foreach ([['Priya Mehta','Absolutely transformed our apartment. Highly recommend!'],['Arjun Kapoor','Professional, punctual and creative. 5 stars.'],['Sneha Rao','Great experience end to end, very responsive.'],['Vikram Shah','Best in the city, will use again for sure.']] as $i=>$d)
+  $testimonials[] = ['id'=>$i+1,'name'=>$d[0],'author_name'=>$d[0],'author'=>$d[0],'message'=>$d[1],'image'=>$img('testi'.$i,200,200),'rating'=>5,'designation'=>'Patient','role'=>'Patient'];
 $businessHours = [];
 foreach (['MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY','SUNDAY'] as $d)
   $businessHours[] = ['day_name'=>$d,'is_open'=>($d!=='SUNDAY')?1:0,'open_time'=>'10:00 AM','close_time'=>'07:00 PM'];
