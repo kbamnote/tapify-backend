@@ -93,7 +93,7 @@ body{background:#f4f8fa;color:#1a2a35;font-family:'Poppins',sans-serif;overflow-
 .tp-view-more-arrow{width:40px;height:40px;border-radius:50%;background:var(--tp);display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;margin-right:-1px;}
 .tp-view-more-text{padding:10px 22px 10px 14px;color:#333;font-size:14px;font-weight:600;}
 
-.tp-filtered-view{display:block;padding:20px 24px;max-width:1400px;margin:0 auto;position:relative;z-index:1;}
+.tp-filtered-view{display:none;padding:20px 24px;max-width:1400px;margin:0 auto;position:relative;z-index:1;}
 .tp-filtered-view.active{display:block;}
 .tp-filter-layout{display:flex;gap:24px;}
 .tp-filter-sidebar{width:260px;min-width:260px;background:#fff;border-radius:12px;padding:20px;height:fit-content;position:sticky;top:80px;border:1px solid #e3edf2;}
@@ -173,7 +173,40 @@ body{background:#f4f8fa;color:#1a2a35;font-family:'Poppins',sans-serif;overflow-
 
   <div class="hero-img"><img src="<?= $bannerImg ?>" alt="banner" onerror="this.style.display='none'"></div>
 
-  <!-- Product Listing (filter sidebar + grid) -->
+  <h2 class="tp-section-title">Choose your Category</h2>
+  <div class="tp-cat-carousel">
+    <button class="tp-carousel-arrow left" onclick="tpScrollCats(-1)"><i class="fas fa-chevron-left"></i></button>
+    <div class="tp-cat-track" id="tpCatTrack">
+      <div class="tp-cat-item active" data-cat="all" onclick="tpFilterCat('all',this)"><div class="tp-cat-circle"><img src="<?= $asset ?>/vector.webp" alt="All"></div><div class="tp-cat-label">All</div></div>
+      <?php foreach ($categories as $c): ?>
+      <div class="tp-cat-item" data-cat="<?= (int)$c['id'] ?>" onclick="tpFilterCat(<?= (int)$c['id'] ?>,this)"><div class="tp-cat-circle"><?php if (!empty($c['image'])): ?><img src="<?= imgUrl($c['image']) ?>" alt="<?= htmlspecialchars($c['name']) ?>"><?php else: ?><img src="<?= $asset ?>/vector_2.webp" alt="cat"><?php endif; ?></div><div class="tp-cat-label"><?= htmlspecialchars($c['name']) ?></div></div>
+      <?php endforeach; ?>
+    </div>
+    <button class="tp-carousel-arrow right" onclick="tpScrollCats(1)"><i class="fas fa-chevron-right"></i></button>
+  </div>
+
+  <h2 class="tp-section-title">Choose your Package</h2>
+  <div class="tp-products">
+    <div class="tp-product-grid" id="tpProductGrid">
+      <?php if (!empty($products)): foreach ($products as $p): $pimg = $p['img'] ?? ''; ?>
+      <div class="tp-product-card tp-product" data-cat="<?= (int)$p['category_id'] ?>" data-name="<?= htmlspecialchars(strtolower($p['name'])) ?>" data-price="<?= (float)$p['effective_price'] ?>">
+        <div class="tp-product-img"><?php if ($pimg): ?><img src="<?= $pimg ?>" alt="<?= htmlspecialchars($p['name']) ?>"><?php else: ?><div class="no-img"><i class="fas fa-image"></i></div><?php endif; ?></div>
+        <div class="tp-product-info">
+          <div class="tp-product-name"><?= htmlspecialchars($p['name']) ?></div>
+          <?php if (!empty($p['category_name'])): ?><div class="tp-product-cat"><?= htmlspecialchars($p['category_name']) ?></div><?php endif; ?>
+          <div class="tp-product-price"><span class="currency_icon"><?= $currency ?></span><span class="selling_price"><?= number_format($p['effective_price'], 2) ?></span><?php if (!empty($p['has_discount'])): ?><del><?= $currency ?> <?= number_format((float)$p['price'], 2) ?></del><?php endif; ?></div>
+          <?php if (!empty($p['in_stock'])): ?><button class="tp-add-cart" data-id="<?= (int)$p['id'] ?>" data-name="<?= htmlspecialchars($p['name'], ENT_QUOTES) ?>" data-price="<?= (float)$p['effective_price'] ?>" data-img="<?= htmlspecialchars($pimg, ENT_QUOTES) ?>" onclick="tpAddToCart(this)"><i class="fas fa-shopping-bag"></i> <?= htmlspecialchars($cta) ?></button><?php else: ?><button class="tp-add-cart" disabled>Sold Out</button><?php endif; ?>
+        </div>
+      </div>
+      <?php endforeach; else: ?>
+      <div class="text-center py-5" style="grid-column:1/-1;"><i class="fas fa-box-open" style="font-size:3rem;color:#c0d0d8"></i><p class="mt-3" style="color:#8899a3;">No packages available yet</p></div>
+      <?php endif; ?>
+    </div>
+    <div class="text-center py-5 d-none" id="tpNoResults" style="grid-column:1/-1;color:#8899a3;"><i class="fas fa-search" style="font-size:2.4rem;color:#c0d0d8"></i><p class="mt-3">No packages match your filters</p></div>
+  </div>
+
+  <div class="tp-view-more-wrap" id="tpViewMoreWrap"><a href="#" class="tp-view-more" onclick="tpShowFiltered(event)"><span class="tp-view-more-arrow"><i class="fas fa-arrow-right"></i></span><span class="tp-view-more-text">View More</span></a></div>
+
   <div class="tp-filtered-view" id="tpFilteredView">
     <div class="tp-filter-layout">
       <div class="tp-filter-sidebar">
@@ -247,7 +280,6 @@ function tpCloseCart(){document.getElementById('tpCartDrawer').classList.remove(
 function tpRenderCart(){const items=document.getElementById('tpCartItems'),foot=document.getElementById('tpCartFoot');if(!tpCart.length){items.innerHTML='<p class="text-center py-5" style="color:#999;">Your cart is empty</p>';foot.innerHTML='';return;}items.innerHTML=tpCart.map(i=>`<div class="tp-ci"><img src="${i.img||''}" onerror="this.style.visibility='hidden'"><div style="flex:1"><div class="n">${i.name}</div><div class="p">${TP.currency}${i.price.toFixed(2)}</div><div class="tp-qty"><button onclick="tpChangeQty(${i.id},-1)">−</button><span>${i.qty}</span><button onclick="tpChangeQty(${i.id},1)">+</button><button onclick="tpRemove(${i.id})" style="margin-left:auto;color:#e11">🗑</button></div></div></div>`).join('');const sub=tpSub(),total=sub+TP.deliveryFee;foot.innerHTML=`<div class="row-l"><span>Subtotal</span><span>${TP.currency}${sub.toFixed(2)}</span></div>${TP.deliveryFee>0?`<div class="row-l"><span>Delivery</span><span>${TP.currency}${TP.deliveryFee.toFixed(2)}</span></div>`:''}<div class="row-l tot"><span>Total</span><span>${TP.currency}${total.toFixed(2)}</span></div>${sub<TP.minOrder?`<p style="color:#e11;font-size:.8rem;text-align:center;margin:6px 0">Min order ${TP.currency}${TP.minOrder.toFixed(2)}</p>`:`<div style="margin-top:12px"><div class="tp-field"><input id="tpName" placeholder="Your name *"></div><div class="tp-field"><input id="tpPhone" placeholder="Phone / WhatsApp *"></div><div class="tp-field"><textarea id="tpAddr" rows="2" placeholder="Delivery address"></textarea></div><div class="tp-field"><textarea id="tpNotes" rows="1" placeholder="Notes (optional)"></textarea></div><button class="tp-checkout" onclick="tpPlaceOrder()"><i class="fab fa-whatsapp"></i> Order on WhatsApp</button></div>`}`;}
 function tpPlaceOrder(){const name=(document.getElementById('tpName').value||'').trim(),phone=(document.getElementById('tpPhone').value||'').trim();if(!name||!phone){tpToast('Enter name & phone','err');return;}const addr=document.getElementById('tpAddr').value||'',notes=document.getElementById('tpNotes').value||'';const sub=tpSub(),total=sub+TP.deliveryFee;const items=tpCart.map(i=>`• ${i.name} x${i.qty} = ${TP.currency}${(i.qty*i.price).toFixed(2)}`).join('\n');let msg=(TP.template||'️ NEW ORDER\n\nName: {customer_name}\nPhone: {customer_phone}\n\n{items}\n\nTotal: {total}').replace('{customer_name}',name).replace('{customer_phone}',phone).replace('{items}',items).replace('{total}',TP.currency+total.toFixed(2));if(addr)msg+='\nAddress: '+addr;if(notes)msg+='\nNotes: '+notes;fetch('/store-order-submit.php',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({store_id:TP.id,customer_name:name,customer_phone:phone,customer_address:addr,items:tpCart,subtotal:sub,delivery_charge:TP.deliveryFee,total_amount:total,notes:notes})}).catch(()=>{});window.location.href=`https://wa.me/${TP.whatsapp}?text=${encodeURIComponent(msg)}`;}
 function tpToast(m,t){const e=document.createElement('div');e.className='tp-toast';if(t==='err')e.style.background='#c0392b';e.textContent=m;document.body.appendChild(e);setTimeout(()=>e.classList.add('show'),10);setTimeout(()=>{e.classList.remove('show');setTimeout(()=>e.remove(),350);},2200);}
-tpRender2();
 </script>
 </body>
 </html>
