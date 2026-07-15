@@ -118,7 +118,7 @@ body{font-family:Poppins}
  </div>
  </div>
  
- <div class="social-media d-flex justify-content-center flex-wrap position-relative"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener" class="social-icon"><?= $__svg ?></a><?php endforeach; ?></div>
+ <div class="social-media d-flex justify-content-center flex-wrap position-relative"><?php foreach ($socialLinks as $s): $__sp=strtolower($s["platform"] ?? ""); $__svg=$socialSvgs[$__sp] ?? $socialSvgs["globe"]; ?><span class="social-back d-flex justify-content-center align-items-center rounded-circle"><a href="<?= htmlspecialchars($s["url"]) ?>" target="_blank" rel="noopener"><?= $__svg ?></a><div class="social-bg"><img src="/images/templates/socialservicesx/soc-021.svg" class="w-100 h-100 object-fit-cover" loading="lazy" alt=""></div></span><?php endforeach; ?></div>
  
  
  </div>
@@ -134,7 +134,7 @@ body{font-family:Poppins}
  <div class="section-heading text-center">
  <h2 class="text-center mb-0 fw-bold">Contact</h2>
  </div>
- <div class="row row-gap-20px"><?php if(!empty($services)): ?><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/socialservicesx/soc-018.webp"; ?><div class="col-sm-6 col-6 mb-4 px-2"><div class="card service-card h-100"><div class="service-img card-img" style="overflow:hidden;border-radius:12px 12px 0 0"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 object-fit-cover" style="height:170px" loading="lazy"></div><div class="card-body text-center p-3"><h3 class="card-title fs-6 fw-6"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="card-text small mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></div><?php endforeach; ?><?php endif; ?></div>
+ <div class="row row-gap-20px justify-content-center"><?php if(!empty($vcard["email"])): ?><div class="col-sm-6"><div class="contact-box text-center"><div class="contact-icon d-flex justify-content-center align-items-center mx-auto"><img src="/images/templates/socialservicesx/soc-023.svg" loading="lazy" alt="Email"></div><div class="contact-desc"><a href="mailto:<?= htmlspecialchars($vcard["email"]) ?>" class="text-primary fs-6 fw-5"><?= htmlspecialchars($vcard["email"]) ?></a></div></div></div><?php endif; ?><?php if(!empty($vcard["alternate_email"])): ?><div class="col-sm-6"><div class="contact-box text-center"><div class="contact-icon d-flex justify-content-center align-items-center mx-auto"><img src="/images/templates/socialservicesx/soc-023.svg" loading="lazy" alt="Email"></div><div class="contact-desc"><a href="mailto:<?= htmlspecialchars($vcard["alternate_email"]) ?>" class="text-primary fs-6 fw-5"><?= htmlspecialchars($vcard["alternate_email"]) ?></a></div></div></div><?php endif; ?><?php if(!empty($vcard["phone"])): ?><div class="col-sm-6"><div class="contact-box text-center"><div class="contact-icon d-flex justify-content-center align-items-center mx-auto"><img src="/images/templates/socialservicesx/soc-024.svg" loading="lazy" alt="Phone"></div><div class="contact-desc"><a href="tel:<?= htmlspecialchars($vcard["phone"]) ?>" class="text-primary fs-6 fw-5" dir="ltr"><?= htmlspecialchars($vcard["phone"]) ?></a></div></div></div><?php endif; ?><?php $__loc=$vcard["location"] ?? ($vcard["address"] ?? ""); if(!empty($__loc)): ?><div class="col-sm-6"><div class="contact-box text-center"><div class="contact-icon d-flex justify-content-center align-items-center mx-auto"><img src="/images/templates/socialservicesx/soc-026.svg" loading="lazy" alt="Location"></div><div class="contact-desc"><a href="<?= htmlspecialchars($locationUrl) ?>" target="_blank" rel="noopener" class="text-primary fs-6 fw-5"><?= htmlspecialchars($__loc) ?></a></div></div></div><?php endif; ?></div>
  </div>
  </div>
  
@@ -164,78 +164,24 @@ body{font-family:Poppins}
  </div>
  <div class=px-20>
  <div class=row>
+ <?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/socialservicesx/soc-030.webp"; ?>
  <div class="col-sm-6 mb-sm-4 mb-4">
  <div class="service-card h-100 position-relative">
  <a href=javascript:void(0) class="text-decoration-none img pe-none" target>
- <img src=/images/templates/socialservicesx/soc-030.webp class="card-img-top service-new-image" alt="Education Support" loading=lazy>
+ <img src="<?= htmlspecialchars($svimg) ?>" class="card-img-top service-new-image" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" loading=lazy>
  </a>
  <div class=card-body>
  <div class=dots-img>
  <img src=/images/templates/socialservicesx/soc-031.svg class="w-100 h-100 object-fit-cover" loading=lazy>
  </div>
  <a href=javascript:void(0) class=text-decoration-none target>
- <h5 class="card-title title-text text-primary">
- Education Support</h5>
+ <h5 class="card-title title-text text-primary"><?= htmlspecialchars($sv["name"] ?? "") ?></h5>
  </a>
- <p class="card-text description-text">
- Free tuition centers, school enrollment drives, and provision of books, uniforms, and supplies for children in slums and rural areas.</p>
+ <?php if(!empty($sv["description"])): ?><p class="card-text description-text"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?>
  </div>
  </div>
  </div>
- <div class="col-sm-6 mb-sm-4 mb-4">
- <div class="service-card h-100 position-relative">
- <a href=javascript:void(0) class="text-decoration-none img pe-none" target>
- <img src=/images/templates/socialservicesx/soc-032.webp class="card-img-top service-new-image" alt="Midday Meals &amp; Nutrition" loading=lazy>
- </a>
- <div class=card-body>
- <div class=dots-img>
- <img src=/images/templates/socialservicesx/soc-031.svg class="w-100 h-100 object-fit-cover" loading=lazy>
- </div>
- <a href=javascript:void(0) class=text-decoration-none target>
- <h5 class="card-title title-text text-primary">
- Midday Meals &amp; Nutrition</h5>
- </a>
- <p class="card-text description-text">
- Providing nutritious meals and health supplements to malnourished children.</p>
- </div>
- </div>
- </div>
- <div class="col-sm-6 mb-sm-4 mb-4">
- <div class="service-card h-100 position-relative">
- <a href=javascript:void(0) class="text-decoration-none img pe-none" target>
- <img src=/images/templates/socialservicesx/soc-033.webp class="card-img-top service-new-image" alt="Healthcare Camps" loading=lazy>
- </a>
- <div class=card-body>
- <div class=dots-img>
- <img src=/images/templates/socialservicesx/soc-031.svg class="w-100 h-100 object-fit-cover" loading=lazy>
- </div>
- <a href=javascript:void(0) class=text-decoration-none target>
- <h5 class="card-title title-text text-primary">
- Healthcare Camps</h5>
- </a>
- <p class="card-text description-text">
- Regular medical checkups, vaccinations, and emergency health services.</p>
- </div>
- </div>
- </div>
- <div class="col-sm-6 mb-sm-4 mb-4">
- <div class="service-card h-100 position-relative">
- <a href=javascript:void(0) class="text-decoration-none img pe-none" target>
- <img src=/images/templates/socialservicesx/soc-034.webp class="card-img-top service-new-image" alt="Child Sponsorship Programs" loading=lazy>
- </a>
- <div class=card-body>
- <div class=dots-img>
- <img src=/images/templates/socialservicesx/soc-031.svg class="w-100 h-100 object-fit-cover" loading=lazy>
- </div>
- <a href=javascript:void(0) class=text-decoration-none target>
- <h5 class="card-title title-text text-primary">
- Child Sponsorship Programs</h5>
- </a>
- <p class="card-text description-text">
- Pairing donors with individual children to support education and livelihood.</p>
- </div>
- </div>
- </div>
+ <?php endforeach; ?>
  </div>
  </div>
  </div>
