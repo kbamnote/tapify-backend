@@ -30,14 +30,15 @@ if (strlen($vcardName) < 2) {
 try {
     $pdo = getDB();
 
-    // Check if we should create a new user for this vCard (Admin feature)
+    // Check if we should create a new user for this vCard (Admin/Staff feature)
     $customerEmail = trim($input['customer_email'] ?? '');
     $customerPassword = $input['customer_password'] ?? '';
     $customerName = sanitize($input['customer_name'] ?? '');
 
-    // Admins must always set a customer login when creating a vCard, so the
-    // customer can sign in. (Regular users create vCards under their own account.)
-    if (isAdmin()) {
+    // Admins and staff (card editors) must always set a customer login when
+    // creating a vCard, so the customer can sign in. (Regular users create
+    // vCards under their own account.)
+    if (isStaffOrAdmin()) {
         if (empty($customerEmail) || empty($customerPassword)) {
             sendError('Customer login email and password are required.');
         }
@@ -49,7 +50,7 @@ try {
         }
     }
 
-    if ($customerEmail && $_SESSION['user_role'] === 'admin') {
+    if ($customerEmail && isStaffOrAdmin()) {
         if (empty($customerPassword) || strlen($customerPassword) < 6) {
             sendError('Customer password is required (minimum 6 characters) when customer email is provided');
         }

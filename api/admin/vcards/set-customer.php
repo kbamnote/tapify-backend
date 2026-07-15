@@ -1,6 +1,6 @@
 <?php
 /**
- * Admin: set / reset the customer login (email + password) for an existing vCard.
+ * Admin/Staff: set / reset the customer login (email + password) for an existing vCard.
  *
  * GET  ?vcard_id=ID            -> returns the current owner { email, name, has_login }
  * POST { vcard_id, customer_email, customer_password, customer_name? }
@@ -14,8 +14,8 @@ ini_set('display_errors', 0);
 require_once __DIR__ . '/../../../config/database.php';
 require_once __DIR__ . '/../../../includes/functions.php';
 
-if (!isLoggedIn() || !isAdmin()) {
-    echo json_encode(['success' => false, 'message' => 'Admin access required']);
+if (!isLoggedIn() || !isStaffOrAdmin()) {
+    echo json_encode(['success' => false, 'message' => 'Staff or admin access required']);
     exit;
 }
 
