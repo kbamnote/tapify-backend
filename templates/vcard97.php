@@ -186,7 +186,7 @@ body{font-family:Poppins}
  </div>
  </div>
  
- <div class="product-section pt-50 px-20">
+ <?php if(!empty($__pr ?? $products)): ?><div class="product-section pt-50 px-20">
  <div class="bg-vector vector-5 position-absolute text-end">
  <img src="/images/templates/socialservicesx/soc-035.webp" alt=profile-bg>
  </div>
@@ -200,7 +200,7 @@ body{font-family:Poppins}
  <svg class="svg-inline--fa fa-arrow-right right-arrow-animation" aria-hidden=true focusable=false data-prefix=fas data-icon=arrow-right role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 448 512" data-fa-i2svg><path fill=currentColor d="M438.6 278.6l-160 160C272.4 444.9 264.2 448 256 448s-16.38-3.125-22.62-9.375c-12.5-12.5-12.5-32.75 0-45.25L338.8 288H32C14.33 288 .0016 273.7 .0016 256S14.33 224 32 224h306.8l-105.4-105.4c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0l160 160C451.1 245.9 451.1 266.1 438.6 278.6z"></path></svg>
  </div>
  </div>
- </div>
+ </div><?php endif; ?>
  
  <div class="appointment-section pt-50 px-30 position-relative">
  <div class="position-absolute all-bg-img img-4">
@@ -252,7 +252,7 @@ body{font-family:Poppins}
  
 </div>
  
- <div class="testimonial-section pt-50 px-20">
+ <?php if(!empty($__te ?? $testimonials)): ?><div class="testimonial-section pt-50 px-20">
  <div class="bg-vector vector-7 position-absolute text-end">
  <img src="/images/templates/socialservicesx/soc-038.webp" alt=profile-bg>
  </div>
@@ -260,7 +260,7 @@ body{font-family:Poppins}
  <h2 class=mb-0>Testimonials</h2>
  </div>
  <div class="testimonial-slider"><?php foreach ((isset($__te)?$__te:($testimonials ?? [])) as $t): ?><div class="px-2"><div class="testimonial-card p-0"><div class="card-body text-center position-relative"><div class="text-center"><p class="text-gray mb-0">“<?= htmlspecialchars($t["message"] ?? "") ?>”</p></div></div><div class="d-flex flex-column align-items-center justify-content-center gap-2 profile-desc"><?php if(!empty($t["image"])): ?><div class="card-img" style="width:60px;height:60px;border-radius:50%;overflow:hidden;"><img src="<?= htmlspecialchars(imgUrl($t["image"])) ?>" class="w-100 h-100 object-fit-cover"></div><?php endif; ?><h5 class="fw-6 mb-0"><?= htmlspecialchars($t["author_name"] ?? ($t["author"] ?? "")) ?></h5></div></div></div><?php endforeach; ?></div>
- </div>
+ </div><?php endif; ?>
  
  
  <div class="blog-section pt-50 px-20">
