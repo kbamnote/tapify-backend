@@ -138,7 +138,7 @@ body{font-family:Poppins}
  </div>
  </div>
  
- <div class="gallery-section pt-50 px-20 position-relative mb-0">
+ <?php $__hasGal=false; foreach(($__ga ?? $galleries ?? []) as $__g){ if(!empty($__g["images"])){$__hasGal=true;break;} } if($__hasGal): ?><div class="gallery-section pt-50 px-20 position-relative mb-0">
  <div class="section-heading text-center mb-30 z-9">
  <h2 class=mb-0>Gallery</h2>
  </div>
@@ -149,7 +149,7 @@ body{font-family:Poppins}
  <img src="/images/templates/socialservicesx/soc-028.webp" alt=gallery-bg>
  </div>
  <div class="gallery-slider"><?php foreach ((isset($__ga)?$__ga:($galleries ?? [])) as $g): foreach (($g["images"] ?? []) as $im): $gi=imgUrl($im["image_url"] ?? ($im["image"] ?? "")); ?><div class="px-2"><div class="gallery-img-wrapper"><div class="gallery-img" style="background-image:url('<?= htmlspecialchars($gi) ?>');background-size:cover;background-position:center;height:280px;border-radius:12px;"></div></div></div><?php endforeach; endforeach; ?></div>
- </div>
+ </div><?php endif; ?>
  
  <div class="our-services-section pt-50">
  <div class="bg-vector vector-4 position-absolute vector-12">
