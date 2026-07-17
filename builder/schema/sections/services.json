@@ -1,0 +1,61 @@
+{
+  "type": "services",
+  "label": "Services",
+  "category": "content",
+  "icon": "grid-3x3",
+  "description": "Grid or list of services / courses / offerings, each with an image, title and description.",
+  "industries": ["*"],
+  "singleton": false,
+  "maxPerPage": 3,
+
+  "variants": [
+    { "id": "cards-3",   "label": "3-column cards",  "preview": "/builder/previews/services-cards-3.png" },
+    { "id": "cards-2",   "label": "2-column cards",  "preview": "/builder/previews/services-cards-2.png" },
+    { "id": "list",      "label": "Icon list",       "preview": "/builder/previews/services-list.png" },
+    { "id": "carousel",  "label": "Carousel",        "preview": "/builder/previews/services-carousel.png" }
+  ],
+
+  "props": [
+    { "key": "label",   "type": "text",     "label": "Eyebrow label", "maxLength": 40, "default": "Our Services", "group": "Heading" },
+    { "key": "heading", "type": "text",     "label": "Heading", "required": true, "maxLength": 120, "group": "Heading" },
+    { "key": "sub",     "type": "textarea", "label": "Description", "maxLength": 300, "group": "Heading" },
+
+    {
+      "key": "items",
+      "type": "repeater",
+      "label": "Services",
+      "group": "Items",
+      "min": 1,
+      "max": 24,
+      "itemLabel": "{{title}}",
+      "addLabel": "Add service",
+      "fields": [
+        { "key": "image",  "type": "media",    "label": "Image", "accept": ["image"] },
+        { "key": "icon",   "type": "icon",     "label": "Icon", "help": "Used by the Icon list variant.",
+          "showIf": { "variant": ["list"] } },
+        { "key": "title",  "type": "text",     "label": "Title", "required": true, "maxLength": 80 },
+        { "key": "desc",   "type": "textarea", "label": "Description", "maxLength": 300 },
+        { "key": "meta",   "type": "text",     "label": "Meta line", "maxLength": 60, "placeholder": "e.g. 2 Years · Class 11-12" },
+        { "key": "cta",    "type": "link",     "label": "Button" }
+      ]
+    }
+  ],
+
+  "style": {
+    "supports": ["paddingY", "align", "bg", "radius", "animation"],
+    "defaults": { "paddingY": "lg", "align": "center", "bg": "default" }
+  },
+
+  "defaults": {
+    "variant": "cards-3",
+    "props": {
+      "label": "Our Services",
+      "heading": "What we offer",
+      "items": [
+        { "title": "Service one", "desc": "Short description of this service." },
+        { "title": "Service two", "desc": "Short description of this service." },
+        { "title": "Service three", "desc": "Short description of this service." }
+      ]
+    }
+  }
+}

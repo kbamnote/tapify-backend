@@ -1,0 +1,45 @@
+{
+  "type": "hero",
+  "label": "Hero",
+  "category": "header",
+  "icon": "layout-template",
+  "description": "Big opening banner with headline, subtext and call-to-action buttons.",
+  "industries": ["*"],
+  "singleton": false,
+  "maxPerPage": 2,
+
+  "variants": [
+    { "id": "centered-bg", "label": "Centered on background image", "preview": "/builder/previews/hero-centered-bg.png" },
+    { "id": "split",       "label": "Text left, image right",       "preview": "/builder/previews/hero-split.png" },
+    { "id": "minimal",     "label": "Minimal, no image",            "preview": "/builder/previews/hero-minimal.png" }
+  ],
+
+  "props": [
+    { "key": "badge",    "type": "text",     "label": "Badge",      "placeholder": "Admissions Open 2025-26", "maxLength": 60, "group": "Content" },
+    { "key": "heading",  "type": "text",     "label": "Headline",   "required": true, "maxLength": 120, "group": "Content" },
+    { "key": "sub",      "type": "textarea", "label": "Sub-heading", "maxLength": 400, "group": "Content" },
+    { "key": "image",    "type": "media",    "label": "Image",      "accept": ["image", "video"], "group": "Media",
+      "showIf": { "variant": ["centered-bg", "split"] } },
+    { "key": "ctaPrimary",   "type": "link", "label": "Primary button",   "group": "Buttons" },
+    { "key": "ctaSecondary", "type": "link", "label": "Secondary button", "group": "Buttons" },
+    { "key": "showWhatsapp", "type": "toggle", "label": "Show WhatsApp button", "default": true, "group": "Buttons",
+      "help": "Uses the WhatsApp number from Business Info." },
+    { "key": "showCall",     "type": "toggle", "label": "Show Call button", "default": true, "group": "Buttons" }
+  ],
+
+  "style": {
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "animation"],
+    "defaults": { "paddingY": "xl", "align": "center", "bg": "image", "overlay": 0.55 }
+  },
+
+  "defaults": {
+    "variant": "centered-bg",
+    "props": {
+      "heading": "Your headline goes here",
+      "sub": "One clear sentence about what you do and who it is for.",
+      "ctaPrimary": { "text": "Get in touch", "href": "#contact", "style": "primary" },
+      "showWhatsapp": true,
+      "showCall": true
+    }
+  }
+}

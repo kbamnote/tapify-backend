@@ -1,0 +1,34 @@
+{
+  "id": "coaching",
+  "label": "Coaching / Tuition Institute",
+  "aliases": ["tuition", "institute", "academy", "classes", "iit-jee", "neet"],
+  "icon": "graduation-cap",
+  "theme": "navy-gold",
+
+  "description": "Exam-prep and tuition institutes: courses, faculty, results, admissions.",
+
+  "sections": [
+    "hero",
+    "about",
+    "services",
+    "gallery",
+    "contact"
+  ],
+
+  "recommended": [
+    { "type": "hero",         "reason": "Headline + admissions CTA" },
+    { "type": "about",        "reason": "Who you are, vision & mission" },
+    { "type": "services",     "reason": "Courses / batches you offer" },
+    { "type": "gallery",      "reason": "Campus and classroom photos" },
+    { "type": "contact",      "reason": "Address, phone, enquiry form" }
+  ],
+
+  "copy": {
+    "servicesHeading": "Courses We Offer",
+    "servicesLabel": "Our Courses",
+    "aboutHeading": "About Our Institute",
+    "contactHeading": "Admissions & Enquiry"
+  },
+
+  "notes": "Sections listed under `sections` are inserted (in order) when a new coaching site is created. `recommended` powers the Add-Section suggestions. `copy` seeds industry-appropriate default text so the starter site never reads like lorem ipsum."
+}

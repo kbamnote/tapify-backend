@@ -1,0 +1,271 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://app.tapify.co.in/builder/schema/site.schema.json",
+  "title": "Tapify Site Document",
+  "description": "The complete definition of a no-code website. This document is the ONLY source of truth: no HTML, no CSS and no static pages are ever stored. The renderer, the web builder, the mobile builder and (later) the AI generator are all consumers of this shape. Layout model is STACKED SECTIONS: a page is an ordered list of full-width blocks. There are deliberately no x/y coordinates.",
+  "type": "object",
+  "required": ["schemaVersion", "site", "theme", "pages"],
+  "additionalProperties": false,
+
+  "properties": {
+    "schemaVersion": {
+      "description": "Bumped only on breaking changes; enables forward migration of old documents.",
+      "const": 1
+    },
+
+    "site": {
+      "type": "object",
+      "required": ["name"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "industry": {
+          "description": "Drives which sections are suggested. Free-form so new industries need no schema change.",
+          "type": "string", "maxLength": 60
+        },
+        "locale": { "type": "string", "default": "en-IN", "maxLength": 10 },
+        "favicon": { "$ref": "#/definitions/mediaRef" }
+      }
+    },
+
+    "theme": {
+      "description": "Design tokens only. Sections never hardcode colours/fonts — they consume these as CSS variables, so changing one token restyles the whole site.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "preset": { "type": "string", "maxLength": 60 },
+        "mode": { "enum": ["light", "dark"], "default": "light" },
+        "color": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "primary":   { "$ref": "#/definitions/color" },
+            "secondary": { "$ref": "#/definitions/color" },
+            "accent":    { "$ref": "#/definitions/color" },
+            "bg":        { "$ref": "#/definitions/color" },
+            "surface":   { "$ref": "#/definitions/color" },
+            "text":      { "$ref": "#/definitions/color" },
+            "muted":     { "$ref": "#/definitions/color" },
+            "border":    { "$ref": "#/definitions/color" }
+          }
+        },
+        "font": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "heading": { "type": "string", "maxLength": 80 },
+            "body":    { "type": "string", "maxLength": 80 }
+          }
+        },
+        "radius":    { "enum": ["none", "sm", "md", "lg", "xl", "pill"], "default": "md" },
+        "spacing":   { "enum": ["compact", "comfortable", "spacious"], "default": "comfortable" },
+        "container": { "enum": ["narrow", "normal", "wide", "full"], "default": "normal" }
+      }
+    },
+
+    "nav": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "header": { "type": "array", "maxItems": 12, "items": { "$ref": "#/definitions/navItem" } },
+        "footer": { "type": "array", "maxItems": 24, "items": { "$ref": "#/definitions/navItem" } }
+      }
+    },
+
+    "pages": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 50,
+      "items": { "$ref": "#/definitions/page" }
+    },
+
+    "business": {
+      "description": "Shared business facts. Sections reference these instead of duplicating them, so a phone number is edited in exactly one place.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "phone":    { "type": "string", "maxLength": 40 },
+        "whatsapp": { "type": "string", "maxLength": 40 },
+        "email":    { "type": "string", "maxLength": 160 },
+        "website":  { "type": "string", "maxLength": 300 },
+        "address":  { "type": "string", "maxLength": 400 },
+        "mapUrl":   { "type": "string", "maxLength": 600 },
+        "social": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "facebook":  { "type": "string", "maxLength": 300 },
+            "instagram": { "type": "string", "maxLength": 300 },
+            "youtube":   { "type": "string", "maxLength": 300 },
+            "linkedin":  { "type": "string", "maxLength": 300 },
+            "twitter":   { "type": "string", "maxLength": 300 },
+            "telegram":  { "type": "string", "maxLength": 300 }
+          }
+        },
+        "hours": {
+          "type": "array", "maxItems": 7,
+          "items": {
+            "type": "object",
+            "required": ["day"],
+            "additionalProperties": false,
+            "properties": {
+              "day":    { "enum": ["mon","tue","wed","thu","fri","sat","sun"] },
+              "open":   { "type": "string", "maxLength": 10 },
+              "close":  { "type": "string", "maxLength": 10 },
+              "closed": { "type": "boolean", "default": false }
+            }
+          }
+        }
+      }
+    },
+
+    "forms": {
+      "type": "array", "maxItems": 20,
+      "items": { "$ref": "#/definitions/form" }
+    }
+  },
+
+  "definitions": {
+
+    "color": {
+      "description": "Hex colour.",
+      "type": "string",
+      "pattern": "^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$"
+    },
+
+    "mediaRef": {
+      "description": "Reference to the media library ('media:12'), an absolute URL, or a root-relative path. Prefer media: refs so files can be replaced without editing the document.",
+      "type": "string",
+      "pattern": "^(media:[0-9]+|https?://.+|/.+)$",
+      "maxLength": 600
+    },
+
+    "link": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "text":     { "type": "string", "maxLength": 120 },
+        "href":     { "type": "string", "maxLength": 600 },
+        "newTab":   { "type": "boolean", "default": false },
+        "style":    { "enum": ["primary", "secondary", "ghost", "link"], "default": "primary" }
+      }
+    },
+
+    "navItem": {
+      "type": "object",
+      "required": ["label"],
+      "additionalProperties": false,
+      "properties": {
+        "label":  { "type": "string", "minLength": 1, "maxLength": 60 },
+        "pageId": { "type": "string", "maxLength": 60 },
+        "href":   { "type": "string", "maxLength": 600 },
+        "newTab": { "type": "boolean", "default": false }
+      }
+    },
+
+    "page": {
+      "type": "object",
+      "required": ["id", "slug", "title", "sections"],
+      "additionalProperties": false,
+      "properties": {
+        "id":    { "type": "string", "pattern": "^[a-z0-9_-]{1,60}$" },
+        "slug":  {
+          "description": "'/' for home, otherwise '/about', '/contact'.",
+          "type": "string", "pattern": "^/[a-z0-9/-]*$", "maxLength": 160
+        },
+        "title": { "type": "string", "minLength": 1, "maxLength": 160 },
+        "visible": { "type": "boolean", "default": true },
+        "seo":   { "$ref": "#/definitions/seo" },
+        "sections": {
+          "description": "ORDERED list of stacked blocks. Array order IS the visual order — there are no coordinates.",
+          "type": "array", "maxItems": 60,
+          "items": { "$ref": "#/definitions/section" }
+        }
+      }
+    },
+
+    "seo": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title":       { "type": "string", "maxLength": 200 },
+        "description": { "type": "string", "maxLength": 400 },
+        "keywords":    { "type": "array", "maxItems": 25, "items": { "type": "string", "maxLength": 60 } },
+        "ogImage":     { "$ref": "#/definitions/mediaRef" },
+        "canonical":   { "type": "string", "maxLength": 600 },
+        "robots":      { "enum": ["index,follow", "noindex,follow", "index,nofollow", "noindex,nofollow"], "default": "index,follow" }
+      }
+    },
+
+    "section": {
+      "description": "One stacked block. `props` is validated in a SECOND pass against the section's own manifest (builder/schema/sections/<type>.json) — that is what keeps this schema stable while the section library grows.",
+      "type": "object",
+      "required": ["id", "type"],
+      "additionalProperties": false,
+      "properties": {
+        "id":      {
+          "description": "Stable unique id. Never reused, never reordered — makes undo/redo, patches and AI edits safe.",
+          "type": "string", "pattern": "^[a-zA-Z0-9_-]{1,40}$"
+        },
+        "type":    { "type": "string", "pattern": "^[a-z0-9-]{1,40}$" },
+        "variant": { "type": "string", "pattern": "^[a-z0-9-]{1,40}$" },
+        "visible": { "type": "boolean", "default": true },
+        "props":   { "type": "object" },
+        "style":   { "$ref": "#/definitions/sectionStyle" },
+        "responsive": {
+          "description": "Per-breakpoint overrides of `style` only. Content never differs across devices.",
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "mobile": { "$ref": "#/definitions/sectionStyle" },
+            "tablet": { "$ref": "#/definitions/sectionStyle" }
+          }
+        }
+      }
+    },
+
+    "sectionStyle": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "paddingY":   { "enum": ["none", "sm", "md", "lg", "xl"] },
+        "align":      { "enum": ["left", "center", "right"] },
+        "bg":         { "enum": ["default", "surface", "primary", "dark", "image", "none"] },
+        "bgMedia":    { "$ref": "#/definitions/mediaRef" },
+        "overlay":    { "type": "number", "minimum": 0, "maximum": 1 },
+        "radius":     { "enum": ["none", "sm", "md", "lg", "xl"] },
+        "hidden":     { "type": "boolean", "default": false },
+        "animation":  { "enum": ["none", "fade", "slide-up", "zoom"] }
+      }
+    },
+
+    "form": {
+      "type": "object",
+      "required": ["id", "fields"],
+      "additionalProperties": false,
+      "properties": {
+        "id":    { "type": "string", "pattern": "^[a-zA-Z0-9_-]{1,60}$" },
+        "title": { "type": "string", "maxLength": 160 },
+        "submitText": { "type": "string", "maxLength": 60 },
+        "successMessage": { "type": "string", "maxLength": 300 },
+        "notifyEmail": { "type": "string", "maxLength": 160 },
+        "fields": {
+          "type": "array", "minItems": 1, "maxItems": 30,
+          "items": {
+            "type": "object",
+            "required": ["name", "label", "type"],
+            "additionalProperties": false,
+            "properties": {
+              "name":     { "type": "string", "pattern": "^[a-zA-Z0-9_]{1,40}$" },
+              "label":    { "type": "string", "minLength": 1, "maxLength": 120 },
+              "type":     { "enum": ["text", "email", "tel", "number", "textarea", "select", "checkbox", "radio", "date", "file"] },
+              "required": { "type": "boolean", "default": false },
+              "placeholder": { "type": "string", "maxLength": 120 },
+              "options":  { "type": "array", "maxItems": 40, "items": { "type": "string", "maxLength": 120 } }
+            }
+          }
+        }
+      }
+    }
+  }
+}
