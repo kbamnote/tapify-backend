@@ -1,0 +1,29 @@
+{
+  "preset": "navy-gold",
+  "label": "Navy & Gold",
+  "description": "Trustworthy navy with a warm gold accent. Suits education, consulting, legal and corporate.",
+  "industries": ["coaching", "school", "lawyer", "ca", "consultant", "corporate"],
+
+  "tokens": {
+    "mode": "light",
+    "color": {
+      "primary":   "#1B3A6B",
+      "secondary": "#2C5AA0",
+      "accent":    "#F7941D",
+      "bg":        "#FFFFFF",
+      "surface":   "#F5F7FB",
+      "text":      "#111827",
+      "muted":     "#6B7280",
+      "border":    "#E5E7EB"
+    },
+    "font": {
+      "heading": "Poppins",
+      "body":    "Poppins"
+    },
+    "radius":    "md",
+    "spacing":   "comfortable",
+    "container": "normal"
+  },
+
+  "notes": "Tokens only — sections never hardcode colours, they read these as CSS variables. Changing `primary` here restyles every section, every page, instantly."
+}

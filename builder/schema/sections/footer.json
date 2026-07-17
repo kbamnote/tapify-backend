@@ -1,0 +1,70 @@
+{
+  "type": "footer",
+  "label": "Footer",
+  "category": "footer",
+  "icon": "panel-bottom",
+  "description": "Closing block — logo, short blurb, quick links, social icons, copyright.",
+  "industries": ["*"],
+  "singleton": true,
+  "maxPerPage": 1,
+
+  "variants": [
+    { "id": "columns",  "label": "Multi-column",  "preview": "/builder/previews/footer-columns.png" },
+    { "id": "simple",   "label": "Simple centered", "preview": "/builder/previews/footer-simple.png" }
+  ],
+
+  "props": [
+    { "key": "logo",    "type": "media",    "label": "Logo", "accept": ["image"], "group": "Brand",
+      "help": "Leave blank to show the site name as text." },
+    { "key": "blurb",   "type": "textarea", "label": "Short description", "maxLength": 400, "group": "Brand" },
+
+    { "key": "showSocial",  "type": "toggle", "label": "Show social icons", "default": true, "group": "Links",
+      "help": "Uses the social links from Business Info." },
+    { "key": "showContact", "type": "toggle", "label": "Show contact details", "default": true, "group": "Links" },
+    { "key": "showHours",   "type": "toggle", "label": "Show opening hours", "default": false, "group": "Links" },
+
+    {
+      "key": "columns",
+      "type": "repeater",
+      "label": "Link columns",
+      "group": "Links",
+      "max": 4,
+      "itemLabel": "{{title}}",
+      "addLabel": "Add column",
+      "showIf": { "variant": ["columns"] },
+      "fields": [
+        { "key": "title", "type": "text", "label": "Column title", "required": true, "maxLength": 60 },
+        {
+          "key": "links",
+          "type": "repeater",
+          "label": "Links",
+          "max": 10,
+          "itemLabel": "{{text}}",
+          "addLabel": "Add link",
+          "fields": [
+            { "key": "text", "type": "text", "label": "Text", "required": true, "maxLength": 60 },
+            { "key": "href", "type": "text", "label": "Link", "required": true, "maxLength": 600 }
+          ]
+        }
+      ]
+    },
+
+    { "key": "copyright", "type": "text", "label": "Copyright line", "maxLength": 200, "group": "Legal",
+      "help": "Leave blank to auto-generate from the site name and current year." },
+    { "key": "showBranding", "type": "toggle", "label": "Show \"Powered by Tapify\"", "default": true, "group": "Legal" }
+  ],
+
+  "style": {
+    "supports": ["paddingY", "align", "bg"],
+    "defaults": { "paddingY": "lg", "align": "left", "bg": "dark" }
+  },
+
+  "defaults": {
+    "variant": "columns",
+    "props": {
+      "showSocial": true,
+      "showContact": true,
+      "showBranding": true
+    }
+  }
+}

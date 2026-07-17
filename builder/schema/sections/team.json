@@ -1,0 +1,59 @@
+{
+  "type": "team",
+  "label": "Team / Faculty",
+  "category": "social-proof",
+  "icon": "users",
+  "description": "The people behind the business — staff, doctors, faculty, trainers.",
+  "industries": ["*"],
+  "singleton": false,
+  "maxPerPage": 2,
+
+  "variants": [
+    { "id": "cards-3",  "label": "3-column cards",   "preview": "/builder/previews/team-cards-3.png" },
+    { "id": "cards-4",  "label": "4-column cards",   "preview": "/builder/previews/team-cards-4.png" },
+    { "id": "circles",  "label": "Round photos",     "preview": "/builder/previews/team-circles.png" },
+    { "id": "slider",   "label": "Slider",           "preview": "/builder/previews/team-slider.png" }
+  ],
+
+  "props": [
+    { "key": "label",   "type": "text",     "label": "Eyebrow label", "maxLength": 40, "default": "Our Team", "group": "Heading" },
+    { "key": "heading", "type": "text",     "label": "Heading", "maxLength": 120, "group": "Heading" },
+    { "key": "sub",     "type": "textarea", "label": "Description", "maxLength": 300, "group": "Heading" },
+
+    {
+      "key": "items",
+      "type": "repeater",
+      "label": "People",
+      "group": "People",
+      "min": 1,
+      "max": 40,
+      "itemLabel": "{{name}}",
+      "addLabel": "Add person",
+      "fields": [
+        { "key": "photo",  "type": "media",    "label": "Photo", "accept": ["image"],
+          "help": "Use a head-and-shoulders photo — round variants crop to a circle." },
+        { "key": "name",   "type": "text",     "label": "Name", "required": true, "maxLength": 80 },
+        { "key": "role",   "type": "text",     "label": "Role / designation", "maxLength": 80 },
+        { "key": "meta",   "type": "text",     "label": "Meta line", "maxLength": 80, "placeholder": "e.g. 20 Years Experience" },
+        { "key": "bio",    "type": "textarea", "label": "Short bio", "maxLength": 400 },
+        { "key": "link",   "type": "link",     "label": "Profile link" }
+      ]
+    }
+  ],
+
+  "style": {
+    "supports": ["paddingY", "align", "bg", "radius", "animation"],
+    "defaults": { "paddingY": "lg", "align": "center", "bg": "surface" }
+  },
+
+  "defaults": {
+    "variant": "cards-3",
+    "props": {
+      "label": "Our Team",
+      "heading": "Meet the team",
+      "items": [
+        { "name": "Full name", "role": "Designation" }
+      ]
+    }
+  }
+}

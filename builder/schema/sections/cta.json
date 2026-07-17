@@ -1,0 +1,43 @@
+{
+  "type": "cta",
+  "label": "Call to Action",
+  "category": "contact",
+  "icon": "megaphone",
+  "description": "A focused banner that pushes one action — call, enquire, book, admission.",
+  "industries": ["*"],
+  "singleton": false,
+  "maxPerPage": 3,
+
+  "variants": [
+    { "id": "banner",   "label": "Full-width banner", "preview": "/builder/previews/cta-banner.png" },
+    { "id": "card",     "label": "Centered card",     "preview": "/builder/previews/cta-card.png" },
+    { "id": "split",    "label": "Text left, buttons right", "preview": "/builder/previews/cta-split.png" }
+  ],
+
+  "props": [
+    { "key": "heading", "type": "text",     "label": "Heading", "required": true, "maxLength": 120, "group": "Content" },
+    { "key": "sub",     "type": "textarea", "label": "Sub-text", "maxLength": 300, "group": "Content" },
+
+    { "key": "ctaPrimary",   "type": "link",   "label": "Primary button",   "group": "Buttons" },
+    { "key": "ctaSecondary", "type": "link",   "label": "Secondary button", "group": "Buttons" },
+    { "key": "showWhatsapp", "type": "toggle", "label": "Show WhatsApp button", "default": false, "group": "Buttons",
+      "help": "Uses the WhatsApp number from Business Info." },
+    { "key": "showCall",     "type": "toggle", "label": "Show Call button", "default": false, "group": "Buttons" }
+  ],
+
+  "style": {
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "radius", "animation"],
+    "defaults": { "paddingY": "lg", "align": "center", "bg": "primary" }
+  },
+
+  "defaults": {
+    "variant": "banner",
+    "props": {
+      "heading": "Ready to get started?",
+      "sub": "Talk to us today — we usually reply within a few hours.",
+      "ctaPrimary": { "text": "Contact us", "href": "#contact", "style": "primary" },
+      "showWhatsapp": true,
+      "showCall": true
+    }
+  }
+}

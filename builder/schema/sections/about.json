@@ -1,0 +1,56 @@
+{
+  "type": "about",
+  "label": "About",
+  "category": "content",
+  "icon": "info",
+  "description": "Who you are — story, image, and optional vision/mission cards.",
+  "industries": ["*"],
+  "singleton": false,
+  "maxPerPage": 2,
+
+  "variants": [
+    { "id": "image-left",  "label": "Image left, text right", "preview": "/builder/previews/about-image-left.png" },
+    { "id": "image-right", "label": "Text left, image right", "preview": "/builder/previews/about-image-right.png" },
+    { "id": "text-only",   "label": "Text only (no image)",   "preview": "/builder/previews/about-text-only.png" }
+  ],
+
+  "props": [
+    { "key": "label",   "type": "text",     "label": "Eyebrow label", "maxLength": 40, "default": "About Us", "group": "Heading" },
+    { "key": "heading", "type": "text",     "label": "Heading", "required": true, "maxLength": 120, "group": "Heading" },
+    { "key": "body",    "type": "textarea", "label": "Description", "required": true, "maxLength": 1200, "group": "Heading" },
+
+    { "key": "image",   "type": "media",    "label": "Image", "accept": ["image"], "group": "Media",
+      "showIf": { "variant": ["image-left", "image-right"] } },
+
+    { "key": "showPillars", "type": "toggle", "label": "Show Vision / Mission cards", "default": false, "group": "Vision & Mission" },
+    {
+      "key": "pillars",
+      "type": "repeater",
+      "label": "Cards",
+      "group": "Vision & Mission",
+      "max": 4,
+      "itemLabel": "{{title}}",
+      "addLabel": "Add card",
+      "fields": [
+        { "key": "icon",  "type": "icon",     "label": "Icon" },
+        { "key": "title", "type": "text",     "label": "Title", "required": true, "maxLength": 60 },
+        { "key": "text",  "type": "textarea", "label": "Text", "maxLength": 400 }
+      ]
+    }
+  ],
+
+  "style": {
+    "supports": ["paddingY", "align", "bg", "radius", "animation"],
+    "defaults": { "paddingY": "lg", "align": "left", "bg": "default" }
+  },
+
+  "defaults": {
+    "variant": "image-left",
+    "props": {
+      "label": "About Us",
+      "heading": "About our business",
+      "body": "Tell your story here — who you are, what you do, and why customers should trust you.",
+      "showPillars": false
+    }
+  }
+}

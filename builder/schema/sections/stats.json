@@ -1,0 +1,58 @@
+{
+  "type": "stats",
+  "label": "Stats / Achievements",
+  "category": "social-proof",
+  "icon": "trending-up",
+  "description": "Big numbers that build trust — students taught, years running, projects done.",
+  "industries": ["*"],
+  "singleton": false,
+  "maxPerPage": 2,
+
+  "variants": [
+    { "id": "bar",   "label": "Single row bar", "preview": "/builder/previews/stats-bar.png" },
+    { "id": "cards", "label": "Cards",          "preview": "/builder/previews/stats-cards.png" }
+  ],
+
+  "props": [
+    { "key": "label",   "type": "text",     "label": "Eyebrow label", "maxLength": 40, "group": "Heading" },
+    { "key": "heading", "type": "text",     "label": "Heading", "maxLength": 120, "group": "Heading" },
+    { "key": "sub",     "type": "textarea", "label": "Description", "maxLength": 300, "group": "Heading" },
+
+    {
+      "key": "items",
+      "type": "repeater",
+      "label": "Numbers",
+      "group": "Numbers",
+      "min": 2,
+      "max": 6,
+      "itemLabel": "{{label}}",
+      "addLabel": "Add number",
+      "fields": [
+        { "key": "icon",   "type": "icon",   "label": "Icon" },
+        { "key": "value",  "type": "number", "label": "Number", "required": true, "min": 0,
+          "help": "Digits only — the suffix goes in the next field so it can count up." },
+        { "key": "suffix", "type": "text",   "label": "Suffix", "maxLength": 6, "placeholder": "+ , % , ++" },
+        { "key": "label",  "type": "text",   "label": "Caption", "required": true, "maxLength": 60 }
+      ]
+    },
+
+    { "key": "countUp", "type": "toggle", "label": "Animate counting up", "default": true, "group": "Behaviour" }
+  ],
+
+  "style": {
+    "supports": ["paddingY", "align", "bg", "animation"],
+    "defaults": { "paddingY": "lg", "align": "center", "bg": "primary" }
+  },
+
+  "defaults": {
+    "variant": "bar",
+    "props": {
+      "countUp": true,
+      "items": [
+        { "value": 500, "suffix": "+", "label": "Happy customers" },
+        { "value": 10,  "suffix": "+", "label": "Years of experience" },
+        { "value": 50,  "suffix": "+", "label": "Projects delivered" }
+      ]
+    }
+  }
+}

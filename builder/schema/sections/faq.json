@@ -1,0 +1,55 @@
+{
+  "type": "faq",
+  "label": "FAQ",
+  "category": "content",
+  "icon": "help-circle",
+  "description": "Frequently asked questions in an expandable accordion.",
+  "industries": ["*"],
+  "singleton": false,
+  "maxPerPage": 2,
+
+  "variants": [
+    { "id": "accordion",   "label": "Accordion",        "preview": "/builder/previews/faq-accordion.png" },
+    { "id": "two-column",  "label": "Two columns",      "preview": "/builder/previews/faq-two-column.png" }
+  ],
+
+  "props": [
+    { "key": "label",   "type": "text",     "label": "Eyebrow label", "maxLength": 40, "default": "FAQ", "group": "Heading" },
+    { "key": "heading", "type": "text",     "label": "Heading", "maxLength": 120, "group": "Heading" },
+    { "key": "sub",     "type": "textarea", "label": "Description", "maxLength": 300, "group": "Heading" },
+
+    {
+      "key": "items",
+      "type": "repeater",
+      "label": "Questions",
+      "group": "Questions",
+      "min": 1,
+      "max": 40,
+      "itemLabel": "{{q}}",
+      "addLabel": "Add question",
+      "fields": [
+        { "key": "q", "type": "text",     "label": "Question", "required": true, "maxLength": 200 },
+        { "key": "a", "type": "textarea", "label": "Answer",   "required": true, "maxLength": 1200 }
+      ]
+    },
+
+    { "key": "openFirst", "type": "toggle", "label": "Open the first question by default", "default": true, "group": "Behaviour" }
+  ],
+
+  "style": {
+    "supports": ["paddingY", "align", "bg", "radius", "animation"],
+    "defaults": { "paddingY": "lg", "align": "center", "bg": "default" }
+  },
+
+  "defaults": {
+    "variant": "accordion",
+    "props": {
+      "label": "FAQ",
+      "heading": "Frequently asked questions",
+      "openFirst": true,
+      "items": [
+        { "q": "What are your timings?", "a": "Tell customers when you are open." }
+      ]
+    }
+  }
+}

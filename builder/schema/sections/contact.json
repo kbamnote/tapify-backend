@@ -1,0 +1,59 @@
+{
+  "type": "contact",
+  "label": "Contact",
+  "category": "contact",
+  "icon": "phone",
+  "description": "Contact details, map and an enquiry form.",
+  "industries": ["*"],
+  "singleton": false,
+  "maxPerPage": 1,
+
+  "variants": [
+    { "id": "form-map",   "label": "Form + map",        "preview": "/builder/previews/contact-form-map.png" },
+    { "id": "details-map","label": "Details + map",     "preview": "/builder/previews/contact-details-map.png" },
+    { "id": "form-only",  "label": "Form only",         "preview": "/builder/previews/contact-form-only.png" },
+    { "id": "cards",      "label": "Detail cards",      "preview": "/builder/previews/contact-cards.png" }
+  ],
+
+  "props": [
+    { "key": "label",   "type": "text",     "label": "Eyebrow label", "maxLength": 40, "default": "Contact", "group": "Heading" },
+    { "key": "heading", "type": "text",     "label": "Heading", "required": true, "maxLength": 120, "group": "Heading" },
+    { "key": "sub",     "type": "textarea", "label": "Description", "maxLength": 300, "group": "Heading" },
+
+    { "key": "showPhone",    "type": "toggle", "label": "Show phone",    "default": true, "group": "Details",
+      "help": "Uses the number from Business Info — edit it once, it updates everywhere." },
+    { "key": "showWhatsapp", "type": "toggle", "label": "Show WhatsApp", "default": true, "group": "Details" },
+    { "key": "showEmail",    "type": "toggle", "label": "Show email",    "default": true, "group": "Details" },
+    { "key": "showAddress",  "type": "toggle", "label": "Show address",  "default": true, "group": "Details" },
+    { "key": "showHours",    "type": "toggle", "label": "Show opening hours", "default": false, "group": "Details" },
+
+    { "key": "showMap",  "type": "toggle", "label": "Show map", "default": true, "group": "Map",
+      "showIf": { "variant": ["form-map", "details-map"] } },
+    { "key": "mapUrl",   "type": "text",   "label": "Google Maps link", "maxLength": 600, "group": "Map",
+      "help": "Leave blank to use the address from Business Info.",
+      "showIf": { "variant": ["form-map", "details-map"] } },
+
+    { "key": "formId",   "type": "text",   "label": "Form", "maxLength": 60, "group": "Form",
+      "help": "Which form to show. Forms are managed under Forms.",
+      "showIf": { "variant": ["form-map", "form-only"] } }
+  ],
+
+  "style": {
+    "supports": ["paddingY", "align", "bg", "radius", "animation"],
+    "defaults": { "paddingY": "lg", "align": "center", "bg": "default" }
+  },
+
+  "defaults": {
+    "variant": "form-map",
+    "props": {
+      "label": "Contact",
+      "heading": "Get in touch",
+      "sub": "We would love to hear from you.",
+      "showPhone": true,
+      "showWhatsapp": true,
+      "showEmail": true,
+      "showAddress": true,
+      "showMap": true
+    }
+  }
+}

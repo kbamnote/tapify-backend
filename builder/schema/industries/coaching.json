@@ -10,17 +10,29 @@
   "sections": [
     "hero",
     "about",
+    "stats",
     "services",
+    "team",
+    "testimonials",
     "gallery",
-    "contact"
+    "faq",
+    "cta",
+    "contact",
+    "footer"
   ],
 
   "recommended": [
     { "type": "hero",         "reason": "Headline + admissions CTA" },
     { "type": "about",        "reason": "Who you are, vision & mission" },
+    { "type": "stats",        "reason": "Selections, years running, students taught" },
     { "type": "services",     "reason": "Courses / batches you offer" },
+    { "type": "team",         "reason": "Faculty and mentors" },
+    { "type": "testimonials", "reason": "Student and parent reviews" },
     { "type": "gallery",      "reason": "Campus and classroom photos" },
-    { "type": "contact",      "reason": "Address, phone, enquiry form" }
+    { "type": "faq",          "reason": "Timings, fees, admission questions" },
+    { "type": "cta",          "reason": "Push the admission enquiry" },
+    { "type": "contact",      "reason": "Address, phone, enquiry form" },
+    { "type": "footer",       "reason": "Links, socials, copyright" }
   ],
 
   "copy": {
