@@ -120,4 +120,5 @@ return [
     'vcard96' => ['name' => 'Social Media Pro', 'layout' => 'standalone', 'primary' => '#2563eb', 'secondary' => '#2563eb', 'bg' => '#ffffff', 'surface' => '#ffffff', 'font' => 'poppins'],
     'vcard97' => ['name' => 'Social Services Pro', 'layout' => 'standalone', 'primary' => '#2563eb', 'secondary' => '#2563eb', 'bg' => '#ffffff', 'surface' => '#ffffff', 'font' => 'poppins'],
     'vcard98' => ['name' => 'Royal Voyage Pro', 'layout' => 'standalone', 'primary' => '#173a5c', 'secondary' => '#c0912e', 'bg' => '#ecdfc2', 'surface' => '#f6efdb', 'font' => 'poppins'],
+    'vcard99' => ['name' => 'Cars Pro', 'layout' => 'standalone', 'primary' => '#eb0029', 'secondary' => '#eb0029', 'bg' => '#ffffff', 'surface' => '#ffffff', 'font' => 'poppins'],
 ];
