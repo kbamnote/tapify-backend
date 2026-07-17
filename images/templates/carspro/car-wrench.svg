@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- wrench 1 (red) -->
+  <g transform="rotate(45 50 50)" fill="#eb0029">
+    <rect x="45" y="24" width="10" height="52" rx="5"/>
+    <path d="M50 14a13 13 0 1 0 0 26 13 13 0 0 0 0-26zm0 7a6 6 0 1 1 0 12 6 6 0 0 1 0-12z"/>
+    <circle cx="50" cy="80" r="7"/>
+  </g>
+  <!-- wrench 2 (steel grey) -->
+  <g transform="rotate(-45 50 50)" fill="#9aa0a6">
+    <rect x="45" y="24" width="10" height="52" rx="5"/>
+    <path d="M50 14a13 13 0 1 0 0 26 13 13 0 0 0 0-26zm0 7a6 6 0 1 1 0 12 6 6 0 0 1 0-12z"/>
+    <circle cx="50" cy="80" r="7"/>
+  </g>
+</svg>
