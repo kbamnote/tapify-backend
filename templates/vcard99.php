@@ -96,16 +96,16 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
  <div class="position-absolute top-0 start-0 w-100 h-100">
  <img src="/images/templates/carspro/foo-046.webp" loading=lazy class="w-100 h-100 object-fit-cover">
  </div>
- <div class="text-center pb-4 position-relative" style="z-index:2">
- <img src="/images/templates/carspro/autoxpress-logo.png" alt="AutoXpress" style="max-width:240px;width:74%;height:auto;display:inline-block;">
- </div>
- <div class="card flex-sm-row align-items-center gap-2 gap-sm-4">
+ <div class="card">
+ <div class="d-flex align-items-center justify-content-center gap-3 gap-sm-4 flex-wrap position-relative" style="z-index:2">
+ <img src="/images/templates/carspro/autoxpress-logo.png" alt="AutoXpress" style="max-width:190px;width:44%;height:auto;display:inline-block;">
  <div class=profile-bg-img>
  <div class="card-img d-flex justify-content-center align-items-center">
  <img src="<?= $profileImg ?>" class="w-100 h-100 object-fit-cover" loading=lazy>
  </div>
  </div>
- <div class="card-body p-0 text-sm-start text-center">
+ </div>
+ <div class="card-body p-0 text-center pt-3 position-relative" style="z-index:2">
  <div class="profile-name" data-tf-animated="1">
  <h2 class="text-white fs-24 mb-0" data-tf-animated="1">
  <?= htmlspecialchars($fullName) ?>
@@ -228,7 +228,7 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
  </div>
  <?php endif; ?>
 
- <?php if(!empty($services)): ?><div class="our-services-section pt-50 position-relative"><div class="section-heading text-center mb-40"><h2 class="text-white mb-1 d-inline-block">Our Services</h2></div><div class="services"><div class="px-30"><div class="row"><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/carspro/foo-023.webp"; ?><div class="col-sm-6 mb-sm-0 mb-40 p-3"><div class="card-wrapper h-100"><div class="service-card card h-100"><div class="card-img mx-auto"><a href="javascript:void(0)" class="pe-none"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></a></div><div class="card-body text-center"><h3 class="card-title text-primary"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></div></div><?php endforeach; ?></div></div></div></div><?php endif; ?>
+ <?php if(!empty($services)): ?><div class="our-services-section pt-50 position-relative"><div class="section-heading text-center mb-40"><h2 class="text-white mb-1 d-inline-block">Our Services</h2></div><div class="services"><div class="px-30"><div class="row row-gap-30px justify-content-center"><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/carspro/foo-023.webp"; ?><div class="col-sm-6 mb-sm-0 mb-40 p-3"><div class="card-wrapper"><div class="service-card card"><div class="card-img mx-auto"><a href="javascript:void(0)" class="pe-none"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></a></div><div class="card-body text-center"><h3 class="card-title text-primary"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></div></div><?php endforeach; ?></div></div></div></div><?php endif; ?>
  
  <?php $__gc=0; foreach((isset($__ga)?$__ga:($galleries ?? [])) as $__g){$__gc+=count($__g["images"] ?? []);} if($__gc>0): ?><div class="gallery-section pt-40 px-20 position-relative">
  <div class="position-absolute vector-4 vector-all">
@@ -275,7 +275,7 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
  </div><?php endif; ?>
 
 
- <div class="appointment-section pt-40 pb-40 px-30 position-relative">
+ <div class="appointment-section pt-40 pb-40 px-30 position-relative" style="margin-top:45px">
  <div class="position-absolute vector-7 vector-all">
  <img src=/images/templates/carspro/car-key.svg loading=lazy class="w-100 h-100 object-fit-cover">
  </div>
