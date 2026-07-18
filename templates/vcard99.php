@@ -684,8 +684,9 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
  <div class="bars-btn food-services-bars-btn">
  <img src=/images/templates/carspro/foo-069.svg loading=lazy>
  </div>
- <div class="sub-btn d-none sf-hidden">
- 
+ <div class="sub-btn">
+ <a href="javascript:void(0)" onclick="openWhatsAppModal()" class="sub-action" style="background:#25D366" title="Share via WhatsApp"><svg viewBox="0 0 448 512" width="22" height="22" fill="#fff"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.2-157zM223.9 438.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.5-186.6 184.5zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.3-5-3.7-10.5-6.5z"/></svg></a>
+ <a href="javascript:shareCard()" class="sub-action" style="background:#eb0029" title="Share"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></a>
  </div>
  </div>
  </div>
@@ -772,4 +773,12 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
   }
   if(btn){btn.addEventListener('click',openBookForm);}
 })();
-</script><?php include __DIR__ . "/_shared-scripts.php"; ?><style>/*tf-fixups*/.flatpickr-calendar:not(.open){display:none!important}</style><script>window.tfSubmitInquiry=async function(ev){ev.preventDefault();var f=ev.target;var b=f.querySelector("button[type=submit]");var fd=new FormData(f);if(b)b.disabled=true;try{var r=await fetch("/inquiry-submit.php",{method:"POST",body:fd});var j=await r.json();if(j.success){if(window.showToast)showToast("Message sent!","success");f.reset();}else{if(window.showToast)showToast(j.message||"Failed","error");}}catch(e){if(window.showToast)showToast("Connection error","error");}finally{if(b)b.disabled=false;}};</script></body></html>
+</script><?php include __DIR__ . "/_shared-scripts.php"; ?><style>/*tf-fixups*/.flatpickr-calendar:not(.open){display:none!important}</style><script>window.tfSubmitInquiry=async function(ev){ev.preventDefault();var f=ev.target;var b=f.querySelector("button[type=submit]");var fd=new FormData(f);if(b)b.disabled=true;try{var r=await fetch("/inquiry-submit.php",{method:"POST",body:fd});var j=await r.json();if(j.success){if(window.showToast)showToast("Message sent!","success");f.reset();}else{if(window.showToast)showToast(j.message||"Failed","error");}}catch(e){if(window.showToast)showToast("Connection error","error");}finally{if(b)b.disabled=false;}};</script><style>/* cars-pro: use the red button as the action menu, hide the shared purple FAB */
+.fab-container{display:none!important}
+.btn-section .fixed-btn-section .bars-btn{cursor:pointer;transition:transform .3s ease}
+.btn-section.tf-open .fixed-btn-section .bars-btn{transform:rotate(90deg)}
+.btn-section .fixed-btn-section .sub-btn{position:absolute!important;right:72px!important;left:auto!important;top:50%!important;transform:translateY(-50%)!important;width:auto!important;display:none;flex-direction:column;gap:12px;background:transparent!important;border-radius:0!important;padding:0!important}
+.btn-section.tf-open .fixed-btn-section .sub-btn{display:flex!important}
+.sub-action{width:50px;height:50px;border-radius:50%;display:flex!important;align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(0,0,0,.35);transition:transform .2s ease;text-decoration:none}
+.sub-action:hover{transform:scale(1.12)}
+</style><script>(function(){var sec=document.querySelector('.btn-section');var bars=sec&&sec.querySelector('.bars-btn');if(!sec||!bars)return;bars.addEventListener('click',function(e){e.stopPropagation();sec.classList.toggle('tf-open');});document.addEventListener('click',function(e){if(!sec.contains(e.target))sec.classList.remove('tf-open');});})();</script></body></html>
