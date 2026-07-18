@@ -14,6 +14,7 @@ require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../includes/functions.php';
 require_once __DIR__ . '/../../builder/lib/SiteRepo.php';
 require_once __DIR__ . '/../../builder/lib/SiteValidator.php';
+require_once __DIR__ . '/../../builder/lib/VercelDomains.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') { http_response_code(204); exit; }
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') sendError('Only POST allowed', 405);
@@ -55,12 +56,24 @@ try {
     $result = SiteRepo::publish($site, getCurrentUserId(), $label, $source);
     $fresh  = SiteRepo::findById($siteId);
 
+    // Point <slug>.tapify.co.in at the site. Deliberately AFTER publishing and
+    // wrapped: a Vercel outage must never stop a customer publishing, so we
+    // report the address status instead of failing the whole request.
+    $domain = ['configured' => false, 'ok' => false, 'message' => ''];
+    try {
+        $domain = VercelDomains::ensureSiteDomain($fresh['slug']);
+    } catch (Exception $e) {
+        $domain['message'] = 'Address setup could not run: ' . $e->getMessage();
+    }
+
     sendSuccess('Site published', [
         'version_id'   => $result['version_id'],
         'rev'          => $result['rev'],
         'slug'         => $fresh['slug'],
         'status'       => $fresh['status'],
         'published_at' => $fresh['published_at'],
+        'url'          => 'https://' . $fresh['slug'] . '.' . (defined('PUBLIC_BASE_DOMAIN') ? PUBLIC_BASE_DOMAIN : 'tapify.co.in'),
+        'domain'       => $domain,
     ]);
 
 } catch (SiteNotFoundException $e) {
