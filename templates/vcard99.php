@@ -96,6 +96,9 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
  <div class="position-absolute top-0 start-0 w-100 h-100">
  <img src="/images/templates/carspro/foo-046.webp" loading=lazy class="w-100 h-100 object-fit-cover">
  </div>
+ <div class="text-center pb-4 position-relative" style="z-index:2">
+ <img src="/images/templates/carspro/autoxpress-logo.png" alt="AutoXpress" style="max-width:240px;width:74%;height:auto;display:inline-block;">
+ </div>
  <div class="card flex-sm-row align-items-center gap-2 gap-sm-4">
  <div class=profile-bg-img>
  <div class="card-img d-flex justify-content-center align-items-center">
