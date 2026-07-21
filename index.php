@@ -60,6 +60,19 @@ if (strpos($alias, 'api/') === 0) {
 try {
     $pdo = getDB();
 
+    // 0. Builder website (JSON document, rendered here in PHP like a vCard).
+    //    The subdomain identifies the owner, so a published builder site owns the
+    //    whole host (root + every sub-page). Non-builder subdomains fall through.
+    $builderSlug = tapify_subdomain_slug($_SERVER['HTTP_HOST'] ?? '');
+    if ($builderSlug !== '') {
+        require_once __DIR__ . '/builder/render/SiteRenderer.php';
+        if (SiteRenderer::hasPublishedSite($builderSlug)) {
+            $pagePath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
+            SiteRenderer::renderBySlug($builderSlug, $pagePath);
+            exit;
+        }
+    }
+
     // 1. Check if it's a vCard
     $stmt = $pdo->prepare("SELECT id FROM vcards WHERE url_alias = ? AND status = 1 LIMIT 1");
     $stmt->execute([$alias]);

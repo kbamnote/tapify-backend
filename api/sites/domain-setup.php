@@ -37,12 +37,13 @@ try {
         sendError('Publish the website first — there is nothing to point the address at.', 400);
     }
 
-    $domain = VercelDomains::ensureSiteDomain($site['slug']);
-
-    sendSuccess($domain['ok'] ? 'Address is set up' : 'Address is not ready yet', [
+    // Builder sites are served from Railway via the *.tapify.co.in wildcard, so a
+    // published site is already reachable — there is no per-site address to set up.
+    $base = defined('PUBLIC_BASE_DOMAIN') ? PUBLIC_BASE_DOMAIN : 'tapify.co.in';
+    sendSuccess('Address is set up', [
         'slug'   => $site['slug'],
-        'url'    => 'https://' . $site['slug'] . '.' . (defined('PUBLIC_BASE_DOMAIN') ? PUBLIC_BASE_DOMAIN : 'tapify.co.in'),
-        'domain' => $domain,
+        'url'    => 'https://' . $site['slug'] . '.' . $base,
+        'domain' => ['configured' => true, 'ok' => true, 'host' => $site['slug'] . '.' . $base, 'message' => 'Live.'],
     ]);
 } catch (Exception $e) {
     sendError('Address setup failed: ' . $e->getMessage(), 500);

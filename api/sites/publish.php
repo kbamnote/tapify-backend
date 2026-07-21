@@ -56,15 +56,15 @@ try {
     $result = SiteRepo::publish($site, getCurrentUserId(), $label, $source);
     $fresh  = SiteRepo::findById($siteId);
 
-    // Point <slug>.tapify.co.in at the site. Deliberately AFTER publishing and
-    // wrapped: a Vercel outage must never stop a customer publishing, so we
-    // report the address status instead of failing the whole request.
-    $domain = ['configured' => false, 'ok' => false, 'message' => ''];
-    try {
-        $domain = VercelDomains::ensureSiteDomain($fresh['slug']);
-    } catch (Exception $e) {
-        $domain['message'] = 'Address setup could not run: ' . $e->getMessage();
-    }
+    // Builder sites are served from Railway through the *.tapify.co.in wildcard —
+    // the same path as vCards — so a published site is instantly live with NO
+    // per-site DNS or Vercel setup. Nothing to provision here.
+    $domain = [
+        'configured' => true,
+        'ok'         => true,
+        'host'       => $fresh['slug'] . '.' . (defined('PUBLIC_BASE_DOMAIN') ? PUBLIC_BASE_DOMAIN : 'tapify.co.in'),
+        'message'    => 'Live.',
+    ];
 
     sendSuccess('Site published', [
         'version_id'   => $result['version_id'],
