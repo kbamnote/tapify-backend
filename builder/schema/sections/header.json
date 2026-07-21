@@ -1,0 +1,54 @@
+{
+  "type": "header",
+  "label": "Header / Nav",
+  "category": "header",
+  "icon": "panel-top",
+  "description": "Top navigation bar — logo, menu links and an optional button. Add it once at the top of a page.",
+  "industries": ["*"],
+  "singleton": true,
+  "maxPerPage": 1,
+
+  "variants": [
+    { "id": "left",   "label": "Logo left, menu right", "preview": "/builder/previews/header-left.png" },
+    { "id": "center", "label": "Logo centered",          "preview": "/builder/previews/header-center.png" },
+    { "id": "split",  "label": "Menu left, logo center", "preview": "/builder/previews/header-split.png" }
+  ],
+
+  "props": [
+    { "key": "logo", "type": "media", "label": "Logo", "accept": ["image"], "group": "Brand",
+      "help": "Leave blank to show the site name as text." },
+
+    {
+      "key": "links",
+      "type": "repeater",
+      "label": "Menu links",
+      "group": "Menu",
+      "max": 8,
+      "itemLabel": "{{text}}",
+      "addLabel": "Add link",
+      "help": "Leave empty to list your pages automatically, in the order set in the Pages tab. Add links here to take full control.",
+      "fields": [
+        { "key": "text", "type": "text", "label": "Text", "required": true, "maxLength": 40 },
+        { "key": "href", "type": "text", "label": "Link", "required": true, "maxLength": 600,
+          "help": "A page like /about, an anchor like #contact, or a full https:// URL." }
+      ]
+    },
+
+    { "key": "cta", "type": "link", "label": "Button", "group": "Button",
+      "help": "An optional call-to-action shown at the end of the bar." },
+
+    { "key": "sticky", "type": "toggle", "label": "Stick to top when scrolling", "default": true, "group": "Behaviour" }
+  ],
+
+  "style": {
+    "supports": ["bg"],
+    "defaults": { "bg": "default" }
+  },
+
+  "defaults": {
+    "variant": "left",
+    "props": {
+      "sticky": true
+    }
+  }
+}
