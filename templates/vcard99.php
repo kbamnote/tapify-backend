@@ -712,7 +712,7 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
   function loadSlots(date){
     chosen.date=date;chosen.time='';
     if(btn){btn.classList.add('d-none');}
-    slotWrap.innerHTML='<div class="col-12 text-center py-2" style="color:#40b5c5">Loading slots\u2026</div>';
+    slotWrap.innerHTML='<div class="col-12 text-center py-2" style="color:#eb0029">Loading slots\u2026</div>';
     fetch('/api/appointments/slots_public.php?vcard_id=<?= $vcardId ?>&date='+encodeURIComponent(date))
       .then(function(r){return r.json();})
       .then(function(res){
@@ -727,6 +727,7 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
             slotWrap.querySelectorAll('.tf-slot').forEach(function(x){x.classList.remove('active');});
             b.classList.add('active');chosen.time=v;chosen.label=l;
             if(btn){btn.classList.remove('d-none');btn.classList.remove('sf-hidden');}
+            openBookForm();
           };
           c.appendChild(b);slotWrap.appendChild(c);
         });
@@ -742,15 +743,15 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
     if(overlay){overlay.remove();}
     overlay=document.createElement('div');
     overlay.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:99999;display:flex;align-items:center;justify-content:center;padding:16px';
-    overlay.innerHTML='<div style="background:linear-gradient(0deg,#f9fcfc,#c2e2e6);border:2px solid #40b5c5;border-radius:0 30px 0 30px;max-width:380px;width:100%;padding:24px" onclick="event.stopPropagation()">'
-      +'<h5 style="color:#144660;font-weight:600;margin-bottom:4px">Make an Appointment</h5>'
+    overlay.innerHTML='<div style="background:linear-gradient(0deg,#ffffff,#fdeaea);border:2px solid #eb0029;border-radius:0 30px 0 30px;max-width:380px;width:100%;padding:24px" onclick="event.stopPropagation()">'
+      +'<h5 style="color:#1c2125;font-weight:600;margin-bottom:4px">Make an Appointment</h5>'
       +'<p style="font-size:13px;color:#6b7280;margin-bottom:14px">'+esc(chosen.date)+' \u00b7 '+esc(chosen.label)+'</p>'
       +'<input id="tfApName" class="form-control" placeholder="Your Name *" style="margin-bottom:10px">'
       +'<input id="tfApPhone" class="form-control" type="tel" placeholder="Phone Number *" style="margin-bottom:10px">'
       +'<input id="tfApEmail" class="form-control" type="email" placeholder="Email (optional)" style="margin-bottom:14px">'
       +'<div style="display:flex;gap:10px;justify-content:flex-end">'
-      +'<button type="button" id="tfApCancel" class="btn" style="border:1px solid #40b5c5;color:#40b5c5;border-radius:0 14px 0 14px">Cancel</button>'
-      +'<button type="button" id="tfApGo" class="btn" style="background:#40b5c5;color:#fff;border-radius:0 14px 0 14px">Book Now</button>'
+      +'<button type="button" id="tfApCancel" class="btn" style="border:1px solid #eb0029;color:#eb0029;border-radius:0 14px 0 14px">Cancel</button>'
+      +'<button type="button" id="tfApGo" class="btn" style="background:#eb0029;color:#fff;border-radius:0 14px 0 14px">Book Now</button>'
       +'</div></div>';
     overlay.addEventListener('click',function(){overlay.remove();overlay=null;});
     document.body.appendChild(overlay);
