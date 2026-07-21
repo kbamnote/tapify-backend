@@ -46,8 +46,12 @@ try {
     }
 
     // ---- validate before touching the database ----
+    // Drafts validate LENIENTLY: structure is enforced (ids, slugs, types,
+    // limits) but "required content" (a headline, etc.) is not, so a
+    // work-in-progress is never blocked from saving. publish.php re-validates
+    // strictly, so an incomplete site still cannot go live.
     $validator = new SiteValidator();
-    $errors = $validator->validate($doc);
+    $errors = $validator->validate($doc, false);
     if ($errors) {
         http_response_code(422);
         header('Content-Type: application/json');

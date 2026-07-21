@@ -23,6 +23,15 @@ class SiteValidator
     /** @var string[] */
     private $errors = [];
 
+    /**
+     * When false (draft autosaves), "required content" checks are skipped so a
+     * work-in-progress can always be saved — you should never be blocked from
+     * saving because a headline is momentarily blank. Structure is still fully
+     * validated (ids, slugs, types, limits), and publish.php re-validates in
+     * strict mode, so an incomplete site still cannot go live.
+     */
+    private bool $strict = true;
+
     public const MAX_PAGES            = 50;
     public const MAX_SECTIONS_PER_PAGE = 60;
     public const MAX_DOC_BYTES        = 2097152; // 2 MB of JSON is already a huge site
@@ -30,8 +39,9 @@ class SiteValidator
     /**
      * @return string[] list of human-readable errors; empty array === valid
      */
-    public function validate($doc): array
+    public function validate($doc, bool $strict = true): array
     {
+        $this->strict = $strict;
         $this->errors = [];
 
         if (!is_array($doc)) {
@@ -51,7 +61,9 @@ class SiteValidator
 
         // --- site ---
         $site = $doc['site'] ?? null;
-        if (!is_array($site) || !$this->nonEmptyString($site['name'] ?? null)) {
+        if (!is_array($site)) {
+            $this->err('site', 'must be an object');
+        } elseif ($this->strict && !$this->nonEmptyString($site['name'] ?? null)) {
             $this->err('site.name', 'is required');
         }
 
@@ -135,7 +147,7 @@ class SiteValidator
             $slugs[] = $slug;
         }
 
-        if (!$this->nonEmptyString($page['title'] ?? null)) {
+        if ($this->strict && !$this->nonEmptyString($page['title'] ?? null)) {
             $this->err("$path.title", 'is required');
         }
 
@@ -233,7 +245,7 @@ class SiteValidator
             }
 
             $has = array_key_exists($key, $props) && $props[$key] !== null && $props[$key] !== '';
-            if (!empty($f['required']) && $applies && !$has) {
+            if ($this->strict && !empty($f['required']) && $applies && !$has) {
                 $this->err("$path.$key", 'is required');
                 continue;
             }
@@ -362,8 +374,8 @@ class SiteValidator
                 $names[] = $name;
             }
 
-            if (!$this->nonEmptyString($fld['label'] ?? null)) $this->err("$p.label", 'is required');
-            $this->enum($fld['type'] ?? null, $allowed, "$p.type", true);
+            if ($this->strict && !$this->nonEmptyString($fld['label'] ?? null)) $this->err("$p.label", 'is required');
+            $this->enum($fld['type'] ?? null, $allowed, "$p.type", $this->strict);
         }
     }
 
