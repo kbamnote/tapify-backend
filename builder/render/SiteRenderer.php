@@ -48,6 +48,11 @@ class SiteRenderer
      */
     public static function renderBySlug(string $slug, string $path = '/'): bool
     {
+        // This is a customer-facing page: never leak PHP notices/warnings into the
+        // HTML. They are still written to the error log for debugging.
+        @ini_set('display_errors', '0');
+        error_reporting(E_ALL & ~E_WARNING & ~E_NOTICE & ~E_DEPRECATED);
+
         self::$slug = strtolower(trim($slug));
 
         $site = SiteRepo::findBySlug(self::$slug);
@@ -294,7 +299,7 @@ class SiteRenderer
                      . '<div aria-hidden="true" class="tf-overlay" style="background:rgba(2,6,23,' . $overlay . ')"></div>';
         }
 
-        return '<section id="' . self::esc($s['id'] ?? '') . '" class="tf-section" style="' . $secStyle . '">'
+        return '<section id="' . self::esc($s['id'] ?? '') . '" class="tf-section tf-al-' . $align . '" style="' . $secStyle . '">'
              . $bgLayer
              . '<div class="tf-container tf-rel">' . $inner . '</div>'
              . '</section>';
@@ -759,7 +764,7 @@ class SiteRenderer
                 foreach (($col['links'] ?? []) as $l) $links .= '<li style="margin-bottom:6px"><a href="' . self::esc($l['href'] ?? '#') . '" style="text-decoration:none;opacity:.75">' . self::esc($l['text'] ?? '') . '</a></li>';
                 $body .= '<div><p style="font-size:14px;font-weight:600;margin:0 0 12px">' . self::esc($col['title'] ?? '') . '</p><ul style="list-style:none;padding:0;margin:0;font-size:14px">' . $links . '</ul></div>';
             }
-            if (($p['showContact'] ?? true) !== false && ($biz['phone'] || $biz['email'] || $biz['address'])) {
+            if (($p['showContact'] ?? true) !== false && (!empty($biz['phone']) || !empty($biz['email']) || !empty($biz['address']))) {
                 $ci = '';
                 if (!empty($biz['phone'])) $ci .= '<li style="margin-bottom:6px"><a href="tel:' . self::esc($biz['phone']) . '" style="text-decoration:none">' . self::esc($biz['phone']) . '</a></li>';
                 if (!empty($biz['email'])) $ci .= '<li style="margin-bottom:6px"><a href="mailto:' . self::esc($biz['email']) . '" style="text-decoration:none">' . self::esc($biz['email']) . '</a></li>';
@@ -804,6 +809,11 @@ a{color:inherit}
 @media(min-width:768px){.tf-h2{font-size:36px}}
 .tf-lead{margin-top:16px;font-size:16px;line-height:1.6;opacity:.9;max-width:640px}
 @media(min-width:768px){.tf-lead{font-size:18px}}
+.tf-hero-wrap{max-width:768px}
+.tf-al-center .tf-hero-wrap,.tf-al-center .tf-sub,.tf-al-center .tf-lead{margin-left:auto;margin-right:auto}
+.tf-al-center .tf-btns{justify-content:center}
+.tf-al-right .tf-hero-wrap,.tf-al-right .tf-sub,.tf-al-right .tf-lead{margin-left:auto}
+.tf-al-right .tf-btns{justify-content:flex-end}
 .tf-head{margin-bottom:40px}
 .tf-eyebrow{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--color-accent);margin:0 0 8px}
 .tf-sub{margin-top:12px;font-size:16px;line-height:1.6;color:var(--color-muted);max-width:640px}
