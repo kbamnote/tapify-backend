@@ -99,11 +99,15 @@ class SiteRenderer
             $sections .= self::section($s, $doc);
         }
 
+        // The theme tokens go in a <style> block, NOT an inline style attribute:
+        // font values contain double quotes ("DM Sans") which would otherwise
+        // truncate a double-quoted style="" and drop every var after them
+        // (fonts, spacing, radius). In a stylesheet the quotes are valid CSS.
         return "<!DOCTYPE html><html lang=\"" . self::esc($doc['site']['locale'] ?? 'en') . "\"><head>"
              . $head
-             . "<style>" . self::baseCss() . "</style>"
+             . "<style>.tf-site{" . $vars . "}" . self::baseCss() . "</style>"
              . "</head><body>"
-             . "<main class=\"tf-site\" style=\"" . $vars . "\">" . $sections . "</main>"
+             . "<main class=\"tf-site\">" . $sections . "</main>"
              . "</body></html>";
     }
 
