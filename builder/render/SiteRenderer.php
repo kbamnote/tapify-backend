@@ -501,20 +501,23 @@ class SiteRenderer
         $variant = $s['variant'] ?? 'cards-3';
         $showImages = $variant !== 'list';
 
-        $cards = '';
+        $cards = [];
         foreach ($items as $it) {
             $img = self::media($it['image'] ?? null);
-            $cards .= '<div class="tf-card">';
-            if ($showImages && $img) $cards .= '<img src="' . self::esc($img) . '" alt="' . self::esc($it['title'] ?? '') . '" loading="lazy" style="height:176px;width:100%;object-fit:cover">';
-            $cards .= '<div style="padding:20px">';
-            $cards .= '<h3 style="font-family:var(--font-heading);font-size:18px;font-weight:600">' . self::esc($it['title'] ?? '') . '</h3>';
-            if (!empty($it['meta'])) $cards .= '<p style="margin-top:4px;font-size:12px;font-weight:600;color:var(--color-accent)">' . self::esc($it['meta']) . '</p>';
-            if (!empty($it['desc'])) $cards .= '<p style="margin-top:8px;font-size:14px;color:var(--color-muted)">' . self::esc($it['desc']) . '</p>';
-            if (!empty($it['cta']['text'])) { $l = $it['cta']; $l['style'] = $l['style'] ?? 'link'; $cards .= '<div style="margin-top:16px">' . self::btn($l) . '</div>'; }
-            $cards .= '</div></div>';
+            $c = '<div class="tf-card">';
+            if ($showImages && $img) $c .= '<img src="' . self::esc($img) . '" alt="' . self::esc($it['title'] ?? '') . '" loading="lazy" style="height:176px;width:100%;object-fit:cover">';
+            $c .= '<div style="padding:20px">';
+            $c .= '<h3 style="font-family:var(--font-heading);font-size:18px;font-weight:600">' . self::esc($it['title'] ?? '') . '</h3>';
+            if (!empty($it['meta'])) $c .= '<p style="margin-top:4px;font-size:12px;font-weight:600;color:var(--color-accent)">' . self::esc($it['meta']) . '</p>';
+            if (!empty($it['desc'])) $c .= '<p style="margin-top:8px;font-size:14px;color:var(--color-muted)">' . self::esc($it['desc']) . '</p>';
+            if (!empty($it['cta']['text'])) { $l = $it['cta']; $l['style'] = $l['style'] ?? 'link'; $c .= '<div style="margin-top:16px">' . self::btn($l) . '</div>'; }
+            $c .= '</div></div>';
+            $cards[] = $c;
         }
-        $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null)
-               . '<div class="' . self::gridClass($variant) . '" style="text-align:left">' . $cards . '</div>';
+        $body = $variant === 'carousel'
+            ? self::carousel($cards)
+            : '<div class="' . self::gridClass($variant) . '" style="text-align:left">' . implode('', $cards) . '</div>';
+        $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null) . $body;
         return self::shell($s, $inner);
     }
 
@@ -573,26 +576,29 @@ class SiteRenderer
         $round = $variant === 'circles';
         $cls = $variant === 'cards-4' ? 'tf-c4' : 'tf-c3';
 
-        $cards = '';
+        $cards = [];
         foreach ($items as $pr) {
             $img = self::media($pr['photo'] ?? null);
-            $cards .= '<div class="tf-card" style="padding:24px;text-align:center">';
+            $c = '<div class="tf-card" style="padding:24px;text-align:center">';
             if ($img) {
                 $st = $round ? 'margin:0 auto;height:112px;width:112px;object-fit:cover;border-radius:999px' : 'margin:0 auto;height:160px;width:100%;object-fit:cover;border-radius:var(--radius)';
-                $cards .= '<img src="' . self::esc($img) . '" alt="' . self::esc($pr['name'] ?? '') . '" loading="lazy" style="' . $st . '">';
+                $c .= '<img src="' . self::esc($img) . '" alt="' . self::esc($pr['name'] ?? '') . '" loading="lazy" style="' . $st . '">';
             } else {
                 $initial = function_exists('mb_substr') ? mb_substr($pr['name'] ?? '?', 0, 1, 'UTF-8') : substr($pr['name'] ?? '?', 0, 1);
-                $cards .= '<div aria-hidden="true" style="margin:0 auto;height:112px;width:112px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;border-radius:999px;background:var(--color-surface);color:var(--color-muted)">' . self::esc($initial) . '</div>';
+                $c .= '<div aria-hidden="true" style="margin:0 auto;height:112px;width:112px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;border-radius:999px;background:var(--color-surface);color:var(--color-muted)">' . self::esc($initial) . '</div>';
             }
-            $cards .= '<h3 style="margin-top:16px;font-family:var(--font-heading);font-size:16px;font-weight:600">' . self::esc($pr['name'] ?? '') . '</h3>';
-            if (!empty($pr['role'])) $cards .= '<p style="margin-top:2px;font-size:12px;font-weight:600;color:var(--color-accent)">' . self::esc($pr['role']) . '</p>';
-            if (!empty($pr['meta'])) $cards .= '<p style="margin-top:8px;display:inline-block;padding:4px 12px;font-size:12px;background:var(--color-surface);color:var(--color-muted);border-radius:999px">' . self::esc($pr['meta']) . '</p>';
-            if (!empty($pr['bio'])) $cards .= '<p style="margin-top:12px;font-size:14px;color:var(--color-muted)">' . self::esc($pr['bio']) . '</p>';
-            if (!empty($pr['link']['text'])) { $l = $pr['link']; $l['style'] = $l['style'] ?? 'link'; $cards .= '<div style="margin-top:12px">' . self::btn($l) . '</div>'; }
-            $cards .= '</div>';
+            $c .= '<h3 style="margin-top:16px;font-family:var(--font-heading);font-size:16px;font-weight:600">' . self::esc($pr['name'] ?? '') . '</h3>';
+            if (!empty($pr['role'])) $c .= '<p style="margin-top:2px;font-size:12px;font-weight:600;color:var(--color-accent)">' . self::esc($pr['role']) . '</p>';
+            if (!empty($pr['meta'])) $c .= '<p style="margin-top:8px;display:inline-block;padding:4px 12px;font-size:12px;background:var(--color-surface);color:var(--color-muted);border-radius:999px">' . self::esc($pr['meta']) . '</p>';
+            if (!empty($pr['bio'])) $c .= '<p style="margin-top:12px;font-size:14px;color:var(--color-muted)">' . self::esc($pr['bio']) . '</p>';
+            if (!empty($pr['link']['text'])) { $l = $pr['link']; $l['style'] = $l['style'] ?? 'link'; $c .= '<div style="margin-top:12px">' . self::btn($l) . '</div>'; }
+            $c .= '</div>';
+            $cards[] = $c;
         }
-        $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null)
-               . '<div class="tf-grid ' . $cls . '">' . $cards . '</div>';
+        $body = $variant === 'slider'
+            ? self::carousel($cards)
+            : '<div class="tf-grid ' . $cls . '">' . implode('', $cards) . '</div>';
+        $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null) . $body;
         return self::shell($s, $inner);
     }
 
