@@ -108,6 +108,7 @@ class SiteRenderer
              . "<style>.tf-site{" . $vars . "}" . self::baseCss() . "</style>"
              . "</head><body>"
              . "<main class=\"tf-site\">" . $sections . "</main>"
+             . self::carouselScript()
              . "</body></html>";
     }
 
@@ -346,6 +347,24 @@ class SiteRenderer
         return 'tf-grid tf-c3';
     }
 
+    /** A real carousel — arrows, dots, autoplay, swipe (wired by the page script). */
+    private static function carousel(array $slidesHtml, int $autoplay = 4000): string
+    {
+        if (!$slidesHtml) return '';
+        $slides = '';
+        foreach ($slidesHtml as $sl) $slides .= '<div class="tf-cslide">' . $sl . '</div>';
+        $multi = count($slidesHtml) > 1;
+        $arrows = $multi
+            ? '<button type="button" class="tf-cprev" aria-label="Previous">&#8249;</button>'
+              . '<button type="button" class="tf-cnext" aria-label="Next">&#8250;</button>'
+            : '';
+        $dots = $multi ? '<div class="tf-cdots"></div>' : '';
+        return '<div class="tf-carousel" data-autoplay="' . (int)$autoplay . '">'
+             . '<div class="tf-cviewport"><div class="tf-ctrack">' . $slides . '</div>' . $arrows . '</div>'
+             . $dots
+             . '</div>';
+    }
+
     /* --------------------------------------------------------- sections */
 
     private static function section(array $s, array $doc): string
@@ -505,18 +524,20 @@ class SiteRenderer
         $variant = $s['variant'] ?? 'grid-3';
         $imgs = array_values(array_filter($p['images'] ?? [], fn($i) => self::media($i['image'] ?? null)));
         if (!$imgs) return '';
-        $g = $variant === 'grid-4' ? 'g4' : ($variant === 'grid-3' ? 'g3' : 'g3');
+        $g = $variant === 'grid-4' ? 'g4' : 'g3';
         $lightbox = ($p['lightbox'] ?? true) !== false;
 
-        $cells = '';
+        $slides = [];
         foreach ($imgs as $im) {
             $src = self::media($im['image']);
             $fig = '<figure class="tf-galfig"><img src="' . self::esc($src) . '" alt="' . self::esc($im['alt'] ?? '') . '" loading="lazy">'
                  . (!empty($im['alt']) ? '<figcaption>' . self::esc($im['alt']) . '</figcaption>' : '') . '</figure>';
-            $cells .= $lightbox ? '<a href="' . self::esc($src) . '" target="_blank" rel="noopener noreferrer">' . $fig . '</a>' : $fig;
+            $slides[] = $lightbox ? '<a href="' . self::esc($src) . '" target="_blank" rel="noopener noreferrer">' . $fig . '</a>' : $fig;
         }
-        $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null)
-               . '<div class="tf-gal ' . $g . '">' . $cells . '</div>';
+        $body = $variant === 'slider'
+            ? self::carousel($slides)
+            : '<div class="tf-gal ' . $g . '">' . implode('', $slides) . '</div>';
+        $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null) . $body;
         return self::shell($s, $inner);
     }
 
@@ -601,10 +622,10 @@ class SiteRenderer
             return self::shell($s, $inner);
         }
 
-        $cards = '';
+        $cards = [];
         foreach ($items as $r) {
             $photo = self::media($r['photo'] ?? null);
-            $cards .= '<div class="tf-card" style="padding:24px;text-align:left">' . $stars($r['rating'] ?? 5)
+            $cards[] = '<div class="tf-card" style="padding:24px;text-align:left">' . $stars($r['rating'] ?? 5)
                     . '<blockquote style="margin:12px 0 0;font-size:14px;color:var(--color-muted)">“' . self::esc($r['quote'] ?? '') . '”</blockquote>'
                     . '<div style="margin-top:20px;display:flex;align-items:center;gap:12px">'
                     . ($photo ? '<img src="' . self::esc($photo) . '" alt="' . self::esc($r['name'] ?? '') . '" loading="lazy" style="height:40px;width:40px;border-radius:999px;object-fit:cover">' : '')
@@ -612,8 +633,10 @@ class SiteRenderer
                     . (!empty($r['role']) ? '<p style="font-size:12px;color:var(--color-muted);margin:0">' . self::esc($r['role']) . '</p>' : '') . '</div>'
                     . '</div></div>';
         }
-        $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null)
-               . '<div class="tf-grid tf-c3">' . $cards . '</div>';
+        $body = $variant === 'slider'
+            ? self::carousel($cards, ($p['autoplay'] ?? true) === false ? 0 : 4000)
+            : '<div class="tf-grid tf-c3">' . implode('', $cards) . '</div>';
+        $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null) . $body;
         return self::shell($s, $inner);
     }
 
@@ -799,6 +822,39 @@ class SiteRenderer
         return self::shell($s, $body . $bottom);
     }
 
+    /* --------------------------------------------------------- carousel js */
+
+    /** Wires every .tf-carousel: arrows, dots, autoplay (pause on hover), swipe. */
+    private static function carouselScript(): string
+    {
+        return <<<'JS'
+<script>(function(){
+function init(car){
+  if(car.dataset.tfc)return;car.dataset.tfc="1";
+  var track=car.querySelector(".tf-ctrack");if(!track)return;
+  var slides=Array.prototype.slice.call(track.children),n=slides.length;if(n<2)return;
+  var dots=car.querySelector(".tf-cdots"),prev=car.querySelector(".tf-cprev"),next=car.querySelector(".tf-cnext");
+  function cur(){var c=track.scrollLeft+track.clientWidth/2,b=0,bd=Infinity;for(var i=0;i<n;i++){var e=slides[i],cc=e.offsetLeft+e.offsetWidth/2,d=Math.abs(cc-c);if(d<bd){bd=d;b=i;}}return b;}
+  function go(i){i=(i%n+n)%n;var e=slides[i];track.scrollTo({left:e.offsetLeft-track.offsetLeft,behavior:"smooth"});}
+  if(dots){for(var i=0;i<n;i++){(function(k){var b=document.createElement("button");if(k===0)b.className="active";b.setAttribute("aria-label","Go to slide "+(k+1));b.addEventListener("click",function(){go(k);rest();});dots.appendChild(b);})(i);}}
+  function sync(){var a=cur();if(dots)for(var i=0;i<dots.children.length;i++)dots.children[i].className=(i===a)?"active":"";}
+  var tk=false;track.addEventListener("scroll",function(){if(!tk){requestAnimationFrame(function(){sync();tk=false;});tk=true;}},{passive:true});
+  if(prev)prev.addEventListener("click",function(){go(cur()-1);rest();});
+  if(next)next.addEventListener("click",function(){go(cur()+1);rest();});
+  var iv=parseInt(car.getAttribute("data-autoplay"),10)||0,timer=null;
+  function play(){stop();if(iv>0)timer=setInterval(function(){var a=cur();go(a>=n-1?0:a+1);},iv);}
+  function stop(){if(timer){clearInterval(timer);timer=null;}}
+  function rest(){play();}
+  car.addEventListener("mouseenter",stop);car.addEventListener("mouseleave",play);
+  car.addEventListener("touchstart",stop,{passive:true});
+  play();
+}
+function boot(){var c=document.querySelectorAll(".tf-carousel");for(var i=0;i<c.length;i++)init(c[i]);}
+if(document.readyState!=="loading")boot();else document.addEventListener("DOMContentLoaded",boot);
+})();</script>
+JS;
+    }
+
     /* --------------------------------------------------------- base css */
 
     private static function baseCss(): string
@@ -870,6 +926,19 @@ a{color:inherit}
 .tf-faq-plus{transition:transform .2s;display:inline-block}
 @media(min-width:640px){.tf-foot-bottom{flex-direction:row!important}}
 iframe{max-width:100%}
+.tf-carousel{position:relative}
+.tf-cviewport{position:relative}
+.tf-ctrack{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none}
+.tf-ctrack::-webkit-scrollbar{display:none}
+.tf-cslide{flex:0 0 85%;max-width:85%;scroll-snap-align:start}
+@media(min-width:640px){.tf-cslide{flex:0 0 46%;max-width:46%}}
+@media(min-width:1024px){.tf-cslide{flex:0 0 31%;max-width:31%}}
+.tf-cprev,.tf-cnext{position:absolute;top:50%;transform:translateY(-50%);display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:999px;border:1px solid var(--color-border);background:var(--color-bg);color:var(--color-text);font-size:20px;line-height:1;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.12);z-index:2}
+.tf-cprev{left:-6px}.tf-cnext{right:-6px}
+.tf-cprev:hover,.tf-cnext:hover{opacity:.85}
+.tf-cdots{display:flex;justify-content:center;gap:8px;margin-top:16px}
+.tf-cdots button{width:8px;height:8px;padding:0;border:0;border-radius:999px;background:var(--color-border);cursor:pointer;transition:width .25s,background .25s}
+.tf-cdots button.active{width:20px;background:var(--color-primary)}
 CSS;
     }
 }
