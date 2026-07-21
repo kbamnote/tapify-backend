@@ -434,6 +434,15 @@ class SiteRenderer
                    . '</div>';
             return self::shell($s, $inner);
         }
+
+        // "Centered on background image": the Image field IS the background.
+        if ($variant === 'centered-bg' && !empty($p['image'])) {
+            $s['style'] = array_merge($s['style'] ?? [], [
+                'bg'      => 'image',
+                'bgMedia' => $p['image'],
+                'overlay' => $s['style']['overlay'] ?? 0.55,
+            ]);
+        }
         return self::shell($s, '<div class="tf-hero-wrap">' . $body . '</div>');
     }
 
