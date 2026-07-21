@@ -279,7 +279,7 @@ class SiteRenderer
     }
 
     /** SectionShell: padding / bg / align / radius / bg-image + overlay + container. */
-    private static function shell(array $s, string $inner): string
+    private static function shell(array $s, string $inner, string $extraStyle = ''): string
     {
         $style = $s['style'] ?? [];
         $padMap = ['none'=>0,'sm'=>28,'md'=>48,'lg'=>72,'xl'=>104];
@@ -303,7 +303,7 @@ class SiteRenderer
                      . '<div aria-hidden="true" class="tf-overlay" style="background:rgba(2,6,23,' . $overlay . ')"></div>';
         }
 
-        return '<section id="' . self::esc($s['id'] ?? '') . '" class="tf-section tf-al-' . $align . '" style="' . $secStyle . '">'
+        return '<section id="' . self::esc($s['id'] ?? '') . '" class="tf-section tf-al-' . $align . '" style="' . $secStyle . $extraStyle . '">'
              . $bgLayer
              . '<div class="tf-container tf-rel">' . $inner . '</div>'
              . '</section>';
@@ -416,6 +416,8 @@ class SiteRenderer
         $img = self::media($p['image'] ?? null);
         $biz = $doc['business'] ?? [];
         $onDark = self::isDarkBg($s);
+        // Full-viewport hero, like a landing page.
+        $fh = !empty($p['fullHeight']) ? 'min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;justify-content:center;' : '';
 
         $body = '';
         if (!empty($p['badge'])) $body .= '<span class="tf-badge">' . self::esc($p['badge']) . '</span>';
@@ -432,7 +434,7 @@ class SiteRenderer
                    . '<div>' . $body . '</div>'
                    . '<img src="' . self::esc($img) . '" alt="' . self::esc($p['heading'] ?? '') . '" style="width:100%;object-fit:cover;border-radius:var(--radius);max-height:460px">'
                    . '</div>';
-            return self::shell($s, $inner);
+            return self::shell($s, $inner, $fh);
         }
 
         // "Centered on background image": the Image field IS the background.
@@ -443,7 +445,7 @@ class SiteRenderer
                 'overlay' => $s['style']['overlay'] ?? 0.55,
             ]);
         }
-        return self::shell($s, '<div class="tf-hero-wrap">' . $body . '</div>');
+        return self::shell($s, '<div class="tf-hero-wrap">' . $body . '</div>', $fh);
     }
 
     private static function secAbout(array $s, array $doc): string

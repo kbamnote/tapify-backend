@@ -20,6 +20,8 @@
     { "key": "sub",      "type": "textarea", "label": "Sub-heading", "maxLength": 400, "group": "Content" },
     { "key": "image",    "type": "media",    "label": "Image",      "accept": ["image", "video"], "group": "Media",
       "showIf": { "variant": ["centered-bg", "split"] } },
+    { "key": "fullHeight", "type": "toggle", "label": "Full screen height", "default": true, "group": "Layout",
+      "help": "Make the hero fill the visitor's screen, like a landing page." },
     { "key": "ctaPrimary",   "type": "link", "label": "Primary button",   "group": "Buttons" },
     { "key": "ctaSecondary", "type": "link", "label": "Secondary button", "group": "Buttons" },
     { "key": "showWhatsapp", "type": "toggle", "label": "Show WhatsApp button", "default": true, "group": "Buttons",
@@ -38,6 +40,7 @@
       "heading": "Your headline goes here",
       "sub": "One clear sentence about what you do and who it is for.",
       "ctaPrimary": { "text": "Get in touch", "href": "#contact", "style": "primary" },
+      "fullHeight": true,
       "showWhatsapp": true,
       "showCall": true
     }
