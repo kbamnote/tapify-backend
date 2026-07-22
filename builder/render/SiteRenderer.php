@@ -281,7 +281,15 @@ class SiteRenderer
         }
     }
 
-    /** SectionShell: padding / bg / align / radius / bg-image + overlay + container. */
+    /** object-fit/position for the "Image fit" option (avoids cropping faces). */
+    private static function imgFit(?string $fit): string
+    {
+        if ($fit === 'contain') return 'object-fit:contain;object-position:center;';
+        if ($fit === 'top') return 'object-fit:cover;object-position:top;';
+        return 'object-fit:cover;object-position:center;';
+    }
+
+    /** SectionShell: padding / bg / align / radius + bg-image + overlay + container. */
     private static function shell(array $s, string $inner, string $extraStyle = ''): string
     {
         $style = $s['style'] ?? [];
@@ -511,7 +519,7 @@ class SiteRenderer
 
         if (!$hasImage) return self::shell($s, '<div style="max-width:768px;margin:0 auto">' . $text . '</div>');
 
-        $image = '<img src="' . self::esc($img) . '" alt="' . self::esc($p['heading'] ?? 'About') . '" loading="lazy" style="width:100%;object-fit:cover;border-radius:var(--radius);max-height:460px">';
+        $image = '<img src="' . self::esc($img) . '" alt="' . self::esc($p['heading'] ?? 'About') . '" loading="lazy" style="width:100%;border-radius:var(--radius);max-height:460px;' . self::imgFit($p['imageFit'] ?? null) . '">';
         $cols = $variant === 'image-left' ? ($image . $text) : ($text . $image);
         return self::shell($s, '<div class="tf-two" style="text-align:left">' . $cols . '</div>');
     }
@@ -528,7 +536,7 @@ class SiteRenderer
         foreach ($items as $it) {
             $img = self::media($it['image'] ?? null);
             $c = '<div class="tf-card">';
-            if ($showImages && $img) $c .= '<img src="' . self::esc($img) . '" alt="' . self::esc($it['title'] ?? '') . '" loading="lazy" style="height:176px;width:100%;object-fit:cover">';
+            if ($showImages && $img) $c .= '<img src="' . self::esc($img) . '" alt="' . self::esc($it['title'] ?? '') . '" loading="lazy" style="height:176px;width:100%;' . self::imgFit($p['imageFit'] ?? null) . '">';
             $c .= '<div style="padding:20px">';
             $c .= '<h3 style="font-family:var(--font-heading);font-size:18px;font-weight:600">' . self::esc($it['title'] ?? '') . '</h3>';
             if (!empty($it['meta'])) $c .= '<p style="margin-top:4px;font-size:12px;font-weight:600;color:var(--color-accent)">' . self::esc($it['meta']) . '</p>';
@@ -556,7 +564,7 @@ class SiteRenderer
         $slides = [];
         foreach ($imgs as $im) {
             $src = self::media($im['image']);
-            $fig = '<figure class="tf-galfig"><img src="' . self::esc($src) . '" alt="' . self::esc($im['alt'] ?? '') . '" loading="lazy">'
+            $fig = '<figure class="tf-galfig"><img src="' . self::esc($src) . '" alt="' . self::esc($im['alt'] ?? '') . '" loading="lazy" style="' . self::imgFit($p['imageFit'] ?? null) . '">'
                  . (!empty($im['alt']) ? '<figcaption>' . self::esc($im['alt']) . '</figcaption>' : '') . '</figure>';
             $slides[] = $lightbox ? '<a href="' . self::esc($src) . '" target="_blank" rel="noopener noreferrer">' . $fig . '</a>' : $fig;
         }
@@ -611,7 +619,7 @@ class SiteRenderer
             $img = self::media($pr['photo'] ?? null);
             $c = '<div class="tf-card" style="padding:24px;text-align:center">';
             if ($img) {
-                $st = $round ? 'margin:0 auto;height:112px;width:112px;object-fit:cover;border-radius:999px' : 'margin:0 auto;height:160px;width:100%;object-fit:cover;border-radius:var(--radius)';
+                $st = ($round ? 'margin:0 auto;height:112px;width:112px;border-radius:999px;' : 'margin:0 auto;height:160px;width:100%;border-radius:var(--radius);') . self::imgFit($p['imageFit'] ?? null);
                 $c .= '<img src="' . self::esc($img) . '" alt="' . self::esc($pr['name'] ?? '') . '" loading="lazy" style="' . $st . '">';
             } else {
                 $initial = function_exists('mb_substr') ? mb_substr($pr['name'] ?? '?', 0, 1, 'UTF-8') : substr($pr['name'] ?? '?', 0, 1);

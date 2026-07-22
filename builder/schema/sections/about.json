@@ -36,7 +36,9 @@
         { "key": "title", "type": "text",     "label": "Title", "required": true, "maxLength": 60 },
         { "key": "text",  "type": "textarea", "label": "Text", "maxLength": 400 }
       ]
-    }
+    },
+    { "key": "imageFit", "type": "select", "label": "Image fit", "options": ["cover", "top", "contain"], "default": "cover", "group": "Media",
+      "help": "How the photo fills its frame. Cover crops to fill; Top keeps the top of the photo (best for faces); Contain shows the whole photo." }
   ],
 
   "style": {
