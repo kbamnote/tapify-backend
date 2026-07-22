@@ -18,6 +18,9 @@
     { "key": "heading", "type": "text",     "label": "Heading", "maxLength": 120, "default": "Opening hours", "group": "Heading" },
     { "key": "sub",     "type": "textarea", "label": "Description", "maxLength": 300, "group": "Heading" },
 
+    { "key": "hours", "type": "hours", "label": "Opening hours", "group": "Hours",
+      "help": "Set a From/To time for each open day. Shared with your Contact & Footer sections." },
+
     { "key": "highlightToday", "type": "toggle", "label": "Highlight today", "default": true, "group": "Options" },
     { "key": "note", "type": "text", "label": "Footnote", "maxLength": 160, "group": "Options",
       "help": "Small line under the hours, e.g. \"Closed on public holidays\"." }
