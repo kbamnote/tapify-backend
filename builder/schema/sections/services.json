@@ -38,7 +38,19 @@
         { "key": "title",  "type": "text",     "label": "Title", "required": true, "maxLength": 80 },
         { "key": "desc",   "type": "textarea", "label": "Description", "maxLength": 300 },
         { "key": "meta",   "type": "text",     "label": "Meta line", "maxLength": 60, "placeholder": "e.g. 2 Years · Class 11-12" },
-        { "key": "cta",    "type": "link",     "label": "Button" }
+        { "key": "cta",    "type": "link",     "label": "Button" },
+
+        { "key": "body",   "type": "textarea", "label": "Full description (opens its own page)", "maxLength": 20000,
+          "help": "Fill this to give the service/product its own detail page with a photo gallery — like a product page on Amazon or Flipkart. The card's Button, if set, is ignored and 'View details' is shown instead." },
+        { "key": "gallery", "type": "repeater", "label": "Photos (for the detail page)", "max": 10, "itemLabel": "{{alt}}", "addLabel": "Add photo",
+          "fields": [
+            { "key": "image", "type": "media", "label": "Photo", "accept": ["image"], "required": true },
+            { "key": "alt",   "type": "text",  "label": "Caption", "maxLength": 120 }
+          ]
+        },
+        { "key": "price",  "type": "text",     "label": "Price (optional)", "maxLength": 40, "placeholder": "e.g. ₹4,999 or Starting at ₹999" },
+        { "key": "slug",   "type": "text",     "label": "Page address (optional)", "maxLength": 80, "placeholder": "auto from title",
+          "help": "The detail page address: /service/<this>. Leave blank to build it from the title." }
       ]
     },
     { "key": "imageFit", "type": "select", "label": "Image fit", "options": ["cover", "top", "contain"], "default": "cover", "group": "Media",

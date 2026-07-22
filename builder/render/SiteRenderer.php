@@ -77,6 +77,18 @@ class SiteRenderer
             return true;
         }
 
+        // Product/service detail: /service/<slug> — photo gallery + description.
+        if (preg_match('#^/service/([a-z0-9][a-z0-9-]*)$#', $norm, $sm)) {
+            $services = self::allServices($doc);
+            if (isset($services[$sm[1]])) {
+                header('Content-Type: text/html; charset=utf-8');
+                echo self::renderServiceDetail($doc, $services[$sm[1]]);
+                return true;
+            }
+            self::notFound();
+            return true;
+        }
+
         $page = null;
         foreach ($doc['pages'] as $p) {
             if (($p['slug'] ?? '') === $norm) { $page = $p; break; }
@@ -554,8 +566,16 @@ class SiteRenderer
             $c .= '<div style="padding:20px">';
             $c .= '<h3 style="font-family:var(--font-heading);font-size:18px;font-weight:600">' . self::esc($it['title'] ?? '') . '</h3>';
             if (!empty($it['meta'])) $c .= '<p style="margin-top:4px;font-size:12px;font-weight:600;color:var(--color-accent)">' . self::esc($it['meta']) . '</p>';
+            if (!empty($it['price'])) $c .= '<p style="margin-top:6px;font-size:16px;font-weight:700;color:var(--color-primary)">' . self::esc($it['price']) . '</p>';
             if (!empty($it['desc'])) $c .= '<p style="margin-top:8px;font-size:14px;color:var(--color-muted)">' . self::esc($it['desc']) . '</p>';
-            if (!empty($it['cta']['text'])) { $l = $it['cta']; $l['style'] = $l['style'] ?? 'link'; $c .= '<div style="margin-top:16px">' . self::btn($l) . '</div>'; }
+            // A service with a full description opens its own product-style page
+            // (photo gallery + details), which takes priority over a plain button.
+            if (trim((string)($it['body'] ?? '')) !== '') {
+                $l = ['text' => 'View details', 'href' => '/service/' . self::itemSlug($it, 'service'), 'style' => 'link'];
+                $c .= '<div style="margin-top:16px">' . self::btn($l) . '</div>';
+            } elseif (!empty($it['cta']['text'])) {
+                $l = $it['cta']; $l['style'] = $l['style'] ?? 'link'; $c .= '<div style="margin-top:16px">' . self::btn($l) . '</div>';
+            }
             $c .= '</div></div>';
             $cards[] = $c;
         }
@@ -926,13 +946,13 @@ class SiteRenderer
     /* ------------------------------------------------------- blog detail */
 
     /** URL-safe slug for a post: its slug field, else built from the title. */
-    private static function postSlug(array $post): string
+    private static function itemSlug(array $item, string $fallback = 'item'): string
     {
-        $s = strtolower(trim((string)($post['slug'] ?? '')));
-        if ($s === '') $s = strtolower(trim((string)($post['title'] ?? '')));
+        $s = strtolower(trim((string)($item['slug'] ?? '')));
+        if ($s === '') $s = strtolower(trim((string)($item['title'] ?? '')));
         $s = preg_replace('/[^a-z0-9]+/', '-', $s);
         $s = trim((string)$s, '-');
-        return $s !== '' ? $s : 'post';
+        return $s !== '' ? $s : $fallback;
     }
 
     /** Every post in the document, keyed by slug (first wins on a clash). */
@@ -943,8 +963,25 @@ class SiteRenderer
             foreach (($pg['sections'] ?? []) as $s) {
                 if (($s['type'] ?? '') !== 'blog') continue;
                 foreach (($s['props']['posts'] ?? []) as $post) {
-                    $slug = self::postSlug($post);
+                    $slug = self::itemSlug($post, 'post');
                     if (!isset($out[$slug])) $out[$slug] = $post;
+                }
+            }
+        }
+        return $out;
+    }
+
+    /** Every service/product with a full description, keyed by slug. */
+    private static function allServices(array $doc): array
+    {
+        $out = [];
+        foreach (($doc['pages'] ?? []) as $pg) {
+            foreach (($pg['sections'] ?? []) as $s) {
+                if (($s['type'] ?? '') !== 'services') continue;
+                foreach (($s['props']['items'] ?? []) as $item) {
+                    if (trim((string)($item['body'] ?? '')) === '') continue;
+                    $slug = self::itemSlug($item, 'service');
+                    if (!isset($out[$slug])) $out[$slug] = $item;
                 }
             }
         }
@@ -985,7 +1022,7 @@ class SiteRenderer
         $name  = $doc['site']['name'] ?? '';
 
         $pseudo = [
-            'slug'  => '/post/' . self::postSlug($post),
+            'slug'  => '/post/' . self::itemSlug($post, 'post'),
             'title' => $post['title'] ?? 'Post',
             'seo'   => [
                 'title'       => trim(($post['title'] ?? 'Post') . ' | ' . $name, ' |'),
@@ -1021,6 +1058,79 @@ class SiteRenderer
              . "</body></html>";
     }
 
+    /**
+     * Render one service/product on its own page: a photo gallery (like a
+     * product page on Amazon/Flipkart) plus title, price and full description.
+     */
+    private static function renderServiceDetail(array $doc, array $item): string
+    {
+        $vars  = self::themeVars($doc['theme'] ?? []);
+        $fonts = self::googleFonts($doc['theme'] ?? []);
+        $name  = $doc['site']['name'] ?? '';
+
+        $pseudo = [
+            'slug'  => '/service/' . self::itemSlug($item, 'service'),
+            'title' => $item['title'] ?? 'Service',
+            'seo'   => [
+                'title'       => trim(($item['title'] ?? 'Service') . ' | ' . $name, ' |'),
+                'description' => $item['desc'] ?? '',
+                'ogImage'     => $item['image'] ?? null,
+                'robots'      => 'index,follow',
+            ],
+        ];
+
+        // Where "Back" goes: the page that holds a Services section, else home.
+        $backPath = '/';
+        foreach (($doc['pages'] ?? []) as $pg) {
+            foreach (($pg['sections'] ?? []) as $s) {
+                if (($s['type'] ?? '') === 'services') { $backPath = $pg['slug'] ?? '/'; break 2; }
+            }
+        }
+
+        // Photos: the card's own image first, then the extra gallery photos —
+        // a product-style set of shots the customer can flip through.
+        $photos = [];
+        $cover = self::media($item['image'] ?? null);
+        if ($cover) $photos[] = ['src' => $cover, 'alt' => $item['title'] ?? ''];
+        foreach (($item['gallery'] ?? []) as $g) {
+            $src = self::media($g['image'] ?? null);
+            if ($src) $photos[] = ['src' => $src, 'alt' => $g['alt'] ?? ($item['title'] ?? '')];
+        }
+
+        $slides = [];
+        foreach ($photos as $ph) {
+            $slides[] = '<div style="display:flex;align-items:center;justify-content:center;height:420px;background:var(--color-surface);border-radius:var(--radius)">'
+                . '<img src="' . self::esc($ph['src']) . '" alt="' . self::esc($ph['alt']) . '" loading="lazy" style="max-width:100%;max-height:100%;object-fit:contain">'
+                . '</div>';
+        }
+        $gallery = $slides ? self::carousel($slides, 0) : '';
+
+        $priceHtml = !empty($item['price'])
+            ? '<p style="margin:6px 0 0;font-size:24px;font-weight:700;color:var(--color-primary)">' . self::esc($item['price']) . '</p>' : '';
+        $ctaHtml = !empty($item['cta']['text']) ? self::btn($item['cta']) : '';
+
+        $article = '<article class="tf-container" style="padding-top:calc(56px*var(--space-scale));padding-bottom:calc(56px*var(--space-scale))">'
+            . '<a href="' . self::esc($backPath) . '" style="display:inline-block;margin-bottom:22px;font-size:14px;font-weight:600;color:var(--color-primary);text-decoration:none">&larr; Back</a>'
+            . '<div class="tf-two" style="align-items:start">'
+            . '<div>' . $gallery . '</div>'
+            . '<div style="text-align:left">'
+            . (!empty($item['meta']) ? '<p style="margin:0 0 6px;font-size:13px;font-weight:600;color:var(--color-accent)">' . self::esc($item['meta']) . '</p>' : '')
+            . '<h1 style="margin:0;font-family:var(--font-heading);font-size:32px;line-height:1.2;font-weight:700">' . self::esc($item['title'] ?? '') . '</h1>'
+            . $priceHtml
+            . ($ctaHtml ? '<div style="margin-top:20px">' . $ctaHtml . '</div>' : '')
+            . '<div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--color-border);font-size:16px;line-height:1.75">' . self::articleBody($item['body'] ?? '') . '</div>'
+            . '</div></div>'
+            . '</article>';
+
+        return "<!DOCTYPE html><html lang=\"" . self::esc($doc['site']['locale'] ?? 'en') . "\"><head>"
+             . self::head($doc, $pseudo, $fonts)
+             . "<style>.tf-site{" . $vars . "}" . self::baseCss() . "</style>"
+             . "</head><body>"
+             . "<main class=\"tf-site\">" . self::chromeSection($doc, 'header') . $article . self::chromeSection($doc, 'footer') . "</main>"
+             . self::carouselScript() . self::animScript()
+             . "</body></html>";
+    }
+
     private static function secBlog(array $s, array $doc): string
     {
         $p = $s['props'] ?? [];
@@ -1038,7 +1148,7 @@ class SiteRenderer
             // A post with a full article opens its own page; otherwise fall back to
             // the external link if one was given.
             if (trim((string)($b['body'] ?? '')) !== '') {
-                $l = ['text'=>($b['linkText'] ?? 'Read more'),'href'=>'/post/' . self::postSlug($b),'style'=>'link'];
+                $l = ['text'=>($b['linkText'] ?? 'Read more'),'href'=>'/post/' . self::itemSlug($b, 'post'),'style'=>'link'];
                 $c .= '<div style="margin-top:14px">' . self::btn($l) . '</div>';
             } elseif (!empty($b['href'])) {
                 $l = ['text'=>($b['linkText'] ?? 'Read more'),'href'=>$b['href'],'style'=>'link','newTab'=>true];
