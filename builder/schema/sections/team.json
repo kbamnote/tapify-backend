@@ -11,8 +11,10 @@
   "variants": [
     { "id": "cards-3",  "label": "3-column cards",   "preview": "/builder/previews/team-cards-3.png" },
     { "id": "cards-4",  "label": "4-column cards",   "preview": "/builder/previews/team-cards-4.png" },
+    { "id": "cards-2",  "label": "2-column cards",   "preview": "/builder/previews/team-cards-2.png" },
     { "id": "circles",  "label": "Round photos",     "preview": "/builder/previews/team-circles.png" },
-    { "id": "slider",   "label": "Slider",           "preview": "/builder/previews/team-slider.png" }
+    { "id": "slider",   "label": "Slider",           "preview": "/builder/previews/team-slider.png" },
+    { "id": "marquee",  "label": "Marquee (auto-scroll)", "preview": "/builder/previews/team-marquee.png" }
   ],
 
   "props": [

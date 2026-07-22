@@ -11,7 +11,8 @@
   "variants": [
     { "id": "cards-3",  "label": "3-column cards", "preview": "/builder/previews/testimonials-cards-3.png" },
     { "id": "slider",   "label": "Slider",         "preview": "/builder/previews/testimonials-slider.png" },
-    { "id": "single",   "label": "One big quote",  "preview": "/builder/previews/testimonials-single.png" }
+    { "id": "single",   "label": "One big quote",  "preview": "/builder/previews/testimonials-single.png" },
+    { "id": "marquee",  "label": "Marquee (auto-scroll)", "preview": "/builder/previews/testimonials-marquee.png" }
   ],
 
   "props": [

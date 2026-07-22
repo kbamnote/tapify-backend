@@ -12,7 +12,8 @@
     { "id": "grid-3",  "label": "3-column grid", "preview": "/builder/previews/gallery-grid-3.png" },
     { "id": "grid-4",  "label": "4-column grid", "preview": "/builder/previews/gallery-grid-4.png" },
     { "id": "masonry", "label": "Masonry",       "preview": "/builder/previews/gallery-masonry.png" },
-    { "id": "slider",  "label": "Slider",        "preview": "/builder/previews/gallery-slider.png" }
+    { "id": "slider",  "label": "Slider",        "preview": "/builder/previews/gallery-slider.png" },
+    { "id": "marquee", "label": "Marquee (auto-scroll)", "preview": "/builder/previews/gallery-marquee.png" }
   ],
 
   "props": [

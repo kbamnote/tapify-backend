@@ -11,8 +11,10 @@
   "variants": [
     { "id": "cards-3",   "label": "3-column cards",  "preview": "/builder/previews/services-cards-3.png" },
     { "id": "cards-2",   "label": "2-column cards",  "preview": "/builder/previews/services-cards-2.png" },
+    { "id": "cards-4",   "label": "4-column cards",  "preview": "/builder/previews/services-cards-4.png" },
     { "id": "list",      "label": "Icon list",       "preview": "/builder/previews/services-list.png" },
-    { "id": "carousel",  "label": "Carousel",        "preview": "/builder/previews/services-carousel.png" }
+    { "id": "carousel",  "label": "Carousel",        "preview": "/builder/previews/services-carousel.png" },
+    { "id": "marquee",   "label": "Marquee (auto-scroll)", "preview": "/builder/previews/services-marquee.png" }
   ],
 
   "props": [

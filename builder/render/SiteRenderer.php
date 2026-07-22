@@ -365,6 +365,19 @@ class SiteRenderer
              . '</div>';
     }
 
+    /** A marquee — cards scroll continuously in a loop. Pure CSS, pauses on hover. */
+    private static function marquee(array $slidesHtml, int $secsPerSlide = 5): string
+    {
+        if (!$slidesHtml) return '';
+        $one = '';
+        foreach ($slidesHtml as $sl) $one .= '<div class="tf-mqslide">' . $sl . '</div>';
+        $dur = max(16, count($slidesHtml) * $secsPerSlide);
+        // The set is duplicated so translateX(-50%) loops seamlessly.
+        return '<div class="tf-marquee">'
+             . '<div class="tf-mqtrack" style="animation-duration:' . $dur . 's">' . $one . $one . '</div>'
+             . '</div>';
+    }
+
     /* --------------------------------------------------------- sections */
 
     private static function section(array $s, array $doc): string
@@ -514,9 +527,9 @@ class SiteRenderer
             $c .= '</div></div>';
             $cards[] = $c;
         }
-        $body = $variant === 'carousel'
-            ? self::carousel($cards)
-            : '<div class="' . self::gridClass($variant) . '" style="text-align:left">' . implode('', $cards) . '</div>';
+        $body = $variant === 'marquee' ? self::marquee($cards)
+            : ($variant === 'carousel' ? self::carousel($cards)
+            : '<div class="' . self::gridClass($variant) . '" style="text-align:left">' . implode('', $cards) . '</div>');
         $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null) . $body;
         return self::shell($s, $inner);
     }
@@ -537,9 +550,9 @@ class SiteRenderer
                  . (!empty($im['alt']) ? '<figcaption>' . self::esc($im['alt']) . '</figcaption>' : '') . '</figure>';
             $slides[] = $lightbox ? '<a href="' . self::esc($src) . '" target="_blank" rel="noopener noreferrer">' . $fig . '</a>' : $fig;
         }
-        $body = $variant === 'slider'
-            ? self::carousel($slides)
-            : '<div class="tf-gal ' . $g . '">' . implode('', $slides) . '</div>';
+        $body = $variant === 'marquee' ? self::marquee($slides)
+            : ($variant === 'slider' ? self::carousel($slides)
+            : '<div class="tf-gal ' . $g . '">' . implode('', $slides) . '</div>');
         $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null) . $body;
         return self::shell($s, $inner);
     }
@@ -574,7 +587,7 @@ class SiteRenderer
         if (!$items) return '';
         $variant = $s['variant'] ?? 'cards-3';
         $round = $variant === 'circles';
-        $cls = $variant === 'cards-4' ? 'tf-c4' : 'tf-c3';
+        $cls = $variant === 'cards-4' ? 'tf-c4' : ($variant === 'cards-2' ? 'tf-c2' : 'tf-c3');
 
         $cards = [];
         foreach ($items as $pr) {
@@ -595,9 +608,9 @@ class SiteRenderer
             $c .= '</div>';
             $cards[] = $c;
         }
-        $body = $variant === 'slider'
-            ? self::carousel($cards)
-            : '<div class="tf-grid ' . $cls . '">' . implode('', $cards) . '</div>';
+        $body = $variant === 'marquee' ? self::marquee($cards)
+            : ($variant === 'slider' ? self::carousel($cards)
+            : '<div class="tf-grid ' . $cls . '">' . implode('', $cards) . '</div>');
         $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null) . $body;
         return self::shell($s, $inner);
     }
@@ -639,9 +652,9 @@ class SiteRenderer
                     . (!empty($r['role']) ? '<p style="font-size:12px;color:var(--color-muted);margin:0">' . self::esc($r['role']) . '</p>' : '') . '</div>'
                     . '</div></div>';
         }
-        $body = $variant === 'slider'
-            ? self::carousel($cards, ($p['autoplay'] ?? true) === false ? 0 : 4000)
-            : '<div class="tf-grid tf-c3">' . implode('', $cards) . '</div>';
+        $body = $variant === 'marquee' ? self::marquee($cards)
+            : ($variant === 'slider' ? self::carousel($cards, ($p['autoplay'] ?? true) === false ? 0 : 4000)
+            : '<div class="tf-grid tf-c3">' . implode('', $cards) . '</div>');
         $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null) . $body;
         return self::shell($s, $inner);
     }
@@ -945,6 +958,13 @@ iframe{max-width:100%}
 .tf-cdots{display:flex;justify-content:center;gap:8px;margin-top:16px}
 .tf-cdots button{width:8px;height:8px;padding:0;border:0;border-radius:999px;background:var(--color-border);cursor:pointer;transition:width .25s,background .25s}
 .tf-cdots button.active{width:20px;background:var(--color-primary)}
+.tf-marquee{overflow:hidden;position:relative}
+.tf-mqtrack{display:flex;width:max-content;animation-name:tf-mqscroll;animation-timing-function:linear;animation-iteration-count:infinite}
+.tf-marquee:hover .tf-mqtrack{animation-play-state:paused}
+.tf-mqslide{flex:0 0 260px;margin-right:24px}
+@media(min-width:768px){.tf-mqslide{flex:0 0 320px}}
+@keyframes tf-mqscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.tf-mqtrack{animation:none;overflow-x:auto;max-width:100%}}
 CSS;
     }
 }
