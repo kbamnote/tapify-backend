@@ -110,6 +110,17 @@ class SiteRepo
         return (int)$stmt->fetchColumn();
     }
 
+    /**
+     * Serialise concurrent writers for one site (row lock on the sites row).
+     * Without this, an autosave and a publish (or two saves) can read the same
+     * MAX(rev) and both allocate the same rev — a duplicate uk_site_rev crash.
+     * Must be called inside an open transaction.
+     */
+    private static function lockSite(PDO $pdo, int $siteId): void
+    {
+        $pdo->prepare("SELECT id FROM sites WHERE id = ? FOR UPDATE")->execute([$siteId]);
+    }
+
     private static function insertVersion(PDO $pdo, int $siteId, array $doc, int $rev, string $kind, $userId, string $source, ?string $label = null): int
     {
         $stmt = $pdo->prepare(
@@ -195,6 +206,7 @@ class SiteRepo
         if (empty($site['draft_version_id'])) {
             $pdo->beginTransaction();
             try {
+                self::lockSite($pdo, $siteId);
                 $rev = self::nextRev($pdo, $siteId);
                 $vid = self::insertVersion($pdo, $siteId, $doc, $rev, 'draft', $userId, $source);
                 $pdo->prepare("UPDATE sites SET draft_version_id = ? WHERE id = ?")->execute([$vid, $siteId]);
@@ -205,6 +217,7 @@ class SiteRepo
 
         $pdo->beginTransaction();
         try {
+            self::lockSite($pdo, $siteId);
             $newRev = self::nextRev($pdo, $siteId);
 
             // The WHERE rev = ? is the lock: 0 affected rows === stale client.
@@ -253,6 +266,7 @@ class SiteRepo
         $siteId = (int)$site['id'];
         $pdo->beginTransaction();
         try {
+            self::lockSite($pdo, $siteId);
             $rev = self::nextRev($pdo, $siteId);
             $vid = self::insertVersion($pdo, $siteId, $draft['doc'], $rev, 'published', $userId, $source, $label);
 
