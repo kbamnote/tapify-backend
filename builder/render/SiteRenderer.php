@@ -110,6 +110,7 @@ class SiteRenderer
              . "<main class=\"tf-site\">" . $sections . "</main>"
              . self::carouselScript()
              . self::animScript()
+             . self::countScript()
              . "</body></html>";
     }
 
@@ -567,12 +568,19 @@ class SiteRenderer
         $items = $p['items'] ?? [];
         if (!$items) return '';
         $onDark = self::isDarkBg($s);
+        $countUp = ($p['countUp'] ?? true) !== false;
         $cells = '';
         foreach ($items as $it) {
-            $val = number_format((float)($it['value'] ?? 0));
+            $raw = (float)($it['value'] ?? 0);
+            $val = number_format($raw);
+            // Count-up: keep the final value in the HTML (SEO + no-JS), and let the
+            // script animate from 0 when the section scrolls into view.
+            $num = $countUp
+                ? '<span class="tf-count" data-count="' . (int)round($raw) . '">' . self::esc($val) . '</span>'
+                : self::esc($val);
             $suffixColor = $onDark ? 'inherit' : 'var(--color-accent)';
             $cells .= '<div style="text-align:center">'
-                    . '<div style="font-family:var(--font-heading);font-size:34px;font-weight:700">' . self::esc($val)
+                    . '<div style="font-family:var(--font-heading);font-size:34px;font-weight:700">' . $num
                     . '<span style="color:' . $suffixColor . '">' . self::esc($it['suffix'] ?? '') . '</span></div>'
                     . '<p style="margin-top:4px;font-size:14px;' . ($onDark ? 'opacity:.85' : 'color:var(--color-muted)') . '">' . self::esc($it['label'] ?? '') . '</p>'
                     . '</div>';
@@ -889,6 +897,22 @@ if(!("IntersectionObserver" in window)){for(var i=0;i<els.length;i++)els[i].clas
 document.documentElement.classList.add("tf-anim-ready");
 var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add("tf-in");io.unobserve(e.target);}});},{threshold:0.12,rootMargin:"0px 0px -8% 0px"});
 for(var i=0;i<els.length;i++)io.observe(els[i]);})();</script>
+JS;
+    }
+
+    /** Count numbers up from 0 to their value when the stat scrolls into view. */
+    private static function countScript(): string
+    {
+        return <<<'JS'
+<script>(function(){var els=document.querySelectorAll(".tf-count[data-count]");if(!els.length)return;
+function fmt(n){try{return n.toLocaleString("en-IN");}catch(e){return String(n);}}
+var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+if(reduce||!("IntersectionObserver" in window)){return;}
+function run(el){var target=parseFloat(el.getAttribute("data-count"))||0,done=false;
+var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting&&!done){done=true;var dur=1600,start=null;
+function tick(t){if(!start)start=t;var p=Math.min(1,(t-start)/dur);el.textContent=fmt(Math.round(target*(1-Math.pow(1-p,3))));if(p<1)requestAnimationFrame(tick);}
+requestAnimationFrame(tick);io.disconnect();}});},{threshold:0.4});io.observe(el);}
+for(var i=0;i<els.length;i++)run(els[i]);})();</script>
 JS;
     }
 

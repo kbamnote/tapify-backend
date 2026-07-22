@@ -41,7 +41,7 @@
   ],
 
   "style": {
-    "supports": ["paddingY", "align", "bg", "radius", "animation"],
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "radius", "animation"],
     "defaults": { "paddingY": "lg", "align": "center", "bg": "surface", "radius": "lg" }
   },
 

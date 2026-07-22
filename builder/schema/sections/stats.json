@@ -40,7 +40,7 @@
   ],
 
   "style": {
-    "supports": ["paddingY", "align", "bg", "animation"],
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "animation"],
     "defaults": { "paddingY": "lg", "align": "center", "bg": "primary" }
   },
 
