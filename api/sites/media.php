@@ -185,12 +185,16 @@ function uploadAsset(): void
     $alt   = isset($_POST['alt'])   ? mb_substr(trim((string)$_POST['alt']), 0, 255)   : null;
     $title = isset($_POST['title']) ? mb_substr(trim((string)$_POST['title']), 0, 255) : null;
 
-    $stmt = getDB()->prepare(
+    // Use ONE connection for the insert and lastInsertId(): getDB() opens a fresh
+    // PDO each call, so a second getDB()->lastInsertId() would read a brand-new
+    // connection and return 0 (the "media:0" bug).
+    $db = getDB();
+    $stmt = $db->prepare(
         "INSERT INTO media_assets (user_id, site_id, kind, path, mime, bytes, width, height, alt, title)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
     );
     $stmt->execute([$userId, $siteId, $kind, $storedPath, $expectedMime, (int)$file['size'], $width, $height, $alt, $title]);
-    $id = (int)getDB()->lastInsertId();
+    $id = (int)$db->lastInsertId();
 
     sendSuccess('Uploaded', [
         'id'     => $id,
