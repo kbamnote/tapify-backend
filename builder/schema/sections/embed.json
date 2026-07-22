@@ -1,0 +1,41 @@
+{
+  "type": "embed",
+  "label": "Social Embed",
+  "category": "social-proof",
+  "icon": "instagram",
+  "description": "Embed Instagram posts and reels by pasting their links.",
+  "industries": ["*"],
+  "singleton": false,
+  "maxPerPage": 3,
+
+  "variants": [
+    { "id": "grid-2", "label": "2 columns" },
+    { "id": "grid-3", "label": "3 columns" },
+    { "id": "single", "label": "Single, centered" }
+  ],
+
+  "props": [
+    { "key": "label",   "type": "text",     "label": "Eyebrow label", "maxLength": 40, "default": "Follow us", "group": "Heading" },
+    { "key": "heading", "type": "text",     "label": "Heading", "maxLength": 120, "default": "From our Instagram", "group": "Heading" },
+    { "key": "sub",     "type": "textarea", "label": "Description", "maxLength": 300, "group": "Heading" },
+
+    { "key": "embeds", "type": "repeater", "label": "Instagram posts / reels", "group": "Posts",
+      "max": 9, "min": 1, "itemLabel": "{{url}}", "addLabel": "Add post / reel",
+      "help": "Paste the link to a public Instagram post or reel.",
+      "fields": [
+        { "key": "url", "type": "text", "label": "Instagram link", "required": true, "maxLength": 600,
+          "placeholder": "https://www.instagram.com/reel/XXXXXXXXXXX/" }
+      ]
+    }
+  ],
+
+  "style": {
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "radius", "animation"],
+    "defaults": { "paddingY": "lg", "align": "center", "bg": "default" }
+  },
+
+  "defaults": {
+    "variant": "grid-2",
+    "props": { "label": "Follow us", "heading": "From our Instagram", "embeds": [] }
+  }
+}

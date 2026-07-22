@@ -400,6 +400,11 @@ class SiteRenderer
             case 'cta':          return self::secCta($s, $doc);
             case 'contact':      return self::secContact($s, $doc);
             case 'footer':       return self::secFooter($s, $doc);
+            case 'hours':        return self::secHours($s, $doc);
+            case 'blog':         return self::secBlog($s, $doc);
+            case 'appointment':  return self::secAppointment($s, $doc);
+            case 'embed':        return self::secEmbed($s, $doc);
+            case 'share':        return self::secShare($s, $doc);
             default:             return '';
         }
     }
@@ -863,6 +868,137 @@ class SiteRenderer
                 . '</div>';
 
         return self::shell($s, $body . $bottom);
+    }
+
+    /* ------------------------------------------------- new sections */
+
+    private static function secHours(array $s, array $doc): string
+    {
+        $p = $s['props'] ?? [];
+        $hours = $doc['business']['hours'] ?? [];
+        $labels = ['mon'=>'Monday','tue'=>'Tuesday','wed'=>'Wednesday','thu'=>'Thursday','fri'=>'Friday','sat'=>'Saturday','sun'=>'Sunday'];
+        $byDay = [];
+        foreach ($hours as $h) { if (!empty($h['day'])) $byDay[strtolower($h['day'])] = $h; }
+        if (!$byDay) return '';
+        $today = strtolower(date('D'));
+        $hl = ($p['highlightToday'] ?? true) !== false;
+        $rows = '';
+        foreach (['mon','tue','wed','thu','fri','sat','sun'] as $d) {
+            if (!isset($byDay[$d])) continue;
+            $h = $byDay[$d];
+            $val = 'Closed';
+            if (empty($h['closed']) && (!empty($h['open']) || !empty($h['close']))) {
+                $val = self::esc(trim(($h['open'] ?? '') . ' – ' . ($h['close'] ?? ''), " –"));
+            }
+            $isToday = $hl && ($d === $today);
+            $st = 'display:flex;justify-content:space-between;gap:16px;padding:12px 16px;font-size:15px;border-radius:var(--radius)';
+            $st .= $isToday ? ';background:var(--color-primary);color:var(--color-primary-fg);font-weight:600' : ';border:1px solid var(--color-border)';
+            $rows .= '<li style="' . $st . '"><span>' . self::esc($labels[$d]) . ($isToday ? ' · Today' : '') . '</span><span>' . $val . '</span></li>';
+        }
+        $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null, self::isDarkBg($s))
+               . '<ul style="list-style:none;margin:0 auto;padding:0;max-width:520px;display:flex;flex-direction:column;gap:8px;text-align:left">' . $rows . '</ul>';
+        if (!empty($p['note'])) $inner .= '<p style="margin-top:16px;font-size:13px;opacity:.7">' . self::esc($p['note']) . '</p>';
+        return self::shell($s, $inner);
+    }
+
+    private static function secBlog(array $s, array $doc): string
+    {
+        $p = $s['props'] ?? [];
+        $posts = $p['posts'] ?? [];
+        if (!$posts) return '';
+        $cards = '';
+        foreach ($posts as $b) {
+            $img = self::media($b['image'] ?? null);
+            $c = '<div class="tf-card">';
+            if ($img) $c .= '<img src="' . self::esc($img) . '" alt="' . self::esc($b['title'] ?? '') . '" loading="lazy" style="height:200px;width:100%;object-fit:cover">';
+            $c .= '<div style="padding:20px">';
+            if (!empty($b['date'])) $c .= '<p style="margin:0 0 6px;font-size:12px;font-weight:600;color:var(--color-accent)">' . self::esc($b['date']) . '</p>';
+            $c .= '<h3 style="margin:0;font-family:var(--font-heading);font-size:19px;font-weight:600">' . self::esc($b['title'] ?? '') . '</h3>';
+            if (!empty($b['excerpt'])) $c .= '<p style="margin:8px 0 0;font-size:14px;color:var(--color-muted)">' . self::esc($b['excerpt']) . '</p>';
+            if (!empty($b['href'])) { $l = ['text'=>($b['linkText'] ?? 'Read more'),'href'=>$b['href'],'style'=>'link','newTab'=>true]; $c .= '<div style="margin-top:14px">' . self::btn($l) . '</div>'; }
+            $c .= '</div></div>';
+            $cards .= $c;
+        }
+        $gcls = ($s['variant'] ?? 'grid-3') === 'grid-2' ? 'tf-grid tf-c2' : 'tf-grid tf-c3';
+        $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null, self::isDarkBg($s))
+               . '<div class="' . $gcls . '" style="text-align:left">' . $cards . '</div>';
+        return self::shell($s, $inner);
+    }
+
+    private static function secAppointment(array $s, array $doc): string
+    {
+        $p = $s['props'] ?? [];
+        $biz = $doc['business'] ?? [];
+        $wa = preg_replace('/\D+/', '', (string)($biz['whatsapp'] ?? $biz['phone'] ?? ''));
+        $email = trim((string)($biz['email'] ?? ''));
+        $via = $p['submitVia'] ?? 'whatsapp';
+        if ($via === 'whatsapp' && $wa === '') $via = $email !== '' ? 'email' : 'whatsapp';
+        $services = array_values(array_filter(array_map('trim', (array)($p['services'] ?? []))));
+        $uid = 'ap' . substr(md5(($s['id'] ?? '') . 'apt'), 0, 6);
+        $in = 'width:100%;padding:10px 12px;font-size:14px;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-bg);color:var(--color-text)';
+        $lb = 'display:block;margin-bottom:4px;font-size:12px;font-weight:600';
+        $f  = '<div><label style="' . $lb . '">Name *</label><input class="' . $uid . '-f" data-k="Name" required style="' . $in . '"></div>';
+        $f .= '<div><label style="' . $lb . '">Phone *</label><input class="' . $uid . '-f" data-k="Phone" type="tel" required style="' . $in . '"></div>';
+        $f .= '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div><label style="' . $lb . '">Preferred date</label><input class="' . $uid . '-f" data-k="Date" type="date" style="' . $in . '"></div><div><label style="' . $lb . '">Preferred time</label><input class="' . $uid . '-f" data-k="Time" type="time" style="' . $in . '"></div></div>';
+        if ($services) {
+            $opts = '<option value="">Select…</option>';
+            foreach ($services as $sv) $opts .= '<option>' . self::esc($sv) . '</option>';
+            $f .= '<div><label style="' . $lb . '">Service</label><select class="' . $uid . '-f" data-k="Service" style="' . $in . '">' . $opts . '</select></div>';
+        }
+        $f .= '<div><label style="' . $lb . '">Message</label><textarea class="' . $uid . '-f" data-k="Message" rows="3" style="' . $in . '"></textarea></div>';
+        $form = '<form id="' . $uid . '" onsubmit="return false" style="display:grid;gap:12px;max-width:480px;margin:0 auto;text-align:left">' . $f
+              . '<button type="submit" style="margin-top:4px;padding:12px;font-size:15px;font-weight:600;border:none;border-radius:var(--radius);background:var(--color-primary);color:var(--color-primary-fg);cursor:pointer">' . self::esc($p['submitText'] ?? 'Request appointment') . '</button></form>';
+        $target = $via === 'email' ? ('email:' . $email) : ('wa:' . $wa);
+        $script = '<script>(function(){var fm=document.getElementById(' . json_encode($uid) . ');if(!fm)return;var T=' . json_encode($target) . ';fm.addEventListener("submit",function(){var parts=["Appointment request"];fm.querySelectorAll(".' . $uid . '-f").forEach(function(el){var v=(el.value||"").trim();if(v)parts.push(el.getAttribute("data-k")+": "+v);});var txt=parts.join("\n");var url;if(T.indexOf("email:")===0){url="mailto:"+T.slice(6)+"?subject="+encodeURIComponent("Appointment request")+"&body="+encodeURIComponent(txt);}else{url="https://wa.me/"+T.slice(3)+"?text="+encodeURIComponent(txt);}window.open(url,"_blank");});})();</script>';
+        $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null, self::isDarkBg($s)) . $form . $script;
+        return self::shell($s, $inner);
+    }
+
+    private static function secEmbed(array $s, array $doc): string
+    {
+        $p = $s['props'] ?? [];
+        $blocks = '';
+        foreach (($p['embeds'] ?? []) as $it) {
+            $url = trim((string)($it['url'] ?? ''));
+            if ($url === '' || !preg_match('#instagram\.com#i', $url)) continue;
+            $blocks .= '<blockquote class="instagram-media" data-instgrm-permalink="' . self::esc($url) . '" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px rgba(0,0,0,.5),0 1px 10px rgba(0,0,0,.15);margin:0;max-width:540px;min-width:300px;width:100%;padding:0"></blockquote>';
+        }
+        if ($blocks === '') return '';
+        $variant = $s['variant'] ?? 'grid-2';
+        $gcls = $variant === 'grid-3' ? 'tf-grid tf-c3' : ($variant === 'single' ? '' : 'tf-grid tf-c2');
+        $grid = $gcls ? ('<div class="' . $gcls . '" style="justify-items:center">' . $blocks . '</div>') : ('<div style="max-width:540px;margin:0 auto">' . $blocks . '</div>');
+        $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null, self::isDarkBg($s)) . $grid
+               . '<script async src="//www.instagram.com/embed.js"></script>'
+               . '<script>if(window.instgrm&&window.instgrm.Embeds)window.instgrm.Embeds.process();</script>';
+        return self::shell($s, $inner);
+    }
+
+    private static function secShare(array $s, array $doc): string
+    {
+        $p = $s['props'] ?? [];
+        $host = $_SERVER['HTTP_HOST'] ?? (self::$slug . '.tapify.co.in');
+        $url = trim((string)($p['url'] ?? '')) ?: ('https://' . $host);
+        $enc = rawurlencode($url);
+        $title = rawurlencode($doc['site']['name'] ?? 'Check this out');
+        $light = self::isDarkBg($s);
+        $col = $light ? '#fff' : 'var(--color-text)';
+        $qr = '';
+        if (($p['showQr'] ?? true) !== false) {
+            $qsrc = 'https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=8&data=' . $enc;
+            $qr = '<div style="display:inline-block;padding:14px;background:#fff;border-radius:var(--radius);box-shadow:0 8px 24px rgba(16,24,40,.12)"><img src="' . self::esc($qsrc) . '" alt="QR code" width="200" height="200" style="display:block"></div>';
+        }
+        $bStyle = 'display:inline-flex;align-items:center;gap:8px;padding:10px 16px;font-size:14px;font-weight:600;text-decoration:none;border-radius:var(--radius);border:1px solid var(--color-border);color:' . $col;
+        $btns = [];
+        if (($p['whatsapp'] ?? true) !== false) $btns[] = '<a href="https://wa.me/?text=' . $title . '%20' . $enc . '" target="_blank" rel="noopener" style="' . $bStyle . '">WhatsApp</a>';
+        if (($p['facebook'] ?? true) !== false) $btns[] = '<a href="https://www.facebook.com/sharer/sharer.php?u=' . $enc . '" target="_blank" rel="noopener" style="' . $bStyle . '">Facebook</a>';
+        if (($p['twitter'] ?? true) !== false) $btns[] = '<a href="https://twitter.com/intent/tweet?url=' . $enc . '&text=' . $title . '" target="_blank" rel="noopener" style="' . $bStyle . '">X</a>';
+        $uid = 'sh' . substr(md5(($s['id'] ?? '') . 'shr'), 0, 6);
+        $btns[] = '<button type="button" id="' . $uid . '" data-url="' . self::esc($url) . '" style="' . $bStyle . ';background:none;cursor:pointer">Copy link</button>';
+        $copyJs = '<script>(function(){var b=document.getElementById(' . json_encode($uid) . ');if(!b)return;b.addEventListener("click",function(){var u=b.getAttribute("data-url");var d=function(){var o=b.textContent;b.textContent="Copied!";setTimeout(function(){b.textContent=o;},1500);};if(navigator.clipboard){navigator.clipboard.writeText(u).then(d,d);}else{d();}});})();</script>';
+        $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null, $light)
+               . ($qr ? ('<div style="margin-bottom:22px">' . $qr . '</div>') : '')
+               . '<div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center">' . implode('', $btns) . '</div>' . $copyJs;
+        return self::shell($s, $inner);
     }
 
     /* --------------------------------------------------------- carousel js */

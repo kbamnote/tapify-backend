@@ -1,0 +1,35 @@
+{
+  "type": "hours",
+  "label": "Business Hours",
+  "category": "content",
+  "icon": "clock",
+  "description": "Your weekly opening hours, pulled from Business Info.",
+  "industries": ["*"],
+  "singleton": false,
+  "maxPerPage": 2,
+
+  "variants": [
+    { "id": "list",  "label": "Simple list" },
+    { "id": "cards", "label": "Day cards" }
+  ],
+
+  "props": [
+    { "key": "label",   "type": "text",     "label": "Eyebrow label", "maxLength": 40, "default": "Visit us", "group": "Heading" },
+    { "key": "heading", "type": "text",     "label": "Heading", "maxLength": 120, "default": "Opening hours", "group": "Heading" },
+    { "key": "sub",     "type": "textarea", "label": "Description", "maxLength": 300, "group": "Heading" },
+
+    { "key": "highlightToday", "type": "toggle", "label": "Highlight today", "default": true, "group": "Options" },
+    { "key": "note", "type": "text", "label": "Footnote", "maxLength": 160, "group": "Options",
+      "help": "Small line under the hours, e.g. \"Closed on public holidays\"." }
+  ],
+
+  "style": {
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "radius", "animation"],
+    "defaults": { "paddingY": "lg", "align": "center", "bg": "surface" }
+  },
+
+  "defaults": {
+    "variant": "list",
+    "props": { "label": "Visit us", "heading": "Opening hours", "highlightToday": true }
+  }
+}

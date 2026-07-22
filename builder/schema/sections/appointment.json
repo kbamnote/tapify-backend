@@ -1,0 +1,44 @@
+{
+  "type": "appointment",
+  "label": "Appointment",
+  "category": "contact",
+  "icon": "calendar-clock",
+  "description": "A booking request form. Submissions open directly in WhatsApp or email — no backend needed.",
+  "industries": ["*"],
+  "singleton": false,
+  "maxPerPage": 1,
+
+  "variants": [
+    { "id": "form", "label": "Request form" }
+  ],
+
+  "props": [
+    { "key": "label",   "type": "text",     "label": "Eyebrow label", "maxLength": 40, "default": "Booking", "group": "Heading" },
+    { "key": "heading", "type": "text",     "label": "Heading", "maxLength": 120, "default": "Book an appointment", "group": "Heading" },
+    { "key": "sub",     "type": "textarea", "label": "Description", "maxLength": 300, "group": "Heading" },
+
+    { "key": "submitVia", "type": "select", "label": "Send request via", "default": "whatsapp",
+      "options": ["whatsapp", "email"], "group": "Delivery",
+      "help": "Uses the WhatsApp number / email from Business Info. WhatsApp opens a pre-filled chat." },
+    { "key": "submitText", "type": "text", "label": "Button text", "maxLength": 40, "default": "Request appointment", "group": "Delivery" },
+
+    { "key": "services", "type": "list", "label": "Services to choose from", "group": "Options",
+      "help": "Optional. Adds a Service dropdown to the form." }
+  ],
+
+  "style": {
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "radius", "animation"],
+    "defaults": { "paddingY": "lg", "align": "center", "bg": "surface" }
+  },
+
+  "defaults": {
+    "variant": "form",
+    "props": {
+      "label": "Booking",
+      "heading": "Book an appointment",
+      "sub": "Pick a time that suits you and we'll confirm shortly.",
+      "submitVia": "whatsapp",
+      "submitText": "Request appointment"
+    }
+  }
+}

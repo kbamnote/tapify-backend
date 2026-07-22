@@ -1,0 +1,38 @@
+{
+  "type": "share",
+  "label": "QR & Share",
+  "category": "content",
+  "icon": "qr-code",
+  "description": "A scannable QR code for this website plus share / copy-link buttons.",
+  "industries": ["*"],
+  "singleton": false,
+  "maxPerPage": 1,
+
+  "variants": [
+    { "id": "default", "label": "QR + share buttons" }
+  ],
+
+  "props": [
+    { "key": "label",   "type": "text",     "label": "Eyebrow label", "maxLength": 40, "default": "Share", "group": "Heading" },
+    { "key": "heading", "type": "text",     "label": "Heading", "maxLength": 120, "default": "Scan or share this site", "group": "Heading" },
+    { "key": "sub",     "type": "textarea", "label": "Description", "maxLength": 300, "group": "Heading" },
+
+    { "key": "url",     "type": "text",   "label": "Link to share", "maxLength": 600, "group": "Options",
+      "help": "Leave blank to use this website's address." },
+    { "key": "showQr",  "type": "toggle", "label": "Show QR code", "default": true, "group": "Options" },
+
+    { "key": "whatsapp", "type": "toggle", "label": "WhatsApp button", "default": true, "group": "Buttons" },
+    { "key": "facebook", "type": "toggle", "label": "Facebook button", "default": true, "group": "Buttons" },
+    { "key": "twitter",  "type": "toggle", "label": "X (Twitter) button", "default": true, "group": "Buttons" }
+  ],
+
+  "style": {
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "radius", "animation"],
+    "defaults": { "paddingY": "lg", "align": "center", "bg": "surface" }
+  },
+
+  "defaults": {
+    "variant": "default",
+    "props": { "label": "Share", "heading": "Scan or share this site", "showQr": true, "whatsapp": true, "facebook": true, "twitter": true }
+  }
+}

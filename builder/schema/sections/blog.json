@@ -1,0 +1,49 @@
+{
+  "type": "blog",
+  "label": "Blog / News",
+  "category": "content",
+  "icon": "newspaper",
+  "description": "A grid of blog posts, news or updates with image, title and link.",
+  "industries": ["*"],
+  "singleton": false,
+  "maxPerPage": 3,
+
+  "variants": [
+    { "id": "grid-3", "label": "3 columns" },
+    { "id": "grid-2", "label": "2 columns" }
+  ],
+
+  "props": [
+    { "key": "label",   "type": "text",     "label": "Eyebrow label", "maxLength": 40, "default": "Blog", "group": "Heading" },
+    { "key": "heading", "type": "text",     "label": "Heading", "maxLength": 120, "default": "Latest posts", "group": "Heading" },
+    { "key": "sub",     "type": "textarea", "label": "Description", "maxLength": 300, "group": "Heading" },
+
+    { "key": "posts", "type": "repeater", "label": "Posts", "group": "Posts",
+      "max": 12, "min": 1, "itemLabel": "{{title}}", "addLabel": "Add post",
+      "fields": [
+        { "key": "image",    "type": "media",    "label": "Cover image", "accept": ["image"] },
+        { "key": "title",    "type": "text",     "label": "Title", "required": true, "maxLength": 140 },
+        { "key": "date",     "type": "text",     "label": "Date / category", "maxLength": 60, "placeholder": "12 Jul 2026" },
+        { "key": "excerpt",  "type": "textarea", "label": "Excerpt", "maxLength": 240 },
+        { "key": "href",     "type": "text",     "label": "Link URL", "maxLength": 600, "placeholder": "https://…" },
+        { "key": "linkText", "type": "text",     "label": "Link text", "maxLength": 40, "default": "Read more" }
+      ]
+    }
+  ],
+
+  "style": {
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "radius", "animation"],
+    "defaults": { "paddingY": "lg", "align": "center", "bg": "default" }
+  },
+
+  "defaults": {
+    "variant": "grid-3",
+    "props": {
+      "label": "Blog",
+      "heading": "Latest posts",
+      "posts": [
+        { "title": "Your first post", "date": "This week", "excerpt": "Share news, offers and stories with your customers.", "linkText": "Read more" }
+      ]
+    }
+  }
+}
