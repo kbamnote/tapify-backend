@@ -18,8 +18,17 @@
       "help": "Leave blank to show the site name as text." },
     { "key": "blurb",   "type": "textarea", "label": "Short description", "maxLength": 400, "group": "Brand" },
 
-    { "key": "showSocial",  "type": "toggle", "label": "Show social icons", "default": true, "group": "Links",
-      "help": "Uses the social links from Business Info." },
+    { "key": "showSocial",  "type": "toggle", "label": "Show social text links", "default": true, "group": "Links",
+      "help": "Uses the social links from Business Info (shown as text)." },
+
+    { "key": "socialIcons", "type": "repeater", "label": "Custom social icons (upload)", "group": "Links",
+      "max": 12, "itemLabel": "{{label}}", "addLabel": "Add social icon",
+      "help": "Upload your own icon image for each social profile — rendered as icon buttons.",
+      "fields": [
+        { "key": "icon",  "type": "media", "label": "Icon image", "accept": ["image"], "required": true },
+        { "key": "href",  "type": "text",  "label": "Link URL", "required": true, "maxLength": 600, "placeholder": "https://instagram.com/yourbrand" },
+        { "key": "label", "type": "text",  "label": "Label (accessibility)", "maxLength": 60 }
+      ] },
     { "key": "showContact", "type": "toggle", "label": "Show contact details", "default": true, "group": "Links" },
     { "key": "showHours",   "type": "toggle", "label": "Show opening hours", "default": false, "group": "Links" },
 

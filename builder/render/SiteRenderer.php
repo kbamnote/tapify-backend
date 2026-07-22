@@ -824,6 +824,17 @@ class SiteRenderer
             }
             if ($soc) $brand .= '<div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:12px">' . $soc . '</div>';
         }
+        // Custom uploaded social icons (independent of the Business-Info text links).
+        $icons = '';
+        foreach (($p['socialIcons'] ?? []) as $si) {
+            $src = self::media($si['icon'] ?? null);
+            $href = trim((string)($si['href'] ?? ''));
+            if (!$src || $href === '') continue;
+            $lbl = self::esc($si['label'] ?? 'Social link');
+            $icons .= '<a href="' . self::esc($href) . '" target="_blank" rel="noopener noreferrer" aria-label="' . $lbl . '" title="' . $lbl . '" style="display:inline-flex;opacity:.8;text-decoration:none">'
+                    . '<img src="' . self::esc($src) . '" alt="' . self::esc($si['label'] ?? '') . '" style="height:24px;width:24px;object-fit:contain"></a>';
+        }
+        if ($icons) $brand .= '<div style="margin-top:16px;display:flex;flex-wrap:wrap;align-items:center;gap:12px">' . $icons . '</div>';
         $brand .= '</div>';
 
         $body = $simple ? ('<div style="text-align:center">' . $brand . '</div>') : ('<div class="tf-grid tf-c4" style="text-align:left">' . $brand);
