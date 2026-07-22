@@ -25,7 +25,11 @@
         { "key": "title",    "type": "text",     "label": "Title", "required": true, "maxLength": 140 },
         { "key": "date",     "type": "text",     "label": "Date / category", "maxLength": 60, "placeholder": "12 Jul 2026" },
         { "key": "excerpt",  "type": "textarea", "label": "Excerpt", "maxLength": 240 },
-        { "key": "href",     "type": "text",     "label": "Link URL", "maxLength": 600, "placeholder": "https://…" },
+        { "key": "body",     "type": "textarea", "label": "Full article (opens its own page)", "maxLength": 20000,
+          "help": "Fill this to give the post its own page. Read more then opens it instead of the external link below." },
+        { "key": "slug",     "type": "text",     "label": "Post address (optional)", "maxLength": 80, "placeholder": "auto from title",
+          "help": "The post page address: /post/<this>. Leave blank to build it from the title." },
+        { "key": "href",     "type": "text",     "label": "External link (used only when there is no article)", "maxLength": 600, "placeholder": "https://…" },
         { "key": "linkText", "type": "text",     "label": "Link text", "maxLength": 40, "default": "Read more" }
       ]
     }

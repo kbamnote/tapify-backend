@@ -63,6 +63,20 @@ class SiteRenderer
         if (!is_array($doc) || empty($doc['pages'])) { self::notFound(); return true; }
 
         $norm = ($path === '' || $path === '/') ? '/' : rtrim($path, '/');
+
+        // Blog post detail: /post/<slug>. Posts live inside blog sections (not in
+        // doc.pages), so this renders a single post with the site's header/footer.
+        if (preg_match('#^/post/([a-z0-9][a-z0-9-]*)$#', $norm, $pm)) {
+            $posts = self::allPosts($doc);
+            if (isset($posts[$pm[1]])) {
+                header('Content-Type: text/html; charset=utf-8');
+                echo self::renderPostDetail($doc, $posts[$pm[1]]);
+                return true;
+            }
+            self::notFound();
+            return true;
+        }
+
         $page = null;
         foreach ($doc['pages'] as $p) {
             if (($p['slug'] ?? '') === $norm) { $page = $p; break; }
@@ -909,6 +923,104 @@ class SiteRenderer
         return self::shell($s, $inner);
     }
 
+    /* ------------------------------------------------------- blog detail */
+
+    /** URL-safe slug for a post: its slug field, else built from the title. */
+    private static function postSlug(array $post): string
+    {
+        $s = strtolower(trim((string)($post['slug'] ?? '')));
+        if ($s === '') $s = strtolower(trim((string)($post['title'] ?? '')));
+        $s = preg_replace('/[^a-z0-9]+/', '-', $s);
+        $s = trim((string)$s, '-');
+        return $s !== '' ? $s : 'post';
+    }
+
+    /** Every post in the document, keyed by slug (first wins on a clash). */
+    private static function allPosts(array $doc): array
+    {
+        $out = [];
+        foreach (($doc['pages'] ?? []) as $pg) {
+            foreach (($pg['sections'] ?? []) as $s) {
+                if (($s['type'] ?? '') !== 'blog') continue;
+                foreach (($s['props']['posts'] ?? []) as $post) {
+                    $slug = self::postSlug($post);
+                    if (!isset($out[$slug])) $out[$slug] = $post;
+                }
+            }
+        }
+        return $out;
+    }
+
+    /** The first visible section of a type anywhere in the site (for header/footer). */
+    private static function chromeSection(array $doc, string $type): string
+    {
+        foreach (($doc['pages'] ?? []) as $pg) {
+            foreach (($pg['sections'] ?? []) as $s) {
+                if (($s['type'] ?? '') === $type && ($s['visible'] ?? true) !== false && empty($s['style']['hidden'])) {
+                    return self::section($s, $doc);
+                }
+            }
+        }
+        return '';
+    }
+
+    /** Plain-text article body -> paragraphs (blank line separates paragraphs). */
+    private static function articleBody(string $body): string
+    {
+        $body = trim($body);
+        if ($body === '') return '';
+        $out = '';
+        foreach (preg_split('/\n\s*\n/', $body) as $para) {
+            $para = trim((string)$para);
+            if ($para !== '') $out .= '<p style="margin:0 0 18px">' . nl2br(self::esc($para)) . '</p>';
+        }
+        return $out;
+    }
+
+    /** Render one blog post on its own page, wrapped in the site header/footer. */
+    private static function renderPostDetail(array $doc, array $post): string
+    {
+        $vars  = self::themeVars($doc['theme'] ?? []);
+        $fonts = self::googleFonts($doc['theme'] ?? []);
+        $name  = $doc['site']['name'] ?? '';
+
+        $pseudo = [
+            'slug'  => '/post/' . self::postSlug($post),
+            'title' => $post['title'] ?? 'Post',
+            'seo'   => [
+                'title'       => trim(($post['title'] ?? 'Post') . ' | ' . $name, ' |'),
+                'description' => $post['excerpt'] ?? '',
+                'ogImage'     => $post['image'] ?? null,
+                'robots'      => 'index,follow',
+            ],
+        ];
+
+        // Where "Back" goes: the page that holds a blog section, else home.
+        $backPath = '/';
+        foreach (($doc['pages'] ?? []) as $pg) {
+            foreach (($pg['sections'] ?? []) as $s) {
+                if (($s['type'] ?? '') === 'blog') { $backPath = $pg['slug'] ?? '/'; break 2; }
+            }
+        }
+
+        $cover = self::media($post['image'] ?? null);
+        $article = '<article class="tf-container" style="max-width:760px;padding-top:calc(56px*var(--space-scale));padding-bottom:calc(56px*var(--space-scale))">'
+            . '<a href="' . self::esc($backPath) . '" style="display:inline-block;margin-bottom:22px;font-size:14px;font-weight:600;color:var(--color-primary);text-decoration:none">&larr; Back</a>'
+            . (!empty($post['date']) ? '<p style="margin:0 0 8px;font-size:13px;font-weight:600;color:var(--color-accent)">' . self::esc($post['date']) . '</p>' : '')
+            . '<h1 style="margin:0 0 22px;font-family:var(--font-heading);font-size:38px;line-height:1.15;font-weight:700">' . self::esc($post['title'] ?? '') . '</h1>'
+            . ($cover ? '<img src="' . self::esc($cover) . '" alt="' . self::esc($post['title'] ?? '') . '" style="width:100%;border-radius:var(--radius);margin-bottom:30px">' : '')
+            . '<div style="font-size:17px;line-height:1.75">' . self::articleBody($post['body'] ?? '') . '</div>'
+            . '</article>';
+
+        return "<!DOCTYPE html><html lang=\"" . self::esc($doc['site']['locale'] ?? 'en') . "\"><head>"
+             . self::head($doc, $pseudo, $fonts)
+             . "<style>.tf-site{" . $vars . "}" . self::baseCss() . "</style>"
+             . "</head><body>"
+             . "<main class=\"tf-site\">" . self::chromeSection($doc, 'header') . $article . self::chromeSection($doc, 'footer') . "</main>"
+             . self::carouselScript() . self::animScript()
+             . "</body></html>";
+    }
+
     private static function secBlog(array $s, array $doc): string
     {
         $p = $s['props'] ?? [];
@@ -923,7 +1035,15 @@ class SiteRenderer
             if (!empty($b['date'])) $c .= '<p style="margin:0 0 6px;font-size:12px;font-weight:600;color:var(--color-accent)">' . self::esc($b['date']) . '</p>';
             $c .= '<h3 style="margin:0;font-family:var(--font-heading);font-size:19px;font-weight:600">' . self::esc($b['title'] ?? '') . '</h3>';
             if (!empty($b['excerpt'])) $c .= '<p style="margin:8px 0 0;font-size:14px;color:var(--color-muted)">' . self::esc($b['excerpt']) . '</p>';
-            if (!empty($b['href'])) { $l = ['text'=>($b['linkText'] ?? 'Read more'),'href'=>$b['href'],'style'=>'link','newTab'=>true]; $c .= '<div style="margin-top:14px">' . self::btn($l) . '</div>'; }
+            // A post with a full article opens its own page; otherwise fall back to
+            // the external link if one was given.
+            if (trim((string)($b['body'] ?? '')) !== '') {
+                $l = ['text'=>($b['linkText'] ?? 'Read more'),'href'=>'/post/' . self::postSlug($b),'style'=>'link'];
+                $c .= '<div style="margin-top:14px">' . self::btn($l) . '</div>';
+            } elseif (!empty($b['href'])) {
+                $l = ['text'=>($b['linkText'] ?? 'Read more'),'href'=>$b['href'],'style'=>'link','newTab'=>true];
+                $c .= '<div style="margin-top:14px">' . self::btn($l) . '</div>';
+            }
             $c .= '</div></div>';
             $cards .= $c;
         }
