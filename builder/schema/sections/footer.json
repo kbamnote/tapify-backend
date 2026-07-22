@@ -29,6 +29,10 @@
         { "key": "href",  "type": "text",  "label": "Link URL", "required": true, "maxLength": 600, "placeholder": "https://instagram.com/yourbrand" },
         { "key": "label", "type": "text",  "label": "Label (accessibility)", "maxLength": 60 }
       ] },
+
+    { "key": "socialIconSize", "type": "select", "label": "Social icon size", "group": "Links",
+      "default": "medium", "options": ["small", "medium", "large", "extra-large"],
+      "help": "Size of the uploaded social icons above." },
     { "key": "showContact", "type": "toggle", "label": "Show contact details", "default": true, "group": "Links" },
     { "key": "showHours",   "type": "toggle", "label": "Show opening hours", "default": false, "group": "Links" },
 
