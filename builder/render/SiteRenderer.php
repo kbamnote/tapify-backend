@@ -109,6 +109,7 @@ class SiteRenderer
              . "</head><body>"
              . "<main class=\"tf-site\">" . $sections . "</main>"
              . self::carouselScript()
+             . self::animScript()
              . "</body></html>";
     }
 
@@ -304,7 +305,10 @@ class SiteRenderer
                      . '<div aria-hidden="true" class="tf-overlay" style="background:rgba(2,6,23,' . $overlay . ')"></div>';
         }
 
-        return '<section id="' . self::esc($s['id'] ?? '') . '" class="tf-section tf-al-' . $align . '" style="' . $secStyle . $extraStyle . '">'
+        $anim = (!empty($style['animation']) && $style['animation'] !== 'none')
+            ? ' data-anim="' . self::esc($style['animation']) . '"' : '';
+
+        return '<section id="' . self::esc($s['id'] ?? '') . '" class="tf-section tf-al-' . $align . '" style="' . $secStyle . $extraStyle . '"' . $anim . '>'
              . $bgLayer
              . '<div class="tf-container tf-rel">' . $inner . '</div>'
              . '</section>';
@@ -874,6 +878,20 @@ if(document.readyState!=="loading")boot();else document.addEventListener("DOMCon
 JS;
     }
 
+    /** Reveal sections with a data-anim on scroll. Progressive enhancement: if
+     *  JavaScript is off or IntersectionObserver is missing, nothing is ever
+     *  hidden, so the content always shows. */
+    private static function animScript(): string
+    {
+        return <<<'JS'
+<script>(function(){var els=document.querySelectorAll("[data-anim]");if(!els.length)return;
+if(!("IntersectionObserver" in window)){for(var i=0;i<els.length;i++)els[i].classList.add("tf-in");return;}
+document.documentElement.classList.add("tf-anim-ready");
+var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add("tf-in");io.unobserve(e.target);}});},{threshold:0.12,rootMargin:"0px 0px -8% 0px"});
+for(var i=0;i<els.length;i++)io.observe(els[i]);})();</script>
+JS;
+    }
+
     /* --------------------------------------------------------- base css */
 
     private static function baseCss(): string
@@ -965,6 +983,11 @@ iframe{max-width:100%}
 @media(min-width:768px){.tf-mqslide{flex:0 0 320px}}
 @keyframes tf-mqscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.tf-mqtrack{animation:none;overflow-x:auto;max-width:100%}}
+.tf-anim-ready [data-anim]{opacity:0;transition:opacity .7s ease,transform .7s ease;will-change:opacity,transform}
+.tf-anim-ready [data-anim="slide-up"]{transform:translateY(34px)}
+.tf-anim-ready [data-anim="zoom"]{transform:scale(.93)}
+.tf-anim-ready [data-anim].tf-in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.tf-anim-ready [data-anim]{opacity:1;transform:none;transition:none}}
 CSS;
     }
 }
