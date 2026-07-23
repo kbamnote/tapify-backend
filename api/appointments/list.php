@@ -13,8 +13,13 @@ try {
     $pdo = getDB();
     $userId = getCurrentUserId();
 
-    // Auto-create table if it doesn't exist (migration safety)
-    $pdo->exec("CREATE TABLE IF NOT EXISTS `vcard_appointments` (
+    // Migration safety net — but only when the table is genuinely missing.
+    // Running CREATE TABLE on EVERY request needs a metadata lock, so a single
+    // slow/stuck transaction elsewhere could block this DDL (MySQL's
+    // lock_wait_timeout defaults to a year) and hang the Appointments page on
+    // "Loading…" forever. SHOW TABLES is cheap and takes no such lock.
+    $hasAptTable = (bool)$pdo->query("SHOW TABLES LIKE 'vcard_appointments'")->fetchColumn();
+    if (!$hasAptTable) $pdo->exec("CREATE TABLE IF NOT EXISTS `vcard_appointments` (
         `id` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT,
         `vcard_id` INT(11) UNSIGNED NOT NULL,
         `customer_name` VARCHAR(150) NOT NULL,
@@ -36,6 +41,14 @@ try {
         KEY `idx_status` (`status`)
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;");
     $role = $_SESSION['user_role'] ?? 'user';
+
+    // PHP holds an exclusive lock on the session file for the whole request, so
+    // one slow request blocks every other request from the same user. Nothing
+    // below writes to the session, so release it now — this read-only endpoint
+    // should never be the thing that stalls another dashboard page.
+    if (function_exists('session_write_close') && session_status() === PHP_SESSION_ACTIVE) {
+        session_write_close();
+    }
 
     $filter = $_GET['filter'] ?? 'all';
     $status = $_GET['status'] ?? 'all';
