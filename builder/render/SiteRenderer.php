@@ -93,6 +93,14 @@ class SiteRenderer
         foreach ($doc['pages'] as $p) {
             if (($p['slug'] ?? '') === $norm) { $page = $p; break; }
         }
+        // Built-in cart page. Looked up after doc.pages so a site that builds its
+        // own /cart keeps it.
+        if (!$page && $norm === '/cart') {
+            header('Content-Type: text/html; charset=utf-8');
+            echo self::renderCartPage($doc);
+            return true;
+        }
+
         if (!$page || ($page['visible'] ?? true) === false) { self::notFound(); return true; }
 
         header('Content-Type: text/html; charset=utf-8');
@@ -135,6 +143,7 @@ class SiteRenderer
              . "</head><body>"
              . "<main class=\"tf-site\">" . $sections . "</main>"
              . self::carouselScript()
+             . self::cartScript()
              . self::animScript()
              . self::countScript()
              . "</body></html>";
@@ -514,8 +523,12 @@ class SiteRenderer
         // Optional cart icon button.
         $cart = '';
         if (!empty($p['showCart'])) {
-            $cart = '<a href="' . self::esc($p['cartHref'] ?? '/cart') . '" aria-label="Cart" style="display:inline-flex;align-items:center;justify-content:center;padding:8px;border-radius:6px;color:inherit;text-decoration:none;border:1px solid rgba(120,120,120,.28)">'
-                  . '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></a>';
+            $cart = '<a href="' . self::esc($p['cartHref'] ?? '/cart') . '" aria-label="Cart" style="position:relative;display:inline-flex;align-items:center;justify-content:center;padding:8px;border-radius:6px;color:inherit;text-decoration:none;border:1px solid rgba(120,120,120,.28)">'
+                  . '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>'
+                  // Filled in by cartScript() and hidden while the cart is empty.
+                  . '<span data-tf-cart-count style="display:none;position:absolute;top:-7px;right:-7px;min-width:19px;height:19px;padding:0 5px;'
+                  . 'border-radius:999px;background:var(--color-primary);color:var(--color-primary-fg);font-size:11px;font-weight:700;line-height:19px;text-align:center">0</span>'
+                  . '</a>';
         }
         $burger = '<label for="' . $toggleId . '" class="tf-burger" aria-label="Menu">&#9776;</label>';
         $right = '<div style="display:flex;align-items:center;gap:12px">' . ($cta ?: '') . $cart . $burger . '</div>';
@@ -650,19 +663,27 @@ class SiteRenderer
         $cards = [];
         foreach ($items as $it) {
             $img = self::media($it['image'] ?? null);
+            // An item with a full description has its own product page. The photo
+            // and the title link straight to it — a separate "View details" button
+            // is one extra thing to notice for something the card already implies.
+            $href = trim((string)($it['body'] ?? '')) !== ''
+                ? '/service/' . self::itemSlug($it, 'service')
+                : '';
+            $open = $href !== '' ? '<a href="' . self::esc($href) . '" style="color:inherit;text-decoration:none;display:block">' : '';
+            $shut = $href !== '' ? '</a>' : '';
+
             $c = '<div class="tf-card">';
-            if ($showImages && $img) $c .= '<img src="' . self::esc($img) . '" alt="' . self::esc($it['title'] ?? '') . '" loading="lazy" style="height:176px;width:100%;' . self::imgFit($p['imageFit'] ?? null) . '">';
+            if ($showImages && $img) {
+                $c .= $open . '<img src="' . self::esc($img) . '" alt="' . self::esc($it['title'] ?? '') . '" loading="lazy" style="height:176px;width:100%;' . self::imgFit($p['imageFit'] ?? null) . '">' . $shut;
+            }
             $c .= '<div style="padding:20px">';
-            $c .= '<h3 style="font-family:var(--font-heading);font-size:18px;font-weight:600">' . self::esc($it['title'] ?? '') . '</h3>';
+            $c .= $open . '<h3 style="font-family:var(--font-heading);font-size:18px;font-weight:600">' . self::esc($it['title'] ?? '') . '</h3>' . $shut;
             if (!empty($it['meta'])) $c .= '<p style="margin-top:4px;font-size:12px;font-weight:600;color:var(--color-accent)">' . self::esc($it['meta']) . '</p>';
             if (!empty($it['price'])) $c .= '<p style="margin-top:6px;font-size:16px;font-weight:700;color:var(--color-primary)">' . self::esc($it['price']) . '</p>';
             if (!empty($it['desc'])) $c .= '<p style="margin-top:8px;font-size:14px;color:var(--tf-text,var(--color-muted))">' . self::esc($it['desc']) . '</p>';
-            // A service with a full description opens its own product-style page
-            // (photo gallery + details), which takes priority over a plain button.
-            if (trim((string)($it['body'] ?? '')) !== '') {
-                $l = ['text' => 'View details', 'href' => '/service/' . self::itemSlug($it, 'service'), 'style' => 'link'];
-                $c .= '<div style="margin-top:16px">' . self::btn($l) . '</div>';
-            } elseif (!empty($it['cta']['text'])) {
+            // Items without a description have no page to open, so they keep
+            // whatever custom button the customer configured.
+            if ($href === '' && !empty($it['cta']['text'])) {
                 $l = $it['cta']; $l['style'] = $l['style'] ?? 'link'; $c .= '<div style="margin-top:16px">' . self::btn($l) . '</div>';
             }
             $c .= '</div></div>';
@@ -1169,7 +1190,7 @@ class SiteRenderer
              . "<style>.tf-site{" . $vars . "}" . self::baseCss() . "</style>"
              . "</head><body>"
              . "<main class=\"tf-site\">" . self::chromeSection($doc, 'header') . $article . self::chromeSection($doc, 'footer') . "</main>"
-             . self::carouselScript() . self::animScript()
+             . self::carouselScript() . self::cartScript() . self::animScript()
              . "</body></html>";
     }
 
@@ -1233,6 +1254,126 @@ class SiteRenderer
             . '</section>';
     }
 
+    /** Selling price, MRP and the discount label, from an item's free-text prices. */
+    private static function priceBits(array $item): array
+    {
+        $sell = trim((string)($item['price'] ?? ''));
+        $mrp  = trim((string)($item['mrp'] ?? ''));
+        $off  = '';
+        if ($sell !== '' && $mrp !== '') {
+            $ns = (float)preg_replace('/[^0-9.]/', '', $sell);
+            $nm = (float)preg_replace('/[^0-9.]/', '', $mrp);
+            if ($nm > 0 && $ns > 0 && $ns < $nm) $off = round((($nm - $ns) / $nm) * 100) . '% Off';
+        }
+        return [$sell, $mrp, $off];
+    }
+
+    /**
+     * The product gallery: one big photo with a thumbnail strip beside it.
+     *
+     * A carousel hides everything but the current shot, which is the wrong shape
+     * for a product page — buyers want to see at a glance how many photos there
+     * are and jump straight to the one they care about.
+     */
+    private static function productGallery(array $photos, string $uid): string
+    {
+        if (!$photos) return '';
+        $main = '<div class="tf-pmain"><img id="' . $uid . '-main" src="' . self::esc($photos[0]['src']) . '" alt="'
+              . self::esc($photos[0]['alt']) . '"></div>';
+
+        if (count($photos) < 2) return '<div class="tf-pgal">' . $main . '</div>';
+
+        $thumbs = '';
+        foreach ($photos as $i => $ph) {
+            $thumbs .= '<button type="button" class="tf-pthumb' . ($i === 0 ? ' is-active' : '') . '"'
+                     . ' data-src="' . self::esc($ph['src']) . '" aria-label="Photo ' . ($i + 1) . '">'
+                     . '<img src="' . self::esc($ph['src']) . '" alt="" loading="lazy"></button>';
+        }
+
+        $script = '<script>(function(){var g=document.getElementById(' . json_encode($uid . '-gal') . ');if(!g)return;'
+                . 'var m=document.getElementById(' . json_encode($uid . '-main') . ');'
+                . 'g.addEventListener("click",function(e){var b=e.target.closest?e.target.closest(".tf-pthumb"):null;if(!b)return;'
+                . 'm.src=b.getAttribute("data-src");'
+                . 'Array.prototype.forEach.call(g.querySelectorAll(".tf-pthumb"),function(t){t.classList.remove("is-active");});'
+                . 'b.classList.add("is-active");});})();</script>';
+
+        return '<div class="tf-pgal" id="' . $uid . '-gal"><div class="tf-pthumbs">' . $thumbs . '</div>' . $main . '</div>' . $script;
+    }
+
+    /** The optional "Product Information" spec table. */
+    private static function productInfoTable(array $item): string
+    {
+        $rows = '';
+        foreach (($item['productInfo'] ?? []) as $r) {
+            $k = trim((string)($r['label'] ?? ''));
+            $v = trim((string)($r['value'] ?? ''));
+            if ($k === '' && $v === '') continue;
+            $rows .= '<tr>'
+                   . '<th style="padding:9px 0;text-align:left;font-size:13px;font-weight:500;color:var(--tf-text,var(--color-muted));vertical-align:top;width:45%">' . self::esc($k) . '</th>'
+                   . '<td style="padding:9px 0;text-align:left;font-size:13px;font-weight:700">' . self::esc($v) . '</td>'
+                   . '</tr>';
+        }
+        if ($rows === '') return '';
+
+        $title = trim((string)($item['productInfoTitle'] ?? '')) ?: 'Product Information';
+        return '<section class="tf-card" style="margin-top:22px;padding:18px;text-align:left">'
+             . '<h2 style="margin:0 0 8px;font-family:var(--font-heading);font-size:17px;font-weight:700">' . self::esc($title) . '</h2>'
+             . '<table style="width:100%;border-collapse:collapse">' . $rows . '</table>'
+             . '</section>';
+    }
+
+    /**
+     * "Best sellers" — the shop's other products, shown under the one being
+     * viewed so a visitor who lands straight on a product page has somewhere to
+     * go next. Each card opens its own detail page.
+     */
+    private static function relatedProducts(array $doc, array $item, string $backPath): string
+    {
+        // Settings live on the Services section, so find the one holding this item.
+        $slug = self::itemSlug($item, 'service');
+        $cfg = null;
+        foreach (($doc['pages'] ?? []) as $pg) {
+            foreach (($pg['sections'] ?? []) as $sec) {
+                if (($sec['type'] ?? '') !== 'services') continue;
+                foreach (($sec['props']['items'] ?? []) as $it) {
+                    if (self::itemSlug($it, 'service') === $slug) { $cfg = $sec['props']; break 3; }
+                }
+                if ($cfg === null) $cfg = $sec['props'] ?? [];   // fall back to the first one
+            }
+        }
+        if (($cfg['showRelated'] ?? true) === false) return '';
+
+        $others = [];
+        foreach (self::allServices($doc) as $sl => $it) {
+            if ($sl === $slug) continue;
+            $others[] = [$sl, $it];
+            if (count($others) >= 8) break;
+        }
+        if (!$others) return '';
+
+        $cards = '';
+        foreach ($others as [$sl, $it]) {
+            [$sell, $mrp, $off] = self::priceBits($it);
+            $img = self::media($it['image'] ?? null);
+            $cards .= '<a class="tf-bscard" href="/service/' . self::esc($sl) . '">'
+                . ($img ? '<img src="' . self::esc($img) . '" alt="' . self::esc($it['title'] ?? '') . '" loading="lazy">' : '')
+                . '<p class="tf-bstitle">' . self::esc($it['title'] ?? '') . '</p>'
+                . (($sell !== '' || $mrp !== '') ? '<p class="tf-bsprice">'
+                    . ($sell !== '' ? '<span class="tf-bssell">' . self::esc($sell) . '</span>' : '')
+                    . ($mrp !== '' ? '<s>' . self::esc($mrp) . '</s>' : '')
+                    . ($off !== '' ? '<span class="tf-bsoff">' . strtoupper($off) . '</span>' : '')
+                    . '</p>' : '')
+                . '</a>';
+        }
+
+        $heading = trim((string)($cfg['relatedHeading'] ?? '')) ?: 'Best sellers';
+        return '<section style="margin-top:56px;text-align:center">'
+             . '<h2 style="margin:0;font-family:var(--font-heading);font-size:28px;font-weight:800;letter-spacing:.02em;text-transform:uppercase">' . self::esc($heading) . '</h2>'
+             . '<a href="' . self::esc($backPath) . '" style="display:inline-block;margin-top:8px;font-size:13px;font-weight:600;color:inherit;text-decoration:underline">VIEW ALL</a>'
+             . '<div class="tf-bsgrid">' . $cards . '</div>'
+             . '</section>';
+    }
+
     private static function renderServiceDetail(array $doc, array $item): string
     {
         $vars  = self::themeVars($doc['theme'] ?? []);
@@ -1268,25 +1409,13 @@ class SiteRenderer
             if ($src) $photos[] = ['src' => $src, 'alt' => $g['alt'] ?? ($item['title'] ?? '')];
         }
 
-        $slides = [];
-        foreach ($photos as $ph) {
-            $slides[] = '<div style="display:flex;align-items:center;justify-content:center;height:420px;background:var(--color-surface);border-radius:var(--radius)">'
-                . '<img src="' . self::esc($ph['src']) . '" alt="' . self::esc($ph['alt']) . '" loading="lazy" style="max-width:100%;max-height:100%;object-fit:contain">'
-                . '</div>';
-        }
-        $gallery = $slides ? self::carousel($slides, 0) : '';
+        $puid = 'pg' . substr(md5(self::itemSlug($item, 'service')), 0, 6);
+        $gallery = self::productGallery($photos, $puid);
 
         // --- price block: selling price, struck-through MRP and the discount % ---
         $priceHtml = '';
         if (!empty($item['price']) || !empty($item['mrp'])) {
-            $sell = trim((string)($item['price'] ?? ''));
-            $mrp  = trim((string)($item['mrp'] ?? ''));
-            $off  = '';
-            if ($sell !== '' && $mrp !== '') {
-                $ns = (float)preg_replace('/[^0-9.]/', '', $sell);
-                $nm = (float)preg_replace('/[^0-9.]/', '', $mrp);
-                if ($nm > 0 && $ns > 0 && $ns < $nm) $off = round((($nm - $ns) / $nm) * 100) . '% off';
-            }
+            [$sell, $mrp, $off] = self::priceBits($item);
             $priceHtml = '<div style="margin:10px 0 0;display:flex;align-items:baseline;flex-wrap:wrap;gap:10px">'
                 . ($sell !== '' ? '<span style="font-size:28px;font-weight:800;color:var(--color-primary)">' . self::esc($sell) . '</span>' : '')
                 . ($mrp !== '' ? '<span style="font-size:16px;color:var(--tf-text,var(--color-muted));text-decoration:line-through">' . self::esc($mrp) . '</span>' : '')
@@ -1335,16 +1464,15 @@ class SiteRenderer
                 'price'   => $item['price'] ?? '',
                 'mrp'     => $item['mrp'] ?? '',
                 'vlabel'  => $vlabel,
+                'image'   => $cover ?: '',
             ]);
             $script = '<script>(function(){var U=' . json_encode($uid) . ',D=' . $payload . ';'
                 . 'var f=document.getElementById(U+"-form"),n=document.getElementById(U+"-note"),m=document.getElementById(U+"-msg");'
                 . 'function variant(){var v=document.getElementById(U+"-var");return v?v.value:"";}'
-                . 'function cartKey(){return "tf_cart_"+D.site;}'
                 . 'document.getElementById(U+"-cart").addEventListener("click",function(){'
-                . 'var c=[];try{c=JSON.parse(localStorage.getItem(cartKey())||"[]");}catch(e){}'
-                . 'c.push({slug:D.slug,item:D.item,price:D.price,variant:variant(),qty:1});'
-                . 'try{localStorage.setItem(cartKey(),JSON.stringify(c));}catch(e){}'
-                . 'n.textContent="Added to cart ("+c.length+")";});'
+                . 'var n2=window.tfCart.add({slug:D.slug,item:D.item,price:D.price,mrp:D.mrp,'
+                . 'vlabel:D.vlabel,variant:variant(),image:D.image,qty:1});'
+                . 'n.innerHTML="Added to cart ("+n2+") &middot; <a href=\"/cart\" style=\"color:inherit\">View cart</a>";});'
                 . 'document.getElementById(U+"-buy").addEventListener("click",function(){f.style.display="block";f.scrollIntoView({behavior:"smooth",block:"center"});});'
                 . 'f.addEventListener("submit",function(e){e.preventDefault();var b=f.querySelector("button[type=submit]");b.disabled=true;b.textContent="Placing…";'
                 . 'var fd={site:D.site,item:D.item,item_slug:D.slug,price:D.price,mrp:D.mrp,option_label:D.vlabel,option_value:variant(),'
@@ -1370,9 +1498,11 @@ class SiteRenderer
             . $priceHtml
             . $orderHtml
             . ($ctaHtml ? '<div style="margin-top:20px">' . $ctaHtml . '</div>' : '')
+            . self::productInfoTable($item)
             . '<div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--color-border);font-size:16px;line-height:1.75">' . self::articleBody($item['body'] ?? '') . '</div>'
             . '</div></div>'
             . $reviewsHtml
+            . self::relatedProducts($doc, $item, $backPath)
             . '</article>';
 
         return "<!DOCTYPE html><html lang=\"" . self::esc($doc['site']['locale'] ?? 'en') . "\"><head>"
@@ -1380,8 +1510,153 @@ class SiteRenderer
              . "<style>.tf-site{" . $vars . "}" . self::baseCss() . "</style>"
              . "</head><body>"
              . "<main class=\"tf-site\">" . self::chromeSection($doc, 'header') . $article . self::chromeSection($doc, 'footer') . "</main>"
-             . self::carouselScript() . self::animScript()
+             . self::carouselScript() . self::cartScript() . self::animScript()
              . "</body></html>";
+    }
+
+    /**
+     * The cart page at /cart.
+     *
+     * The list itself only exists in the visitor's browser, so the server sends
+     * an empty shell and the script fills it in. Checkout posts one request per
+     * line, because order-submit.php records a single item per row -- that keeps
+     * every line individually visible in the dashboard's Orders list.
+     */
+    private static function renderCartPage(array $doc): string
+    {
+        $vars  = self::themeVars($doc['theme'] ?? []);
+        $fonts = self::googleFonts($doc['theme'] ?? []);
+        $name  = $doc['site']['name'] ?? '';
+
+        $pseudo = [
+            'slug'  => '/cart',
+            'title' => 'Your cart',
+            'seo'   => [
+                'title'       => trim('Your cart | ' . $name, ' |'),
+                'description' => '',
+                'robots'      => 'noindex,nofollow',
+            ],
+        ];
+
+        $in = 'width:100%;padding:10px 12px;font-size:14px;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-bg);color:var(--color-text)';
+        $lb = 'display:block;margin-bottom:4px;font-size:12px;font-weight:700';
+
+        $form = '<form id="tf-cart-form" style="text-align:left">'
+            . '<p style="margin:0 0 12px;font-size:15px;font-weight:700">Your details</p>'
+            . '<div style="margin-bottom:10px"><label style="' . $lb . '">Name *</label><input name="name" required style="' . $in . '"></div>'
+            . '<div style="margin-bottom:10px"><label style="' . $lb . '">Contact number *</label><input name="phone" type="tel" required style="' . $in . '"></div>'
+            . '<div style="margin-bottom:10px"><label style="' . $lb . '">Email</label><input name="email" type="email" style="' . $in . '"></div>'
+            . '<div style="margin-bottom:14px"><label style="' . $lb . '">Note (optional)</label><textarea name="note" rows="2" style="' . $in . '"></textarea></div>'
+            . '<button type="submit" style="width:100%;padding:13px;font-size:15px;font-weight:700;border:none;border-radius:var(--radius);background:var(--color-primary);color:var(--color-primary-fg);cursor:pointer">Place order</button>'
+            . '<p id="tf-cart-msg" role="status" style="margin:10px 0 0;font-size:13px;font-weight:600"></p>'
+            . '</form>';
+
+        $summary = '<aside class="tf-card" style="padding:20px;text-align:left">'
+            . '<div style="display:flex;justify-content:space-between;font-size:15px;font-weight:700;margin-bottom:16px">'
+            . '<span>Total</span><span id="tf-cart-total">&mdash;</span></div>'
+            . $form . '</aside>';
+
+        $article = '<article class="tf-container" style="padding-top:calc(56px*var(--space-scale));padding-bottom:calc(56px*var(--space-scale))">'
+            . '<h1 style="margin:0 0 24px;font-family:var(--font-heading);font-size:30px;font-weight:700">Your cart</h1>'
+            . '<p id="tf-cart-empty" style="display:none;font-size:15px;color:var(--tf-text,var(--color-muted))">'
+            . 'Your cart is empty. <a href="/" style="color:var(--color-primary);font-weight:600">Continue shopping</a></p>'
+            . '<div id="tf-cart-wrap" style="display:none">'
+            . '<div class="tf-two" style="align-items:start;text-align:left">'
+            . '<div id="tf-cart-items"></div>' . $summary
+            . '</div></div>'
+            . '<div id="tf-cart-done" style="display:none;text-align:center;padding:40px 0">'
+            . '<p style="font-size:20px;font-weight:700;color:#16a34a">&#10003; Order placed</p>'
+            . '<p style="margin-top:8px;font-size:15px;color:var(--tf-text,var(--color-muted))">Thank you! We will contact you shortly to confirm.</p>'
+            . '<a href="/" style="display:inline-block;margin-top:18px;font-size:14px;font-weight:600;color:var(--color-primary)">Continue shopping</a></div>'
+            . '</article>';
+
+        $script = str_replace(
+            ['__API__', '__SITE__'],
+            [self::apiBase(), self::esc(self::$slug)],
+            self::cartPageScript()
+        );
+
+        return "<!DOCTYPE html><html lang=\"" . self::esc($doc['site']['locale'] ?? 'en') . "\"><head>"
+             . self::head($doc, $pseudo, $fonts)
+             . "<style>.tf-site{" . $vars . "}" . self::baseCss() . "</style>"
+             . "</head><body>"
+             . "<main class=\"tf-site\">" . self::chromeSection($doc, 'header') . $article . self::chromeSection($doc, 'footer') . "</main>"
+             . self::cartScript() . $script . self::animScript()
+             . "</body></html>";
+    }
+
+    private static function cartPageScript(): string
+    {
+        return <<<'JS'
+<script>(function(){
+var SITE="__SITE__";
+var wrap=document.getElementById("tf-cart-wrap"),list=document.getElementById("tf-cart-items"),
+    empty=document.getElementById("tf-cart-empty"),done=document.getElementById("tf-cart-done"),
+    totalEl=document.getElementById("tf-cart-total"),form=document.getElementById("tf-cart-form"),
+    msg=document.getElementById("tf-cart-msg");
+// Prices are free text ("Rs 1,299", "$40"), so pull the number out for the maths
+// and reuse whatever prefix the customer typed when printing the total.
+function num(p){var n=parseFloat(String(p||"").replace(/[^0-9.]/g,""));return isFinite(n)?n:0;}
+function cur(p){var m=String(p||"").match(/^[^0-9]+/);return m?m[0].trim():"";}
+function esc(t){var d=document.createElement("div");d.textContent=t==null?"":t;return d.innerHTML;}
+function render(){
+  var c=window.tfCart.read();
+  if(!c.length){wrap.style.display="none";empty.style.display="";return;}
+  empty.style.display="none";wrap.style.display="";
+  var html="",total=0,sym="";
+  for(var i=0;i<c.length;i++){
+    var it=c[i],q=parseInt(it.qty,10)||1;
+    total+=num(it.price)*q; if(!sym)sym=cur(it.price);
+    html+='<div class="tf-card" style="display:flex;gap:14px;padding:14px;margin-bottom:12px;align-items:center">'
+      +(it.image?'<img src="'+esc(it.image)+'" alt="" style="width:74px;height:74px;object-fit:cover;border-radius:var(--radius);flex-shrink:0">':'')
+      +'<div style="flex:1;min-width:0">'
+      +'<a href="/service/'+esc(it.slug)+'" style="font-size:15px;font-weight:700;color:inherit;text-decoration:none">'+esc(it.item)+'</a>'
+      +(it.variant?'<p style="margin:2px 0 0;font-size:12px;color:var(--tf-text,var(--color-muted))">'+esc(it.vlabel||"Option")+': '+esc(it.variant)+'</p>':'')
+      +(it.price?'<p style="margin:4px 0 0;font-size:14px;font-weight:700;color:var(--color-primary)">'+esc(it.price)+'</p>':'')
+      +'<div style="margin-top:8px;display:flex;align-items:center;gap:8px">'
+      +'<button type="button" data-act="dec" data-i="'+i+'" aria-label="Decrease quantity" style="width:26px;height:26px;border:1px solid var(--color-border);border-radius:6px;background:var(--color-bg);color:inherit;cursor:pointer">&minus;</button>'
+      +'<span style="min-width:20px;text-align:center;font-size:14px;font-weight:700">'+q+'</span>'
+      +'<button type="button" data-act="inc" data-i="'+i+'" aria-label="Increase quantity" style="width:26px;height:26px;border:1px solid var(--color-border);border-radius:6px;background:var(--color-bg);color:inherit;cursor:pointer">+</button>'
+      +'<button type="button" data-act="del" data-i="'+i+'" style="margin-left:6px;font-size:12px;color:#dc2626;background:none;border:0;cursor:pointer">Remove</button>'
+      +'</div></div></div>';
+  }
+  list.innerHTML=html;
+  totalEl.textContent=total>0?((sym?sym+" ":"")+total.toLocaleString()):"—";
+}
+list.addEventListener("click",function(e){
+  var b=e.target.closest?e.target.closest("button[data-act]"):null;if(!b)return;
+  var c=window.tfCart.read(),i=parseInt(b.getAttribute("data-i"),10),a=b.getAttribute("data-act");
+  if(!c[i])return;
+  if(a==="inc")c[i].qty=(parseInt(c[i].qty,10)||1)+1;
+  else if(a==="dec"){c[i].qty=(parseInt(c[i].qty,10)||1)-1;if(c[i].qty<1)c.splice(i,1);}
+  else c.splice(i,1);
+  window.tfCart.write(c);render();
+});
+form.addEventListener("submit",function(e){
+  e.preventDefault();
+  var c=window.tfCart.read();if(!c.length)return;
+  var b=form.querySelector("button[type=submit]");b.disabled=true;b.textContent="Placing…";
+  msg.style.color="";msg.textContent="";
+  // One request per line so each item lands as its own order row.
+  Promise.all(c.map(function(it){
+    return fetch("__API__/api/sites/order-submit.php",{method:"POST",
+      headers:{"Content-Type":"application/json","Accept":"application/json"},
+      body:JSON.stringify({site:SITE,item:it.item,item_slug:it.slug,price:it.price,mrp:it.mrp||"",
+        option_label:it.vlabel||"",option_value:it.variant||"",quantity:parseInt(it.qty,10)||1,
+        name:form.name.value,phone:form.phone.value,email:form.email.value,note:form.note.value})
+    }).then(function(r){return r.json();});
+  })).then(function(all){
+    if(!all.every(function(r){return r&&r.success;}))throw new Error("partial");
+    window.tfCart.write([]);
+    wrap.style.display="none";empty.style.display="none";done.style.display="";
+  }).catch(function(){
+    msg.style.color="#dc2626";msg.textContent="Could not place the order. Please try again.";
+    b.disabled=false;b.textContent="Place order";
+  });
+});
+if(document.readyState!=="loading")render();else document.addEventListener("DOMContentLoaded",render);
+})();</script>
+JS;
     }
 
     private static function secBlog(array $s, array $doc): string
@@ -1585,6 +1860,35 @@ class SiteRenderer
     /* --------------------------------------------------------- carousel js */
 
     /** Wires every .tf-carousel: arrows, dots, autoplay (pause on hover), swipe. */
+    /**
+     * The cart itself. Kept in localStorage under a per-site key so one browser
+     * can shop several Tapify sites without them bleeding into each other, and
+     * exposed as window.tfCart so the product page, the header badge and the
+     * cart page all read and write the same list.
+     *
+     * There is no server-side cart: an order only reaches the backend when the
+     * customer checks out, which keeps published sites entirely static.
+     */
+    private static function cartScript(): string
+    {
+        $key = json_encode('tf_cart_' . self::$slug);
+        return '<script>(function(){var K=' . $key . ';'
+             . 'function read(){try{var c=JSON.parse(localStorage.getItem(K)||"[]");return Array.isArray(c)?c:[];}catch(e){return [];}}'
+             . 'function write(c){try{localStorage.setItem(K,JSON.stringify(c));}catch(e){}badge();}'
+             . 'function count(){var n=0,c=read();for(var i=0;i<c.length;i++)n+=(parseInt(c[i].qty,10)||1);return n;}'
+             . 'function badge(){var n=count();Array.prototype.forEach.call(document.querySelectorAll("[data-tf-cart-count]"),'
+             . 'function(el){el.textContent=n;el.style.display=n?"":"none";});}'
+             // The same product in the same option is one line with a bigger qty,
+             // not a second line.
+             . 'function add(it){var c=read(),f=null;'
+             . 'for(var i=0;i<c.length;i++){if(c[i].slug===it.slug&&(c[i].variant||"")===(it.variant||"")){f=c[i];break;}}'
+             . 'if(f){f.qty=(parseInt(f.qty,10)||1)+(parseInt(it.qty,10)||1);}else{c.push(it);}write(c);return count();}'
+             . 'window.tfCart={read:read,write:write,count:count,add:add,refresh:badge};'
+             . 'window.addEventListener("storage",function(e){if(e.key===K)badge();});'
+             . 'if(document.readyState!=="loading")badge();else document.addEventListener("DOMContentLoaded",badge);'
+             . '})();</script>';
+    }
+
     private static function carouselScript(): string
     {
         return <<<'JS'
@@ -1736,6 +2040,24 @@ iframe{max-width:100%}
 @media(min-width:768px){.tf-mqslide{flex:0 0 320px}}
 @keyframes tf-mqscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.tf-mqtrack{animation:none;overflow-x:auto;max-width:100%}}
+.tf-pgal{display:flex;gap:14px;align-items:flex-start}
+.tf-pthumbs{display:flex;flex-direction:column;gap:10px;width:78px;flex-shrink:0;max-height:520px;overflow-y:auto;scrollbar-width:thin}
+.tf-pthumb{padding:0;width:78px;height:78px;border:2px solid var(--color-border);border-radius:8px;background:var(--color-surface);cursor:pointer;overflow:hidden;flex-shrink:0}
+.tf-pthumb.is-active{border-color:var(--color-primary)}
+.tf-pthumb img{width:100%;height:100%;object-fit:cover;display:block}
+.tf-pmain{flex:1;min-width:0;display:flex;align-items:center;justify-content:center;height:520px;background:var(--color-surface);border-radius:var(--radius);overflow:hidden}
+.tf-pmain img{max-width:100%;max-height:100%;object-fit:contain}
+@media(max-width:640px){.tf-pgal{flex-direction:column-reverse}.tf-pthumbs{flex-direction:row;width:auto;max-height:none;overflow-x:auto}.tf-pmain{height:340px}}
+.tf-bsgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:34px;text-align:left}
+@media(min-width:640px){.tf-bsgrid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1024px){.tf-bsgrid{grid-template-columns:repeat(4,1fr)}}
+.tf-bscard{display:block;color:inherit;text-decoration:none}
+.tf-bscard img{width:100%;height:230px;object-fit:cover;border-radius:6px}
+.tf-bstitle{margin:14px 0 0;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.01em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tf-bsprice{margin:8px 0 0;display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;font-size:13px}
+.tf-bssell{font-size:17px;font-weight:800}
+.tf-bsprice s{color:var(--tf-text,var(--color-muted))}
+.tf-bsoff{font-weight:800;color:#dc2626}
 .tf-anim-ready [data-anim]{opacity:0;transition:opacity .7s ease,transform .7s ease;will-change:opacity,transform}
 .tf-anim-ready [data-anim="slide-up"]{transform:translateY(34px)}
 .tf-anim-ready [data-anim="zoom"]{transform:scale(.93)}

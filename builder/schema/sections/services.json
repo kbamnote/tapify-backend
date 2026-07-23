@@ -48,6 +48,16 @@
             { "key": "alt",   "type": "text",  "label": "Caption", "maxLength": 120 }
           ]
         },
+        { "key": "productInfoTitle", "type": "text", "label": "Info table title", "maxLength": 60, "placeholder": "Product Information",
+          "help": "Only used when the rows below are filled in." },
+        { "key": "productInfo", "type": "repeater", "label": "Product information (optional)", "max": 20,
+          "itemLabel": "{{label}}", "addLabel": "Add row",
+          "help": "A spec table on the detail page — Brand, Material, Pack of, and so on. Leave empty to hide it.",
+          "fields": [
+            { "key": "label", "type": "text", "label": "Label", "maxLength": 60, "placeholder": "e.g. Material" },
+            { "key": "value", "type": "text", "label": "Value", "maxLength": 200, "placeholder": "e.g. MDF, Printed Vinyl" }
+          ]
+        },
         { "key": "price",  "type": "text",     "label": "Selling price", "maxLength": 40, "placeholder": "e.g. ₹4,999" },
         { "key": "mrp",    "type": "text",     "label": "MRP (crossed out)", "maxLength": 40, "placeholder": "e.g. ₹7,999",
           "help": "Shown struck through next to the selling price, with the discount %." },
@@ -60,6 +70,10 @@
           "help": "The detail page address: /service/<this>. Leave blank to build it from the title." }
       ]
     },
+    { "key": "showRelated", "type": "toggle", "label": "Show other products on the detail page", "default": true, "group": "Detail page",
+      "help": "Adds a \"Best sellers\" strip under each product so visitors can jump to your other items." },
+    { "key": "relatedHeading", "type": "text", "label": "That strip's heading", "maxLength": 60, "default": "Best sellers", "group": "Detail page" },
+
     { "key": "imageFit", "type": "crop",   "label": "Crop / position", "group": "Media",
       "help": "Drag the photo to choose what stays in frame, and zoom in to crop closer." }
   ],
