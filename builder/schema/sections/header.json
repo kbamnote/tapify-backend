@@ -49,7 +49,7 @@
   ],
 
   "style": {
-    "supports": ["bg"],
+    "supports": ["bg", "headingColor", "textColor"],
     "defaults": { "bg": "default" }
   },
 

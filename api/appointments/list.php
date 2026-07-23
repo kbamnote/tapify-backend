@@ -123,77 +123,9 @@ try {
         $a['duration_minutes'] = (int)($a['duration_minutes'] ?? 30);
         $a['is_read'] = (bool)$a['is_read'];
         $a['vcard_name'] = $a['vcard_name'] ?? 'Unknown';
-        $a['source'] = 'vcard';
 
         $formatted[] = $a;
     }
-
-    // --- website-builder appointments --------------------------------------
-    // Booked from a published builder site. They live in their own table
-    // (site_appointments) because they key to a site rather than a vCard, so
-    // they are fetched separately and merged into the same list. Each row is
-    // tagged source=site so the dashboard knows which endpoint to update.
-    $siteTotal = 0; $siteToday = 0; $siteUpcoming = 0; $sitePending = 0;
-    if ($vcardId <= 0) {   // a vCard filter can never match a builder booking
-        try {
-            $sc = []; $sp = [];
-            if ($role !== 'admin')  { $sc[] = 's.user_id = ?';           $sp[] = $userId; }
-            if ($status !== 'all')  { $sc[] = 'sa.status = ?';           $sp[] = $status; }
-            if ($filter === 'today')        { $sc[] = 'sa.appointment_date = ?';  $sp[] = $today; }
-            elseif ($filter === 'upcoming') { $sc[] = 'sa.appointment_date >= ?'; $sp[] = $today; }
-            elseif ($filter === 'past')     { $sc[] = 'sa.appointment_date < ?';  $sp[] = $today; }
-            $sw = $sc ? ('WHERE ' . implode(' AND ', $sc)) : '';
-
-            $stmt = $pdo->prepare("
-                SELECT sa.*, s.name AS site_name, s.slug AS site_slug
-                FROM site_appointments sa
-                JOIN sites s ON s.id = sa.site_id
-                $sw
-                ORDER BY sa.appointment_date DESC, sa.appointment_time DESC
-            ");
-            $stmt->execute($sp);
-            foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $a) {
-                $dObj = new DateTime($a['appointment_date']);
-                $a['date_formatted'] = $dObj->format('M d, Y');
-                $a['day_name'] = $dObj->format('l');
-                $a['time_formatted'] = !empty($a['appointment_time'])
-                    ? (new DateTime($a['appointment_time']))->format('g:i A') : 'N/A';
-                $a['duration_minutes'] = 30;
-                $a['is_read'] = (bool)$a['is_read'];
-                $a['source'] = 'site';
-                $a['vcard_id'] = 0;
-                $a['vcard_name'] = $a['site_name'] ?: $a['site_slug'];
-                $formatted[] = $a;
-            }
-
-            // Same-scope counts, added to the vCard stats below.
-            $bw = ($role !== 'admin') ? 'WHERE s.user_id = ?' : '';
-            $bp = ($role !== 'admin') ? [$userId] : [];
-            $countSite = function ($extra, $params) use ($pdo, $bw) {
-                if ($bw) {
-                    $w = $bw . ($extra ? ' ' . $extra : '');
-                } else {
-                    $w = $extra ? 'WHERE ' . preg_replace('/^AND\s+/i', '', $extra) : '';
-                }
-                $st = $pdo->prepare("SELECT COUNT(*) FROM site_appointments sa JOIN sites s ON s.id = sa.site_id $w");
-                $st->execute($params);
-                return (int)$st->fetchColumn();
-            };
-            $siteTotal    = $countSite('', $bp);
-            $siteToday    = $countSite('AND sa.appointment_date = ?', array_merge($bp, [$today]));
-            $siteUpcoming = $countSite('AND sa.appointment_date >= ?', array_merge($bp, [$today]));
-            $sitePending  = $countSite("AND sa.status = 'pending'", $bp);
-        } catch (Exception $e) {
-            // site_appointments not migrated yet — vCard appointments still work.
-        }
-    }
-
-    // Newest first across both sources.
-    usort($formatted, function ($x, $y) {
-        $a = ($x['appointment_date'] ?? '') . ' ' . ($x['appointment_time'] ?? '');
-        $b = ($y['appointment_date'] ?? '') . ' ' . ($y['appointment_time'] ?? '');
-        return strcmp($b, $a);
-    });
 
     // Calculate stats
     $statsParams = [];
@@ -231,11 +163,10 @@ try {
     sendSuccess('Appointments retrieved', [
         'appointments' => $formatted,
         'stats' => [
-            // vCard + website-builder bookings combined.
-            'total' => $total + $siteTotal,
-            'today' => $todayCount + $siteToday,
-            'upcoming' => $upcomingCount + $siteUpcoming,
-            'pending' => $pendingCount + $sitePending
+            'total' => $total,
+            'today' => $todayCount,
+            'upcoming' => $upcomingCount,
+            'pending' => $pendingCount
         ]
     ]);
 

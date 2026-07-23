@@ -68,7 +68,7 @@
   ],
 
   "style": {
-    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay"],
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "headingColor", "textColor"],
     "defaults": { "paddingY": "lg", "align": "left", "bg": "dark" }
   },
 

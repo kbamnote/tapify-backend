@@ -308,6 +308,31 @@ class SiteValidator
                 }
                 break;
 
+            // A visual crop: which part of the photo shows inside its frame.
+            // Legacy string values ("cover"/"top"/"contain") predate the cropper
+            // and are still accepted so old documents keep validating.
+            case 'crop':
+                if (is_string($val)) {
+                    $this->enum($val, ['cover', 'top', 'contain'], $path);
+                    return;
+                }
+                if (!is_array($val)) { $this->err($path, 'must be a crop object'); return; }
+                foreach (array_keys($val) as $k) {
+                    if (!in_array($k, ['fit', 'x', 'y', 'zoom'], true)) {
+                        $this->err("$path.$k", 'unknown crop property');
+                    }
+                }
+                if (isset($val['fit'])) $this->enum($val['fit'], ['cover', 'contain'], "$path.fit");
+                foreach (['x', 'y'] as $k) {
+                    if (isset($val[$k]) && (!is_numeric($val[$k]) || $val[$k] < 0 || $val[$k] > 100)) {
+                        $this->err("$path.$k", 'must be a percentage between 0 and 100');
+                    }
+                }
+                if (isset($val['zoom']) && (!is_numeric($val['zoom']) || $val['zoom'] < 1 || $val['zoom'] > 4)) {
+                    $this->err("$path.zoom", 'must be between 1 and 4');
+                }
+                break;
+
             case 'link':
                 if (!is_array($val)) { $this->err($path, 'must be a link object'); return; }
                 foreach (array_keys($val) as $k) {

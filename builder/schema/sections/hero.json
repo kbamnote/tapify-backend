@@ -36,7 +36,7 @@
   ],
 
   "style": {
-    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "animation"],
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "animation", "headingColor", "textColor"],
     "defaults": { "paddingY": "xl", "align": "center", "bg": "image", "overlay": 0.55 }
   },
 

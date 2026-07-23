@@ -9,8 +9,10 @@
   "maxPerPage": 3,
 
   "variants": [
-    { "id": "grid-3", "label": "3 columns" },
-    { "id": "grid-2", "label": "2 columns" }
+    { "id": "grid-3",   "label": "3 columns" },
+    { "id": "grid-2",   "label": "2 columns" },
+    { "id": "carousel", "label": "Carousel (arrows + dots)" },
+    { "id": "slider",   "label": "Auto-scrolling slider" }
   ],
 
   "props": [
@@ -36,7 +38,7 @@
   ],
 
   "style": {
-    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "radius", "animation"],
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "radius", "animation", "headingColor", "textColor"],
     "defaults": { "paddingY": "lg", "align": "center", "bg": "default" }
   },
 

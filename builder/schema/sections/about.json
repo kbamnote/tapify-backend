@@ -37,12 +37,12 @@
         { "key": "text",  "type": "textarea", "label": "Text", "maxLength": 400 }
       ]
     },
-    { "key": "imageFit", "type": "select", "label": "Image fit", "options": ["cover", "top", "contain"], "default": "cover", "group": "Media",
-      "help": "How the photo fills its frame. Cover crops to fill; Top keeps the top of the photo (best for faces); Contain shows the whole photo." }
+    { "key": "imageFit", "type": "crop",   "label": "Crop / position", "group": "Media",
+      "help": "Drag the photo to choose what stays in frame, and zoom in to crop closer." }
   ],
 
   "style": {
-    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "radius", "animation"],
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "radius", "animation", "headingColor", "textColor"],
     "defaults": { "paddingY": "lg", "align": "left", "bg": "default" }
   },
 

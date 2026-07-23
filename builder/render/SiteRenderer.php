@@ -308,11 +308,39 @@ class SiteRenderer
     }
 
     /** object-fit/position for the "Image fit" option (avoids cropping faces). */
-    private static function imgFit(?string $fit): string
+    /**
+     * How a photo sits inside its frame — the section's visual crop.
+     *
+     * Stored either as a legacy string ("cover"/"top"/"contain") from before the
+     * cropper existed, or as {fit,x,y,zoom} written by the builder's crop tool.
+     * Zoom needs a transform, which paints outside the element box, so the paint
+     * is clipped back to that box (following $radius) to keep it off the layout.
+     */
+    private static function imgFit($fit, string $radius = '0'): string
     {
-        if ($fit === 'contain') return 'object-fit:contain;object-position:center;';
-        if ($fit === 'top') return 'object-fit:cover;object-position:top;';
-        return 'object-fit:cover;object-position:center;';
+        if (!is_array($fit)) {
+            if ($fit === 'contain') return 'object-fit:contain;object-position:center;';
+            if ($fit === 'top')     return 'object-fit:cover;object-position:top;';
+            return 'object-fit:cover;object-position:center;';
+        }
+        if (($fit['fit'] ?? 'cover') === 'contain') {
+            return 'object-fit:contain;object-position:center;';
+        }
+        $x = round(min(100, max(0, (float)($fit['x'] ?? 50))), 2);
+        $y = round(min(100, max(0, (float)($fit['y'] ?? 50))), 2);
+        $z = round(min(4, max(1, (float)($fit['zoom'] ?? 1))), 3);
+        $css = 'object-fit:cover;object-position:' . $x . '% ' . $y . '%;';
+        if ($z > 1.001) {
+            $css .= 'transform:scale(' . $z . ');transform-origin:' . $x . '% ' . $y . '%;'
+                  . 'clip-path:inset(0' . ($radius !== '0' ? ' round ' . $radius : '') . ');';
+        }
+        return $css;
+    }
+
+    /** A colour we are willing to drop straight into a style attribute. */
+    private static function isColor($v): bool
+    {
+        return is_string($v) && preg_match('/^#[0-9a-f]{3,8}$/i', $v) === 1;
     }
 
     /** SectionShell: padding / bg / align / radius + bg-image + overlay + container. */
@@ -332,8 +360,15 @@ class SiteRenderer
         $align = in_array($style['align'] ?? '', ['center','right'], true) ? $style['align'] : 'left';
         $radius = !empty($style['radius']) ? ('border-radius:' . (['none'=>'0','sm'=>'6px','md'=>'12px','lg'=>'18px','xl'=>'26px'][$style['radius']] ?? '0') . ';') : '';
 
+        // Per-section font colours. Emitted as custom properties so every heading
+        // and paragraph inside the section picks them up, including the ones that
+        // set their own colour inline.
+        $vars = '';
+        if (self::isColor($style['headingColor'] ?? null)) $vars .= '--tf-heading:' . $style['headingColor'] . ';';
+        if (self::isColor($style['textColor'] ?? null))    $vars .= '--tf-text:' . $style['textColor'] . ';';
+
         $secStyle = 'padding-top:calc(' . $pad . 'px*var(--space-scale));padding-bottom:calc(' . $pad . 'px*var(--space-scale));'
-                  . 'text-align:' . $align . ';' . $bgc . $color . $radius;
+                  . 'text-align:' . $align . ';' . $bgc . $color . $radius . $vars;
 
         $bgLayer = '';
         if ($bgImg) {
@@ -355,9 +390,9 @@ class SiteRenderer
     {
         if (!$label && !$heading && !$sub) return '';
         $h = '<div class="tf-head">';
-        if ($label)   $h .= '<p class="tf-eyebrow"' . ($light ? ' style="color:rgba(255,255,255,.8)"' : '') . '>' . self::esc($label) . '</p>';
+        if ($label)   $h .= '<p class="tf-eyebrow"' . ($light ? ' style="color:var(--tf-text,rgba(255,255,255,.8))"' : '') . '>' . self::esc($label) . '</p>';
         if ($heading) $h .= '<h2 class="tf-h2">' . self::esc($heading) . '</h2>';
-        if ($sub)     $h .= '<p class="tf-sub"' . ($light ? ' style="color:rgba(255,255,255,.85)"' : '') . '>' . self::esc($sub) . '</p>';
+        if ($sub)     $h .= '<p class="tf-sub"' . ($light ? ' style="color:var(--tf-text,rgba(255,255,255,.85))"' : '') . '>' . self::esc($sub) . '</p>';
         return $h . '</div>';
     }
 
@@ -407,12 +442,12 @@ class SiteRenderer
     }
 
     /** A marquee — cards scroll continuously in a loop. Pure CSS, pauses on hover. */
-    private static function marquee(array $slidesHtml, int $secsPerSlide = 5): string
+    private static function marquee(array $slidesHtml, int $secsPerSlide = 3): string
     {
         if (!$slidesHtml) return '';
         $one = '';
         foreach ($slidesHtml as $sl) $one .= '<div class="tf-mqslide">' . $sl . '</div>';
-        $dur = max(16, count($slidesHtml) * $secsPerSlide);
+        $dur = max(10, count($slidesHtml) * $secsPerSlide);
         // The set is duplicated so translateX(-50%) loops seamlessly.
         return '<div class="tf-marquee">'
              . '<div class="tf-mqtrack" style="animation-duration:' . $dur . 's">' . $one . $one . '</div>'
@@ -586,12 +621,12 @@ class SiteRenderer
         $hasImage = $variant !== 'text-only' && $img;
 
         $text = '<div>' . self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, null);
-        if (!empty($p['body'])) $text .= '<p class="tf-body" style="white-space:pre-line;color:var(--color-muted)">' . self::esc($p['body']) . '</p>';
+        if (!empty($p['body'])) $text .= '<p class="tf-body" style="white-space:pre-line;color:var(--tf-text,var(--color-muted))">' . self::esc($p['body']) . '</p>';
         if (!empty($p['showPillars']) && !empty($p['pillars'])) {
             $text .= '<div class="tf-grid tf-c2" style="margin-top:32px">';
             foreach ($p['pillars'] as $pl) {
                 $text .= '<div class="tf-card" style="padding:20px"><h3 style="font-family:var(--font-heading);font-size:16px;font-weight:600">' . self::esc($pl['title'] ?? '') . '</h3>'
-                       . (!empty($pl['text']) ? '<p style="margin-top:8px;font-size:14px;color:var(--color-muted)">' . self::esc($pl['text']) . '</p>' : '') . '</div>';
+                       . (!empty($pl['text']) ? '<p style="margin-top:8px;font-size:14px;color:var(--tf-text,var(--color-muted))">' . self::esc($pl['text']) . '</p>' : '') . '</div>';
             }
             $text .= '</div>';
         }
@@ -599,7 +634,7 @@ class SiteRenderer
 
         if (!$hasImage) return self::shell($s, '<div style="max-width:768px;margin:0 auto">' . $text . '</div>');
 
-        $image = '<img src="' . self::esc($img) . '" alt="' . self::esc($p['heading'] ?? 'About') . '" loading="lazy" style="width:100%;border-radius:var(--radius);max-height:460px;' . self::imgFit($p['imageFit'] ?? null) . '">';
+        $image = '<img src="' . self::esc($img) . '" alt="' . self::esc($p['heading'] ?? 'About') . '" loading="lazy" style="width:100%;border-radius:var(--radius);max-height:460px;' . self::imgFit($p['imageFit'] ?? null, 'var(--radius)') . '">';
         $cols = $variant === 'image-left' ? ($image . $text) : ($text . $image);
         return self::shell($s, '<div class="tf-two" style="text-align:left">' . $cols . '</div>');
     }
@@ -621,7 +656,7 @@ class SiteRenderer
             $c .= '<h3 style="font-family:var(--font-heading);font-size:18px;font-weight:600">' . self::esc($it['title'] ?? '') . '</h3>';
             if (!empty($it['meta'])) $c .= '<p style="margin-top:4px;font-size:12px;font-weight:600;color:var(--color-accent)">' . self::esc($it['meta']) . '</p>';
             if (!empty($it['price'])) $c .= '<p style="margin-top:6px;font-size:16px;font-weight:700;color:var(--color-primary)">' . self::esc($it['price']) . '</p>';
-            if (!empty($it['desc'])) $c .= '<p style="margin-top:8px;font-size:14px;color:var(--color-muted)">' . self::esc($it['desc']) . '</p>';
+            if (!empty($it['desc'])) $c .= '<p style="margin-top:8px;font-size:14px;color:var(--tf-text,var(--color-muted))">' . self::esc($it['desc']) . '</p>';
             // A service with a full description opens its own product-style page
             // (photo gallery + details), which takes priority over a plain button.
             if (trim((string)($it['body'] ?? '')) !== '') {
@@ -683,7 +718,7 @@ class SiteRenderer
             $cells .= '<div style="text-align:center">'
                     . '<div style="font-family:var(--font-heading);font-size:34px;font-weight:700">' . $num
                     . '<span style="color:' . $suffixColor . '">' . self::esc($it['suffix'] ?? '') . '</span></div>'
-                    . '<p style="margin-top:4px;font-size:14px;' . ($onDark ? 'opacity:.85' : 'color:var(--color-muted)') . '">' . self::esc($it['label'] ?? '') . '</p>'
+                    . '<p style="margin-top:4px;font-size:14px;' . ($onDark ? 'opacity:.85' : 'color:var(--tf-text,var(--color-muted))') . '">' . self::esc($it['label'] ?? '') . '</p>'
                     . '</div>';
         }
         $n = count($items);
@@ -707,16 +742,16 @@ class SiteRenderer
             $img = self::media($pr['photo'] ?? null);
             $c = '<div class="tf-card" style="padding:24px;text-align:center">';
             if ($img) {
-                $st = ($round ? 'margin:0 auto;height:112px;width:112px;border-radius:999px;' : 'margin:0 auto;height:160px;width:100%;border-radius:var(--radius);') . self::imgFit($p['imageFit'] ?? null);
+                $st = ($round ? 'margin:0 auto;height:112px;width:112px;border-radius:999px;' : 'margin:0 auto;height:160px;width:100%;border-radius:var(--radius);') . self::imgFit($p['imageFit'] ?? null, $round ? '999px' : 'var(--radius)');
                 $c .= '<img src="' . self::esc($img) . '" alt="' . self::esc($pr['name'] ?? '') . '" loading="lazy" style="' . $st . '">';
             } else {
                 $initial = function_exists('mb_substr') ? mb_substr($pr['name'] ?? '?', 0, 1, 'UTF-8') : substr($pr['name'] ?? '?', 0, 1);
-                $c .= '<div aria-hidden="true" style="margin:0 auto;height:112px;width:112px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;border-radius:999px;background:var(--color-surface);color:var(--color-muted)">' . self::esc($initial) . '</div>';
+                $c .= '<div aria-hidden="true" style="margin:0 auto;height:112px;width:112px;display:flex;align-items:center;justify-content:center;font-size:24px;font-weight:700;border-radius:999px;background:var(--color-surface);color:var(--tf-text,var(--color-muted))">' . self::esc($initial) . '</div>';
             }
             $c .= '<h3 style="margin-top:16px;font-family:var(--font-heading);font-size:16px;font-weight:600">' . self::esc($pr['name'] ?? '') . '</h3>';
             if (!empty($pr['role'])) $c .= '<p style="margin-top:2px;font-size:12px;font-weight:600;color:var(--color-accent)">' . self::esc($pr['role']) . '</p>';
-            if (!empty($pr['meta'])) $c .= '<p style="margin-top:8px;display:inline-block;padding:4px 12px;font-size:12px;background:var(--color-surface);color:var(--color-muted);border-radius:999px">' . self::esc($pr['meta']) . '</p>';
-            if (!empty($pr['bio'])) $c .= '<p style="margin-top:12px;font-size:14px;color:var(--color-muted)">' . self::esc($pr['bio']) . '</p>';
+            if (!empty($pr['meta'])) $c .= '<p style="margin-top:8px;display:inline-block;padding:4px 12px;font-size:12px;background:var(--color-surface);color:var(--tf-text,var(--color-muted));border-radius:999px">' . self::esc($pr['meta']) . '</p>';
+            if (!empty($pr['bio'])) $c .= '<p style="margin-top:12px;font-size:14px;color:var(--tf-text,var(--color-muted))">' . self::esc($pr['bio']) . '</p>';
             if (!empty($pr['link']['text'])) { $l = $pr['link']; $l['style'] = $l['style'] ?? 'link'; $c .= '<div style="margin-top:12px">' . self::btn($l) . '</div>'; }
             $c .= '</div>';
             $cards[] = $c;
@@ -749,7 +784,7 @@ class SiteRenderer
                    . '<figcaption style="margin-top:20px;display:flex;align-items:center;justify-content:center;gap:12px">'
                    . ($photo ? '<img src="' . self::esc($photo) . '" alt="' . self::esc($r['name'] ?? '') . '" loading="lazy" style="height:44px;width:44px;border-radius:999px;object-fit:cover">' : '')
                    . '<span><span style="display:block;font-size:14px;font-weight:600">' . self::esc($r['name'] ?? '') . '</span>'
-                   . (!empty($r['role']) ? '<span style="display:block;font-size:12px;color:var(--color-muted)">' . self::esc($r['role']) . '</span>' : '') . '</span>'
+                   . (!empty($r['role']) ? '<span style="display:block;font-size:12px;color:var(--tf-text,var(--color-muted))">' . self::esc($r['role']) . '</span>' : '') . '</span>'
                    . '</figcaption></figure>';
             return self::shell($s, $inner);
         }
@@ -758,11 +793,11 @@ class SiteRenderer
         foreach ($items as $r) {
             $photo = self::media($r['photo'] ?? null);
             $cards[] = '<div class="tf-card" style="padding:24px;text-align:left">' . $stars($r['rating'] ?? 5)
-                    . '<blockquote style="margin:12px 0 0;font-size:14px;color:var(--color-muted)">“' . self::esc($r['quote'] ?? '') . '”</blockquote>'
+                    . '<blockquote style="margin:12px 0 0;font-size:14px;color:var(--tf-text,var(--color-muted))">“' . self::esc($r['quote'] ?? '') . '”</blockquote>'
                     . '<div style="margin-top:20px;display:flex;align-items:center;gap:12px">'
                     . ($photo ? '<img src="' . self::esc($photo) . '" alt="' . self::esc($r['name'] ?? '') . '" loading="lazy" style="height:40px;width:40px;border-radius:999px;object-fit:cover">' : '')
                     . '<div><p style="font-size:14px;font-weight:600;margin:0">' . self::esc($r['name'] ?? '') . '</p>'
-                    . (!empty($r['role']) ? '<p style="font-size:12px;color:var(--color-muted);margin:0">' . self::esc($r['role']) . '</p>' : '') . '</div>'
+                    . (!empty($r['role']) ? '<p style="font-size:12px;color:var(--tf-text,var(--color-muted));margin:0">' . self::esc($r['role']) . '</p>' : '') . '</div>'
                     . '</div></div>';
         }
         $body = $variant === 'marquee' ? self::marquee($cards)
@@ -785,7 +820,7 @@ class SiteRenderer
             $open = ($openFirst && $i === 0) ? ' open' : '';
             $rows .= '<details class="tf-faqitem"' . $open . ' style="background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius);text-align:left">'
                    . '<summary style="font-family:var(--font-heading);padding:16px 20px;font-size:14px;font-weight:600"><span style="display:flex;justify-content:space-between;gap:16px">' . self::esc($it['q']) . '<span class="tf-faq-plus" aria-hidden="true" style="color:var(--color-accent)">+</span></span></summary>'
-                   . (!empty($it['a']) ? '<p style="white-space:pre-line;padding:0 20px 16px;font-size:14px;color:var(--color-muted)">' . self::esc($it['a']) . '</p>' : '')
+                   . (!empty($it['a']) ? '<p style="white-space:pre-line;padding:0 20px 16px;font-size:14px;color:var(--tf-text,var(--color-muted))">' . self::esc($it['a']) . '</p>' : '')
                    . '</details>';
         }
         $wrap = $two ? '<div class="tf-grid tf-c2 tf-faq">' : '<div class="tf-faq" style="max-width:768px;margin:0 auto;display:grid;gap:12px">';
@@ -834,7 +869,7 @@ class SiteRenderer
         $rows = '';
         $add = function ($label, $val, $href = null) {
             $v = $href ? '<a href="' . self::esc($href) . '" style="font-size:14px;color:var(--color-text)">' . self::esc($val) . '</a>'
-                       : '<p style="font-size:14px;color:var(--color-muted);margin:0">' . self::esc($val) . '</p>';
+                       : '<p style="font-size:14px;color:var(--tf-text,var(--color-muted));margin:0">' . self::esc($val) . '</p>';
             return '<div><p style="font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--color-accent);margin:0">' . self::esc($label) . '</p>' . $v . '</div>';
         };
         if (($p['showPhone'] ?? true) !== false && !empty($biz['phone'])) $rows .= $add('Phone', $biz['phone'], 'tel:' . $biz['phone']);
@@ -881,6 +916,32 @@ class SiteRenderer
                     . $fields
                     . '<button type="submit" class="tf-btn" style="background:var(--color-primary);color:var(--color-primary-fg);border-radius:var(--radius)">' . self::esc($form['submitText'] ?? 'Send') . '</button>'
                     . '</form>';
+        } elseif (in_array($variant, ['form-map', 'form-only'], true)) {
+            // No custom form configured — use the built-in enquiry form. It needs
+            // no setup and lands in the dashboard's "Website Inquiries" page.
+            $uid = 'iq' . substr(md5(($s['id'] ?? '') . 'inq'), 0, 6);
+            $in  = 'width:100%;padding:10px 12px;font-size:14px;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-bg);color:var(--color-text)';
+            $lb  = 'display:block;margin-bottom:4px;font-size:12px;font-weight:600';
+            $formEl = '<form id="' . $uid . '" style="display:grid;gap:12px;text-align:left">'
+                . '<div><label style="' . $lb . '">Name *</label><input class="' . $uid . '-f" data-k="name" required style="' . $in . '"></div>'
+                . '<div><label style="' . $lb . '">Email</label><input class="' . $uid . '-f" data-k="email" type="email" style="' . $in . '"></div>'
+                . '<div><label style="' . $lb . '">Phone *</label><input class="' . $uid . '-f" data-k="phone" type="tel" required style="' . $in . '"></div>'
+                . '<div><label style="' . $lb . '">Subject</label><input class="' . $uid . '-f" data-k="subject" style="' . $in . '"></div>'
+                . '<div><label style="' . $lb . '">Message *</label><textarea class="' . $uid . '-f" data-k="message" rows="4" required style="' . $in . '"></textarea></div>'
+                . '<button type="submit" style="padding:12px;font-size:15px;font-weight:600;border:none;border-radius:var(--radius);background:var(--color-primary);color:var(--color-primary-fg);cursor:pointer">'
+                . self::esc($p['submitText'] ?? 'Send enquiry') . '</button>'
+                . '<p id="' . $uid . '-msg" style="margin:0;font-size:13px;font-weight:600"></p></form>'
+                . '<script>(function(){var U=' . json_encode($uid) . ',S=' . json_encode(self::$slug) . ',B=' . json_encode(self::apiBase()) . ';'
+                . 'var fm=document.getElementById(U),m=document.getElementById(U+"-msg");if(!fm)return;'
+                . 'fm.addEventListener("submit",function(e){e.preventDefault();var d={};'
+                . 'fm.querySelectorAll("."+U+"-f").forEach(function(el){d[el.getAttribute("data-k")]=(el.value||"").trim();});'
+                . 'var b=fm.querySelector("button[type=submit]"),ob=b.textContent;b.disabled=true;b.textContent="Sending…";'
+                . 'fetch(B+"/api/sites/inquiry-submit.php",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},'
+                . 'body:JSON.stringify({site:S,name:d.name,email:d.email,phone:d.phone,subject:d.subject,message:d.message})})'
+                . '.then(function(r){return r.json();}).then(function(res){b.disabled=false;b.textContent=ob;'
+                . 'if(res&&res.success){m.style.color="#16a34a";m.textContent="✓ Thank you! We will get back to you shortly.";fm.reset();}'
+                . 'else{m.style.color="#dc2626";m.textContent=(res&&res.message)||"Could not send your message.";}})'
+                . '.catch(function(){b.disabled=false;b.textContent=ob;m.style.color="#dc2626";m.textContent="Connection error.";});});})();</script>';
         }
 
         // Map.
@@ -1141,7 +1202,7 @@ class SiteRenderer
 
         return '<section style="margin-top:48px;padding-top:32px;border-top:1px solid var(--color-border);text-align:left">'
             . '<h2 style="margin:0 0 4px;font-family:var(--font-heading);font-size:24px;font-weight:700">Customer reviews</h2>'
-            . '<div id="' . $uid . '-list" style="margin-top:16px"><p style="font-size:14px;color:var(--color-muted)">Loading reviews…</p></div>'
+            . '<div id="' . $uid . '-list" style="margin-top:16px"><p style="font-size:14px;color:var(--tf-text,var(--color-muted))">Loading reviews…</p></div>'
             . '<form id="' . $uid . '-form" style="margin-top:28px;max-width:460px;padding:18px;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-surface)">'
             . '<p style="margin:0 0 12px;font-size:15px;font-weight:700">Write a review</p>'
             . '<div style="margin-bottom:10px"><label style="' . $lb . '">Your name *</label><input name="name" required style="' . $in . '"></div>'
@@ -1155,11 +1216,11 @@ class SiteRenderer
             . 'function esc(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML;}'
             . 'function load(){fetch(B+"/api/sites/reviews.php?site="+encodeURIComponent(S)+"&item="+encodeURIComponent(I),{headers:{"Accept":"application/json"}})'
             . '.then(function(r){return r.json();}).then(function(res){var d=(res&&res.data)||[];'
-            . 'if(!d.length){list.innerHTML="<p style=\'font-size:14px;color:var(--color-muted)\'>No reviews yet — be the first.</p>";return;}'
+            . 'if(!d.length){list.innerHTML="<p style=\'font-size:14px;color:var(--tf-text,var(--color-muted))\'>No reviews yet — be the first.</p>";return;}'
             . 'list.innerHTML=d.map(function(x){return "<div style=\'padding:14px 0;border-bottom:1px solid var(--color-border)\'>"'
             . '+"<div style=\'color:#f59e0b;font-size:14px\'>"+"★".repeat(x.rating)+"</div>"'
             . '+"<p style=\'margin:4px 0 0;font-size:14px;font-weight:700\'>"+esc(x.name)+"</p>"'
-            . '+"<p style=\'margin:4px 0 0;font-size:14px;color:var(--color-muted)\'>"+esc(x.comment)+"</p></div>";}).join("");})'
+            . '+"<p style=\'margin:4px 0 0;font-size:14px;color:var(--tf-text,var(--color-muted))\'>"+esc(x.comment)+"</p></div>";}).join("");})'
             . '.catch(function(){list.innerHTML="";});}'
             . 'load();'
             . 'f.addEventListener("submit",function(e){e.preventDefault();var b=f.querySelector("button[type=submit]");b.disabled=true;'
@@ -1228,7 +1289,7 @@ class SiteRenderer
             }
             $priceHtml = '<div style="margin:10px 0 0;display:flex;align-items:baseline;flex-wrap:wrap;gap:10px">'
                 . ($sell !== '' ? '<span style="font-size:28px;font-weight:800;color:var(--color-primary)">' . self::esc($sell) . '</span>' : '')
-                . ($mrp !== '' ? '<span style="font-size:16px;color:var(--color-muted);text-decoration:line-through">' . self::esc($mrp) . '</span>' : '')
+                . ($mrp !== '' ? '<span style="font-size:16px;color:var(--tf-text,var(--color-muted));text-decoration:line-through">' . self::esc($mrp) . '</span>' : '')
                 . ($off !== '' ? '<span style="font-size:14px;font-weight:700;color:#16a34a">' . $off . '</span>' : '')
                 . '</div>';
         }
@@ -1328,30 +1389,41 @@ class SiteRenderer
         $p = $s['props'] ?? [];
         $posts = $p['posts'] ?? [];
         if (!$posts) return '';
-        $cards = '';
+
+        // Build each card once — the grid, carousel and slider all reuse them.
+        $slides = [];
         foreach ($posts as $b) {
             $img = self::media($b['image'] ?? null);
             $c = '<div class="tf-card">';
             if ($img) $c .= '<img src="' . self::esc($img) . '" alt="' . self::esc($b['title'] ?? '') . '" loading="lazy" style="height:200px;width:100%;object-fit:cover">';
-            $c .= '<div style="padding:20px">';
+            $c .= '<div style="padding:20px;text-align:left">';
             if (!empty($b['date'])) $c .= '<p style="margin:0 0 6px;font-size:12px;font-weight:600;color:var(--color-accent)">' . self::esc($b['date']) . '</p>';
             $c .= '<h3 style="margin:0;font-family:var(--font-heading);font-size:19px;font-weight:600">' . self::esc($b['title'] ?? '') . '</h3>';
-            if (!empty($b['excerpt'])) $c .= '<p style="margin:8px 0 0;font-size:14px;color:var(--color-muted)">' . self::esc($b['excerpt']) . '</p>';
+            if (!empty($b['excerpt'])) $c .= '<p style="margin:8px 0 0;font-size:14px;color:var(--tf-text,var(--color-muted))">' . self::esc($b['excerpt']) . '</p>';
             // A post with a full article opens its own page; otherwise fall back to
             // the external link if one was given.
             if (trim((string)($b['body'] ?? '')) !== '') {
-                $l = ['text'=>($b['linkText'] ?? 'Read more'),'href'=>'/post/' . self::itemSlug($b, 'post'),'style'=>'link'];
+                $l = ['text' => ($b['linkText'] ?? 'Read more'), 'href' => '/post/' . self::itemSlug($b, 'post'), 'style' => 'link'];
                 $c .= '<div style="margin-top:14px">' . self::btn($l) . '</div>';
             } elseif (!empty($b['href'])) {
-                $l = ['text'=>($b['linkText'] ?? 'Read more'),'href'=>$b['href'],'style'=>'link','newTab'=>true];
+                $l = ['text' => ($b['linkText'] ?? 'Read more'), 'href' => $b['href'], 'style' => 'link', 'newTab' => true];
                 $c .= '<div style="margin-top:14px">' . self::btn($l) . '</div>';
             }
             $c .= '</div></div>';
-            $cards .= $c;
+            $slides[] = $c;
         }
-        $gcls = ($s['variant'] ?? 'grid-3') === 'grid-2' ? 'tf-grid tf-c2' : 'tf-grid tf-c3';
-        $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null, self::isDarkBg($s))
-               . '<div class="' . $gcls . '" style="text-align:left">' . $cards . '</div>';
+
+        $variant = $s['variant'] ?? 'grid-3';
+        if ($variant === 'slider') {
+            $body = self::marquee($slides);
+        } elseif ($variant === 'carousel') {
+            $body = self::carousel($slides);
+        } else {
+            $gcls = $variant === 'grid-2' ? 'tf-grid tf-c2' : 'tf-grid tf-c3';
+            $body = '<div class="' . $gcls . '" style="text-align:left">' . implode('', $slides) . '</div>';
+        }
+
+        $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null, self::isDarkBg($s)) . $body;
         return self::shell($s, $inner);
     }
 
@@ -1424,23 +1496,40 @@ class SiteRenderer
             . 'else{m.style.color="#dc2626";m.textContent=(res&&res.message)||"Could not send the request.";}})'
             . '.catch(function(){b.disabled=false;b.textContent=ob;m.style.color="#dc2626";m.textContent="Connection error.";});});})();</script>';
 
-        $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null, self::isDarkBg($s)) . $form . $script;
-        return self::shell($s, $inner);
+        $header  = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null, self::isDarkBg($s));
+        $variant = $s['variant'] ?? 'form';
+        $img     = self::media($p['image'] ?? null);
+
+        // Optional split layout: photo on one side, the form on the other.
+        if (in_array($variant, ['image-left', 'image-right'], true) && $img) {
+            $image = '<img src="' . self::esc($img) . '" alt="' . self::esc($p['heading'] ?? 'Appointment') . '" loading="lazy"'
+                   . ' style="width:100%;border-radius:var(--radius);max-height:520px;' . self::imgFit($p['imageFit'] ?? null, 'var(--radius)') . '">';
+            // The form is centred inside its own column, so drop the auto margins.
+            $col  = '<div style="text-align:left">' . str_replace('margin:0 auto;', '', $form) . '</div>';
+            $cols = $variant === 'image-left' ? ($image . $col) : ($col . $image);
+            return self::shell($s, $header . '<div class="tf-two" style="align-items:center;text-align:left">' . $cols . '</div>' . $script);
+        }
+
+        return self::shell($s, $header . $form . $script);
     }
 
     private static function secEmbed(array $s, array $doc): string
     {
         $p = $s['props'] ?? [];
+        $variant = $s['variant'] ?? 'grid-2';
+        // Instagram's own embed is ~540px wide, which is far too big once it sits
+        // in a multi-column grid. Cap each card to its column's share.
+        $maxW = $variant === 'grid-3' ? 300 : ($variant === 'single' ? 540 : 380);
+
         $blocks = '';
         foreach (($p['embeds'] ?? []) as $it) {
             $url = trim((string)($it['url'] ?? ''));
             if ($url === '' || !preg_match('#instagram\.com#i', $url)) continue;
-            $blocks .= '<blockquote class="instagram-media" data-instgrm-permalink="' . self::esc($url) . '" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px rgba(0,0,0,.5),0 1px 10px rgba(0,0,0,.15);margin:0;max-width:540px;min-width:300px;width:100%;padding:0"></blockquote>';
+            $blocks .= '<blockquote class="instagram-media" data-instgrm-permalink="' . self::esc($url) . '" data-instgrm-version="14" style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px rgba(0,0,0,.5),0 1px 10px rgba(0,0,0,.15);margin:0 auto;max-width:' . $maxW . 'px;min-width:0;width:100%;padding:0"></blockquote>';
         }
         if ($blocks === '') return '';
-        $variant = $s['variant'] ?? 'grid-2';
         $gcls = $variant === 'grid-3' ? 'tf-grid tf-c3' : ($variant === 'single' ? '' : 'tf-grid tf-c2');
-        $grid = $gcls ? ('<div class="' . $gcls . '" style="justify-items:center">' . $blocks . '</div>') : ('<div style="max-width:540px;margin:0 auto">' . $blocks . '</div>');
+        $grid = $gcls ? ('<div class="' . $gcls . '" style="justify-items:center">' . $blocks . '</div>') : ('<div style="max-width:' . $maxW . 'px;margin:0 auto">' . $blocks . '</div>');
         $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null, self::isDarkBg($s)) . $grid
                . '<script async src="//www.instagram.com/embed.js"></script>'
                . '<script>if(window.instgrm&&window.instgrm.Embeds)window.instgrm.Embeds.process();</script>';
@@ -1458,8 +1547,10 @@ class SiteRenderer
         $col = $light ? '#fff' : 'var(--color-text)';
         $qr = '';
         if (($p['showQr'] ?? true) !== false) {
-            $qsrc = 'https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=8&data=' . $enc;
-            $qr = '<div style="display:inline-block;padding:14px;background:#fff;border-radius:var(--radius);box-shadow:0 8px 24px rgba(16,24,40,.12)"><img src="' . self::esc($qsrc) . '" alt="QR code" width="200" height="200" style="display:block"></div>';
+            // An uploaded QR wins; otherwise generate one from the link.
+            $qsrc = self::media($p['qrImage'] ?? null)
+                 ?: ('https://api.qrserver.com/v1/create-qr-code/?size=220x220&margin=8&data=' . $enc);
+            $qr = '<div style="display:inline-block;padding:14px;background:#fff;border-radius:var(--radius);box-shadow:0 8px 24px rgba(16,24,40,.12)"><img src="' . self::esc($qsrc) . '" alt="QR code" width="200" height="200" style="display:block;width:200px;height:200px;object-fit:contain"></div>';
         }
         $bStyle = 'display:inline-flex;align-items:center;gap:8px;padding:10px 16px;font-size:14px;font-weight:600;text-decoration:none;border-radius:var(--radius);border:1px solid var(--color-border);color:' . $col;
         $btns = [];
@@ -1469,7 +1560,23 @@ class SiteRenderer
         $uid = 'sh' . substr(md5(($s['id'] ?? '') . 'shr'), 0, 6);
         $btns[] = '<button type="button" id="' . $uid . '" data-url="' . self::esc($url) . '" style="' . $bStyle . ';background:none;cursor:pointer">Copy link</button>';
         $copyJs = '<script>(function(){var b=document.getElementById(' . json_encode($uid) . ');if(!b)return;b.addEventListener("click",function(){var u=b.getAttribute("data-url");var d=function(){var o=b.textContent;b.textContent="Copied!";setTimeout(function(){b.textContent=o;},1500);};if(navigator.clipboard){navigator.clipboard.writeText(u).then(d,d);}else{d();}});})();</script>';
-        $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null, $light)
+        $header  = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null, $light);
+        $variant = $s['variant'] ?? 'default';
+        $img     = self::media($p['image'] ?? null);
+
+        // Optional split layout: photo on one side, QR + share buttons on the other.
+        if (in_array($variant, ['image-left', 'image-right'], true) && $img) {
+            $image = '<img src="' . self::esc($img) . '" alt="' . self::esc($p['heading'] ?? 'Share') . '" loading="lazy"'
+                   . ' style="width:100%;border-radius:var(--radius);max-height:520px;' . self::imgFit($p['imageFit'] ?? null, 'var(--radius)') . '">';
+            $col = '<div style="text-align:center">'
+                 . ($qr ? ('<div style="margin-bottom:22px">' . $qr . '</div>') : '')
+                 . '<div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center">' . implode('', $btns) . '</div>'
+                 . '</div>';
+            $cols = $variant === 'image-left' ? ($image . $col) : ($col . $image);
+            return self::shell($s, $header . '<div class="tf-two" style="align-items:center">' . $cols . '</div>' . $copyJs);
+        }
+
+        $inner = $header
                . ($qr ? ('<div style="margin-bottom:22px">' . $qr . '</div>') : '')
                . '<div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:center">' . implode('', $btns) . '</div>' . $copyJs;
         return self::shell($s, $inner);
@@ -1488,7 +1595,7 @@ function init(car){
   var slides=Array.prototype.slice.call(track.children),n=slides.length;if(n<2)return;
   var dots=car.querySelector(".tf-cdots"),prev=car.querySelector(".tf-cprev"),next=car.querySelector(".tf-cnext");
   function cur(){var c=track.scrollLeft+track.clientWidth/2,b=0,bd=Infinity;for(var i=0;i<n;i++){var e=slides[i],cc=e.offsetLeft+e.offsetWidth/2,d=Math.abs(cc-c);if(d<bd){bd=d;b=i;}}return b;}
-  function go(i){i=(i%n+n)%n;var e=slides[i];track.scrollTo({left:e.offsetLeft-track.offsetLeft,behavior:"smooth"});}
+  function go(i){i=(i%n+n)%n;var e=slides[i];track.scrollTo({left:e.offsetLeft,behavior:"smooth"});}
   if(dots){for(var i=0;i<n;i++){(function(k){var b=document.createElement("button");if(k===0)b.className="active";b.setAttribute("aria-label","Go to slide "+(k+1));b.addEventListener("click",function(){go(k);rest();});dots.appendChild(b);})(i);}}
   function sync(){var a=cur();if(dots)for(var i=0;i<dots.children.length;i++)dots.children[i].className=(i===a)?"active":"";}
   var tk=false;track.addEventListener("scroll",function(){if(!tk){requestAnimationFrame(function(){sync();tk=false;});tk=true;}},{passive:true});
@@ -1556,10 +1663,10 @@ img{max-width:100%;display:block}
 h1,h2,h3{font-family:var(--font-heading);line-height:1.15;margin:0}
 p{margin:0}
 a{color:inherit}
-.tf-h1{font-size:34px;font-weight:700;line-height:1.1}
+.tf-h1{font-size:34px;font-weight:700;line-height:1.1;color:var(--tf-heading,inherit)}
 @media(min-width:768px){.tf-h1{font-size:48px}}
 @media(min-width:1024px){.tf-h1{font-size:60px}}
-.tf-h2{font-size:30px;font-weight:700}
+.tf-h2{font-size:30px;font-weight:700;color:var(--tf-heading,inherit)}
 @media(min-width:768px){.tf-h2{font-size:36px}}
 .tf-lead{margin-top:16px;font-size:16px;line-height:1.6;opacity:.9;max-width:640px}
 @media(min-width:768px){.tf-lead{font-size:18px}}
@@ -1569,8 +1676,8 @@ a{color:inherit}
 .tf-al-right .tf-hero-wrap,.tf-al-right .tf-sub,.tf-al-right .tf-lead{margin-left:auto}
 .tf-al-right .tf-btns{justify-content:flex-end}
 .tf-head{margin-bottom:40px}
-.tf-eyebrow{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--color-accent);margin:0 0 8px}
-.tf-sub{margin-top:12px;font-size:16px;line-height:1.6;color:var(--color-muted);max-width:640px}
+.tf-eyebrow{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:var(--tf-text,var(--color-accent));margin:0 0 8px}
+.tf-sub{margin-top:12px;font-size:16px;line-height:1.6;color:var(--tf-text,var(--color-muted));max-width:640px}
 .tf-badge{display:inline-flex;align-items:center;gap:8px;margin-bottom:20px;padding:8px 16px;font-size:12px;font-weight:600;background:var(--color-accent);color:var(--color-accent-fg);border-radius:999px}
 .tf-btns{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px}
 .tf-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;font-size:14px;font-weight:600;text-decoration:none;border:0;cursor:pointer;transition:transform .2s}
@@ -1611,7 +1718,7 @@ a{color:inherit}
 iframe{max-width:100%}
 .tf-carousel{position:relative}
 .tf-cviewport{position:relative}
-.tf-ctrack{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none}
+.tf-ctrack{position:relative;display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none}
 .tf-ctrack::-webkit-scrollbar{display:none}
 .tf-cslide{flex:0 0 85%;max-width:85%;scroll-snap-align:start}
 @media(min-width:640px){.tf-cslide{flex:0 0 46%;max-width:46%}}

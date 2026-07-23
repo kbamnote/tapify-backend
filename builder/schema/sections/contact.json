@@ -33,13 +33,17 @@
       "help": "Leave blank to use the address from Business Info.",
       "showIf": { "variant": ["form-map", "details-map"] } },
 
-    { "key": "formId",   "type": "text",   "label": "Form", "maxLength": 60, "group": "Form",
-      "help": "Which form to show. Forms are managed under Forms.",
+    { "key": "submitText", "type": "text", "label": "Button text", "maxLength": 40, "default": "Send enquiry", "group": "Form",
+      "showIf": { "variant": ["form-map", "form-only"] },
+      "help": "The built-in enquiry form collects name, email, phone and message. Submissions appear under Website Inquiries." },
+
+    { "key": "formId",   "type": "text",   "label": "Custom form (optional)", "maxLength": 60, "group": "Form",
+      "help": "Leave blank to use the built-in enquiry form.",
       "showIf": { "variant": ["form-map", "form-only"] } }
   ],
 
   "style": {
-    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "radius", "animation"],
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "radius", "animation", "headingColor", "textColor"],
     "defaults": { "paddingY": "lg", "align": "center", "bg": "default" }
   },
 
