@@ -316,7 +316,8 @@ class SiteRenderer
     }
 
     /** SectionShell: padding / bg / align / radius + bg-image + overlay + container. */
-    private static function shell(array $s, string $inner, string $extraStyle = ''): string
+    /** @param string $backdrop full-bleed layer behind the content (e.g. a hero video) */
+    private static function shell(array $s, string $inner, string $extraStyle = '', string $backdrop = ''): string
     {
         $style = $s['style'] ?? [];
         $padMap = ['none'=>0,'sm'=>28,'md'=>48,'lg'=>72,'xl'=>104];
@@ -345,6 +346,7 @@ class SiteRenderer
 
         return '<section id="' . self::esc($s['id'] ?? '') . '" class="tf-section tf-al-' . $align . '" style="' . $secStyle . $extraStyle . '"' . $anim . '>'
              . $bgLayer
+             . $backdrop
              . '<div class="tf-container tf-rel">' . $inner . '</div>'
              . '</section>';
     }
@@ -449,9 +451,12 @@ class SiteRenderer
         $variant = $s['variant'] ?? 'left';
         $dark = self::isDarkBg($s);
         $logo = self::media($p['logo'] ?? null);
-        $brand = $logo
-            ? '<img src="' . self::esc($logo) . '" alt="' . self::esc($doc['site']['name'] ?? '') . '" style="height:36px;width:auto;object-fit:contain">'
+        $logoPx = ['small'=>28,'medium'=>36,'large'=>48,'extra-large'=>64][$p['logoSize'] ?? 'medium'] ?? 36;
+        $brandInner = $logo
+            ? '<img src="' . self::esc($logo) . '" alt="' . self::esc($doc['site']['name'] ?? '') . '" style="height:' . $logoPx . 'px;width:auto;object-fit:contain;display:block">'
             : '<span style="font-size:18px;font-weight:700;font-family:var(--font-heading)">' . self::esc($doc['site']['name'] ?? '') . '</span>';
+        // The logo always links back to the home page.
+        $brand = '<a href="/" aria-label="' . self::esc($doc['site']['name'] ?? '') . ' home" style="display:inline-flex;align-items:center;color:inherit;text-decoration:none">' . $brandInner . '</a>';
 
         // Auto-menu from visible pages when no custom links.
         $custom = array_values(array_filter($p['links'] ?? [], fn($l) => !empty($l['text']) && !empty($l['href'])));
@@ -471,10 +476,26 @@ class SiteRenderer
         [$bgc, $color] = self::bgCss($s['style']['bg'] ?? 'default', null);
         $sticky = ($p['sticky'] ?? true) !== false;
 
-        $bar = '<div class="tf-header-bar">' . $brand
-             . '<div class="tf-nav tf-nav-desktop">' . $links . ($cta ? '<span style="margin-left:8px">' . $cta . '</span>' : '') . '</div>'
-             . '<label for="' . $toggleId . '" class="tf-burger" aria-label="Menu">&#9776;</label>'
-             . '</div>';
+        // Optional cart icon button.
+        $cart = '';
+        if (!empty($p['showCart'])) {
+            $cart = '<a href="' . self::esc($p['cartHref'] ?? '/cart') . '" aria-label="Cart" style="display:inline-flex;align-items:center;justify-content:center;padding:8px;border-radius:6px;color:inherit;text-decoration:none;border:1px solid rgba(120,120,120,.28)">'
+                  . '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg></a>';
+        }
+        $burger = '<label for="' . $toggleId . '" class="tf-burger" aria-label="Menu">&#9776;</label>';
+        $right = '<div style="display:flex;align-items:center;gap:12px">' . ($cta ?: '') . $cart . $burger . '</div>';
+
+        if ($variant === 'nav-center') {
+            // Logo left · menu centered · button/cart right.
+            $bar = '<div class="tf-header-bar" style="justify-content:space-between">'
+                 . '<div style="flex-shrink:0">' . $brand . '</div>'
+                 . '<div class="tf-nav tf-nav-desktop" style="flex:1;justify-content:center">' . $links . '</div>'
+                 . $right . '</div>';
+        } else {
+            $bar = '<div class="tf-header-bar">' . $brand
+                 . '<div class="tf-nav tf-nav-desktop">' . $links . '</div>'
+                 . $right . '</div>';
+        }
 
         $mnav = '<nav class="tf-nav tf-mnav">' . $links . ($cta ? '<div style="margin-top:8px">' . $cta . '</div>' : '') . '</nav>';
 
@@ -491,6 +512,25 @@ class SiteRenderer
         $variant = $s['variant'] ?? 'centered-bg';
         $img = self::media($p['image'] ?? null);
         $biz = $doc['business'] ?? [];
+
+        // A video (uploaded file, or a pasted .mp4 / YouTube / Vimeo link) wins
+        // over the image. It plays muted + looped as the hero backdrop.
+        $upl = self::media($p['video'] ?? null);
+        $lnk = trim((string)($p['videoUrl'] ?? ''));
+        $embed = null;
+        if (!$upl && $lnk !== '') {
+            if (preg_match('#(?:youtube\.com/(?:watch\?v=|embed/|shorts/)|youtu\.be/)([\w-]{11})#i', $lnk, $m)) {
+                $embed = 'https://www.youtube.com/embed/' . $m[1] . '?autoplay=1&mute=1&loop=1&playlist=' . $m[1] . '&controls=0&playsinline=1';
+            } elseif (preg_match('#vimeo\.com/(\d+)#i', $lnk, $m)) {
+                $embed = 'https://player.vimeo.com/video/' . $m[1] . '?autoplay=1&muted=1&loop=1&background=1';
+            }
+        }
+        $fileVid = $upl ?: (($lnk !== '' && !$embed) ? $lnk : null);
+        $hasVid = (bool)($fileVid || $embed);
+        if ($hasVid && $variant !== 'split') {
+            // The backdrop is dark, so force light-on-dark treatment.
+            $s['style'] = array_merge($s['style'] ?? [], ['bg' => 'dark']);
+        }
         $onDark = self::isDarkBg($s);
         // Full-viewport hero, like a landing page.
         $fh = !empty($p['fullHeight']) ? 'min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;justify-content:center;' : '';
@@ -505,23 +545,37 @@ class SiteRenderer
         if (!empty($p['showCall']) && !empty($biz['phone'])) $btns .= self::btn(['text'=>'Call now','href'=>'tel:' . $biz['phone'],'style'=>'ghost'], $onDark);
         $body .= '<div class="tf-btns">' . $btns . '</div>';
 
-        if ($variant === 'split' && $img) {
-            $inner = '<div class="tf-two" style="text-align:left">'
-                   . '<div>' . $body . '</div>'
-                   . '<img src="' . self::esc($img) . '" alt="' . self::esc($p['heading'] ?? '') . '" style="width:100%;object-fit:cover;border-radius:var(--radius);max-height:460px">'
-                   . '</div>';
+        if ($variant === 'split' && ($hasVid || $img)) {
+            if ($hasVid) {
+                $media = '<div style="width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:var(--radius)">'
+                       . ($fileVid
+                          ? '<video src="' . self::esc($fileVid) . '" autoplay muted loop playsinline controls style="width:100%;height:100%;object-fit:cover"></video>'
+                          : '<iframe src="' . self::esc($embed) . '" allow="autoplay; encrypted-media; picture-in-picture" style="width:100%;height:100%;border:0"></iframe>')
+                       . '</div>';
+            } else {
+                $media = '<img src="' . self::esc($img) . '" alt="' . self::esc($p['heading'] ?? '') . '" style="width:100%;object-fit:cover;border-radius:var(--radius);max-height:460px">';
+            }
+            $inner = '<div class="tf-two" style="text-align:left"><div>' . $body . '</div>' . $media . '</div>';
             return self::shell($s, $inner, $fh);
         }
 
-        // "Centered on background image": the Image field IS the background.
-        if ($variant === 'centered-bg' && !empty($p['image'])) {
+        // Video backdrop wins; otherwise the Image field IS the background.
+        $backdrop = '';
+        if ($hasVid) {
+            $ov = isset($s['style']['overlay']) ? (float)$s['style']['overlay'] : 0.55;
+            $backdrop = '<div aria-hidden="true" style="position:absolute;inset:0;overflow:hidden">'
+                      . ($fileVid
+                         ? '<video src="' . self::esc($fileVid) . '" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover"></video>'
+                         : '<iframe src="' . self::esc($embed) . '" allow="autoplay; encrypted-media; picture-in-picture" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);height:110%;width:177.78vh;min-width:110%;border:0"></iframe>')
+                      . '<div style="position:absolute;inset:0;background:rgba(2,6,23,' . $ov . ')"></div></div>';
+        } elseif ($variant === 'centered-bg' && !empty($p['image'])) {
             $s['style'] = array_merge($s['style'] ?? [], [
                 'bg'      => 'image',
                 'bgMedia' => $p['image'],
                 'overlay' => $s['style']['overlay'] ?? 0.55,
             ]);
         }
-        return self::shell($s, '<div class="tf-hero-wrap">' . $body . '</div>', $fh);
+        return self::shell($s, '<div class="tf-hero-wrap">' . $body . '</div>', $fh, $backdrop);
     }
 
     private static function secAbout(array $s, array $doc): string
@@ -1062,6 +1116,62 @@ class SiteRenderer
      * Render one service/product on its own page: a photo gallery (like a
      * product page on Amazon/Flipkart) plus title, price and full description.
      */
+    /** Absolute origin of this Tapify backend, for the public JSON endpoints. */
+    private static function apiBase(): string
+    {
+        if (defined('SITE_URL') && SITE_URL) return rtrim(SITE_URL, '/');
+        if (defined('PUBLIC_URL') && PUBLIC_URL) return rtrim(PUBLIC_URL, '/');
+        return 'https://app.tapify.co.in';
+    }
+
+    /**
+     * Customer reviews for one item: the approved list plus a "write a review"
+     * form. Both talk to the builder's own endpoints — nothing shared with the
+     * vCard backend.
+     */
+    private static function reviewsBlock(array $item): string
+    {
+        $slug = self::itemSlug($item, 'service');
+        $uid  = 'rv' . substr(md5($slug), 0, 6);
+        $in   = 'width:100%;padding:10px 12px;font-size:14px;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-bg);color:var(--color-text)';
+        $lb   = 'display:block;margin-bottom:4px;font-size:12px;font-weight:700';
+
+        $stars = '';
+        for ($i = 5; $i >= 1; $i--) $stars .= '<option value="' . $i . '">' . str_repeat('★', $i) . ' (' . $i . ')</option>';
+
+        return '<section style="margin-top:48px;padding-top:32px;border-top:1px solid var(--color-border);text-align:left">'
+            . '<h2 style="margin:0 0 4px;font-family:var(--font-heading);font-size:24px;font-weight:700">Customer reviews</h2>'
+            . '<div id="' . $uid . '-list" style="margin-top:16px"><p style="font-size:14px;color:var(--color-muted)">Loading reviews…</p></div>'
+            . '<form id="' . $uid . '-form" style="margin-top:28px;max-width:460px;padding:18px;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-surface)">'
+            . '<p style="margin:0 0 12px;font-size:15px;font-weight:700">Write a review</p>'
+            . '<div style="margin-bottom:10px"><label style="' . $lb . '">Your name *</label><input name="name" required style="' . $in . '"></div>'
+            . '<div style="margin-bottom:10px"><label style="' . $lb . '">Rating *</label><select name="rating" style="' . $in . '">' . $stars . '</select></div>'
+            . '<div style="margin-bottom:14px"><label style="' . $lb . '">Review *</label><textarea name="comment" rows="3" required style="' . $in . '"></textarea></div>'
+            . '<button type="submit" style="padding:11px 22px;font-size:14px;font-weight:700;border:none;border-radius:var(--radius);background:var(--color-primary);color:var(--color-primary-fg);cursor:pointer">Submit review</button>'
+            . '<p id="' . $uid . '-msg" style="margin:10px 0 0;font-size:13px;font-weight:600"></p>'
+            . '</form>'
+            . '<script>(function(){var U=' . json_encode($uid) . ',S=' . json_encode(self::$slug) . ',I=' . json_encode($slug) . ',B=' . json_encode(self::apiBase()) . ';'
+            . 'var list=document.getElementById(U+"-list"),f=document.getElementById(U+"-form"),m=document.getElementById(U+"-msg");'
+            . 'function esc(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML;}'
+            . 'function load(){fetch(B+"/api/sites/reviews.php?site="+encodeURIComponent(S)+"&item="+encodeURIComponent(I),{headers:{"Accept":"application/json"}})'
+            . '.then(function(r){return r.json();}).then(function(res){var d=(res&&res.data)||[];'
+            . 'if(!d.length){list.innerHTML="<p style=\'font-size:14px;color:var(--color-muted)\'>No reviews yet — be the first.</p>";return;}'
+            . 'list.innerHTML=d.map(function(x){return "<div style=\'padding:14px 0;border-bottom:1px solid var(--color-border)\'>"'
+            . '+"<div style=\'color:#f59e0b;font-size:14px\'>"+"★".repeat(x.rating)+"</div>"'
+            . '+"<p style=\'margin:4px 0 0;font-size:14px;font-weight:700\'>"+esc(x.name)+"</p>"'
+            . '+"<p style=\'margin:4px 0 0;font-size:14px;color:var(--color-muted)\'>"+esc(x.comment)+"</p></div>";}).join("");})'
+            . '.catch(function(){list.innerHTML="";});}'
+            . 'load();'
+            . 'f.addEventListener("submit",function(e){e.preventDefault();var b=f.querySelector("button[type=submit]");b.disabled=true;'
+            . 'fetch(B+"/api/sites/review-submit.php",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},'
+            . 'body:JSON.stringify({site:S,item_slug:I,name:f.name.value,rating:f.rating.value,comment:f.comment.value})})'
+            . '.then(function(r){return r.json();}).then(function(res){b.disabled=false;'
+            . 'if(res&&res.success){m.style.color="#16a34a";m.textContent="✓ Thank you! Your review has been posted.";f.reset();load();}'
+            . 'else{m.style.color="#dc2626";m.textContent=(res&&res.message)||"Could not submit.";}})'
+            . '.catch(function(){b.disabled=false;m.style.color="#dc2626";m.textContent="Connection error.";});});})();</script>'
+            . '</section>';
+    }
+
     private static function renderServiceDetail(array $doc, array $item): string
     {
         $vars  = self::themeVars($doc['theme'] ?? []);
@@ -1105,9 +1215,89 @@ class SiteRenderer
         }
         $gallery = $slides ? self::carousel($slides, 0) : '';
 
-        $priceHtml = !empty($item['price'])
-            ? '<p style="margin:6px 0 0;font-size:24px;font-weight:700;color:var(--color-primary)">' . self::esc($item['price']) . '</p>' : '';
+        // --- price block: selling price, struck-through MRP and the discount % ---
+        $priceHtml = '';
+        if (!empty($item['price']) || !empty($item['mrp'])) {
+            $sell = trim((string)($item['price'] ?? ''));
+            $mrp  = trim((string)($item['mrp'] ?? ''));
+            $off  = '';
+            if ($sell !== '' && $mrp !== '') {
+                $ns = (float)preg_replace('/[^0-9.]/', '', $sell);
+                $nm = (float)preg_replace('/[^0-9.]/', '', $mrp);
+                if ($nm > 0 && $ns > 0 && $ns < $nm) $off = round((($nm - $ns) / $nm) * 100) . '% off';
+            }
+            $priceHtml = '<div style="margin:10px 0 0;display:flex;align-items:baseline;flex-wrap:wrap;gap:10px">'
+                . ($sell !== '' ? '<span style="font-size:28px;font-weight:800;color:var(--color-primary)">' . self::esc($sell) . '</span>' : '')
+                . ($mrp !== '' ? '<span style="font-size:16px;color:var(--color-muted);text-decoration:line-through">' . self::esc($mrp) . '</span>' : '')
+                . ($off !== '' ? '<span style="font-size:14px;font-weight:700;color:#16a34a">' . $off . '</span>' : '')
+                . '</div>';
+        }
         $ctaHtml = !empty($item['cta']['text']) ? self::btn($item['cta']) : '';
+
+        // --- ordering: option picker + Add to Cart / Buy Now + order form ---
+        $orderHtml = '';
+        if (($item['enableOrder'] ?? true) !== false) {
+            $uid  = 'od' . substr(md5(self::itemSlug($item, 'service')), 0, 6);
+            $opts = array_values(array_filter(array_map('trim', (array)($item['variantOptions'] ?? []))));
+            $vlabel = trim((string)($item['variantLabel'] ?? ''));
+            $in = 'width:100%;padding:10px 12px;font-size:14px;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-bg);color:var(--color-text)';
+            $lb = 'display:block;margin-bottom:4px;font-size:12px;font-weight:700';
+
+            $variantEl = '';
+            if ($vlabel !== '' && $opts) {
+                $o = '';
+                foreach ($opts as $ov) $o .= '<option>' . self::esc($ov) . '</option>';
+                $variantEl = '<div style="margin-top:18px;max-width:280px"><label style="' . $lb . '">' . self::esc($vlabel) . '</label>'
+                           . '<select id="' . $uid . '-var" style="' . $in . '">' . $o . '</select></div>';
+            }
+
+            $btnRow = '<div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:12px">'
+                . '<button type="button" id="' . $uid . '-cart" style="padding:13px 26px;font-size:15px;font-weight:700;border:1px solid var(--color-primary);border-radius:var(--radius);background:transparent;color:var(--color-primary);cursor:pointer">Add to Cart</button>'
+                . '<button type="button" id="' . $uid . '-buy" style="padding:13px 26px;font-size:15px;font-weight:700;border:none;border-radius:var(--radius);background:var(--color-primary);color:var(--color-primary-fg);cursor:pointer">Buy Now</button>'
+                . '<span id="' . $uid . '-note" role="status" style="align-self:center;font-size:13px;font-weight:600;color:#16a34a"></span>'
+                . '</div>';
+
+            // Checkout form (hidden until Buy Now / cart checkout).
+            $form = '<form id="' . $uid . '-form" style="display:none;margin-top:22px;max-width:420px;text-align:left;padding:18px;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-surface)">'
+                . '<p style="margin:0 0 12px;font-size:15px;font-weight:700">Your details</p>'
+                . '<div style="margin-bottom:10px"><label style="' . $lb . '">Name *</label><input name="name" required style="' . $in . '"></div>'
+                . '<div style="margin-bottom:10px"><label style="' . $lb . '">Contact number *</label><input name="phone" type="tel" required style="' . $in . '"></div>'
+                . '<div style="margin-bottom:14px"><label style="' . $lb . '">Email</label><input name="email" type="email" style="' . $in . '"></div>'
+                . '<button type="submit" style="width:100%;padding:12px;font-size:15px;font-weight:700;border:none;border-radius:var(--radius);background:var(--color-primary);color:var(--color-primary-fg);cursor:pointer">Place order</button>'
+                . '<p id="' . $uid . '-msg" style="margin:10px 0 0;font-size:13px;font-weight:600"></p>'
+                . '</form>';
+
+            $payload = json_encode([
+                'site'    => self::$slug,
+                'item'    => $item['title'] ?? '',
+                'slug'    => self::itemSlug($item, 'service'),
+                'price'   => $item['price'] ?? '',
+                'mrp'     => $item['mrp'] ?? '',
+                'vlabel'  => $vlabel,
+            ]);
+            $script = '<script>(function(){var U=' . json_encode($uid) . ',D=' . $payload . ';'
+                . 'var f=document.getElementById(U+"-form"),n=document.getElementById(U+"-note"),m=document.getElementById(U+"-msg");'
+                . 'function variant(){var v=document.getElementById(U+"-var");return v?v.value:"";}'
+                . 'function cartKey(){return "tf_cart_"+D.site;}'
+                . 'document.getElementById(U+"-cart").addEventListener("click",function(){'
+                . 'var c=[];try{c=JSON.parse(localStorage.getItem(cartKey())||"[]");}catch(e){}'
+                . 'c.push({slug:D.slug,item:D.item,price:D.price,variant:variant(),qty:1});'
+                . 'try{localStorage.setItem(cartKey(),JSON.stringify(c));}catch(e){}'
+                . 'n.textContent="Added to cart ("+c.length+")";});'
+                . 'document.getElementById(U+"-buy").addEventListener("click",function(){f.style.display="block";f.scrollIntoView({behavior:"smooth",block:"center"});});'
+                . 'f.addEventListener("submit",function(e){e.preventDefault();var b=f.querySelector("button[type=submit]");b.disabled=true;b.textContent="Placing…";'
+                . 'var fd={site:D.site,item:D.item,item_slug:D.slug,price:D.price,mrp:D.mrp,option_label:D.vlabel,option_value:variant(),'
+                . 'name:f.name.value,phone:f.phone.value,email:f.email.value};'
+                . 'fetch("' . self::apiBase() . '/api/sites/order-submit.php",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(fd)})'
+                . '.then(function(r){return r.json();}).then(function(res){'
+                . 'if(res&&res.success){m.style.color="#16a34a";m.textContent="✓ Order placed! We will contact you shortly.";f.reset();b.disabled=false;b.textContent="Place order";}'
+                . 'else{m.style.color="#dc2626";m.textContent=(res&&res.message)||"Could not place the order.";b.disabled=false;b.textContent="Place order";}})'
+                . '.catch(function(){m.style.color="#dc2626";m.textContent="Connection error.";b.disabled=false;b.textContent="Place order";});});})();</script>';
+
+            $orderHtml = $variantEl . $btnRow . $form . $script;
+        }
+
+        $reviewsHtml = self::reviewsBlock($item);
 
         $article = '<article class="tf-container" style="padding-top:calc(56px*var(--space-scale));padding-bottom:calc(56px*var(--space-scale))">'
             . '<a href="' . self::esc($backPath) . '" style="display:inline-block;margin-bottom:22px;font-size:14px;font-weight:600;color:var(--color-primary);text-decoration:none">&larr; Back</a>'
@@ -1117,9 +1307,11 @@ class SiteRenderer
             . (!empty($item['meta']) ? '<p style="margin:0 0 6px;font-size:13px;font-weight:600;color:var(--color-accent)">' . self::esc($item['meta']) . '</p>' : '')
             . '<h1 style="margin:0;font-family:var(--font-heading);font-size:32px;line-height:1.2;font-weight:700">' . self::esc($item['title'] ?? '') . '</h1>'
             . $priceHtml
+            . $orderHtml
             . ($ctaHtml ? '<div style="margin-top:20px">' . $ctaHtml . '</div>' : '')
             . '<div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--color-border);font-size:16px;line-height:1.75">' . self::articleBody($item['body'] ?? '') . '</div>'
             . '</div></div>'
+            . $reviewsHtml
             . '</article>';
 
         return "<!DOCTYPE html><html lang=\"" . self::esc($doc['site']['locale'] ?? 'en') . "\"><head>"

@@ -9,14 +9,17 @@
   "maxPerPage": 1,
 
   "variants": [
-    { "id": "left",   "label": "Logo left, menu right", "preview": "/builder/previews/header-left.png" },
-    { "id": "center", "label": "Logo centered",          "preview": "/builder/previews/header-center.png" },
-    { "id": "split",  "label": "Menu left, logo center", "preview": "/builder/previews/header-split.png" }
+    { "id": "left",       "label": "Logo left, menu right", "preview": "/builder/previews/header-left.png" },
+    { "id": "nav-center", "label": "Logo left, menu centered, button right" },
+    { "id": "center",     "label": "Logo centered",          "preview": "/builder/previews/header-center.png" },
+    { "id": "split",      "label": "Menu left, logo center", "preview": "/builder/previews/header-split.png" }
   ],
 
   "props": [
     { "key": "logo", "type": "media", "label": "Logo", "accept": ["image"], "group": "Brand",
-      "help": "Leave blank to show the site name as text." },
+      "help": "Leave blank to show the site name as text. Clicking it goes to your home page." },
+    { "key": "logoSize", "type": "select", "label": "Logo size", "group": "Brand",
+      "default": "medium", "options": ["small", "medium", "large", "extra-large"] },
 
     {
       "key": "links",
@@ -35,7 +38,12 @@
     },
 
     { "key": "cta", "type": "link", "label": "Button", "group": "Button",
-      "help": "An optional call-to-action shown at the end of the bar." },
+      "help": "An optional call-to-action (e.g. Contact us) shown at the end of the bar." },
+
+    { "key": "showCart", "type": "toggle", "label": "Show cart button", "default": false, "group": "Button" },
+    { "key": "cartHref", "type": "text", "label": "Cart link", "maxLength": 600, "default": "/cart", "group": "Button",
+      "showIf": { "variant": ["left", "nav-center", "center", "split"] },
+      "help": "Where the cart icon goes." },
 
     { "key": "sticky", "type": "toggle", "label": "Stick to top when scrolling", "default": true, "group": "Behaviour" }
   ],

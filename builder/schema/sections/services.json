@@ -48,7 +48,14 @@
             { "key": "alt",   "type": "text",  "label": "Caption", "maxLength": 120 }
           ]
         },
-        { "key": "price",  "type": "text",     "label": "Price (optional)", "maxLength": 40, "placeholder": "e.g. ₹4,999 or Starting at ₹999" },
+        { "key": "price",  "type": "text",     "label": "Selling price", "maxLength": 40, "placeholder": "e.g. ₹4,999" },
+        { "key": "mrp",    "type": "text",     "label": "MRP (crossed out)", "maxLength": 40, "placeholder": "e.g. ₹7,999",
+          "help": "Shown struck through next to the selling price, with the discount %." },
+        { "key": "variantLabel",   "type": "text", "label": "Option name", "maxLength": 40, "placeholder": "Size / Weight / Volume",
+          "help": "Adds a choice the buyer must pick, like Size or 250ml." },
+        { "key": "variantOptions", "type": "list", "label": "Option choices",
+          "help": "e.g. S, M, L  —  or 100ml, 250ml, 500ml." },
+        { "key": "enableOrder", "type": "toggle", "label": "Allow ordering (Add to Cart / Buy Now)", "default": true },
         { "key": "slug",   "type": "text",     "label": "Page address (optional)", "maxLength": 80, "placeholder": "auto from title",
           "help": "The detail page address: /service/<this>. Leave blank to build it from the title." }
       ]
