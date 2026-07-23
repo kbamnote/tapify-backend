@@ -17,13 +17,13 @@
     { "key": "heading", "type": "text",     "label": "Heading", "maxLength": 120, "default": "Book an appointment", "group": "Heading" },
     { "key": "sub",     "type": "textarea", "label": "Description", "maxLength": 300, "group": "Heading" },
 
-    { "key": "submitVia", "type": "select", "label": "Send request via", "default": "whatsapp",
-      "options": ["whatsapp", "email"], "group": "Delivery",
-      "help": "Uses the WhatsApp number / email from Business Info. WhatsApp opens a pre-filled chat." },
+    { "key": "alsoNotify", "type": "select", "label": "After booking, also open", "default": "whatsapp",
+      "options": ["whatsapp", "email", "none"], "group": "Delivery",
+      "help": "Every request is saved to your Appointments page. This additionally opens a pre-filled WhatsApp chat or email using your Business Info." },
     { "key": "submitText", "type": "text", "label": "Button text", "maxLength": 40, "default": "Request appointment", "group": "Delivery" },
 
     { "key": "services", "type": "list", "label": "Services to choose from", "group": "Options",
-      "help": "Optional. Adds a Service dropdown to the form." }
+      "help": "Adds a Service dropdown. When you list services here, choosing one becomes compulsory." }
   ],
 
   "style": {
@@ -37,7 +37,7 @@
       "label": "Booking",
       "heading": "Book an appointment",
       "sub": "Pick a time that suits you and we'll confirm shortly.",
-      "submitVia": "whatsapp",
+      "alsoNotify": "whatsapp",
       "submitText": "Request appointment"
     }
   }

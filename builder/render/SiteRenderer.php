@@ -1357,29 +1357,73 @@ class SiteRenderer
 
     private static function secAppointment(array $s, array $doc): string
     {
-        $p = $s['props'] ?? [];
+        $p   = $s['props'] ?? [];
         $biz = $doc['business'] ?? [];
-        $wa = preg_replace('/\D+/', '', (string)($biz['whatsapp'] ?? $biz['phone'] ?? ''));
-        $email = trim((string)($biz['email'] ?? ''));
-        $via = $p['submitVia'] ?? 'whatsapp';
-        if ($via === 'whatsapp' && $wa === '') $via = $email !== '' ? 'email' : 'whatsapp';
+        $wa  = preg_replace('/\D+/', '', (string)($biz['whatsapp'] ?? $biz['phone'] ?? ''));
+        $email  = trim((string)($biz['email'] ?? ''));
+        $notify = $p['alsoNotify'] ?? 'whatsapp';
+        if ($notify === 'whatsapp' && $wa === '') $notify = $email !== '' ? 'email' : 'none';
         $services = array_values(array_filter(array_map('trim', (array)($p['services'] ?? []))));
         $uid = 'ap' . substr(md5(($s['id'] ?? '') . 'apt'), 0, 6);
-        $in = 'width:100%;padding:10px 12px;font-size:14px;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-bg);color:var(--color-text)';
-        $lb = 'display:block;margin-bottom:4px;font-size:12px;font-weight:600';
-        $f  = '<div><label style="' . $lb . '">Name *</label><input class="' . $uid . '-f" data-k="Name" required style="' . $in . '"></div>';
-        $f .= '<div><label style="' . $lb . '">Phone *</label><input class="' . $uid . '-f" data-k="Phone" type="tel" required style="' . $in . '"></div>';
-        $f .= '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px"><div><label style="' . $lb . '">Preferred date</label><input class="' . $uid . '-f" data-k="Date" type="date" style="' . $in . '"></div><div><label style="' . $lb . '">Preferred time</label><input class="' . $uid . '-f" data-k="Time" type="time" style="' . $in . '"></div></div>';
-        if ($services) {
-            $opts = '<option value="">Select…</option>';
-            foreach ($services as $sv) $opts .= '<option>' . self::esc($sv) . '</option>';
-            $f .= '<div><label style="' . $lb . '">Service</label><select class="' . $uid . '-f" data-k="Service" style="' . $in . '">' . $opts . '</select></div>';
+        $in  = 'width:100%;padding:10px 12px;font-size:14px;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-bg);color:var(--color-text)';
+        $lb  = 'display:block;margin-bottom:4px;font-size:12px;font-weight:600';
+
+        // Times are picked in 12-hour AM/PM form; the API converts to 24h.
+        $times = '<option value="">Select a time…</option>';
+        for ($h = 0; $h < 24; $h++) {
+            foreach ([0, 30] as $m) {
+                $ampm  = $h < 12 ? 'AM' : 'PM';
+                $hh    = ($h % 12) ?: 12;
+                $times .= '<option>' . sprintf('%02d:%02d %s', $hh, $m, $ampm) . '</option>';
+            }
         }
-        $f .= '<div><label style="' . $lb . '">Message</label><textarea class="' . $uid . '-f" data-k="Message" rows="3" style="' . $in . '"></textarea></div>';
-        $form = '<form id="' . $uid . '" onsubmit="return false" style="display:grid;gap:12px;max-width:480px;margin:0 auto;text-align:left">' . $f
-              . '<button type="submit" style="margin-top:4px;padding:12px;font-size:15px;font-weight:600;border:none;border-radius:var(--radius);background:var(--color-primary);color:var(--color-primary-fg);cursor:pointer">' . self::esc($p['submitText'] ?? 'Request appointment') . '</button></form>';
-        $target = $via === 'email' ? ('email:' . $email) : ('wa:' . $wa);
-        $script = '<script>(function(){var fm=document.getElementById(' . json_encode($uid) . ');if(!fm)return;var T=' . json_encode($target) . ';fm.addEventListener("submit",function(){var parts=["Appointment request"];fm.querySelectorAll(".' . $uid . '-f").forEach(function(el){var v=(el.value||"").trim();if(v)parts.push(el.getAttribute("data-k")+": "+v);});var txt=parts.join("\n");var url;if(T.indexOf("email:")===0){url="mailto:"+T.slice(6)+"?subject="+encodeURIComponent("Appointment request")+"&body="+encodeURIComponent(txt);}else{url="https://wa.me/"+T.slice(3)+"?text="+encodeURIComponent(txt);}window.open(url,"_blank");});})();</script>';
+
+        $f  = '<div><label style="' . $lb . '">Name *</label><input class="' . $uid . '-f" data-k="name" required style="' . $in . '"></div>';
+        $f .= '<div><label style="' . $lb . '">Phone *</label><input class="' . $uid . '-f" data-k="phone" type="tel" required style="' . $in . '"></div>';
+        $f .= '<div><label style="' . $lb . '">Email</label><input class="' . $uid . '-f" data-k="email" type="email" style="' . $in . '"></div>';
+        $f .= '<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">'
+            . '<div><label style="' . $lb . '">Date *</label><input class="' . $uid . '-f" data-k="date" type="date" required min="' . date('Y-m-d') . '" style="' . $in . '"></div>'
+            . '<div><label style="' . $lb . '">Time *</label><select class="' . $uid . '-f" data-k="time" required style="' . $in . '">' . $times . '</select></div>'
+            . '</div>';
+        // Choosing a service is compulsory whenever services are configured.
+        if ($services) {
+            $opts = '<option value="">Select a service…</option>';
+            foreach ($services as $sv) $opts .= '<option>' . self::esc($sv) . '</option>';
+            $f .= '<div><label style="' . $lb . '">Service *</label><select class="' . $uid . '-f" data-k="service" required style="' . $in . '">' . $opts . '</select></div>';
+        }
+        $f .= '<div><label style="' . $lb . '">Message</label><textarea class="' . $uid . '-f" data-k="notes" rows="3" style="' . $in . '"></textarea></div>';
+
+        $form = '<form id="' . $uid . '" style="display:grid;gap:12px;max-width:480px;margin:0 auto;text-align:left">' . $f
+              . '<button type="submit" style="margin-top:4px;padding:12px;font-size:15px;font-weight:600;border:none;border-radius:var(--radius);background:var(--color-primary);color:var(--color-primary-fg);cursor:pointer">'
+              . self::esc($p['submitText'] ?? 'Request appointment') . '</button>'
+              . '<p id="' . $uid . '-msg" style="margin:0;font-size:13px;font-weight:600"></p></form>';
+
+        $cfg = json_encode([
+            'site'   => self::$slug,
+            'api'    => self::apiBase(),
+            'notify' => $notify,
+            'wa'     => $wa,
+            'email'  => $email,
+        ]);
+
+        $script = '<script>(function(){var U=' . json_encode($uid) . ',C=' . $cfg . ';'
+            . 'var fm=document.getElementById(U),m=document.getElementById(U+"-msg");if(!fm)return;'
+            . 'fm.addEventListener("submit",function(e){e.preventDefault();'
+            . 'var d={};fm.querySelectorAll("."+U+"-f").forEach(function(el){d[el.getAttribute("data-k")]=(el.value||"").trim();});'
+            . 'var b=fm.querySelector("button[type=submit]");b.disabled=true;var ob=b.textContent;b.textContent="Sending…";'
+            . 'fetch(C.api+"/api/sites/appointment-submit.php",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},'
+            . 'body:JSON.stringify({site:C.site,name:d.name,phone:d.phone,email:d.email,date:d.date,time:d.time,service:d.service||"",notes:d.notes||""})})'
+            . '.then(function(r){return r.json();}).then(function(res){b.disabled=false;b.textContent=ob;'
+            . 'if(res&&res.success){m.style.color="#16a34a";m.textContent="✓ Appointment requested! We will confirm shortly.";'
+            . 'var t=["Appointment request","Name: "+d.name,"Phone: "+d.phone];'
+            . 'if(d.date)t.push("Date: "+d.date);if(d.time)t.push("Time: "+d.time);if(d.service)t.push("Service: "+d.service);if(d.notes)t.push("Message: "+d.notes);'
+            . 'var txt=t.join("\n");'
+            . 'if(C.notify==="whatsapp"&&C.wa){window.open("https://wa.me/"+C.wa+"?text="+encodeURIComponent(txt),"_blank");}'
+            . 'else if(C.notify==="email"&&C.email){window.open("mailto:"+C.email+"?subject="+encodeURIComponent("Appointment request")+"&body="+encodeURIComponent(txt),"_blank");}'
+            . 'fm.reset();}'
+            . 'else{m.style.color="#dc2626";m.textContent=(res&&res.message)||"Could not send the request.";}})'
+            . '.catch(function(){b.disabled=false;b.textContent=ob;m.style.color="#dc2626";m.textContent="Connection error.";});});})();</script>';
+
         $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null, self::isDarkBg($s)) . $form . $script;
         return self::shell($s, $inner);
     }
