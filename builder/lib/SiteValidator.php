@@ -232,11 +232,9 @@ class SiteValidator
      */
     private function validateProps(array $props, array $fields, string $path, ?string $variant): void
     {
-        $known = [];
         foreach ($fields as $f) {
             $key = $f['key'] ?? null;
             if (!$key) continue;
-            $known[] = $key;
 
             // A field hidden for this variant is not required.
             $applies = true;
@@ -254,11 +252,16 @@ class SiteValidator
             $this->validateField($props[$key], $f, "$path.$key", $variant);
         }
 
-        foreach (array_keys($props) as $key) {
-            if (!in_array($key, $known, true)) {
-                $this->err("$path.$key", 'unknown property for this section');
-            }
-        }
+        // A prop the CURRENT manifest doesn't declare is intentionally NOT an
+        // error (this used to reject the document — removed after it broke a
+        // real site). Manifests evolve (fields get renamed/removed) and there is
+        // no migration system, so any site built under an older version of a
+        // manifest would otherwise be permanently stuck: the stale key is
+        // un-removable from the UI (the Inspector only edits fields the current
+        // manifest knows about), and the old check ran even on lenient draft
+        // saves, so the customer could never save or publish again. No renderer
+        // ever reads a prop key it doesn't declare, so a stale key is inert,
+        // unused data — safe to carry forward silently.
     }
 
     private function validateField($val, array $f, string $path, ?string $variant): void
