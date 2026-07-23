@@ -97,8 +97,10 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
  <img src="/images/templates/carspro/foo-046.webp" loading=lazy class="w-100 h-100 object-fit-cover">
  </div>
  <div class="card">
+ <div class="position-relative mb-3" style="z-index:2">
+ <img src="/images/templates/carspro/carspro-banner.jpg" alt="<?= htmlspecialchars($fullName) ?>" style="width:100%;height:auto;display:block;border-radius:14px;">
+ </div>
  <div class="d-flex align-items-center justify-content-center gap-3 gap-sm-4 flex-wrap position-relative" style="z-index:2">
- <img src="/images/templates/carspro/autoxpress-logo.png" alt="AutoXpress" style="max-width:190px;width:44%;height:auto;display:inline-block;">
  <div class=profile-bg-img>
  <div class="card-img d-flex justify-content-center align-items-center">
  <img src="<?= $profileImg ?>" class="w-100 h-100 object-fit-cover" loading=lazy>
@@ -215,18 +217,6 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
  $__allMaps = !empty($__iframes);
  foreach ($__iframes as $__fr) { if (stripos($__fr["url"],"google.")===false || stripos($__fr["url"],"/maps")===false) { $__allMaps=false; break; } }
  ?>
- <?php if(!empty($__iframes)): ?>
- <div class="iframe-section pt-40 px-20 position-relative">
- <div class="section-heading text-center mb-40"><h2 class="text-white mb-1 d-inline-block"><?= $__allMaps ? "Location" : "More Info" ?></h2></div>
- <div class="px-10">
- <?php foreach ($__iframes as $__fr): $__src = function_exists("embeddableMapUrl") ? embeddableMapUrl($__fr["url"]) : $__fr["url"]; ?>
- <div style="border-radius:14px;overflow:hidden;margin-bottom:14px;box-shadow:0 6px 18px rgba(0,0,0,.10);">
- <iframe src="<?= htmlspecialchars($__src) ?>" width="100%" height="320" style="display:block;border:0;" frameborder="0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
- </div>
- <?php endforeach; ?>
- </div>
- </div>
- <?php endif; ?>
 
  <?php if(!empty($services)): ?><div class="our-services-section pt-50 position-relative"><div class="section-heading text-center mb-40"><h2 class="text-white mb-1 d-inline-block">Our Services</h2></div><div class="services"><div class="px-30"><div class="row row-gap-30px justify-content-center"><?php foreach ((isset($__sv)?$__sv:($services ?? [])) as $sv): $svimg=!empty($sv["image"])?imgUrl($sv["image"]):"/images/templates/carspro/foo-023.webp"; ?><div class="col-sm-6 mb-sm-0 mb-40 p-3"><div class="card-wrapper"><div class="service-card card"><div class="card-img mx-auto"><a href="javascript:void(0)" class="pe-none"><img src="<?= htmlspecialchars($svimg) ?>" alt="<?= htmlspecialchars($sv["name"] ?? "") ?>" class="w-100 h-100 object-fit-cover" loading="lazy"></a></div><div class="card-body text-center"><h3 class="card-title text-primary"><?= htmlspecialchars($sv["name"] ?? "") ?></h3><?php if(!empty($sv["description"])): ?><p class="mb-0 text-gray"><?= htmlspecialchars($sv["description"]) ?></p><?php endif; ?></div></div></div></div><?php endforeach; ?></div></div></div></div><?php endif; ?>
  
@@ -662,6 +652,18 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
  
  
  
+ <?php if(!empty($__iframes)): ?>
+ <div class="iframe-section pt-40 px-20 position-relative">
+ <div class="section-heading text-center mb-40"><h2 class="text-white mb-1 d-inline-block"><?= $__allMaps ? "Location" : "More Info" ?></h2></div>
+ <div class="px-10">
+ <?php foreach ($__iframes as $__fr): $__src = function_exists("embeddableMapUrl") ? embeddableMapUrl($__fr["url"]) : $__fr["url"]; ?>
+ <div style="border-radius:14px;overflow:hidden;margin-bottom:14px;box-shadow:0 6px 18px rgba(0,0,0,.10);">
+ <iframe src="<?= htmlspecialchars($__src) ?>" width="100%" height="320" style="display:block;border:0;" frameborder="0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+ </div>
+ <?php endforeach; ?>
+ </div>
+ </div>
+ <?php endif; ?>
  <div class="add-to-contact-section z-index-9">
  <div class=text-center>
  <a href="javascript:saveContact()" class="btn btn-primary add-contact-btn"><svg class="svg-inline--fa fa-address-book" aria-hidden=true focusable=false data-prefix=fas data-icon=address-book role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M384 0H96C60.65 0 32 28.65 32 64v384c0 35.35 28.65 64 64 64h288c35.35 0 64-28.65 64-64V64C448 28.65 419.3 0 384 0zM240 128c35.35 0 64 28.65 64 64s-28.65 64-64 64c-35.34 0-64-28.65-64-64S204.7 128 240 128zM336 384h-192C135.2 384 128 376.8 128 368C128 323.8 163.8 288 208 288h64c44.18 0 80 35.82 80 80C352 376.8 344.8 384 336 384zM496 64H480v96h16C504.8 160 512 152.8 512 144v-64C512 71.16 504.8 64 496 64zM496 192H480v96h16C504.8 288 512 280.8 512 272v-64C512 199.2 504.8 192 496 192zM496 320H480v96h16c8.836 0 16-7.164 16-16v-64C512 327.2 504.8 320 496 320z"></path></svg>
