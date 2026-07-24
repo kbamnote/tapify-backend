@@ -31,15 +31,15 @@
       "addLabel": "Add image",
       "fields": [
         { "key": "image", "type": "media", "label": "Image", "accept": ["image"], "required": true },
+        { "key": "fit",   "type": "crop",  "label": "Crop / position",
+          "help": "Drag the photo to choose what stays in frame, and zoom in to crop closer. Set per image." },
         { "key": "alt",   "type": "text",  "label": "Caption / alt text", "maxLength": 120,
           "help": "Describes the photo — shown as a caption and used by search engines." }
       ],
       "emptyHint": "Add photos to show this gallery. A gallery with no photos is hidden on the live site."
     },
 
-    { "key": "lightbox", "type": "toggle", "label": "Open full size on click", "default": true, "group": "Behaviour" },
-    { "key": "imageFit", "type": "crop",   "label": "Crop / position", "group": "Media",
-      "help": "Drag the photo to choose what stays in frame, and zoom in to crop closer." }
+    { "key": "lightbox", "type": "toggle", "label": "Open full size on click", "default": true, "group": "Behaviour" }
   ],
 
   "style": {

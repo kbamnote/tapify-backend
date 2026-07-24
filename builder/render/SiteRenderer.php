@@ -64,6 +64,19 @@ class SiteRenderer
 
         $norm = ($path === '' || $path === '/') ? '/' : rtrim($path, '/');
 
+        // Legal pages: /privacy and /terms. Content lives in the footer section.
+        if ($norm === '/privacy' || $norm === '/terms') {
+            $kind = $norm === '/privacy' ? 'privacy' : 'terms';
+            [$title, $body] = self::legalContent($doc, $kind);
+            if (trim($body) !== '') {
+                header('Content-Type: text/html; charset=utf-8');
+                echo self::renderLegal($doc, $title, $body, $norm);
+                return true;
+            }
+            self::notFound();
+            return true;
+        }
+
         // Blog post detail: /post/<slug>. Posts live inside blog sections (not in
         // doc.pages), so this renders a single post with the site's header/footer.
         if (preg_match('#^/post/([a-z0-9][a-z0-9-]*)$#', $norm, $pm)) {
@@ -485,6 +498,7 @@ class SiteRenderer
             case 'appointment':  return self::secAppointment($s, $doc);
             case 'embed':        return self::secEmbed($s, $doc);
             case 'share':        return self::secShare($s, $doc);
+            case 'account':      return self::secAccount($s, $doc);
             default:             return '';
         }
     }
@@ -530,19 +544,37 @@ class SiteRenderer
                   . 'border-radius:999px;background:var(--color-primary);color:var(--color-primary-fg);font-size:11px;font-weight:700;line-height:19px;text-align:center">0</span>'
                   . '</a>';
         }
-        $burger = '<label for="' . $toggleId . '" class="tf-burger" aria-label="Menu">&#9776;</label>';
-        $right = '<div style="display:flex;align-items:center;gap:12px">' . ($cta ?: '') . $cart . $burger . '</div>';
+        $burger    = '<label for="' . $toggleId . '" class="tf-burger" aria-label="Menu">&#9776;</label>';
+        $navDesk   = '<div class="tf-nav tf-nav-desktop">' . $links . '</div>';
+        $ctaEl     = $cta ?: '';
 
         if ($variant === 'nav-center') {
             // Logo left · menu centered · button/cart right.
             $bar = '<div class="tf-header-bar" style="justify-content:space-between">'
                  . '<div style="flex-shrink:0">' . $brand . '</div>'
                  . '<div class="tf-nav tf-nav-desktop" style="flex:1;justify-content:center">' . $links . '</div>'
-                 . $right . '</div>';
+                 . '<div style="display:flex;align-items:center;gap:12px">' . $ctaEl . $cart . $burger . '</div>'
+                 . '</div>';
+        } elseif ($variant === 'center') {
+            // Logo centered on top · menu centered below.
+            $bar = '<div class="tf-header-bar" style="flex-direction:column;gap:8px">'
+                 . '<div class="tf-center-top">' . $brand
+                 .   '<div class="tf-mobile-only" style="align-items:center;gap:12px">' . $cart . $burger . '</div>'
+                 . '</div>'
+                 . '<div class="tf-nav tf-nav-desktop" style="width:100%;justify-content:center">' . $links . $ctaEl . $cart . '</div>'
+                 . '</div>';
+        } elseif ($variant === 'split') {
+            // Menu left · logo centered · button/cart right.
+            $bar = '<div class="tf-header-bar" style="justify-content:space-between;position:relative">'
+                 . '<div style="display:flex;align-items:center;gap:16px">' . $navDesk . $burger . '</div>'
+                 . '<div class="tf-brand-center">' . $brand . '</div>'
+                 . '<div style="display:flex;align-items:center;gap:12px">' . $ctaEl . $cart . '</div>'
+                 . '</div>';
         } else {
+            // "left" (default): logo left · menu + button right.
             $bar = '<div class="tf-header-bar">' . $brand
-                 . '<div class="tf-nav tf-nav-desktop">' . $links . '</div>'
-                 . $right . '</div>';
+                 . '<div style="display:flex;align-items:center;gap:20px">' . $navDesk . $ctaEl . $cart . $burger . '</div>'
+                 . '</div>';
         }
 
         $mnav = '<nav class="tf-nav tf-mnav">' . $links . ($cta ? '<div style="margin-top:8px">' . $cta . '</div>' : '') . '</nav>';
@@ -708,7 +740,7 @@ class SiteRenderer
         $slides = [];
         foreach ($imgs as $im) {
             $src = self::media($im['image']);
-            $fig = '<figure class="tf-galfig"><img src="' . self::esc($src) . '" alt="' . self::esc($im['alt'] ?? '') . '" loading="lazy" style="' . self::imgFit($p['imageFit'] ?? null) . '">'
+            $fig = '<figure class="tf-galfig"><img src="' . self::esc($src) . '" alt="' . self::esc($im['alt'] ?? '') . '" loading="lazy" style="' . self::imgFit($im['fit'] ?? ($p['imageFit'] ?? null)) . '">'
                  . (!empty($im['alt']) ? '<figcaption>' . self::esc($im['alt']) . '</figcaption>' : '') . '</figure>';
             $slides[] = $lightbox ? '<a href="' . self::esc($src) . '" target="_blank" rel="noopener noreferrer">' . $fig . '</a>' : $fig;
         }
@@ -873,6 +905,83 @@ class SiteRenderer
         return self::shell($s, $inner);
     }
 
+    /** Built-in contact form, used when the site has no custom form. Its id and
+     *  field set match the fallback in form-submit.php. */
+    private static function defaultContactForm(): array
+    {
+        return [
+            'id' => 'contact',
+            'submitText' => 'Send message',
+            'successMessage' => 'Thank you — your message has been sent.',
+            'fields' => [
+                ['name'=>'name','label'=>'Your name','type'=>'text','required'=>true],
+                ['name'=>'phone','label'=>'Phone','type'=>'tel','required'=>true],
+                ['name'=>'email','label'=>'Email','type'=>'email'],
+                ['name'=>'message','label'=>'Message','type'=>'textarea'],
+            ],
+        ];
+    }
+
+    /** Optional customer login/signup for e-commerce sites (token in localStorage). */
+    private static function secAccount(array $s, array $doc): string
+    {
+        $p    = $s['props'] ?? [];
+        $uid  = 'ac' . substr(md5(($s['id'] ?? '') . 'acc'), 0, 6);
+        $ph   = ($p['showPhone'] ?? true) !== false;
+        $in   = 'width:100%;padding:10px 12px;font-size:14px;margin-bottom:10px;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-bg);color:var(--color-text)';
+        $btn  = 'width:100%;padding:12px;font-size:14px;font-weight:600;border:none;border-radius:var(--radius);background:var(--color-primary);color:var(--color-primary-fg);cursor:pointer';
+        $tab  = 'flex:1;padding:8px;font-size:14px;font-weight:600;border-radius:var(--radius);cursor:pointer';
+
+        $card = '<div id="' . $uid . '" style="max-width:420px;margin:0 auto;text-align:left;padding:28px;background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius);box-shadow:0 8px 30px rgba(16,24,40,.08)">'
+            // Signed-in view (shown by JS when a token exists).
+            . '<div data-view="me" style="display:none;text-align:center">'
+            .   '<p style="font-size:18px;font-weight:700;margin:0">Hi <span data-me-name></span> &#128075;</p>'
+            .   '<p style="margin:6px 0 0;font-size:14px;color:var(--color-muted)">You&#39;re signed in.</p>'
+            .   '<button type="button" data-act="signout" style="margin-top:18px;padding:10px 20px;font-size:14px;font-weight:600;border:none;border-radius:var(--radius);background:var(--color-primary);color:var(--color-primary-fg);cursor:pointer">Sign out</button>'
+            . '</div>'
+            // Auth forms.
+            . '<div data-view="auth">'
+            .   '<div style="display:flex;gap:8px;margin-bottom:18px">'
+            .     '<button type="button" data-tab="login" style="' . $tab . ';background:var(--color-primary);color:var(--color-primary-fg);border:none">Sign in</button>'
+            .     '<button type="button" data-tab="signup" style="' . $tab . ';background:transparent;color:var(--color-text);border:1px solid var(--color-border)">Create account</button>'
+            .   '</div>'
+            .   '<form data-form>'
+            .     '<input data-signup name="name" placeholder="Your name" style="' . $in . ';display:none">'
+            .     '<input name="email" type="email" placeholder="Email" required style="' . $in . '">'
+            .     ($ph ? '<input data-signup name="phone" type="tel" placeholder="Phone (optional)" style="' . $in . ';display:none">' : '')
+            .     '<input name="password" type="password" placeholder="Password" required minlength="6" style="' . $in . '">'
+            .     '<button type="submit" data-submit style="' . $btn . '">Sign in</button>'
+            .     '<p data-msg style="margin:12px 0 0;text-align:center;font-size:13px;color:#dc2626"></p>'
+            .   '</form>'
+            . '</div>'
+            . '</div>';
+
+        $cfg = json_encode(['u' => $uid, 'site' => self::$slug, 'api' => self::apiBase()]);
+        $script = '<script>(function(){var C=' . $cfg . ';var root=document.getElementById(C.u);if(!root)return;'
+            . 'var KEY="tf_customer_"+C.site,mode="login";'
+            . 'function $(s){return root.querySelector(s);}function all(s){return root.querySelectorAll(s);}'
+            . 'function show(me){$("[data-view=me]").style.display=me?"block":"none";$("[data-view=auth]").style.display=me?"none":"block";if(me&&me.name)$("[data-me-name]").textContent=me.name;}'
+            . 'function get(){try{return JSON.parse(localStorage.getItem(KEY));}catch(e){return null;}}'
+            . 'show(get());'
+            . 'function setMode(m){mode=m;all("[data-tab]").forEach(function(b){var on=b.getAttribute("data-tab")===m;b.style.background=on?"var(--color-primary)":"transparent";b.style.color=on?"var(--color-primary-fg)":"var(--color-text)";b.style.border=on?"none":"1px solid var(--color-border)";});'
+            . 'all("[data-signup]").forEach(function(el){el.style.display=(m==="signup")?"block":"none";el.required=(m==="signup"&&el.name==="name");});'
+            . '$("[data-submit]").textContent=(m==="login")?"Sign in":"Create account";$("[data-msg]").textContent="";}'
+            . 'all("[data-tab]").forEach(function(b){b.addEventListener("click",function(){setMode(b.getAttribute("data-tab"));});});'
+            . 'var so=$("[data-act=signout]");if(so)so.addEventListener("click",function(){localStorage.removeItem(KEY);show(null);});'
+            . '$("[data-form]").addEventListener("submit",function(e){e.preventDefault();var f=e.target,btn=$("[data-submit]"),msg=$("[data-msg]");'
+            . 'var body={action:(mode==="signup"?"register":"login"),site:C.site,email:f.email.value,password:f.password.value};'
+            . 'if(mode==="signup"){body.name=f.name.value;if(f.phone)body.phone=f.phone.value;}'
+            . 'btn.disabled=true;var ob=btn.textContent;btn.textContent="Please wait…";'
+            . 'fetch(C.api+"/api/sites/customer-auth.php",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(body)})'
+            . '.then(function(r){return r.json();}).then(function(res){btn.disabled=false;btn.textContent=ob;'
+            . 'if(res&&res.success){localStorage.setItem(KEY,JSON.stringify({name:res.data.name,email:res.data.email,token:res.data.token}));show({name:res.data.name});}'
+            . 'else{msg.textContent=(res&&res.message)||"Something went wrong.";}})'
+            . '.catch(function(){btn.disabled=false;btn.textContent=ob;msg.textContent="Connection error.";});});})();</script>';
+
+        $inner = self::sectionHeader(null, $p['heading'] ?? null, $p['sub'] ?? null, self::isDarkBg($s)) . $card . $script;
+        return self::shell($s, $inner);
+    }
+
     private static function secContact(array $s, array $doc): string
     {
         $p = $s['props'] ?? [];
@@ -885,6 +994,7 @@ class SiteRenderer
             if (($f['id'] ?? null) === ($p['formId'] ?? null)) { $form = $f; break; }
         }
         if (!$form && !empty($doc['forms'])) $form = $doc['forms'][0];
+        if (!$form) $form = self::defaultContactForm();  // no forms editor yet — always show a contact form
 
         // Contact detail rows.
         $rows = '';
@@ -916,7 +1026,7 @@ class SiteRenderer
                 $req = !empty($f['required']) ? ' required' : '';
                 $lbl = self::esc($f['label'] ?? $name) . (!empty($f['required']) ? ' *' : '');
                 $ph = self::esc($f['placeholder'] ?? '');
-                $inputStyle = 'width:100%;padding:8px 12px;font-size:14px;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-bg)';
+                $inputStyle = 'width:100%;padding:8px 12px;font-size:14px;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-bg);color:var(--color-text)';
                 if (($f['type'] ?? '') === 'textarea') {
                     $ctrl = '<textarea id="' . self::esc($name) . '" name="' . self::esc($name) . '"' . $req . ' placeholder="' . $ph . '" rows="4" style="' . $inputStyle . '"></textarea>';
                 } elseif (($f['type'] ?? '') === 'select') {
@@ -1040,8 +1150,17 @@ class SiteRenderer
 
         $year = date('Y');
         $copy = trim((string)($p['copyright'] ?? '')) !== '' ? $p['copyright'] : ('© ' . $year . ' ' . ($doc['site']['name'] ?? '') . '. All rights reserved.');
+        // Privacy Policy / Terms links — each shown only when its content exists.
+        $legal = '';
+        if (($p['showLegal'] ?? true) !== false) {
+            $ls = [];
+            if (trim((string)($p['privacyBody'] ?? '')) !== '') $ls[] = '<a href="/privacy" style="text-decoration:underline;color:inherit">Privacy Policy</a>';
+            if (trim((string)($p['termsBody'] ?? '')) !== '')   $ls[] = '<a href="/terms" style="text-decoration:underline;color:inherit">Terms &amp; Conditions</a>';
+            if ($ls) $legal = '<p style="margin:0;display:flex;gap:14px;flex-wrap:wrap">' . implode('', $ls) . '</p>';
+        }
         $bottom = '<div style="margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.15);display:flex;flex-direction:column;gap:8px;justify-content:space-between;align-items:center;font-size:12px;opacity:.7" class="tf-foot-bottom">'
                 . '<p style="margin:0">' . self::esc($copy) . '</p>'
+                . $legal
                 . (($p['showBranding'] ?? true) !== false ? '<p style="margin:0">Powered by <a href="https://tapify.co.in" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">Tapify</a></p>' : '')
                 . '</div>';
 
@@ -1148,6 +1267,40 @@ class SiteRenderer
             if ($para !== '') $out .= '<p style="margin:0 0 18px">' . nl2br(self::esc($para)) . '</p>';
         }
         return $out;
+    }
+
+    /** [title, body] for a legal page, pulled from the first footer section. */
+    private static function legalContent(array $doc, string $kind): array
+    {
+        $key   = $kind === 'privacy' ? 'privacyBody' : 'termsBody';
+        $title = $kind === 'privacy' ? 'Privacy Policy' : 'Terms & Conditions';
+        foreach (($doc['pages'] ?? []) as $pg) {
+            foreach (($pg['sections'] ?? []) as $s) {
+                if (($s['type'] ?? '') === 'footer' && trim((string)($s['props'][$key] ?? '')) !== '') {
+                    return [$title, (string)$s['props'][$key]];
+                }
+            }
+        }
+        return [$title, ''];
+    }
+
+    /** A simple legal page (title + body) wrapped in the site header/footer. */
+    private static function renderLegal(array $doc, string $title, string $body, string $path): string
+    {
+        $vars  = self::themeVars($doc['theme'] ?? []);
+        $fonts = self::googleFonts($doc['theme'] ?? []);
+        $pseudo = ['slug' => $path, 'title' => $title, 'seo' => ['title' => trim($title . ' | ' . ($doc['site']['name'] ?? ''), ' |'), 'robots' => 'noindex,follow']];
+        $article = '<article class="tf-container" style="max-width:760px;padding-top:calc(56px*var(--space-scale));padding-bottom:calc(56px*var(--space-scale))">'
+            . '<h1 style="margin:0 0 24px;font-family:var(--font-heading);font-size:34px;line-height:1.15;font-weight:700">' . self::esc($title) . '</h1>'
+            . '<div style="font-size:16px;line-height:1.75">' . self::articleBody($body) . '</div>'
+            . '</article>';
+        return "<!DOCTYPE html><html lang=\"" . self::esc($doc['site']['locale'] ?? 'en') . "\"><head>"
+             . self::head($doc, $pseudo, $fonts)
+             . "<style>.tf-site{" . $vars . "}" . self::baseCss() . "</style>"
+             . "</head><body>"
+             . "<main class=\"tf-site\">" . self::chromeSection($doc, 'header') . $article . self::chromeSection($doc, 'footer') . "</main>"
+             . self::carouselScript() . self::animScript()
+             . "</body></html>";
     }
 
     /** Render one blog post on its own page, wrapped in the site header/footer. */
@@ -1452,7 +1605,8 @@ class SiteRenderer
                 . '<p style="margin:0 0 12px;font-size:15px;font-weight:700">Your details</p>'
                 . '<div style="margin-bottom:10px"><label style="' . $lb . '">Name *</label><input name="name" required style="' . $in . '"></div>'
                 . '<div style="margin-bottom:10px"><label style="' . $lb . '">Contact number *</label><input name="phone" type="tel" required style="' . $in . '"></div>'
-                . '<div style="margin-bottom:14px"><label style="' . $lb . '">Email</label><input name="email" type="email" style="' . $in . '"></div>'
+                . '<div style="margin-bottom:10px"><label style="' . $lb . '">Email</label><input name="email" type="email" style="' . $in . '"></div>'
+                . '<div style="margin-bottom:14px"><label style="' . $lb . '">Additional note (optional)</label><textarea name="note" rows="2" placeholder="Any special instructions for this order…" style="' . $in . '"></textarea></div>'
                 . '<button type="submit" style="width:100%;padding:12px;font-size:15px;font-weight:700;border:none;border-radius:var(--radius);background:var(--color-primary);color:var(--color-primary-fg);cursor:pointer">Place order</button>'
                 . '<p id="' . $uid . '-msg" style="margin:10px 0 0;font-size:13px;font-weight:600"></p>'
                 . '</form>';
@@ -1476,10 +1630,10 @@ class SiteRenderer
                 . 'document.getElementById(U+"-buy").addEventListener("click",function(){f.style.display="block";f.scrollIntoView({behavior:"smooth",block:"center"});});'
                 . 'f.addEventListener("submit",function(e){e.preventDefault();var b=f.querySelector("button[type=submit]");b.disabled=true;b.textContent="Placing…";'
                 . 'var fd={site:D.site,item:D.item,item_slug:D.slug,price:D.price,mrp:D.mrp,option_label:D.vlabel,option_value:variant(),'
-                . 'name:f.name.value,phone:f.phone.value,email:f.email.value};'
+                . 'name:f.name.value,phone:f.phone.value,email:f.email.value,note:(f.note?f.note.value:"")};'
                 . 'fetch("' . self::apiBase() . '/api/sites/order-submit.php",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(fd)})'
                 . '.then(function(r){return r.json();}).then(function(res){'
-                . 'if(res&&res.success){m.style.color="#16a34a";m.textContent="✓ Order placed! We will contact you shortly.";f.reset();b.disabled=false;b.textContent="Place order";}'
+                . 'if(res&&res.success){var oid=(res.data&&res.data.id)?res.data.id:"";m.style.color="#16a34a";m.textContent="✓ Order placed!"+(oid?" Your order number is #"+oid+".":"")+" We will contact you shortly.";f.reset();b.disabled=false;b.textContent="Place order";}'
                 . 'else{m.style.color="#dc2626";m.textContent=(res&&res.message)||"Could not place the order.";b.disabled=false;b.textContent="Place order";}})'
                 . '.catch(function(){m.style.color="#dc2626";m.textContent="Connection error.";b.disabled=false;b.textContent="Place order";});});})();</script>';
 
@@ -1566,6 +1720,7 @@ class SiteRenderer
             . '</div></div>'
             . '<div id="tf-cart-done" style="display:none;text-align:center;padding:40px 0">'
             . '<p style="font-size:20px;font-weight:700;color:#16a34a">&#10003; Order placed</p>'
+            . '<p id="tf-cart-nums" style="margin-top:6px;font-size:14px;font-weight:600;color:var(--color-primary)"></p>'
             . '<p style="margin-top:8px;font-size:15px;color:var(--tf-text,var(--color-muted))">Thank you! We will contact you shortly to confirm.</p>'
             . '<a href="/" style="display:inline-block;margin-top:18px;font-size:14px;font-weight:600;color:var(--color-primary)">Continue shopping</a></div>'
             . '</article>';
@@ -1647,6 +1802,9 @@ form.addEventListener("submit",function(e){
     }).then(function(r){return r.json();});
   })).then(function(all){
     if(!all.every(function(r){return r&&r.success;}))throw new Error("partial");
+    var ids=all.map(function(r){return (r.data&&r.data.id)?("#"+r.data.id):"";}).filter(Boolean);
+    var nums=document.getElementById("tf-cart-nums");
+    if(nums&&ids.length)nums.textContent=(ids.length>1?"Order numbers: ":"Order number: ")+ids.join(", ");
     window.tfCart.write([]);
     wrap.style.display="none";empty.style.display="none";done.style.display="";
   }).catch(function(){
@@ -2007,6 +2165,10 @@ a{color:inherit}
 .tf-nav a:hover{opacity:1}
 .tf-burger{display:none;font-size:22px;line-height:1;cursor:pointer;padding:4px 8px;border:1px solid currentColor;border-radius:8px}
 .tf-mnav{display:none}
+.tf-mobile-only{display:flex}
+.tf-brand-center{position:static}
+.tf-center-top{display:flex;width:100%;align-items:center;justify-content:space-between}
+@media(min-width:769px){.tf-mobile-only{display:none}.tf-brand-center{position:absolute;left:50%;transform:translateX(-50%)}.tf-center-top{justify-content:center}}
 @media(max-width:768px){
   .tf-nav-desktop{display:none}
   .tf-burger{display:inline-flex;align-items:center}

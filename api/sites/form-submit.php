@@ -85,6 +85,20 @@ try {
     foreach (($published['doc']['forms'] ?? []) as $f) {
         if (($f['id'] ?? null) === $formId) { $form = $f; break; }
     }
+    // Built-in default contact form (used when the site has no custom form
+    // configured). Fixed, safe field set — no arbitrary data.
+    if (!$form && $formId === 'contact') {
+        $form = [
+            'id' => 'contact',
+            'successMessage' => 'Thank you — your message has been sent.',
+            'fields' => [
+                ['name'=>'name','label'=>'Your name','type'=>'text','required'=>true],
+                ['name'=>'phone','label'=>'Phone','type'=>'tel','required'=>true],
+                ['name'=>'email','label'=>'Email','type'=>'email'],
+                ['name'=>'message','label'=>'Message','type'=>'textarea'],
+            ],
+        ];
+    }
     if (!$form) finish(false, 'This form is no longer available.', $back);
 
     // --- rate limit: per IP, per site, per hour ---

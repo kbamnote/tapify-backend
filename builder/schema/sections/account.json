@@ -1,0 +1,31 @@
+{
+  "type": "account",
+  "label": "Login / Signup",
+  "category": "commerce",
+  "icon": "user-round",
+  "description": "Optional customer login and signup for e-commerce sites. Add it to a page (e.g. /account).",
+  "industries": ["*"],
+  "singleton": true,
+  "maxPerPage": 1,
+
+  "variants": [
+    { "id": "card", "label": "Centered card" }
+  ],
+
+  "props": [
+    { "key": "heading", "type": "text",     "label": "Heading", "maxLength": 120, "default": "My Account", "group": "Content" },
+    { "key": "sub",     "type": "textarea", "label": "Sub-text", "maxLength": 300, "group": "Content",
+      "default": "Sign in to track your orders, or create an account." },
+    { "key": "showPhone", "type": "toggle", "label": "Ask for phone on signup", "default": true, "group": "Content" }
+  ],
+
+  "style": {
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay"],
+    "defaults": { "paddingY": "xl", "align": "center", "bg": "surface" }
+  },
+
+  "defaults": {
+    "variant": "card",
+    "props": { "heading": "My Account", "sub": "Sign in to track your orders, or create an account.", "showPhone": true }
+  }
+}

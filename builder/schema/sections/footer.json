@@ -64,7 +64,14 @@
 
     { "key": "copyright", "type": "text", "label": "Copyright line", "maxLength": 200, "group": "Legal",
       "help": "Leave blank to auto-generate from the site name and current year." },
-    { "key": "showBranding", "type": "toggle", "label": "Show \"Powered by Tapify\"", "default": true, "group": "Legal" }
+    { "key": "showBranding", "type": "toggle", "label": "Show \"Powered by Tapify\"", "default": true, "group": "Legal" },
+
+    { "key": "showLegal", "type": "toggle", "label": "Show Privacy Policy & Terms links", "default": true, "group": "Legal",
+      "help": "Adds Privacy Policy and Terms & Conditions links to the footer, each opening its own page." },
+    { "key": "privacyBody", "type": "textarea", "label": "Privacy Policy text", "maxLength": 20000, "group": "Legal",
+      "help": "Shown on /privacy. Leave blank to hide the Privacy Policy link." },
+    { "key": "termsBody", "type": "textarea", "label": "Terms & Conditions text", "maxLength": 20000, "group": "Legal",
+      "help": "Shown on /terms. Leave blank to hide the Terms link." }
   ],
 
   "style": {
