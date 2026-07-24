@@ -966,7 +966,7 @@ class SiteRenderer
         // "Continue with Google" — only when the OAuth client is configured. It
         // links to the fixed start endpoint on the API origin; the page's JS
         // appends the current ?next so login returns the customer to their spot.
-        $googleOn = defined('GOOGLE_CLIENT_ID') && GOOGLE_CLIENT_ID !== '' && defined('GOOGLE_CLIENT_SECRET') && GOOGLE_CLIENT_SECRET !== '';
+        $googleOn = defined('GOOGLE_LOGIN_CLIENT_ID') && GOOGLE_LOGIN_CLIENT_ID !== '' && defined('GOOGLE_LOGIN_CLIENT_SECRET') && GOOGLE_LOGIN_CLIENT_SECRET !== '';
         $gbtn = '';
         if ($googleOn) {
             $gsvg = '<svg width="18" height="18" viewBox="0 0 48 48" style="flex-shrink:0">'

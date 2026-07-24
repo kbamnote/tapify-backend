@@ -30,7 +30,7 @@ if (!$site || ($site['status'] ?? '') === 'disabled' || !SiteRepo::getPublished(
 }
 
 $params = http_build_query([
-    'client_id'     => GOOGLE_CLIENT_ID,
+    'client_id'     => GOOGLE_LOGIN_CLIENT_ID,
     'redirect_uri'  => GOOGLE_LOGIN_REDIRECT,
     'response_type' => 'code',
     'scope'         => 'openid email profile',

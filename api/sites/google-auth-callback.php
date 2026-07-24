@@ -51,8 +51,8 @@ try {
         CURLOPT_TIMEOUT => 15,
         CURLOPT_POSTFIELDS => http_build_query([
             'code'          => $code,
-            'client_id'     => GOOGLE_CLIENT_ID,
-            'client_secret' => GOOGLE_CLIENT_SECRET,
+            'client_id'     => GOOGLE_LOGIN_CLIENT_ID,
+            'client_secret' => GOOGLE_LOGIN_CLIENT_SECRET,
             'redirect_uri'  => GOOGLE_LOGIN_REDIRECT,
             'grant_type'    => 'authorization_code',
         ]),

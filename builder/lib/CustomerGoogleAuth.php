@@ -13,8 +13,8 @@ class CustomerGoogleAuth
     /** Google login is only offered when the OAuth client is configured. */
     public static function isConfigured(): bool
     {
-        return defined('GOOGLE_CLIENT_ID') && GOOGLE_CLIENT_ID !== ''
-            && defined('GOOGLE_CLIENT_SECRET') && GOOGLE_CLIENT_SECRET !== '';
+        return defined('GOOGLE_LOGIN_CLIENT_ID') && GOOGLE_LOGIN_CLIENT_ID !== ''
+            && defined('GOOGLE_LOGIN_CLIENT_SECRET') && GOOGLE_LOGIN_CLIENT_SECRET !== '';
     }
 
     /** URL-safe base64 (no padding) — used for both state and its signature. */
@@ -37,7 +37,7 @@ class CustomerGoogleAuth
             'exp'  => time() + 600,   // 10-minute window to complete consent
         ]);
         $body = self::b64($payload);
-        $sig  = self::b64(hash_hmac('sha256', $body, GOOGLE_CLIENT_SECRET, true));
+        $sig  = self::b64(hash_hmac('sha256', $body, GOOGLE_LOGIN_CLIENT_SECRET, true));
         return $body . '.' . $sig;
     }
 
@@ -47,7 +47,7 @@ class CustomerGoogleAuth
         $parts = explode('.', $state, 2);
         if (count($parts) !== 2) return null;
         [$body, $sig] = $parts;
-        $expect = self::b64(hash_hmac('sha256', $body, GOOGLE_CLIENT_SECRET, true));
+        $expect = self::b64(hash_hmac('sha256', $body, GOOGLE_LOGIN_CLIENT_SECRET, true));
         if (!hash_equals($expect, $sig)) return null;
         $data = json_decode(self::unb64($body), true);
         if (!is_array($data) || ($data['exp'] ?? 0) < time()) return null;
