@@ -45,6 +45,10 @@
       "showIf": { "variant": ["left", "nav-center", "center", "split"] },
       "help": "Where the cart icon goes." },
 
+    { "key": "showAccount", "type": "toggle", "label": "Show Login / Signup button", "default": false, "group": "Button" },
+    { "key": "accountHref", "type": "text", "label": "Account page link", "maxLength": 600, "default": "/account", "group": "Button",
+      "help": "Where the Login / Signup button goes. Add a \"Login / Signup\" section on that page (e.g. /account) and edit it there." },
+
     { "key": "sticky", "type": "toggle", "label": "Stick to top when scrolling", "default": true, "group": "Behaviour" }
   ],
 

@@ -49,6 +49,18 @@ try {
 
     $cut = function ($v, $n) { return mb_substr(trim((string)$v), 0, $n); };
 
+    // If a signed-in customer placed the order, tie it to their account email
+    // (authoritative) so it shows in their order history — even if they typed a
+    // different email in the form.
+    $email = trim((string)($in['email'] ?? ''));
+    $ctoken = trim((string)($in['customer_token'] ?? ''));
+    if ($ctoken !== '' && $db->query("SHOW TABLES LIKE 'site_customers'")->fetchColumn()) {
+        $cs = $db->prepare("SELECT email FROM site_customers WHERE site_id = ? AND token = ? LIMIT 1");
+        $cs->execute([(int)$site['id'], $ctoken]);
+        $ce = $cs->fetchColumn();
+        if ($ce) $email = $ce;
+    }
+
     $st = $db->prepare(
         "INSERT INTO site_orders
            (site_id, item_title, item_slug, price, mrp, option_label, option_value,
@@ -66,7 +78,7 @@ try {
         max(1, (int)($in['quantity'] ?? 1)),
         $cut($name, 120),
         $cut($phone, 40),
-        $cut($in['email'] ?? '', 190),
+        $cut($email, 190),
         $cut($in['note'] ?? '', 2000),
         $ip,
     ]);

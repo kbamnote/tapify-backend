@@ -535,14 +535,30 @@ class SiteRenderer
         $sticky = ($p['sticky'] ?? true) !== false;
 
         // Optional cart icon button.
-        $cart = '';
+        $cartIcon = '';
         if (!empty($p['showCart'])) {
-            $cart = '<a href="' . self::esc($p['cartHref'] ?? '/cart') . '" aria-label="Cart" style="position:relative;display:inline-flex;align-items:center;justify-content:center;padding:8px;border-radius:6px;color:inherit;text-decoration:none;border:1px solid rgba(120,120,120,.28)">'
+            $cartIcon = '<a href="' . self::esc($p['cartHref'] ?? '/cart') . '" aria-label="Cart" style="position:relative;display:inline-flex;align-items:center;justify-content:center;padding:8px;border-radius:6px;color:inherit;text-decoration:none;border:1px solid rgba(120,120,120,.28)">'
                   . '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>'
                   // Filled in by cartScript() and hidden while the cart is empty.
                   . '<span data-tf-cart-count style="display:none;position:absolute;top:-7px;right:-7px;min-width:19px;height:19px;padding:0 5px;'
                   . 'border-radius:999px;background:var(--color-primary);color:var(--color-primary-fg);font-size:11px;font-weight:700;line-height:19px;text-align:center">0</span>'
                   . '</a>';
+        }
+
+        // Commerce group: when the account system is on, the cart is gated behind
+        // login — a "Login / Signup" button shows when signed out, and the cart +
+        // account icon appear once signed in (toggled by the auth script from the
+        // customer token). When accounts are off, the cart shows ungated.
+        if (!empty($p['showAccount'])) {
+            $accHref     = self::esc($p['accountHref'] ?? '/account');
+            $accountIcon = '<a href="' . $accHref . '" aria-label="My account" style="display:inline-flex;align-items:center;justify-content:center;padding:8px;border-radius:6px;color:inherit;text-decoration:none;border:1px solid rgba(120,120,120,.28)">'
+                . '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg></a>';
+            $loginBtn    = '<a href="' . $accHref . '" style="display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border-radius:var(--radius);font-size:14px;font-weight:600;color:var(--color-primary-fg);background:var(--color-primary);text-decoration:none">'
+                . '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Login / Signup</a>';
+            $cart = '<span data-tf-auth="out" style="display:inline-flex">' . $loginBtn . '</span>'
+                  . '<span data-tf-auth="in" style="display:none;align-items:center;gap:12px">' . $accountIcon . $cartIcon . '</span>';
+        } else {
+            $cart = $cartIcon;
         }
         $burger    = '<label for="' . $toggleId . '" class="tf-burger" aria-label="Menu">&#9776;</label>';
         $navDesk   = '<div class="tf-nav tf-nav-desktop">' . $links . '</div>';
@@ -579,11 +595,18 @@ class SiteRenderer
 
         $mnav = '<nav class="tf-nav tf-mnav">' . $links . ($cta ? '<div style="margin-top:8px">' . $cta . '</div>' : '') . '</nav>';
 
+        // Show the cart/account vs the login button based on the customer token.
+        $authJs = !empty($p['showAccount'])
+            ? '<script>(function(){var t;try{t=localStorage.getItem("tf_customer_' . self::esc(self::$slug) . '");}catch(e){}var yes=!!t;'
+              . 'document.querySelectorAll("[data-tf-auth=in]").forEach(function(el){el.style.display=yes?"inline-flex":"none";});'
+              . 'document.querySelectorAll("[data-tf-auth=out]").forEach(function(el){el.style.display=yes?"none":"inline-flex";});})();</script>'
+            : '';
+
         return '<header class="tf-header" style="' . $bgc . $color . ($sticky ? '' : 'position:static;') . '">'
              . '<input type="checkbox" id="' . $toggleId . '" class="tf-navtoggle" hidden>'
              . '<div class="tf-container">' . $bar . '</div>'
              . '<div class="tf-container">' . $mnav . '</div>'
-             . '</header>';
+             . '</header>' . $authJs;
     }
 
     private static function secHero(array $s, array $doc): string
@@ -938,6 +961,7 @@ class SiteRenderer
             .   '<p style="font-size:18px;font-weight:700;margin:0">Hi <span data-me-name></span> &#128075;</p>'
             .   '<p style="margin:6px 0 0;font-size:14px;color:var(--color-muted)">You&#39;re signed in.</p>'
             .   '<button type="button" data-act="signout" style="margin-top:18px;padding:10px 20px;font-size:14px;font-weight:600;border:none;border-radius:var(--radius);background:var(--color-primary);color:var(--color-primary-fg);cursor:pointer">Sign out</button>'
+            .   '<div data-orders style="margin-top:26px;text-align:left"></div>'
             . '</div>'
             // Auth forms.
             . '<div data-view="auth">'
@@ -960,8 +984,18 @@ class SiteRenderer
         $script = '<script>(function(){var C=' . $cfg . ';var root=document.getElementById(C.u);if(!root)return;'
             . 'var KEY="tf_customer_"+C.site,mode="login";'
             . 'function $(s){return root.querySelector(s);}function all(s){return root.querySelectorAll(s);}'
-            . 'function show(me){$("[data-view=me]").style.display=me?"block":"none";$("[data-view=auth]").style.display=me?"none":"block";if(me&&me.name)$("[data-me-name]").textContent=me.name;}'
+            . 'function esc(s){var d=document.createElement("div");d.textContent=(s==null?"":s);return d.innerHTML;}'
+            . 'function show(me){$("[data-view=me]").style.display=me?"block":"none";$("[data-view=auth]").style.display=me?"none":"block";if(me&&me.name)$("[data-me-name]").textContent=me.name;if(me)loadOrders();}'
             . 'function get(){try{return JSON.parse(localStorage.getItem(KEY));}catch(e){return null;}}'
+            . 'function loadOrders(){var a=get();if(!a||!a.token)return;var box=$("[data-orders]");if(!box)return;box.innerHTML="<p style=\"font-size:13px;color:var(--color-muted)\">Loading your orders…</p>";'
+            . 'fetch(C.api+"/api/sites/customer-orders.php",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({site:C.site,token:a.token})}).then(function(r){return r.json();}).then(function(res){'
+            . 'var os=(res&&res.data&&res.data.orders)||[];'
+            . 'if(!os.length){box.innerHTML="<p style=\"font-size:15px;font-weight:700;margin:0 0 8px\">My Orders</p><p style=\"font-size:13px;color:var(--color-muted);margin:0\">No orders yet.</p>";return;}'
+            . 'var h="<p style=\"font-size:15px;font-weight:700;margin:0 0 12px\">My Orders</p>";'
+            . 'os.forEach(function(o){h+="<div style=\"border:1px solid var(--color-border);border-radius:var(--radius);padding:12px;margin-bottom:8px\">"'
+            . '+"<div style=\"display:flex;justify-content:space-between;gap:8px\"><strong style=\"font-size:14px\">"+esc(o.item_title||"Order")+"</strong><span style=\"font-size:12px;color:var(--color-muted)\">#"+esc(o.id)+"</span></div>"'
+            . '+"<div style=\"font-size:13px;color:var(--color-muted);margin-top:3px\">"+esc(o.price||"")+((o.quantity>1)?(" × "+esc(o.quantity)):"")+" · "+esc(o.status||"")+"</div></div>";});'
+            . 'box.innerHTML=h;}).catch(function(){box.innerHTML="";});}'
             . 'show(get());'
             . 'function setMode(m){mode=m;all("[data-tab]").forEach(function(b){var on=b.getAttribute("data-tab")===m;b.style.background=on?"var(--color-primary)":"transparent";b.style.color=on?"var(--color-primary-fg)":"var(--color-text)";b.style.border=on?"none":"1px solid var(--color-border)";});'
             . 'all("[data-signup]").forEach(function(el){el.style.display=(m==="signup")?"block":"none";el.required=(m==="signup"&&el.name==="name");});'
@@ -1630,7 +1664,8 @@ class SiteRenderer
                 . 'document.getElementById(U+"-buy").addEventListener("click",function(){f.style.display="block";f.scrollIntoView({behavior:"smooth",block:"center"});});'
                 . 'f.addEventListener("submit",function(e){e.preventDefault();var b=f.querySelector("button[type=submit]");b.disabled=true;b.textContent="Placing…";'
                 . 'var fd={site:D.site,item:D.item,item_slug:D.slug,price:D.price,mrp:D.mrp,option_label:D.vlabel,option_value:variant(),'
-                . 'name:f.name.value,phone:f.phone.value,email:f.email.value,note:(f.note?f.note.value:"")};'
+                . 'name:f.name.value,phone:f.phone.value,email:f.email.value,note:(f.note?f.note.value:""),'
+                . 'customer_token:(function(){try{return (JSON.parse(localStorage.getItem("tf_customer_"+D.site))||{}).token||"";}catch(e){return "";}})()};'
                 . 'fetch("' . self::apiBase() . '/api/sites/order-submit.php",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(fd)})'
                 . '.then(function(r){return r.json();}).then(function(res){'
                 . 'if(res&&res.success){var oid=(res.data&&res.data.id)?res.data.id:"";m.style.color="#16a34a";m.textContent="✓ Order placed!"+(oid?" Your order number is #"+oid+".":"")+" We will contact you shortly.";f.reset();b.disabled=false;b.textContent="Place order";}'
@@ -1798,7 +1833,8 @@ form.addEventListener("submit",function(e){
       headers:{"Content-Type":"application/json","Accept":"application/json"},
       body:JSON.stringify({site:SITE,item:it.item,item_slug:it.slug,price:it.price,mrp:it.mrp||"",
         option_label:it.vlabel||"",option_value:it.variant||"",quantity:parseInt(it.qty,10)||1,
-        name:form.name.value,phone:form.phone.value,email:form.email.value,note:form.note.value})
+        name:form.name.value,phone:form.phone.value,email:form.email.value,note:form.note.value,
+        customer_token:(function(){try{return (JSON.parse(localStorage.getItem("tf_customer_"+SITE))||{}).token||"";}catch(e){return "";}})()})
     }).then(function(r){return r.json();});
   })).then(function(all){
     if(!all.every(function(r){return r&&r.success;}))throw new Error("partial");
