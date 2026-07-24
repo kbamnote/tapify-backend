@@ -1016,7 +1016,9 @@ class SiteRenderer
             . 'btn.disabled=true;var ob=btn.textContent;btn.textContent="Please wait…";'
             . 'fetch(C.api+"/api/sites/customer-auth.php",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(body)})'
             . '.then(function(r){return r.json();}).then(function(res){btn.disabled=false;btn.textContent=ob;'
-            . 'if(res&&res.success){localStorage.setItem(KEY,JSON.stringify({name:res.data.name,email:res.data.email,token:res.data.token}));show({name:res.data.name});}'
+            . 'if(res&&res.success){localStorage.setItem(KEY,JSON.stringify({name:res.data.name,email:res.data.email,token:res.data.token}));'
+            . 'var nx=null;try{nx=new URLSearchParams(location.search).get("next");}catch(e){}'
+            . 'if(nx&&/^\\/[^\\/]/.test(nx)){location.href=nx;return;}show({name:res.data.name});}'
             . 'else{msg.textContent=(res&&res.message)||"Something went wrong.";}})'
             . '.catch(function(){btn.disabled=false;btn.textContent=ob;msg.textContent="Connection error.";});});})();</script>';
 
@@ -1286,6 +1288,17 @@ class SiteRenderer
     }
 
     /** The first visible section of a type anywhere in the site (for header/footer). */
+    /** True when the site's header has the account/login system switched on. */
+    private static function accountsEnabled(array $doc): bool
+    {
+        foreach (($doc['pages'] ?? []) as $pg) {
+            foreach (($pg['sections'] ?? []) as $s) {
+                if (($s['type'] ?? '') === 'header' && !empty($s['props']['showAccount'])) return true;
+            }
+        }
+        return false;
+    }
+
     private static function chromeSection(array $doc, string $type): string
     {
         foreach (($doc['pages'] ?? []) as $pg) {
@@ -1661,6 +1674,7 @@ class SiteRenderer
                 'mrp'     => $item['mrp'] ?? '',
                 'vlabel'  => $vlabel,
                 'image'   => $cover ?: '',
+                'gate'    => self::accountsEnabled($doc),
             ]);
             $script = '<script>(function(){var U=' . json_encode($uid) . ',D=' . $payload . ';'
                 . 'var f=document.getElementById(U+"-form"),n=document.getElementById(U+"-note"),m=document.getElementById(U+"-msg");'
@@ -1669,7 +1683,10 @@ class SiteRenderer
                 . 'var n2=window.tfCart.add({slug:D.slug,item:D.item,price:D.price,mrp:D.mrp,'
                 . 'vlabel:D.vlabel,variant:variant(),image:D.image,qty:1});'
                 . 'n.innerHTML="Added to cart ("+n2+") &middot; <a href=\"/cart\" style=\"color:inherit\">View cart</a>";});'
-                . 'document.getElementById(U+"-buy").addEventListener("click",function(){f.style.display="block";f.scrollIntoView({behavior:"smooth",block:"center"});});'
+                . 'function token(){try{return (JSON.parse(localStorage.getItem("tf_customer_"+D.site))||{}).token||"";}catch(e){return "";}}'
+                . 'document.getElementById(U+"-buy").addEventListener("click",function(){'
+                . 'if(D.gate&&!token()){location.href="/account?next="+encodeURIComponent(location.pathname);return;}'
+                . 'f.style.display="block";f.scrollIntoView({behavior:"smooth",block:"center"});});'
                 . 'f.addEventListener("submit",function(e){e.preventDefault();var b=f.querySelector("button[type=submit]");b.disabled=true;b.textContent="Placing…";'
                 . 'var fd={site:D.site,item:D.item,item_slug:D.slug,price:D.price,mrp:D.mrp,option_label:D.vlabel,option_value:variant(),'
                 . 'name:f.name.value,phone:f.phone.value,email:f.email.value,note:(f.note?f.note.value:""),'
@@ -1769,8 +1786,8 @@ class SiteRenderer
             . '</article>';
 
         $script = str_replace(
-            ['__API__', '__SITE__'],
-            [self::apiBase(), self::esc(self::$slug)],
+            ['__API__', '__SITE__', '__GATE__'],
+            [self::apiBase(), self::esc(self::$slug), self::accountsEnabled($doc) ? '1' : '0'],
             self::cartPageScript()
         );
 
@@ -1838,7 +1855,8 @@ class SiteRenderer
     {
         return <<<'JS'
 <script>(function(){
-var SITE="__SITE__";
+var SITE="__SITE__",GATE="__GATE__";
+function token(){try{return (JSON.parse(localStorage.getItem("tf_customer_"+SITE))||{}).token||"";}catch(e){return "";}}
 var wrap=document.getElementById("tf-cart-wrap"),list=document.getElementById("tf-cart-items"),
     empty=document.getElementById("tf-cart-empty"),done=document.getElementById("tf-cart-done"),
     totalEl=document.getElementById("tf-cart-total"),form=document.getElementById("tf-cart-form"),
@@ -1884,6 +1902,8 @@ list.addEventListener("click",function(e){
 form.addEventListener("submit",function(e){
   e.preventDefault();
   var c=window.tfCart.read();if(!c.length)return;
+  // Checkout requires an account when the site has login enabled.
+  if(GATE==="1"&&!token()){location.href="/account?next=/cart";return;}
   var b=form.querySelector("button[type=submit]");b.disabled=true;b.textContent="Placing…";
   msg.style.color="";msg.textContent="";
   // One request per line so each item lands as its own order row.
@@ -1907,6 +1927,7 @@ form.addEventListener("submit",function(e){
     b.disabled=false;b.textContent="Place order";
   });
 });
+if(GATE==="1"&&!token()){var sb=form.querySelector("button[type=submit]");if(sb)sb.textContent="Login to checkout";}
 if(document.readyState!=="loading")render();else document.addEventListener("DOMContentLoaded",render);
 })();</script>
 JS;
