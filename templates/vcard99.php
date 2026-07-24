@@ -126,81 +126,6 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
  
  
  
- <div class="contact-section position-relative px-30 pt-40">
- <div class="position-absolute vector-2 vector-all">
- <img src="/images/templates/carspro/car-front.svg" loading=lazy class="w-100 h-100 object-fit-cover">
- </div>
- <div class="section-heading text-center mb-40">
- <h2 class="text-white mb-1 d-inline-block">
- Contact
- </h2>
- </div>
- <div>
- <div class="row row-gap-30px">
- <?php if(!empty($vcard["email"])): ?><div class=col-sm-6>
- <div class=contact-box>
- <div class=contact-icon-box>
- <div class="contact-icon d-flex justify-content-center align-items-center">
- <img src=/images/templates/carspro/foo-050.svg>
- </div>
- </div>
- <div class=contact-desc>
- <a href=mailto:<?= htmlspecialchars($vcard["email"] ?? "") ?> class="text-white fw-5"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
- </div>
- </div>
- </div><?php endif; ?>
- <?php if(!empty($vcard["phone"])): ?><div class=col-sm-6>
- <div class=contact-box>
- <div class=contact-icon-box>
- <div class="contact-icon d-flex justify-content-center align-items-center">
- <img src="/images/templates/carspro/foo-051.svg">
- </div>
- </div>
- <div class=contact-desc>
- <a href=tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?> class="text-white fw-5" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
- </div>
- </div>
- </div><?php endif; ?>
- <?php if(!empty($vcard["alternate_phone"])): ?><div class=col-sm-6>
- <div class=contact-box>
- <div class=contact-icon-box>
- <div class="contact-icon d-flex justify-content-center align-items-center">
- <img src="/images/templates/carspro/foo-051.svg">
- </div>
- </div>
- <div class=contact-desc>
- <a href="tel:<?= htmlspecialchars($vcard["alternate_phone"] ?? "") ?>" class="text-white fw-5" dir=ltr><?= htmlspecialchars($vcard["alternate_phone"] ?? "") ?></a>
- </div>
- </div>
- </div><?php endif; ?>
- <?php if(!empty($vcard["dob"])): ?><div class=col-sm-6>
- <div class=contact-box>
- <div class=contact-icon-box>
- <div class="contact-icon d-flex justify-content-center align-items-center">
- <img src="/images/templates/carspro/foo-052.svg">
- </div>
- </div>
- <div class=contact-desc>
- <p class="mb-0 text-white fw-5">
- <?= htmlspecialchars(date("jS F, Y", strtotime($vcard["dob"]))) ?></p>
- </div>
- </div>
- </div><?php endif; ?>
- <?php if(!empty($vcard["location"])): ?><div class=col-sm-6>
- <div class=contact-box>
- <div class=contact-icon-box>
- <div class="contact-icon d-flex justify-content-center align-items-center">
- <img src="/images/templates/carspro/foo-053.svg">
- </div>
- </div>
- <div class=contact-desc>
- <p class="text-white mb-0 fw-5"><?= htmlspecialchars($vcard["location"]) ?></p>
- </div>
- </div>
- </div><?php endif; ?>
- </div>
- </div>
- </div>
 
  <?php
  $__iframes = array_filter($iframes ?? [], fn($fr)=>!empty($fr["url"]) && preg_match('#^https?://#i', $fr["url"]));
@@ -608,20 +533,7 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
  
  
  
- <?php if(!empty($__iframes)): ?>
- <div class="iframe-section pt-40 px-20 position-relative">
- <div class="section-heading text-center mb-40"><h2 class="text-white mb-1 d-inline-block"><?= $__allMaps ? "Location" : "More Info" ?></h2></div>
- <div class="px-10">
- <?php foreach ($__iframes as $__fr): $__src = function_exists("embeddableMapUrl") ? embeddableMapUrl($__fr["url"]) : $__fr["url"]; ?>
- <div style="border-radius:14px;overflow:hidden;margin-bottom:14px;box-shadow:0 6px 18px rgba(0,0,0,.10);">
- <iframe src="<?= htmlspecialchars($__src) ?>" width="100%" height="320" style="display:block;border:0;" frameborder="0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
- </div>
- <?php endforeach; ?>
- </div>
- </div>
- <?php endif; ?>
  <div class="contact-us-section pt-40 pb-40 px-30 position-relative">
- <style>.contact-us-section .section-heading h2{font-weight:800!important}.contact-us-section .form-control,.contact-us-section .form-control::placeholder{font-weight:600!important}</style>
  <div class="position-absolute vector-13 vector-all">
  <img src="/images/templates/carspro/car-wrench.svg" loading=lazy class="w-100 h-100 object-fit-cover">
  </div>
@@ -653,6 +565,94 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
  </div>
  </div>
  </form>
+ </div>
+ </div>
+ <?php if(!empty($__iframes)): ?>
+ <div class="iframe-section pt-40 px-20 position-relative">
+ <div class="section-heading text-center mb-40"><h2 class="text-white mb-1 d-inline-block"><?= $__allMaps ? "Location" : "More Info" ?></h2></div>
+ <div class="px-10">
+ <?php foreach ($__iframes as $__fr): $__src = function_exists("embeddableMapUrl") ? embeddableMapUrl($__fr["url"]) : $__fr["url"]; ?>
+ <div style="border-radius:14px;overflow:hidden;margin-bottom:14px;box-shadow:0 6px 18px rgba(0,0,0,.10);">
+ <iframe src="<?= htmlspecialchars($__src) ?>" width="100%" height="320" style="display:block;border:0;" frameborder="0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+ </div>
+ <?php endforeach; ?>
+ </div>
+ </div>
+ <?php endif; ?>
+ <div class="contact-section position-relative px-30 pt-40">
+ <style>.contact-section .section-heading h2{font-weight:800!important}.contact-section .contact-desc,.contact-section .contact-desc *{font-weight:700!important}</style>
+ <div class="position-absolute vector-2 vector-all">
+ <img src="/images/templates/carspro/car-front.svg" loading=lazy class="w-100 h-100 object-fit-cover">
+ </div>
+ <div class="section-heading text-center mb-40">
+ <h2 class="text-white mb-1 d-inline-block">
+ Contact
+ </h2>
+ </div>
+ <div>
+ <div class="row row-gap-30px">
+ <?php if(!empty($vcard["email"])): ?><div class=col-sm-6>
+ <div class=contact-box>
+ <div class=contact-icon-box>
+ <div class="contact-icon d-flex justify-content-center align-items-center">
+ <img src=/images/templates/carspro/foo-050.svg>
+ </div>
+ </div>
+ <div class=contact-desc>
+ <a href=mailto:<?= htmlspecialchars($vcard["email"] ?? "") ?> class="text-white fw-5"><?= htmlspecialchars($vcard["email"] ?? "") ?></a>
+ </div>
+ </div>
+ </div><?php endif; ?>
+ <?php if(!empty($vcard["phone"])): ?><div class=col-sm-6>
+ <div class=contact-box>
+ <div class=contact-icon-box>
+ <div class="contact-icon d-flex justify-content-center align-items-center">
+ <img src="/images/templates/carspro/foo-051.svg">
+ </div>
+ </div>
+ <div class=contact-desc>
+ <a href=tel:<?= htmlspecialchars($vcard["phone"] ?? "") ?> class="text-white fw-5" dir=ltr><?= htmlspecialchars($vcard["phone"] ?? "") ?></a>
+ </div>
+ </div>
+ </div><?php endif; ?>
+ <?php if(!empty($vcard["alternate_phone"])): ?><div class=col-sm-6>
+ <div class=contact-box>
+ <div class=contact-icon-box>
+ <div class="contact-icon d-flex justify-content-center align-items-center">
+ <img src="/images/templates/carspro/foo-051.svg">
+ </div>
+ </div>
+ <div class=contact-desc>
+ <a href="tel:<?= htmlspecialchars($vcard["alternate_phone"] ?? "") ?>" class="text-white fw-5" dir=ltr><?= htmlspecialchars($vcard["alternate_phone"] ?? "") ?></a>
+ </div>
+ </div>
+ </div><?php endif; ?>
+ <?php if(!empty($vcard["dob"])): ?><div class=col-sm-6>
+ <div class=contact-box>
+ <div class=contact-icon-box>
+ <div class="contact-icon d-flex justify-content-center align-items-center">
+ <img src="/images/templates/carspro/foo-052.svg">
+ </div>
+ </div>
+ <div class=contact-desc>
+ <p class="mb-0 text-white fw-5">
+ <?= htmlspecialchars(date("jS F, Y", strtotime($vcard["dob"]))) ?></p>
+ </div>
+ </div>
+ </div><?php endif; ?>
+ <?php if(!empty($vcard["location"])): ?><div class=col-sm-6>
+ <div class=contact-box>
+ <div class=contact-icon-box>
+ <div class="contact-icon d-flex justify-content-center align-items-center">
+ <img src="/images/templates/carspro/foo-053.svg">
+ </div>
+ </div>
+ <div class=contact-desc>
+ <p class="text-white mb-0 fw-5"><?= htmlspecialchars($vcard["location"]) ?></p>
+ </div>
+ </div>
+ </div><?php endif; ?>
+ </div>
  </div>
  </div>
  <div class="add-to-contact-section z-index-9">
