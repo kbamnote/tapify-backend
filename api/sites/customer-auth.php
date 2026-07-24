@@ -47,6 +47,25 @@ try {
 
     $newToken = fn() => bin2hex(random_bytes(24));
 
+    // Redeem the one-time code minted by the Google OAuth callback for the real
+    // session token. Single use, short-lived — see google-auth-callback.php.
+    if ($action === 'google_exchange') {
+        $code = trim((string)($in['code'] ?? ''));
+        if ($code === '') sendError('Missing sign-in code', 400);
+        if (!$db->query("SHOW COLUMNS FROM site_customers LIKE 'handoff_code'")->fetchColumn()) {
+            sendError('Google sign-in is not set up on this site.', 400);
+        }
+        $st = $db->prepare("SELECT id, name, email, token FROM site_customers
+                             WHERE site_id = ? AND handoff_code = ? AND handoff_expires > NOW() LIMIT 1");
+        $st->execute([$siteId, $code]);
+        $row = $st->fetch(PDO::FETCH_ASSOC);
+        if (!$row) sendError('This sign-in link has expired. Please try again.', 401);
+        // Burn the code so it can't be replayed.
+        $db->prepare("UPDATE site_customers SET handoff_code = NULL, handoff_expires = NULL WHERE id = ?")
+           ->execute([(int)$row['id']]);
+        sendSuccess('Signed in', ['token' => $row['token'], 'name' => $row['name'], 'email' => $row['email']]);
+    }
+
     if ($action === 'me') {
         $token = trim((string)($in['token'] ?? ''));
         if ($token === '') sendError('Not signed in', 401);

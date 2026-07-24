@@ -963,6 +963,23 @@ class SiteRenderer
         $btn  = 'width:100%;padding:12px;font-size:14px;font-weight:600;border:none;border-radius:var(--radius);background:var(--color-primary);color:var(--color-primary-fg);cursor:pointer';
         $tab  = 'flex:1;padding:8px;font-size:14px;font-weight:600;border-radius:var(--radius);cursor:pointer';
 
+        // "Continue with Google" — only when the OAuth client is configured. It
+        // links to the fixed start endpoint on the API origin; the page's JS
+        // appends the current ?next so login returns the customer to their spot.
+        $googleOn = defined('GOOGLE_CLIENT_ID') && GOOGLE_CLIENT_ID !== '' && defined('GOOGLE_CLIENT_SECRET') && GOOGLE_CLIENT_SECRET !== '';
+        $gbtn = '';
+        if ($googleOn) {
+            $gsvg = '<svg width="18" height="18" viewBox="0 0 48 48" style="flex-shrink:0">'
+                . '<path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/>'
+                . '<path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/>'
+                . '<path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238C29.211 35.091 26.715 36 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/>'
+                . '<path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303c-.792 2.237-2.231 4.166-4.087 5.571l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/>'
+                . '</svg>';
+            $gurl = self::esc(self::apiBase() . '/api/sites/google-auth-start.php?site=' . rawurlencode(self::$slug));
+            $gbtn = '<a data-google href="' . $gurl . '" style="display:flex;align-items:center;justify-content:center;gap:10px;width:100%;padding:11px;font-size:14px;font-weight:600;text-decoration:none;color:var(--color-text);background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius)">' . $gsvg . 'Continue with Google</a>'
+                . '<div style="display:flex;align-items:center;gap:10px;margin:16px 0;color:var(--color-muted);font-size:12px"><span style="flex:1;height:1px;background:var(--color-border)"></span>OR<span style="flex:1;height:1px;background:var(--color-border)"></span></div>';
+        }
+
         $card = '<div id="' . $uid . '" style="max-width:420px;margin:0 auto;text-align:left;padding:28px;background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius);box-shadow:0 8px 30px rgba(16,24,40,.08)">'
             // Signed-in view (shown by JS when a token exists).
             . '<div data-view="me" style="display:none;text-align:center">'
@@ -973,6 +990,7 @@ class SiteRenderer
             . '</div>'
             // Auth forms.
             . '<div data-view="auth">'
+            .   $gbtn
             .   '<div style="display:flex;gap:8px;margin-bottom:18px">'
             .     '<button type="button" data-tab="login" style="' . $tab . ';background:var(--color-primary);color:var(--color-primary-fg);border:none">Sign in</button>'
             .     '<button type="button" data-tab="signup" style="' . $tab . ';background:transparent;color:var(--color-text);border:1px solid var(--color-border)">Create account</button>'
@@ -1005,6 +1023,18 @@ class SiteRenderer
             . '+"<div style=\"font-size:13px;color:var(--color-muted);margin-top:3px\">"+esc(o.price||"")+((o.quantity>1)?(" × "+esc(o.quantity)):"")+" · "+esc(o.status||"")+"</div></div>";});'
             . 'box.innerHTML=h;}).catch(function(){box.innerHTML="";});}'
             . 'show(get());'
+            // Carry the current ?next onto the Google button so login returns there.
+            . 'var GP=new URLSearchParams(location.search);var gb=$("[data-google]");'
+            . 'if(gb){var gn=GP.get("next");if(gn)gb.href+=(gb.href.indexOf("?")>-1?"&":"?")+"next="+encodeURIComponent(gn);}'
+            // Finish a Google sign-in: swap the one-time handoff code for a token.
+            . 'var GC=GP.get("tf_google");if(GC){var av=$("[data-view=auth]");if(av)av.innerHTML="<p style=\"text-align:center;font-size:14px;color:var(--color-muted)\">Signing you in…</p>";'
+            . 'fetch(C.api+"/api/sites/customer-auth.php",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({action:"google_exchange",site:C.site,code:GC})})'
+            . '.then(function(r){return r.json();}).then(function(res){'
+            . 'if(res&&res.success){localStorage.setItem(KEY,JSON.stringify({name:res.data.name,email:res.data.email,token:res.data.token}));'
+            . 'var nx=GP.get("next");if(nx&&/^\\/[^\\/]/.test(nx)){location.href=nx;return;}'
+            . 'history.replaceState(null,"",location.pathname);show({name:res.data.name});}'
+            . 'else if(av){av.innerHTML="<p style=\"text-align:center;font-size:14px;color:#dc2626\">"+((res&&res.message)||"Could not sign in with Google.")+"</p>";}})'
+            . '.catch(function(){if(av)av.innerHTML="<p style=\"text-align:center;font-size:14px;color:#dc2626\">Connection error.</p>";});}'
             . 'function setMode(m){mode=m;all("[data-tab]").forEach(function(b){var on=b.getAttribute("data-tab")===m;b.style.background=on?"var(--color-primary)":"transparent";b.style.color=on?"var(--color-primary-fg)":"var(--color-text)";b.style.border=on?"none":"1px solid var(--color-border)";});'
             . 'all("[data-signup]").forEach(function(el){el.style.display=(m==="signup")?"block":"none";el.required=(m==="signup"&&el.name==="name");});'
             . '$("[data-submit]").textContent=(m==="login")?"Sign in":"Create account";$("[data-msg]").textContent="";}'

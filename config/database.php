@@ -73,6 +73,14 @@ define('GOOGLE_BUSINESS_SCOPE', 'https://www.googleapis.com/auth/business.manage
 // Deep link the OAuth callback bounces back to so the app knows we're done.
 define('APP_DEEP_LINK', getenv('APP_DEEP_LINK') ?: 'tapifapp://gbp-connected');
 
+// === "SIGN IN WITH GOOGLE" for builder-site customers ===
+// Reuses the same GOOGLE_CLIENT_ID/SECRET above (one OAuth client can have many
+// redirect URIs). Only needs the non-sensitive "openid email profile" scopes, so
+// no app verification is required. The button only appears on customer sites when
+// GOOGLE_CLIENT_ID + GOOGLE_CLIENT_SECRET are set. Register this exact URI as an
+// "Authorized redirect URI" on the OAuth client:
+define('GOOGLE_LOGIN_REDIRECT', getenv('GOOGLE_LOGIN_REDIRECT') ?: (SITE_URL . '/api/sites/google-auth-callback.php'));
+
 // === SOCIAL MEDIA PUBLISHING ===
 // Meta (Facebook + Instagram) — one app covers both. Register the redirect URI
 // SOCIAL_OAUTH_REDIRECT in the Meta app's Facebook Login settings.
