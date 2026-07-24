@@ -102,7 +102,7 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
  </div>
  <div class="card-body p-0 text-center pt-3 position-relative" style="z-index:2">
  <div class="profile-name" data-tf-animated="1">
- <h2 class="text-white fs-24 mb-0" data-tf-animated="1">
+ <h2 class="text-white fs-24 mb-0" data-tf-animated="1" style="font-weight:800!important">
  <?= htmlspecialchars($fullName) ?>
  <i class="verification-icon bi-patch-check-fill"></i>
  </h2>
@@ -605,7 +605,23 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
  
  
  
+ 
+ 
+ 
+ <?php if(!empty($__iframes)): ?>
+ <div class="iframe-section pt-40 px-20 position-relative">
+ <div class="section-heading text-center mb-40"><h2 class="text-white mb-1 d-inline-block"><?= $__allMaps ? "Location" : "More Info" ?></h2></div>
+ <div class="px-10">
+ <?php foreach ($__iframes as $__fr): $__src = function_exists("embeddableMapUrl") ? embeddableMapUrl($__fr["url"]) : $__fr["url"]; ?>
+ <div style="border-radius:14px;overflow:hidden;margin-bottom:14px;box-shadow:0 6px 18px rgba(0,0,0,.10);">
+ <iframe src="<?= htmlspecialchars($__src) ?>" width="100%" height="320" style="display:block;border:0;" frameborder="0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+ </div>
+ <?php endforeach; ?>
+ </div>
+ </div>
+ <?php endif; ?>
  <div class="contact-us-section pt-40 pb-40 px-30 position-relative">
+ <style>.contact-us-section .section-heading h2{font-weight:800!important}.contact-us-section .form-control,.contact-us-section .form-control::placeholder{font-weight:600!important}</style>
  <div class="position-absolute vector-13 vector-all">
  <img src="/images/templates/carspro/car-wrench.svg" loading=lazy class="w-100 h-100 object-fit-cover">
  </div>
@@ -639,21 +655,6 @@ body{font-family:<?= !empty($vcard["font_family"]) ? htmlspecialchars($vcard["fo
  </form>
  </div>
  </div>
- 
- 
- 
- <?php if(!empty($__iframes)): ?>
- <div class="iframe-section pt-40 px-20 position-relative">
- <div class="section-heading text-center mb-40"><h2 class="text-white mb-1 d-inline-block"><?= $__allMaps ? "Location" : "More Info" ?></h2></div>
- <div class="px-10">
- <?php foreach ($__iframes as $__fr): $__src = function_exists("embeddableMapUrl") ? embeddableMapUrl($__fr["url"]) : $__fr["url"]; ?>
- <div style="border-radius:14px;overflow:hidden;margin-bottom:14px;box-shadow:0 6px 18px rgba(0,0,0,.10);">
- <iframe src="<?= htmlspecialchars($__src) ?>" width="100%" height="320" style="display:block;border:0;" frameborder="0" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
- </div>
- <?php endforeach; ?>
- </div>
- </div>
- <?php endif; ?>
  <div class="add-to-contact-section z-index-9">
  <div class=text-center>
  <a href="javascript:saveContact()" class="btn btn-primary add-contact-btn"><svg class="svg-inline--fa fa-address-book" aria-hidden=true focusable=false data-prefix=fas data-icon=address-book role=img xmlns=http://www.w3.org/2000/svg viewBox="0 0 512 512" data-fa-i2svg><path fill=currentColor d="M384 0H96C60.65 0 32 28.65 32 64v384c0 35.35 28.65 64 64 64h288c35.35 0 64-28.65 64-64V64C448 28.65 419.3 0 384 0zM240 128c35.35 0 64 28.65 64 64s-28.65 64-64 64c-35.34 0-64-28.65-64-64S204.7 128 240 128zM336 384h-192C135.2 384 128 376.8 128 368C128 323.8 163.8 288 208 288h64c44.18 0 80 35.82 80 80C352 376.8 344.8 384 336 384zM496 64H480v96h16C504.8 160 512 152.8 512 144v-64C512 71.16 504.8 64 496 64zM496 192H480v96h16C504.8 288 512 280.8 512 272v-64C512 199.2 504.8 192 496 192zM496 320H480v96h16c8.836 0 16-7.164 16-16v-64C512 327.2 504.8 320 496 320z"></path></svg>
