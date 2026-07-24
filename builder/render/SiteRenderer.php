@@ -113,6 +113,14 @@ class SiteRenderer
             echo self::renderCartPage($doc);
             return true;
         }
+        // Built-in login / signup page. This is where the header's Login/Signup
+        // button points; after doc.pages so a site that builds its own /account
+        // keeps it.
+        if (!$page && $norm === '/account') {
+            header('Content-Type: text/html; charset=utf-8');
+            echo self::renderAccountPage($doc);
+            return true;
+        }
 
         if (!$page || ($page['visible'] ?? true) === false) { self::notFound(); return true; }
 
@@ -1772,6 +1780,57 @@ class SiteRenderer
              . "</head><body>"
              . "<main class=\"tf-site\">" . self::chromeSection($doc, 'header') . $article . self::chromeSection($doc, 'footer') . "</main>"
              . self::cartScript() . $script . self::animScript()
+             . "</body></html>";
+    }
+
+    /** Built-in login / signup page — the account section wrapped in header/footer. */
+    private static function renderAccountPage(array $doc): string
+    {
+        $vars  = self::themeVars($doc['theme'] ?? []);
+        $fonts = self::googleFonts($doc['theme'] ?? []);
+        $name  = $doc['site']['name'] ?? '';
+
+        // Reuse an account section the customer placed on a page (for its heading
+        // and phone toggle); otherwise synthesize a default one so the button
+        // always lands on a real login/signup page.
+        $acc = null;
+        foreach (($doc['pages'] ?? []) as $pg) {
+            foreach (($pg['sections'] ?? []) as $s) {
+                if (($s['type'] ?? '') === 'account') { $acc = $s; break 2; }
+            }
+        }
+        if (!$acc) {
+            $acc = [
+                'id'    => 'account',
+                'type'  => 'account',
+                'props' => ['heading' => 'My Account', 'sub' => 'Sign in or create an account to track your orders.'],
+                'style' => ['pad' => 'lg'],
+            ];
+        }
+        // Force it visible even if the source section was hidden.
+        unset($acc['style']['hidden']);
+        $acc['visible'] = true;
+
+        $pseudo = [
+            'slug'  => '/account',
+            'title' => 'My Account',
+            'seo'   => [
+                'title'       => trim('My Account | ' . $name, ' |'),
+                'description' => '',
+                'robots'      => 'noindex,nofollow',
+            ],
+        ];
+
+        return "<!DOCTYPE html><html lang=\"" . self::esc($doc['site']['locale'] ?? 'en') . "\"><head>"
+             . self::head($doc, $pseudo, $fonts)
+             . "<style>.tf-site{" . $vars . "}" . self::baseCss() . "</style>"
+             . "</head><body>"
+             . "<main class=\"tf-site\">"
+             .   self::chromeSection($doc, 'header')
+             .   self::section($acc, $doc)
+             .   self::chromeSection($doc, 'footer')
+             . "</main>"
+             . self::cartScript() . self::animScript()
              . "</body></html>";
     }
 
