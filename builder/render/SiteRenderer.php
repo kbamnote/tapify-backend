@@ -2202,15 +2202,22 @@ function init(car){
   var track=car.querySelector(".tf-ctrack");if(!track)return;
   var slides=Array.prototype.slice.call(track.children),n=slides.length;if(n<2)return;
   var dots=car.querySelector(".tf-cdots"),prev=car.querySelector(".tf-cprev"),next=car.querySelector(".tf-cnext");
-  function cur(){var c=track.scrollLeft+track.clientWidth/2,b=0,bd=Infinity;for(var i=0;i<n;i++){var e=slides[i],cc=e.offsetLeft+e.offsetWidth/2,d=Math.abs(cc-c);if(d<bd){bd=d;b=i;}}return b;}
-  function go(i){i=(i%n+n)%n;var e=slides[i];track.scrollTo({left:e.offsetLeft,behavior:"smooth"});}
+  // Explicit current index (authoritative). Deriving it from scroll position
+  // alone breaks wrap-around for multi-card layouts, where the last card can
+  // never be scroll-centred — so "next" would stall before the end and never
+  // loop. `lock` briefly ignores the scroll handler during our own animation.
+  var idx=0,lock=0;
+  // Nearest slide to the viewport centre — used only to resync after a manual swipe.
+  function nearest(){var c=track.scrollLeft+track.clientWidth/2,b=0,bd=Infinity;for(var i=0;i<n;i++){var e=slides[i],cc=e.offsetLeft+e.offsetWidth/2,d=Math.abs(cc-c);if(d<bd){bd=d;b=i;}}return b;}
+  function go(i){idx=(i%n+n)%n;lock=Date.now()+700;track.scrollTo({left:slides[idx].offsetLeft,behavior:"smooth"});sync();}
   if(dots){for(var i=0;i<n;i++){(function(k){var b=document.createElement("button");if(k===0)b.className="active";b.setAttribute("aria-label","Go to slide "+(k+1));b.addEventListener("click",function(){go(k);rest();});dots.appendChild(b);})(i);}}
-  function sync(){var a=cur();if(dots)for(var i=0;i<dots.children.length;i++)dots.children[i].className=(i===a)?"active":"";}
-  var tk=false;track.addEventListener("scroll",function(){if(!tk){requestAnimationFrame(function(){sync();tk=false;});tk=true;}},{passive:true});
-  if(prev)prev.addEventListener("click",function(){go(cur()-1);rest();});
-  if(next)next.addEventListener("click",function(){go(cur()+1);rest();});
+  function sync(){if(dots)for(var i=0;i<dots.children.length;i++)dots.children[i].className=(i===idx)?"active":"";}
+  var tk=false;track.addEventListener("scroll",function(){if(!tk){requestAnimationFrame(function(){if(Date.now()>lock){idx=nearest();sync();}tk=false;});tk=true;}},{passive:true});
+  // Arrows wrap continuously: next past the last -> first; prev before the first -> last.
+  if(prev)prev.addEventListener("click",function(){go(idx-1);rest();});
+  if(next)next.addEventListener("click",function(){go(idx+1);rest();});
   var iv=parseInt(car.getAttribute("data-autoplay"),10)||0,timer=null;
-  function play(){stop();if(iv>0)timer=setInterval(function(){var a=cur();go(a>=n-1?0:a+1);},iv);}
+  function play(){stop();if(iv>0)timer=setInterval(function(){go(idx+1);},iv);}
   function stop(){if(timer){clearInterval(timer);timer=null;}}
   function rest(){play();}
   car.addEventListener("mouseenter",stop);car.addEventListener("mouseleave",play);
