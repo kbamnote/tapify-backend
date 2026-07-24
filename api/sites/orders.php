@@ -34,16 +34,37 @@ try {
         if ($id <= 0) sendError('id is required');
         if (!in_array($status, $STATUSES, true)) sendError('Invalid status');
 
-        // Confirm the order belongs to a site this user owns.
+        // Confirm the order belongs to a site this user owns (and grab the
+        // customer's details so we can WhatsApp them the status change).
         $st = $db->prepare(
-            "SELECT o.id FROM site_orders o JOIN sites s ON s.id = o.site_id
+            "SELECT o.id, o.customer_name, o.customer_phone, o.item_title
+               FROM site_orders o JOIN sites s ON s.id = o.site_id
               WHERE o.id = ?" . ($staff ? '' : ' AND s.user_id = ?')
         );
         $st->execute($staff ? [$id] : [$id, $userId]);
-        if (!$st->fetchColumn()) sendError('Order not found', 404);
+        $order = $st->fetch(PDO::FETCH_ASSOC);
+        if (!$order) sendError('Order not found', 404);
 
         $up = $db->prepare("UPDATE site_orders SET status = ? WHERE id = ?");
         $up->execute([$status, $id]);
+
+        // === WhatsApp status update to the customer (silent failure) ===
+        // Uses the approved 'order_status_update' template. Skipped for 'new'
+        // (that's the initial state, already covered by the order confirmation).
+        if ($status !== 'new' && !empty($order['customer_phone'])) {
+            try {
+                require_once __DIR__ . '/../../includes/whatsapp-helper.php';
+                $labels = ['confirmed' => 'confirmed', 'completed' => 'completed', 'cancelled' => 'cancelled'];
+                sendWhatsAppTemplate(
+                    $order['customer_phone'],
+                    'order_status_update',
+                    [($order['customer_name'] ?: 'Customer'), '#' . $id, ($labels[$status] ?? $status)]
+                );
+            } catch (Exception $e) {
+                error_log('site order status WhatsApp failed: ' . $e->getMessage());
+            }
+        }
+
         sendSuccess('Order updated');
     }
 

@@ -165,6 +165,40 @@ try {
         mb_substr((string)($_SERVER['HTTP_USER_AGENT'] ?? ''), 0, 255),
     ]);
 
+    // === WhatsApp (silent failure) — customer confirmation + business new-lead alert ===
+    // Mirrors the vCard inquiry flow: reuses the approved 'welcome' and
+    // 'new_inquiry_alert' templates on the same Tapify number.
+    try {
+        require_once __DIR__ . '/../../includes/whatsapp-helper.php';
+
+        // Pull the common contact fields out of whatever this form declared.
+        $pick = function (array $keys) use ($data) {
+            foreach ($keys as $k) {
+                foreach ($data as $fname => $fv) {
+                    if (strtolower((string)$fname) === $k) return trim((string)($fv['value'] ?? ''));
+                }
+            }
+            return '';
+        };
+        $cName  = $pick(['name', 'your name', 'fullname', 'full name']) ?: 'Customer';
+        $cPhone = $pick(['phone', 'mobile', 'contact', 'contact number', 'phone number', 'whatsapp']);
+        $cMsg   = $pick(['message', 'comments', 'comment', 'note', 'notes', 'enquiry', 'inquiry', 'details']);
+
+        // 1) confirmation to the customer (only if they left a phone)
+        if ($cPhone !== '') sendWhatsAppTemplate($cPhone, 'welcome', [$cName]);
+
+        // 2) new-lead alert to the site's own business number
+        $biz = $published['doc']['business'] ?? [];
+        $bizPhone = trim((string)($biz['whatsapp'] ?? $biz['phone'] ?? ''));
+        if ($bizPhone !== '') {
+            $msg = $cMsg !== '' ? preg_replace('/\s+/', ' ', $cMsg) : '(no message)';
+            if (mb_strlen($msg) > 300) $msg = mb_substr($msg, 0, 297) . '...';
+            sendWhatsAppTemplate($bizPhone, 'new_inquiry_alert', [$cName, ($cPhone !== '' ? $cPhone : 'Not provided'), $msg]);
+        }
+    } catch (Exception $e) {
+        error_log('site form WhatsApp failed: ' . $e->getMessage());
+    }
+
     finish(true, $form['successMessage'] ?? 'Thank you — your message has been sent.', $back);
 
 } catch (Exception $e) {

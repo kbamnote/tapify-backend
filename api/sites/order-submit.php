@@ -32,7 +32,8 @@ if ($phone === '') sendError('Please enter your contact number.');
 try {
     $site = SiteRepo::findBySlug($slug);
     if (!$site || ($site['status'] ?? '') === 'disabled') sendError('This website is not available.', 404);
-    if (!SiteRepo::getPublished($site)) sendError('This website is not published yet.', 400);
+    $published = SiteRepo::getPublished($site);
+    if (!$published) sendError('This website is not published yet.', 400);
 
     $db = getDB();
 
@@ -83,7 +84,31 @@ try {
         $ip,
     ]);
 
-    sendSuccess('Order placed', ['id' => (int)$db->lastInsertId()]);
+    $orderId = (int)$db->lastInsertId();
+
+    // === WhatsApp (silent failure) — order confirmation + business alert ===
+    // NOTE: these two templates ('order_confirmation', 'new_order_alert') must be
+    // created + approved on the WhatsApp Business account. Until then the send
+    // just logs and returns false — the order is unaffected.
+    try {
+        require_once __DIR__ . '/../../includes/whatsapp-helper.php';
+        $item = trim((string)($in['item'] ?? 'your order')) ?: 'your order';
+
+        // 1) confirmation to the customer (if they left a phone)
+        if ($phone !== '') {
+            sendWhatsAppTemplate($phone, 'order_confirmation', [$name, '#' . $orderId, $item]);
+        }
+        // 2) new-order alert to the site's own business number
+        $biz = $published['doc']['business'] ?? [];
+        $bizPhone = trim((string)($biz['whatsapp'] ?? $biz['phone'] ?? ''));
+        if ($bizPhone !== '') {
+            sendWhatsAppTemplate($bizPhone, 'new_order_alert', [$name, ($phone !== '' ? $phone : 'Not provided'), $item]);
+        }
+    } catch (Exception $e) {
+        error_log('site order WhatsApp failed: ' . $e->getMessage());
+    }
+
+    sendSuccess('Order placed', ['id' => $orderId]);
 } catch (Exception $e) {
     error_log('order-submit: ' . $e->getMessage());
     sendError('Could not place the order right now.', 500);

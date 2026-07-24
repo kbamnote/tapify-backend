@@ -44,7 +44,8 @@ $time24 = date('H:i:s', $ts);
 try {
     $site = SiteRepo::findBySlug($slug);
     if (!$site || ($site['status'] ?? '') === 'disabled') sendError('This website is not available.', 404);
-    if (!SiteRepo::getPublished($site)) sendError('This website is not published yet.', 400);
+    $published = SiteRepo::getPublished($site);
+    if (!$published) sendError('This website is not published yet.', 400);
 
     $db = getDB();
 
@@ -83,6 +84,26 @@ try {
         mb_substr(trim((string)($in['notes'] ?? '')), 0, 2000),
         $ip,
     ]);
+
+    // === WhatsApp (silent failure) — customer reminder + business alert ===
+    // Reuses the approved 'appointment_reminder' and 'new_appointment_alert'
+    // templates (same as the vCard appointment flow).
+    try {
+        require_once __DIR__ . '/../../includes/whatsapp-helper.php';
+
+        // 1) confirmation to the customer
+        if ($phone !== '') {
+            sendWhatsAppTemplate($phone, 'appointment_reminder', [$name, $date, $time]);
+        }
+        // 2) new-appointment alert to the site's own business number
+        $biz = $published['doc']['business'] ?? [];
+        $bizPhone = trim((string)($biz['whatsapp'] ?? $biz['phone'] ?? ''));
+        if ($bizPhone !== '') {
+            sendWhatsAppTemplate($bizPhone, 'new_appointment_alert', [$name, ($phone !== '' ? $phone : 'Not provided'), $date, $time]);
+        }
+    } catch (Exception $e) {
+        error_log('site appointment WhatsApp failed: ' . $e->getMessage());
+    }
 
     sendSuccess('Appointment requested', ['id' => (int)$db->lastInsertId()]);
 } catch (Exception $e) {
