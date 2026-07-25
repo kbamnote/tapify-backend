@@ -63,6 +63,36 @@ class SiteRepo
         return (int)$site['user_id'] === (int)$userId;
     }
 
+    /** Every site (admin/staff view), with the owning client's name/email. */
+    public static function listAll(): array
+    {
+        $stmt = getDB()->query(
+            "SELECT s.id, s.slug, s.name, s.industry, s.status, s.published_at, s.created_at, s.updated_at,
+                    s.user_id, u.name AS owner_name, u.email AS owner_email
+             FROM sites s LEFT JOIN users u ON u.id = s.user_id
+             ORDER BY s.updated_at DESC"
+        );
+        return $stmt->fetchAll();
+    }
+
+    /** Hard-delete a site and all its versions. Gate to admins at the endpoint. */
+    public static function deleteSite(int $siteId): void
+    {
+        $pdo = getDB();
+        $pdo->beginTransaction();
+        try {
+            // Drop the version pointers first so the version rows can be removed
+            // regardless of FK direction.
+            $pdo->prepare("UPDATE sites SET draft_version_id = NULL, published_version_id = NULL WHERE id = ?")->execute([$siteId]);
+            $pdo->prepare("DELETE FROM site_versions WHERE site_id = ?")->execute([$siteId]);
+            $pdo->prepare("DELETE FROM sites WHERE id = ?")->execute([$siteId]);
+            $pdo->commit();
+        } catch (Exception $e) {
+            $pdo->rollBack();
+            throw $e;
+        }
+    }
+
     public static function slugAvailable(string $slug, $exceptSiteId = null): bool
     {
         $sql = "SELECT id FROM sites WHERE slug = ?";

@@ -23,12 +23,29 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') sendError('Only POST allowed', 405);
 
 requireAuth();
 
+// Only admins and staff may create websites. Clients can edit/view the site
+// that's been assigned to them, but never create new ones.
+if (!isStaffOrAdmin()) {
+    sendError('Only admins and staff can create websites.', 403);
+}
+
 $input    = getInput();
 $name     = sanitize($input['name'] ?? '');
 $industry = isset($input['industry']) ? sanitize($input['industry']) : null;
 $slug     = strtolower(trim($input['slug'] ?? ''));
+$assignTo = (int)($input['user_id'] ?? 0);   // the client this site is created for
 
 if ($name === '') sendError('name is required');
+
+// Resolve the owner: an admin/staff creates a site FOR a client (user_id). If no
+// client is given, the site is owned by the creator (e.g. a template/demo).
+$ownerId = getCurrentUserId();
+if ($assignTo > 0) {
+    $u = getDB()->prepare("SELECT id FROM users WHERE id = ? LIMIT 1");
+    $u->execute([$assignTo]);
+    if (!$u->fetchColumn()) sendError('The selected client account was not found.', 404);
+    $ownerId = $assignTo;
+}
 
 // Slug must be a valid DNS label (so <slug>.tapify.co.in stays possible) and
 // must not collide with another site.
@@ -99,7 +116,7 @@ try {
         sendError('Could not build a valid starter site: ' . implode('; ', array_slice($errors, 0, 5)), 500);
     }
 
-    $site = SiteRepo::create(getCurrentUserId(), $name, $slug, $industry, json_decode(json_encode($doc), true));
+    $site = SiteRepo::create($ownerId, $name, $slug, $industry, json_decode(json_encode($doc), true));
     $draft = SiteRepo::getDraft($site);
 
     sendSuccess('Site created', [
