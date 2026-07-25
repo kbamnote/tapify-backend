@@ -62,6 +62,9 @@ class SiteRenderer
         $doc = is_array($published) ? ($published['doc'] ?? null) : null;
         if (!is_array($doc) || empty($doc['pages'])) { self::notFound(); return true; }
 
+        // Count this visit for the site's view analytics (best-effort, never blocks).
+        self::trackView((int)$site['id']);
+
         $norm = ($path === '' || $path === '/') ? '/' : rtrim($path, '/');
 
         // Legal pages: /privacy and /terms. Content lives in the footer section.
@@ -127,6 +130,25 @@ class SiteRenderer
         header('Content-Type: text/html; charset=utf-8');
         echo self::renderDocument($doc, $page);
         return true;
+    }
+
+    /** Bump today's view counter for a site. Skips bots; never throws. */
+    private static function trackView(int $siteId): void
+    {
+        $ua = $_SERVER['HTTP_USER_AGENT'] ?? '';
+        // Don't count obvious crawlers / link-preview fetchers.
+        if ($ua === '' || preg_match('/bot|crawl|spider|slurp|bingpreview|facebookexternalhit|whatsapp|telegram|preview|monitor|curl|wget|python-requests/i', $ua)) {
+            return;
+        }
+        try {
+            getDB()->prepare(
+                "INSERT INTO site_views (site_id, view_date, views) VALUES (?, CURDATE(), 1)
+                 ON DUPLICATE KEY UPDATE views = views + 1"
+            )->execute([$siteId]);
+        } catch (Throwable $e) {
+            // Table not migrated yet, or any DB hiccup — a view count must never
+            // break the customer's page.
+        }
     }
 
     private static function notFound(): void
