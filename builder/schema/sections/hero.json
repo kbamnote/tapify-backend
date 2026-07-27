@@ -16,7 +16,7 @@
 
   "props": [
     { "key": "badge",    "type": "text",     "label": "Badge",      "placeholder": "Admissions Open 2025-26", "maxLength": 60, "group": "Content" },
-    { "key": "heading",  "type": "text",     "label": "Headline",   "required": true, "maxLength": 120, "group": "Content" },
+    { "key": "heading",  "type": "text",     "label": "Headline",   "maxLength": 120, "group": "Content" },
     { "key": "sub",      "type": "textarea", "label": "Sub-heading", "maxLength": 400, "group": "Content" },
     { "key": "image",    "type": "media",    "label": "Image",      "accept": ["image", "video"], "group": "Media",
       "showIf": { "variant": ["centered-bg", "split"] } },

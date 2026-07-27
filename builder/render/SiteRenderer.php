@@ -1033,6 +1033,9 @@ class SiteRenderer
             . 'var KEY="tf_customer_"+C.site,mode="login";'
             . 'function $(s){return root.querySelector(s);}function all(s){return root.querySelectorAll(s);}'
             . 'function esc(s){var d=document.createElement("div");d.textContent=(s==null?"":s);return d.innerHTML;}'
+            . 'function murl(v){if(!v)return "";if(/^https?:\\/\\//.test(v))return v;var m=/^media:(\\d+)$/.exec(v);return m?(C.api+"/api/sites/media.php?id="+m[1]):"";}'
+            . 'var OSTEPS=[["new","Received"],["confirmed","Confirmed"],["completed","Completed"]];'
+            . 'function otimeline(st){if(st==="cancelled")return "<div style=\"margin-top:10px;font-size:12px;font-weight:700;color:#dc2626\">Cancelled</div>";var idx={"new":0,"confirmed":1,"completed":2}[st];if(idx==null)idx=0;var h="<div style=\"display:flex;gap:6px;margin-top:10px\">";for(var i=0;i<OSTEPS.length;i++){var on=i<=idx;h+="<div style=\"flex:1;text-align:center\"><div style=\"height:4px;border-radius:2px;background:"+(on?"var(--color-primary)":"var(--color-border)")+"\"></div><div style=\"font-size:10px;margin-top:4px;font-weight:"+(on?"700":"500")+";color:"+(on?"var(--color-primary)":"var(--color-muted)")+"\">"+OSTEPS[i][1]+"</div></div>";}return h+"</div>";}'
             . 'function show(me){$("[data-view=me]").style.display=me?"block":"none";$("[data-view=auth]").style.display=me?"none":"block";if(me&&me.name)$("[data-me-name]").textContent=me.name;if(me)loadOrders();}'
             . 'function get(){try{return JSON.parse(localStorage.getItem(KEY));}catch(e){return null;}}'
             . 'function loadOrders(){var a=get();if(!a||!a.token)return;var box=$("[data-orders]");if(!box)return;box.innerHTML="<p style=\"font-size:13px;color:var(--color-muted)\">Loading your orders…</p>";'
@@ -1040,10 +1043,27 @@ class SiteRenderer
             . 'var os=(res&&res.data&&res.data.orders)||[];'
             . 'if(!os.length){box.innerHTML="<p style=\"font-size:15px;font-weight:700;margin:0 0 8px\">My Orders</p><p style=\"font-size:13px;color:var(--color-muted);margin:0\">No orders yet.</p>";return;}'
             . 'var h="<p style=\"font-size:15px;font-weight:700;margin:0 0 12px\">My Orders</p>";'
-            . 'os.forEach(function(o){h+="<div style=\"border:1px solid var(--color-border);border-radius:var(--radius);padding:12px;margin-bottom:8px\">"'
-            . '+"<div style=\"display:flex;justify-content:space-between;gap:8px\"><strong style=\"font-size:14px\">"+esc(o.item_title||"Order")+"</strong><span style=\"font-size:12px;color:var(--color-muted)\">#"+esc(o.id)+"</span></div>"'
-            . '+"<div style=\"font-size:13px;color:var(--color-muted);margin-top:3px\">"+esc(o.price||"")+((o.quantity>1)?(" × "+esc(o.quantity)):"")+" · "+esc(o.status||"")+"</div></div>";});'
-            . 'box.innerHTML=h;}).catch(function(){box.innerHTML="";});}'
+            . 'os.forEach(function(o){var img=murl(o.item_image);var canR=(o.status==="completed")&&o.item_slug;'
+            . 'h+="<div style=\"border:1px solid var(--color-border);border-radius:var(--radius);padding:12px;margin-bottom:10px\">";'
+            . 'h+="<div style=\"display:flex;gap:12px\">";'
+            . 'if(img)h+="<img src=\""+esc(img)+"\" alt=\"\" style=\"width:64px;height:64px;object-fit:cover;border-radius:8px;flex-shrink:0\">";'
+            . 'h+="<div style=\"flex:1;min-width:0\"><div style=\"display:flex;justify-content:space-between;gap:8px\"><strong style=\"font-size:14px\">"+esc(o.item_title||"Order")+"</strong><span style=\"font-size:12px;color:var(--color-muted)\">#"+esc(o.id)+"</span></div>";'
+            . 'h+="<div style=\"font-size:13px;color:var(--color-muted);margin-top:3px\">"+esc(o.price||"")+((o.quantity>1)?(" × "+esc(o.quantity)):"")+(o.option_value?(" · "+esc(o.option_value)):"")+"</div></div></div>";'
+            . 'h+=otimeline(o.status);'
+            . 'if(canR){h+="<button type=\"button\" data-review-toggle style=\"margin-top:10px;background:none;border:1px solid var(--color-primary);color:var(--color-primary);border-radius:8px;padding:6px 12px;font-size:12px;font-weight:700;cursor:pointer\">&#9733; Write a review</button>";'
+            . 'h+="<div data-review-form data-slug=\""+esc(o.item_slug)+"\" data-rating=\"5\" style=\"display:none;margin-top:10px\"><div data-stars style=\"font-size:22px;color:#f59e0b;cursor:pointer;letter-spacing:3px\">";'
+            . 'for(var s=1;s<=5;s++)h+="<span data-star=\""+s+"\">&#9733;</span>";'
+            . 'h+="</div><textarea data-review-text placeholder=\"Share your experience…\" style=\"width:100%;padding:8px 10px;font-size:13px;border:1px solid var(--color-border);border-radius:8px;background:var(--color-bg);color:var(--color-text);margin-top:8px;min-height:60px\"></textarea>";'
+            . 'h+="<button type=\"button\" data-review-submit style=\"margin-top:6px;background:var(--color-primary);color:var(--color-primary-fg);border:none;border-radius:8px;padding:8px 14px;font-size:13px;font-weight:700;cursor:pointer\">Submit review</button><p data-review-msg style=\"font-size:12px;margin:6px 0 0\"></p></div>";}'
+            . 'h+="</div>";});'
+            . 'box.innerHTML=h;'
+            . 'if(!box.__wired){box.__wired=1;box.addEventListener("click",function(e){var t=e.target;'
+            . 'var tog=t.closest?t.closest("[data-review-toggle]"):null;if(tog){var f=tog.parentNode.querySelector("[data-review-form]");if(f)f.style.display=(f.style.display==="none")?"block":"none";return;}'
+            . 'var star=t.closest?t.closest("[data-star]"):null;if(star){var form=star.closest("[data-review-form]");var val=parseInt(star.getAttribute("data-star"),10);form.setAttribute("data-rating",val);var sp=form.querySelectorAll("[data-star]");for(var i=0;i<sp.length;i++)sp[i].style.color=(i<val)?"#f59e0b":"#d1d5db";return;}'
+            . 'var sub=t.closest?t.closest("[data-review-submit]"):null;if(sub){var form2=sub.closest("[data-review-form]");var msg=form2.querySelector("[data-review-msg]");var txt=(form2.querySelector("[data-review-text]").value||"").trim();var rating=parseInt(form2.getAttribute("data-rating"),10)||5;var slug=form2.getAttribute("data-slug");if(!txt){msg.style.color="#dc2626";msg.textContent="Please write your review.";return;}var acc=get();sub.disabled=true;sub.textContent="Submitting…";'
+            . 'fetch(C.api+"/api/sites/review-submit.php",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({site:C.site,item_slug:slug,name:(acc&&acc.name)||"Customer",rating:rating,comment:txt})}).then(function(r){return r.json();}).then(function(res){if(res&&res.success){form2.innerHTML="<p style=\"font-size:13px;color:#16a34a;font-weight:700\">&#10003; Thanks! Your review has been submitted.</p>";}else{msg.style.color="#dc2626";msg.textContent=(res&&res.message)||"Could not submit.";sub.disabled=false;sub.textContent="Submit review";}}).catch(function(){msg.style.color="#dc2626";msg.textContent="Connection error.";sub.disabled=false;sub.textContent="Submit review";});return;}'
+            . '});}'
+            . '}).catch(function(){box.innerHTML="";});}'
             . 'show(get());'
             // Carry the current ?next onto the Google button so login returns there.
             . 'var GP=new URLSearchParams(location.search);var gb=$("[data-google]");'
@@ -1740,7 +1760,7 @@ class SiteRenderer
                 . 'if(D.gate&&!token()){location.href="/account?next="+encodeURIComponent(location.pathname);return;}'
                 . 'f.style.display="block";f.scrollIntoView({behavior:"smooth",block:"center"});});'
                 . 'f.addEventListener("submit",function(e){e.preventDefault();var b=f.querySelector("button[type=submit]");b.disabled=true;b.textContent="Placing…";'
-                . 'var fd={site:D.site,item:D.item,item_slug:D.slug,price:D.price,mrp:D.mrp,option_label:D.vlabel,option_value:variant(),'
+                . 'var fd={site:D.site,item:D.item,item_slug:D.slug,image:D.image,price:D.price,mrp:D.mrp,option_label:D.vlabel,option_value:variant(),'
                 . 'name:f.name.value,phone:f.phone.value,email:f.email.value,note:(f.note?f.note.value:""),'
                 . 'customer_token:(function(){try{return (JSON.parse(localStorage.getItem("tf_customer_"+D.site))||{}).token||"";}catch(e){return "";}})()};'
                 . 'fetch("' . self::apiBase() . '/api/sites/order-submit.php",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(fd)})'
@@ -1962,7 +1982,7 @@ form.addEventListener("submit",function(e){
   Promise.all(c.map(function(it){
     return fetch("__API__/api/sites/order-submit.php",{method:"POST",
       headers:{"Content-Type":"application/json","Accept":"application/json"},
-      body:JSON.stringify({site:SITE,item:it.item,item_slug:it.slug,price:it.price,mrp:it.mrp||"",
+      body:JSON.stringify({site:SITE,item:it.item,item_slug:it.slug,image:it.image||"",price:it.price,mrp:it.mrp||"",
         option_label:it.vlabel||"",option_value:it.variant||"",quantity:parseInt(it.qty,10)||1,
         name:form.name.value,phone:form.phone.value,email:form.email.value,note:form.note.value,
         customer_token:(function(){try{return (JSON.parse(localStorage.getItem("tf_customer_"+SITE))||{}).token||"";}catch(e){return "";}})()})

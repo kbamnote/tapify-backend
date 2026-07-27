@@ -37,14 +37,18 @@ try {
         sendSuccess('OK', ['orders' => []]);
     }
 
-    $st = $db->prepare(
-        "SELECT id, item_title, price, mrp, option_label, option_value, quantity, status, note, created_at
-           FROM site_orders
-          WHERE site_id = ? AND customer_email = ?
-          ORDER BY created_at DESC LIMIT 200"
-    );
-    $st->execute([$siteId, $email]);
-    sendSuccess('OK', ['orders' => $st->fetchAll(PDO::FETCH_ASSOC)]);
+    $tail = "FROM site_orders WHERE site_id = ? AND customer_email = ? ORDER BY created_at DESC LIMIT 200";
+    try {
+        $st = $db->prepare("SELECT id, item_title, item_slug, item_image, price, mrp, option_label, option_value, quantity, status, note, created_at $tail");
+        $st->execute([$siteId, $email]);
+        $orders = $st->fetchAll(PDO::FETCH_ASSOC);
+    } catch (Exception $eCol) {
+        // item_image column not migrated yet.
+        $st = $db->prepare("SELECT id, item_title, item_slug, price, mrp, option_label, option_value, quantity, status, note, created_at $tail");
+        $st->execute([$siteId, $email]);
+        $orders = $st->fetchAll(PDO::FETCH_ASSOC);
+    }
+    sendSuccess('OK', ['orders' => $orders]);
 } catch (Exception $e) {
     error_log('customer-orders: ' . $e->getMessage());
     sendError('Could not load your orders.', 500);

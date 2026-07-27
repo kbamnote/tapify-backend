@@ -35,8 +35,13 @@ const MEDIA_ALLOWED = [
     'gif'  => ['image/gif',  'image'],
     'webp' => ['image/webp', 'image'],
     'pdf'  => ['application/pdf', 'pdf'],
+    // Video for hero/section backgrounds.
+    'mp4'  => ['video/mp4',        'video'],
+    'webm' => ['video/webm',       'video'],
+    'mov'  => ['video/quicktime',  'video'],
 ];
-const MEDIA_MAX_BYTES = 10 * 1024 * 1024; // 10 MB
+const MEDIA_MAX_BYTES       = 10 * 1024 * 1024;  // 10 MB — images / PDF
+const MEDIA_MAX_VIDEO_BYTES = 60 * 1024 * 1024;  // 60 MB — video
 const MEDIA_LOCAL_DIR = __DIR__ . '/../../uploads/sites';       // absolute
 const MEDIA_LOCAL_WEB = '/uploads/sites';                       // public path prefix
 
@@ -122,14 +127,19 @@ function uploadAsset(): void
     }
     $file = $_FILES['file'];
 
-    if ($file['size'] <= 0)                 sendError('The file is empty.', 400);
-    if ($file['size'] > MEDIA_MAX_BYTES)    sendError('File is too large. Maximum size is 10 MB.', 413);
+    if ($file['size'] <= 0) sendError('The file is empty.', 400);
 
     $ext = strtolower(pathinfo($file['name'], PATHINFO_EXTENSION));
     if (!isset(MEDIA_ALLOWED[$ext])) {
         sendError('Unsupported file type. Allowed: ' . implode(', ', array_keys(MEDIA_ALLOWED)) . '.', 415);
     }
     [$expectedMime, $kind] = MEDIA_ALLOWED[$ext];
+
+    // Size limit depends on the kind — video gets a bigger allowance.
+    $maxBytes = ($kind === 'video') ? MEDIA_MAX_VIDEO_BYTES : MEDIA_MAX_BYTES;
+    if ($file['size'] > $maxBytes) {
+        sendError('File is too large. Maximum size is ' . (int)($maxBytes / (1024 * 1024)) . ' MB.', 413);
+    }
 
     // Trust the file's actual bytes, not its name. A .png that isn't an image
     // (or an image whose real type differs from its extension) is rejected.
@@ -139,8 +149,13 @@ function uploadAsset(): void
         $realMime = finfo_file($fi, $file['tmp_name']);
         finfo_close($fi);
     }
-    if ($realMime && $realMime !== $expectedMime
-        && !($expectedMime === 'image/jpeg' && in_array($realMime, ['image/jpeg', 'image/pjpeg'], true))) {
+    // Video containers report several equivalent MIME types (video/mp4, video/quicktime,
+    // application/octet-stream for some .mov), so accept any video/* for a video kind.
+    $mimeOk = !$realMime
+        || $realMime === $expectedMime
+        || ($expectedMime === 'image/jpeg' && in_array($realMime, ['image/jpeg', 'image/pjpeg'], true))
+        || ($kind === 'video' && (strpos($realMime, 'video/') === 0 || $realMime === 'application/octet-stream'));
+    if (!$mimeOk) {
         sendError('The file contents do not match its extension.', 415);
     }
 

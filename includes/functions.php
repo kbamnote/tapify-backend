@@ -323,7 +323,9 @@ function uploadToCloudinary($file) {
     $signStr = rtrim($signStr, '&') . $apiSecret;
     $signature = sha1($signStr);
  
-    $url = "https://api.cloudinary.com/v1_1/$cloudName/image/upload";
+    // "auto" lets Cloudinary detect the resource type (image OR video) from the
+    // bytes — backward-compatible for images, and it's what makes video uploads work.
+    $url = "https://api.cloudinary.com/v1_1/$cloudName/auto/upload";
  
     $postData = [
         'file' => new CURLFile($file['tmp_name'], $file['type'], $file['name']),

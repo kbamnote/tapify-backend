@@ -19,7 +19,7 @@ header('Access-Control-Allow-Headers: Content-Type');
 if (($_SERVER['REQUEST_METHOD'] ?? '') === 'OPTIONS') { http_response_code(200); exit; }
 
 // ─────────────── EDIT THESE ON EACH RELEASE ───────────────
-$LATEST_VERSION  = '1.1.10';   // latest version currently live on the Play Store
+$LATEST_VERSION  = '1.1.11';   // latest version currently live on the Play Store
 $MIN_VERSION     = '1.0.0';    // anyone below this is FORCED to update (blocking popup)
 $FORCE           = false;      // set true to force ALL older users to update immediately
 $MESSAGE         = 'A new version of Tapify is available with new features and improvements. Update now for the best experience.';

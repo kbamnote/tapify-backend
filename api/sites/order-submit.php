@@ -62,16 +62,12 @@ try {
         if ($ce) $email = $ce;
     }
 
-    $st = $db->prepare(
-        "INSERT INTO site_orders
-           (site_id, item_title, item_slug, price, mrp, option_label, option_value,
-            quantity, customer_name, customer_phone, customer_email, note, ip_address)
-         VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)"
-    );
-    $st->execute([
+    $common = [
         (int)$site['id'],
         $cut($in['item'] ?? '', 200),
         $cut($in['item_slug'] ?? '', 120),
+    ];
+    $rest = [
         $cut($in['price'] ?? '', 40),
         $cut($in['mrp'] ?? '', 40),
         $cut($in['option_label'] ?? '', 60),
@@ -82,7 +78,27 @@ try {
         $cut($email, 190),
         $cut($in['note'] ?? '', 2000),
         $ip,
-    ]);
+    ];
+    $img = $cut($in['image'] ?? '', 600);
+    try {
+        // Preferred: with the product image (Amazon-style order history).
+        $st = $db->prepare(
+            "INSERT INTO site_orders
+               (site_id, item_title, item_slug, item_image, price, mrp, option_label, option_value,
+                quantity, customer_name, customer_phone, customer_email, note, ip_address)
+             VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)"
+        );
+        $st->execute(array_merge($common, [$img], $rest));
+    } catch (Exception $eCol) {
+        // item_image column not migrated yet — store without it so orders still work.
+        $st = $db->prepare(
+            "INSERT INTO site_orders
+               (site_id, item_title, item_slug, price, mrp, option_label, option_value,
+                quantity, customer_name, customer_phone, customer_email, note, ip_address)
+             VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)"
+        );
+        $st->execute(array_merge($common, $rest));
+    }
 
     $orderId = (int)$db->lastInsertId();
 

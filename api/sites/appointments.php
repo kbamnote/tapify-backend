@@ -43,11 +43,9 @@ try {
 
     /* ----------------------------------------------------- update status */
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $in     = getInput();
-        $id     = (int)($in['id'] ?? 0);
-        $status = trim((string)($in['status'] ?? ''));
+        $in = getInput();
+        $id = (int)($in['id'] ?? 0);
         if ($id <= 0) sendError('id is required');
-        if (!in_array($status, $STATUSES, true)) sendError('Invalid status');
 
         // Confirm the booking belongs to a site this user owns.
         $st = $db->prepare(
@@ -57,8 +55,25 @@ try {
         $st->execute($staff ? [$id] : [$id, $userId]);
         if (!$st->fetchColumn()) sendError('Appointment not found', 404);
 
-        $up = $db->prepare("UPDATE site_appointments SET status = ?, is_read = 1 WHERE id = ?");
-        $up->execute([$status, $id]);
+        // Reschedule: move the booking to a new date/time.
+        if (($in['action'] ?? '') === 'reschedule') {
+            $date = trim((string)($in['date'] ?? ''));
+            $time = trim((string)($in['time'] ?? ''));
+            $d = DateTime::createFromFormat('Y-m-d', $date);
+            if (!$d || $d->format('Y-m-d') !== $date) sendError('Please choose a valid date (YYYY-MM-DD).');
+            $ts = strtotime($time);
+            if ($ts === false) sendError('Please choose a valid time.');
+            $time24 = date('H:i:s', $ts);
+
+            $db->prepare("UPDATE site_appointments SET appointment_date = ?, appointment_time = ?, status = 'confirmed', is_read = 1 WHERE id = ?")
+               ->execute([$date, $time24, $id]);
+            sendSuccess('Appointment rescheduled', ['id' => $id, 'appointment_date' => $date, 'appointment_time' => $time24]);
+        }
+
+        // Status change.
+        $status = trim((string)($in['status'] ?? ''));
+        if (!in_array($status, $STATUSES, true)) sendError('Invalid status');
+        $db->prepare("UPDATE site_appointments SET status = ?, is_read = 1 WHERE id = ?")->execute([$status, $id]);
         sendSuccess('Appointment updated');
     }
 
