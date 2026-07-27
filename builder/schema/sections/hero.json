@@ -30,9 +30,10 @@
       "help": "Make the hero fill the visitor's screen, like a landing page." },
     { "key": "ctaPrimary",   "type": "link", "label": "Primary button",   "group": "Buttons" },
     { "key": "ctaSecondary", "type": "link", "label": "Secondary button", "group": "Buttons" },
-    { "key": "showWhatsapp", "type": "toggle", "label": "Show WhatsApp button", "default": true, "group": "Buttons",
-      "help": "Uses the WhatsApp number from Business Info." },
-    { "key": "showCall",     "type": "toggle", "label": "Show Call button", "default": true, "group": "Buttons" }
+    { "key": "showWhatsapp", "type": "toggle", "label": "Show WhatsApp button", "default": false, "group": "Buttons",
+      "help": "Turn on to show a WhatsApp button (uses the WhatsApp number from Business Info)." },
+    { "key": "showCall",     "type": "toggle", "label": "Show Call button", "default": false, "group": "Buttons",
+      "help": "Turn on to show a Call button (uses the phone from Business Info)." }
   ],
 
   "style": {
@@ -47,8 +48,8 @@
       "sub": "One clear sentence about what you do and who it is for.",
       "ctaPrimary": { "text": "Get in touch", "href": "#contact", "style": "primary" },
       "fullHeight": true,
-      "showWhatsapp": true,
-      "showCall": true
+      "showWhatsapp": false,
+      "showCall": false
     }
   }
 }
