@@ -1,0 +1,57 @@
+{
+  "type": "feedback",
+  "label": "Feedback",
+  "category": "contact",
+  "icon": "message-square",
+  "description": "A feedback form — a simple star rating, or a customisable survey grid where you rate several things at once. Saved to your Feedback page.",
+  "industries": ["*"],
+  "singleton": false,
+  "maxPerPage": 2,
+
+  "variants": [
+    { "id": "stars",  "label": "Star rating" },
+    { "id": "survey", "label": "Survey grid (custom rows)" }
+  ],
+
+  "props": [
+    { "key": "label",   "type": "text",     "label": "Eyebrow label", "maxLength": 40, "default": "Feedback", "group": "Heading" },
+    { "key": "heading", "type": "text",     "label": "Heading", "maxLength": 120, "default": "We'd love your feedback", "group": "Heading" },
+    { "key": "sub",     "type": "textarea", "label": "Description", "maxLength": 300, "group": "Heading" },
+
+    { "key": "showRating", "type": "toggle", "label": "Show star rating", "default": true, "group": "Star form",
+      "showIf": { "variant": ["stars"] } },
+    { "key": "showEmail",  "type": "toggle", "label": "Ask for email (optional)", "default": true, "group": "Star form",
+      "showIf": { "variant": ["stars"] } },
+
+    { "key": "rows",    "type": "list", "label": "Rows to rate", "group": "Survey", "showIf": { "variant": ["survey"] },
+      "help": "One row per thing customers rate — e.g. Food Quality, Service, Speed, Price." },
+    { "key": "columns", "type": "list", "label": "Rating options (columns)", "group": "Survey", "showIf": { "variant": ["survey"] },
+      "help": "The choices across the top — e.g. Amazing, Good, Decent, Disappointing." },
+    { "key": "commentLabel", "type": "text", "label": "Comment box label", "maxLength": 120,
+      "default": "Any comments, questions or suggestions?", "group": "Survey", "showIf": { "variant": ["survey"] } },
+
+    { "key": "submitText", "type": "text", "label": "Button text", "maxLength": 40, "default": "Send feedback", "group": "Form" },
+    { "key": "successMessage", "type": "text", "label": "Thank-you message", "maxLength": 160, "default": "Thank you for your feedback!", "group": "Form" }
+  ],
+
+  "style": {
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "radius", "animation", "headingColor", "textColor"],
+    "defaults": { "paddingY": "lg", "align": "center", "bg": "surface" }
+  },
+
+  "defaults": {
+    "variant": "stars",
+    "props": {
+      "label": "Feedback",
+      "heading": "We'd love your feedback",
+      "sub": "Tell us how we did — it only takes a moment.",
+      "showRating": true,
+      "showEmail": true,
+      "rows": ["Food Quality", "Service Quality", "Speed of Service", "Price", "Overall Experience"],
+      "columns": ["Amazing", "Good", "Decent", "Disappointing"],
+      "commentLabel": "Any comments, questions or suggestions?",
+      "submitText": "Send feedback",
+      "successMessage": "Thank you for your feedback!"
+    }
+  }
+}

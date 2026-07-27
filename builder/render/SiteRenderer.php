@@ -533,6 +533,7 @@ class SiteRenderer
             case 'hours':        return self::secHours($s, $doc);
             case 'blog':         return self::secBlog($s, $doc);
             case 'appointment':  return self::secAppointment($s, $doc);
+            case 'feedback':     return self::secFeedback($s, $doc);
             case 'embed':        return self::secEmbed($s, $doc);
             case 'share':        return self::secShare($s, $doc);
             case 'account':      return self::secAccount($s, $doc);
@@ -1102,6 +1103,97 @@ class SiteRenderer
             . '.catch(function(){btn.disabled=false;btn.textContent=ob;msg.textContent="Connection error.";});});})();</script>';
 
         $inner = self::sectionHeader(null, $p['heading'] ?? null, $p['sub'] ?? null, self::isDarkBg($s)) . $card . $script;
+        return self::shell($s, $inner);
+    }
+
+    private static function secFeedback(array $s, array $doc): string
+    {
+        $p = $s['props'] ?? [];
+        $uid = 'fb' . substr(md5(($s['id'] ?? '') . 'fb'), 0, 6);
+        $submitText = self::esc($p['submitText'] ?? 'Send feedback');
+        $okMsg = $p['successMessage'] ?? 'Thank you for your feedback!';
+        $in = 'width:100%;padding:10px 12px;font-size:14px;margin-bottom:10px;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-bg);color:var(--color-text)';
+        $btnCss = 'width:100%;padding:12px;font-size:15px;font-weight:700;border:none;border-radius:var(--radius);background:var(--color-primary);color:var(--color-primary-fg);cursor:pointer';
+
+        // ---- Survey grid variant: customisable rows × columns of radio choices ----
+        if (($s['variant'] ?? '') === 'survey') {
+            $rows = array_values(array_filter(array_map(function ($v) { return trim((string)$v); }, (array)($p['rows'] ?? []))));
+            $cols = array_values(array_filter(array_map(function ($v) { return trim((string)$v); }, (array)($p['columns'] ?? []))));
+            if (!$cols) $cols = ['Amazing', 'Good', 'Decent', 'Disappointing'];
+            if (!$rows) $rows = ['Overall Experience'];
+            $commentLabel = self::esc($p['commentLabel'] ?? 'Any comments, questions or suggestions?');
+
+            $th = '<th style="padding:8px"></th>';
+            foreach ($cols as $c) $th .= '<th style="padding:8px 10px;font-size:13px;font-weight:700;color:var(--color-primary);text-align:center">' . self::esc($c) . '</th>';
+            $trs = '';
+            foreach ($rows as $ri => $rw) {
+                $tds = '<td style="padding:10px 8px;font-size:14px;color:var(--color-text)">' . self::esc($rw) . '</td>';
+                foreach ($cols as $ci => $c) {
+                    $tds .= '<td style="text-align:center;padding:10px 8px"><input type="radio" name="fb' . $uid . '_' . $ri . '" data-col="' . $ci . '" value="' . self::esc($c) . '" style="width:18px;height:18px;cursor:pointer"></td>';
+                }
+                $trs .= '<tr style="border-top:1px solid var(--color-border)">' . $tds . '</tr>';
+            }
+
+            $form = '<div id="' . $uid . '" style="max-width:660px;margin:0 auto;text-align:left">'
+                . '<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse">'
+                . '<thead><tr>' . $th . '</tr></thead><tbody>' . $trs . '</tbody></table></div>'
+                . '<label style="display:block;margin:16px 0 6px;font-size:14px;font-weight:600">' . $commentLabel . '</label>'
+                . '<textarea data-f-msg rows="4" style="' . $in . '"></textarea>'
+                . '<button type="button" data-f-submit style="' . $btnCss . '">' . $submitText . '</button>'
+                . '<p data-f-out style="margin:10px 0 0;text-align:center;font-size:13px;font-weight:600"></p>'
+                . '</div>';
+
+            $cfg = json_encode(['u' => $uid, 'site' => self::$slug, 'api' => self::apiBase(), 'ok' => $okMsg, 'rows' => $rows, 'cols' => count($cols)]);
+            $script = '<script>(function(){var C=' . $cfg . ';var r=document.getElementById(C.u);if(!r)return;function q(s){return r.querySelector(s);}'
+                . 'var btn=q("[data-f-submit]"),out=q("[data-f-out]");'
+                . 'btn.addEventListener("click",function(){var lines=[],sum=0,cnt=0;'
+                . 'for(var i=0;i<C.rows.length;i++){var sel=r.querySelector("input[name=fb"+C.u+"_"+i+"]:checked");if(sel){lines.push(C.rows[i]+": "+sel.value);var ci=parseInt(sel.getAttribute("data-col"),10);var sc=Math.round(((C.cols-1-ci)/Math.max(1,C.cols-1))*4)+1;sum+=sc;cnt++;}else{lines.push(C.rows[i]+": —");}}'
+                . 'var comment=(q("[data-f-msg]").value||"").trim();'
+                . 'if(!cnt&&!comment){out.style.color="#dc2626";out.textContent="Please rate at least one item or leave a comment.";return;}'
+                . 'var message=lines.join("\\n")+(comment?("\\n\\nComment: "+comment):"");var rating=cnt?Math.round(sum/cnt):5;'
+                . 'btn.disabled=true;var ob=btn.textContent;btn.textContent="Sending…";'
+                . 'fetch(C.api+"/api/sites/feedback-submit.php",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({site:C.site,name:"",email:"",rating:rating,message:message})})'
+                . '.then(function(x){return x.json();}).then(function(res){if(res&&res.success){r.innerHTML="<p style=\"text-align:center;font-size:15px;font-weight:700;color:#16a34a;padding:24px 0\">&#10003; "+C.ok+"</p>";}else{out.style.color="#dc2626";out.textContent=(res&&res.message)||"Could not send.";btn.disabled=false;btn.textContent=ob;}})'
+                . '.catch(function(){out.style.color="#dc2626";out.textContent="Connection error.";btn.disabled=false;btn.textContent=ob;});});})();</script>';
+
+            $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null, self::isDarkBg($s)) . $form . $script;
+            return self::shell($s, $inner);
+        }
+
+        // ---- default: star-rating form ----
+        $showRating = ($p['showRating'] ?? true) !== false;
+        $showEmail  = ($p['showEmail'] ?? true) !== false;
+
+        $stars = '';
+        if ($showRating) {
+            $stars = '<div data-stars style="font-size:30px;color:#f59e0b;cursor:pointer;letter-spacing:5px;margin-bottom:12px;text-align:center">';
+            for ($i = 1; $i <= 5; $i++) $stars .= '<span data-star="' . $i . '">&#9733;</span>';
+            $stars .= '</div>';
+        }
+
+        $form = '<div id="' . $uid . '" data-rating="5" style="max-width:460px;margin:0 auto;text-align:left;padding:24px;background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius);box-shadow:0 8px 30px rgba(16,24,40,.06)">'
+            . $stars
+            . '<input data-f-name placeholder="Your name" style="' . $in . '">'
+            . ($showEmail ? '<input data-f-email type="email" placeholder="Email (optional)" style="' . $in . '">' : '')
+            . '<textarea data-f-msg placeholder="Your feedback…" rows="4" style="' . $in . '"></textarea>'
+            . '<button type="button" data-f-submit style="width:100%;padding:12px;font-size:15px;font-weight:700;border:none;border-radius:var(--radius);background:var(--color-primary);color:var(--color-primary-fg);cursor:pointer">' . $submitText . '</button>'
+            . '<p data-f-out style="margin:10px 0 0;text-align:center;font-size:13px;font-weight:600"></p>'
+            . '</div>';
+
+        $cfg = json_encode(['u' => $uid, 'site' => self::$slug, 'api' => self::apiBase(), 'ok' => $p['successMessage'] ?? 'Thank you for your feedback!']);
+        $script = '<script>(function(){var C=' . $cfg . ';var r=document.getElementById(C.u);if(!r)return;'
+            . 'function q(s){return r.querySelector(s);}'
+            . 'var stars=r.querySelectorAll("[data-star]");for(var i=0;i<stars.length;i++){(function(el){el.addEventListener("click",function(){var v=parseInt(el.getAttribute("data-star"),10);r.setAttribute("data-rating",v);for(var j=0;j<stars.length;j++)stars[j].style.color=(j<v)?"#f59e0b":"#d1d5db";});})(stars[i]);}'
+            . 'var btn=q("[data-f-submit]"),out=q("[data-f-out]");'
+            . 'btn.addEventListener("click",function(){var name=(q("[data-f-name]").value||"").trim();var em=q("[data-f-email]");var email=em?(em.value||"").trim():"";var msg=(q("[data-f-msg]").value||"").trim();var rating=parseInt(r.getAttribute("data-rating"),10)||5;'
+            . 'if(!name){out.style.color="#dc2626";out.textContent="Please enter your name.";return;}'
+            . 'if(!msg){out.style.color="#dc2626";out.textContent="Please write your feedback.";return;}'
+            . 'btn.disabled=true;var ob=btn.textContent;btn.textContent="Sending…";'
+            . 'fetch(C.api+"/api/sites/feedback-submit.php",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({site:C.site,name:name,email:email,rating:rating,message:msg})})'
+            . '.then(function(x){return x.json();}).then(function(res){if(res&&res.success){r.innerHTML="<p style=\"text-align:center;font-size:15px;font-weight:700;color:#16a34a;padding:20px 0\">&#10003; "+C.ok+"</p>";}else{out.style.color="#dc2626";out.textContent=(res&&res.message)||"Could not send.";btn.disabled=false;btn.textContent=ob;}})'
+            . '.catch(function(){out.style.color="#dc2626";out.textContent="Connection error.";btn.disabled=false;btn.textContent=ob;});});})();</script>';
+
+        $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null, self::isDarkBg($s)) . $form . $script;
         return self::shell($s, $inner);
     }
 
