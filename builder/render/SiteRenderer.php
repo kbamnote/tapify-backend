@@ -105,6 +105,19 @@ class SiteRenderer
             return true;
         }
 
+        // Product detail: /product/<slug> — same idea as /service/, but the item
+        // can carry nested Colour/Size-style variant attributes.
+        if (preg_match('#^/product/([a-z0-9][a-z0-9-]*)$#', $norm, $prm)) {
+            $products = self::allProducts($doc);
+            if (isset($products[$prm[1]])) {
+                header('Content-Type: text/html; charset=utf-8');
+                echo self::renderProductDetail($doc, $products[$prm[1]]);
+                return true;
+            }
+            self::notFound();
+            return true;
+        }
+
         $page = null;
         foreach ($doc['pages'] as $p) {
             if (($p['slug'] ?? '') === $norm) { $page = $p; break; }
@@ -522,6 +535,7 @@ class SiteRenderer
             case 'hero':         return self::secHero($s, $doc);
             case 'about':        return self::secAbout($s, $doc);
             case 'services':     return self::secServices($s, $doc);
+            case 'products':     return self::secProducts($s, $doc);
             case 'gallery':      return self::secGallery($s, $doc);
             case 'stats':        return self::secStats($s, $doc);
             case 'team':         return self::secTeam($s, $doc);
@@ -776,6 +790,57 @@ class SiteRenderer
             if (!empty($it['desc'])) $c .= '<p style="margin-top:8px;font-size:14px;color:var(--tf-text,var(--color-muted))">' . self::esc($it['desc']) . '</p>';
             // Items without a description have no page to open, so they keep
             // whatever custom button the customer configured.
+            if ($href === '' && !empty($it['cta']['text'])) {
+                $l = $it['cta']; $l['style'] = $l['style'] ?? 'link'; $c .= '<div style="margin-top:16px">' . self::btn($l) . '</div>';
+            }
+            $c .= '</div></div>';
+            $cards[] = $c;
+        }
+        $body = $variant === 'marquee' ? self::marquee($cards)
+            : ($variant === 'carousel' ? self::carousel($cards)
+            : '<div class="' . self::gridClass($variant) . '" style="text-align:left">' . implode('', $cards) . '</div>');
+        $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null) . $body;
+        return self::shell($s, $inner);
+    }
+
+    /**
+     * Products grid — same card layout as Services, but each item can carry
+     * nested variant attributes (Colour, Size, ...) resolved on its own detail
+     * page at /product/<slug>. The card itself only needs the starting price.
+     */
+    private static function secProducts(array $s, array $doc): string
+    {
+        $p = $s['props'] ?? [];
+        $items = $p['items'] ?? [];
+        if (!$items) return '';
+        $variant = $s['variant'] ?? 'cards-3';
+        $showImages = $variant !== 'list';
+
+        $cards = [];
+        foreach ($items as $it) {
+            $img = self::media($it['image'] ?? null);
+            $href = trim((string)($it['body'] ?? '')) !== ''
+                ? '/product/' . self::itemSlug($it, 'product')
+                : '';
+            $open = $href !== '' ? '<a href="' . self::esc($href) . '" style="color:inherit;text-decoration:none;display:block">' : '';
+            $shut = $href !== '' ? '</a>' : '';
+
+            $c = '<div class="tf-card">';
+            if ($showImages && $img) {
+                $c .= $open . '<img src="' . self::esc($img) . '" alt="' . self::esc($it['title'] ?? '') . '" loading="lazy" style="height:176px;width:100%;' . self::imgFit($p['imageFit'] ?? null) . '">' . $shut;
+            }
+            $c .= '<div style="padding:20px">';
+            $c .= $open . '<h3 style="font-family:var(--font-heading);font-size:18px;font-weight:600">' . self::esc($it['title'] ?? '') . '</h3>' . $shut;
+            if (!empty($it['meta'])) $c .= '<p style="margin-top:4px;font-size:12px;font-weight:600;color:var(--color-accent)">' . self::esc($it['meta']) . '</p>';
+            if (!empty($it['price']) || !empty($it['mrp'])) {
+                [$sell, $mrp, $off] = self::priceBits($it);
+                $c .= '<p style="margin-top:6px;display:flex;align-items:baseline;flex-wrap:wrap;gap:8px">'
+                    . ($sell !== '' ? '<span style="font-size:16px;font-weight:700;color:var(--color-primary)">' . self::esc($sell) . '</span>' : '')
+                    . ($mrp !== '' ? '<s style="font-size:13px;color:var(--tf-text,var(--color-muted))">' . self::esc($mrp) . '</s>' : '')
+                    . ($off !== '' ? '<span style="font-size:12px;font-weight:700;color:#16a34a">' . $off . '</span>' : '')
+                    . '</p>';
+            }
+            if (!empty($it['desc'])) $c .= '<p style="margin-top:8px;font-size:14px;color:var(--tf-text,var(--color-muted))">' . self::esc($it['desc']) . '</p>';
             if ($href === '' && !empty($it['cta']['text'])) {
                 $l = $it['cta']; $l['style'] = $l['style'] ?? 'link'; $c .= '<div style="margin-top:16px">' . self::btn($l) . '</div>';
             }
@@ -1462,6 +1527,23 @@ class SiteRenderer
         return $out;
     }
 
+    /** Every product with a full description, keyed by slug — same idea as allServices(). */
+    private static function allProducts(array $doc): array
+    {
+        $out = [];
+        foreach (($doc['pages'] ?? []) as $pg) {
+            foreach (($pg['sections'] ?? []) as $s) {
+                if (($s['type'] ?? '') !== 'products') continue;
+                foreach (($s['props']['items'] ?? []) as $item) {
+                    if (trim((string)($item['body'] ?? '')) === '') continue;
+                    $slug = self::itemSlug($item, 'product');
+                    if (!isset($out[$slug])) $out[$slug] = $item;
+                }
+            }
+        }
+        return $out;
+    }
+
     /** The first visible section of a type anywhere in the site (for header/footer). */
     /** True when the site's header has the account/login system switched on. */
     private static function accountsEnabled(array $doc): bool
@@ -1594,9 +1676,9 @@ class SiteRenderer
      * form. Both talk to the builder's own endpoints — nothing shared with the
      * vCard backend.
      */
-    private static function reviewsBlock(array $item): string
+    private static function reviewsBlock(array $item, string $kind = 'service'): string
     {
-        $slug = self::itemSlug($item, 'service');
+        $slug = self::itemSlug($item, $kind);
         $uid  = 'rv' . substr(md5($slug), 0, 6);
         $in   = 'width:100%;padding:10px 12px;font-size:14px;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-bg);color:var(--color-text)';
         $lb   = 'display:block;margin-bottom:4px;font-size:12px;font-weight:700';
@@ -1710,16 +1792,18 @@ class SiteRenderer
      * viewed so a visitor who lands straight on a product page has somewhere to
      * go next. Each card opens its own detail page.
      */
-    private static function relatedProducts(array $doc, array $item, string $backPath): string
+    private static function relatedProducts(array $doc, array $item, string $backPath, string $kind = 'service'): string
     {
-        // Settings live on the Services section, so find the one holding this item.
-        $slug = self::itemSlug($item, 'service');
+        // Settings live on the Services/Products section, so find the one holding this item.
+        $sectionType = $kind === 'product' ? 'products' : 'services';
+        $urlPrefix   = $kind === 'product' ? '/product/' : '/service/';
+        $slug = self::itemSlug($item, $kind);
         $cfg = null;
         foreach (($doc['pages'] ?? []) as $pg) {
             foreach (($pg['sections'] ?? []) as $sec) {
-                if (($sec['type'] ?? '') !== 'services') continue;
+                if (($sec['type'] ?? '') !== $sectionType) continue;
                 foreach (($sec['props']['items'] ?? []) as $it) {
-                    if (self::itemSlug($it, 'service') === $slug) { $cfg = $sec['props']; break 3; }
+                    if (self::itemSlug($it, $kind) === $slug) { $cfg = $sec['props']; break 3; }
                 }
                 if ($cfg === null) $cfg = $sec['props'] ?? [];   // fall back to the first one
             }
@@ -1727,7 +1811,8 @@ class SiteRenderer
         if (($cfg['showRelated'] ?? true) === false) return '';
 
         $others = [];
-        foreach (self::allServices($doc) as $sl => $it) {
+        $allItems = $kind === 'product' ? self::allProducts($doc) : self::allServices($doc);
+        foreach ($allItems as $sl => $it) {
             if ($sl === $slug) continue;
             $others[] = [$sl, $it];
             if (count($others) >= 8) break;
@@ -1738,7 +1823,7 @@ class SiteRenderer
         foreach ($others as [$sl, $it]) {
             [$sell, $mrp, $off] = self::priceBits($it);
             $img = self::media($it['image'] ?? null);
-            $cards .= '<a class="tf-bscard" href="/service/' . self::esc($sl) . '">'
+            $cards .= '<a class="tf-bscard" href="' . $urlPrefix . self::esc($sl) . '">'
                 . ($img ? '<img src="' . self::esc($img) . '" alt="' . self::esc($it['title'] ?? '') . '" loading="lazy">' : '')
                 . '<p class="tf-bstitle">' . self::esc($it['title'] ?? '') . '</p>'
                 . (($sell !== '' || $mrp !== '') ? '<p class="tf-bsprice">'
@@ -1892,6 +1977,249 @@ class SiteRenderer
             . '</div></div>'
             . $reviewsHtml
             . self::relatedProducts($doc, $item, $backPath)
+            . '</article>';
+
+        return "<!DOCTYPE html><html lang=\"" . self::esc($doc['site']['locale'] ?? 'en') . "\"><head>"
+             . self::head($doc, $pseudo, $fonts)
+             . "<style>.tf-site{" . $vars . "}" . self::baseCss() . "</style>"
+             . "</head><body>"
+             . "<main class=\"tf-site\">" . self::chromeSection($doc, 'header') . $article . self::chromeSection($doc, 'footer') . "</main>"
+             . self::carouselScript() . self::cartScript() . self::animScript()
+             . "</body></html>";
+    }
+
+    /**
+     * Product ordering block: price that reacts to the picked variant, the
+     * attribute pickers (Colour / Size / ...), stock/availability, Add to Cart
+     * / Buy Now and the checkout form. With no attributes it behaves exactly
+     * like a simple single-price product.
+     *
+     * Attributes are option groups (e.g. Colour: Red/Blue). Variants are exact
+     * combinations (Red+Large) that can each override price/MRP/stock/photo —
+     * mirroring Shopify's option1/option2/option3 model so a static, non-dynamic
+     * form schema can still describe a full combinatorial matrix.
+     */
+    private static function productOrderBlock(array $doc, array $item, string $puid, ?string $cover): string
+    {
+        $slug = self::itemSlug($item, 'product');
+        $uid  = 'od' . substr(md5($slug), 0, 6);
+        $in = 'width:100%;padding:10px 12px;font-size:14px;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-bg);color:var(--color-text)';
+        $lb = 'display:block;margin-bottom:4px;font-size:12px;font-weight:700';
+
+        // --- attributes: server-renders the pickers, JS only tracks selection ---
+        $attrNames = [];
+        $pickerHtml = '';
+        foreach (($item['attributes'] ?? []) as $a) {
+            $aname = trim((string)($a['name'] ?? ''));
+            $opts  = array_values(array_filter((array)($a['options'] ?? []), function ($o) {
+                return trim((string)($o['value'] ?? '')) !== '';
+            }));
+            if ($aname === '' || !$opts) continue;
+            $attrNames[] = $aname;
+            $idx = count($attrNames) - 1;
+
+            $btns = '';
+            foreach ($opts as $o) {
+                $val = trim((string)($o['value'] ?? ''));
+                $swatch = trim((string)($o['swatch'] ?? ''));
+                $oimg = self::media($o['image'] ?? null) ?: '';
+                $inner = '';
+                if ($oimg !== '') $inner .= '<img src="' . self::esc($oimg) . '" alt="">';
+                elseif ($swatch !== '') $inner .= '<span class="tf-attr-swatch" style="background:' . self::esc($swatch) . '"></span>';
+                $inner .= '<span>' . self::esc($val) . '</span>';
+                $btns .= '<button type="button" class="tf-attr-opt" data-ai="' . $idx . '" data-val="' . self::esc($val) . '" data-img="' . self::esc($oimg) . '">' . $inner . '</button>';
+            }
+            $pickerHtml .= '<div style="margin-top:18px"><label style="' . $lb . '">' . self::esc($aname) . '</label>'
+                . '<div style="display:flex;flex-wrap:wrap;gap:8px">' . $btns . '</div></div>';
+        }
+        $attrCount = count($attrNames);
+
+        // --- variants: exact combinations, matched against the picked values ---
+        $variantsForJs = [];
+        foreach (($item['variants'] ?? []) as $v) {
+            $o1 = trim((string)($v['option1'] ?? ''));
+            $o2 = trim((string)($v['option2'] ?? ''));
+            $o3 = trim((string)($v['option3'] ?? ''));
+            if ($o1 === '' && $o2 === '' && $o3 === '') continue;
+            $stock = $v['stock'] ?? null;
+            $variantsForJs[] = [
+                'o1' => $o1, 'o2' => $o2, 'o3' => $o3,
+                'sku'   => trim((string)($v['sku'] ?? '')),
+                'price' => trim((string)($v['price'] ?? '')),
+                'mrp'   => trim((string)($v['mrp'] ?? '')),
+                'stock' => ($stock === null || $stock === '') ? null : (int)$stock,
+                'image' => self::media($v['image'] ?? null) ?: '',
+            ];
+        }
+
+        // --- price: server-rendered starting point, JS keeps it live ---
+        [$sell, $mrp, $off] = self::priceBits($item);
+        $priceHtml = '<div style="margin:10px 0 0;display:flex;align-items:baseline;flex-wrap:wrap;gap:10px">'
+            . '<span id="' . $uid . '-sell" style="font-size:28px;font-weight:800;color:var(--color-primary)">' . self::esc($sell) . '</span>'
+            . '<span id="' . $uid . '-mrp" style="font-size:16px;color:var(--tf-text,var(--color-muted));text-decoration:line-through' . ($mrp === '' ? ';display:none' : '') . '">' . self::esc($mrp) . '</span>'
+            . '<span id="' . $uid . '-off" style="font-size:14px;font-weight:700;color:#16a34a' . ($off === '' ? ';display:none' : '') . '">' . self::esc($off) . '</span>'
+            . '</div>'
+            . '<p id="' . $uid . '-stock" role="status" style="margin:8px 0 0;font-size:13px;font-weight:700"></p>';
+
+        $btnRow = '<div style="margin-top:20px;display:flex;flex-wrap:wrap;gap:12px">'
+            . '<button type="button" id="' . $uid . '-cart" style="padding:13px 26px;font-size:15px;font-weight:700;border:1px solid var(--color-primary);border-radius:var(--radius);background:transparent;color:var(--color-primary);cursor:pointer">Add to Cart</button>'
+            . '<button type="button" id="' . $uid . '-buy" style="padding:13px 26px;font-size:15px;font-weight:700;border:none;border-radius:var(--radius);background:var(--color-primary);color:var(--color-primary-fg);cursor:pointer">Buy Now</button>'
+            . '<span id="' . $uid . '-note" role="status" style="align-self:center;font-size:13px;font-weight:600;color:#16a34a"></span>'
+            . '</div>';
+
+        $form = '<form id="' . $uid . '-form" style="display:none;margin-top:22px;max-width:420px;text-align:left;padding:18px;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-surface)">'
+            . '<p style="margin:0 0 12px;font-size:15px;font-weight:700">Your details</p>'
+            . '<div style="margin-bottom:10px"><label style="' . $lb . '">Name *</label><input name="name" required style="' . $in . '"></div>'
+            . '<div style="margin-bottom:10px"><label style="' . $lb . '">Contact number *</label><input name="phone" type="tel" required style="' . $in . '"></div>'
+            . '<div style="margin-bottom:10px"><label style="' . $lb . '">Email</label><input name="email" type="email" style="' . $in . '"></div>'
+            . '<div style="margin-bottom:14px"><label style="' . $lb . '">Additional note (optional)</label><textarea name="note" rows="2" placeholder="Any special instructions for this order…" style="' . $in . '"></textarea></div>'
+            . '<button type="submit" style="width:100%;padding:12px;font-size:15px;font-weight:700;border:none;border-radius:var(--radius);background:var(--color-primary);color:var(--color-primary-fg);cursor:pointer">Place order</button>'
+            . '<p id="' . $uid . '-msg" style="margin:10px 0 0;font-size:13px;font-weight:600"></p>'
+            . '</form>';
+
+        $payload = json_encode([
+            'site'      => self::$slug,
+            'item'      => $item['title'] ?? '',
+            'slug'      => $slug,
+            'price'     => $sell,
+            'mrp'       => $mrp,
+            'image'     => $cover ?: '',
+            'gate'      => self::accountsEnabled($doc),
+            'attrNames' => $attrNames,
+            'attrCount' => $attrCount,
+            'variants'  => $variantsForJs,
+        ]);
+
+        $script = '<script>(function(){var U=' . json_encode($uid) . ',PU=' . json_encode($puid) . ',D=' . $payload . ';'
+            . 'var sel={},lastImg="",cur={price:D.price,mrp:D.mrp,image:D.image,label:"",value:"",sku:""};'
+            . 'var f=document.getElementById(U+"-form"),n=document.getElementById(U+"-note"),m=document.getElementById(U+"-msg"),stockEl=document.getElementById(U+"-stock");'
+            . 'var cartBtn=document.getElementById(U+"-cart"),buyBtn=document.getElementById(U+"-buy");'
+            . 'function num(s){return parseFloat(String(s||"").replace(/[^0-9.]/g,""))||0;}'
+            . 'function fmtOff(sell,mrp){var ns=num(sell),nm=num(mrp);if(nm>0&&ns>0&&ns<nm)return Math.round((nm-ns)/nm*100)+"% Off";return "";}'
+            . 'function findVariant(vals){for(var j=0;j<D.variants.length;j++){var vv=D.variants[j],vo=[vv.o1||"",vv.o2||"",vv.o3||""],ok=true;'
+            . 'for(var k=0;k<vals.length;k++){if((vals[k]||"")!==(vo[k]||"")){ok=false;break;}}if(ok)return vv;}return null;}'
+            . 'function resolve(){'
+            . 'var vals=[];for(var i=0;i<D.attrCount;i++)vals.push(sel[i]||"");'
+            . 'var allPicked=D.attrCount===0||vals.every(function(v){return v!=="";});'
+            . 'var matched=(D.attrCount>0&&D.variants.length&&allPicked)?findVariant(vals):null;'
+            . 'var sp=(matched&&matched.price)?matched.price:D.price;'
+            . 'var sm=(matched&&matched.mrp)?matched.mrp:D.mrp;'
+            . 'var off=fmtOff(sp,sm);'
+            . 'var sellEl=document.getElementById(U+"-sell"),mrpEl=document.getElementById(U+"-mrp"),offEl=document.getElementById(U+"-off");'
+            . 'if(sellEl)sellEl.textContent=sp;'
+            . 'if(mrpEl){mrpEl.textContent=sm;mrpEl.style.display=sm?"":"none";}'
+            . 'if(offEl){offEl.textContent=off;offEl.style.display=off?"":"none";}'
+            . 'var img=(matched&&matched.image)||lastImg||D.image;'
+            . 'var mainImg=document.getElementById(PU+"-main");if(mainImg&&img)mainImg.src=img;'
+            . 'var blocked=false,msg="";'
+            . 'if(D.attrCount>0&&!allPicked){msg="Select "+D.attrNames.filter(function(nm,i){return !vals[i];}).join(", ");blocked=true;}'
+            . 'else if(D.attrCount>0&&D.variants.length&&allPicked&&!matched){msg="This combination is not available.";blocked=true;}'
+            . 'else if(matched&&matched.stock!==null&&matched.stock<=0){msg="Out of stock";blocked=true;}'
+            . 'else if(matched&&matched.stock!==null&&matched.stock<=5){msg=matched.stock+" left in stock";}'
+            . 'if(stockEl){stockEl.textContent=msg;stockEl.style.color=blocked?"#dc2626":"#d97706";}'
+            . 'cartBtn.disabled=blocked;buyBtn.disabled=blocked;'
+            . 'cartBtn.style.opacity=blocked?"0.5":"1";buyBtn.style.opacity=blocked?"0.5":"1";'
+            . 'cur={price:sp,mrp:sm,image:img,label:D.attrNames.filter(function(nm,i){return vals[i];}).join(", "),'
+            . 'value:vals.filter(function(v){return v;}).join(", "),sku:matched?matched.sku:""};'
+            . '}'
+            . 'Array.prototype.forEach.call(document.querySelectorAll(".tf-attr-opt"),function(b){b.addEventListener("click",function(){'
+            . 'var ai=b.getAttribute("data-ai");'
+            . 'Array.prototype.forEach.call(document.querySelectorAll(\'.tf-attr-opt[data-ai="\'+ai+\'"]\'),function(x){x.classList.remove("is-sel");});'
+            . 'b.classList.add("is-sel");sel[ai]=b.getAttribute("data-val");'
+            . 'var im=b.getAttribute("data-img");if(im)lastImg=im;'
+            . 'resolve();});});'
+            . 'resolve();'
+            . 'function token(){try{return (JSON.parse(localStorage.getItem("tf_customer_"+D.site))||{}).token||"";}catch(e){return "";}}'
+            . 'cartBtn.addEventListener("click",function(){if(cartBtn.disabled)return;'
+            . 'var n2=window.tfCart.add({slug:D.slug,item:D.item,price:cur.price,mrp:cur.mrp,vlabel:cur.label,variant:cur.value,image:cur.image,qty:1});'
+            . 'n.innerHTML="Added to cart ("+n2+") &middot; <a href=\"/cart\" style=\"color:inherit\">View cart</a>";});'
+            . 'buyBtn.addEventListener("click",function(){if(buyBtn.disabled)return;'
+            . 'if(D.gate&&!token()){location.href="/account?next="+encodeURIComponent(location.pathname);return;}'
+            . 'f.style.display="block";f.scrollIntoView({behavior:"smooth",block:"center"});});'
+            . 'f.addEventListener("submit",function(e){e.preventDefault();var b=f.querySelector("button[type=submit]");b.disabled=true;b.textContent="Placing…";'
+            . 'var fd={site:D.site,item:D.item,item_slug:D.slug,image:cur.image,price:cur.price,mrp:cur.mrp,option_label:cur.label,option_value:cur.value,'
+            . 'name:f.name.value,phone:f.phone.value,email:f.email.value,note:(f.note?f.note.value:""),'
+            . 'customer_token:(function(){try{return (JSON.parse(localStorage.getItem("tf_customer_"+D.site))||{}).token||"";}catch(e){return "";}})()};'
+            . 'fetch("' . self::apiBase() . '/api/sites/order-submit.php",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify(fd)})'
+            . '.then(function(r){return r.json();}).then(function(res){'
+            . 'if(res&&res.success){var oid=(res.data&&res.data.id)?res.data.id:"";m.style.color="#16a34a";m.textContent="✓ Order placed!"+(oid?" Your order number is #"+oid+".":"")+" We will contact you shortly.";f.reset();b.disabled=false;b.textContent="Place order";}'
+            . 'else{m.style.color="#dc2626";m.textContent=(res&&res.message)||"Could not place the order.";b.disabled=false;b.textContent="Place order";}})'
+            . '.catch(function(){m.style.color="#dc2626";m.textContent="Connection error.";b.disabled=false;b.textContent="Place order";});});'
+            . '})();</script>';
+
+        return $pickerHtml . $priceHtml . $btnRow . $form . $script;
+    }
+
+    /** Render one product on its own page — same shape as a service detail page,
+     *  but the price/photo react to whichever variant combination is picked. */
+    private static function renderProductDetail(array $doc, array $item): string
+    {
+        $vars  = self::themeVars($doc['theme'] ?? []);
+        $fonts = self::googleFonts($doc['theme'] ?? []);
+        $name  = $doc['site']['name'] ?? '';
+
+        $pseudo = [
+            'slug'  => '/product/' . self::itemSlug($item, 'product'),
+            'title' => $item['title'] ?? 'Product',
+            'seo'   => [
+                'title'       => trim(($item['title'] ?? 'Product') . ' | ' . $name, ' |'),
+                'description' => $item['desc'] ?? '',
+                'ogImage'     => $item['image'] ?? null,
+                'robots'      => 'index,follow',
+            ],
+        ];
+
+        // Where "Back" goes: the page that holds a Products section, else home.
+        $backPath = '/';
+        foreach (($doc['pages'] ?? []) as $pg) {
+            foreach (($pg['sections'] ?? []) as $s) {
+                if (($s['type'] ?? '') === 'products') { $backPath = $pg['slug'] ?? '/'; break 2; }
+            }
+        }
+
+        $photos = [];
+        $cover = self::media($item['image'] ?? null);
+        if ($cover) $photos[] = ['src' => $cover, 'alt' => $item['title'] ?? ''];
+        foreach (($item['gallery'] ?? []) as $g) {
+            $src = self::media($g['image'] ?? null);
+            if ($src) $photos[] = ['src' => $src, 'alt' => $g['alt'] ?? ($item['title'] ?? '')];
+        }
+
+        $puid = 'pg' . substr(md5(self::itemSlug($item, 'product')), 0, 6);
+        $gallery = self::productGallery($photos, $puid);
+
+        $ctaHtml = !empty($item['cta']['text']) ? self::btn($item['cta']) : '';
+
+        $orderHtml = '';
+        if (($item['enableOrder'] ?? true) !== false) {
+            $orderHtml = self::productOrderBlock($doc, $item, $puid, $cover);
+        } else {
+            [$sell, $mrp, $off] = self::priceBits($item);
+            if ($sell !== '' || $mrp !== '') {
+                $orderHtml = '<div style="margin:10px 0 0;display:flex;align-items:baseline;flex-wrap:wrap;gap:10px">'
+                    . ($sell !== '' ? '<span style="font-size:28px;font-weight:800;color:var(--color-primary)">' . self::esc($sell) . '</span>' : '')
+                    . ($mrp !== '' ? '<span style="font-size:16px;color:var(--tf-text,var(--color-muted));text-decoration:line-through">' . self::esc($mrp) . '</span>' : '')
+                    . ($off !== '' ? '<span style="font-size:14px;font-weight:700;color:#16a34a">' . $off . '</span>' : '')
+                    . '</div>';
+            }
+        }
+
+        $reviewsHtml = self::reviewsBlock($item, 'product');
+
+        $article = '<article class="tf-container" style="padding-top:calc(56px*var(--space-scale));padding-bottom:calc(56px*var(--space-scale))">'
+            . '<a href="' . self::esc($backPath) . '" style="display:inline-block;margin-bottom:22px;font-size:14px;font-weight:600;color:var(--color-primary);text-decoration:none">&larr; Back</a>'
+            . '<div class="tf-two" style="align-items:start">'
+            . '<div>' . $gallery . '</div>'
+            . '<div style="text-align:left">'
+            . (!empty($item['meta']) ? '<p style="margin:0 0 6px;font-size:13px;font-weight:600;color:var(--color-accent)">' . self::esc($item['meta']) . '</p>' : '')
+            . '<h1 style="margin:0;font-family:var(--font-heading);font-size:32px;line-height:1.2;font-weight:700">' . self::esc($item['title'] ?? '') . '</h1>'
+            . $orderHtml
+            . ($ctaHtml ? '<div style="margin-top:20px">' . $ctaHtml . '</div>' : '')
+            . self::productInfoTable($item)
+            . '<div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--color-border);font-size:16px;line-height:1.75">' . self::articleBody($item['body'] ?? '') . '</div>'
+            . '</div></div>'
+            . $reviewsHtml
+            . self::relatedProducts($doc, $item, $backPath, 'product')
             . '</article>';
 
         return "<!DOCTYPE html><html lang=\"" . self::esc($doc['site']['locale'] ?? 'en') . "\"><head>"
@@ -2607,6 +2935,10 @@ iframe{max-width:100%}
 .tf-bssell{font-size:17px;font-weight:800}
 .tf-bsprice s{color:var(--tf-text,var(--color-muted))}
 .tf-bsoff{font-weight:800;color:#dc2626}
+.tf-attr-opt{display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border:2px solid var(--color-border);border-radius:999px;background:var(--color-surface);color:inherit;font-size:13px;font-weight:600;cursor:pointer;transition:border-color .15s}
+.tf-attr-opt.is-sel{border-color:var(--color-primary)}
+.tf-attr-opt img{width:22px;height:22px;border-radius:50%;object-fit:cover}
+.tf-attr-swatch{display:inline-block;width:16px;height:16px;border-radius:50%;border:1px solid var(--color-border)}
 .tf-anim-ready [data-anim]{opacity:0;transition:opacity .7s ease,transform .7s ease;will-change:opacity,transform}
 .tf-anim-ready [data-anim="slide-up"]{transform:translateY(34px)}
 .tf-anim-ready [data-anim="zoom"]{transform:scale(.93)}

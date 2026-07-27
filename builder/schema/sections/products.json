@@ -1,0 +1,143 @@
+{
+  "type": "products",
+  "label": "Products",
+  "category": "commerce",
+  "icon": "shopping-bag",
+  "description": "Full e-commerce product catalog — grid of products, each with photos, price, and optional nested variants (Size, Colour, and more) with their own price/stock/photo per combination.",
+  "industries": ["*"],
+  "singleton": false,
+  "maxPerPage": 3,
+
+  "variants": [
+    { "id": "cards-3",   "label": "3-column cards",  "preview": "/builder/previews/services-cards-3.png" },
+    { "id": "cards-2",   "label": "2-column cards",  "preview": "/builder/previews/services-cards-2.png" },
+    { "id": "cards-4",   "label": "4-column cards",  "preview": "/builder/previews/services-cards-4.png" },
+    { "id": "list",      "label": "Icon list",       "preview": "/builder/previews/services-list.png" },
+    { "id": "carousel",  "label": "Carousel",        "preview": "/builder/previews/services-carousel.png" },
+    { "id": "marquee",   "label": "Marquee (auto-scroll)", "preview": "/builder/previews/services-marquee.png" }
+  ],
+
+  "props": [
+    { "key": "label",   "type": "text",     "label": "Eyebrow label", "maxLength": 40, "default": "Our Products", "group": "Heading" },
+    { "key": "heading", "type": "text",     "label": "Heading", "required": true, "maxLength": 120, "group": "Heading" },
+    { "key": "sub",     "type": "textarea", "label": "Description", "maxLength": 300, "group": "Heading" },
+
+    {
+      "key": "items",
+      "type": "repeater",
+      "label": "Products",
+      "group": "Items",
+      "min": 1,
+      "max": 24,
+      "itemLabel": "{{title}}",
+      "addLabel": "Add product",
+      "fields": [
+        { "key": "image",  "type": "media",    "label": "Photo", "accept": ["image"] },
+        { "key": "title",  "type": "text",     "label": "Title", "required": true, "maxLength": 80 },
+        { "key": "desc",   "type": "textarea", "label": "Short description (shown on the card)", "maxLength": 300 },
+        { "key": "meta",   "type": "text",     "label": "Meta line", "maxLength": 60, "placeholder": "e.g. Handmade · Cotton" },
+        { "key": "cta",    "type": "link",     "label": "Button (only used if there is no full description below)" },
+
+        { "key": "body",   "type": "textarea", "label": "Full description (opens its own product page)", "maxLength": 20000,
+          "help": "Fill this to give the product its own page with a photo gallery — like a product page on Amazon or Flipkart." },
+        { "key": "gallery", "type": "repeater", "label": "Extra photos (for the product page)", "max": 10, "itemLabel": "{{alt}}", "addLabel": "Add photo",
+          "fields": [
+            { "key": "image", "type": "media", "label": "Photo", "accept": ["image"], "required": true },
+            { "key": "alt",   "type": "text",  "label": "Caption", "maxLength": 120 }
+          ]
+        },
+        { "key": "productInfoTitle", "type": "text", "label": "Info table title", "maxLength": 60, "placeholder": "Product Information",
+          "help": "Only used when the rows below are filled in." },
+        { "key": "productInfo", "type": "repeater", "label": "Product information (optional)", "max": 20,
+          "itemLabel": "{{label}}", "addLabel": "Add row",
+          "help": "A spec table on the product page — Brand, Material, Pack of, and so on. Leave empty to hide it.",
+          "fields": [
+            { "key": "label", "type": "text", "label": "Label", "maxLength": 60, "placeholder": "e.g. Material" },
+            { "key": "value", "type": "text", "label": "Value", "maxLength": 200, "placeholder": "e.g. MDF, Printed Vinyl" }
+          ]
+        },
+
+        { "key": "price",  "type": "text",     "label": "Starting price", "maxLength": 40, "placeholder": "e.g. ₹4,999",
+          "help": "Used on the card, and as the price when a product has no variants below (or before the buyer has picked one)." },
+        { "key": "mrp",    "type": "text",     "label": "Starting MRP (crossed out)", "maxLength": 40, "placeholder": "e.g. ₹7,999" },
+
+        {
+          "key": "attributes",
+          "type": "repeater",
+          "label": "Variant attributes (e.g. Colour, Size)",
+          "max": 3,
+          "itemLabel": "{{name}}",
+          "addLabel": "Add attribute",
+          "help": "Up to 3 attribute groups a buyer picks from — Colour, Size, Material, and so on. Leave empty for a simple product with one price.",
+          "fields": [
+            { "key": "name", "type": "text", "label": "Attribute name", "required": true, "maxLength": 30, "placeholder": "e.g. Colour, Size, Material" },
+            {
+              "key": "options",
+              "type": "repeater",
+              "label": "Choices",
+              "min": 1,
+              "max": 20,
+              "itemLabel": "{{value}}",
+              "addLabel": "Add choice",
+              "fields": [
+                { "key": "value",  "type": "text",  "label": "Choice", "required": true, "maxLength": 40, "placeholder": "e.g. Red, Large, 250ml" },
+                { "key": "swatch", "type": "text",  "label": "Colour swatch (optional)", "maxLength": 20, "placeholder": "#ff0000",
+                  "help": "Shows as a small colour dot next to this choice — handy for a Colour attribute." },
+                { "key": "image",  "type": "media", "label": "Photo for this choice (optional)", "accept": ["image"],
+                  "help": "Swaps the main product photo when this choice is picked — like Amazon's colour thumbnails." }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "variants",
+          "type": "repeater",
+          "label": "Variant combinations (price / stock / photo per combination)",
+          "max": 100,
+          "itemLabel": "{{option1}} {{option2}} {{option3}}",
+          "addLabel": "Add combination",
+          "help": "One row per exact combination of the attributes above — e.g. Red + Large. Fill Option 1/2/3 to match the attribute choices exactly (same spelling); that is how a buyer's picks are matched to a price, stock count and photo. Leave blank on a row to fall back to the product's starting price/MRP/photo.",
+          "fields": [
+            { "key": "option1", "type": "text", "label": "Option 1 value", "maxLength": 40, "placeholder": "matches your 1st attribute, e.g. Red" },
+            { "key": "option2", "type": "text", "label": "Option 2 value", "maxLength": 40, "placeholder": "matches your 2nd attribute, e.g. Large" },
+            { "key": "option3", "type": "text", "label": "Option 3 value", "maxLength": 40, "placeholder": "matches your 3rd attribute" },
+            { "key": "sku",     "type": "text", "label": "SKU (optional)", "maxLength": 60 },
+            { "key": "price",   "type": "text", "label": "Price for this combination", "maxLength": 40, "placeholder": "leave blank to use the starting price" },
+            { "key": "mrp",     "type": "text", "label": "MRP for this combination", "maxLength": 40, "placeholder": "leave blank to use the starting MRP" },
+            { "key": "stock",   "type": "number", "label": "Stock", "min": 0, "help": "Leave blank for unlimited. 0 shows as Out of stock and blocks ordering." },
+            { "key": "image",   "type": "media", "label": "Photo for this combination", "accept": ["image"],
+              "help": "Optional — overrides the attribute choice's photo when this exact combination is picked." }
+          ]
+        },
+
+        { "key": "enableOrder", "type": "toggle", "label": "Allow ordering (Add to Cart / Buy Now)", "default": true },
+        { "key": "slug",   "type": "text",     "label": "Page address (optional)", "maxLength": 80, "placeholder": "auto from title",
+          "help": "The product page address: /product/<this>. Leave blank to build it from the title." }
+      ]
+    },
+    { "key": "showRelated", "type": "toggle", "label": "Show other products on the product page", "default": true, "group": "Detail page",
+      "help": "Adds a \"Best sellers\" strip under each product so visitors can jump to your other items." },
+    { "key": "relatedHeading", "type": "text", "label": "That strip's heading", "maxLength": 60, "default": "Best sellers", "group": "Detail page" },
+
+    { "key": "imageFit", "type": "crop",   "label": "Crop / position", "group": "Media",
+      "help": "Drag the photo to choose what stays in frame, and zoom in to crop closer." }
+  ],
+
+  "style": {
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "radius", "animation", "headingColor", "textColor"],
+    "defaults": { "paddingY": "lg", "align": "center", "bg": "default" }
+  },
+
+  "defaults": {
+    "variant": "cards-3",
+    "props": {
+      "label": "Our Products",
+      "heading": "Shop our products",
+      "items": [
+        { "title": "Product one", "desc": "Short description of this product." },
+        { "title": "Product two", "desc": "Short description of this product." },
+        { "title": "Product three", "desc": "Short description of this product." }
+      ]
+    }
+  }
+}
