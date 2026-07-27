@@ -41,6 +41,7 @@ try {
         $db->exec("CREATE TABLE site_feedback (
             id INT AUTO_INCREMENT PRIMARY KEY, site_id INT NOT NULL,
             name VARCHAR(150) NOT NULL DEFAULT '', email VARCHAR(190) NOT NULL DEFAULT '',
+            phone VARCHAR(40) NOT NULL DEFAULT '',
             rating TINYINT NOT NULL DEFAULT 5, message TEXT NOT NULL,
             page_url VARCHAR(600) NOT NULL DEFAULT '', is_read TINYINT(1) NOT NULL DEFAULT 0,
             ip_address VARCHAR(45) NOT NULL DEFAULT '',
@@ -57,12 +58,19 @@ try {
     }
 
     $pageUrl = mb_substr((string)($_SERVER['HTTP_REFERER'] ?? ''), 0, 600);
-    $st = $db->prepare("INSERT INTO site_feedback (site_id, name, email, rating, message, page_url, ip_address)
-                        VALUES (?,?,?,?,?,?,?)");
-    $st->execute([
-        (int)$site['id'], mb_substr($name, 0, 150), mb_substr($email, 0, 190),
-        $rating, mb_substr($message, 0, 2000), $pageUrl, $ip,
-    ]);
+    $phone   = mb_substr(trim((string)($in['phone'] ?? '')), 0, 40);
+    $baseVals = [(int)$site['id'], mb_substr($name, 0, 150), mb_substr($email, 0, 190)];
+    $tailVals = [$rating, mb_substr($message, 0, 2000), $pageUrl, $ip];
+    try {
+        $st = $db->prepare("INSERT INTO site_feedback (site_id, name, email, phone, rating, message, page_url, ip_address)
+                            VALUES (?,?,?,?,?,?,?,?)");
+        $st->execute(array_merge($baseVals, [$phone], $tailVals));
+    } catch (Exception $eCol) {
+        // phone column not migrated yet.
+        $st = $db->prepare("INSERT INTO site_feedback (site_id, name, email, rating, message, page_url, ip_address)
+                            VALUES (?,?,?,?,?,?,?)");
+        $st->execute(array_merge($baseVals, $tailVals));
+    }
 
     // WhatsApp alert to the site's own business number (reuses the approved
     // new_inquiry_alert template: name, contact, message).
@@ -73,7 +81,8 @@ try {
         if ($bizPhone !== '') {
             $msg = 'Rating ' . $rating . '/5 — ' . preg_replace('/\s+/', ' ', $message);
             if (mb_strlen($msg) > 300) $msg = mb_substr($msg, 0, 297) . '...';
-            sendWhatsAppTemplate($bizPhone, 'new_inquiry_alert', [$name, ($email !== '' ? $email : 'Feedback'), $msg]);
+            $contact = $phone !== '' ? $phone : ($email !== '' ? $email : 'Feedback');
+            sendWhatsAppTemplate($bizPhone, 'new_inquiry_alert', [$name, $contact, $msg]);
         }
     } catch (Exception $e) {
         error_log('feedback WhatsApp failed: ' . $e->getMessage());

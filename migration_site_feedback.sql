@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS site_feedback (
   site_id    INT NOT NULL,
   name       VARCHAR(150) NOT NULL DEFAULT '',
   email      VARCHAR(190) NOT NULL DEFAULT '',
+  phone      VARCHAR(40)  NOT NULL DEFAULT '',
   rating     TINYINT NOT NULL DEFAULT 5,
   message    TEXT NOT NULL,
   page_url   VARCHAR(600) NOT NULL DEFAULT '',

@@ -1122,6 +1122,8 @@ class SiteRenderer
             if (!$cols) $cols = ['Amazing', 'Good', 'Decent', 'Disappointing'];
             if (!$rows) $rows = ['Overall Experience'];
             $commentLabel = self::esc($p['commentLabel'] ?? 'Any comments, questions or suggestions?');
+            $nameEl  = (($p['askName'] ?? true) !== false)    ? '<input data-f-name placeholder="Your name" style="' . $in . '">' : '';
+            $phoneEl = (($p['askContact'] ?? true) !== false) ? '<input data-f-phone type="tel" placeholder="Contact number" style="' . $in . '">' : '';
 
             $th = '<th style="padding:8px"></th>';
             foreach ($cols as $c) $th .= '<th style="padding:8px 10px;font-size:13px;font-weight:700;color:var(--color-primary);text-align:center">' . self::esc($c) . '</th>';
@@ -1139,6 +1141,7 @@ class SiteRenderer
                 . '<thead><tr>' . $th . '</tr></thead><tbody>' . $trs . '</tbody></table></div>'
                 . '<label style="display:block;margin:16px 0 6px;font-size:14px;font-weight:600">' . $commentLabel . '</label>'
                 . '<textarea data-f-msg rows="4" style="' . $in . '"></textarea>'
+                . $nameEl . $phoneEl
                 . '<button type="button" data-f-submit style="' . $btnCss . '">' . $submitText . '</button>'
                 . '<p data-f-out style="margin:10px 0 0;text-align:center;font-size:13px;font-weight:600"></p>'
                 . '</div>';
@@ -1149,10 +1152,11 @@ class SiteRenderer
                 . 'btn.addEventListener("click",function(){var lines=[],sum=0,cnt=0;'
                 . 'for(var i=0;i<C.rows.length;i++){var sel=r.querySelector("input[name=fb"+C.u+"_"+i+"]:checked");if(sel){lines.push(C.rows[i]+": "+sel.value);var ci=parseInt(sel.getAttribute("data-col"),10);var sc=Math.round(((C.cols-1-ci)/Math.max(1,C.cols-1))*4)+1;sum+=sc;cnt++;}else{lines.push(C.rows[i]+": —");}}'
                 . 'var comment=(q("[data-f-msg]").value||"").trim();'
+                . 'var nEl=q("[data-f-name]"),pEl=q("[data-f-phone]");var name=nEl?(nEl.value||"").trim():"";var phone=pEl?(pEl.value||"").trim():"";'
                 . 'if(!cnt&&!comment){out.style.color="#dc2626";out.textContent="Please rate at least one item or leave a comment.";return;}'
                 . 'var message=lines.join("\\n")+(comment?("\\n\\nComment: "+comment):"");var rating=cnt?Math.round(sum/cnt):5;'
                 . 'btn.disabled=true;var ob=btn.textContent;btn.textContent="Sending…";'
-                . 'fetch(C.api+"/api/sites/feedback-submit.php",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({site:C.site,name:"",email:"",rating:rating,message:message})})'
+                . 'fetch(C.api+"/api/sites/feedback-submit.php",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({site:C.site,name:name,email:"",phone:phone,rating:rating,message:message})})'
                 . '.then(function(x){return x.json();}).then(function(res){if(res&&res.success){r.innerHTML="<p style=\"text-align:center;font-size:15px;font-weight:700;color:#16a34a;padding:24px 0\">&#10003; "+C.ok+"</p>";}else{out.style.color="#dc2626";out.textContent=(res&&res.message)||"Could not send.";btn.disabled=false;btn.textContent=ob;}})'
                 . '.catch(function(){out.style.color="#dc2626";out.textContent="Connection error.";btn.disabled=false;btn.textContent=ob;});});})();</script>';
 

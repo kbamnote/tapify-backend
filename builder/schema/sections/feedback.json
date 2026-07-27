@@ -29,6 +29,8 @@
       "help": "The choices across the top — e.g. Amazing, Good, Decent, Disappointing." },
     { "key": "commentLabel", "type": "text", "label": "Comment box label", "maxLength": 120,
       "default": "Any comments, questions or suggestions?", "group": "Survey", "showIf": { "variant": ["survey"] } },
+    { "key": "askName",    "type": "toggle", "label": "Ask for customer name", "default": true, "group": "Survey", "showIf": { "variant": ["survey"] } },
+    { "key": "askContact", "type": "toggle", "label": "Ask for contact number", "default": true, "group": "Survey", "showIf": { "variant": ["survey"] } },
 
     { "key": "submitText", "type": "text", "label": "Button text", "maxLength": 40, "default": "Send feedback", "group": "Form" },
     { "key": "successMessage", "type": "text", "label": "Thank-you message", "maxLength": 160, "default": "Thank you for your feedback!", "group": "Form" }
@@ -50,6 +52,8 @@
       "rows": ["Food Quality", "Service Quality", "Speed of Service", "Price", "Overall Experience"],
       "columns": ["Amazing", "Good", "Decent", "Disappointing"],
       "commentLabel": "Any comments, questions or suggestions?",
+      "askName": true,
+      "askContact": true,
       "submitText": "Send feedback",
       "successMessage": "Thank you for your feedback!"
     }
