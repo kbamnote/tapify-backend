@@ -124,6 +124,13 @@ class SiteRenderer
             echo self::renderAccountPage($doc);
             return true;
         }
+        // Built-in "My Orders" page — full order history with reorder / cancel /
+        // review. Requires a signed-in customer (the page redirects to /account).
+        if (!$page && $norm === '/orders') {
+            header('Content-Type: text/html; charset=utf-8');
+            echo self::renderOrdersPage($doc);
+            return true;
+        }
 
         if (!$page || ($page['visible'] ?? true) === false) { self::notFound(); return true; }
 
@@ -1008,7 +1015,7 @@ class SiteRenderer
             .   '<p style="font-size:18px;font-weight:700;margin:0">Hi <span data-me-name></span> &#128075;</p>'
             .   '<p style="margin:6px 0 0;font-size:14px;color:var(--color-muted)">You&#39;re signed in.</p>'
             .   '<button type="button" data-act="signout" style="margin-top:18px;padding:10px 20px;font-size:14px;font-weight:600;border:none;border-radius:var(--radius);background:var(--color-primary);color:var(--color-primary-fg);cursor:pointer">Sign out</button>'
-            .   '<div data-orders style="margin-top:26px;text-align:left"></div>'
+            .   '<a href="/orders" style="display:block;margin-top:22px;text-align:center;background:var(--color-primary);color:var(--color-primary-fg);border-radius:var(--radius);padding:12px;font-size:14px;font-weight:700;text-decoration:none">&#128230;  View Orders</a>'
             . '</div>'
             // Auth forms.
             . '<div data-view="auth">'
@@ -1036,7 +1043,7 @@ class SiteRenderer
             . 'function murl(v){if(!v)return "";if(/^https?:\\/\\//.test(v))return v;var m=/^media:(\\d+)$/.exec(v);return m?(C.api+"/api/sites/media.php?id="+m[1]):"";}'
             . 'var OSTEPS=[["new","Received"],["confirmed","Confirmed"],["completed","Completed"]];'
             . 'function otimeline(st){if(st==="cancelled")return "<div style=\"margin-top:10px;font-size:12px;font-weight:700;color:#dc2626\">Cancelled</div>";var idx={"new":0,"confirmed":1,"completed":2}[st];if(idx==null)idx=0;var h="<div style=\"display:flex;gap:6px;margin-top:10px\">";for(var i=0;i<OSTEPS.length;i++){var on=i<=idx;h+="<div style=\"flex:1;text-align:center\"><div style=\"height:4px;border-radius:2px;background:"+(on?"var(--color-primary)":"var(--color-border)")+"\"></div><div style=\"font-size:10px;margin-top:4px;font-weight:"+(on?"700":"500")+";color:"+(on?"var(--color-primary)":"var(--color-muted)")+"\">"+OSTEPS[i][1]+"</div></div>";}return h+"</div>";}'
-            . 'function show(me){$("[data-view=me]").style.display=me?"block":"none";$("[data-view=auth]").style.display=me?"none":"block";if(me&&me.name)$("[data-me-name]").textContent=me.name;if(me)loadOrders();}'
+            . 'function show(me){$("[data-view=me]").style.display=me?"block":"none";$("[data-view=auth]").style.display=me?"none":"block";if(me&&me.name)$("[data-me-name]").textContent=me.name;}'
             . 'function get(){try{return JSON.parse(localStorage.getItem(KEY));}catch(e){return null;}}'
             . 'function loadOrders(){var a=get();if(!a||!a.token)return;var box=$("[data-orders]");if(!box)return;box.innerHTML="<p style=\"font-size:13px;color:var(--color-muted)\">Loading your orders…</p>";'
             . 'fetch(C.api+"/api/sites/customer-orders.php",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({site:C.site,token:a.token})}).then(function(r){return r.json();}).then(function(res){'
@@ -1921,6 +1928,95 @@ class SiteRenderer
              . "</main>"
              . self::cartScript() . self::animScript()
              . "</body></html>";
+    }
+
+    /** Built-in "My Orders" page — full history with reorder / cancel / review. */
+    private static function renderOrdersPage(array $doc): string
+    {
+        $vars  = self::themeVars($doc['theme'] ?? []);
+        $fonts = self::googleFonts($doc['theme'] ?? []);
+        $name  = $doc['site']['name'] ?? '';
+
+        $pseudo = [
+            'slug'  => '/orders',
+            'title' => 'My Orders',
+            'seo'   => ['title' => trim('My Orders | ' . $name, ' |'), 'description' => '', 'robots' => 'noindex,nofollow'],
+        ];
+
+        $article = '<article class="tf-container" style="padding-top:calc(48px*var(--space-scale));padding-bottom:calc(56px*var(--space-scale))">'
+            . '<h1 style="margin:0 0 20px;font-family:var(--font-heading);font-size:28px;font-weight:700">My Orders</h1>'
+            . '<div id="tf-orders"><p style="font-size:14px;color:var(--tf-text,var(--color-muted))">Loading your orders…</p></div>'
+            . '</article>';
+
+        $script = str_replace(
+            ['__API__', '__SITE__'],
+            [self::apiBase(), self::esc(self::$slug)],
+            self::ordersPageScript()
+        );
+
+        return "<!DOCTYPE html><html lang=\"" . self::esc($doc['site']['locale'] ?? 'en') . "\"><head>"
+             . self::head($doc, $pseudo, $fonts)
+             . "<style>.tf-site{" . $vars . "}" . self::baseCss() . "</style>"
+             . "</head><body>"
+             . "<main class=\"tf-site\">" . self::chromeSection($doc, 'header') . $article . self::chromeSection($doc, 'footer') . "</main>"
+             . self::cartScript() . $script . self::animScript()
+             . "</body></html>";
+    }
+
+    private static function ordersPageScript(): string
+    {
+        return <<<'JS'
+<script>(function(){
+var SITE="__SITE__",API="__API__",KEY="tf_customer_"+SITE;
+function acc(){try{return JSON.parse(localStorage.getItem(KEY));}catch(e){return null;}}
+var a=acc();
+if(!a||!a.token){location.href="/account?next=/orders";return;}
+var box=document.getElementById("tf-orders");
+function esc(s){var d=document.createElement("div");d.textContent=(s==null?"":s);return d.innerHTML;}
+function murl(v){if(!v)return "";if(/^https?:\/\//.test(v))return v;var m=/^media:(\d+)$/.exec(v);return m?(API+"/api/sites/media.php?id="+m[1]):"";}
+var STEPS=[["new","Ordered"],["confirmed","Confirmed"],["completed","Delivered"]];
+function timeline(st){if(st==="cancelled")return '<div style="margin-top:10px;font-size:12px;font-weight:700;color:#dc2626">Cancelled</div>';var idx={"new":0,"confirmed":1,"completed":2}[st];if(idx==null)idx=0;var h='<div style="display:flex;gap:6px;margin-top:12px">';for(var i=0;i<STEPS.length;i++){var on=i<=idx;h+='<div style="flex:1;text-align:center"><div style="height:5px;border-radius:3px;background:'+(on?"var(--color-primary)":"var(--color-border)")+'"></div><div style="font-size:10px;margin-top:4px;font-weight:'+(on?"700":"500")+';color:'+(on?"var(--color-primary)":"var(--color-muted)")+'">'+STEPS[i][1]+'</div></div>';}return h+"</div>";}
+var ORDERS=[];
+function card(o){
+  var img=murl(o.item_image);
+  var canCancel=(o.status==="new"||o.status==="confirmed");
+  var done=(o.status==="completed");
+  var h='<div data-order="'+esc(o.id)+'" class="tf-card" style="padding:14px;margin-bottom:14px">';
+  h+='<div style="display:flex;gap:14px">';
+  if(img)h+='<img src="'+esc(img)+'" alt="" style="width:80px;height:80px;object-fit:cover;border-radius:8px;flex-shrink:0">';
+  h+='<div style="flex:1;min-width:0"><div style="display:flex;justify-content:space-between;gap:8px"><strong style="font-size:15px">'+esc(o.item_title||"Order")+'</strong><span style="font-size:12px;color:var(--tf-text,var(--color-muted))">#'+esc(o.id)+'</span></div>';
+  h+='<div style="font-size:13px;color:var(--tf-text,var(--color-muted));margin-top:3px">'+esc(o.price||"")+((o.quantity>1)?(" × "+esc(o.quantity)):"")+(o.option_value?(" · "+esc(o.option_value)):"")+'</div></div></div>';
+  h+=timeline(o.status);
+  h+='<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px">';
+  h+='<button type="button" data-again style="background:var(--color-primary);color:var(--color-primary-fg);border:none;border-radius:8px;padding:8px 14px;font-size:12px;font-weight:700;cursor:pointer">Buy again</button>';
+  if(o.item_slug)h+='<a href="/service/'+esc(o.item_slug)+'" style="border:1px solid var(--color-border);border-radius:8px;padding:8px 14px;font-size:12px;font-weight:700;color:var(--color-text);text-decoration:none">View product</a>';
+  if(canCancel)h+='<button type="button" data-cancel style="background:none;border:1px solid #dc2626;color:#dc2626;border-radius:8px;padding:8px 14px;font-size:12px;font-weight:700;cursor:pointer">Cancel</button>';
+  if(done&&o.item_slug)h+='<button type="button" data-review-toggle style="background:none;border:1px solid var(--color-primary);color:var(--color-primary);border-radius:8px;padding:8px 14px;font-size:12px;font-weight:700;cursor:pointer">&#9733; Review</button>';
+  h+='</div>';
+  if(done&&o.item_slug){
+    h+='<div data-review-form data-slug="'+esc(o.item_slug)+'" data-rating="5" style="display:none;margin-top:10px"><div data-stars style="font-size:24px;color:#f59e0b;cursor:pointer;letter-spacing:4px">';
+    for(var s=1;s<=5;s++)h+='<span data-star="'+s+'">&#9733;</span>';
+    h+='</div><textarea data-review-text placeholder="Share your experience…" style="width:100%;padding:8px 10px;font-size:13px;border:1px solid var(--color-border);border-radius:8px;background:var(--color-bg);color:var(--color-text);margin-top:8px;min-height:60px"></textarea>';
+    h+='<button type="button" data-review-submit style="margin-top:6px;background:var(--color-primary);color:var(--color-primary-fg);border:none;border-radius:8px;padding:8px 14px;font-size:13px;font-weight:700;cursor:pointer">Submit review</button><p data-review-msg style="font-size:12px;margin:6px 0 0"></p></div>';
+  }
+  return h+'</div>';
+}
+function render(){
+  if(!ORDERS.length){box.innerHTML='<div class="tf-card" style="padding:24px;text-align:center"><p style="font-size:15px;font-weight:700;margin:0">No orders yet</p><p style="margin:6px 0 0;font-size:13px;color:var(--tf-text,var(--color-muted))">When you place an order it will show up here.</p><a href="/" style="display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:var(--color-primary)">Continue shopping</a></div>';return;}
+  var h="";for(var i=0;i<ORDERS.length;i++)h+=card(ORDERS[i]);box.innerHTML=h;
+}
+function findOrder(id){for(var i=0;i<ORDERS.length;i++)if(String(ORDERS[i].id)===String(id))return ORDERS[i];return null;}
+fetch(API+"/api/sites/customer-orders.php",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({site:SITE,token:a.token})}).then(function(r){return r.json();}).then(function(res){ORDERS=(res&&res.data&&res.data.orders)||[];render();}).catch(function(){box.innerHTML='<p style="color:#dc2626">Could not load your orders.</p>';});
+box.addEventListener("click",function(e){
+  var t=e.target;var cardEl=t.closest?t.closest("[data-order]"):null;if(!cardEl)return;var oid=cardEl.getAttribute("data-order");var o=findOrder(oid);
+  if(t.closest&&t.closest("[data-again]")){if(o&&window.tfCart){window.tfCart.add({slug:o.item_slug,item:o.item_title,price:o.price,mrp:o.mrp||"",vlabel:o.option_label||"",variant:o.option_value||"",image:o.item_image||"",qty:1});location.href="/cart";}return;}
+  if(t.closest&&t.closest("[data-cancel]")){var cb=t.closest("[data-cancel]");if(!confirm("Cancel this order?"))return;cb.disabled=true;cb.textContent="Cancelling…";fetch(API+"/api/sites/customer-order-cancel.php",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({site:SITE,token:a.token,order_id:oid})}).then(function(r){return r.json();}).then(function(res){if(res&&res.success){if(o)o.status="cancelled";render();}else{cb.disabled=false;cb.textContent="Cancel";alert((res&&res.message)||"Could not cancel.");}}).catch(function(){cb.disabled=false;cb.textContent="Cancel";alert("Connection error.");});return;}
+  var tog=t.closest?t.closest("[data-review-toggle]"):null;if(tog){var f=cardEl.querySelector("[data-review-form]");if(f)f.style.display=(f.style.display==="none")?"block":"none";return;}
+  var star=t.closest?t.closest("[data-star]"):null;if(star){var form=star.closest("[data-review-form]");var val=parseInt(star.getAttribute("data-star"),10);form.setAttribute("data-rating",val);var sp=form.querySelectorAll("[data-star]");for(var i=0;i<sp.length;i++)sp[i].style.color=(i<val)?"#f59e0b":"#d1d5db";return;}
+  var sub=t.closest?t.closest("[data-review-submit]"):null;if(sub){var form2=sub.closest("[data-review-form]");var msg=form2.querySelector("[data-review-msg]");var txt=(form2.querySelector("[data-review-text]").value||"").trim();var rating=parseInt(form2.getAttribute("data-rating"),10)||5;var slug=form2.getAttribute("data-slug");if(!txt){msg.style.color="#dc2626";msg.textContent="Please write your review.";return;}sub.disabled=true;sub.textContent="Submitting…";fetch(API+"/api/sites/review-submit.php",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({site:SITE,item_slug:slug,name:(a&&a.name)||"Customer",rating:rating,comment:txt})}).then(function(r){return r.json();}).then(function(res){if(res&&res.success){form2.innerHTML='<p style="font-size:13px;color:#16a34a;font-weight:700">&#10003; Thanks! Your review has been submitted.</p>';}else{msg.style.color="#dc2626";msg.textContent=(res&&res.message)||"Could not submit.";sub.disabled=false;sub.textContent="Submit review";}}).catch(function(){msg.style.color="#dc2626";msg.textContent="Connection error.";sub.disabled=false;sub.textContent="Submit review";});return;}
+});
+})();</script>
+JS;
     }
 
     private static function cartPageScript(): string

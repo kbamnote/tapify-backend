@@ -41,9 +41,11 @@ try {
         if ((int)$st->fetchColumn() >= 5) sendError('Too many reviews from this device. Please try again later.', 429);
     }
 
+    // approved = 1 so the review appears on the product page immediately
+    // (no owner moderation step).
     $st = $db->prepare(
-        "INSERT INTO site_reviews (site_id, item_slug, name, rating, comment, ip_address)
-         VALUES (?,?,?,?,?,?)"
+        "INSERT INTO site_reviews (site_id, item_slug, name, rating, comment, ip_address, approved)
+         VALUES (?,?,?,?,?,?,1)"
     );
     $st->execute([
         (int)$site['id'],
