@@ -718,10 +718,28 @@ class SiteRenderer
         $backdrop = '';
         if ($hasVid) {
             $ov = isset($s['style']['overlay']) ? (float)$s['style']['overlay'] : 0.55;
+            if ($fileVid) {
+                // A real <video> can object-fit:cover its box at any size — already
+                // responsive on mobile, short section or not.
+                $media = '<video src="' . self::esc($fileVid) . '" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover"></video>';
+            } else {
+                // <iframe> content isn't a replaced element, so object-fit doesn't
+                // work on it. This measures the ACTUAL backdrop box (any height —
+                // not just a full-viewport hero) and sizes the embed in pixels to
+                // cover it, keyed to 16:9. Fixes the old width:177.78vh hack, which
+                // sized off the viewport instead of the section and broke badly on
+                // phones (short/non-fullHeight heroes, dynamic browser-chrome vh).
+                // Counter, not just the section id: hero allows 2 per page and a
+                // hand-authored doc may leave ids blank, which would collide.
+                static $hvSeq = 0;
+                $hid = 'hv' . substr(md5(($s['id'] ?? '') . 'v'), 0, 8) . (++$hvSeq);
+                $media = '<iframe id="' . $hid . '" src="' . self::esc($embed) . '" allow="autoplay; encrypted-media; picture-in-picture" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border:0"></iframe>'
+                    . '<script>(function(){var f=document.getElementById(' . json_encode($hid) . ');if(!f)return;var w=f.parentElement;'
+                    . 'function fit(){var ww=w.clientWidth,wh=w.clientHeight,ar=16/9,fw,fh;if(ww/wh>ar){fw=ww*1.1;fh=fw/ar;}else{fh=wh*1.1;fw=fh*ar;}f.style.width=fw+"px";f.style.height=fh+"px";}'
+                    . 'fit();window.addEventListener("resize",fit);if(window.ResizeObserver)new ResizeObserver(fit).observe(w);})();</script>';
+            }
             $backdrop = '<div aria-hidden="true" style="position:absolute;inset:0;overflow:hidden">'
-                      . ($fileVid
-                         ? '<video src="' . self::esc($fileVid) . '" autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover"></video>'
-                         : '<iframe src="' . self::esc($embed) . '" allow="autoplay; encrypted-media; picture-in-picture" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);height:110%;width:177.78vh;min-width:110%;border:0"></iframe>')
+                      . $media
                       . '<div style="position:absolute;inset:0;background:rgba(2,6,23,' . $ov . ')"></div></div>';
         } elseif ($variant === 'centered-bg' && !empty($p['image'])) {
             $s['style'] = array_merge($s['style'] ?? [], [
