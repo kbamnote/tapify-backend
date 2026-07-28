@@ -1,0 +1,29 @@
+{
+  "preset": "warm-terracotta",
+  "label": "Warm Terracotta",
+  "description": "Deep terracotta with a warm amber accent on a cream page. Appetising and inviting — suits restaurants, cafes, bakeries and food brands.",
+  "industries": ["restaurant", "cafe", "bakery", "cloud-kitchen", "catering"],
+
+  "tokens": {
+    "mode": "light",
+    "color": {
+      "primary":   "#7B2D26",
+      "secondary": "#A34433",
+      "accent":    "#E0913A",
+      "bg":        "#FFFDF8",
+      "surface":   "#F7EFE4",
+      "text":      "#1F1614",
+      "muted":     "#7A6A60",
+      "border":    "#E8DCCC"
+    },
+    "font": {
+      "heading": "Playfair Display",
+      "body":    "Inter"
+    },
+    "radius":    "md",
+    "spacing":   "comfortable",
+    "container": "normal"
+  },
+
+  "notes": "Tokens only — sections never hardcode colours, they read these as CSS variables. The serif heading font is what gives this one its restaurant-menu feel; swap `font.heading` to Poppins for a more casual cafe."
+}

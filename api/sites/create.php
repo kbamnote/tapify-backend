@@ -66,15 +66,58 @@ try {
     $recipe = SchemaRegistry::industries()[$industry] ?? null;
     $types  = $recipe['sections'] ?? ['hero', 'about', 'services', 'gallery', 'contact'];
 
+    // A recipe may carry ready-made copy and photos per section type. Layering it
+    // over the manifest defaults is what turns a starter site into something
+    // presentable instead of "Your headline goes here / Service one".
+    $content = $recipe['content'] ?? [];
+
     $sections = [];
     foreach ($types as $type) {
         $instance = SchemaRegistry::newSectionInstance($type);
-        if ($instance) $sections[] = $instance;   // silently skip types not built yet
+        if (!$instance) continue;                 // silently skip types not built yet
+
+        $seed = $content[$type] ?? null;
+        if (is_array($seed)) {
+            if (!empty($seed['variant'])) $instance['variant'] = $seed['variant'];
+            if (isset($seed['props'])) {
+                // Shallow merge: a seeded key replaces the default outright (a
+                // deep merge would splice seeded list items into default ones).
+                $instance['props'] = array_merge((array)($instance['props'] ?? []), (array)$seed['props']);
+            }
+            if (isset($seed['style'])) {
+                $instance['style'] = array_merge((array)($instance['style'] ?? []), (array)$seed['style']);
+            }
+        }
+        $sections[] = $instance;
     }
     if (!$sections) {
         $hero = SchemaRegistry::newSectionInstance('hero');
         if ($hero) $sections[] = $hero;
     }
+
+    // ---- theme ----
+    // "theme" is either a preset name ("navy-gold") or an object that may name a
+    // preset and override tokens. The preset's OWN tokens are applied here —
+    // previously only its name was stored, so every site rendered with the
+    // generic blue palette no matter which preset the recipe asked for.
+    $themeRef     = $recipe['theme'] ?? null;
+    $presetName   = is_array($themeRef) ? ($themeRef['preset'] ?? 'default') : (is_string($themeRef) ? $themeRef : 'default');
+    $presetTokens = SchemaRegistry::themes()[$presetName]['tokens'] ?? [];
+    $themeOverride = is_array($themeRef) ? array_diff_key($themeRef, ['preset' => 1]) : [];
+
+    $theme = array_replace_recursive(
+        [
+            'mode'      => 'light',
+            'color'     => ['primary' => '#2563EB', 'accent' => '#F7941D', 'bg' => '#FFFFFF', 'text' => '#111827'],
+            'font'      => ['heading' => 'Poppins', 'body' => 'Poppins'],
+            'radius'    => 'md',
+            'spacing'   => 'comfortable',
+            'container' => 'normal',
+        ],
+        is_array($presetTokens) ? $presetTokens : [],
+        $themeOverride
+    );
+    $theme['preset'] = $presetName;
 
     $doc = [
         'schemaVersion' => 1,
@@ -83,20 +126,7 @@ try {
             'industry' => $industry,
             'locale'   => 'en-IN',
         ]),
-        'theme' => [
-            'preset'  => $recipe['theme'] ?? 'default',
-            'mode'    => 'light',
-            'color'   => [
-                'primary' => '#2563EB',
-                'accent'  => '#F7941D',
-                'bg'      => '#FFFFFF',
-                'text'    => '#111827',
-            ],
-            'font'    => ['heading' => 'Poppins', 'body' => 'Poppins'],
-            'radius'  => 'md',
-            'spacing' => 'comfortable',
-            'container' => 'normal',
-        ],
+        'theme' => $theme,
         'nav' => [
             'header' => [['label' => 'Home', 'pageId' => 'home']],
         ],
@@ -107,7 +137,9 @@ try {
             'seo'   => ['title' => $name, 'robots' => 'index,follow'],
             'sections' => $sections,
         ]],
-        'business' => new stdClass(),
+        // Contact/hours sections read this, so a recipe seeds placeholder details
+        // rather than rendering an empty "Get in touch" block on a demo site.
+        'business' => !empty($recipe['business']) ? $recipe['business'] : new stdClass(),
     ];
 
     // The starter doc must itself be valid — catches a broken manifest early.

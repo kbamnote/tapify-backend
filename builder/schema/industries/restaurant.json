@@ -1,0 +1,221 @@
+{
+  "id": "restaurant",
+  "label": "Restaurant / Cafe",
+  "aliases": ["cafe", "bistro", "diner", "eatery", "bakery", "cloud-kitchen", "dhaba", "catering"],
+  "icon": "utensils",
+  "theme": { "preset": "warm-terracotta" },
+
+  "description": "Restaurants, cafes and bakeries: menu highlights, ambience gallery, timings and table enquiries.",
+
+  "sections": [
+    "header",
+    "hero",
+    "about",
+    "services",
+    "gallery",
+    "testimonials",
+    "hours",
+    "cta",
+    "contact",
+    "footer"
+  ],
+
+  "recommended": [
+    { "type": "hero",         "reason": "Signature dish photo + 'Book a table' CTA" },
+    { "type": "about",        "reason": "Your story, cuisine and what makes the kitchen different" },
+    { "type": "services",     "reason": "Menu highlights with photos and prices" },
+    { "type": "gallery",      "reason": "Ambience, interiors and plating shots" },
+    { "type": "testimonials", "reason": "Diner reviews build trust before the first visit" },
+    { "type": "hours",        "reason": "Opening times — the single most-searched detail" },
+    { "type": "cta",          "reason": "Push table reservations and takeaway orders" },
+    { "type": "contact",      "reason": "Location, phone and enquiry form" },
+    { "type": "footer",       "reason": "Links, socials, copyright" }
+  ],
+
+  "business": {
+    "phone": "+91 98765 43210",
+    "whatsapp": "+91 98765 43210",
+    "email": "hello@example-restaurant.in",
+    "address": "12 Residency Road, Bengaluru, Karnataka 560025"
+  },
+
+  "content": {
+    "header": {
+      "variant": "left",
+      "props": {
+        "sticky": true,
+        "links": [
+          { "text": "Menu",     "href": "#services" },
+          { "text": "Gallery",  "href": "#gallery" },
+          { "text": "Timings",  "href": "#hours" },
+          { "text": "Contact",  "href": "#contact" }
+        ],
+        "cta": { "text": "Book a Table", "href": "#contact", "style": "primary" }
+      }
+    },
+
+    "hero": {
+      "variant": "centered-bg",
+      "props": {
+        "badge": "Open 7 days a week",
+        "heading": "Slow-cooked, wood-fired, made to be shared",
+        "sub": "A neighbourhood kitchen serving seasonal plates, fresh bread and honest coffee since 2014.",
+        "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=2000&q=80",
+        "fullHeight": true,
+        "ctaPrimary":   { "text": "Book a Table",  "href": "#contact", "style": "primary" },
+        "ctaSecondary": { "text": "See the Menu",  "href": "#services", "style": "ghost" },
+        "showCall": true
+      },
+      "style": { "overlay": 0.5 }
+    },
+
+    "about": {
+      "variant": "image-left",
+      "props": {
+        "label": "Our Story",
+        "heading": "Cooked the long way, on purpose",
+        "body": "We started with one wood-fired oven and a short menu we could cook properly. That has not really changed.\n\nEverything is prepped in-house each morning — the bread, the stocks, the sauces. We buy produce from growers we have worked with for years, so the menu shifts a little with every season.",
+        "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=80",
+        "showPillars": true,
+        "pillars": [
+          { "title": "Seasonal produce",  "text": "Sourced weekly from local farms, so the menu changes as the season does." },
+          { "title": "Baked every morning", "text": "Sourdough and focaccia out of the oven before we open the doors." },
+          { "title": "Wood-fired kitchen", "text": "Live fire cooking that gives everything its char and depth." },
+          { "title": "Warm, unfussy service", "text": "Good food without the ceremony — come as you are." }
+        ]
+      }
+    },
+
+    "services": {
+      "variant": "cards-3",
+      "props": {
+        "label": "From the Kitchen",
+        "heading": "Menu highlights",
+        "sub": "A few of the plates our regulars keep coming back for. The full menu changes with the season.",
+        "items": [
+          {
+            "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=80",
+            "title": "Smoked Chicken & Pineapple Pizza",
+            "desc": "Barbecue chicken, pineapple, red onion and coriander on a 48-hour fermented base.",
+            "meta": "Most ordered",
+            "price": "₹520"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80",
+            "title": "Rainbow Protein Bowl",
+            "desc": "Tofu, edamame, sweetcorn, egg and crisp greens with a toasted sesame dressing.",
+            "meta": "Vegetarian",
+            "price": "₹420"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?auto=format&fit=crop&w=1200&q=80",
+            "title": "Herb-Roasted Chicken",
+            "desc": "Thyme-roasted chicken with garlic kale and pomegranate.",
+            "meta": "Chef's pick",
+            "price": "₹560"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1200&q=80",
+            "title": "Garden Table Salad",
+            "desc": "Mixed leaves, feta, walnuts, olives and carrot with a citrus vinaigrette.",
+            "price": "₹340"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?auto=format&fit=crop&w=1200&q=80",
+            "title": "Buttermilk Pancakes",
+            "desc": "Stacked with maple syrup, fresh banana and toasted almond.",
+            "meta": "All-day breakfast",
+            "price": "₹360"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=1200&q=80",
+            "title": "House Curry & Basmati",
+            "desc": "Slow-simmered curry finished with cream and coriander, served with steamed basmati.",
+            "meta": "Comfort classic",
+            "price": "₹480"
+          }
+        ]
+      }
+    },
+
+    "gallery": {
+      "variant": "grid-3",
+      "props": {
+        "label": "The Room",
+        "heading": "A look inside",
+        "lightbox": true,
+        "images": [
+          { "image": "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1200&q=80", "alt": "Our dining room" },
+          { "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80", "alt": "Seating and interiors" },
+          { "image": "https://images.unsplash.com/photo-1481931098730-318b6f776db0?auto=format&fit=crop&w=1200&q=80", "alt": "The counter" },
+          { "image": "https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?auto=format&fit=crop&w=1200&q=80", "alt": "From the kitchen" },
+          { "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80", "alt": "Evening ambience" },
+          { "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80", "alt": "A plate going out to the table" }
+        ]
+      }
+    },
+
+    "testimonials": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Reviews",
+        "heading": "What our regulars say",
+        "items": [
+          { "quote": "The margherita is the best in the city, and I have tried most of them. We end up here almost every other weekend.", "name": "Ananya Rao", "role": "Regular since 2019", "rating": 5 },
+          { "quote": "Booked the back room for my parents' anniversary. They handled everything and the food came out perfectly timed.", "name": "Vikram Shetty", "role": "Private dining", "rating": 5 },
+          { "quote": "Genuinely good vegetarian options that are not an afterthought. The grain bowl is superb.", "name": "Meera Iyer", "role": "Google review", "rating": 5 }
+        ]
+      }
+    },
+
+    "hours": {
+      "variant": "cards",
+      "props": {
+        "label": "Timings",
+        "heading": "When we're open",
+        "highlightToday": true,
+        "note": "Kitchen closes 30 minutes before closing time. Last orders for the wood-fired oven at 10:15 PM."
+      }
+    },
+
+    "cta": {
+      "variant": "banner",
+      "props": {
+        "heading": "Planning dinner, or something bigger?",
+        "sub": "Walk-ins are always welcome. For groups of six or more, or the private room, drop us a message and we'll sort it out.",
+        "ctaPrimary": { "text": "Book a Table", "href": "#contact", "style": "primary" },
+        "showWhatsapp": true,
+        "showCall": true
+      }
+    },
+
+    "contact": {
+      "variant": "form-map",
+      "props": {
+        "label": "Find Us",
+        "heading": "Reservations & enquiries",
+        "sub": "Tell us the date, time and how many of you there are — we'll confirm within the hour.",
+        "showPhone": true,
+        "showWhatsapp": true,
+        "showEmail": true,
+        "showAddress": true,
+        "showHours": true,
+        "showMap": true,
+        "submitText": "Request a Table"
+      }
+    },
+
+    "footer": {
+      "variant": "columns",
+      "props": {
+        "blurb": "A neighbourhood kitchen serving seasonal plates, fresh bread and honest coffee since 2014.",
+        "showContact": true,
+        "showHours": true,
+        "showSocial": true,
+        "showLegal": true
+      }
+    }
+  },
+
+  "notes": "`sections` are inserted in order when a new restaurant site is created; `content` layers ready-made copy and photos over each section's manifest defaults so the starter site is demo-ready. Photos are hosted Unsplash URLs (SiteRenderer::media passes any http(s) URL straight through), so nothing is uploaded to the client's media library — replace them with the customer's own shots before going live."
+}
