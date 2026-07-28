@@ -1,0 +1,29 @@
+{
+  "preset": "sage-linen",
+  "label": "Sage & Linen",
+  "description": "Muted eucalyptus green with a warm sand accent on a linen-white page. Calm and unhurried — suits salons, spas, wellness studios, yoga and skincare.",
+  "industries": ["salon", "spa", "wellness", "yoga", "skincare", "ayurveda"],
+
+  "tokens": {
+    "mode": "light",
+    "color": {
+      "primary":   "#4A6151",
+      "secondary": "#6B8574",
+      "accent":    "#C2A878",
+      "bg":        "#FCFBF8",
+      "surface":   "#F1F0E9",
+      "text":      "#1F2621",
+      "muted":     "#6E7770",
+      "border":    "#E2E0D6"
+    },
+    "font": {
+      "heading": "Marcellus",
+      "body":    "Karla"
+    },
+    "radius":    "lg",
+    "spacing":   "spacious",
+    "container": "normal"
+  },
+
+  "notes": "Tokens only — sections never hardcode colours, they read these as CSS variables. Sage sits opposite the pinks and mauves common in salon photography, so treatment photos lift off the page instead of fighting it. Marcellus ships in a single weight (400); SiteRenderer::googleFonts() requests 400-700 and Google serves the nearest available, which is why it still resolves."
+}

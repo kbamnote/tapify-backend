@@ -1,0 +1,253 @@
+{
+  "id": "salon",
+  "label": "Salon / Spa",
+  "aliases": ["beauty-parlour", "spa", "hair", "unisex-salon", "barber", "wellness", "nail-studio", "makeup"],
+  "icon": "scissors",
+  "theme": { "preset": "sage-linen" },
+
+  "description": "Hair, beauty and wellness: a priced treatment menu, stylist profiles, gallery and online appointment booking.",
+
+  "sections": [
+    "header",
+    "hero",
+    "about",
+    "services",
+    "team",
+    "appointment",
+    "gallery",
+    "testimonials",
+    "hours",
+    "contact",
+    "footer"
+  ],
+
+  "recommended": [
+    { "type": "hero",         "reason": "Warm opening shot + 'Book an appointment' CTA" },
+    { "type": "about",        "reason": "Your studio's approach, products and training" },
+    { "type": "services",     "reason": "The treatment menu with prices and durations" },
+    { "type": "team",         "reason": "Stylists and therapists, and what each is known for" },
+    { "type": "appointment",  "reason": "Let clients book a slot without phoning" },
+    { "type": "gallery",      "reason": "The studio and finished work" },
+    { "type": "testimonials", "reason": "Reviews carry a lot of weight in beauty" },
+    { "type": "hours",        "reason": "Opening times, and which day you're closed" },
+    { "type": "contact",      "reason": "Address, phone and directions" },
+    { "type": "footer",       "reason": "Links, socials, copyright" }
+  ],
+
+  "business": {
+    "phone": "+91 98765 43210",
+    "whatsapp": "+91 98765 43210",
+    "email": "hello@example-salon.in",
+    "address": "5 Lavelle Road, Bengaluru, Karnataka 560001"
+  },
+
+  "content": {
+    "header": {
+      "variant": "left",
+      "props": {
+        "sticky": true,
+        "links": [
+          { "text": "Treatments",   "href": "#services" },
+          { "text": "Our Team",     "href": "#team" },
+          { "text": "Gallery",      "href": "#gallery" },
+          { "text": "Visit",        "href": "#contact" }
+        ],
+        "cta": { "text": "Book Now", "href": "#appointment", "style": "primary" }
+      }
+    },
+
+    "hero": {
+      "variant": "centered-bg",
+      "props": {
+        "badge": "Open Tue – Sun",
+        "heading": "An hour that's actually yours",
+        "sub": "Hair, skin and body treatments in an unhurried studio — with a consultation before every service, so you leave with what you asked for.",
+        "image": "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=2000&q=80",
+        "fullHeight": true,
+        "ctaPrimary":   { "text": "Book an Appointment", "href": "#appointment", "style": "primary" },
+        "ctaSecondary": { "text": "See Treatments",      "href": "#services",    "style": "ghost" },
+        "showWhatsapp": true,
+        "showCall": true
+      },
+      "style": { "overlay": 0.5 }
+    },
+
+    "about": {
+      "variant": "image-left",
+      "props": {
+        "label": "The Studio",
+        "heading": "Unhurried, and properly consulted",
+        "body": "We keep the chair count low on purpose. Fewer clients at a time means nobody is left sitting with colour on while their stylist runs to another head.\n\nEvery service starts with a short consultation — what you want, what your hair or skin will actually do, and what it takes to keep it up at home. If we think something will not suit you, we will say so before we start, not after.\n\nWe use professional, cruelty-free product lines throughout, and we patch-test all colour and chemical services 48 hours ahead.",
+        "image": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1400&q=80",
+        "showPillars": true,
+        "pillars": [
+          { "title": "Consultation first", "text": "Ten minutes before every service, so expectations match the result." },
+          { "title": "Patch-tested",       "text": "All colour and chemical work is patch-tested 48 hours in advance." },
+          { "title": "Cruelty-free",       "text": "Professional product lines, none of them animal tested." },
+          { "title": "Two weeks' aftercare","text": "Any adjustment within a fortnight of a service is free." }
+        ]
+      }
+    },
+
+    "services": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Treatment Menu",
+        "heading": "What we do",
+        "sub": "Prices are a starting point — hair length, density and product use can change them. We confirm the final cost at consultation, before we begin.",
+        "items": [
+          {
+            "image": "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1200&q=80",
+            "title": "Cut, Wash & Blow-Dry",
+            "desc": "Consultation, wash with a head massage, precision cut and a finished blow-dry.",
+            "meta": "60–75 min",
+            "price": "₹899"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80",
+            "title": "Colour & Highlights",
+            "desc": "Global colour, balayage or foil highlights, with a bond-protecting treatment included.",
+            "meta": "2–4 hrs · patch test needed",
+            "price": "₹2,499"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1200&q=80",
+            "title": "Hair Spa & Treatments",
+            "desc": "Deep conditioning, scalp care and smoothing treatments for dry or chemically treated hair.",
+            "meta": "45–90 min",
+            "price": "₹1,299"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=80",
+            "title": "Facials & Skincare",
+            "desc": "Cleansing, hydrating and brightening facials, matched to your skin at consultation.",
+            "meta": "45–60 min",
+            "price": "₹1,499"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1512290923902-8a9f81dc236c?auto=format&fit=crop&w=1200&q=80",
+            "title": "Threading & Waxing",
+            "desc": "Brow shaping and threading, plus full waxing services using warm and cold wax.",
+            "meta": "15–45 min",
+            "price": "₹149"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1200&q=80",
+            "title": "Men's Grooming",
+            "desc": "Cuts, fades, beard shaping and hot-towel shaves — walk-ins welcome on weekdays.",
+            "meta": "30–45 min",
+            "price": "₹499"
+          }
+        ]
+      }
+    },
+
+    "team": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Our Team",
+        "heading": "Who you'll be booking with",
+        "sub": "Replace these with your own team and their photographs.",
+        "items": [
+          { "name": "Aisha",  "role": "Senior Stylist",       "meta": "12 yrs", "bio": "Precision cutting and curly hair. Books out early — worth planning ahead." },
+          { "name": "Rohan",  "role": "Colour Specialist",    "meta": "9 yrs",  "bio": "Balayage, colour correction and going lighter without wrecking the hair." },
+          { "name": "Neha",   "role": "Skin Therapist",       "meta": "7 yrs",  "bio": "Facials, peels and skin consultations for acne-prone and sensitive skin." },
+          { "name": "Imran",  "role": "Barber",               "meta": "10 yrs", "bio": "Fades, classic cuts, beard shaping and hot-towel shaves." },
+          { "name": "Divya",  "role": "Bridal & Makeup",      "meta": "8 yrs",  "bio": "Bridal hair and makeup, trials by appointment. Travels for weddings." },
+          { "name": "Kavya",  "role": "Massage Therapist",    "meta": "6 yrs",  "bio": "Deep tissue, aromatherapy and pre-natal massage." }
+        ]
+      }
+    },
+
+    "appointment": {
+      "variant": "image-right",
+      "props": {
+        "label": "Bookings",
+        "heading": "Reserve your slot",
+        "sub": "Pick a treatment and a time that suits you. We confirm by WhatsApp, usually within the hour. Colour and chemical services need a patch test 48 hours before.",
+        "image": "https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=1200&q=80",
+        "submitText": "Request Booking",
+        "services": [
+          "Cut, Wash & Blow-Dry",
+          "Colour & Highlights",
+          "Hair Spa & Treatments",
+          "Facials & Skincare",
+          "Threading & Waxing",
+          "Men's Grooming",
+          "Massage & Body",
+          "Bridal — trial or event",
+          "Not sure — please advise"
+        ]
+      }
+    },
+
+    "gallery": {
+      "variant": "grid-3",
+      "props": {
+        "label": "Gallery",
+        "heading": "Inside the studio",
+        "lightbox": true,
+        "images": [
+          { "image": "https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1200&q=80", "alt": "Styling stations" },
+          { "image": "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=80", "alt": "The salon floor" },
+          { "image": "https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=1200&q=80", "alt": "Finishing a blow-dry" },
+          { "image": "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80", "alt": "Colour and shine" },
+          { "image": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=80", "alt": "Massage and body treatments" },
+          { "image": "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80", "alt": "Products and treatment room" }
+        ]
+      }
+    },
+
+    "testimonials": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Reviews",
+        "heading": "What clients say",
+        "items": [
+          { "quote": "First place that actually talked me out of the colour I asked for — and was right. My hair has never been in better condition.", "name": "Shruti Deshpande", "role": "Colour client", "rating": 5 },
+          { "quote": "Booked a bridal trial and they gave me the full hour with no rush. On the day everything ran exactly to time.", "name": "Fatima Sheikh", "role": "Bridal", "rating": 5 },
+          { "quote": "I take my son for his cut and go straight into a facial. Easiest hour of my month.", "name": "Latha Krishnan", "role": "Regular", "rating": 5 }
+        ]
+      }
+    },
+
+    "hours": {
+      "variant": "cards",
+      "props": {
+        "label": "Timings",
+        "heading": "When we're open",
+        "highlightToday": true,
+        "note": "Closed Mondays. Last appointment is taken one hour before closing. Bridal bookings can be arranged outside these hours."
+      }
+    },
+
+    "contact": {
+      "variant": "form-map",
+      "props": {
+        "label": "Find Us",
+        "heading": "Visit or ask us anything",
+        "sub": "For bookings please use the form above — this one is for everything else.",
+        "showPhone": true,
+        "showWhatsapp": true,
+        "showEmail": true,
+        "showAddress": true,
+        "showHours": true,
+        "showMap": true,
+        "submitText": "Send Enquiry"
+      }
+    },
+
+    "footer": {
+      "variant": "columns",
+      "props": {
+        "blurb": "Hair, skin and body treatments in an unhurried studio — consultation before every service.",
+        "showContact": true,
+        "showHours": true,
+        "showSocial": true,
+        "showLegal": true
+      }
+    }
+  },
+
+  "notes": "Stylists are listed WITHOUT photographs — the Team section falls back to a clean initial avatar — so no real stock-photo face is captioned with an invented name; the salon should add its own team shots. Prices are written as starting points with durations, and the copy repeatedly says the final cost is confirmed at consultation, which is how salons actually quote and avoids implying a fixed rate. Patch-testing before colour is mentioned in three places on purpose: it is a genuine safety step and a real salon's site should say so. Photos are hosted Unsplash URLs (SiteRenderer::media passes any http(s) URL through) — replace them with the studio's own work before going live."
+}
