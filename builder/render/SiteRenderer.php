@@ -417,7 +417,12 @@ class SiteRenderer
 
     /** SectionShell: padding / bg / align / radius + bg-image + overlay + container. */
     /** @param string $backdrop full-bleed layer behind the content (e.g. a hero video) */
-    private static function shell(array $s, string $inner, string $extraStyle = '', string $backdrop = ''): string
+    /**
+     * $extraClass (not an inline style) is how a section opts into layout the
+     * stylesheet can still override at a breakpoint — inline styles beat media
+     * queries, so anything that must respond to screen size has to be a class.
+     */
+    private static function shell(array $s, string $inner, string $extraClass = '', string $backdrop = ''): string
     {
         $style = $s['style'] ?? [];
         $padMap = ['none'=>0,'sm'=>28,'md'=>48,'lg'=>72,'xl'=>104];
@@ -439,7 +444,10 @@ class SiteRenderer
         if (self::isColor($style['headingColor'] ?? null)) $vars .= '--tf-heading:' . $style['headingColor'] . ';';
         if (self::isColor($style['textColor'] ?? null))    $vars .= '--tf-text:' . $style['textColor'] . ';';
 
-        $secStyle = 'padding-top:calc(' . $pad . 'px*var(--space-scale));padding-bottom:calc(' . $pad . 'px*var(--space-scale));'
+        // Padding rides on a custom property rather than a literal inline padding
+        // so the stylesheet can scale it down on small screens (an inline
+        // padding-top could never be overridden by a media query).
+        $secStyle = '--tf-pad:' . $pad . 'px;'
                   . 'text-align:' . $align . ';' . $bgc . $color . $radius . $vars;
 
         $bgLayer = '';
@@ -451,7 +459,7 @@ class SiteRenderer
         $anim = (!empty($style['animation']) && $style['animation'] !== 'none')
             ? ' data-anim="' . self::esc($style['animation']) . '"' : '';
 
-        return '<section id="' . self::esc($s['id'] ?? '') . '" class="tf-section tf-al-' . $align . '" style="' . $secStyle . $extraStyle . '"' . $anim . '>'
+        return '<section id="' . self::esc($s['id'] ?? '') . '" class="tf-section tf-al-' . $align . ($extraClass ? ' ' . $extraClass : '') . '" style="' . $secStyle . '"' . $anim . '>'
              . $bgLayer
              . $backdrop
              . '<div class="tf-container tf-rel">' . $inner . '</div>'
@@ -687,8 +695,9 @@ class SiteRenderer
             $s['style'] = array_merge($s['style'] ?? [], ['bg' => 'dark']);
         }
         $onDark = self::isDarkBg($s);
-        // Full-viewport hero, like a landing page.
-        $fh = !empty($p['fullHeight']) ? 'min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;justify-content:center;' : '';
+        // Full-viewport hero, like a landing page. A CLASS, not an inline style,
+        // so the mobile breakpoint can shorten it (see .tf-full in baseCss).
+        $fh = !empty($p['fullHeight']) ? 'tf-full' : '';
 
         $body = '';
         if (!empty($p['badge'])) $body .= '<span class="tf-badge">' . self::esc($p['badge']) . '</span>';
@@ -2851,7 +2860,27 @@ img{max-width:100%;display:block}
 .tf-site{font-family:var(--font-body);color:var(--color-text);background:var(--color-bg);line-height:1.6;-webkit-font-smoothing:antialiased}
 .tf-container{max-width:var(--container);margin:0 auto;padding:0 20px;width:100%}
 @media(min-width:768px){.tf-container{padding:0 32px}}
-.tf-section{position:relative;overflow:hidden;width:100%}
+.tf-section{position:relative;overflow:hidden;width:100%;padding-top:calc(var(--tf-pad,72px)*var(--space-scale));padding-bottom:calc(var(--tf-pad,72px)*var(--space-scale))}
+/* Full-screen hero. svh (not vh/dvh) is the stable choice on phones: vh is the
+   TALLEST state, so with the URL bar showing the hero overflows the screen and
+   the buttons fall below the fold; dvh resizes live and makes the video jump
+   while scrolling. */
+.tf-full{min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center}
+@media(max-width:640px){
+  /* Desktop section padding (72-104px) is far too tall on a phone — scale it
+     back so a section isn't mostly empty space. */
+  .tf-section{padding-top:calc(var(--tf-pad,72px)*var(--space-scale)*.55);padding-bottom:calc(var(--tf-pad,72px)*var(--space-scale)*.55)}
+  /* A 16:9 video covering a 375x800 portrait box has to crop ~80% of its width,
+     so the subject is lost. A shorter hero keeps the box closer to the video's
+     own shape and much more of the frame stays visible. */
+  .tf-full{min-height:78vh;min-height:78svh}
+  .tf-hero-wrap{max-width:100%}
+  /* Full-width stacked buttons: side-by-side CTAs get squeezed to a few
+     characters at 360px. */
+  .tf-btns{margin-top:24px;gap:10px}
+  .tf-btns>.tf-btn:not(.tf-btn-link){flex:1 1 100%}
+  .tf-two{gap:24px}
+}
 .tf-rel{position:relative;z-index:1}
 .tf-bgimg{position:absolute;inset:0;background-size:cover;background-position:center}
 .tf-overlay{position:absolute;inset:0}
