@@ -59,13 +59,72 @@ try {
         if ((int)$st->fetchColumn() >= 10) sendError('Too many requests from this device. Please try again later.', 429);
     }
 
-    // Don't double-book the same slot for this site.
+    // How many bookings this site accepts per slot (chairs, doctors, tables).
+    // Defaults to 1, which is the old one-booking-per-slot behaviour.
+    $capacity = 1;
+    try {
+        $cq = $db->prepare("SELECT capacity FROM site_schedule_settings WHERE site_id = ? LIMIT 1");
+        $cq->execute([(int)$site['id']]);
+        $found = $cq->fetchColumn();
+        if ($found !== false) $capacity = max(1, (int)$found);
+    } catch (Exception $eCap) {
+        $capacity = 1;   // table or column not migrated yet
+    }
+
+    // Don't overfill the slot. Counted rather than flagged so a slot stays open
+    // until it actually reaches capacity.
     $st = $db->prepare(
-        "SELECT id FROM site_appointments
+        "SELECT COUNT(*) FROM site_appointments
           WHERE site_id = ? AND appointment_date = ? AND appointment_time = ? AND status != 'cancelled'"
     );
     $st->execute([(int)$site['id'], $date, $time24]);
-    if ($st->fetchColumn()) sendError('That time has just been taken. Please pick another slot.');
+    if ((int)$st->fetchColumn() >= $capacity) {
+        sendError('That time has just been taken. Please pick another slot.');
+    }
+
+    // The time must fall inside the owner's published availability. The dropdown
+    // already hides everything else, but that is only the UI — without this a
+    // direct POST could book 3am on a day the business is closed.
+    //
+    // Only enforced once a site HAS a schedule: sites created before this
+    // feature have none, and must keep accepting requests as they always did.
+    if ($db->query("SHOW TABLES LIKE 'site_schedule'")->fetchColumn()) {
+        $sc = $db->prepare("SELECT day_of_week, start_time, end_time FROM site_schedule WHERE site_id = ?");
+        $sc->execute([(int)$site['id']]);
+        $ranges = $sc->fetchAll(PDO::FETCH_ASSOC);
+
+        if ($ranges) {
+            $slotMin = 30; $leadMin = 120; $horizon = 60;
+            $cq = $db->prepare("SELECT slot_minutes, lead_minutes, horizon_days FROM site_schedule_settings WHERE site_id = ? LIMIT 1");
+            $cq->execute([(int)$site['id']]);
+            if ($cfg = $cq->fetch(PDO::FETCH_ASSOC)) {
+                $slotMin = max(5, (int)$cfg['slot_minutes']);
+                $leadMin = max(0, (int)$cfg['lead_minutes']);
+                $horizon = max(1, (int)$cfg['horizon_days']);
+            }
+
+            if ((new DateTime($date)) > (new DateTime('today'))->modify('+' . $horizon . ' days')) {
+                sendError('That date is too far ahead. Please pick a nearer date.');
+            }
+            if (strtotime($date . ' ' . $time24) < time() + ($leadMin * 60)) {
+                sendError('That slot is too soon. Please pick a later time.');
+            }
+
+            $dow  = (int)date('w', strtotime($date));
+            $step = $slotMin * 60;
+            $ok   = false;
+            foreach ($ranges as $r) {
+                if ((int)$r['day_of_week'] !== $dow) continue;
+                $cur = strtotime($date . ' ' . $r['start_time']);
+                $end = strtotime($date . ' ' . $r['end_time']);
+                while ($cur + $step <= $end) {
+                    if (date('H:i', $cur) === date('H:i', strtotime($time24))) { $ok = true; break 2; }
+                    $cur += $step;
+                }
+            }
+            if (!$ok) sendError('That time is not available. Please pick one of the offered slots.');
+        }
+    }
 
     $st = $db->prepare(
         "INSERT INTO site_appointments

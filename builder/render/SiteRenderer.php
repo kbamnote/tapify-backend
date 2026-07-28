@@ -2608,15 +2608,11 @@ JS;
         $in  = 'width:100%;padding:10px 12px;font-size:14px;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-bg);color:var(--color-text)';
         $lb  = 'display:block;margin-bottom:4px;font-size:12px;font-weight:600';
 
-        // Times are picked in 12-hour AM/PM form; the API converts to 24h.
-        $times = '<option value="">Select a time…</option>';
-        for ($h = 0; $h < 24; $h++) {
-            foreach ([0, 30] as $m) {
-                $ampm  = $h < 12 ? 'AM' : 'PM';
-                $hh    = ($h % 12) ?: 12;
-                $times .= '<option>' . sprintf('%02d:%02d %s', $hh, $m, $ampm) . '</option>';
-            }
-        }
+        // The time list is filled in by JS once a date is picked — it comes from
+        // the owner's availability minus whatever is already booked (see
+        // api/sites/slots_public.php). Sites with no availability configured fall
+        // back to this open half-hour list, so nothing that worked before breaks.
+        $times = '<option value="">Select a date first…</option>';
 
         $f  = '<div><label style="' . $lb . '">Name *</label><input class="' . $uid . '-f" data-k="name" required style="' . $in . '"></div>';
         $f .= '<div><label style="' . $lb . '">Phone *</label><input class="' . $uid . '-f" data-k="phone" type="tel" required style="' . $in . '"></div>';
@@ -2648,6 +2644,29 @@ JS;
 
         $script = '<script>(function(){var U=' . json_encode($uid) . ',C=' . $cfg . ';'
             . 'var fm=document.getElementById(U),m=document.getElementById(U+"-msg");if(!fm)return;'
+            // ---- availability: load free slots for the chosen date ----
+            . 'var dEl=fm.querySelector("[data-k=date]"),tEl=fm.querySelector("[data-k=time]");'
+            // The option VALUE stays the bare time — the submit endpoint parses it.
+            // Any "N left" hint goes in the visible text only.
+            . 'function setOpts(list,ph){tEl.innerHTML="";var o=document.createElement("option");o.value="";o.textContent=ph;tEl.appendChild(o);'
+            . 'list.forEach(function(s){var e=document.createElement("option");e.value=s.label;'
+            . 'e.textContent=(s.left>0&&s.left<3)?(s.label+"  ("+s.left+" left)"):s.label;tEl.appendChild(e);});}'
+            // The pre-availability behaviour, kept for sites whose owner has not
+            // set a schedule yet — otherwise their booking form would go dead.
+            . 'function openList(){var a=[];for(var h=0;h<24;h++){[0,30].forEach(function(mm){'
+            . 'var ap=h<12?"AM":"PM",hh=(h%12)||12;a.push({label:("0"+hh).slice(-2)+":"+("0"+mm).slice(-2)+" "+ap});});}return a;}'
+            . 'function loadSlots(){var dv=dEl&&dEl.value;if(!dv){setOpts([],"Select a date first…");return;}'
+            . 'tEl.disabled=true;setOpts([],"Loading times…");'
+            . 'fetch(C.api+"/api/sites/slots_public.php?site="+encodeURIComponent(C.site)+"&date="+encodeURIComponent(dv),{headers:{"Accept":"application/json"}})'
+            . '.then(function(r){return r.json();}).then(function(res){tEl.disabled=false;'
+            . 'var d=(res&&res.data)||{};'
+            . 'if(!d.configured){setOpts(openList(),"Select a time…");return;}'
+            . 'if(!d.slots||!d.slots.length){setOpts([],"No times available on this date");return;}'
+            . 'setOpts(d.slots,"Select a time…");})'
+            // A failed lookup must not strand the visitor with an empty dropdown,
+            // so fall back to the open list rather than blocking the booking.
+            . '.catch(function(){tEl.disabled=false;setOpts(openList(),"Select a time…");});}'
+            . 'if(dEl&&tEl){dEl.addEventListener("change",loadSlots);loadSlots();}'
             . 'fm.addEventListener("submit",function(e){e.preventDefault();'
             . 'var d={};fm.querySelectorAll("."+U+"-f").forEach(function(el){d[el.getAttribute("data-k")]=(el.value||"").trim();});'
             . 'var b=fm.querySelector("button[type=submit]");b.disabled=true;var ob=b.textContent;b.textContent="Sending…";'
@@ -2660,7 +2679,9 @@ JS;
             . 'var txt=t.join("\n");'
             . 'if(C.notify==="whatsapp"&&C.wa){window.open("https://wa.me/"+C.wa+"?text="+encodeURIComponent(txt),"_blank");}'
             . 'else if(C.notify==="email"&&C.email){window.open("mailto:"+C.email+"?subject="+encodeURIComponent("Appointment request")+"&body="+encodeURIComponent(txt),"_blank");}'
-            . 'fm.reset();}'
+            // Re-read availability after booking: the slot just taken must not
+            // still be offered if they book again for the same day.
+            . 'fm.reset();if(dEl&&tEl)loadSlots();}'
             . 'else{m.style.color="#dc2626";m.textContent=(res&&res.message)||"Could not send the request.";}})'
             . '.catch(function(){b.disabled=false;b.textContent=ob;m.style.color="#dc2626";m.textContent="Connection error.";});});})();</script>';
 
