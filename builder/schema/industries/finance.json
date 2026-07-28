@@ -1,0 +1,234 @@
+{
+  "id": "finance",
+  "label": "Tax & Finance Consultant",
+  "aliases": ["tax", "accounting", "ca", "gst", "audit", "investment", "insurance", "advisory"],
+  "icon": "calculator",
+  "theme": { "preset": "graphite-emerald" },
+
+  "description": "Tax, accounting and investment consultants: services, timings, credentials and enquiries.",
+
+  "sections": [
+    "header",
+    "hero",
+    "about",
+    "services",
+    "team",
+    "faq",
+    "cta",
+    "hours",
+    "contact",
+    "footer"
+  ],
+
+  "recommended": [
+    { "type": "hero",     "reason": "Who you help, and a clear way to reach you" },
+    { "type": "about",    "reason": "Your background and how you work with clients" },
+    { "type": "services", "reason": "Accounting, taxation, GST, insurance, investments" },
+    { "type": "team",     "reason": "The consultant clients will actually deal with" },
+    { "type": "faq",      "reason": "Documents needed, timelines, how to get started" },
+    { "type": "cta",      "reason": "Push the consultation enquiry" },
+    { "type": "hours",    "reason": "Office timings and weekly off" },
+    { "type": "contact",  "reason": "Phone, WhatsApp, email and enquiry form" },
+    { "type": "footer",   "reason": "Links, socials, disclaimer, copyright" }
+  ],
+
+  "business": {
+    "phone": "+91 86008 88874",
+    "whatsapp": "+918600888874",
+    "email": "jainashish_31@rediffmail.com",
+    "social": {
+      "instagram": "https://www.instagram.com/ashishvindanejain/",
+      "facebook": "https://www.facebook.com/ashishvindanejain/"
+    },
+    "hours": [
+      { "day": "mon", "open": "10:30 AM", "close": "07:30 PM" },
+      { "day": "tue", "open": "10:30 AM", "close": "07:30 PM" },
+      { "day": "wed", "open": "10:30 AM", "close": "07:30 PM" },
+      { "day": "thu", "open": "10:30 AM", "close": "07:30 PM" },
+      { "day": "fri", "open": "10:30 AM", "close": "07:30 PM" },
+      { "day": "sat", "open": "10:30 AM", "close": "07:30 PM" },
+      { "day": "sun", "closed": true }
+    ]
+  },
+
+  "content": {
+    "header": {
+      "variant": "left",
+      "props": {
+        "sticky": true,
+        "links": [
+          { "text": "Services", "href": "#services" },
+          { "text": "About",    "href": "#about" },
+          { "text": "FAQs",     "href": "#faq" },
+          { "text": "Contact",  "href": "#contact" }
+        ],
+        "cta": { "text": "Book a Consultation", "href": "#contact", "style": "primary" }
+      }
+    },
+
+    "hero": {
+      "variant": "centered-bg",
+      "props": {
+        "badge": "Accounting · Taxation · GST · Insurance · Mutual Funds",
+        "heading": "Your accounts, taxes and investments — handled properly",
+        "sub": "Ashish Jain & Associates works with individuals, professionals and small businesses across accounting, taxation, GST compliance, insurance and mutual funds.",
+        "image": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2000&q=80",
+        "fullHeight": true,
+        "ctaPrimary":   { "text": "Book a Consultation", "href": "#contact",  "style": "primary" },
+        "ctaSecondary": { "text": "Our Services",        "href": "#services", "style": "ghost" },
+        "showWhatsapp": true,
+        "showCall": true
+      },
+      "style": { "overlay": 0.62 }
+    },
+
+    "about": {
+      "variant": "image-right",
+      "props": {
+        "label": "About Us",
+        "heading": "Straight answers on money matters",
+        "body": "Ashish Jain & Associates is a tax, finance and investment consultancy serving individuals, professionals and small businesses.\n\nWe handle the routine work properly — books kept current, returns filed on time, GST reconciled before it becomes a problem — so nothing turns into a notice you have to deal with later.\n\nOn insurance and mutual funds, we explain what a product actually does and what it costs before you commit to it. You deal with Ashish Jain directly, not a call centre, and the same person stays with your file year after year.",
+        "image": "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1400&q=80",
+        "showPillars": true,
+        "pillars": [
+          { "title": "One point of contact",  "text": "You deal with the same consultant every time, who already knows your file." },
+          { "title": "Deadlines tracked",     "text": "We remind you before a filing is due, not after it has been missed." },
+          { "title": "Costs explained first", "text": "Charges and product costs are set out before any work or investment begins." },
+          { "title": "Records kept in order", "text": "Your documents and filings stay organised and available when you need them." }
+        ]
+      }
+    },
+
+    "services": {
+      "variant": "cards-3",
+      "props": {
+        "label": "What We Do",
+        "heading": "Our Services",
+        "sub": "Everything from day-to-day bookkeeping through to tax filing and investment planning, under one roof.",
+        "items": [
+          {
+            "image": "https://images.unsplash.com/photo-1638913662252-70efce1e60a7?auto=format&fit=crop&w=1200&q=80",
+            "title": "Accounting",
+            "desc": "Bookkeeping, ledgers, reconciliations and year-end statements for individuals and small businesses.",
+            "meta": "Monthly or annual"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80",
+            "title": "Taxation",
+            "desc": "Income tax planning and return filing, TDS matters, and help responding to departmental notices.",
+            "meta": "Individuals & businesses"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+            "title": "G.S.T.",
+            "desc": "GST registration, monthly and annual returns, input credit reconciliation and compliance support.",
+            "meta": "Registration & returns"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80",
+            "title": "Insurance",
+            "desc": "Life and general insurance — we walk through what a policy covers, what it excludes and what it costs.",
+            "meta": "Life & general"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1591696205602-2f950c417cb9?auto=format&fit=crop&w=1200&q=80",
+            "title": "Mutual Funds",
+            "desc": "Help choosing and reviewing mutual fund investments, with the costs and risks explained plainly.",
+            "meta": "SIP & lump sum"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=1200&q=80",
+            "title": "Investment Review",
+            "desc": "A periodic look at what you already hold, whether it still suits you, and what it is costing you.",
+            "meta": "By appointment"
+          }
+        ]
+      }
+    },
+
+    "team": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Who You'll Deal With",
+        "heading": "Your consultant",
+        "sub": "Add a photograph and your registration numbers here — clients look for them.",
+        "items": [
+          {
+            "name": "Ashish Jain",
+            "role": "Tax, Finance & Investment Consultant",
+            "bio": "Handles accounting, taxation and GST work, and advises on insurance and mutual fund investments. Reachable directly on phone or WhatsApp during office hours."
+          }
+        ]
+      }
+    },
+
+    "faq": {
+      "variant": "accordion",
+      "props": {
+        "label": "Getting Started",
+        "heading": "Common questions",
+        "openFirst": true,
+        "items": [
+          { "q": "How do I get started?", "a": "Call or send a WhatsApp message with a short note about what you need — a return filed, books to be set up, GST registration, or a look at your investments. We will tell you what documents to bring and roughly what it will cost before you come in." },
+          { "q": "What documents should I bring for tax filing?", "a": "Generally: PAN and Aadhaar, Form 16 or salary slips, bank statements for the year, interest certificates, and details of any investments or property. If you have filed with someone else before, bring last year's acknowledgement too. We will confirm the exact list for your case when you call." },
+          { "q": "Do you work with small businesses as well as individuals?", "a": "Yes. Individuals, professionals and small businesses — from a single annual return through to monthly bookkeeping and GST filing." },
+          { "q": "How are your charges worked out?", "a": "Charges depend on the scope of work and are agreed with you before anything begins. Ask when you call and we will give you a figure rather than a range." },
+          { "q": "Can things be handled without visiting the office?", "a": "For most routine work, yes — documents can be sent over WhatsApp or email and filings completed remotely. Some matters are simply quicker face to face, and we will say so if that is the case." },
+          { "q": "Do you advise on which insurance or mutual fund to choose?", "a": "We explain what each option does, what it costs and what its risks are, so the decision is an informed one. The final choice is always yours, and we will put the reasoning in writing if you want it." }
+        ]
+      }
+    },
+
+    "cta": {
+      "variant": "banner",
+      "props": {
+        "heading": "Happy with our work?",
+        "sub": "A short review on Google genuinely helps other people find us — and tells us we are getting it right.",
+        "ctaPrimary":   { "text": "Review us on Google", "href": "https://share.google/IDCBjQCjxYYGVS7jZ", "newTab": true, "style": "primary" },
+        "ctaSecondary": { "text": "Book a Consultation", "href": "#contact", "style": "ghost" },
+        "showWhatsapp": true,
+        "showCall": true
+      }
+    },
+
+    "hours": {
+      "variant": "cards",
+      "props": {
+        "label": "Office Timings",
+        "heading": "When we're open",
+        "highlightToday": true,
+        "note": "Closed on Sundays. Outside these hours, send a WhatsApp message and we will get back to you on the next working day."
+      }
+    },
+
+    "contact": {
+      "variant": "form-only",
+      "props": {
+        "label": "Get In Touch",
+        "heading": "Talk to us",
+        "sub": "Mobile: +91 86008 88874 · +91 98222 19708   |   Office: +91 91750 08177\nEmail: jainashish_31@rediffmail.com · a.jainashish31@gmail.com\n\nTell us briefly what you need and we will call you back during office hours.",
+        "showPhone": true,
+        "showWhatsapp": true,
+        "showEmail": true,
+        "showAddress": false,
+        "showHours": true,
+        "showMap": false,
+        "submitText": "Send Enquiry"
+      }
+    },
+
+    "footer": {
+      "variant": "columns",
+      "props": {
+        "blurb": "Ashish Jain & Associates — Tax, Finance & Investment Consultants. Accounting, taxation, GST, insurance and mutual funds for individuals, professionals and small businesses.",
+        "showContact": true,
+        "showHours": true,
+        "showSocial": true,
+        "showLegal": true,
+        "copyright": "© 2026 Ashish Jain & Associates. Mutual Fund investments are subject to market risks — read all scheme related documents carefully. Insurance is the subject matter of solicitation."
+      }
+    }
+  },
+
+  "notes": "PRE-FILLED FOR A SPECIFIC CLIENT: Ashish Jain & Associates. The business block carries their real phone, WhatsApp, email, socials and timings, so any OTHER site created from this recipe would inherit them — genericise the business block and the named copy before reusing it for a different firm.\n\nStill missing from the client's submission: postal address (so showAddress and showMap are off — a share.google review link must NOT be put in mapUrl, it is injected into an iframe and would render a broken map), business logo, and the AMFI ARN / IRDAI registration numbers that a mutual fund distributor and insurance agent are expected to display. Add those to the Team card and footer once supplied.\n\nNo statistics section: client counts and years-in-practice were not provided and must not be invented for a real firm. Service list is exactly the five the client gave plus a review of existing holdings — nothing else was added, since advertising a service they do not offer would mislead their customers. The mandatory mutual-fund market-risk line sits in the footer copyright."
+}

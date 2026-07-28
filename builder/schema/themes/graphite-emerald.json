@@ -1,0 +1,29 @@
+{
+  "preset": "graphite-emerald",
+  "label": "Graphite & Emerald",
+  "description": "Deep graphite with a restrained emerald accent on a near-white page. Sober and credible — suits chartered accountants, tax and financial consultants, legal and advisory firms.",
+  "industries": ["finance", "tax", "accounting", "ca", "consultant", "legal", "advisory"],
+
+  "tokens": {
+    "mode": "light",
+    "color": {
+      "primary":   "#1F2933",
+      "secondary": "#3E4C59",
+      "accent":    "#0E7C66",
+      "bg":        "#FCFCFD",
+      "surface":   "#F2F4F6",
+      "text":      "#141A20",
+      "muted":     "#66727E",
+      "border":    "#E1E5EA"
+    },
+    "font": {
+      "heading": "Lora",
+      "body":    "Inter"
+    },
+    "radius":    "sm",
+    "spacing":   "comfortable",
+    "container": "normal"
+  },
+
+  "notes": "Tokens only — sections never hardcode colours, they read these as CSS variables. Deliberately sober: money advice is bought on trust, and a bright palette reads promotional rather than professional. Emerald is used sparingly for calls to action only."
+}
