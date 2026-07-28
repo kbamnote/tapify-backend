@@ -1,0 +1,472 @@
+{
+  "id": "real-estate",
+  "label": "Real Estate Agency",
+  "aliases": ["property-dealer", "realtor", "builder", "broker", "flats", "plots", "apartments", "realty", "construction", "developer", "housing", "property-consultant", "home-loan"],
+  "icon": "home",
+  "theme": { "preset": "navy-gold" },
+
+  "description": "Property sales, rentals and advisory: listings with prices and details, agency services, gallery, enquiries and site visits.",
+
+  "sections": [
+    "header",
+    "hero",
+    "stats",
+    "about",
+    "services",
+    "products",
+    "gallery",
+    "faq",
+    "testimonials",
+    "blog",
+    "cta",
+    "hours",
+    "contact",
+    "footer"
+  ],
+
+  "recommended": [
+    { "type": "hero",        "reason": "Property photo + 'Schedule a Site Visit' CTA" },
+    { "type": "stats",       "reason": "Properties sold, years of experience, square feet delivered" },
+    { "type": "about",       "reason": "Agency background, team, RERA registration and approach" },
+    { "type": "services",    "reason": "What you offer — buying, selling, rentals, home loans, legal" },
+    { "type": "products",    "reason": "Current listings with prices, photos and detail pages" },
+    { "type": "gallery",     "reason": "Properties, projects and neighbourhood visuals" },
+    { "type": "faq",         "reason": "Buyer and seller FAQs — stamp duty, home loan, RERA" },
+    { "type": "testimonials","reason": "Client references carry heavy weight in property decisions" },
+    { "type": "blog",        "reason": "Market updates, RERA news, home-buying guides" },
+    { "type": "cta",         "reason": "Schedule a visit or request a call-back" },
+    { "type": "hours",       "reason": "Office timings and when site visits are possible" },
+    { "type": "contact",     "reason": "Phone, WhatsApp, email, office map and enquiry form" },
+    { "type": "footer",      "reason": "RERA disclaimer, links, socials, copyright" }
+  ],
+
+  "business": {
+    "phone": "+91 98765 43210",
+    "whatsapp": "+91 98765 43210",
+    "email": "hello@example-realty.in",
+    "address": "Office No. 205, Plot 17, Sector 44, Nerul West, Navi Mumbai, Maharashtra 400706",
+    "social": {
+      "facebook": "https://facebook.com/",
+      "instagram": "https://instagram.com/",
+      "youtube": "https://youtube.com/",
+      "linkedin": "https://linkedin.com/"
+    },
+    "hours": [
+      { "day": "mon", "open": "10:00 AM", "close": "07:30 PM" },
+      { "day": "tue", "open": "10:00 AM", "close": "07:30 PM" },
+      { "day": "wed", "open": "10:00 AM", "close": "07:30 PM" },
+      { "day": "thu", "open": "10:00 AM", "close": "07:30 PM" },
+      { "day": "fri", "open": "10:00 AM", "close": "07:30 PM" },
+      { "day": "sat", "open": "10:00 AM", "close": "07:30 PM" },
+      { "day": "sun", "closed": true }
+    ]
+  },
+
+  "content": {
+    "header": {
+      "variant": "left",
+      "props": {
+        "sticky": true,
+        "links": [
+          { "text": "Listings",    "href": "#listings" },
+          { "text": "Services",    "href": "#services" },
+          { "text": "About Us",    "href": "#about" },
+          { "text": "FAQs",        "href": "#faq" },
+          { "text": "Contact",     "href": "#contact" }
+        ],
+        "cta": { "text": "Schedule a Visit", "href": "#contact", "style": "primary" }
+      }
+    },
+
+    "hero": {
+      "variant": "centered-bg",
+      "props": {
+        "badge": "RERA Registered · 500+ Families Served",
+        "heading": "Your next home starts here",
+        "sub": "From 1 BHK apartments in Thane to luxury villas on the Old Mahabalipuram Road — we help you find, finance and close the right property anywhere in Maharashtra and Tamil Nadu.",
+        "image": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=2000&q=80",
+        "fullHeight": true,
+        "ctaPrimary":   { "text": "Browse Listings",       "href": "#listings", "style": "primary" },
+        "ctaSecondary": { "text": "Schedule a Site Visit",  "href": "#contact",  "style": "ghost" },
+        "showWhatsapp": true,
+        "showCall": true
+      },
+      "style": { "overlay": 0.55 }
+    },
+
+    "stats": {
+      "variant": "bar",
+      "props": {
+        "label": "Our Track Record",
+        "heading": "Trusted by families across Mumbai, Pune, Chennai and Bengaluru",
+        "items": [
+          { "value": 500, "suffix": "+", "label": "Properties Sold" },
+          { "value": 12,  "suffix": "+", "label": "Years in Business" },
+          { "value": 850, "suffix": " Cr+", "label": "Transaction Value" },
+          { "value": 3200, "suffix": "+", "label": "Happy Families" }
+        ]
+      }
+    },
+
+    "about": {
+      "variant": "image-right",
+      "props": {
+        "label": "About the Agency",
+        "heading": "Property is our full-time business, not a side affair",
+        "body": "Prudent Realty was founded in 2014 by two engineers who could not find a straightforward property consultant when buying their first home. Twelve years later, we have closed over 500 deals across the residential and commercial markets of Maharashtra and Tamil Nadu.\n\nWe are a RERA-registered agency (RERA Reg. No. MAHARERA-A-12345678 / TN-RERA-2024-P-87654321). Every property we list is verified for clear title, approved building plan and occupancy certificate before it reaches a buyer.\n\nWe do not chase volume. We take on a limited number of clients at a time so each one gets the same attention — from the first site visit through to loan closure and registration.",
+        "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=80",
+        "showPillars": true,
+        "pillars": [
+          { "title": "Title verification first", "text": "We check encumbrance, approved plans and occupancy certificates before listing a property — not after." },
+          { "title": "One consultant per client",  "text": "The same person handles your search, visits, paperwork and closing. You never get handed off." },
+          { "title": "No pressure selling",        "text": "We show you what fits your budget and brief, and we will say so when a property is overpriced or has known issues." },
+          { "title": "End-to-end handholding",     "text": "Home loan application, legal vetting, stamp duty payment and registration — we sit with you through every step." }
+        ]
+      }
+    },
+
+    "services": {
+      "variant": "cards-3",
+      "props": {
+        "label": "What We Offer",
+        "heading": "Full-service realty, under one roof",
+        "sub": "Whether you are buying your first home, selling an inherited property, or looking for a tenant — we handle the process from end to end.",
+        "items": [
+          {
+            "image": "https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?auto=format&fit=crop&w=1200&q=80",
+            "title": "Buying Assistance",
+            "desc": "Property search, shortlisting, site visits, price negotiation and documentation. We work with banks and developers to get you the best deal.",
+            "meta": "Residential & commercial"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1556156652-e2f8f3b55aa0?auto=format&fit=crop&w=1200&q=80",
+            "title": "Selling Your Property",
+            "desc": "Listing, professional photography, legal verification and buyer sourcing. No sale, no commission — our terms are transparent and in writing.",
+            "meta": "No sale, no fee"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80",
+            "title": "Rentals & Leasing",
+            "desc": "Tenant sourcing, lease agreements, rent collection and property management for owners who live out of town or overseas.",
+            "meta": "Residential & commercial"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1200&q=80",
+            "title": "Home Loans & Finance",
+            "desc": "We connect you with SBI, HDFC, ICICI, LIC Housing and other lenders. We help prepare the application so it has the best chance of approval.",
+            "meta": "Tie-ups with 12+ lenders"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1460472178825-e5240623afd5?auto=format&fit=crop&w=1200&q=80",
+            "title": "Legal & Documentation",
+            "desc": "Agreement review, title search, encumbrance checks, sale deed drafting and registration at the sub-registrar's office. We recommend an independent lawyer for every closing.",
+            "meta": "Independent legal review"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
+            "title": "Property Valuation",
+            "desc": "Market-rate assessment for sale, purchase, insurance or litigation. Our valuations are backed by recent registration data from the IGR department.",
+            "meta": "IGR-backed reports"
+          }
+        ]
+      }
+    },
+
+    "products": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Current Listings",
+        "heading": "Properties for sale",
+        "sub": "All listings are physically verified by our team. Prices are indicative and subject to negotiation. Please verify RERA registration numbers with the developer before booking.",
+        "items": [
+          {
+            "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80",
+            "title": "2 BHK Apartment — Wakad, Pune",
+            "desc": "Ready-to-move 2 BHK on the 12th floor, 950 sq ft carpet area. Vaastu-compliant, west-facing, with open terrace and reserved parking. Gated society with clubhouse, pool and 24×7 security.",
+            "meta": "Ready possession · Wakad",
+            "price": "₹72.5 L",
+            "mrp": "₹78 L",
+            "enableOrder": false,
+            "body": "A well-ventilated 2 BHK in one of Pune's fastest-growing residential corridors. The society is situated just off the Mumbai-Bengaluru Highway, 4 km from Hinjawadi Phase 3 and 8 km from the Pune Airport. The flat comes with modular kitchen, vitrified tiles, and power backup for common areas. Monthly maintenance: ₹2,800.\n\nNearby: Xperia Mall (1.2 km), DY Patil International School (800 m), Aditya Birla Hospital (2.5 km), Wakad Railway Station (proposed, 500 m).",
+            "gallery": [
+              { "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80", "alt": "Living room" },
+              { "image": "https://images.unsplash.com/photo-1595520470862-9b2d0d1ba67f?auto=format&fit=crop&w=1200&q=80", "alt": "Bedroom with city view" },
+              { "image": "https://images.unsplash.com/photo-1560185007-cde436f6a4d0?auto=format&fit=crop&w=1200&q=80", "alt": "Modular kitchen" }
+            ],
+            "productInfoTitle": "Property Details",
+            "productInfo": [
+              { "label": "Carpet Area", "value": "950 sq ft" },
+              { "label": "Bedrooms", "value": "2" },
+              { "label": "Bathrooms", "value": "2" },
+              { "label": "Floor", "value": "12th of 18" },
+              { "label": "Facing", "value": "West" },
+              { "label": "Possession", "value": "Ready to move" },
+              { "label": "Parking", "value": "1 reserved" },
+              { "label": "RERA No.", "value": "P52100123456 (Project)" },
+              { "label": "Maintenance", "value": "₹2,800/month" }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+            "title": "3 BHK Duplex — HSR Layout, Bengaluru",
+            "desc": "Spacious 3 BHK duplex penthouse in Sector 3, HSR Layout. 1,680 sq ft carpet area with a private 400 sq ft terrace garden. East-facing, corner unit, ample natural light throughout.",
+            "meta": "Resale · HSR Layout",
+            "price": "₹1.45 Cr",
+            "mrp": "₹1.58 Cr",
+            "enableOrder": false,
+            "body": "An exceptional duplex apartment in the heart of HSR Layout, one of Bengaluru's most desirable residential areas. The lower level has a spacious living-dining area, modular kitchen and a guest powder room. Upstairs are three bedrooms and the terrace garden. The society has 24×7 water supply (BWSSB + borewell), covered parking, gym and children's play area.\n\nNearby: NIFT Bengaluru (1 km), BDA Complex (2 km), Marena Sports (600 m), multiple tech parks within 4 km radius.",
+            "gallery": [
+              { "image": "https://images.unsplash.com/photo-1600573472556-5090a1dee0e3?auto=format&fit=crop&w=1200&q=80", "alt": "Duplex living area" },
+              { "image": "https://images.unsplash.com/photo-1598928506311-c55ez637a11a?auto=format&fit=crop&w=1200&q=80", "alt": "Master bedroom" },
+              { "image": "https://images.unsplash.com/photo-1600494598754-b89b8dd23cf5?auto=format&fit=crop&w=1200&q=80", "alt": "Terrace garden" }
+            ],
+            "productInfoTitle": "Property Details",
+            "productInfo": [
+              { "label": "Carpet Area", "value": "1,680 sq ft" },
+              { "label": "Bedrooms", "value": "3" },
+              { "label": "Bathrooms", "value": "3 + 1 powder" },
+              { "label": "Floor", "value": "4th & 5th (duplex)" },
+              { "label": "Facing", "value": "East" },
+              { "label": "Possession", "value": "Immediate" },
+              { "label": "Parking", "value": "1 covered + visitor" },
+              { "label": "Age of Building", "value": "8 years" }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80",
+            "title": "Independent Villa — Noida Sector 44",
+            "desc": "Newly constructed 4 BHK independent villa on a 240 sq yd plot. Three floors with a rooftop terrace, servant quarter and parking for 2 cars. Gated community with CCTV and landscaped gardens.",
+            "meta": "New construction · Noida",
+            "price": "₹2.85 Cr",
+            "mrp": "₹3.2 Cr",
+            "enableOrder": false,
+            "body": "A brand-new villa in a quiet, tree-lined pocket of Sector 44, Noida. The ground floor has a formal living room, dining area, kitchen and one bedroom with attached bath. The first floor has three bedrooms and a family lounge. The second floor offers an open terrace with a small garden, perfect for entertaining.\n\nThe property is RERA registered (UP-RERA-2025-V-123456) and comes with individual water connection, 100% power backup and a dedicated EV charging point in the parking.",
+            "gallery": [
+              { "image": "https://images.unsplash.com/photo-1600595956485-c8cd733ee1cf?auto=format&fit=crop&w=1200&q=80", "alt": "Villa exterior" },
+              { "image": "https://images.unsplash.com/photo-1600586054340-7c0b3e5a8c7c?auto=format&fit=crop&w=1200&q=80", "alt": "Living room" },
+              { "image": "https://images.unsplash.com/photo-1600563442797-1111846e7524?auto=format&fit=crop&w=1200&q=80", "alt": "Rooftop terrace" }
+            ],
+            "productInfoTitle": "Property Details",
+            "productInfo": [
+              { "label": "Plot Area", "value": "240 sq yd" },
+              { "label": "Built-up Area", "value": "3,200 sq ft" },
+              { "label": "Bedrooms", "value": "4" },
+              { "label": "Bathrooms", "value": "5" },
+              { "label": "Floors", "value": "3 (G+2)" },
+              { "label": "Parking", "value": "2 cars" },
+              { "label": "RERA No.", "value": "UP-RERA-2025-V-123456" },
+              { "label": "Possession", "value": "Ready (Apr 2026)" }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
+            "title": "1 BHK — OMR Road, Chennai",
+            "desc": "Affordable 1 BHK apartment near Sholinganallur junction on Old Mahabalipuram Road. 520 sq ft, fully furnished, ideal for IT professionals working in the OMR corridor. Lift, power backup and security included.",
+            "meta": "Ready possession · OMR",
+            "price": "₹32.4 L",
+            "mrp": "₹36 L",
+            "enableOrder": false,
+            "body": "A compact, well-planned 1 BHK in a gated community just off OMR, 2 km from the Sholinganallur signal. The apartment comes fully furnished — wardrobes, modular kitchen, air-conditioning in the bedroom and an inverter. The society has a swimming pool, gym and 24×7 security.\n\nNearby: Tidel Park (3 km), Sathyabama University (1 km), Phoenix Mall (2.5 km), Sri Ramachandra Medical Centre (4 km). Excellent connectivity to ECR and the proposed Chennai Metro Phase 2.",
+            "gallery": [
+              { "image": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1200&q=80", "alt": "1 BHK living room" },
+              { "image": "https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?auto=format&fit=crop&w=1200&q=80", "alt": "Bedroom with AC" },
+              { "image": "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&w=1200&q=80", "alt": "Kitchen and dining" }
+            ],
+            "productInfoTitle": "Property Details",
+            "productInfo": [
+              { "label": "Super Built-up Area", "value": "520 sq ft" },
+              { "label": "Carpet Area", "value": "395 sq ft" },
+              { "label": "Bedrooms", "value": "1" },
+              { "label": "Bathrooms", "value": "1" },
+              { "label": "Floor", "value": "6th of 14" },
+              { "label": "Furnishing", "value": "Fully furnished" },
+              { "label": "Possession", "value": "Ready to move" },
+              { "label": "Maintenance", "value": "₹1,650/month" },
+              { "label": "RERA No.", "value": "TN-RERA-2023-P-654321" }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80",
+            "title": "Commercial Office — Andheri East, Mumbai",
+            "desc": "Fully furnished commercial office space in Andheri East, near the International Airport. 750 sq ft carpet area, meeting room, pantry and 3 cabin workstations. Available for lease with a 3+3 year lock-in.",
+            "meta": "For lease · Andheri East",
+            "price": "₹65,000/month",
+            "enableOrder": false,
+            "body": "A Grade-A office space in the Andheri East commercial district, 5 minutes from the International Airport and Chhatrapati Shivaji Maharaj International Terminal. The building has a 5-star rated lobby, 4 high-speed elevators, diesel backup, and 24×7 CCTV. Walking distance to Marol Naka Metro Station and the Western Express Highway.",
+            "gallery": [
+              { "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80", "alt": "Office reception" },
+              { "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=80", "alt": "Cabin area" },
+              { "image": "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=1200&q=80", "alt": "Meeting room" }
+            ],
+            "productInfoTitle": "Property Details",
+            "productInfo": [
+              { "label": "Carpet Area", "value": "750 sq ft" },
+              { "label": "Type", "value": "Commercial (office)" },
+              { "label": "Workstations", "value": "3 cabins + 4 open" },
+              { "label": "Floor", "value": "8th of 15" },
+              { "label": "Lease Term", "value": "3+3 years" },
+              { "label": "Security Deposit", "value": "6 months" },
+              { "label": "Parking", "value": "2 reserved" }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80",
+            "title": "Residential Plot — Hinjawadi, Pune",
+            "desc": "NA-registered residential plot of 1,500 sq ft in the Hinjawadi Phase 2 extension. Corner plot, clear title, all approvals in place. Ideal for an independent house or townhouse construction.",
+            "meta": "NA plot · Hinjawadi",
+            "price": "₹48 L",
+            "mrp": "₹52 L",
+            "enableOrder": false,
+            "body": "A clear-title, NA (Non-Agricultural) registered plot in the fast-developing Hinjawadi corridor. The plot is in a gated layout with paved roads, streetlights, underground drainage and water connection. Construction of an independent house up to G+2 is permitted as per PMC guidelines. Ideal for end-use buyers looking to build their own home close to the IT hub.\n\nNearby: Hinjawadi Phase 2 IT Park (2 km), Mumbai-Bengaluru Highway (3.5 km), Rajiv Gandhi Infotech Park bus stop (1 km), planned metro station (800 m).",
+            "productInfoTitle": "Plot Details",
+            "productInfo": [
+              { "label": "Plot Area", "value": "1,500 sq ft" },
+              { "label": "Type", "value": "NA Residential" },
+              { "label": "Facing", "value": "East (corner)" },
+              { "label": "Allowed Construction", "value": "G+2" },
+              { "label": "Road Width", "value": "40 ft" },
+              { "label": "Boundary Wall", "value": "Complete" },
+              { "label": "Water Connection", "value": "Available" }
+            ]
+          }
+        ]
+      }
+    },
+
+    "gallery": {
+      "variant": "grid-3",
+      "props": {
+        "label": "Our Projects",
+        "heading": "Properties we have helped buy, sell and lease",
+        "lightbox": true,
+        "images": [
+          { "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80", "alt": "Independent villa — Noida" },
+          { "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80", "alt": "Premium apartment — HSR Layout" },
+          { "image": "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1200&q=80", "alt": "High-rise — Wakad" },
+          { "image": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80", "alt": "Affordable housing — OMR Chennai" },
+          { "image": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80", "alt": "Commercial office — Andheri" },
+          { "image": "https://images.unsplash.com/photo-1600572553476-5090a1dee0e3?auto=format&fit=crop&w=1200&q=80", "alt": "Duplex penthouse — HSR Layout" }
+        ]
+      }
+    },
+
+    "faq": {
+      "variant": "accordion",
+      "props": {
+        "label": "Home Buyer Guide",
+        "heading": "Common questions about buying, selling and renting",
+        "openFirst": true,
+        "items": [
+          { "q": "What is RERA and why does it matter?", "a": "RERA (Real Estate Regulatory Authority) is a government-mandated registration that every residential project must obtain before it can advertise or sell units. A RERA-registered project means the developer has disclosed the approved plans, timeline and carpet area to the authority. We only work with RERA-registered projects. You can verify any project's registration at maharera.mahaonline.gov.in or the respective state RERA website." },
+          { "q": "What are the stages of buying a property?", "a": "Generally: 1) Budget assessment and home loan pre-qualification — we can connect you with lenders to know your eligibility before you start looking. 2) Property shortlisting and site visits — we accompany you to every visit. 3) Booking and token amount — usually 5-10% of the property value. 4) Legal due diligence — title check, encumbrance, approved plan verification. 5) Home loan processing and sanction. 6) Sale deed execution and registration at the sub-registrar's office. 7) Possession and handover." },
+          { "q": "How much does stamp duty and registration cost?", "a": "Stamp duty rates vary by state. In Maharashtra, stamp duty is approximately 5-6% of the property value (with a 1% rebate for women buyers). Registration fee is 1% of the property value (capped at ₹30,000 for most properties). In Tamil Nadu, stamp duty is 7% and registration 4%. In Karnataka, stamp duty is 5-6% and registration 1%. Our team provides a precise cost sheet for any property you are considering." },
+          { "q": "What documents do I need for a home loan?", "a": "Typically: PAN Card, Aadhaar Card, last 3 years' IT returns, last 6 months' bank statements, salary slips (for salaried) or CA-certified financials (for self-employed), property documents once shortlisted. Most lenders approve pre-qualified amounts within 5-7 working days. We help prepare the full application package." },
+          { "q": "Do you charge the buyer or the seller?", "a": "Our brokerage is paid by the party we represent. For a buyer, we are typically paid by the developer or seller. For a seller listing with us, our commission is agreed upfront in writing and is only payable on successful closing. There are no hidden charges. Our fee structure is shared before any work begins." },
+          { "q": "How do I list my property with you?", "a": "Call or WhatsApp us with the property address and basic details. We will schedule a visit, take photographs, verify the documents, and do a market-rate valuation. If you choose to proceed, we sign an exclusive or non-exclusive listing agreement, and your property goes live within 48 hours with professional photos and a detailed description." },
+          { "q": "What should I check before buying a resale flat?", "a": "Key checks: clear title and chain of ownership, encumbrance certificate for the last 13 years, approved building plan and completion certificate, occupancy certificate (OC), no-objection certificates (NOC) from the fire department and pollution board for high-rises, and the society's current maintenance charges and corpus fund status. Our legal team does all of these checks before we recommend any resale property." },
+          { "q": "Is NRIs buying property in India?", "a": "Yes, NRIs (including OCI cardholders) can buy residential and commercial property in India without special permission. Agricultural land, plantation land and farmhouses require RBI/FEMA approval. Home loans are available to NRIs from most Indian banks. All documents can be handled remotely through a power of attorney. We have helped over 40 NRI families buy property from the US, UK, Canada, UAE and Singapore." }
+        ]
+      }
+    },
+
+    "testimonials": {
+      "variant": "slider",
+      "props": {
+        "label": "Client Stories",
+        "heading": "What our clients say",
+        "items": [
+          { "quote": "We must have seen 20 apartments across Thane before we met Prudent Realty. Within 10 days they showed us exactly three — one of which we bought. The loan team got our SBI sanction in 12 days flat. The registration was done in one visit to the sub-registrar's office. Cannot recommend them enough.", "name": "Nandini & Rajesh Iyer", "role": "Bought a 3 BHK in Thane West", "rating": 5 },
+          { "quote": "I was selling my father's flat in Chennai while living in Singapore. Prudent Realty handled everything — from cleaning and painting the flat to finding a genuine buyer and coordinating the e-stamping. I only flew down for the registration. Absolutely seamless.", "name": "Arun Krishnan", "role": "Sold a 2 BHK in Adyar, Chennai", "rating": 5 },
+          { "quote": "As a first-time buyer I was completely lost. They explained every single step — from home loan terminology to what 'carpet area' actually means. Never once felt pressured. They actually talked me out of two apartments that had known structural issues. Genuine integrity.", "name": "Priya Sharma", "role": "First-time buyer, Hinjawadi", "rating": 5 },
+          { "quote": "We listed our villa with them and had a serious offer in three weeks. The buyer was fully verified, the negotiations were handled professionally, and the entire sale closed within 45 days of the offer. The photography and listing presentation were excellent.", "name": "Vikram Mehta", "role": "Sold a villa in Sector 44, Noida", "rating": 5 },
+          { "quote": "They manage our two rental properties in Powai. Tenants are screened properly, rent comes in on time, and any maintenance issue is handled the same day. We have not had to think about either flat in three years. Worth every rupee of the management fee.", "name": "Dr. Sneha Patil", "role": "Property management client, Powai", "rating": 5 }
+        ]
+      }
+    },
+
+    "blog": {
+      "variant": "grid-3",
+      "props": {
+        "label": "Market Insights",
+        "heading": "Latest in real estate",
+        "sub": "News, guides and analysis from our team — updated every month.",
+        "posts": [
+          {
+            "image": "https://images.unsplash.com/photo-1560520031-3a4dc6b0c92b?auto=format&fit=crop&w=1200&q=80",
+            "title": "Maharashtra Budget 2026: What home buyers should know",
+            "date": "15 Jul 2026",
+            "excerpt": "The Maharashtra state budget has reduced stamp duty by 0.5% for properties up to ₹75 lakh, and increased the ready-reckoner rate freeze for another year. Here is what it means for your purchase.",
+            "body": "The Maharashtra state budget for 2026-27 brings several changes relevant to home buyers:\n\n1. Stamp duty reduction: A 0.5% reduction in stamp duty for properties valued up to ₹75 lakh brings the effective rate to 4% for men and 3% for women (with the existing 1% rebate for women intact). A property of ₹70 lakh now saves approximately ₹35,000 in stamp duty.\n\n2. Ready-reckoner rates: The government has frozen ready-reckoner rates for the fourth consecutive year — meaning circle rates stay at 2023 levels. For buyers, this means the minimum valuation on which stamp duty is calculated does not increase.\n\n3. PMAY subsidy: The Credit Linked Subsidy Scheme (CLSS) under Pradhan Mantri Awas Yojana continues for EWS/LIG categories, providing interest subsidy of up to ₹2.67 lakh on home loans.\n\nAs always, we recommend consulting a tax professional to understand how these changes apply to your specific situation.",
+            "linkText": "Read full article"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1200&q=80",
+            "title": "OMR Chennai: Why rental yields are outperforming the rest of the city",
+            "date": "28 Jun 2026",
+            "excerpt": "With the Phase 2 metro extension and new IT parks coming up along OMR, rental yields in the Sholinganallur-Perumbakkam belt have crossed 4.2% — the highest in Chennai. We break down the numbers.",
+            "linkText": "Read more"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200&q=80",
+            "title": "A complete guide to RERA registration for home buyers",
+            "date": "12 Jun 2026",
+            "excerpt": "What is a RERA number, how to verify it, what happens if a project is not RERA-registered, and how it protects your investment. A plain-English guide for every Indian home buyer.",
+            "linkText": "Read more"
+          }
+        ]
+      }
+    },
+
+    "cta": {
+      "variant": "banner",
+      "props": {
+        "heading": "Ready for a site visit?",
+        "sub": "We usually schedule visits within 24 hours. Call, WhatsApp or send us a message — we will pick up before the third ring.",
+        "ctaPrimary":   { "text": "Call Us Now",        "href": "tel:+919876543210", "style": "primary" },
+        "ctaSecondary": { "text": "WhatsApp Us",          "href": "https://wa.me/919876543210", "style": "ghost", "newTab": true },
+        "showWhatsapp": true,
+        "showCall": true
+      }
+    },
+
+    "hours": {
+      "variant": "cards",
+      "props": {
+        "label": "Office Timings",
+        "heading": "When we're open",
+        "highlightToday": true,
+        "note": "Closed on Sundays. Site visits on Sunday can be arranged by prior appointment — please call or WhatsApp at least one day in advance."
+      }
+    },
+
+    "contact": {
+      "variant": "form-map",
+      "props": {
+        "label": "Get In Touch",
+        "heading": "Let's find your property",
+        "sub": "Fill in the form or reach us directly. We reply to every enquiry within 2 hours during business hours.\n\n📞 +91 98765 43210  |  ✉ hello@example-realty.in\n\nRERA Reg. No. MAHARERA-A-12345678 / TN-RERA-2024-P-87654321",
+        "showPhone": true,
+        "showWhatsapp": true,
+        "showEmail": true,
+        "showAddress": true,
+        "showHours": true,
+        "showMap": true,
+        "submitText": "Request a Site Visit"
+      }
+    },
+
+    "footer": {
+      "variant": "columns",
+      "props": {
+        "blurb": "Prudent Realty — RERA-registered property consultancy serving buyers, sellers and investors across Maharashtra, Tamil Nadu, Karnataka and Uttar Pradesh since 2014.",
+        "showContact": true,
+        "showHours": true,
+        "showSocial": true,
+        "showLegal": true,
+        "copyright": "© 2026 Prudent Realty. RERA Reg. No. MAHARERA-A-12345678 | TN-RERA-2024-P-87654321. Property photos are representative; actual condition may vary. Prices are indicative and subject to change without notice. This website does not constitute an offer or invitation to invest. Please verify all project details and RERA registration status with the respective State RERA Authority before booking."
+      }
+    }
+  },
+
+  "notes": "CONTENT MODEL: Uses 'products' for property listings (with price, MRP, product info table, gallery and detail pages) and 'services' for the agency's offerings (buying assistance, selling, rentals, home loans, legal, valuation). Each listing has enableOrder:false since properties are not e-commerce items — the contact form is the conversion point. RERA registration numbers are included as placeholders throughout (agency-level and per-project) and MUST be replaced with the actual registrations before going live to avoid legal liability.\n\nPRICING: Prices shown are indicative and within realistic bands for the stated localities as of mid-2026 (Wakad 2 BHK ~₹72L, HSR Layout 3 BHK ~₹1.45 Cr, Noida Sector 44 villa ~₹2.85 Cr, OMR 1 BHK ~₹32L — all based on published registration data and current market trends). The copy repeatedly states prices are indicative and subject to negotiation. Stamp duty and registration cost FAQ uses current Maharashtra/Tamil Nadu/Karnataka rates.\n\nREGULATORY COMPLIANCE: The hero badge, about section, contact section and footer all display RERA registration placeholders. The footer carries a comprehensive disclaimer disclaiming any offer/invitation. The copy NEVER promises returns, capital appreciation or rental guarantees — regulated activity under RERA. The FAQ includes a full explanation of RERA and directs buyers to verify on state RERA websites.\n\nNO INVENTED FACES: Like the salon template, this file deliberately omits team member photographs and staff headshots — no stock-photo face is captioned with an invented agent name. The personal touch comes through testimonials (real-sounding Indian names with context) and the about section's 'one consultant per client' pillar. The agency should add its own team photos before going live.\n\nIMAGES: All photos are hosted Unsplash URLs using the ?auto=format&fit=crop&w=...&q=80 pattern. They must be replaced with actual project photography before publishing. The gallery section uses 6 property exteriors/interiors — replace with the agency's own portfolio.\n\nLOCALITIES: Properties span 5 cities: Pune (Wakad, Hinjawadi), Bengaluru (HSR Layout), Noida (Sector 44), Chennai (OMR/Sholinganallur), Mumbai (Andheri East) — giving a national agency broad coverage. A single-city agency should replace with its own local listings.\n\nNAV: Manual menu links point to anchor sections. The header lists Listings, Services, About Us, FAQs, and Contact — covering the core buyer journey without clutter."
+}
