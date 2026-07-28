@@ -1,0 +1,29 @@
+{
+  "preset": "clinical-teal",
+  "label": "Clinical Teal",
+  "description": "Calm medical blue with a fresh teal accent on a cool white page. Reads clean and reassuring — suits hospitals, clinics, dental, diagnostics and pathology labs.",
+  "industries": ["hospital", "clinic", "doctor", "dental", "diagnostics", "pathology", "physiotherapy"],
+
+  "tokens": {
+    "mode": "light",
+    "color": {
+      "primary":   "#0B5C74",
+      "secondary": "#127B96",
+      "accent":    "#17A398",
+      "bg":        "#FFFFFF",
+      "surface":   "#EFF7F9",
+      "text":      "#10232B",
+      "muted":     "#5E7580",
+      "border":    "#D8E7EC"
+    },
+    "font": {
+      "heading": "Source Sans 3",
+      "body":    "Source Sans 3"
+    },
+    "radius":    "md",
+    "spacing":   "comfortable",
+    "container": "normal"
+  },
+
+  "notes": "Tokens only — sections never hardcode colours, they read these as CSS variables. Deliberately low-saturation: healthcare pages are read by people who are worried, and a loud palette works against that. A single humanist sans across headings and body keeps it legible rather than styled."
+}

@@ -1,0 +1,252 @@
+{
+  "id": "hospital",
+  "label": "Hospital / Clinic",
+  "aliases": ["clinic", "doctor", "medical", "dental", "diagnostics", "polyclinic", "nursing-home", "physiotherapy"],
+  "icon": "stethoscope",
+  "theme": { "preset": "clinical-teal" },
+
+  "description": "Hospitals, clinics and individual practices: departments, consultants, timings and online appointment booking.",
+
+  "sections": [
+    "header",
+    "hero",
+    "about",
+    "services",
+    "stats",
+    "team",
+    "appointment",
+    "gallery",
+    "faq",
+    "contact",
+    "footer"
+  ],
+
+  "recommended": [
+    { "type": "hero",        "reason": "Reassuring opening line + 'Book an appointment' CTA" },
+    { "type": "about",       "reason": "Who you are, your approach and accreditations" },
+    { "type": "services",    "reason": "Departments and treatments you offer" },
+    { "type": "stats",       "reason": "Years running, consultants, beds — facts, not outcome claims" },
+    { "type": "team",        "reason": "Consultants with their qualifications and OPD days" },
+    { "type": "appointment", "reason": "The whole point — let patients book without calling" },
+    { "type": "gallery",     "reason": "Facilities, theatres and diagnostics" },
+    { "type": "faq",         "reason": "Insurance, documents, timings, emergency cover" },
+    { "type": "contact",     "reason": "Address, phone and directions" },
+    { "type": "footer",      "reason": "Links, socials, copyright" }
+  ],
+
+  "business": {
+    "phone": "+91 98765 43210",
+    "whatsapp": "+91 98765 43210",
+    "email": "care@example-hospital.in",
+    "address": "8 Cunningham Road, Bengaluru, Karnataka 560052"
+  },
+
+  "content": {
+    "header": {
+      "variant": "left",
+      "props": {
+        "sticky": true,
+        "links": [
+          { "text": "Departments",  "href": "#services" },
+          { "text": "Consultants",  "href": "#team" },
+          { "text": "Appointments", "href": "#appointment" },
+          { "text": "Contact",      "href": "#contact" }
+        ],
+        "cta": { "text": "Book Appointment", "href": "#appointment", "style": "primary" }
+      }
+    },
+
+    "hero": {
+      "variant": "centered-bg",
+      "props": {
+        "badge": "OPD open · Mon to Sat",
+        "heading": "Careful, unhurried medical care",
+        "sub": "A multi-speciality clinic where you see the same doctor each visit, appointments run to time, and everything is explained in plain language.",
+        "image": "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=2000&q=80",
+        "fullHeight": true,
+        "ctaPrimary":   { "text": "Book an Appointment", "href": "#appointment", "style": "primary" },
+        "ctaSecondary": { "text": "Our Departments",     "href": "#services",    "style": "ghost" },
+        "showCall": true
+      },
+      "style": { "overlay": 0.55 }
+    },
+
+    "about": {
+      "variant": "image-right",
+      "props": {
+        "label": "About Us",
+        "heading": "Medicine at a sensible pace",
+        "body": "We are a multi-speciality clinic built around one idea: consultations should not be rushed.\n\nAppointments are scheduled in longer slots, so you get time to ask questions and leave understanding what happens next. You see the same consultant on follow-ups wherever possible, and your records stay in one place.\n\nDiagnostics, pharmacy and day-care procedures are all under one roof, so a routine visit rarely means a second trip.",
+        "image": "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&w=1400&q=80",
+        "showPillars": true,
+        "pillars": [
+          { "title": "Longer consultations", "text": "Slots are booked with time to talk, not just time to prescribe." },
+          { "title": "One point of contact", "text": "The same consultant across follow-ups, with your history to hand." },
+          { "title": "Diagnostics on site",  "text": "Lab, imaging and pharmacy in the same building." },
+          { "title": "Clear estimates",      "text": "Written cost estimates before any planned procedure." }
+        ]
+      }
+    },
+
+    "services": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Departments",
+        "heading": "What we treat",
+        "sub": "Consultant-led outpatient care across our main specialities. Call the front desk if you are unsure which one you need — we will point you the right way.",
+        "items": [
+          {
+            "image": "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80",
+            "title": "General Medicine",
+            "desc": "First point of call for fever, infections, blood pressure, diabetes and routine health checks.",
+            "meta": "Mon–Sat, OPD"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
+            "title": "Diagnostics & Pathology",
+            "desc": "On-site lab and imaging, with most routine blood reports available the same day.",
+            "meta": "Reports same day"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=1200&q=80",
+            "title": "Surgery & Day Care",
+            "desc": "Planned day-care procedures in a modular theatre, with pre-op counselling and written estimates.",
+            "meta": "By appointment"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&w=1200&q=80",
+            "title": "Cardiology",
+            "desc": "ECG, echo and treadmill testing, with consultant review and long-term follow-up.",
+            "meta": "Tue & Thu"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&w=1200&q=80",
+            "title": "Orthopaedics",
+            "desc": "Joint and back pain, sports injuries, fracture care and post-operative physiotherapy.",
+            "meta": "Mon, Wed & Fri"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80",
+            "title": "Paediatrics",
+            "desc": "Newborn checks, immunisation, growth monitoring and childhood illness.",
+            "meta": "Daily, incl. Sunday AM"
+          }
+        ]
+      }
+    },
+
+    "stats": {
+      "variant": "bar",
+      "props": {
+        "countUp": true,
+        "items": [
+          { "value": 22, "suffix": "+",  "label": "Years in the neighbourhood" },
+          { "value": 18, "suffix": "",   "label": "Consultants across specialities" },
+          { "value": 40, "suffix": "",   "label": "Inpatient beds" },
+          { "value": 24, "suffix": "/7", "label": "Emergency and pharmacy" }
+        ]
+      }
+    },
+
+    "team": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Our Consultants",
+        "heading": "Who you'll be seeing",
+        "sub": "Replace these with your own consultants and their photographs. Qualifications and registration numbers should be exactly as they appear on the medical register.",
+        "items": [
+          { "name": "Dr. A. Sharma",    "role": "General Medicine",         "meta": "MBBS, MD",              "bio": "OPD Mon–Sat, morning. Special interest in diabetes and hypertension." },
+          { "name": "Dr. R. Iyer",      "role": "Cardiology",               "meta": "MBBS, MD, DM",          "bio": "OPD Tue & Thu. Echo and treadmill testing on the same visit." },
+          { "name": "Dr. S. Nair",      "role": "Orthopaedics",             "meta": "MBBS, MS (Ortho)",      "bio": "OPD Mon, Wed & Fri. Joint pain, sports injury and fracture care." },
+          { "name": "Dr. P. Reddy",     "role": "Paediatrics",              "meta": "MBBS, DCH",             "bio": "OPD daily including Sunday morning. Immunisation and growth clinics." },
+          { "name": "Dr. M. Fernandes", "role": "General & Day-Care Surgery","meta": "MBBS, MS",             "bio": "Consults Tue & Sat. Planned day-care procedures with written estimates." },
+          { "name": "Dr. K. Bose",      "role": "Pathology",                "meta": "MBBS, MD (Path)",       "bio": "Reporting consultant for the on-site laboratory." }
+        ]
+      }
+    },
+
+    "appointment": {
+      "variant": "image-left",
+      "props": {
+        "label": "Appointments",
+        "heading": "Book a consultation",
+        "sub": "Choose a department and a preferred time. The front desk confirms by phone or WhatsApp, usually within the hour during working hours.",
+        "image": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1200&q=80",
+        "submitText": "Request Appointment",
+        "services": [
+          "General Medicine",
+          "Cardiology",
+          "Orthopaedics",
+          "Paediatrics",
+          "General & Day-Care Surgery",
+          "Diagnostics / Lab tests",
+          "Health check package",
+          "Not sure — please advise"
+        ]
+      }
+    },
+
+    "gallery": {
+      "variant": "grid-3",
+      "props": {
+        "label": "Our Facilities",
+        "heading": "Inside the clinic",
+        "lightbox": true,
+        "images": [
+          { "image": "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80", "alt": "Reception and front desk" },
+          { "image": "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80", "alt": "Modular operating theatre" },
+          { "image": "https://images.unsplash.com/photo-1551190822-a9333d879b1f?auto=format&fit=crop&w=1200&q=80", "alt": "Surgical team at work" },
+          { "image": "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80", "alt": "On-site laboratory" },
+          { "image": "https://images.unsplash.com/photo-1666214280557-f1b5022eb634?auto=format&fit=crop&w=1200&q=80", "alt": "Consultation and review" },
+          { "image": "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=1200&q=80", "alt": "Clinical staff" }
+        ]
+      }
+    },
+
+    "faq": {
+      "variant": "accordion",
+      "props": {
+        "label": "Before You Visit",
+        "heading": "Common questions",
+        "openFirst": true,
+        "items": [
+          { "q": "Do I need an appointment, or can I walk in?", "a": "Walk-ins are seen between booked slots, so there may be a wait. Booking ahead means you are seen at your slot time and the consultant has your file ready." },
+          { "q": "What should I bring to the first visit?", "a": "A photo ID, any previous prescriptions, reports or scans, and your insurance card if you plan to claim. If you are on regular medication, bring the strips or a written list." },
+          { "q": "Do you accept insurance and cashless claims?", "a": "We work with most major insurers for planned procedures. Pre-authorisation usually takes one to two working days, so please share your policy details when you book." },
+          { "q": "How do I get my lab reports?", "a": "Most routine blood reports are ready the same day and are sent by WhatsApp or email. Printed copies can be collected from the front desk." },
+          { "q": "Is there emergency cover at night?", "a": "The emergency room and pharmacy are staffed round the clock. For anything you think may be an emergency, come straight in or call the number on this page rather than booking online." },
+          { "q": "Can I get a second opinion on an existing report?", "a": "Yes. Book a consultation with the relevant department and bring the reports with you — the consultant will go through them with you." }
+        ]
+      }
+    },
+
+    "contact": {
+      "variant": "details-map",
+      "props": {
+        "label": "Find Us",
+        "heading": "Visit or call us",
+        "sub": "For appointments, use the booking form above. For anything urgent, please call rather than write.",
+        "showPhone": true,
+        "showWhatsapp": true,
+        "showEmail": true,
+        "showAddress": true,
+        "showHours": true,
+        "showMap": true,
+        "submitText": "Send Enquiry"
+      }
+    },
+
+    "footer": {
+      "variant": "columns",
+      "props": {
+        "blurb": "A multi-speciality clinic with consultant-led outpatient care, on-site diagnostics and round-the-clock emergency cover.",
+        "showContact": true,
+        "showHours": true,
+        "showSocial": true,
+        "showLegal": true
+      }
+    }
+  },
+
+  "notes": "Healthcare demo content is written deliberately conservatively. Consultants are listed WITHOUT photographs — the Team section renders a clean initial avatar instead — because attaching an invented name and medical qualification to a real stock-photo face misrepresents an identifiable person, which matters more in medicine than in retail. The clinic should add its own staff photographs. Stats are facility facts (years, consultants, beds) rather than success or cure rates, and the testimonials section is intentionally omitted: under the National Medical Commission's professional-conduct rules, Indian practitioners are restricted from soliciting patients through advertising and patient testimonials, so a demo should not hand a clinic content that could put them in breach. Photos are hosted Unsplash URLs (SiteRenderer::media passes any http(s) URL through) — replace them with the clinic's own before going live."
+}
