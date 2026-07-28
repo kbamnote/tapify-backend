@@ -1,0 +1,370 @@
+{
+  "id": "boutique",
+  "label": "Boutique / Fashion Store",
+  "aliases": ["fashion", "clothing", "apparel", "saree", "ethnic-wear", "designer", "lifestyle-store"],
+  "icon": "shopping-bag",
+  "theme": { "preset": "blush-noir" },
+
+  "description": "Clothing and lifestyle boutiques: a shoppable catalogue with sizes and options, lookbook gallery and store details.",
+
+  "sections": [
+    "header",
+    "hero",
+    "about",
+    "products",
+    "gallery",
+    "testimonials",
+    "cta",
+    "contact",
+    "footer"
+  ],
+
+  "recommended": [
+    { "type": "hero",         "reason": "Lookbook shot + a clear 'Shop the collection' CTA" },
+    { "type": "about",        "reason": "Your label's story, fabric and craft" },
+    { "type": "products",     "reason": "The shoppable catalogue — sizes, options, stock and cart" },
+    { "type": "gallery",      "reason": "Lookbook and in-store photos" },
+    { "type": "testimonials", "reason": "Customer reviews build confidence in fit and quality" },
+    { "type": "cta",          "reason": "Push a visit, a fitting appointment or a WhatsApp order" },
+    { "type": "contact",      "reason": "Store address, phone and enquiry form" },
+    { "type": "footer",       "reason": "Links, socials, copyright" }
+  ],
+
+  "business": {
+    "phone": "+91 98765 43210",
+    "whatsapp": "+91 98765 43210",
+    "email": "hello@example-boutique.in",
+    "address": "24 Church Street, Bengaluru, Karnataka 560001"
+  },
+
+  "content": {
+    "header": {
+      "variant": "left",
+      "props": {
+        "sticky": true,
+        "showCart": true,
+        "showAccount": true,
+        "links": [
+          { "text": "Shop",     "href": "#products" },
+          { "text": "Lookbook", "href": "#gallery" },
+          { "text": "About",    "href": "#about" },
+          { "text": "Visit",    "href": "#contact" }
+        ],
+        "cta": { "text": "Shop Now", "href": "#products", "style": "primary" }
+      }
+    },
+
+    "hero": {
+      "variant": "centered-bg",
+      "props": {
+        "badge": "New season in store",
+        "heading": "Pieces made to be worn, not stored",
+        "sub": "A small-batch boutique of handloom weaves and everyday essentials — sized honestly, finished properly.",
+        "image": "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=2000&q=80",
+        "fullHeight": true,
+        "ctaPrimary":   { "text": "Shop the Collection", "href": "#products", "style": "primary" },
+        "ctaSecondary": { "text": "View Lookbook",       "href": "#gallery",  "style": "ghost" },
+        "showWhatsapp": true
+      },
+      "style": { "overlay": 0.5 }
+    },
+
+    "about": {
+      "variant": "image-right",
+      "props": {
+        "label": "Our Label",
+        "heading": "Small batches, honest fabric",
+        "body": "We started in a two-room studio with a handful of weavers and a stubborn idea: make fewer things, and make them properly.\n\nEverything is cut and finished in small runs, so a piece sells out rather than sits on sale. If something does not fit the way it should, bring it back — alterations on our own pieces are always free.",
+        "image": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1400&q=80",
+        "showPillars": true,
+        "pillars": [
+          { "title": "Handloom first",    "text": "Woven by a co-operative we have worked with since day one." },
+          { "title": "Free alterations",  "text": "Fit is the whole point. We alter our own pieces at no charge, for life." },
+          { "title": "Small runs",        "text": "Limited pieces per design, so you rarely meet yourself at a party." },
+          { "title": "Easy exchanges",    "text": "Seven days to exchange a size, in store or by courier." }
+        ]
+      }
+    },
+
+    "products": {
+      "variant": "cards-3",
+      "props": {
+        "label": "The Collection",
+        "heading": "Shop new arrivals",
+        "sub": "Pick your size and options on any piece — live stock, add to cart, and pay however suits you.",
+        "showRelated": true,
+        "relatedHeading": "You may also like",
+        "items": [
+          {
+            "image": "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=80",
+            "title": "Handloom Silk Saree",
+            "desc": "Pure mulberry silk in aubergine with a woven gold zari border. Comes with an unstitched blouse piece.",
+            "meta": "Handwoven",
+            "price": "₹6,499",
+            "mrp": "₹8,200",
+            "slug": "handloom-silk-saree",
+            "enableOrder": true,
+            "body": "Woven on a pit loom over roughly nine days, this saree is pure mulberry silk with a traditional gold zari border.\n\nThe aubergine body deepens in low light, which is why it photographs so differently indoors and out. Each piece is finished by hand, so a slub or a slight shift in the weave is part of it, not a fault.\n\nDry clean only. Store folded in the muslin sleeve it arrives in, and refold along a different line every few months so the zari does not crease.",
+            "productInfoTitle": "Product Information",
+            "productInfo": [
+              { "label": "Fabric",       "value": "Pure mulberry silk" },
+              { "label": "Border",       "value": "Woven gold zari" },
+              { "label": "Saree length", "value": "5.5 m" },
+              { "label": "Blouse piece", "value": "0.8 m, unstitched" },
+              { "label": "Care",         "value": "Dry clean only" }
+            ],
+            "attributes": [
+              {
+                "name": "Border",
+                "options": [
+                  { "value": "Gold Zari",   "swatch": "#C9A227" },
+                  { "value": "Silver Zari", "swatch": "#B8BDC4" }
+                ]
+              },
+              {
+                "name": "Blouse",
+                "options": [
+                  { "value": "Unstitched" },
+                  { "value": "Stitched to measure" }
+                ]
+              }
+            ],
+            "variants": [
+              { "option1": "Gold Zari",   "option2": "Unstitched",           "sku": "SAR-GLD-U", "price": "₹6,499", "mrp": "₹8,200", "stock": 6 },
+              { "option1": "Gold Zari",   "option2": "Stitched to measure",  "sku": "SAR-GLD-S", "price": "₹7,299", "mrp": "₹9,000", "stock": 3 },
+              { "option1": "Silver Zari", "option2": "Unstitched",           "sku": "SAR-SLV-U", "price": "₹6,299", "mrp": "₹8,000", "stock": 4 },
+              { "option1": "Silver Zari", "option2": "Stitched to measure",  "sku": "SAR-SLV-S", "price": "₹7,099", "mrp": "₹8,800", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=1200&q=80",
+            "title": "Chambray Print Shirt",
+            "desc": "Soft indigo chambray with a hand-blocked motif. Cut a little roomy, meant to be worn untucked.",
+            "meta": "Bestseller",
+            "price": "₹1,899",
+            "mrp": "₹2,400",
+            "slug": "chambray-print-shirt",
+            "enableOrder": true,
+            "body": "A lightweight indigo chambray, hand-block printed in small runs so no two shirts carry exactly the same motif spacing.\n\nCut a little roomy through the body with a slightly dropped shoulder — it is meant to be worn untucked, over anything. The relaxed fit adds about two inches through the chest if you prefer more room.\n\nMachine wash cold, inside out. The indigo will soften over the first few washes; that is the point.",
+            "productInfoTitle": "Product Information",
+            "productInfo": [
+              { "label": "Fabric", "value": "100% cotton chambray" },
+              { "label": "Print",  "value": "Hand-block, natural dye" },
+              { "label": "Fit",    "value": "Relaxed, dropped shoulder" },
+              { "label": "Care",   "value": "Machine wash cold, inside out" }
+            ],
+            "attributes": [
+              {
+                "name": "Size",
+                "options": [
+                  { "value": "S" }, { "value": "M" }, { "value": "L" }, { "value": "XL" }
+                ]
+              },
+              {
+                "name": "Fit",
+                "options": [
+                  { "value": "Regular" },
+                  { "value": "Relaxed" }
+                ]
+              }
+            ],
+            "variants": [
+              { "option1": "S",  "option2": "Regular", "sku": "CHS-S-R",  "price": "₹1,899", "stock": 8 },
+              { "option1": "S",  "option2": "Relaxed", "sku": "CHS-S-X",  "price": "₹1,899", "stock": 5 },
+              { "option1": "M",  "option2": "Regular", "sku": "CHS-M-R",  "price": "₹1,899", "stock": 12 },
+              { "option1": "M",  "option2": "Relaxed", "sku": "CHS-M-X",  "price": "₹1,899", "stock": 7 },
+              { "option1": "L",  "option2": "Regular", "sku": "CHS-L-R",  "price": "₹1,999", "stock": 3 },
+              { "option1": "L",  "option2": "Relaxed", "sku": "CHS-L-X",  "price": "₹1,999", "stock": 2 },
+              { "option1": "XL", "option2": "Regular", "sku": "CHS-XL-R", "price": "₹2,099", "stock": 0 },
+              { "option1": "XL", "option2": "Relaxed", "sku": "CHS-XL-X", "price": "₹2,099", "stock": 4 }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?auto=format&fit=crop&w=1200&q=80",
+            "title": "Denim Shirt Dress",
+            "desc": "Washed cotton denim, button-through, with a gathered waist and deep pockets.",
+            "price": "₹2,499",
+            "mrp": "₹3,200",
+            "slug": "denim-shirt-dress",
+            "enableOrder": true,
+            "body": "A washed cotton denim shirt dress that works over a year — sleeves rolled in summer, a knit underneath in winter.\n\nButton-through the full length, gathered at the waist, with pockets deep enough to actually use. Falls just above the knee on most heights.\n\nMachine wash cold with like colours. Expect a little fading at the seams over time.",
+            "productInfoTitle": "Product Information",
+            "productInfo": [
+              { "label": "Fabric", "value": "100% cotton denim, stone washed" },
+              { "label": "Length", "value": "Just above the knee" },
+              { "label": "Pockets","value": "Two side, two chest" },
+              { "label": "Care",   "value": "Machine wash cold" }
+            ],
+            "attributes": [
+              {
+                "name": "Size",
+                "options": [
+                  { "value": "XS" }, { "value": "S" }, { "value": "M" }, { "value": "L" }
+                ]
+              }
+            ],
+            "variants": [
+              { "option1": "XS", "sku": "DSD-XS", "price": "₹2,499", "stock": 2 },
+              { "option1": "S",  "sku": "DSD-S",  "price": "₹2,499", "stock": 9 },
+              { "option1": "M",  "sku": "DSD-M",  "price": "₹2,499", "stock": 11 },
+              { "option1": "L",  "sku": "DSD-L",  "price": "₹2,599", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&w=1200&q=80",
+            "title": "Satin Jogger",
+            "desc": "Fluid satin in blush, elasticated at the waist and ankle. Dressier than it sounds.",
+            "meta": "New in",
+            "price": "₹1,699",
+            "slug": "satin-jogger",
+            "enableOrder": true,
+            "body": "A fluid satin jogger that reads far dressier than a jogger has any right to.\n\nElasticated at the waist and ankle, with patch pockets front and back. Wear it with the chambray shirt for something easy, or with heels when it needs to do more.\n\nHand wash cold or dry clean. Do not tumble dry — satin does not forgive it.",
+            "attributes": [
+              {
+                "name": "Size",
+                "options": [{ "value": "S" }, { "value": "M" }, { "value": "L" }]
+              }
+            ],
+            "variants": [
+              { "option1": "S", "sku": "SJG-S", "price": "₹1,699", "stock": 6 },
+              { "option1": "M", "sku": "SJG-M", "price": "₹1,699", "stock": 4 },
+              { "option1": "L", "sku": "SJG-L", "price": "₹1,699", "stock": 1 }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=1200&q=80",
+            "title": "Occasion Gown",
+            "desc": "Full-skirted crimson gown with a fitted bodice and a hidden side zip.",
+            "meta": "Made to order",
+            "price": "₹4,999",
+            "mrp": "₹6,500",
+            "slug": "occasion-gown",
+            "enableOrder": true,
+            "body": "A full-skirted crimson gown cut for occasions that deserve one — fitted through the bodice, with enough skirt to move properly.\n\nMade to order in your size, which takes about ten days. Hidden side zip, boned bodice, fully lined. Because it is made for you, this piece is exchange-only rather than returnable.\n\nDry clean only.",
+            "productInfoTitle": "Product Information",
+            "productInfo": [
+              { "label": "Fabric",     "value": "Duchess satin, fully lined" },
+              { "label": "Closure",    "value": "Hidden side zip" },
+              { "label": "Made to order", "value": "Ships in ~10 days" },
+              { "label": "Care",       "value": "Dry clean only" }
+            ],
+            "attributes": [
+              {
+                "name": "Size",
+                "options": [{ "value": "S" }, { "value": "M" }, { "value": "L" }]
+              },
+              {
+                "name": "Length",
+                "options": [
+                  { "value": "Regular" },
+                  { "value": "Petite" }
+                ]
+              }
+            ],
+            "variants": [
+              { "option1": "S", "option2": "Regular", "sku": "OGW-S-R", "price": "₹4,999", "mrp": "₹6,500", "stock": 3 },
+              { "option1": "S", "option2": "Petite",  "sku": "OGW-S-P", "price": "₹5,199", "mrp": "₹6,700", "stock": 2 },
+              { "option1": "M", "option2": "Regular", "sku": "OGW-M-R", "price": "₹4,999", "mrp": "₹6,500", "stock": 5 },
+              { "option1": "M", "option2": "Petite",  "sku": "OGW-M-P", "price": "₹5,199", "mrp": "₹6,700", "stock": 1 },
+              { "option1": "L", "option2": "Regular", "sku": "OGW-L-R", "price": "₹5,299", "mrp": "₹6,900", "stock": 2 },
+              { "option1": "L", "option2": "Petite",  "sku": "OGW-L-P", "price": "₹5,499", "mrp": "₹7,100", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1479064555552-3ef4979f8908?auto=format&fit=crop&w=1200&q=80",
+            "title": "The Everyday Edit",
+            "desc": "Our staples bundle — leather belt, cotton tee and tailored trouser, priced together.",
+            "meta": "Bundle",
+            "price": "₹3,299",
+            "mrp": "₹4,400",
+            "slug": "everyday-edit",
+            "enableOrder": true,
+            "body": "The three pieces customers end up buying anyway, bundled at a better price: a full-grain leather belt, a heavyweight cotton tee and a pair of tailored trousers.\n\nPick the trouser size at checkout — the belt is cut to match, and the tee follows the same sizing as the rest of our knitwear.",
+            "attributes": [
+              {
+                "name": "Trouser Size",
+                "options": [{ "value": "30" }, { "value": "32" }, { "value": "34" }, { "value": "36" }]
+              }
+            ],
+            "variants": [
+              { "option1": "30", "sku": "EDT-30", "price": "₹3,299", "stock": 4 },
+              { "option1": "32", "sku": "EDT-32", "price": "₹3,299", "stock": 7 },
+              { "option1": "34", "sku": "EDT-34", "price": "₹3,299", "stock": 5 },
+              { "option1": "36", "sku": "EDT-36", "price": "₹3,399", "stock": 0 }
+            ]
+          }
+        ]
+      }
+    },
+
+    "gallery": {
+      "variant": "grid-3",
+      "props": {
+        "label": "Lookbook",
+        "heading": "In the store",
+        "lightbox": true,
+        "images": [
+          { "image": "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?auto=format&fit=crop&w=1200&q=80", "alt": "The rails" },
+          { "image": "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?auto=format&fit=crop&w=1200&q=80", "alt": "Inside the store" },
+          { "image": "https://images.unsplash.com/photo-1479064555552-3ef4979f8908?auto=format&fit=crop&w=1200&q=80", "alt": "Accessories and staples" },
+          { "image": "https://images.unsplash.com/photo-1610030469983-98e550d6193c?auto=format&fit=crop&w=1200&q=80", "alt": "Handloom silk" },
+          { "image": "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=1200&q=80", "alt": "Block-printed cotton" },
+          { "image": "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?auto=format&fit=crop&w=1200&q=80", "alt": "Denim, washed soft" }
+        ]
+      }
+    },
+
+    "testimonials": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Reviews",
+        "heading": "What customers say",
+        "items": [
+          { "quote": "The saree is even better in person — the zari catches the light beautifully. They stitched the blouse to my measurements in four days.", "name": "Divya Menon", "role": "Bought the silk saree", "rating": 5 },
+          { "quote": "I have three of the chambray shirts now. Sizing is honest, which is rare — I took my usual M and it fit first time.", "name": "Rahul Nair", "role": "Repeat customer", "rating": 5 },
+          { "quote": "They altered the dress twice, free, until it sat right. That alone will keep me coming back.", "name": "Sneha Kulkarni", "role": "Google review", "rating": 5 }
+        ]
+      }
+    },
+
+    "cta": {
+      "variant": "banner",
+      "props": {
+        "heading": "Not sure about the size?",
+        "sub": "Send us a message and we'll help you pick — or book a fitting and try things on with a coffee.",
+        "ctaPrimary": { "text": "Book a Fitting", "href": "#contact", "style": "primary" },
+        "showWhatsapp": true,
+        "showCall": true
+      }
+    },
+
+    "contact": {
+      "variant": "form-map",
+      "props": {
+        "label": "Visit Us",
+        "heading": "Come in, or ask us anything",
+        "sub": "Fittings, alterations and styling help — tell us what you're after and we'll reply the same day.",
+        "showPhone": true,
+        "showWhatsapp": true,
+        "showEmail": true,
+        "showAddress": true,
+        "showHours": true,
+        "showMap": true,
+        "submitText": "Send Enquiry"
+      }
+    },
+
+    "footer": {
+      "variant": "columns",
+      "props": {
+        "blurb": "A small-batch boutique of handloom weaves and everyday essentials — sized honestly, finished properly.",
+        "showContact": true,
+        "showHours": true,
+        "showSocial": true,
+        "showLegal": true
+      }
+    }
+  },
+
+  "notes": "Built around the `products` section so the demo shows the full shop flow: nested attributes (Size/Fit, Border/Blouse), a variant matrix with per-combination price, MRP, SKU and live stock, plus cart, account and checkout via the header toggles. Some combinations are deliberately stock 0 so the Out-of-stock state and the disabled Add-to-Cart button are visible in a demo. Photos are hosted Unsplash URLs (SiteRenderer::media passes any http(s) URL through), so nothing lands in the client's media library — swap them for the shop's own product shots before going live. Per-colour option images are intentionally not set: attach those only when the photo genuinely matches the colour, or the main image will not change when a shopper picks one."
+}

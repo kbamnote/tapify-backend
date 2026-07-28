@@ -1,0 +1,29 @@
+{
+  "preset": "blush-noir",
+  "label": "Blush & Noir",
+  "description": "Soft charcoal with a dusty-rose accent on warm ivory. Understated and editorial — suits boutiques, fashion labels, jewellery and beauty brands.",
+  "industries": ["boutique", "fashion", "jewellery", "beauty", "lifestyle"],
+
+  "tokens": {
+    "mode": "light",
+    "color": {
+      "primary":   "#2E2A2B",
+      "secondary": "#5A5052",
+      "accent":    "#C4867C",
+      "bg":        "#FFFCF9",
+      "surface":   "#F6EFEA",
+      "text":      "#241F20",
+      "muted":     "#7C7073",
+      "border":    "#E7DCD6"
+    },
+    "font": {
+      "heading": "Cormorant Garamond",
+      "body":    "Inter"
+    },
+    "radius":    "sm",
+    "spacing":   "spacious",
+    "container": "normal"
+  },
+
+  "notes": "Tokens only — sections never hardcode colours, they read these as CSS variables. The high-contrast serif heading over generous spacing is what gives this one its editorial, lookbook feel; drop `spacing` to comfortable for a denser catalogue."
+}
