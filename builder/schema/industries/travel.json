@@ -1,0 +1,364 @@
+{
+  "id": "travel",
+  "label": "Tours & Travels",
+  "aliases": ["travel-agency", "tour-operator", "tourism", "holidays", "packages", "trekking", "pilgrimage"],
+  "icon": "plane",
+  "theme": { "preset": "azure-sand" },
+
+  "description": "Travel agencies and tour operators: bookable holiday packages priced by duration and occupancy, destination gallery and enquiries.",
+
+  "sections": [
+    "header",
+    "hero",
+    "about",
+    "stats",
+    "products",
+    "gallery",
+    "testimonials",
+    "faq",
+    "cta",
+    "contact",
+    "footer"
+  ],
+
+  "recommended": [
+    { "type": "hero",         "reason": "A destination shot people can picture themselves in" },
+    { "type": "about",        "reason": "Who plans the trips, and what you actually handle" },
+    { "type": "stats",        "reason": "Years operating, destinations, travellers a year" },
+    { "type": "products",     "reason": "Packages priced by duration and occupancy, bookable online" },
+    { "type": "gallery",      "reason": "Destinations you actually run trips to" },
+    { "type": "testimonials", "reason": "Traveller reviews are the strongest proof you have" },
+    { "type": "faq",          "reason": "Payments, cancellations, visas, what's included" },
+    { "type": "cta",          "reason": "Push the custom-itinerary enquiry" },
+    { "type": "contact",      "reason": "Office address, phone and enquiry form" },
+    { "type": "footer",       "reason": "Links, socials, copyright" }
+  ],
+
+  "business": {
+    "phone": "+91 98765 43210",
+    "whatsapp": "+91 98765 43210",
+    "email": "trips@example-travels.in",
+    "address": "31 Brigade Road, Bengaluru, Karnataka 560001"
+  },
+
+  "content": {
+    "header": {
+      "variant": "left",
+      "props": {
+        "sticky": true,
+        "showCart": true,
+        "showAccount": true,
+        "links": [
+          { "text": "Packages",    "href": "#products" },
+          { "text": "Destinations","href": "#gallery" },
+          { "text": "Reviews",     "href": "#testimonials" },
+          { "text": "Contact",     "href": "#contact" }
+        ],
+        "cta": { "text": "Plan My Trip", "href": "#contact", "style": "primary" }
+      }
+    },
+
+    "hero": {
+      "variant": "centered-bg",
+      "props": {
+        "badge": "Booking now for the winter season",
+        "heading": "Trips planned by people who've been there",
+        "sub": "Fixed-departure and custom holidays across India and abroad — with real prices, honest inclusions and one person handling your trip from enquiry to return.",
+        "image": "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=2000&q=80",
+        "fullHeight": true,
+        "ctaPrimary":   { "text": "Browse Packages",  "href": "#products", "style": "primary" },
+        "ctaSecondary": { "text": "Plan a Custom Trip","href": "#contact",  "style": "ghost" },
+        "showWhatsapp": true,
+        "showCall": true
+      },
+      "style": { "overlay": 0.5 }
+    },
+
+    "about": {
+      "variant": "image-right",
+      "props": {
+        "label": "About Us",
+        "heading": "No surprises at the destination",
+        "body": "We have been putting trips together since 2009, and almost everything we sell is something one of us has travelled first.\n\nOur quotes list what is included and — more usefully — what is not. Entry fees, tips, and the meals you are actually going to buy for yourself are all written down before you pay anything.\n\nOne coordinator stays with your booking from the first enquiry through to the day you land back. You will not be handed between desks halfway through.",
+        "image": "https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=1400&q=80",
+        "showPillars": true,
+        "pillars": [
+          { "title": "Itemised inclusions", "text": "What's covered and what isn't, in writing, before payment." },
+          { "title": "One coordinator",     "text": "The same person handles your trip end to end." },
+          { "title": "On-trip support",     "text": "A number that is answered while you are travelling, not just office hours." },
+          { "title": "Verified stays",      "text": "We book hotels we have inspected or stayed in ourselves." }
+        ]
+      }
+    },
+
+    "stats": {
+      "variant": "bar",
+      "props": {
+        "countUp": true,
+        "items": [
+          { "value": 16, "suffix": "+",  "label": "Years operating" },
+          { "value": 40, "suffix": "+",  "label": "Destinations covered" },
+          { "value": 24, "suffix": "/7", "label": "Support while you travel" },
+          { "value": 12, "suffix": "",   "label": "Travel coordinators" }
+        ]
+      }
+    },
+
+    "products": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Holiday Packages",
+        "heading": "Trips you can book today",
+        "sub": "Prices are per person and change with duration and room sharing — pick your options on any package to see the exact fare. Flights are quoted separately unless stated.",
+        "showRelated": true,
+        "relatedHeading": "Other popular trips",
+        "items": [
+          {
+            "image": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1200&q=80",
+            "title": "Golden Triangle — Delhi, Agra & Jaipur",
+            "desc": "The classic first trip through North India: Old Delhi, the Taj at sunrise, and the forts and bazaars of Jaipur.",
+            "meta": "Most booked",
+            "price": "₹24,500",
+            "mrp": "₹29,000",
+            "slug": "golden-triangle",
+            "enableOrder": true,
+            "body": "The route most people do first, and for good reason.\n\nYou start in Delhi with Humayun's Tomb and a walk through Chandni Chowk, drive to Agra for the Taj at sunrise — which is genuinely worth the early start — then on to Jaipur for Amber Fort, the City Palace and Hawa Mahal.\n\nIncluded: air-conditioned car with driver throughout, hotels with breakfast, and a licensed local guide at each city. Not included: monument entry fees (roughly ₹2,600 per person for the full circuit), lunches and dinners, and anything you buy in the bazaars.\n\nBest between October and March. April to June is workable but genuinely hot.",
+            "productInfoTitle": "Trip Details",
+            "productInfo": [
+              { "label": "Route",        "value": "Delhi → Agra → Jaipur → Delhi" },
+              { "label": "Best season",  "value": "October to March" },
+              { "label": "Transport",    "value": "Private AC car with driver" },
+              { "label": "Guides",       "value": "Licensed local guide in each city" },
+              { "label": "Not included", "value": "Monument entry fees, meals other than breakfast" }
+            ],
+            "attributes": [
+              { "name": "Duration",  "options": [{ "value": "5 Nights" }, { "value": "7 Nights" }] },
+              { "name": "Occupancy", "options": [{ "value": "Double sharing" }, { "value": "Triple sharing" }, { "value": "Single room" }] }
+            ],
+            "variants": [
+              { "option1": "5 Nights", "option2": "Double sharing", "sku": "GT-5-D", "price": "₹24,500", "mrp": "₹29,000", "stock": 14 },
+              { "option1": "5 Nights", "option2": "Triple sharing", "sku": "GT-5-T", "price": "₹22,900", "mrp": "₹27,000", "stock": 9 },
+              { "option1": "5 Nights", "option2": "Single room",    "sku": "GT-5-S", "price": "₹31,800", "mrp": "₹36,000", "stock": 4 },
+              { "option1": "7 Nights", "option2": "Double sharing", "sku": "GT-7-D", "price": "₹32,400", "mrp": "₹38,000", "stock": 11 },
+              { "option1": "7 Nights", "option2": "Triple sharing", "sku": "GT-7-T", "price": "₹30,200", "mrp": "₹35,500", "stock": 6 },
+              { "option1": "7 Nights", "option2": "Single room",    "sku": "GT-7-S", "price": "₹42,600", "mrp": "₹48,000", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1200&q=80",
+            "title": "Kerala Backwaters & Hills",
+            "desc": "A night on a private houseboat through the Alleppey backwaters, then tea country and cool air in Munnar.",
+            "meta": "Family favourite",
+            "price": "₹21,900",
+            "mrp": "₹26,500",
+            "slug": "kerala-backwaters",
+            "enableOrder": true,
+            "body": "Slow, green and about as restful as India gets.\n\nYou spend a full night on a private houseboat drifting through the Alleppey backwaters — meals cooked on board, no schedule to keep — then head up to Munnar for tea estates, a plantation walk and genuinely cold mornings.\n\nIncluded: houseboat with all meals, hotels with breakfast, and a private car with driver throughout. Not included: flights, lunches and dinners on the land portion, and entry to the tea museum.\n\nSeptember to March is ideal. The monsoon months are beautiful and much cheaper, but expect rain most days.",
+            "productInfoTitle": "Trip Details",
+            "productInfo": [
+              { "label": "Route",       "value": "Kochi → Alleppey → Munnar → Kochi" },
+              { "label": "Best season", "value": "September to March" },
+              { "label": "Houseboat",   "value": "One full night, private, all meals" },
+              { "label": "Transport",   "value": "Private car with driver" }
+            ],
+            "attributes": [
+              { "name": "Duration",  "options": [{ "value": "4 Nights" }, { "value": "6 Nights" }] },
+              { "name": "Occupancy", "options": [{ "value": "Double sharing" }, { "value": "Triple sharing" }] }
+            ],
+            "variants": [
+              { "option1": "4 Nights", "option2": "Double sharing", "sku": "KL-4-D", "price": "₹21,900", "mrp": "₹26,500", "stock": 16 },
+              { "option1": "4 Nights", "option2": "Triple sharing", "sku": "KL-4-T", "price": "₹19,800", "mrp": "₹24,000", "stock": 12 },
+              { "option1": "6 Nights", "option2": "Double sharing", "sku": "KL-6-D", "price": "₹28,600", "mrp": "₹33,000", "stock": 8 },
+              { "option1": "6 Nights", "option2": "Triple sharing", "sku": "KL-6-T", "price": "₹26,100", "mrp": "₹30,500", "stock": 3 }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=1200&q=80",
+            "title": "Rajasthan Heritage Circuit",
+            "desc": "Jaipur, Jodhpur and Udaipur — forts, stepwells and a lake palace, at a pace that isn't punishing.",
+            "price": "₹34,900",
+            "mrp": "₹41,000",
+            "slug": "rajasthan-heritage",
+            "enableOrder": true,
+            "body": "Three cities, each with a completely different character.\n\nJaipur for Amber Fort and the bazaars, Jodhpur for Mehrangarh standing over the blue city, and Udaipur for the lake and a slower couple of days at the end.\n\nWe keep the driving to a maximum of five hours in any one day, which is the difference between enjoying Rajasthan and enduring it.\n\nIncluded: private AC car with driver, heritage-property hotels with breakfast, and licensed guides in each city. Not included: monument entry fees, meals other than breakfast, and the Udaipur boat ride.",
+            "productInfoTitle": "Trip Details",
+            "productInfo": [
+              { "label": "Route",       "value": "Jaipur → Jodhpur → Udaipur" },
+              { "label": "Best season", "value": "October to March" },
+              { "label": "Hotels",      "value": "Heritage properties, breakfast included" },
+              { "label": "Max drive",   "value": "About 5 hours on any single day" }
+            ],
+            "attributes": [
+              { "name": "Duration",  "options": [{ "value": "6 Nights" }, { "value": "9 Nights" }] },
+              { "name": "Occupancy", "options": [{ "value": "Double sharing" }, { "value": "Triple sharing" }] }
+            ],
+            "variants": [
+              { "option1": "6 Nights", "option2": "Double sharing", "sku": "RJ-6-D", "price": "₹34,900", "mrp": "₹41,000", "stock": 10 },
+              { "option1": "6 Nights", "option2": "Triple sharing", "sku": "RJ-6-T", "price": "₹31,500", "mrp": "₹37,500", "stock": 7 },
+              { "option1": "9 Nights", "option2": "Double sharing", "sku": "RJ-9-D", "price": "₹48,200", "mrp": "₹55,000", "stock": 5 },
+              { "option1": "9 Nights", "option2": "Triple sharing", "sku": "RJ-9-T", "price": "₹44,000", "mrp": "₹51,000", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1200&q=80",
+            "title": "Goa — Beaches & Old Town",
+            "desc": "North Goa's beaches and shacks, plus a half-day through the churches and lanes of Old Goa.",
+            "meta": "Short break",
+            "price": "₹14,500",
+            "mrp": "₹18,000",
+            "slug": "goa-beaches",
+            "enableOrder": true,
+            "body": "An easy long weekend, or a slower week if you take the six-night option.\n\nYou stay in North Goa within reach of the beaches and shacks, with a half-day through Old Goa's churches and a lazy river cruise if the weather plays along.\n\nIncluded: hotel with breakfast, airport transfers and the Old Goa half-day tour. Not included: flights, most meals, and water sports.\n\nNovember to February is peak and prices rise accordingly. The shoulder months are quieter and noticeably cheaper.",
+            "attributes": [
+              { "name": "Duration",  "options": [{ "value": "3 Nights" }, { "value": "6 Nights" }] },
+              { "name": "Hotel",     "options": [{ "value": "3-star" }, { "value": "4-star" }] }
+            ],
+            "variants": [
+              { "option1": "3 Nights", "option2": "3-star", "sku": "GA-3-3", "price": "₹14,500", "mrp": "₹18,000", "stock": 20 },
+              { "option1": "3 Nights", "option2": "4-star", "sku": "GA-3-4", "price": "₹19,900", "mrp": "₹24,000", "stock": 13 },
+              { "option1": "6 Nights", "option2": "3-star", "sku": "GA-6-3", "price": "₹24,800", "mrp": "₹29,500", "stock": 9 },
+              { "option1": "6 Nights", "option2": "4-star", "sku": "GA-6-4", "price": "₹33,600", "mrp": "₹39,000", "stock": 2 }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1200&q=80",
+            "title": "Island Escape — Beaches & Snorkelling",
+            "desc": "White sand, clear water and reef snorkelling, with ferry transfers and beach-front stays arranged.",
+            "meta": "New",
+            "price": "₹28,900",
+            "mrp": "₹34,000",
+            "slug": "island-escape",
+            "enableOrder": true,
+            "body": "For anyone whose idea of a holiday is water, and not much else.\n\nBeach-front stays, reef snorkelling with a guide, and inter-island ferry transfers handled for you — the part most people get wrong when they book independently.\n\nIncluded: stays with breakfast, ferry transfers, and one guided snorkelling session. Not included: flights to the gateway airport, diving certification, and meals beyond breakfast.\n\nTell us at enquiry whether you want the quieter islands or the livelier ones; it changes the itinerary quite a bit.",
+            "attributes": [
+              { "name": "Duration",  "options": [{ "value": "4 Nights" }, { "value": "6 Nights" }] },
+              { "name": "Occupancy", "options": [{ "value": "Double sharing" }, { "value": "Triple sharing" }] }
+            ],
+            "variants": [
+              { "option1": "4 Nights", "option2": "Double sharing", "sku": "IS-4-D", "price": "₹28,900", "mrp": "₹34,000", "stock": 8 },
+              { "option1": "4 Nights", "option2": "Triple sharing", "sku": "IS-4-T", "price": "₹26,400", "mrp": "₹31,000", "stock": 5 },
+              { "option1": "6 Nights", "option2": "Double sharing", "sku": "IS-6-D", "price": "₹38,700", "mrp": "₹45,000", "stock": 4 },
+              { "option1": "6 Nights", "option2": "Triple sharing", "sku": "IS-6-T", "price": "₹35,200", "mrp": "₹41,000", "stock": 1 }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80",
+            "title": "Greek Islands — Santorini & Athens",
+            "desc": "Athens for the Acropolis, then the caldera villages of Santorini. Visa assistance included.",
+            "meta": "International",
+            "price": "₹1,24,000",
+            "mrp": "₹1,42,000",
+            "slug": "greek-islands",
+            "enableOrder": true,
+            "body": "Two nights in Athens for the Acropolis and the old town, then the ferry across to Santorini for the caldera villages, sunsets at Oia and a day on the black-sand beaches.\n\nIncluded: hotels with breakfast, inter-island ferry, airport transfers and full Schengen visa assistance. Not included: international flights, travel insurance, and meals beyond breakfast.\n\nApply for the visa at least eight weeks ahead — appointment slots are the usual bottleneck, not the paperwork.",
+            "productInfoTitle": "Trip Details",
+            "productInfo": [
+              { "label": "Route",       "value": "Athens → Santorini → Athens" },
+              { "label": "Best season", "value": "April to October" },
+              { "label": "Visa",        "value": "Schengen; assistance included" },
+              { "label": "Apply by",    "value": "At least 8 weeks before travel" }
+            ],
+            "attributes": [
+              { "name": "Duration",  "options": [{ "value": "6 Nights" }, { "value": "8 Nights" }] },
+              { "name": "Occupancy", "options": [{ "value": "Double sharing" }, { "value": "Single room" }] }
+            ],
+            "variants": [
+              { "option1": "6 Nights", "option2": "Double sharing", "sku": "GR-6-D", "price": "₹1,24,000", "mrp": "₹1,42,000", "stock": 6 },
+              { "option1": "6 Nights", "option2": "Single room",    "sku": "GR-6-S", "price": "₹1,58,000", "mrp": "₹1,76,000", "stock": 3 },
+              { "option1": "8 Nights", "option2": "Double sharing", "sku": "GR-8-D", "price": "₹1,49,500", "mrp": "₹1,68,000", "stock": 4 },
+              { "option1": "8 Nights", "option2": "Single room",    "sku": "GR-8-S", "price": "₹1,92,000", "mrp": "₹2,10,000", "stock": 0 }
+            ]
+          }
+        ]
+      }
+    },
+
+    "gallery": {
+      "variant": "grid-3",
+      "props": {
+        "label": "Destinations",
+        "heading": "Places we send people",
+        "lightbox": true,
+        "images": [
+          { "image": "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1200&q=80", "alt": "The Taj Mahal, Agra" },
+          { "image": "https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=1200&q=80", "alt": "Hawa Mahal, Jaipur" },
+          { "image": "https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=1200&q=80", "alt": "India Gate, New Delhi" },
+          { "image": "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1200&q=80", "alt": "Backwaters, Kerala" },
+          { "image": "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=1200&q=80", "alt": "Beaches, Goa" },
+          { "image": "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1200&q=80", "alt": "Santorini, Greece" }
+        ]
+      }
+    },
+
+    "testimonials": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Reviews",
+        "heading": "What travellers say",
+        "items": [
+          { "quote": "The quote listed what was not included, which no other agency bothered to do. No arguments at any point during the trip.", "name": "Prakash Iyer", "role": "Golden Triangle, 2025", "rating": 5 },
+          { "quote": "Our flight was cancelled and they had the houseboat and the Munnar hotel rescheduled before we had even left the airport.", "name": "Anjali Verma", "role": "Kerala, 2025", "rating": 5 },
+          { "quote": "Same coordinator from the first call to the day we got back. She knew our itinerary without having to look it up.", "name": "Imtiaz Khan", "role": "Rajasthan, 2024", "rating": 5 }
+        ]
+      }
+    },
+
+    "faq": {
+      "variant": "accordion",
+      "props": {
+        "label": "Before You Book",
+        "heading": "Common questions",
+        "openFirst": true,
+        "items": [
+          { "q": "Are flights included in the package price?", "a": "No — package prices cover land arrangements only, so you can use your own miles or preferred airline. We are happy to quote flights separately and book them alongside the trip." },
+          { "q": "What does the price actually cover?", "a": "Accommodation with breakfast, transport as described, and any guides or activities listed on the package page. Every package also states what is NOT included, which is usually monument fees, most meals, tips and personal spending." },
+          { "q": "How much do I pay upfront?", "a": "Twenty-five per cent confirms the booking. The balance is due fifteen days before departure. For international trips with visa processing we ask for the balance earlier — the exact schedule is on your invoice." },
+          { "q": "What is the cancellation policy?", "a": "Cancel more than thirty days out and you lose only the deposit. Between thirty and fifteen days it is fifty per cent, and inside fifteen days no refund is possible as hotels and transport are already paid. Date changes are free once, more than thirty days out." },
+          { "q": "Do you help with visas?", "a": "Yes, on international packages we handle documentation and the appointment. We cannot influence the decision, and visa fees are paid directly by you to the consulate." },
+          { "q": "Can you build a custom itinerary?", "a": "That is most of what we do. Tell us roughly where, when, how long and a budget range, and we will send a draft itinerary with costs within two working days." },
+          { "q": "Is travel insurance included?", "a": "It is not included, but we strongly recommend it and can arrange a policy at the time of booking. For most international destinations it is effectively mandatory for the visa." }
+        ]
+      }
+    },
+
+    "cta": {
+      "variant": "banner",
+      "props": {
+        "heading": "Somewhere else in mind?",
+        "sub": "Most of our trips start as a custom itinerary. Tell us where, when and roughly your budget, and we'll send a draft plan with costs in two working days.",
+        "ctaPrimary": { "text": "Plan a Custom Trip", "href": "#contact", "style": "primary" },
+        "showWhatsapp": true,
+        "showCall": true
+      }
+    },
+
+    "contact": {
+      "variant": "form-map",
+      "props": {
+        "label": "Get In Touch",
+        "heading": "Tell us about your trip",
+        "sub": "Where you want to go, rough dates, how many of you and a budget range — that's enough for us to send a first itinerary.",
+        "showPhone": true,
+        "showWhatsapp": true,
+        "showEmail": true,
+        "showAddress": true,
+        "showHours": true,
+        "showMap": true,
+        "submitText": "Send Enquiry"
+      }
+    },
+
+    "footer": {
+      "variant": "columns",
+      "props": {
+        "blurb": "Fixed-departure and custom holidays across India and abroad, with itemised inclusions and one coordinator per trip.",
+        "showContact": true,
+        "showHours": true,
+        "showSocial": true,
+        "showLegal": true
+      }
+    }
+  },
+
+  "notes": "Built on the `products` section: packages carry Duration x Occupancy (or Hotel grade) attributes with a per-combination fare, which is how holidays are genuinely priced — per person, on sharing. Some combinations are stock 0 so the sold-out state shows in a demo. Every destination photo was identified before its package was named, so titles match what is actually pictured (Taj, Hawa Mahal, India Gate, Kerala backwaters, Goa, Santorini); the one generic tropical-beach shot is deliberately titled 'Island Escape' rather than claiming a specific island. Cancellation, payment and visa answers in the FAQ are plausible industry defaults, NOT legal advice — an operator must replace them with their own terms before going live. Photos are hosted Unsplash URLs (SiteRenderer::media passes any http(s) URL through) — replace them with the operator's own before going live."
+}

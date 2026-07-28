@@ -3,11 +3,12 @@
   "label": "Coaching / Tuition Institute",
   "aliases": ["tuition", "institute", "academy", "classes", "iit-jee", "neet"],
   "icon": "graduation-cap",
-  "theme": "navy-gold",
+  "theme": { "preset": "navy-gold" },
 
   "description": "Exam-prep and tuition institutes: courses, faculty, results, admissions.",
 
   "sections": [
+    "header",
     "hero",
     "about",
     "stats",
@@ -24,7 +25,7 @@
   "recommended": [
     { "type": "hero",         "reason": "Headline + admissions CTA" },
     { "type": "about",        "reason": "Who you are, vision & mission" },
-    { "type": "stats",        "reason": "Selections, years running, students taught" },
+    { "type": "stats",        "reason": "Years running, batch size, faculty count" },
     { "type": "services",     "reason": "Courses / batches you offer" },
     { "type": "team",         "reason": "Faculty and mentors" },
     { "type": "testimonials", "reason": "Student and parent reviews" },
@@ -35,12 +36,229 @@
     { "type": "footer",       "reason": "Links, socials, copyright" }
   ],
 
-  "copy": {
-    "servicesHeading": "Courses We Offer",
-    "servicesLabel": "Our Courses",
-    "aboutHeading": "About Our Institute",
-    "contactHeading": "Admissions & Enquiry"
+  "business": {
+    "phone": "+91 98765 43210",
+    "whatsapp": "+91 98765 43210",
+    "email": "admissions@example-institute.in",
+    "address": "17 MG Road, Bengaluru, Karnataka 560001"
   },
 
-  "notes": "Sections listed under `sections` are inserted (in order) when a new coaching site is created. `recommended` powers the Add-Section suggestions. `copy` seeds industry-appropriate default text so the starter site never reads like lorem ipsum."
+  "content": {
+    "header": {
+      "variant": "left",
+      "props": {
+        "sticky": true,
+        "links": [
+          { "text": "Courses",    "href": "#services" },
+          { "text": "Faculty",    "href": "#team" },
+          { "text": "Reviews",    "href": "#testimonials" },
+          { "text": "Admissions", "href": "#contact" }
+        ],
+        "cta": { "text": "Enquire Now", "href": "#contact", "style": "primary" }
+      }
+    },
+
+    "hero": {
+      "variant": "centered-bg",
+      "props": {
+        "badge": "Admissions open · 2026–27",
+        "heading": "Small batches. Teachers who stay.",
+        "sub": "Structured coaching for board exams and competitive entrance, in batches capped at 25 — so no student sits at the back and disappears.",
+        "image": "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=2000&q=80",
+        "fullHeight": true,
+        "ctaPrimary":   { "text": "Enquire About Admission", "href": "#contact",  "style": "primary" },
+        "ctaSecondary": { "text": "See Our Courses",         "href": "#services", "style": "ghost" },
+        "showCall": true
+      },
+      "style": { "overlay": 0.58 }
+    },
+
+    "about": {
+      "variant": "image-left",
+      "props": {
+        "label": "About Us",
+        "heading": "About Our Institute",
+        "body": "We started with two classrooms and a simple rule: a batch stops at 25 students, whatever the demand.\n\nThat cap is the whole model. It means a teacher knows which students are struggling without waiting for a test to tell them, and doubts get cleared in the room rather than in a queue afterwards.\n\nOur faculty are full-time and stay with a batch through the year, so nobody has to re-explain themselves to a new teacher in February.",
+        "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1400&q=80",
+        "showPillars": true,
+        "pillars": [
+          { "title": "Batches capped at 25", "text": "Firmly. We open a new batch rather than add a 26th chair." },
+          { "title": "Full-time faculty",    "text": "The same teacher takes your batch from start to finish." },
+          { "title": "Weekly tests",         "text": "Graded and returned with written feedback, not just a score." },
+          { "title": "Parent updates",       "text": "A written progress note every month, plus a termly meeting." }
+        ]
+      }
+    },
+
+    "stats": {
+      "variant": "bar",
+      "props": {
+        "countUp": true,
+        "items": [
+          { "value": 14, "suffix": "+", "label": "Years running" },
+          { "value": 25, "suffix": "",  "label": "Maximum batch size" },
+          { "value": 22, "suffix": "",  "label": "Full-time faculty" },
+          { "value": 6,  "suffix": "",  "label": "Days a week, incl. doubt sessions" }
+        ]
+      }
+    },
+
+    "services": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Our Courses",
+        "heading": "Courses We Offer",
+        "sub": "Two-year, one-year and crash formats. Fees are quoted per academic year and can be paid in instalments — ask at the front desk.",
+        "items": [
+          {
+            "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80",
+            "title": "JEE (Main + Advanced)",
+            "desc": "Full syllabus across Physics, Chemistry and Maths, with weekly tests and past-paper practice.",
+            "meta": "2 years · Class 11–12",
+            "price": "₹1,10,000 / yr"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
+            "title": "NEET (UG)",
+            "desc": "Biology-led preparation with Physics and Chemistry, plus regular NCERT-based revision cycles.",
+            "meta": "2 years · Class 11–12",
+            "price": "₹1,05,000 / yr"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=80",
+            "title": "Foundation (Class 9–10)",
+            "desc": "Builds the base for later entrance prep while keeping school board marks on track.",
+            "meta": "1 year · Class 9–10",
+            "price": "₹58,000 / yr"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=80",
+            "title": "Board Exam Coaching",
+            "desc": "Class 11 and 12 board preparation across the Science and Commerce streams.",
+            "meta": "1 year · Class 11–12",
+            "price": "₹42,000 / yr"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1200&q=80",
+            "title": "Crash Course",
+            "desc": "Intensive revision, full-length mock tests and paper strategy in the final months.",
+            "meta": "10–14 weeks",
+            "price": "₹28,000"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1200&q=80",
+            "title": "Test Series Only",
+            "desc": "Weekly full-syllabus papers with detailed solutions and rank feedback. No classes.",
+            "meta": "Weekends",
+            "price": "₹12,000"
+          }
+        ]
+      }
+    },
+
+    "team": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Faculty",
+        "heading": "Who teaches your batch",
+        "sub": "Replace these with your own faculty and their photographs.",
+        "items": [
+          { "name": "Mr. S. Rao",      "role": "Physics",              "meta": "16 yrs", "bio": "Mechanics and electromagnetism. Takes the JEE Advanced problem sessions." },
+          { "name": "Ms. A. Banerjee", "role": "Chemistry",            "meta": "12 yrs", "bio": "Physical and organic chemistry, with a weekly reaction-mechanism clinic." },
+          { "name": "Mr. V. Kulkarni", "role": "Mathematics",          "meta": "18 yrs", "bio": "Calculus and coordinate geometry. Runs the Sunday doubt sessions." },
+          { "name": "Dr. M. Pillai",   "role": "Biology",              "meta": "14 yrs", "bio": "NEET biology, with NCERT line-by-line revision before each test." },
+          { "name": "Ms. R. Gupta",    "role": "Foundation",           "meta": "9 yrs",  "bio": "Class 9–10 Science and Maths, and the bridge into entrance prep." },
+          { "name": "Mr. T. Fernandes","role": "Mentor & Counsellor",  "meta": "11 yrs", "bio": "Study plans, test-anxiety support and parent meetings." }
+        ]
+      }
+    },
+
+    "testimonials": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Reviews",
+        "heading": "What students and parents say",
+        "sub": "Replace these with your own reviews — keep them about the teaching and support rather than promising any particular result.",
+        "items": [
+          { "quote": "The batch cap is real. My son actually asked questions in class for the first time, instead of sitting quietly at the back.", "name": "Sujata Menon", "role": "Parent, Class 12", "rating": 5 },
+          { "quote": "Weekly tests came back with written feedback, not just marks. That is what showed me where I was losing time.", "name": "Aditya Ranganathan", "role": "JEE batch, 2025", "rating": 5 },
+          { "quote": "Same teachers all year, and the Sunday doubt sessions were never rushed. The mentor meetings kept me steady before boards.", "name": "Nikita Shah", "role": "NEET batch, 2025", "rating": 5 }
+        ]
+      }
+    },
+
+    "gallery": {
+      "variant": "grid-3",
+      "props": {
+        "label": "Campus",
+        "heading": "Our classrooms and library",
+        "lightbox": true,
+        "images": [
+          { "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80", "alt": "A batch in session" },
+          { "image": "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1200&q=80", "alt": "The reference library" },
+          { "image": "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=80", "alt": "Lecture and revision hall" },
+          { "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80", "alt": "Group study area" },
+          { "image": "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1200&q=80", "alt": "Reading room" },
+          { "image": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1200&q=80", "alt": "Test practice" }
+        ]
+      }
+    },
+
+    "faq": {
+      "variant": "accordion",
+      "props": {
+        "label": "Admissions",
+        "heading": "Questions parents ask",
+        "openFirst": true,
+        "items": [
+          { "q": "When do admissions open, and is there an entrance test?", "a": "Admissions for the new academic year open in March. There is a short written assessment for entrance-prep batches — it decides which batch suits the student, not whether they get in." },
+          { "q": "How large is a batch?", "a": "Twenty-five students, capped. If a batch fills we open another rather than add seats, which is why some slots close early." },
+          { "q": "Can fees be paid in instalments?", "a": "Yes. Fees are quoted per academic year and can be split into two or three instalments at no extra charge. Ask at the front desk for the schedule." },
+          { "q": "What are the timings?", "a": "Weekday batches run after school hours and weekend batches run in the morning. Doubt-clearing sessions are on Sundays and are open to every enrolled student." },
+          { "q": "Do you provide study material?", "a": "Yes — printed modules, past papers and weekly test papers are included in the fee. Nothing further needs to be bought from us." },
+          { "q": "What if my child joins mid-year?", "a": "Mid-year joining is possible where a seat exists. We arrange catch-up sessions for the modules already covered before the student sits their first weekly test." }
+        ]
+      }
+    },
+
+    "cta": {
+      "variant": "banner",
+      "props": {
+        "heading": "Come and sit in on a class",
+        "sub": "The best way to judge a coaching institute is from the back of its classroom. Book a visit and see a batch in session before you decide.",
+        "ctaPrimary": { "text": "Book a Visit", "href": "#contact", "style": "primary" },
+        "showWhatsapp": true,
+        "showCall": true
+      }
+    },
+
+    "contact": {
+      "variant": "form-map",
+      "props": {
+        "label": "Admissions & Enquiry",
+        "heading": "Talk to us about admission",
+        "sub": "Tell us the class and stream you're looking at, and we'll call back with batch timings and fees.",
+        "showPhone": true,
+        "showWhatsapp": true,
+        "showEmail": true,
+        "showAddress": true,
+        "showHours": true,
+        "showMap": true,
+        "submitText": "Send Enquiry"
+      }
+    },
+
+    "footer": {
+      "variant": "columns",
+      "props": {
+        "blurb": "Structured coaching for board exams and competitive entrance, in batches capped at 25.",
+        "showContact": true,
+        "showHours": true,
+        "showSocial": true,
+        "showLegal": true
+      }
+    }
+  },
+
+  "notes": "`sections` are inserted in order when a new coaching site is created; `content` layers ready-made copy and photos over each section's manifest defaults so the starter site is demo-ready. This replaces the old `copy` block, which nothing ever read. Faculty are listed WITHOUT photographs — the Team section falls back to a clean initial avatar — so no stock-photo face is captioned with an invented name and qualification; the institute should add its own. Stats are deliberately institutional facts (years running, batch size, faculty count) rather than selection or rank counts: a demo should not hand an institute unverifiable results claims it might publish as-is. Photos are hosted Unsplash URLs (SiteRenderer::media passes any http(s) URL through) — replace them with the institute's own before going live."
 }

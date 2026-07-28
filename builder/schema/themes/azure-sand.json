@@ -1,0 +1,29 @@
+{
+  "preset": "azure-sand",
+  "label": "Azure & Sand",
+  "description": "Deep ocean teal with a warm sand accent on a soft ivory page. Open and inviting — suits travel agencies, tour operators, resorts and adventure companies.",
+  "industries": ["travel", "tours", "tourism", "resort", "adventure", "hotel"],
+
+  "tokens": {
+    "mode": "light",
+    "color": {
+      "primary":   "#0E5A6B",
+      "secondary": "#137E92",
+      "accent":    "#E08D3C",
+      "bg":        "#FDFBF7",
+      "surface":   "#EFF6F7",
+      "text":      "#12262B",
+      "muted":     "#5F7378",
+      "border":    "#DCE8EA"
+    },
+    "font": {
+      "heading": "Fraunces",
+      "body":    "Inter"
+    },
+    "radius":    "lg",
+    "spacing":   "comfortable",
+    "container": "normal"
+  },
+
+  "notes": "Tokens only — sections never hardcode colours, they read these as CSS variables. Teal deliberately stays out of the way of destination photography, which is already saturated; the sand accent picks up beaches and forts without competing with either."
+}
