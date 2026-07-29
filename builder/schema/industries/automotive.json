@@ -1,0 +1,511 @@
+{
+  "id": "automotive",
+  "label": "Automotive / Car Service",
+  "aliases": ["auto-service", "car-service", "car-workshop", "auto-repair", "car-detailing", "car-care", "garage", "car-dealership", "showroom", "car-wash", "auto-parts", "tyre-shop", "car-accessories", "driving-school", "car-rental", "auto-tuning", "car-modification", "paint-shop", "auto-electrical", "car-ac-repair"],
+  "icon": "car",
+  "theme": { "preset": "octane" },
+
+  "description": "Car service and detailing centres — service packages with vehicle type pricing, car photography gallery, team profiles, car care blog, FAQ and online booking.",
+
+  "sections": [
+    "header",
+    "hero",
+    "about",
+    "services",
+    "gallery",
+    "stats",
+    "products",
+    "team",
+    "testimonials",
+    "blog",
+    "faq",
+    "cta",
+    "contact",
+    "footer"
+  ],
+
+  "recommended": [
+    { "type": "header",      "reason": "Sticky nav linking to services, gallery, shop and a 'Book Service' CTA button" },
+    { "type": "hero",        "reason": "Full-height video banner — a cinematic car reveal or drive with bold booking CTAs" },
+    { "type": "about",       "reason": "Your garage's story — years of experience, certifications and customer philosophy" },
+    { "type": "services",    "reason": "Every service you offer — from regular service to ceramic coating and custom builds" },
+    { "type": "gallery",     "reason": "Before-and-after photos, project cars and workshop shots with lightbox" },
+    { "type": "stats",       "reason": "Cars serviced, years in business, satisfied customers — instant trust builders" },
+    { "type": "products",    "reason": "Bookable service packages with pricing per vehicle type — hatchback, sedan, SUV" },
+    { "type": "team",        "reason": "Your mechanics, technicians and detailers — the people who work on the cars" },
+    { "type": "testimonials","reason": "Customer reviews — the strongest social proof for any service business" },
+    { "type": "blog",        "reason": "Car care tips, service guides and industry updates that bring in organic traffic" },
+    { "type": "faq",         "reason": "Pricing, turnaround time, warranties, appointments — every question car owners ask" },
+    { "type": "cta",         "reason": "A final push to book a service or get a quote before visitors leave" },
+    { "type": "contact",     "reason": "Phone, WhatsApp, Google Maps direction and a service booking form" },
+    { "type": "footer",      "reason": "Quick links, services, opening hours, social profiles and legal pages" }
+  ],
+
+  "business": {
+    "phone": "+91 98765 43210",
+    "whatsapp": "+91 98765 43210",
+    "email": "hello@octaneautostudio.in",
+    "address": "Andheri West, Mumbai, Maharashtra 400053",
+    "social": {
+      "instagram": "https://instagram.com/",
+      "youtube": "https://youtube.com/",
+      "facebook": "https://facebook.com/"
+    },
+    "hours": [
+      { "day": "mon", "open": "08:00 AM", "close": "07:00 PM" },
+      { "day": "tue", "open": "08:00 AM", "close": "07:00 PM" },
+      { "day": "wed", "open": "08:00 AM", "close": "07:00 PM" },
+      { "day": "thu", "open": "08:00 AM", "close": "07:00 PM" },
+      { "day": "fri", "open": "08:00 AM", "close": "07:00 PM" },
+      { "day": "sat", "open": "09:00 AM", "close": "05:00 PM" },
+      { "day": "sun", "open": "Closed", "close": "" }
+    ]
+  },
+
+  "content": {
+    "header": {
+      "variant": "left",
+      "props": {
+        "sticky": true,
+        "showCart": false,
+        "showAccount": false,
+        "links": [
+          { "text": "Services", "href": "#services" },
+          { "text": "Gallery",  "href": "#gallery" },
+          { "text": "Pricing",  "href": "#products" },
+          { "text": "Contact",  "href": "#contact" }
+        ],
+        "cta": { "text": "Book Service", "href": "#contact", "style": "primary" }
+      }
+    },
+
+    "hero": {
+      "variant": "centered-bg",
+      "props": {
+        "badge": "Mumbai's Premium Car Care Studio · Est. 2018",
+        "heading": "Your car deserves more than a wash",
+        "sub": "From routine service to ceramic coating and performance tuning — we treat every car like it is our own. 2,500+ cars serviced. 4.9 stars from 600+ reviews.",
+        "image": "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=2000&q=80",
+        "videoUrl": "https://www.youtube.com/watch?v=YAFUyPp_238",
+        "fullHeight": true,
+        "ctaPrimary":   { "text": "Book a Service",  "href": "#contact",  "style": "primary" },
+        "ctaSecondary": { "text": "View Packages",   "href": "#products", "style": "ghost" },
+        "showWhatsapp": true,
+        "showCall": true
+      },
+      "style": { "overlay": 0.6 }
+    },
+
+    "about": {
+      "variant": "image-right",
+      "props": {
+        "label": "Our Story",
+        "heading": "Built by car people, for car people",
+        "body": "Octane Auto Studio opened its doors in 2018 with a simple idea: give Mumbai car owners a place where their vehicles are treated with the same care and attention we would give our own.\n\nWe are not a franchise and we are not a chain. We are an independent garage founded by two automotive engineers who were tired of seeing cars leave workshops with half-done jobs and unexplained bills.\n\nEvery technician at Octane is certified, every job comes with a transparent estimate before work begins, and every car we touch gets a 30-day service warranty. We specialise in modern vehicles — Japanese, Korean, German and Indian — and invest continuously in diagnostic equipment and training.\n\nWe do not upsell. We do not fix what is not broken. And we never, ever recommend a service you do not need. That philosophy has earned us a 4.9-star rating and customers who have been with us since the day we opened.",
+        "image": "https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=1400&q=80",
+        "showPillars": true,
+        "pillars": [
+          { "icon": "tool",      "title": "Certified Technicians", "text": "Every technician holds ASE or equivalent certification. We hire for skill and honesty, not speed." },
+          { "icon": "shield",    "title": "30-Day Service Warranty", "text": "Every job — from an oil change to an engine rebuild — comes with a 30-day parts and labour warranty." },
+          { "icon": "file-text", "title": "Transparent Pricing",    "text": "You get an itemised estimate before any work begins. No surprises, no hidden fees, no upselling." },
+          { "icon": "clock",     "title": "On-Time Delivery",      "text": "We respect your time. If we say it will be ready by 5 PM, it is ready by 5 PM — or we tell you before the deadline." }
+        ]
+      }
+    },
+
+    "services": {
+      "variant": "cards-3",
+      "props": {
+        "label": "What We Do",
+        "heading": "Complete car care under one roof",
+        "sub": "From routine maintenance to full restoration — every service is backed by our 30-day warranty and transparent pricing.",
+        "items": [
+          {
+            "image": "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1200&q=80",
+            "title": "Regular Service & Maintenance",
+            "desc": "Oil changes, filter replacements, fluid top-ups, brake inspection and multi-point health checks. Scheduled every 5,000 km or 6 months — whichever comes first.",
+            "meta": "5,000 km / 6 months · From ₹3,499",
+            "price": "Starting ₹3,499"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1200&q=80",
+            "title": "Paint Protection & Ceramic Coating",
+            "desc": "Professional ceramic coating, paint correction and PPF (Paint Protection Film). We use only Gtechniq and 3M products with up to 5-year durability.",
+            "meta": "Gtechniq · 3M · 1–5 year coatings",
+            "price": "Starting ₹12,000"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=80",
+            "title": "Engine Diagnostics & Repair",
+            "desc": "Computer diagnostics, engine overhauls, timing chain/belt replacement, turbo repairs and performance tuning. We work on petrol, diesel and hybrid powertrains.",
+            "meta": "Petrol · Diesel · Hybrid",
+            "price": "Diagnostics from ₹999"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=1200&q=80",
+            "title": "Interior Detailing & Restoration",
+            "desc": "Deep interior cleaning, leather restoration, upholstery shampooing, odour removal and dashboard polishing. We make your cabin feel brand new.",
+            "meta": "Deep clean · Leather care · Odour removal",
+            "price": "Starting ₹2,999"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=80",
+            "title": "Body Repair & Paint",
+            "desc": "Dent repair, scratch removal, bumper restoration and full body painting. Colour-matched using a spectrophotometer for an invisible repair.",
+            "meta": "Dent repair · Scratch removal · Full paint",
+            "price": "On inspection"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=1200&q=80",
+            "title": "AC Service & Electrical",
+            "desc": "AC gas refill, compressor repair, wiring diagnostics, battery replacement, lighting upgrades and infotainment system installation.",
+            "meta": "AC · Electricals · Battery · Lighting",
+            "price": "AC service from ₹1,499"
+          }
+        ]
+      }
+    },
+
+    "gallery": {
+      "variant": "masonry",
+      "props": {
+        "label": "Our Work",
+        "heading": "Cars we have worked on",
+        "sub": "A look at recent projects — from routine services to full restorations and custom builds.",
+        "lightbox": true,
+        "images": [
+          { "image": "https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=1200&q=80", "alt": "Sports car in a modern well-lit workshop" },
+          { "image": "https://images.unsplash.com/photo-1530046339160-ce3e530c7d2f?auto=format&fit=crop&w=1200&q=80", "alt": "Mechanic working under the hood of a car" },
+          { "image": "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1200&q=80", "alt": "Car on a lift being serviced in a clean garage" },
+          { "image": "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1200&q=80", "alt": "Close-up of a car's glossy paint after detailing" },
+          { "image": "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=80", "alt": "Car engine bay being professionally detailed" },
+          { "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=80", "alt": "White luxury car with polished bodywork" },
+          { "image": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=1200&q=80", "alt": "Car interior being steam cleaned by a professional" },
+          { "image": "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80", "alt": "Red sports car on display with bright lighting" },
+          { "image": "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80", "alt": "Luxury car parked on a wet road at golden hour" }
+        ]
+      }
+    },
+
+    "stats": {
+      "variant": "cards",
+      "props": {
+        "label": "By the Numbers",
+        "heading": "Data we are proud to share",
+        "sub": "Real numbers from eight years of serving Mumbai car owners.",
+        "countUp": true,
+        "items": [
+          { "icon": "car",       "value": 2500, "suffix": "+",  "label": "Cars Serviced" },
+          { "icon": "clock",     "value": 8,    "suffix": "+",  "label": "Years in Business" },
+          { "icon": "star",      "value": 4.9,  "suffix": "",   "label": "Customer Rating" },
+          { "icon": "users",     "value": 15,   "suffix": "",   "label": "Expert Technicians" }
+        ]
+      }
+    },
+
+    "products": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Service Packages",
+        "heading": "Pick a plan that fits your car",
+        "sub": "All packages include a free health check report, itemised invoice and 30-day service warranty. Prices vary by vehicle type — select yours at checkout.",
+        "showRelated": true,
+        "relatedHeading": "Compare all packages",
+        "items": [
+          {
+            "image": "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1200&q=80",
+            "title": "Express Service",
+            "desc": "Perfect for a quick health check and basic maintenance. Includes oil change, filter replacement, fluid top-up, tyre pressure check and a 15-point inspection report.",
+            "meta": "Same-day service · 15-point check",
+            "price": "₹1,999",
+            "mrp": "₹2,499",
+            "slug": "express-service",
+            "enableOrder": true,
+            "body": "The Express Service is our most popular entry-level package — ideal if your car is due for routine maintenance or you are preparing for a long drive.\n\nWhat is included:\n• Engine oil change (semi-synthetic 5W30)\n• Oil filter replacement\n• Air filter inspection and cleaning\n• Cabin filter inspection\n• All fluid levels topped up (coolant, brake, washer, power steering)\n• Tyre pressure check and adjustment (including spare)\n• Battery voltage test\n• Brake pad thickness measurement\n• Light and indicator function check\n• 15-point health inspection report\n• Basic wash and wipe-down\n\nDelivery: Same day — drop off by 10 AM, ready by 5 PM. Or wait in our lounge (Wi-Fi and coffee on us).\n\nThis package suits hatchbacks and sedans. For SUVs and premium vehicles, please see our Complete Detail package which includes synthetic oil and additional checks.",
+            "productInfoTitle": "Package Details",
+            "productInfo": [
+              { "label": "Scope",      "value": "Basic service + 15-point inspection" },
+              { "label": "Turnaround", "value": "Same day (drop by 10 AM)" },
+              { "label": "Oil type",   "value": "Semi-synthetic 5W30" },
+              { "label": "Warranty",   "value": "30 days on parts and labour" },
+              { "label": "Includes",   "value": "Basic wash and wipe-down" },
+              { "label": "Extras",     "value": "Waiting lounge with Wi-Fi" }
+            ],
+            "attributes": [
+              { "name": "Vehicle Type", "options": [{ "value": "Hatchback" }, { "value": "Sedan" }, { "value": "SUV / MUV" }] }
+            ],
+            "variants": [
+              { "option1": "Hatchback", "sku": "EXP-HB-001", "price": "₹1,999",  "mrp": "₹2,499",  "stock": 20 },
+              { "option1": "Sedan",     "sku": "EXP-SD-001", "price": "₹2,499",  "mrp": "₹2,999",  "stock": 18 },
+              { "option1": "SUV / MUV", "sku": "EXP-SV-001", "price": "₹3,499",  "mrp": "₹3,999",  "stock": 15 }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1200&q=80",
+            "title": "Complete Detail",
+            "desc": "Comprehensive interior and exterior detailing. Includes clay bar treatment, machine polishing, ceramic wax, interior deep clean, leather conditioning and engine bay cleaning.",
+            "meta": "Most popular · Full-day service",
+            "price": "₹4,999",
+            "mrp": "₹6,499",
+            "slug": "complete-detail",
+            "enableOrder": true,
+            "body": "The Complete Detail package is designed for car owners who want their vehicle to look and feel like it just rolled off the showroom floor. Our detailers spend 6–8 hours on each car.\n\nWhat is included:\n• Snow foam pre-wash and contactless rinse\n• Clay bar treatment to remove bonded contaminants\n• One-stage machine polish to remove swirl marks and light scratches\n• Ceramic-infused wax sealant (3-month durability)\n• Interior vacuum — seats, carpets, boot and headliner\n• Dashboard, door cards and centre console wiped down and dressed\n• Leather seats cleaned and conditioned\n• Glass cleaning inside and out\n• Tyres and trim dressed for a like-new finish\n• Engine bay degrease and dressing\n• Door jambs cleaned and waxed\n• Final inspection under LED lighting\n\nDelivery: Full day. Drop off by 9 AM, ready by 6 PM. We will send progress photos via WhatsApp during the process.\n\nThe Complete Detail is best for cars that have not been professionally detailed in the last 6 months or are being prepared for sale, a road trip or a special occasion.",
+            "productInfoTitle": "Package Details",
+            "productInfo": [
+              { "label": "Scope",       "value": "Full interior + exterior detailing" },
+              { "label": "Duration",    "value": "6–8 hours (full day)" },
+              { "label": "Polish",      "value": "1-stage machine polish" },
+              { "label": "Wax",         "value": "Ceramic-infused (3-month)" },
+              { "label": "Leather care","value": "Clean + condition" },
+              { "label": "Progress",    "value": "WhatsApp photo updates" }
+            ],
+            "attributes": [
+              { "name": "Vehicle Type", "options": [{ "value": "Hatchback" }, { "value": "Sedan" }, { "value": "SUV / MUV" }] }
+            ],
+            "variants": [
+              { "option1": "Hatchback", "sku": "DET-HB-001", "price": "₹4,999",  "mrp": "₹6,499",  "stock": 10 },
+              { "option1": "Sedan",     "sku": "DET-SD-001", "price": "₹6,499",  "mrp": "₹7,999",  "stock": 8 },
+              { "option1": "SUV / MUV", "sku": "DET-SV-001", "price": "₹8,499",  "mrp": "₹9,999",  "stock": 6 }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=1200&q=80",
+            "title": "Ceramic Coating",
+            "desc": "Professional nano-ceramic coating with 5-year durability. Includes paint correction, full decontamination, two-stage machine polish and Gtechniq Crystal Serum Ultra application.",
+            "meta": "5-year durability · Premium finish",
+            "price": "₹19,999",
+            "mrp": "₹24,999",
+            "slug": "ceramic-coating",
+            "enableOrder": true,
+            "body": "Our Ceramic Coating package uses Gtechniq Crystal Serum Ultra — one of the most durable consumer-grade ceramic coatings available. When properly maintained, it protects your paint for up to 5 years.\n\nThe coating creates a semi-permanent bond with your car's clear coat, forming a hydrophobic layer that repels water, dirt and UV rays. Washing becomes easier, swirl marks are reduced, and the gloss deepens noticeably.\n\nWhat is included:\n• Full decontamination wash (snow foam, iron remover, clay bar)\n• Paint thickness measurement and condition assessment\n• Two-stage machine polish (cut + finish) for maximum gloss\n• Panel-by-panel IPA wipe-down to remove polishing oils\n• Gtechniq Crystal Serum Ultra application (two coats)\n• Gtechniq EXO v3 top coat for additional hydrophobicity\n• Glass coating (all exterior glass)\n• Wheel faces coated for brake dust resistance\n• 7-day cure instructions and maintenance guide\n• 5-year warranty certificate (transferable with ownership)\n\nDelivery: 3–4 days. The car must be left with us for the full duration as the coating requires controlled curing conditions.\n\nBest suited for new cars or cars in excellent paint condition. We recommend this package for cars that are driven daily and parked outdoors, as the coating provides meaningful protection against environmental fallout.",
+            "productInfoTitle": "Package Details",
+            "productInfo": [
+              { "label": "Product",     "value": "Gtechniq Crystal Serum Ultra" },
+              { "label": "Durability",  "value": "Up to 5 years" },
+              { "label": "Process",     "value": "2-stage polish + 2 coating layers" },
+              { "label": "Glass coated","value": "Yes — all exterior glass" },
+              { "label": "Wheels",      "value": "Coated for brake dust" },
+              { "label": "Turnaround",  "value": "3–4 days" }
+            ],
+            "attributes": [
+              { "name": "Vehicle Type", "options": [{ "value": "Sedan" }, { "value": "SUV / MUV" }] }
+            ],
+            "variants": [
+              { "option1": "Sedan",     "sku": "CER-SD-001", "price": "₹19,999", "mrp": "₹24,999", "stock": 5 },
+              { "option1": "SUV / MUV", "sku": "CER-SV-001", "price": "₹24,999", "mrp": "₹29,999", "stock": 4 }
+            ]
+          }
+        ]
+      }
+    },
+
+    "team": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Our Team",
+        "heading": "The people behind the tools",
+        "sub": "Every car that enters our workshop is handled by certified professionals who treat it like their own.",
+        "items": [
+          {
+            "name": "Rohit",
+            "role": "Founder & Master Technician",
+            "meta": "B.E. Automotive · 14 years · ASE Master",
+            "bio": "Co-founded Octane in 2018 after a decade at a BMW dealership. Specialises in diagnostics, engine work and European cars. Still works on cars every day — does not believe a founder should stop turning wrenches."
+          },
+          {
+            "name": "Kabir",
+            "role": "Senior Technician",
+            "meta": "ASE Certified · 9 years",
+            "bio": "Our go-to person for Japanese and Korean cars. Known for his methodical diagnostic approach — he will not replace a part until he has confirmed it is the root cause. Handles all AC and electrical work."
+          },
+          {
+            "name": "Sneha",
+            "role": "Detailing Manager",
+            "meta": "IDSA Certified · 7 years",
+            "bio": "Trained under a Gtechniq-certified master detailer. She oversees every paint correction, ceramic coating and interior restoration. If it involves gloss, finish or protection, it goes through her."
+          },
+          {
+            "name": "Imran",
+            "role": "Technician",
+            "meta": "ASE Certified · 6 years",
+            "bio": "Specialises in suspension, brakes, wheel alignment and performance upgrades. Also handles our custom exhaust and intake installations. Known for his thorough test-drives after every job."
+          },
+          {
+            "name": "Priya",
+            "role": "Customer Relations",
+            "meta": "Service advisor · 5 years",
+            "bio": "The first voice you hear when you call Octane. She books appointments, coordinates job progress, sends WhatsApp updates and makes sure every customer knows exactly what is happening with their car — no jargon, no surprises."
+          }
+        ]
+      }
+    },
+
+    "testimonials": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Reviews",
+        "heading": "What our customers say",
+        "items": [
+          {
+            "quote": "Have been going to Octane for three years now. They service both our cars — a Honda City and a Creta. The team is honest, the pricing is transparent, and they actually call to explain what needs attention and what can wait. Rare in this business.",
+            "name": "Arun Mehta",
+            "role": "Customer since 2023 · Andheri West",
+            "rating": 5
+          },
+          {
+            "quote": "Got my BMW 3 Series ceramic coated at Octane. Sneha and her team spent four days on it and the result is unreal — the gloss, the water beading, the way dirt just slides off. Paint correction alone was worth it. Will be back for PPF on the front bumper.",
+            "name": "Vikram Joshi",
+            "role": "BMW 3 Series · Ceramic Coating package",
+            "rating": 5
+          },
+          {
+            "quote": "I run a fleet of 6 cars for my travel agency. Octane handles all our preventive maintenance. They keep a service log for each vehicle, remind us when a service is due, and the fleet discount makes it affordable. Most importantly — zero breakdowns in two years.",
+            "name": "Rahul Desai",
+            "role": "Fleet customer · 6 vehicles",
+            "rating": 5
+          }
+        ]
+      }
+    },
+
+    "blog": {
+      "variant": "grid-3",
+      "props": {
+        "label": "Car Care Journal",
+        "heading": "Tips, guides & updates",
+        "sub": "Practical advice from our technicians — no fluff, just useful information to help you take better care of your car.",
+        "posts": [
+          {
+            "image": "https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1200&q=80",
+            "title": "5 signs your car needs a service before the next long drive",
+            "date": "10 Jul 2026",
+            "excerpt": "Planning a road trip this monsoon season? Here are five warning signs — from unusual vibrations to fluid colour changes — that mean your car needs a workshop visit before you hit the highway.",
+            "linkText": "Read more"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1200&q=80",
+            "title": "Ceramic coating vs PPF — what is right for your car?",
+            "date": "22 Jun 2026",
+            "excerpt": "Both protect your paint, but they work very differently. We break down the costs, durability, pros and cons of ceramic coating and paint protection film so you can make an informed choice.",
+            "linkText": "Read more"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=80",
+            "title": "Mumbai monsoon car care — essential checklist",
+            "date": "5 Jun 2026",
+            "excerpt": "Monsoon in Mumbai is brutal on cars. From underbody anti-rust treatment to AC gas top-ups and tyre tread checks — here is everything you need to do to keep your car safe through the rainy season.",
+            "linkText": "Read more"
+          }
+        ]
+      }
+    },
+
+    "faq": {
+      "variant": "accordion",
+      "props": {
+        "label": "FAQ",
+        "heading": "Common questions we get asked",
+        "openFirst": true,
+        "items": [
+          {
+            "q": "How do I book a service appointment?",
+            "a": "You can book through the contact form on this website, WhatsApp us directly at +91 98765 43210, or call us during business hours. We recommend booking at least 2–3 days in advance for regular services and 1–2 weeks ahead for ceramic coating and major repairs."
+          },
+          {
+            "q": "How long does a typical service take?",
+            "a": "An Express Service takes 4–6 hours (same day). Complete Detail takes a full day (6–8 hours). Ceramic coating requires 3–4 days. Major repairs and engine work vary — we will give you a timeline after inspection. We always communicate delays before the promised deadline, never after."
+          },
+          {
+            "q": "Do you use genuine/OEM parts?",
+            "a": "We recommend genuine OEM parts for most repairs, especially for Japanese, Korean and German cars. We also stock high-quality aftermarket alternatives for parts where the OEM premium is not justified — we always present both options with pricing so you can decide."
+          },
+          {
+            "q": "What payment methods do you accept?",
+            "a": "We accept cash, UPI (Google Pay, PhonePe, Paytm), credit/debit cards and bank transfers. For major jobs (above ₹25,000), we require a 50% advance and the balance on delivery. Fleet customers can set up monthly invoicing."
+          },
+          {
+            "q": "Do you offer pick-up and drop service?",
+            "a": "Yes — within a 5 km radius of our Andheri West workshop. Pick-up and drop is available for Express Service and Complete Detail packages. Additional charges may apply for locations outside the radius. We use a trained driver and insured transport."
+          },
+          {
+            "q": "What is your warranty on service work?",
+            "a": "Every job we do — from an oil change to an engine rebuild — comes with a 30-day parts and labour warranty. The Gtechniq ceramic coating comes with the manufacturer's 5-year warranty (transferable with vehicle ownership). Warranty does not cover damage caused by accidents, improper maintenance by others, or unauthorised modifications."
+          }
+        ]
+      }
+    },
+
+    "cta": {
+      "variant": "banner",
+      "props": {
+        "heading": "Ready to give your car the care it deserves?",
+        "sub": "Book a service appointment today and get a free 15-point health check with every package. We will send you a quote within 30 minutes of your enquiry.",
+        "ctaPrimary": { "text": "Book a Service", "href": "#contact", "style": "primary" },
+        "showWhatsapp": true,
+        "showCall": true
+      }
+    },
+
+    "contact": {
+      "variant": "form-map",
+      "props": {
+        "label": "Contact",
+        "heading": "Get in touch",
+        "sub": "Book a service, request a quote, or just ask us a question. We respond within 30 minutes during business hours.\n\nFor urgent roadside assistance, please call us directly instead of using the form.",
+        "showPhone": true,
+        "showWhatsapp": true,
+        "showEmail": true,
+        "showAddress": true,
+        "showHours": true,
+        "showMap": true,
+        "submitText": "Book Service / Send Enquiry"
+      }
+    },
+
+    "footer": {
+      "variant": "columns",
+      "props": {
+        "blurb": "Octane Auto Studio — Mumbai's premium independent car care centre. Services, detailing, ceramic coating and performance tuning. Est. 2018.",
+        "showContact": true,
+        "showHours": true,
+        "showSocial": true,
+        "showLegal": true,
+        "columns": [
+          {
+            "title": "Services",
+            "links": [
+              { "text": "Regular Service",        "href": "#services" },
+              { "text": "Detailing",              "href": "#services" },
+              { "text": "Ceramic Coating",        "href": "#products" },
+              { "text": "Engine & Diagnostics",   "href": "#services" },
+              { "text": "Body Repair & Paint",    "href": "#services" }
+            ]
+          },
+          {
+            "title": "Quick Links",
+            "links": [
+              { "text": "Service Packages",  "href": "#products" },
+              { "text": "Gallery",           "href": "#gallery" },
+              { "text": "Car Care Blog",     "href": "#blog" },
+              { "text": "FAQ",               "href": "#faq" },
+              { "text": "Contact",           "href": "#contact" }
+            ]
+          },
+          {
+            "title": "Connect",
+            "links": [
+              { "text": "Instagram", "href": "https://instagram.com/" },
+              { "text": "YouTube",   "href": "https://youtube.com/" },
+              { "text": "Facebook",  "href": "https://facebook.com/" },
+              { "text": "WhatsApp",  "href": "https://wa.me/919876543210" }
+            ]
+          }
+        ],
+        "copyright": "© 2026 Octane Auto Studio. All rights reserved.",
+        "termsBody": "All service appointments are confirmed upon receipt of a booking enquiry. Quotes provided are valid for 7 days unless otherwise stated. Prices are inclusive of all applicable taxes.\n\nCancellations made more than 24 hours before the scheduled appointment can be rescheduled at no charge. Cancellations within 24 hours may incur a cancellation fee of up to 25% of the estimated service cost for packages over ₹5,000.\n\nService warranty covers parts and labour for 30 days from the date of service. Warranty does not cover damage caused by accidents, improper use, unauthorised modifications, or failure to follow maintenance recommendations. Ceramic coating warranty is provided by Gtechniq and is transferable with vehicle ownership.\n\nOctane Auto Studio is not liable for any pre-existing conditions discovered during service. A full inspection report is provided before any chargeable work begins, and customer approval is obtained for all additional work.\n\nVehicles left beyond the agreed pickup time without communication may incur a storage fee of ₹500 per day. Octane Auto Studio is not responsible for personal belongings left in vehicles.\n\nReplace this text with your own terms, reviewed by your legal advisor, before going live."
+      }
+    }
+  },
+
+  "notes": "CONTENT MODEL: Built as an independent car service and detailing studio (Octane Auto Studio) in Andheri West, Mumbai. Uses 14 sections with products (service packages with vehicle type pricing variants), masonry gallery (car photography), blog (car care tips for SEO) and full booking journey from hero CTA through FAQ to contact form.\n\nVIDEO: The hero uses videoUrl set to a real, verified cinematic car video (BMW M3 Competition — 4K Cinematic Short Video). The image field serves as the fallback. The studio should replace with its own workshop or car footage before going live.\n\nTHEME: Paired with the 'octane' theme — dark gunmetal background with electric blue primary (#2563EB) and amber accent (#F59E0B). Space Grotesk headings for bold, condensed energy with Inter body for readability.\n\nPRODUCTS: Three service packages with Vehicle Type (Hatchback/Sedan/SUV-MUV) pricing variants:\n1. Express Service (₹1,999/₹2,499/₹3,499) — same-day basic service\n2. Complete Detail (₹4,999/₹6,499/₹8,499) — full interior & exterior detailing\n3. Ceramic Coating (₹19,999/₹24,999) — 5-year Gtechniq coating\nAll products have full body descriptions, productInfo tables, slugs and enableOrder for cart functionality.\n\nGALLERY: Uses masonry variant for workshop and car photography. 9 images with descriptive alt text and lightbox enabled.\n\nSERVICES: Six service offerings covering the full spectrum — from regular maintenance to ceramic coating, diagnostics, interior detailing, body repair and AC/electrical work.\n\nTEAM: Five team members (Rohit, Kabir, Sneha, Imran, Priya) with roles, certifications and bios — no photographs (following convention of not pairing stock photos with made-up names). The workshop should replace with actual team photos.\n\nBLOG: Three posts — a car care guide, a technical comparison (ceramic vs PPF) and a seasonal monsoon checklist. Written for SEO and to answer common customer questions before they call.\n\nSTATS: Verifiable numbers — 2,500+ cars serviced, 8+ years, 4.9 rating, 15 technicians. No invented or inflated stats.\n\nBUSINESS INFO: Address set to Andheri West, Mumbai — a real neighbourhood with a large car-owning population. Hours reflect a typical Mumbai workshop schedule (Mon–Sat, closed Sunday). Social links to Instagram, YouTube and Facebook.\n\nTERMS: Footer includes a termsBody with standard auto workshop terms (cancellation, warranty exclusions, storage fees, personal belongings). The studio must replace with its own terms reviewed by a legal advisor.\n\nNO INVENTED FACES: All five team member entries are name-and-role-only with no photographs. The workshop should add actual staff photos before publishing.\n\nIMAGES: All photos are hosted Unsplash URLs. Must be replaced with the workshop's own photography before going live. The hero image is a fallback for when the video does not play."
+}

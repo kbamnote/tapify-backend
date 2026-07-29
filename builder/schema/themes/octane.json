@@ -1,0 +1,29 @@
+{
+  "preset": "octane",
+  "label": "Octane",
+  "description": "Dark with bold electric blue and amber racing accents. Built for automotive performance — car workshops, detailing studios, dealerships, driving schools and auto accessories brands.",
+  "industries": ["automotive", "car-service", "car-detailing", "auto-workshop", "car-dealership", "driving-school", "car-rental", "auto-parts", "car-accessories", "garage", "tuning", "auto-repair"],
+
+  "tokens": {
+    "mode": "dark",
+    "color": {
+      "primary":   "#2563EB",
+      "secondary": "#1E293B",
+      "accent":    "#F59E0B",
+      "bg":        "#0C0E12",
+      "surface":   "#181B20",
+      "text":      "#F1F5F9",
+      "muted":     "#94A3B8",
+      "border":    "#262A33"
+    },
+    "font": {
+      "heading": "Space Grotesk",
+      "body":    "Inter"
+    },
+    "radius":    "md",
+    "spacing":   "comfortable",
+    "container": "normal"
+  },
+
+  "notes": "Tokens only — sections never hardcode colours, they read these as CSS variables. The dark gunmetal bg and electric blue primary give this theme a premium motorsport feel. Amber accent draws attention to CTAs and highlights — like a racing stripe on a dark machine. Space Grotesk headings bring bold, condensed energy while Inter body keeps everything readable. Changing primary here restyles every section, every page, instantly."
+}
