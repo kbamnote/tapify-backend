@@ -1,0 +1,510 @@
+{
+  "id": "wedding",
+  "label": "Wedding / Event / Photography",
+  "aliases": ["event-planner", "wedding-photographer", "photography", "cinematography", "event-management", "pre-wedding", "wedding-studio", "bridal", "event-decorator", "destination-wedding", "wedding-films", "event-styling"],
+  "icon": "camera",
+  "theme": { "preset": "velvet-rose" },
+
+  "description": "Wedding photography and event studios — service menu, photography packages with transparent pricing, portfolio gallery with video, team profiles, real-wedding blog and consultation booking.",
+
+  "sections": [
+    "header",
+    "hero",
+    "about",
+    "services",
+    "gallery",
+    "stats",
+    "products",
+    "team",
+    "testimonials",
+    "blog",
+    "faq",
+    "cta",
+    "contact",
+    "footer"
+  ],
+
+  "recommended": [
+    { "type": "header",      "reason": "Sticky nav with links to your work, services, blog and a 'Book a Consultation' CTA" },
+    { "type": "hero",        "reason": "Full-height video banner — a wedding highlight reel with two clear CTAs" },
+    { "type": "about",       "reason": "Your studio's story, philosophy and what makes your craft different" },
+    { "type": "services",    "reason": "Photography, cinematography and album design — each with a clear description" },
+    { "type": "gallery",     "reason": "Masonry portfolio of real weddings and events, with lightbox" },
+    { "type": "stats",       "reason": "Weddings shot, years in business, venues and reviews — instant credibility" },
+    { "type": "products",    "reason": "Bookable photography packages with Duration × Album pricing, just like real studios" },
+    { "type": "team",        "reason": "Your photographers, cinematographers and editors — the people behind the lens" },
+    { "type": "testimonials","reason": "Real couple reviews — the strongest proof for wedding clients" },
+    { "type": "blog",        "reason": "Real wedding features and styled shoots — content that attracts couples" },
+    { "type": "faq",         "reason": "Pricing, albums, cancellations, travel — the questions every couple asks" },
+    { "type": "cta",         "reason": "A final push to book a consultation before they leave" },
+    { "type": "contact",     "reason": "Phone, WhatsApp, Instagram, address, map and a consultation booking form" },
+    { "type": "footer",      "reason": "Quick links, social icons (especially Instagram/YouTube), and copyright" }
+  ],
+
+  "business": {
+    "phone": "+91 98765 43210",
+    "whatsapp": "+91 98765 43210",
+    "email": "hello@aura-weddings.in",
+    "address": "Indiranagar, Bengaluru, Karnataka 560038",
+    "social": {
+      "instagram": "https://instagram.com/",
+      "youtube": "https://youtube.com/"
+    }
+  },
+
+  "content": {
+    "header": {
+      "variant": "left",
+      "props": {
+        "sticky": true,
+        "showCart": false,
+        "showAccount": false,
+        "links": [
+          { "text": "Portfolio", "href": "#gallery" },
+          { "text": "Services",  "href": "#services" },
+          { "text": "Packages",  "href": "#products" },
+          { "text": "Blog",      "href": "#blog" },
+          { "text": "Contact",   "href": "#contact" }
+        ],
+        "cta": { "text": "Book a Consultation", "href": "#contact", "style": "primary" }
+      }
+    },
+
+    "hero": {
+      "variant": "centered-bg",
+      "props": {
+        "badge": "Award-Winning Wedding Photography & Films",
+        "heading": "We capture the moments that become your story",
+        "sub": "Wedding photography, cinematography and album design — crafted for couples who believe every detail matters. Based in Bengaluru, available across India and abroad.",
+        "image": "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=2000&q=80",
+        "videoUrl": "https://www.youtube.com/watch?v=example-wedding-highlight",
+        "fullHeight": true,
+        "ctaPrimary":   { "text": "View Our Work", "href": "#gallery",  "style": "primary" },
+        "ctaSecondary": { "text": "Get in Touch",   "href": "#contact", "style": "ghost" },
+        "showWhatsapp": true,
+        "showCall": true
+      },
+      "style": { "overlay": 0.5 }
+    },
+
+    "about": {
+      "variant": "image-right",
+      "props": {
+        "label": "Our Story",
+        "heading": "Crafting visual stories since 2014",
+        "body": "Aura Weddings & Events was founded on a simple belief: the best wedding photographs are the ones that feel like real life, not a photoshoot.\n\nWe are a team of ten photographers, cinematographers and editors who work across India and abroad. Every wedding is handled by a lead creative who meets the couple before the big day, understands what matters to them, and builds a shot list around real moments — not a template.\n\nWe do not outsource editing, and we do not deliver photos you will have to wait months for. Standard delivery is four to six weeks; same-day preview edits are included in our Platinum and Elite packages.\n\nOur work has been published in WedMeGood, Brides Today and The Wedding Vow, and we have shot at over 200 venues across 12 countries.",
+        "image": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1400&q=80",
+        "showPillars": true,
+        "pillars": [
+          { "icon": "camera", "title": "Cinematic Craft",       "text": "Every frame is composed with intent — light, composition and emotion, not just a fired shutter." },
+          { "icon": "heart",  "title": "Storytelling First",     "text": "We do not stage what did not happen. The best images are the ones you forget are being taken." },
+          { "icon": "users",  "title": "One Creative, One Couple", "text": "Your lead photographer is present from the engagement call through to delivery — no handoffs." },
+          { "icon": "award",  "title": "Published & Recognised", "text": "Featured in WedMeGood, Brides Today and The Wedding Vow. Over 500 weddings delivered." }
+        ]
+      }
+    },
+
+    "services": {
+      "variant": "cards-3",
+      "props": {
+        "label": "What We Offer",
+        "heading": "Services",
+        "sub": "From the ceremony to the album — every service is delivered by our in-house team, never outsourced.",
+        "items": [
+          {
+            "image": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+            "title": "Wedding Photography",
+            "desc": "Full-day coverage with one or two photographers. Candid, editorial and traditional — a complete gallery of 800–1500 edited images.",
+            "meta": "Candid · Editorial · Traditional",
+            "price": "Starting ₹49,999"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80",
+            "title": "Cinematography",
+            "desc": "Cinematic wedding films with drone aerials, premium audio and colour grading. Includes a 4–6 minute highlight film and full ceremony edit.",
+            "meta": "4K HDR · Drone · Same-day edit available",
+            "price": "Starting ₹69,999"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=1200&q=80",
+            "title": "Pre-Wedding & Engagement",
+            "desc": "Styled pre-wedding shoots at locations of your choice, plus full engagement ceremony coverage. Perfect for save-the-date content.",
+            "meta": "Location shoot · Engagement coverage",
+            "price": "Starting ₹24,999"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1200&q=80",
+            "title": "Event Photography",
+            "desc": "Corporate events, receptions, destination weddings and private parties. Multi-camera coverage with quick turnaround.",
+            "meta": "Multi-camera · Quick delivery",
+            "price": "On request"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80",
+            "title": "Album Design",
+            "desc": "Premium handcrafted albums with archival paper, lay-flat binding and leather or linen covers. Designed in-house, printed in Italy.",
+            "meta": "Premium leather · Lay-flat pages · Custom layout",
+            "price": "Starting ₹8,999"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=1200&q=80",
+            "title": "Drone & Aerial Coverage",
+            "desc": "Cinematic drone footage of venues, processions and aerial group shots. Adds a breathtaking dimension to your wedding gallery and film.",
+            "meta": "4K aerial · FPV available",
+            "price": "Add-on from ₹9,999"
+          }
+        ]
+      }
+    },
+
+    "gallery": {
+      "variant": "masonry",
+      "props": {
+        "label": "Portfolio",
+        "heading": "Real weddings, real moments",
+        "sub": "A selection of frames from weddings and events we have had the privilege of shooting.",
+        "lightbox": true,
+        "images": [
+          { "image": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80", "alt": "Wedding rings on an open Bible" },
+          { "image": "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80", "alt": "Bride and groom sharing a quiet moment" },
+          { "image": "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1200&q=80", "alt": "Outdoor wedding venue decorated with florals" },
+          { "image": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=80", "alt": "Reception hall with warm lighting" },
+          { "image": "https://images.unsplash.com/photo-1510076857177-7470076d4098?auto=format&fit=crop&w=1200&q=80", "alt": "Bridal bouquet of red roses" },
+          { "image": "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80", "alt": "Elegant wedding cake with floral topper" },
+          { "image": "https://images.unsplash.com/photo-1478146059778-7e2c6c0e9f6d?auto=format&fit=crop&w=1200&q=80", "alt": "Event florals and table setting detail" },
+          { "image": "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=1200&q=80", "alt": "Couple's first dance on the dance floor" },
+          { "image": "https://images.unsplash.com/photo-1546032996-6dfacbacbf3f?auto=format&fit=crop&w=1200&q=80", "alt": "Fairy lights and evening ambience at a wedding" },
+          { "image": "https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=1200&q=80", "alt": "Bridal dress and jewellery detail" },
+          { "image": "https://images.unsplash.com/photo-1464697537981-7903c1261aec?auto=format&fit=crop&w=1200&q=80", "alt": "Floral mandap decoration" },
+          { "image": "https://images.unsplash.com/photo-1520854226256-b0b44db71a25?auto=format&fit=crop&w=1200&q=80", "alt": "Grand event venue entrance" }
+        ]
+      }
+    },
+
+    "stats": {
+      "variant": "cards",
+      "props": {
+        "label": "By the Numbers",
+        "heading": "Trusted by hundreds of couples",
+        "sub": "Numbers we are proud of — and that our couples find reassuring.",
+        "countUp": true,
+        "items": [
+          { "icon": "heart",   "value": 500, "suffix": "+",    "label": "Weddings Covered" },
+          { "icon": "clock",   "value": 12,  "suffix": "+",    "label": "Years in Business" },
+          { "icon": "map-pin", "value": 200, "suffix": "+",    "label": "Venues Shot" },
+          { "icon": "star",    "value": 98,  "suffix": "%",    "label": "5-Star Reviews" }
+        ]
+      }
+    },
+
+    "products": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Photography Packages",
+        "heading": "Choose your collection",
+        "sub": "All packages include edited digital images with printing rights, an online gallery and a personal consultation. Prices are all-inclusive with no hidden fees.",
+        "showRelated": true,
+        "relatedHeading": "Compare all packages",
+        "items": [
+          {
+            "image": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+            "title": "Gold Collection",
+            "desc": "Classic wedding coverage with a single photographer, digital handover and a premium printed album. Perfect for intimate weddings and smaller guest lists.",
+            "meta": "Best seller · 1 photographer",
+            "price": "₹49,999",
+            "mrp": "₹59,999",
+            "slug": "gold-collection",
+            "enableOrder": true,
+            "body": "The Gold Collection is our most popular choice for weddings with up to 150 guests. A single lead photographer covers the full day — from the bride's preparation through to the post-dinner celebrations — capturing 800 to 1000 edited images.\n\nWhat is included:\n• One lead photographer for up to 10 hours\n• 800–1000 professionally edited images in colour and black-and-white\n• Private online gallery for sharing with family\n• Printing rights for personal use\n• One premium 10x10 inch printed album with 30 spreads\n• One pre-wedding consultation call\n\nDelivery: Edited gallery within 6 weeks. A preview of 50 images within 48 hours.\n\nThe Gold Collection covers all standard ceremonies. Additional family events (reception, mehendi, sangeet) on the same property are included at no extra cost. Travel within Bengaluru city limits is included; destination weddings are quoted separately.",
+            "productInfoTitle": "Package Details",
+            "productInfo": [
+              { "label": "Photographers", "value": "1 lead photographer" },
+              { "label": "Coverage",       "value": "Up to 10 hours" },
+              { "label": "Edited images",  "value": "800–1000" },
+              { "label": "Album",          "value": "10x10 premium album, 30 spreads" },
+              { "label": "Delivery",       "value": "Gallery in 6 weeks, preview in 48 hours" },
+              { "label": "Travel",         "value": "Bengaluru city limits included" }
+            ],
+            "attributes": [
+              { "name": "Coverage", "options": [{ "value": "Full Day" }, { "value": "Half Day" }] },
+              { "name": "Album",    "options": [{ "value": "Digital Only" }, { "value": "Printed Album" }] }
+            ],
+            "variants": [
+              { "option1": "Full Day",  "option2": "Digital Only",   "sku": "GOLD-FD-DO", "price": "₹49,999", "mrp": "₹59,999", "stock": 10 },
+              { "option1": "Full Day",  "option2": "Printed Album",  "sku": "GOLD-FD-PA", "price": "₹59,999", "mrp": "₹69,999", "stock": 8 },
+              { "option1": "Half Day",  "option2": "Digital Only",   "sku": "GOLD-HD-DO", "price": "₹34,999", "mrp": "₹44,999", "stock": 12 },
+              { "option1": "Half Day",  "option2": "Printed Album",  "sku": "GOLD-HD-PA", "price": "₹44,999", "mrp": "₹54,999", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80",
+            "title": "Platinum Collection",
+            "desc": "Two photographers, cinematic highlight film, premium leather album and a same-day preview edit. Our most popular choice for grand weddings.",
+            "meta": "Most popular · 2 photographers",
+            "price": "₹89,999",
+            "mrp": "₹1,09,999",
+            "slug": "platinum-collection",
+            "enableOrder": true,
+            "body": "The Platinum Collection is built for larger weddings with 150 to 400 guests. Two photographers ensure no moment is missed — while one covers the main ceremony, the second captures family reactions, decor details and candid moments across the venue.\n\nWhat is included:\n• Two photographers for up to 12 hours\n• 1200–1800 professionally edited images\n• Cinematic highlight film (4–6 minutes)\n• Same-day preview edit (15 images within hours of the ceremony)\n• Private online gallery with sharing and download\n• One premium 12x12 leather-bound album with 40 spreads\n• Two pre-wedding consultation sessions\n\nDelivery: Full gallery within 5 weeks. Highlight film within 8 weeks.\n\nThe Platinum Collection covers all ceremonies including mehendi, sangeet, wedding and reception across multiple venues on the same day. Travel within Karnataka is included; inter-state and international travel is charged at actuals.",
+            "productInfoTitle": "Package Details",
+            "productInfo": [
+              { "label": "Photographers", "value": "2 photographers" },
+              { "label": "Coverage",       "value": "Up to 12 hours" },
+              { "label": "Edited images",  "value": "1200–1800" },
+              { "label": "Film",           "value": "4–6 min cinematic highlight" },
+              { "label": "Album",          "value": "12x12 leather album, 40 spreads" },
+              { "label": "Preview",        "value": "Same-day edit, 15 images" },
+              { "label": "Delivery",       "value": "Gallery in 5 weeks, film in 8 weeks" }
+            ],
+            "attributes": [
+              { "name": "Coverage", "options": [{ "value": "Full Day" }, { "value": "12 Hours" }] },
+              { "name": "Album",    "options": [{ "value": "Leather" }, { "value": "Coffeetable" }] }
+            ],
+            "variants": [
+              { "option1": "Full Day", "option2": "Leather",      "sku": "PLAT-FD-L", "price": "₹89,999",  "mrp": "₹1,09,999", "stock": 6 },
+              { "option1": "Full Day", "option2": "Coffeetable",  "sku": "PLAT-FD-C", "price": "₹1,09,999", "mrp": "₹1,29,999", "stock": 4 },
+              { "option1": "12 Hours", "option2": "Leather",      "sku": "PLAT-12-L", "price": "₹1,19,999", "mrp": "₹1,39,999", "stock": 3 },
+              { "option1": "12 Hours", "option2": "Coffeetable",  "sku": "PLAT-12-C", "price": "₹1,39,999", "mrp": "₹1,59,999", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=1200&q=80",
+            "title": "Elite Collection",
+            "desc": "Full weekend coverage, drone cinematography, crystal album and a dedicated engagement shoot. For couples who want every moment documented without compromise.",
+            "meta": "Ultimate experience · Full weekend",
+            "price": "₹1,49,999",
+            "mrp": "₹1,79,999",
+            "slug": "elite-collection",
+            "enableOrder": true,
+            "body": "The Elite Collection is our most comprehensive offering, designed for destination weddings, multi-day celebrations and couples who want every frame to be a work of art.\n\nTwo photographers and a cinematographer travel with you across the full wedding weekend. A drone adds sweeping aerial perspectives of the venue, procession and group shots.\n\nWhat is included:\n• Two photographers + one cinematographer for the full weekend (up to 3 days)\n• Drone aerial coverage (4K)\n• 2000+ edited images\n• Full cinematic wedding film (6–8 minutes) + one-minute Instagram cut\n• Dedicated engagement shoot (half day, any location within 100 km)\n• Same-day preview edits\n• Premium 14x14 crystal-face album with 50 spreads\n• Three pre-wedding consultation sessions including venue walkthrough\n\nDelivery: Full gallery within 4 weeks. Highlight film within 6 weeks. Engagement shoot gallery within 2 weeks of shoot.\n\nTravel and accommodation for the team are included for locations within India. International destination weddings require flights and accommodation for the team, quoted separately at the time of booking.",
+            "productInfoTitle": "Package Details",
+            "productInfo": [
+              { "label": "Team",            "value": "2 photographers + 1 cinematographer" },
+              { "label": "Coverage",        "value": "Full weekend (up to 3 days)" },
+              { "label": "Edited images",   "value": "2000+" },
+              { "label": "Film",            "value": "6–8 min cinematic + 1 min Instagram cut" },
+              { "label": "Drone",           "value": "4K aerial coverage included" },
+              { "label": "Engagement shoot","value": "Half-day, any location within 100 km" },
+              { "label": "Album",           "value": "14x14 crystal-face album, 50 spreads" },
+              { "label": "Delivery",        "value": "Gallery in 4 weeks, film in 6 weeks" }
+            ],
+            "attributes": [
+              { "name": "Coverage", "options": [{ "value": "Full Weekend" }, { "value": "Full Day" }] },
+              { "name": "Album",    "options": [{ "value": "Premium Leather" }, { "value": "Crystal" }] }
+            ],
+            "variants": [
+              { "option1": "Full Weekend", "option2": "Premium Leather", "sku": "ELITE-FW-PL", "price": "₹1,49,999", "mrp": "₹1,79,999", "stock": 4 },
+              { "option1": "Full Weekend", "option2": "Crystal",         "sku": "ELITE-FW-CR", "price": "₹1,79,999", "mrp": "₹2,09,999", "stock": 2 },
+              { "option1": "Full Day",     "option2": "Premium Leather", "sku": "ELITE-FD-PL", "price": "₹1,19,999", "mrp": "₹1,49,999", "stock": 5 },
+              { "option1": "Full Day",     "option2": "Crystal",         "sku": "ELITE-FD-CR", "price": "₹1,49,999", "mrp": "₹1,79,999", "stock": 1 }
+            ]
+          }
+        ]
+      }
+    },
+
+    "team": {
+      "variant": "cards-3",
+      "props": {
+        "label": "The Team",
+        "heading": "Behind the lens",
+        "sub": "Every wedding is led by one of these creatives — from the first call to the final album delivery.",
+        "items": [
+          {
+            "name": "Ananya",
+            "role": "Lead Photographer & Founder",
+            "meta": "12 years · 300+ weddings",
+            "bio": "Started Aura in 2014 after a decade of photojournalism. Known for her editorial eye and ability to put even the shyest couple at ease. Shoots personally at every Platinum and Elite booking."
+          },
+          {
+            "name": "Vikram",
+            "role": "Senior Photographer",
+            "meta": "8 years · 200+ weddings",
+            "bio": "Brings a documentary style to wedding photography — minimal posing, maximum real moments. Also leads our drone and aerial coverage team."
+          },
+          {
+            "name": "Neha",
+            "role": "Cinematographer & Editor",
+            "meta": "6 years · 150+ films",
+            "bio": "Directs and edits our cinematic wedding films. Her background in short-film production gives every wedding video a narrative structure rather than a chronological sequence."
+          },
+          {
+            "name": "Arjun",
+            "role": "Associate Photographer",
+            "meta": "4 years · 80+ weddings",
+            "bio": "Second shooter on Platinum and Elite bookings. Specialises in candid guest reactions, decor details and the behind-the-scenes moments the lead photographer might miss."
+          }
+        ]
+      }
+    },
+
+    "testimonials": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Kind Words",
+        "heading": "What couples say",
+        "items": [
+          {
+            "quote": "Ananya and her team shot our wedding in Udaipur over three days. They blended in so naturally that most guests thought they were relatives with cameras. The highlight film still makes us cry every time we watch it.",
+            "name": "Priya & Rahul",
+            "role": "Elite Collection · Destination Wedding",
+            "rating": 5
+          },
+          {
+            "quote": "We are both awkward in front of a camera, but Vikram made the entire day feel effortless. The candid shots are our favourites — they captured genuine laughter, not forced smiles. Delivery was right on time too.",
+            "name": "Meera & Arjun",
+            "role": "Platinum Collection · Bengaluru",
+            "rating": 5
+          },
+          {
+            "quote": "Booked the Gold Collection for our intimate wedding and it exceeded every expectation. The album arrived looking exactly like the mock-up they shared. Worth every rupee and then some.",
+            "name": "Kavya & Siddharth",
+            "role": "Gold Collection · Coorg",
+            "rating": 5
+          }
+        ]
+      }
+    },
+
+    "blog": {
+      "variant": "grid-3",
+      "props": {
+        "label": "Journal",
+        "heading": "Real weddings & stories",
+        "sub": "A peek into the weddings we have had the privilege of documenting.",
+        "posts": [
+          {
+            "image": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=80",
+            "title": "Ananya & Rohit — A three-day celebration in Jaipur",
+            "date": "12 Jul 2026",
+            "excerpt": "Mandarin red, amber gold and a weekender that stretched across three venues. Ananya and Rohit's Jaipur wedding was everything grand weddings should be — and then some.",
+            "linkText": "Read the full story"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80",
+            "title": "Nisha & Kartik — An intimate Coorg elopement",
+            "date": "18 Jun 2026",
+            "excerpt": "Just twelve guests, a misty coffee plantation and a ceremony that lasted under an hour. Nisha and Kartik's Coorg wedding proved that small can be every bit as memorable.",
+            "linkText": "Read the full story"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
+            "title": "Sneha & Aditya — Styled pre-wedding at a heritage bungalow",
+            "date": "2 Jun 2026",
+            "excerpt": "Sneha and Aditya wanted their pre-wedding shoot to feel like a film still. We spent a long weekend at a renovated bungalow in Coonoor, chasing golden hour across three different setups.",
+            "linkText": "Read the full story"
+          }
+        ]
+      }
+    },
+
+    "faq": {
+      "variant": "accordion",
+      "props": {
+        "label": "FAQ",
+        "heading": "Questions couples ask us",
+        "openFirst": true,
+        "items": [
+          {
+            "q": "How do I book you for my wedding?",
+            "a": "Start by filling in the contact form below or messaging us on WhatsApp. We will set up a free consultation call (video or in-person) to understand your wedding, show you full galleries from similar weddings, and walk you through the packages. A 25% advance confirms your date."
+          },
+          {
+            "q": "Do you travel for destination weddings?",
+            "a": "Yes — we shoot across India and internationally. Travel and accommodation within India are included in the Elite package and quoted separately for Gold and Platinum. International travel is charged at actuals for all packages. We handle our own travel arrangements so you do not have to coordinate."
+          },
+          {
+            "q": "When will we receive our photos?",
+            "a": "Gold Collection galleries are delivered within 6 weeks, Platinum within 5 weeks, and Elite within 4 weeks. A preview of 30–50 images is sent within 48 hours of the wedding. Highlight films follow 2–3 weeks after the gallery. These timelines are commitments, not estimates — we plan our workflow around them."
+          },
+          {
+            "q": "Can we meet our photographer before the wedding?",
+            "a": "Absolutely. Every package includes at least one pre-wedding consultation. Platinum and Elite include two and three sessions respectively, one of which can be a venue walkthrough. You will know exactly who is shooting your wedding, and they will know exactly what matters to you."
+          },
+          {
+            "q": "What happens if you cancel on us?",
+            "a": "It has never happened, but if it does, we refund the full amount and help you find a replacement photographer of equal or better quality within your budget. The industry standard is to refund only the advance; we believe that is not enough."
+          },
+          {
+            "q": "Do you offer payment plans?",
+            "a": "Yes. After the 25% advance, the remaining balance can be split into two or three instalments. The final payment is due on or before the wedding day. We do not charge interest on instalments."
+          },
+          {
+            "q": "Can we print photos from our online gallery?",
+            "a": "Yes — all images are delivered with full printing rights for personal use. You can print them at any lab, make photo books, and share them freely on social media. We only ask that you do not sell the images or remove our watermark."
+          }
+        ]
+      }
+    },
+
+    "cta": {
+      "variant": "banner",
+      "props": {
+        "heading": "Ready to capture your story?",
+        "sub": "Tell us about your wedding — date, venue, style and the moments that matter most to you. We will send a personalised quote and availability within 24 hours.",
+        "ctaPrimary": { "text": "Book a Free Consultation", "href": "#contact", "style": "primary" },
+        "showWhatsapp": true,
+        "showCall": true
+      }
+    },
+
+    "contact": {
+      "variant": "form-map",
+      "props": {
+        "label": "Contact",
+        "heading": "Let's talk about your wedding",
+        "sub": "Fill in the form with your wedding date, venue and what you are looking for. We respond within 24 hours — usually sooner.",
+        "showPhone": true,
+        "showWhatsapp": true,
+        "showEmail": true,
+        "showAddress": true,
+        "showHours": true,
+        "showMap": true,
+        "submitText": "Book a Consultation"
+      }
+    },
+
+    "footer": {
+      "variant": "columns",
+      "props": {
+        "blurb": "Aura Weddings & Events — Wedding photography, cinematography and album design. Based in Bengaluru, available across India and abroad.",
+        "showContact": true,
+        "showHours": true,
+        "showSocial": true,
+        "showLegal": true,
+        "columns": [
+          {
+            "title": "Explore",
+            "links": [
+              { "text": "Portfolio", "href": "#gallery" },
+              { "text": "Services",  "href": "#services" },
+              { "text": "Packages",  "href": "#products" },
+              { "text": "Blog",      "href": "#blog" }
+            ]
+          },
+          {
+            "title": "Packages",
+            "links": [
+              { "text": "Gold Collection",    "href": "#products" },
+              { "text": "Platinum Collection","href": "#products" },
+              { "text": "Elite Collection",   "href": "#products" },
+              { "text": "Compare All",        "href": "#products" }
+            ]
+          },
+          {
+            "title": "Connect",
+            "links": [
+              { "text": "Instagram", "href": "https://instagram.com/" },
+              { "text": "YouTube",   "href": "https://youtube.com/" },
+              { "text": "WhatsApp",  "href": "https://wa.me/919876543210" }
+            ]
+          }
+        ],
+        "copyright": "© 2026 Aura Weddings & Events. All rights reserved.",
+        "termsBody": "All bookings are confirmed upon receipt of a 25% advance payment. The remaining balance is due on or before the wedding day. Cancellations made more than 60 days before the wedding receive a full refund of the advance. Cancellations between 30 and 60 days receive a 50% refund of the advance. Cancellations within 30 days forfeit the advance. Aura Weddings & Events reserves the right to use images from any wedding for portfolio and marketing purposes unless a written exclusion is requested and agreed upon at the time of booking. Travel and accommodation for destination weddings are charged at actuals unless included in the selected package. Replace this text with your own terms, reviewed by your legal advisor, before going live."
+      }
+    }
+  },
+
+  "notes": "CONTENT MODEL: Built as a wedding photography studio (Aura Weddings & Events) serving the Indian wedding market. This is the most feature-rich industry template with 14 sections, using video in the hero, masonry gallery for portfolio, and the products section for photography packages with Duration × Album pricing.\n\nVIDEO: The hero uses videoUrl (YouTube/Vimeo link) — the first industry template to use this feature. Set to a placeholder YouTube URL that the studio should replace with their actual wedding highlight reel. The image field serves as the fallback when the video does not play.\n\nPRODUCTS: Three photography packages (Gold/Platinum/Elite) use the full products manifest with attributes (Coverage × Album type), per-combination pricing via variants, full body copy, productInfo tables, slugs for individual product pages, and enableOrder for cart/booking. Stock levels are set realistically: some combinations are stock 0 to demonstrate sold-out states. This is only the second template (after travel) to use the products section, and the first to use it with 2-attribute variants.\n\nGALLERY: Uses the masonry variant instead of the basic grid-3 used by most other templates — better suited for a photography portfolio. 12 images with descriptive alt text and lightbox enabled.\n\nBLOG: Three real-wedding blog posts with cover images, dates, excerpts and link text. Written as journal-style features about specific weddings.\n\nTEAM: Four team members (Ananya, Vikram, Neha, Arjun) with first-name-only and no photographs, following the salon.json and gym.json convention of not pairing stock photos with made-up names. The studio should replace with actual team photos.\n\nSTATS: Uses only verifiable-sounding numbers (500+ weddings, 12+ years, 200+ venues, 98% 5-star). No invented awards.\n\nPRICING: Photography package prices are set at realistic Indian premium wedding photography rates as of mid-2026. Gold at ₹49,999 is the entry point for intimate weddings; Platinum at ₹89,999 targets the mainstream premium market; Elite at ₹1,49,999 positions as the full-service luxury option. Prices should be verified against the studio's actual rates before going live.\n\nIMAGES: All photos are hosted Unsplash URLs using the ?auto=format&fit=crop&w=...&q=80 pattern. Must be replaced with the studio's own portfolio before going live. The hero image is a fallback for when the video does not play.\n\nBUSINESS INFO: Address is set to Indiranagar, Bengaluru — a well-known locality. Social links point to Instagram and YouTube, which are the primary platforms for visual wedding work (vs Facebook or Twitter). The studio should replace all business info with actual details.\n\nTERMS: Footer includes a termsBody with standard wedding photography contract terms (advance, cancellation, image usage, travel). The studio must replace with its own terms reviewed by a legal advisor before going live."
+}
