@@ -3089,13 +3089,13 @@ iframe{max-width:100%}
 .tf-anim-ready [data-anim].tf-in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.tf-anim-ready [data-anim]{opacity:1;transform:none;transition:none}}
 /* Mobile sticky bottom action bar */
-.tf-mobile-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:1000;background:var(--color-surface,#fff);border-top:1px solid var(--color-border,#e5e7eb);padding:6px 0 calc(6px + env(safe-area-inset-bottom,0px));box-shadow:0 -2px 12px rgba(0,0,0,.1)}
+.tf-mobile-bar{position:fixed;bottom:0;left:0;right:0;z-index:1000;background:var(--color-surface,#fff);border-top:1px solid var(--color-border,#e5e7eb);padding:6px 0 calc(6px + env(safe-area-inset-bottom,0px));box-shadow:0 -2px 12px rgba(0,0,0,.1)}
 .tf-mbar-inner{display:flex;align-items:stretch;justify-content:space-around;max-width:500px;margin:0 auto}
 .tf-mbar-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:4px 2px;background:none;border:none;color:var(--color-text,#111827);cursor:pointer;font-size:9px;font-weight:600;line-height:1.2;text-decoration:none;min-height:44px;transition:opacity .15s;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .tf-mbar-btn:active{opacity:.6}
 .tf-mbar-btn svg{width:20px;height:20px;display:block}
 .tf-mbar-btn span{display:block;text-align:center}
-@media(min-width:641px){.tf-site .tf-mobile-bar{display:none!important}}
+@media(min-width:641px){.tf-mobile-bar{display:none!important}}
 CSS;
     }
 }
