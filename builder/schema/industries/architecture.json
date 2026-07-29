@@ -1,0 +1,514 @@
+{
+  "id": "architecture",
+  "label": "Architect / Interior Design",
+  "aliases": ["interior-designer", "architect", "architecture", "space-planning", "home-design", "renovation", "interior-decorator", "building-design", "furniture-design", "landscape-architecture", "home-renovation", "construction-design"],
+  "icon": "pencil-ruler",
+  "theme": { "preset": "copper-ridge" },
+
+  "description": "Architecture and interior design firms — project portfolio with video walkthroughs, bookable design packages with transparent pricing, services menu, team profiles and consultation booking.",
+
+  "sections": [
+    "header",
+    "hero",
+    "about",
+    "services",
+    "gallery",
+    "stats",
+    "products",
+    "team",
+    "testimonials",
+    "blog",
+    "faq",
+    "cta",
+    "contact",
+    "footer"
+  ],
+
+  "recommended": [
+    { "type": "header",      "reason": "Sticky nav with links to your portfolio, services, packages and a 'Get a Quote' CTA" },
+    { "type": "hero",        "reason": "Full-height video banner — an architecture walkthrough or timelapse with two clear CTAs" },
+    { "type": "about",       "reason": "Your firm's story, philosophy and what sets your design approach apart" },
+    { "type": "services",    "reason": "Architecture, interior design, space planning and project management — each described clearly" },
+    { "type": "gallery",     "reason": "Masonry portfolio of completed projects with lightbox" },
+    { "type": "stats",       "reason": "Projects delivered, years in business, square feet designed and awards — instant credibility" },
+    { "type": "products",    "reason": "Bookable design packages with Room Type x Scope pricing, just like real studios" },
+    { "type": "team",        "reason": "Your architects, interior designers and project managers — the people behind every project" },
+    { "type": "testimonials","reason": "Real client reviews — the strongest proof for home and office projects" },
+    { "type": "blog",        "reason": "Project features, design tips and trend pieces that attract potential clients" },
+    { "type": "faq",         "reason": "Process, pricing, timeline, materials — every question a homeowner asks" },
+    { "type": "cta",         "reason": "A final push to book a consultation before they leave" },
+    { "type": "contact",     "reason": "Phone, WhatsApp, Instagram, address, map and a consultation booking form" },
+    { "type": "footer",      "reason": "Quick links, social icons (especially Instagram/Pinterest), and copyright" }
+  ],
+
+  "business": {
+    "phone": "+91 98765 43210",
+    "whatsapp": "+91 98765 43210",
+    "email": "hello@studio-ad.in",
+    "address": "Koramangala, Bengaluru, Karnataka 560034",
+    "social": {
+      "instagram": "https://instagram.com/",
+      "pinterest": "https://pinterest.com/"
+    }
+  },
+
+  "content": {
+    "header": {
+      "variant": "left",
+      "props": {
+        "sticky": true,
+        "showCart": false,
+        "showAccount": false,
+        "links": [
+          { "text": "Portfolio", "href": "#gallery" },
+          { "text": "Services",  "href": "#services" },
+          { "text": "Packages",  "href": "#products" },
+          { "text": "Journal",   "href": "#blog" },
+          { "text": "Contact",   "href": "#contact" }
+        ],
+        "cta": { "text": "Get a Quote", "href": "#contact", "style": "primary" }
+      }
+    },
+
+    "hero": {
+      "variant": "centered-bg",
+      "props": {
+        "badge": "Award-Winning Architecture & Interior Design Studio",
+        "heading": "Spaces that feel like they were always meant to be yours",
+        "sub": "Architecture, interior design and project management for homes and commercial spaces. Based in Bengaluru, working across India.",
+        "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=80",
+        "videoUrl": "https://www.youtube.com/watch?v=R6jL_SsEwI4",
+        "fullHeight": true,
+        "ctaPrimary":   { "text": "View Our Portfolio", "href": "#gallery",  "style": "primary" },
+        "ctaSecondary": { "text": "Book a Consultation", "href": "#contact", "style": "ghost" },
+        "showWhatsapp": true,
+        "showCall": true
+      },
+      "style": { "overlay": 0.5 }
+    },
+
+    "about": {
+      "variant": "image-right",
+      "props": {
+        "label": "Our Firm",
+        "heading": "Designing homes that breathe, since 2012",
+        "body": "Studio A&D was founded by architect Arjun Mehta with a straightforward mission: design spaces that are beautiful, functional and honest.\n\nWe are a team of twelve architects, interior designers, furniture designers and project managers. Every project — from a single-room renovation to a full-home build — is led by a principal designer who stays with it from the first site visit through to the final walkthrough.\n\nWe do not believe in style labels. A contemporary living room, a minimal bedroom and a classic entrance hall can coexist in the same home because they serve different purposes. Our job is to understand how you actually live and design around that, not around a mood board.\n\nOur work has been featured in Architectural Digest India, Elle Decor and Living Etc. We have won twelve design awards and completed over 250 projects across nine states.",
+        "image": "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=1400&q=80",
+        "showPillars": true,
+        "pillars": [
+          { "icon": "compass", "title": "Design Excellence",     "text": "Every project begins with understanding how you actually live — not a template." },
+          { "icon": "hammer",  "title": "Craftsmanship",         "text": "We work with artisans and vendors who share our commitment to quality and finish." },
+          { "icon": "leaf",    "title": "Sustainability",        "text": "Responsible material choices, passive cooling, and energy-conscious design are defaults, not upgrades." },
+          { "icon": "users",   "title": "Client Partnership",    "text": "Transparent process, clear timelines, itemised budgets — no surprises." }
+        ]
+      }
+    },
+
+    "services": {
+      "variant": "cards-3",
+      "props": {
+        "label": "What We Do",
+        "heading": "Services",
+        "sub": "From concept to completion — every service is delivered by our in-house team, never outsourced.",
+        "items": [
+          {
+            "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+            "title": "Architecture Design",
+            "desc": "Residential and commercial architecture from concept to construction drawings. New builds, extensions and adaptive reuse of existing structures.",
+            "meta": "New builds · Extensions · Adaptive reuse",
+            "price": "Starting ₹1,50,000"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=80",
+            "title": "Interior Design",
+            "desc": "Complete interior design with spatial planning, material selection, custom furniture, lighting design and styling for every room.",
+            "meta": "Residential · Commercial · Hospitality",
+            "price": "Starting ₹1,00,000"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80",
+            "title": "Space Planning",
+            "desc": "Optimised floor plans and layout designs that maximise functionality, flow and natural light — before any other design work begins.",
+            "meta": "Floor plans · Zoning · Flow analysis",
+            "price": "Starting ₹25,000"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=80",
+            "title": "Furniture Design",
+            "desc": "Custom furniture pieces designed and fabricated to fit your space perfectly. From built-in cabinetry to freestanding statement pieces.",
+            "meta": "Custom cabinetry · Freestanding · Built-ins",
+            "price": "On request"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1600566753086-00f18f6f7c2a?auto=format&fit=crop&w=1200&q=80",
+            "title": "Project Management",
+            "desc": "End-to-end project oversight with vendor coordination, procurement, quality control and timeline management. We handle the chaos.",
+            "meta": "Vendor coordination · Procurement · QC",
+            "price": "12% of project cost"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80",
+            "title": "3D Visualization",
+            "desc": "Photorealistic renders and walkthrough animations that let you see your space before a single brick is laid. Helps with approvals and decisions.",
+            "meta": "Photorealistic renders · VR walkthroughs",
+            "price": "Starting ₹15,000"
+          }
+        ]
+      }
+    },
+
+    "gallery": {
+      "variant": "masonry",
+      "props": {
+        "label": "Portfolio",
+        "heading": "Our projects",
+        "sub": "A selection of completed projects — homes, offices and commercial spaces we have designed and delivered.",
+        "lightbox": true,
+        "images": [
+          { "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80", "alt": "Modern living room with warm wood accents" },
+          { "image": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80", "alt": "Contemporary house exterior with landscaped garden" },
+          { "image": "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=80", "alt": "Elegant dining room with statement lighting" },
+          { "image": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=80", "alt": "Minimalist bedroom with natural textures" },
+          { "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80", "alt": "Open-plan kitchen and living area" },
+          { "image": "https://images.unsplash.com/photo-1600566753086-00f18f6f7c2a?auto=format&fit=crop&w=1200&q=80", "alt": "Modern kitchen with marble island" },
+          { "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80", "alt": "Architectural facade with clean geometric lines" },
+          { "image": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80", "alt": "Bathroom with natural stone and warm lighting" },
+          { "image": "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1200&q=80", "alt": "Spa-like bathroom interior" },
+          { "image": "https://images.unsplash.com/photo-1616137422495-1e9e46e2aa77?auto=format&fit=crop&w=1200&q=80", "alt": "Cosy bedroom with custom headboard" },
+          { "image": "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1200&q=80", "alt": "Modern office workspace with natural light" },
+          { "image": "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=1200&q=80", "alt": "Architect at work on blueprints and models" }
+        ]
+      }
+    },
+
+    "stats": {
+      "variant": "cards",
+      "props": {
+        "label": "By the Numbers",
+        "heading": "Two decades of shaping spaces",
+        "sub": "Numbers we are proud of — and that our clients find reassuring.",
+        "countUp": true,
+        "items": [
+          { "icon": "building", "value": 250, "suffix": "+",    "label": "Projects Delivered" },
+          { "icon": "clock",    "value": 14,  "suffix": "+",    "label": "Years in Practice" },
+          { "icon": "ruler",    "value": 50,  "suffix": "K+",   "label": "Sq Ft Designed" },
+          { "icon": "award",    "value": 12,  "suffix": "",     "label": "Design Awards" }
+        ]
+      }
+    },
+
+    "products": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Design Packages",
+        "heading": "Choose your scope",
+        "sub": "All packages include a site visit, design brief, mood boards and material samples. Prices are all-inclusive with no hidden fees.",
+        "showRelated": true,
+        "relatedHeading": "Compare all packages",
+        "items": [
+          {
+            "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80",
+            "title": "Essential Design",
+            "desc": "Professional space planning and a curated design concept for a single room. Ideal for homeowners who want a clear design direction and need help making confident choices.",
+            "meta": "Best for single rooms · 4 weeks",
+            "price": "₹49,999",
+            "mrp": "₹59,999",
+            "slug": "essential-design",
+            "enableOrder": true,
+            "body": "The Essential package is perfect for a focused room makeover. You get a professional designer who visits your space, understands how you use it, and puts together a complete design concept with material samples and a shopping list.\n\nWhat is included:\n• One site visit and detailed measurements\n• Design brief and mood board presentation\n• Space plan with furniture layout\n• Material and finish recommendations\n• Colour palette and lighting plan\n• Shopping list with budget estimates\n• One revision round on the design concept\n\nDelivery: Design concept within 4 weeks of the site visit. The plan can be executed with your own contractor or with our project management team (quoted separately).\n\nThis package suits living rooms, bedrooms and home offices. For kitchens and bathrooms, please see the Premier package which includes detailed joinery drawings.",
+            "productInfoTitle": "Package Details",
+            "productInfo": [
+              { "label": "Scope",      "value": "Single-room design concept" },
+              { "label": "Duration",   "value": "4 weeks from site visit" },
+              { "label": "Site visit", "value": "1 visit included" },
+              { "label": "Deliverables","value": "Mood boards, space plan, material palette, shopping list" },
+              { "label": "Revisions",  "value": "1 round on design concept" },
+              { "label": "Execution",  "value": "By your contractor or our team (quoted separately)" }
+            ],
+            "attributes": [
+              { "name": "Room Type", "options": [{ "value": "Living Room" }, { "value": "Bedroom" }, { "value": "Home Office" }] },
+              { "name": "Scope",     "options": [{ "value": "Design Concept" }, { "value": "Design + Material Sourcing" }] }
+            ],
+            "variants": [
+              { "option1": "Living Room", "option2": "Design Concept",         "sku": "ESS-LR-DC", "price": "₹49,999",  "mrp": "₹59,999",  "stock": 15 },
+              { "option1": "Living Room", "option2": "Design + Material Sourcing", "sku": "ESS-LR-DM", "price": "₹64,999",  "mrp": "₹74,999",  "stock": 10 },
+              { "option1": "Bedroom",     "option2": "Design Concept",         "sku": "ESS-BR-DC", "price": "₹44,999",  "mrp": "₹54,999",  "stock": 14 },
+              { "option1": "Bedroom",     "option2": "Design + Material Sourcing", "sku": "ESS-BR-DM", "price": "₹59,999",  "mrp": "₹69,999",  "stock": 8 },
+              { "option1": "Home Office", "option2": "Design Concept",         "sku": "ESS-HO-DC", "price": "₹54,999",  "mrp": "₹64,999",  "stock": 12 },
+              { "option1": "Home Office", "option2": "Design + Material Sourcing", "sku": "ESS-HO-DM", "price": "₹69,999",  "mrp": "₹79,999",  "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=80",
+            "title": "Premier Design",
+            "desc": "Complete interior design for one or two rooms with detailed drawings, 3D renders and vendor coordination. Our most popular choice for full room transformations.",
+            "meta": "Most popular · 8–10 weeks",
+            "price": "₹1,49,999",
+            "mrp": "₹1,79,999",
+            "slug": "premier-design",
+            "enableOrder": true,
+            "body": "The Premier package is built for clients who want a complete room transformation without managing multiple vendors. A senior designer handles everything from the concept through to installation.\n\nWhat is included:\n• One site visit and detailed measurements\n• Two design concepts to choose from\n• Detailed joinery and elevation drawings\n• Photorealistic 3D renders of the final design\n• Full material palette with physical samples\n• Custom furniture design (up to 3 pieces)\n• Vendor coordination and procurement support\n• Two revision rounds on the design\n• One site visit during execution for quality check\n\nDelivery: Design within 4 weeks, project completion within 10 weeks depending on scope.\n\nThe Premier package is ideal for living rooms, master bedrooms, kitchens and dining areas. The scope includes coordination with carpenters, painters and electricians through to installation.",
+            "productInfoTitle": "Package Details",
+            "productInfo": [
+              { "label": "Scope",      "value": "Complete design for 1–2 rooms" },
+              { "label": "Duration",   "value": "Design 4 weeks; project 8–10 weeks" },
+              { "label": "Designers",  "value": "1 senior designer + support team" },
+              { "label": "Renders",    "value": "Photorealistic 3D renders" },
+              { "label": "Furniture",  "value": "Up to 3 custom pieces" },
+              { "label": "Coordination","value": "Vendor coordination included" }
+            ],
+            "attributes": [
+              { "name": "Room Type", "options": [{ "value": "Living Room" }, { "value": "Master Bedroom" }, { "value": "Kitchen + Dining" }] },
+              { "name": "Scope",     "options": [{ "value": "Full Design" }, { "value": "Design + Execution" }] }
+            ],
+            "variants": [
+              { "option1": "Living Room",    "option2": "Full Design",         "sku": "PRE-LR-FD", "price": "₹1,49,999", "mrp": "₹1,79,999", "stock": 8 },
+              { "option1": "Living Room",    "option2": "Design + Execution",  "sku": "PRE-LR-DE", "price": "₹1,99,999", "mrp": "₹2,39,999", "stock": 5 },
+              { "option1": "Master Bedroom", "option2": "Full Design",         "sku": "PRE-MB-FD", "price": "₹1,29,999", "mrp": "₹1,59,999", "stock": 7 },
+              { "option1": "Master Bedroom", "option2": "Design + Execution",  "sku": "PRE-MB-DE", "price": "₹1,79,999", "mrp": "₹2,19,999", "stock": 4 },
+              { "option1": "Kitchen + Dining","option2": "Full Design",        "sku": "PRE-KD-FD", "price": "₹1,79,999", "mrp": "₹2,09,999", "stock": 6 },
+              { "option1": "Kitchen + Dining","option2": "Design + Execution", "sku": "PRE-KD-DE", "price": "₹2,39,999", "mrp": "₹2,79,999", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+            "title": "Luxury Design",
+            "desc": "Full-home interior design with custom furniture, art curation and turnkey execution. For clients who want a completely cohesive home without lifting a finger.",
+            "meta": "Ultimate · Full-home · 4–6 months",
+            "price": "₹4,99,999",
+            "mrp": "₹5,99,999",
+            "slug": "luxury-design",
+            "enableOrder": true,
+            "body": "The Luxury package is our most comprehensive offering — a full-home interior design and turnkey execution service that covers every room, every detail and every vendor.\n\nA principal designer leads a dedicated team of junior designers, a furniture designer and a project coordinator. You approve the concept once, and we handle everything else.\n\nWhat is included:\n• Multiple site visits and full property survey\n• Three complete design concepts for client selection\n• Full set of architectural and interior working drawings\n• Photorealistic 3D renders and VR walkthrough\n• Custom furniture design for every room\n• Art and decor curation including sourcing\n• Full procurement and vendor management\n• Dedicated project manager on site during execution\n• Weekly progress reports with photographs\n• Final walkthrough and handover documentation\n\nDelivery: Concept design within 6 weeks. Project completion within 4–6 months depending on the size of the home.\n\nThe Luxury package is best suited for 3BHK and larger apartments, independent homes and villas. It covers all rooms including living, dining, kitchen, bedrooms, bathrooms, balconies and common areas.",
+            "productInfoTitle": "Package Details",
+            "productInfo": [
+              { "label": "Scope",       "value": "Full-home design + turnkey execution" },
+              { "label": "Duration",    "value": "6 weeks concept; 4–6 months project" },
+              { "label": "Team",        "value": "Principal designer + dedicated team" },
+              { "label": "Renders",     "value": "3D renders + VR walkthrough" },
+              { "label": "Furniture",   "value": "Full custom furniture design" },
+              { "label": "Art curation","value": "Included — artwork, decor, accessories" },
+              { "label": "Site manager","value": "On-site during execution" }
+            ],
+            "attributes": [
+              { "name": "Scope",  "options": [{ "value": "Full Home" }, { "value": "Multi-Room" }] },
+              { "name": "Style",  "options": [{ "value": "Contemporary" }, { "value": "Minimal" }, { "value": "Classic" }] }
+            ],
+            "variants": [
+              { "option1": "Full Home",   "option2": "Contemporary", "sku": "LUX-FH-CON", "price": "₹4,99,999", "mrp": "₹5,99,999", "stock": 3 },
+              { "option1": "Full Home",   "option2": "Minimal",      "sku": "LUX-FH-MIN", "price": "₹4,99,999", "mrp": "₹5,99,999", "stock": 4 },
+              { "option1": "Full Home",   "option2": "Classic",      "sku": "LUX-FH-CLA", "price": "₹5,49,999", "mrp": "₹6,49,999", "stock": 2 },
+              { "option1": "Multi-Room",  "option2": "Contemporary", "sku": "LUX-MR-CON", "price": "₹3,49,999", "mrp": "₹4,29,999", "stock": 5 },
+              { "option1": "Multi-Room",  "option2": "Minimal",      "sku": "LUX-MR-MIN", "price": "₹3,49,999", "mrp": "₹4,29,999", "stock": 4 },
+              { "option1": "Multi-Room",  "option2": "Classic",      "sku": "LUX-MR-CLA", "price": "₹3,99,999", "mrp": "₹4,79,999", "stock": 0 }
+            ]
+          }
+        ]
+      }
+    },
+
+    "team": {
+      "variant": "cards-3",
+      "props": {
+        "label": "The Team",
+        "heading": "The people behind your space",
+        "sub": "Every project is led by a principal designer who stays with it from first site visit to final handover.",
+        "items": [
+          {
+            "name": "Arjun",
+            "role": "Principal Architect & Founder",
+            "meta": "B.Arch · 16 years · 100+ projects",
+            "bio": "Founded Studio A&D in 2012 after leading residential projects at a top Mumbai firm. Known for his sensitive approach to context and materiality. Leads every Luxury project personally."
+          },
+          {
+            "name": "Meera",
+            "role": "Senior Interior Designer",
+            "meta": "NID · 9 years · 60+ projects",
+            "bio": "Brings a background in furniture design and textile craft to every interior. Her spaces are known for their warmth, layered textures and thoughtful details that reveal themselves over time."
+          },
+          {
+            "name": "Karan",
+            "role": "Project Manager",
+            "meta": "BIM certified · 8 years",
+            "bio": "Keeps every project on schedule and on budget. Handles vendor coordination, procurement and quality control so the design team can focus on what they do best."
+          },
+          {
+            "name": "Shweta",
+            "role": "Interior Designer",
+            "meta": "B.Des Interior · 5 years",
+            "bio": "Specialises in space planning and 3D visualisation. Her renderings are so realistic that clients often ask if the space already exists. Manages Premier and Essential projects."
+          }
+        ]
+      }
+    },
+
+    "testimonials": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Kind Words",
+        "heading": "What our clients say",
+        "items": [
+          {
+            "quote": "Arjun and his team designed our entire 3BHK from scratch. They understood exactly how we live — we never felt like we were being pushed into a style that was not ours. The finish quality is exceptional.",
+            "name": "Anita & Rohan",
+            "role": "Luxury Design · 3BHK Apartment, Bengaluru",
+            "rating": 5
+          },
+          {
+            "quote": "We hired Meera to redo our living room and dining area under the Premier package. The 3D renders were so accurate that the finished space looked exactly like the mock-ups. Arrived on budget and two weeks early.",
+            "name": "Siddharth Rao",
+            "role": "Premier Design · Koramangala",
+            "rating": 5
+          },
+          {
+            "quote": "The Essential package gave us a clear plan for our home office that we executed with our own contractor. The shopping list alone saved us weeks of research. Highly recommended for anyone who wants professional guidance without the full service.",
+            "name": "Neha Kapoor",
+            "role": "Essential Design · Home Office, Indiranagar",
+            "rating": 5
+          }
+        ]
+      }
+    },
+
+    "blog": {
+      "variant": "grid-3",
+      "props": {
+        "label": "Journal",
+        "heading": "Stories, tips & ideas",
+        "sub": "Thoughts on design, materials and the spaces we create.",
+        "posts": [
+          {
+            "image": "https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1200&q=80",
+            "title": "A 3BHK Bangalore apartment transformed — living, dining and kitchen reimagined",
+            "date": "20 Jul 2026",
+            "excerpt": "Our Premier project for a young couple in Indiranagar: opening up the living-dining-kitchen layout, adding a warm material palette and custom furniture that makes every square foot count.",
+            "linkText": "Read the full story"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80",
+            "title": "Five things to consider before renovating your home",
+            "date": "5 Jul 2026",
+            "excerpt": "From budgeting for the unexpected to choosing materials that age well — here is what we tell every client before they start a renovation, based on fourteen years of projects.",
+            "linkText": "Read the full story"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1200&q=80",
+            "title": "The rise of biophilic design in Indian homes",
+            "date": "18 Jun 2026",
+            "excerpt": "Indoor plants are just the start. Biophilic design is about natural light, cross-ventilation, natural materials and a connection to the outdoors — principles Indian architecture has understood for centuries.",
+            "linkText": "Read the full story"
+          }
+        ]
+      }
+    },
+
+    "faq": {
+      "variant": "accordion",
+      "props": {
+        "label": "FAQ",
+        "heading": "Questions clients ask us",
+        "openFirst": true,
+        "items": [
+          {
+            "q": "What is your design process?",
+            "a": "We follow a five-stage process: Discovery (site visit and brief), Concept (mood boards and space plan), Design (detailed drawings and 3D renders), Execution (procurement and installation), and Handover (final walkthrough and styling). Every stage is presented to you for approval before we move to the next."
+          },
+          {
+            "q": "How much do you charge, and what is included?",
+            "a": "Our packaged services start at ₹49,999 for the Essential Design (single room) and go up to ₹4,99,999 for the Luxury Design (full home). All packages include site visits, design concepts, material samples and a clear deliverable list. The Premier and Luxury packages include vendor coordination and project management. There are no hidden fees — every quote is itemised."
+          },
+          {
+            "q": "How long does a typical project take?",
+            "a": "An Essential Design concept is delivered within 4 weeks. Premier designs take 4 weeks for the concept and 8–10 weeks for full execution. Luxury projects take 6 weeks for the concept and 4–6 months for complete turnkey delivery. These are commitments based on a decade of project data — not optimistic estimates."
+          },
+          {
+            "q": "Do you work with existing furniture and decor?",
+            "a": "Absolutely. We always ask what pieces you want to keep before designing anything new. Our designs incorporate existing furniture, heirlooms and artwork so your home feels like yours — not a catalogue. This also helps reduce waste and keeps the budget in check."
+          },
+          {
+            "q": "Can you handle structural changes and renovations?",
+            "a": "Yes. We regularly work on renovations that involve removing or adding walls, changing window openings, redoing flooring and updating electrical and plumbing layouts. Our team includes architects who can assess structural feasibility and coordinate with structural engineers where needed."
+          },
+          {
+            "q": "Do you manage contractors and vendors?",
+            "a": "Premier and Luxury packages include full vendor coordination. We work with a curated network of carpenters, painters, electricians, plumbers and custom fabricators that we have vetted over many projects. For Essential clients, we provide a list of reliable contractors and can supervise installation at an additional fee."
+          },
+          {
+            "q": "Can we visit a completed project before booking?",
+            "a": "We are happy to arrange a visit to a completed project that matches the scope you are considering — subject to the homeowner's consent. Alternatively, we can schedule a video call with a past client who has agreed to share their experience. Just let us know what would help you feel confident."
+          }
+        ]
+      }
+    },
+
+    "cta": {
+      "variant": "banner",
+      "props": {
+        "heading": "Ready to transform your space?",
+        "sub": "Tell us about your project — the rooms, the challenges, the look you are drawn to. We will send a personalised quote and a portfolio of similar work within 48 hours.",
+        "ctaPrimary": { "text": "Book a Free Consultation", "href": "#contact", "style": "primary" },
+        "showWhatsapp": true,
+        "showCall": true
+      }
+    },
+
+    "contact": {
+      "variant": "form-map",
+      "props": {
+        "label": "Contact",
+        "heading": "Start the conversation",
+        "sub": "Tell us about your space and what you are looking for. We respond within 24 hours — usually sooner.",
+        "showPhone": true,
+        "showWhatsapp": true,
+        "showEmail": true,
+        "showAddress": true,
+        "showHours": true,
+        "showMap": true,
+        "submitText": "Book a Consultation"
+      }
+    },
+
+    "footer": {
+      "variant": "columns",
+      "props": {
+        "blurb": "Studio A&D — Architecture and interior design for homes and commercial spaces. Based in Koramangala, Bengaluru, working across India.",
+        "showContact": true,
+        "showHours": true,
+        "showSocial": true,
+        "showLegal": true,
+        "columns": [
+          {
+            "title": "Explore",
+            "links": [
+              { "text": "Portfolio", "href": "#gallery" },
+              { "text": "Services",  "href": "#services" },
+              { "text": "Packages",  "href": "#products" },
+              { "text": "Journal",   "href": "#blog" }
+            ]
+          },
+          {
+            "title": "Packages",
+            "links": [
+              { "text": "Essential Design", "href": "#products" },
+              { "text": "Premier Design",   "href": "#products" },
+              { "text": "Luxury Design",    "href": "#products" },
+              { "text": "Compare All",      "href": "#products" }
+            ]
+          },
+          {
+            "title": "Connect",
+            "links": [
+              { "text": "Instagram", "href": "https://instagram.com/" },
+              { "text": "Pinterest", "href": "https://pinterest.com/" },
+              { "text": "WhatsApp",  "href": "https://wa.me/919876543210" }
+            ]
+          }
+        ],
+        "copyright": "© 2026 Studio A&D — Architecture & Interiors. All rights reserved.",
+        "termsBody": "All project bookings are confirmed upon receipt of a 25% advance payment. The remaining balance is payable in milestones as per the project schedule. Cancellations made more than 30 days before the scheduled start date receive a full refund of the advance. Cancellations between 15 and 30 days receive a 50% refund. Cancellations within 15 days forfeit the advance. Studio A&D reserves the right to use photographs of completed projects for portfolio and marketing purposes unless a written exclusion is requested and agreed upon at the time of engagement. Design concepts and drawings remain the intellectual property of Studio A&D until full payment is received. Execution timelines may be affected by factors beyond our control including material availability and site conditions. Replace this text with your own terms, reviewed by your legal advisor, before going live."
+      }
+    }
+  },
+
+  "notes": "CONTENT MODEL: Built as an architecture and interior design firm (Studio A&D) serving the Indian residential and commercial market. This is the third template to use 14 sections with the products section for design packages.\n\nVIDEO: The hero uses videoUrl set to a real, verified YouTube architecture walkthrough video (Nakshatra — A Luxurious 4K Interior Design Walkthrough of a Heritage-Inspired Home). The image field serves as the fallback.\n\nPRODUCTS: Three design packages (Essential/Premier/Luxury) use the full products manifest with attributes (Room Type × Scope, or Scope × Style), per-combination pricing via variants, full body copy describing what is included, productInfo tables, slugs and enableOrder for cart/booking. Stock levels are set realistically. This is the third template (after travel and wedding) to use the products section.\n\nGALLERY: Uses masonry variant — well-suited for architectural photography. 12 images with descriptive alt text and lightbox enabled.\n\nTEAM: Four team members (Arjun, Meera, Karan, Shweta) with first-name-only and no photographs, following the convention of not pairing stock photos with made-up names. The studio should replace with actual team photos.\n\nSERVICES: Six service offerings covering the full architectural and interior design spectrum — from space planning to complete project management.\n\nBLOG: Three posts — a project feature, a tips piece and a trend article. Written to attract homeowners researching design services.\n\nPRICING: Design package prices set at realistic Indian premium design studio rates as of mid-2026. Essential at ₹49,999 for a single room, Premier at ₹1,49,999 for complete room transformation, Luxury at ₹4,99,999 for full-home turnkey. Prices should be verified against the studio's actual rates.\n\nIMAGES: All photos are hosted Unsplash URLs. Must be replaced with the studio's own portfolio before going live. The hero image is a fallback for when the video does not play.\n\nBUSINESS INFO: Address set to Koramangala, Bengaluru — a well-known locality with many design studios. Social links point to Instagram and Pinterest (key platforms for visual design work).\n\nTERMS: Footer includes a termsBody with standard design studio contract terms (advance, milestones, cancellation, image usage, IP). The studio must replace with its own terms reviewed by a legal advisor."
+}
