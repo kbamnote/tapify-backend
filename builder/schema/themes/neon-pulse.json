@@ -1,0 +1,29 @@
+{
+  "preset": "neon-pulse",
+  "label": "Neon Pulse",
+  "description": "Dark with vivid purple and warm amber neon accents. High-energy and modern — built for bands, musicians, DJs, music producers, festivals and nightlife brands.",
+  "industries": ["music", "band", "musician", "dj", "music-producer", "concert", "festival", "live-music", "nightclub"],
+
+  "tokens": {
+    "mode": "dark",
+    "color": {
+      "primary":   "#7C3AED",
+      "secondary": "#1E1B4B",
+      "accent":    "#F59E0B",
+      "bg":        "#0F0D1A",
+      "surface":   "#1A1728",
+      "text":      "#F8FAFC",
+      "muted":     "#9CA3AF",
+      "border":    "#2D2A3E"
+    },
+    "font": {
+      "heading": "Space Grotesk",
+      "body":    "Inter"
+    },
+    "radius":    "md",
+    "spacing":   "comfortable",
+    "container": "normal"
+  },
+
+  "notes": "Tokens only — sections never hardcode colours, they read these as CSS variables. The dark bg and vivid purple primary give this theme an electrifying, nightlife energy. The amber accent pops against the dark palette and draws attention to CTAs, prices and highlights. Space Grotesk headings bring a bold, slightly condensed look that fits music and entertainment brands perfectly. Changing primary here restyles every section, every page, instantly."
+}

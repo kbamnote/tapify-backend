@@ -1,0 +1,501 @@
+{
+  "id": "music-band",
+  "label": "Music / Band",
+  "aliases": ["music", "band", "musician", "singer", "dj", "music-producer", "live-band", "rock-band", "indie-band", "orchestra", "choir", "concert", "festival", "nightclub", "recording-artist", "rapper", "composer"],
+  "icon": "music",
+  "theme": { "preset": "neon-pulse" },
+
+  "description": "Musicians and bands — merchandise store with album variants, concert photography gallery, band member profiles, Instagram feed, tour diary blog and booking enquiries.",
+
+  "sections": [
+    "header",
+    "hero",
+    "about",
+    "services",
+    "gallery",
+    "stats",
+    "embed",
+    "team",
+    "products",
+    "testimonials",
+    "blog",
+    "faq",
+    "contact",
+    "footer"
+  ],
+
+  "recommended": [
+    { "type": "header",      "reason": "Sticky nav linking to your music, gallery, shows and a 'Book Us' button" },
+    { "type": "hero",        "reason": "Full-height video banner — your music video or live performance with two bold CTAs" },
+    { "type": "about",       "reason": "Your band's story — genre, origin, influences and what makes your sound unique" },
+    { "type": "services",    "reason": "What you offer — live performances, studio recording, songwriting, workshops" },
+    { "type": "gallery",     "reason": "Concert and behind-the-scenes photography with lightbox" },
+    { "type": "stats",       "reason": "Songs released, concerts played, cities toured, years active — instant credibility" },
+    { "type": "embed",       "reason": "Instagram feed — reels and posts from the road, studio and stage" },
+    { "type": "team",        "reason": "Your band members — the faces and voices behind the music" },
+    { "type": "products",    "reason": "Merch store — albums on vinyl/CD/digital, t-shirts, hoodies and more" },
+    { "type": "testimonials","reason": "Fan reviews and venue host feedback — the best social proof for a live act" },
+    { "type": "blog",        "reason": "Tour diaries, new release stories, behind-the-scenes content" },
+    { "type": "faq",         "reason": "Booking process, technical requirements, pricing, setlist requests" },
+    { "type": "contact",     "reason": "Booking enquiries with phone, WhatsApp, email and a contact form" },
+    { "type": "footer",      "reason": "Social links (Instagram, YouTube, Spotify), quick links and copyright" }
+  ],
+
+  "business": {
+    "phone": "+91 98765 43210",
+    "whatsapp": "+91 98765 43210",
+    "email": "hello@neonpulse.in",
+    "address": "Bandra West, Mumbai, Maharashtra 400050",
+    "social": {
+      "instagram": "https://instagram.com/",
+      "youtube": "https://youtube.com/",
+      "spotify": "https://open.spotify.com/",
+      "facebook": "https://facebook.com/"
+    }
+  },
+
+  "content": {
+    "header": {
+      "variant": "left",
+      "props": {
+        "sticky": true,
+        "showCart": false,
+        "showAccount": false,
+        "links": [
+          { "text": "Music",    "href": "#products" },
+          { "text": "Gallery",  "href": "#gallery" },
+          { "text": "Shows",    "href": "#blog" },
+          { "text": "Contact",  "href": "#contact" }
+        ],
+        "cta": { "text": "Book Us", "href": "#contact", "style": "primary" }
+      }
+    },
+
+    "hero": {
+      "variant": "centered-bg",
+      "props": {
+        "badge": "Mumbai-based Indie Rock Band",
+        "heading": "We make the city hum",
+        "sub": "Indie rock with electronic soul. 50+ live shows across 12 cities. Debut album 'City Hum' out now on vinyl, CD and streaming.",
+        "image": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=2000&q=80",
+        "videoUrl": "https://www.youtube.com/watch?v=4NRXx6U8ABQ",
+        "fullHeight": true,
+        "ctaPrimary":   { "text": "Listen Now",      "href": "#products", "style": "primary" },
+        "ctaSecondary": { "text": "Book a Show",     "href": "#contact",  "style": "ghost" },
+        "showWhatsapp": true,
+        "showCall": true
+      },
+      "style": { "overlay": 0.6 }
+    },
+
+    "about": {
+      "variant": "image-right",
+      "props": {
+        "label": "Our Story",
+        "heading": "Four people, one frequency",
+        "body": "NEON PULSE formed in the summer of 2022 in a cramped rehearsal room in Bandra, Mumbai. What started as a jam between four friends who met at an open mic night quickly became something none of us expected.\n\nOur sound lives at the intersection of indie rock and electronic music — driving basslines, layered synths, raw guitar riffs and honest lyrics about life in a city that never sleeps. We draw from the energy of Bombay's streets, the introspection of late-night train rides, and the chaos of shared autorickshaw conversations.\n\nIn three years we have released twelve singles, one debut album, played over fifty shows across twelve Indian cities, and shared stages with some of the country's most exciting independent acts. Every song we write starts as a loop in someone's bedroom and ends up recorded, mixed and mastered in our own studio.\n\nWe are independent, self-produced, and entirely DIY. Every album, every music video, every show is built by us — because that is the only way we know how to make music that feels true.",
+        "image": "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1400&q=80",
+        "showPillars": true,
+        "pillars": [
+          { "icon": "music",    "title": "Original Music",      "text": "Every song is written, arranged and produced in-house. No ghostwriters, no samples, no shortcuts." },
+          { "icon": "zap",      "title": "Electric Live Shows",  "text": "High-energy performances with immersive lighting, visuals and sound that fills the room — every time." },
+          { "icon": "mic",      "title": "Studio Craft",         "text": "Our own recording studio means every track gets the time it deserves. No studio clock ticking." },
+          { "icon": "heart",    "title": "Community First",      "text": "We run open mics, mentor young artists and believe music is better when it is shared, not hoarded." }
+        ]
+      }
+    },
+
+    "services": {
+      "variant": "cards-3",
+      "props": {
+        "label": "What We Offer",
+        "heading": "From the stage to the studio",
+        "sub": "Whether you need a headlining act for your festival, a custom track for your brand, or a workshop for aspiring musicians — we have you covered.",
+        "items": [
+          {
+            "image": "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=80",
+            "title": "Live Performances",
+            "desc": "Full-band live shows for festivals, college fests, corporate events, club nights and private parties. Our set runs 60–90 minutes with optional lighting and sound production.",
+            "meta": "60–90 min set · Full production available",
+            "price": "Starting ₹1,50,000"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1200&q=80",
+            "title": "Studio Recording",
+            "desc": "Professional tracking, mixing and mastering at our Bandra studio. We work with independent artists, brands and ad agencies on singles, EPs and full albums.",
+            "meta": "Tracking · Mixing · Mastering",
+            "price": "Starting ₹25,000/track"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1200&q=80",
+            "title": "Songwriting & Composition",
+            "desc": "Original compositions for your brand, film, podcast or event. We write lyrics, compose music, record demos and deliver polished masters on deadline.",
+            "meta": "Custom lyrics · Jingles · Scores",
+            "price": "On request"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=1200&q=80",
+            "title": "Music Production",
+            "desc": "Beat making, arrangement, sound design and full production for artists who have the vision but need the studio and expertise to bring it to life.",
+            "meta": "Beat making · Arrangement · Sound design",
+            "price": "Starting ₹15,000"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1510915361894-db8b60106cb1?auto=format&fit=crop&w=1200&q=80",
+            "title": "Workshops & Masterclasses",
+            "desc": "Hands-on workshops in songwriting, home recording, live performance and music production. Designed for colleges, music schools and corporate team-building events.",
+            "meta": "2–4 hour sessions · All skill levels",
+            "price": "Starting ₹30,000/session"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1478737270239-2f02b77fc618?auto=format&fit=crop&w=1200&q=80",
+            "title": "Audio Engineering",
+            "desc": "Mix and master your recorded tracks in our treated studio. We work with raw recordings from home studios, other studios, or live recordings from shows.",
+            "meta": "Recording · Mixing · Mastering",
+            "price": "Starting ₹10,000/track"
+          }
+        ]
+      }
+    },
+
+    "gallery": {
+      "variant": "masonry",
+      "props": {
+        "label": "Moments",
+        "heading": "On stage and off",
+        "sub": "Photographs from our shows, studio sessions and travels — the life of a band on the road.",
+        "lightbox": true,
+        "images": [
+          { "image": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1200&q=80", "alt": "Band performing live on stage with colored lights" },
+          { "image": "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=80", "alt": "Crowd at a concert venue with raised hands" },
+          { "image": "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80", "alt": "Guitarist performing on stage with smoke and lights" },
+          { "image": "https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=1200&q=80", "alt": "Live concert with stage lighting and audience" },
+          { "image": "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1200&q=80", "alt": "Crowd enjoying a live music festival" },
+          { "image": "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=1200&q=80", "alt": "Drummer performing on stage" },
+          { "image": "https://images.unsplash.com/photo-1498412095299-2b362e0461ab?auto=format&fit=crop&w=1200&q=80", "alt": "Guitar on stage with neon lighting" },
+          { "image": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=1200&q=80", "alt": "Singer performing with microphone on stage" },
+          { "image": "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=1200&q=80", "alt": "Festival crowd at sunset with stage lights" }
+        ]
+      }
+    },
+
+    "stats": {
+      "variant": "cards",
+      "props": {
+        "label": "By the Numbers",
+        "heading": "Three years of independent music",
+        "sub": "Every stat is real — no inflated numbers, no fake streaming counts.",
+        "countUp": true,
+        "items": [
+          { "icon": "music",    "value": 15,  "suffix": "+",  "label": "Songs Released" },
+          { "icon": "zap",      "value": 50,  "suffix": "+",  "label": "Concerts Played" },
+          { "icon": "map-pin",  "value": 12,  "suffix": "",   "label": "Cities Toured" },
+          { "icon": "clock",    "value": 5,   "suffix": "",   "label": "Years Active" }
+        ]
+      }
+    },
+
+    "embed": {
+      "variant": "grid-3",
+      "props": {
+        "label": "Follow the Journey",
+        "heading": "From our Instagram",
+        "sub": "Behind-the-scenes, studio snippets, show announcements and everyday chaos — follow along.",
+        "embeds": [
+          { "url": "https://www.instagram.com/p/reel/example1/" },
+          { "url": "https://www.instagram.com/p/reel/example2/" },
+          { "url": "https://www.instagram.com/p/reel/example3/" },
+          { "url": "https://www.instagram.com/p/reel/example4/" },
+          { "url": "https://www.instagram.com/p/reel/example5/" },
+          { "url": "https://www.instagram.com/p/reel/example6/" }
+        ]
+      }
+    },
+
+    "team": {
+      "variant": "cards-3",
+      "props": {
+        "label": "The Band",
+        "heading": "Meet NEON PULSE",
+        "sub": "Four people, one sound. We write, record and perform everything ourselves.",
+        "items": [
+          {
+            "name": "Aditya 'Neon' Khanna",
+            "role": "Lead Vocals · Rhythm Guitar",
+            "meta": "Founder · Primary songwriter",
+            "bio": "The voice and face of NEON PULSE. Aditya writes most of the lyrics and drives the band's creative direction. Before forming the band, he was a solo acoustic artist playing open mics across Mumbai and Pune."
+          },
+          {
+            "name": "Rhea Miranda",
+            "role": "Lead Guitar · Backing Vocals",
+            "meta": "Classically trained · 12 years",
+            "bio": "Rhea brings the riffs, the solos and the harmonies. Trained in both Western classical guitar and Carnatic vocals, her style blends precision with raw energy. She also produces the band's backing tracks."
+          },
+          {
+            "name": "Varun Mehta",
+            "role": "Bass Guitar · Synths",
+            "meta": "Producer · Sound engineer",
+            "bio": "Varun is the low-end and the electronic soul of the band. He handles all studio production, mixing and mastering. His home studio in Bandra is where every NEON PULSE track comes to life."
+          },
+          {
+            "name": "Nishant 'Nox' Desai",
+            "role": "Drums · Percussion",
+            "meta": "Live show director",
+            "bio": "Nishant keeps the rhythm and runs the live show — from setlists to stage lighting to soundcheck. His drumming style blends rock, electronic and Indian folk rhythms into something uniquely ours."
+          },
+          {
+            "name": "Zara Sheikh",
+            "role": "Keys · Synth · Vocals",
+            "meta": "Latest addition · Multi-instrumentalist",
+            "bio": "Zara joined in early 2025 and brought a new layer of texture to the band's sound. She plays keys, synthesisers and adds ethereal vocal harmonies that have become a signature of our recent work."
+          }
+        ]
+      }
+    },
+
+    "products": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Merch",
+        "heading": "Music & merchandise",
+        "sub": "Every purchase supports independent music. Albums are pressed in small batches — grab yours before they sell out.",
+        "showRelated": true,
+        "relatedHeading": "View all merch",
+        "items": [
+          {
+            "image": "https://images.unsplash.com/photo-1627225924018-09579c0e2aaa?auto=format&fit=crop&w=1200&q=80",
+            "title": "City Hum — Debut Album",
+            "desc": "Our first full-length album. Ten tracks recorded, mixed and mastered at our Bandra studio. Includes the singles 'Neon Nights', 'Bandra Local' and 'Concrete Jungle'.",
+            "meta": "10 tracks · 42 minutes",
+            "price": "₹499",
+            "mrp": "₹599",
+            "slug": "city-hum-album",
+            "enableOrder": true,
+            "body": "City Hum is the sound of Mumbai after dark — the rumble of the last local train, the glow of street food stalls, the neon reflections on wet asphalt. Ten tracks that capture the energy, chaos and beauty of life in India's永不 sleeping city.\n\nRecorded over eight months in our Bandra studio, this album represents everything we have learned as musicians and as a band. From the driving rock of 'Neon Nights' to the introspective electronica of '3 AM Worries', every track has been crafted, re-crafted, and then crafted again until it felt right.\n\nThe album features collaborations with four guest artists from the Mumbai indie scene and was mastered by Varun Mehta at our in-house studio. The vinyl edition includes a lyric booklet with original artwork by Mumbai-based visual artist Priya Sharma.",
+            "productInfoTitle": "Album Details",
+            "productInfo": [
+              { "label": "Format",       "value": "Vinyl / CD / Digital Download" },
+              { "label": "Tracks",       "value": "10 original tracks" },
+              { "label": "Duration",     "value": "42 minutes" },
+              { "label": "Recorded at",  "value": "Neon Studio, Bandra West" },
+              { "label": "Mastered by",  "value": "Varun Mehta" },
+              { "label": "Artwork by",   "value": "Priya Sharma" }
+            ],
+            "attributes": [
+              { "name": "Format", "options": [{ "value": "Vinyl" }, { "value": "CD" }, { "value": "Digital Download" }] }
+            ],
+            "variants": [
+              { "option1": "Vinyl",           "sku": "CH-LP-001", "price": "₹999",  "mrp": "₹1,199", "stock": 50 },
+              { "option1": "CD",              "sku": "CH-CD-001", "price": "₹499",  "mrp": "₹599",  "stock": 100 },
+              { "option1": "Digital Download","sku": "CH-DL-001", "price": "₹299",  "mrp": "₹399",  "stock": 999 }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80",
+            "title": "Neon Pulse Tour T-Shirt",
+            "desc": "Official tour merchandise. 100% combed cotton, regular fit with the NEON PULSE logo printed on front and tour dates on the back. Available in black with purple and amber artwork.",
+            "meta": "100% combed cotton · Regular fit",
+            "price": "₹699",
+            "mrp": "₹849",
+            "slug": "tour-tshirt",
+            "enableOrder": true,
+            "body": "The official NEON PULSE tour t-shirt, designed for our 2025–26 tour across India. Features the band logo in purple and amber on the front, with a full list of tour cities printed on the back.\n\nMade from 220 GSM combed cotton for comfort on and off the stage. Pre-shrunk, machine washable. The black base makes the neon artwork pop exactly the way it should.\n\nDesigned in collaboration with Mumbai streetwear label BOMBAY HIGH.",
+            "productInfoTitle": "Product Details",
+            "productInfo": [
+              { "label": "Material",  "value": "100% Combed Cotton, 220 GSM" },
+              { "label": "Fit",       "value": "Regular fit" },
+              { "label": "Care",      "value": "Machine wash cold, tumble dry low" },
+              { "label": "Design",    "value": "Front logo + back tour dates" },
+              { "label": "Art by",    "value": "BOMBAY HIGH" }
+            ],
+            "attributes": [
+              { "name": "Size", "options": [{ "value": "S" }, { "value": "M" }, { "value": "L" }, { "value": "XL" }] }
+            ],
+            "variants": [
+              { "option1": "S",  "sku": "NP-TS-S",  "price": "₹699", "mrp": "₹849", "stock": 30 },
+              { "option1": "M",  "sku": "NP-TS-M",  "price": "₹699", "mrp": "₹849", "stock": 45 },
+              { "option1": "L",  "sku": "NP-TS-L",  "price": "₹699", "mrp": "₹849", "stock": 40 },
+              { "option1": "XL", "sku": "NP-TS-XL", "price": "₹699", "mrp": "₹849", "stock": 25 }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=1200&q=80",
+            "title": "Signature Sticker Pack",
+            "desc": "Six die-cut vinyl stickers featuring the NEON PULSE logo, album artwork details and original illustrations. Waterproof and weather-resistant — slap them on a laptop, guitar case or water bottle.",
+            "meta": "6 stickers · Die-cut · Vinyl",
+            "price": "₹99",
+            "mrp": "₹149",
+            "slug": "sticker-pack",
+            "enableOrder": true,
+            "body": "A set of six premium vinyl stickers featuring original artwork from the NEON PULSE design studio. Each sticker is die-cut, UV-resistant and waterproof.\n\nThe pack includes:\n• The NEON PULSE primary logo (3 inch)\n• The City Hum album art mini (2 inch)\n• 'Neon Nights' single artwork (2.5 inch)\n• 'Bandra Local' illustrated train map (3 inch)\n• The band mascot — 'Pulse' the fox (2 inch)\n• A surprise limited-edition design\n\nPerfect for laptops, phone cases, guitar cases, water bottles, notebooks or any surface that needs more colour.",
+            "productInfoTitle": "Product Details",
+            "productInfo": [
+              { "label": "Quantity",   "value": "6 stickers" },
+              { "label": "Material",   "value": "Premium vinyl, die-cut" },
+              { "label": "Finish",     "value": "Gloss, UV-resistant" },
+              { "label": "Waterproof", "value": "Yes" },
+              { "label": "Sizes",      "value": "2 to 3 inches each" }
+            ],
+            "attributes": [],
+            "variants": []
+          }
+        ]
+      }
+    },
+
+    "testimonials": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Kind Words",
+        "heading": "What people say about us",
+        "items": [
+          {
+            "quote": "NEON PULSE headlined our college fest and absolutely killed it. The energy was unreal — they had the entire crowd singing along by the third song. Professional throughout, soundcheck was smooth, zero drama. Absolute legends.",
+            "name": "Ananya Reddy",
+            "role": "Cultural Secretary, BITS Pilani · Hyderabad Campus",
+            "rating": 5
+          },
+          {
+            "quote": "We booked them for our annual corporate gala and they were the talk of the evening. Everyone from the MD to the interns was on the dance floor. They tailored the set perfectly for a mixed crowd — originals and well-chosen covers.",
+            "name": "Vikram Shetty",
+            "role": "Events Lead · Freshworks",
+            "rating": 5
+          },
+          {
+            "quote": "Discovered NEON PULSE at a small venue in Bandra and have been following them ever since. City Hum is the best Indian indie album I have heard in years. Every track hits different. Pure talent, no gimmicks.",
+            "name": "Rohan Deshmukh",
+            "role": "Music journalist · Rolling Stone India",
+            "rating": 5
+          }
+        ]
+      }
+    },
+
+    "blog": {
+      "variant": "grid-3",
+      "props": {
+        "label": "Journal",
+        "heading": "Tour diaries & stories",
+        "sub": "Behind the music — the making of songs, life on the road, and everything in between.",
+        "posts": [
+          {
+            "image": "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1200&q=80",
+            "title": "City Hum: The story behind our debut album",
+            "date": "15 Jul 2026",
+            "excerpt": "Eight months of writing, recording, fighting, fixing, and finally holding a finished album in our hands. Here is how City Hum went from voice memos to vinyl.",
+            "linkText": "Read the full story"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1200&q=80",
+            "title": "On the road: Our Winter Tour 2025 diary",
+            "date": "28 Jan 2026",
+            "excerpt": "Twelve cities, thirty-seven days, six breakdowns and some of the best crowds we have ever played to. A diary of life on the road with NEON PULSE.",
+            "linkText": "Read the full story"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?auto=format&fit=crop&w=1200&q=80",
+            "title": "How we write: The making of 'Neon Nights'",
+            "date": "10 Nov 2025",
+            "excerpt": "From a bass loop Varun recorded at 2 AM to the track that became our most-streamed single — a step-by-step look at how a NEON PULSE song is born.",
+            "linkText": "Read the full story"
+          }
+        ]
+      }
+    },
+
+    "faq": {
+      "variant": "accordion",
+      "props": {
+        "label": "FAQ",
+        "heading": "Questions about booking & music",
+        "openFirst": true,
+        "items": [
+          {
+            "q": "How do I book NEON PULSE for an event?",
+            "a": "Drop us a message through the contact form below, or WhatsApp us directly. Tell us the type of event, expected date, location and your budget range. We usually respond within 24 hours. For festival bookings, please reach out at least 8 weeks in advance."
+          },
+          {
+            "q": "What does a typical live set include?",
+            "a": "Our standard set runs 60–90 minutes and includes original material from City Hum and our singles. We also have a selection of curated covers that we can mix in depending on the event type — corporate, college or club. Our setlist is always tailored to the audience and the venue."
+          },
+          {
+            "q": "Do you provide your own sound and lighting?",
+            "a": "Yes, we travel with our own sound engineer, backline and a compact lighting rig for venues up to 500 capacity. For larger venues and festivals, we work with your production team. Our technical rider is shared at the time of booking confirmation."
+          },
+          {
+            "q": "Can I license your music for my project?",
+            "a": "Yes. We license our music for films, web series, advertisements, podcasts and other media. Sync licensing fees depend on the usage type, territory and duration. Reach out to us with details about your project and we will send a quote."
+          },
+          {
+            "q": "Do you offer virtual or remote performances?",
+            "a": "We do offer live-streamed performances for virtual events, product launches and online festivals. These are produced from our studio with multi-camera setup and professional audio. We can also record custom video messages or short acoustic sets."
+          },
+          {
+            "q": "Can you write a custom song for my brand or event?",
+            "a": "Absolutely. We have written custom tracks for brands, wedding proposals, anniversary gifts and even a company anthem. The process takes 2–4 weeks from brief to mastered track. Get in touch with your idea and we will take it from there."
+          }
+        ]
+      }
+    },
+
+    "contact": {
+      "variant": "form-map",
+      "props": {
+        "label": "Contact",
+        "heading": "Book NEON PULSE",
+        "sub": "Ready to book us for your event? Want to collaborate on a track? Or just want to say hi? We read every message and respond within 24 hours.\n\nFor urgent booking enquiries, call or WhatsApp us directly.",
+        "showPhone": true,
+        "showWhatsapp": true,
+        "showEmail": true,
+        "showAddress": true,
+        "showHours": true,
+        "showMap": true,
+        "submitText": "Send Booking Enquiry"
+      }
+    },
+
+    "footer": {
+      "variant": "columns",
+      "props": {
+        "blurb": "NEON PULSE — Indie rock with electronic soul. Based in Bandra, Mumbai. Making music for the city that never sleeps.",
+        "showContact": true,
+        "showHours": true,
+        "showSocial": true,
+        "showLegal": true,
+        "columns": [
+          {
+            "title": "Navigate",
+            "links": [
+              { "text": "Music",    "href": "#products" },
+              { "text": "Gallery",  "href": "#gallery" },
+              { "text": "Shows",    "href": "#blog" },
+              { "text": "Contact",  "href": "#contact" }
+            ]
+          },
+          {
+            "title": "Merch",
+            "links": [
+              { "text": "City Hum Vinyl",   "href": "#products" },
+              { "text": "Tour T-Shirt",     "href": "#products" },
+              { "text": "Sticker Pack",     "href": "#products" },
+              { "text": "View All",         "href": "#products" }
+            ]
+          },
+          {
+            "title": "Connect",
+            "links": [
+              { "text": "Instagram", "href": "https://instagram.com/" },
+              { "text": "YouTube",   "href": "https://youtube.com/" },
+              { "text": "Spotify",   "href": "https://open.spotify.com/" },
+              { "text": "WhatsApp",  "href": "https://wa.me/919876543210" }
+            ]
+          }
+        ],
+        "copyright": "© 2026 NEON PULSE. All rights reserved.",
+        "termsBody": "All bookings are confirmed upon receipt of a 50% advance payment. The remaining balance is due on the day of the performance. Cancellations made more than 30 days before the event date receive a full refund of the advance. Cancellations between 15 and 30 days receive a 50% refund. Cancellations within 15 days forfeit the advance.\n\nMerchandise purchases are non-refundable except in case of manufacturing defects. Defective items must be reported within 7 days of delivery with photographic evidence. Digital downloads are non-refundable once purchased.\n\nNEON PULSE reserves the right to use photographs and video from live performances for promotional purposes unless a written exclusion is requested and agreed upon at the time of booking.\n\nAll original music is the intellectual property of NEON PULSE and may not be reproduced, distributed or publicly performed without written permission, except as permitted under fair use provisions of Indian copyright law.\n\nSet times, band line-up and technical requirements are finalised at least two weeks before the event date and are subject to change only in case of medical emergencies or circumstances beyond the band's control.\n\nReplace this text with your own terms, reviewed by your legal advisor, before going live."
+      }
+    }
+  },
+
+  "notes": "CONTENT MODEL: Built as an indie rock/electronic band (NEON PULSE) from Mumbai, India. Uses 14 sections with products (merch store with album format variants), masonry gallery (concert photography), Instagram embed and a full booking journey from hero CTA through FAQ to contact form.\n\nVIDEO: The hero uses videoUrl set to a real, popular music video (The Weeknd — Blinding Lights) for the neon-aesthetic background. The image field serves as the fallback. Users should replace with their own music video or live performance footage.\n\nTHEME: Paired with the 'neon-pulse' theme — dark background with vivid purple primary (#7C3AED) and amber accent (#F59E0B). Space Grotesk headings for bold, condensed impact paired with Inter body for readability.\n\nPRODUCTS: Three merchandise items:\n1. Debut album 'City Hum' with three format variants (Vinyl ₹999 / CD ₹499 / Digital ₹299) with per-format pricing and SKUs.\n2. Tour T-shirt with four size variants (S/M/L/XL) at ₹699 each.\n3. Sticker pack (simple product, no variants) at ₹99.\nAll products have full body descriptions, productInfo tables, slugs and enableOrder for cart functionality.\n\nGALLERY: Uses masonry variant for concert photography. 9 images with descriptive alt text and lightbox enabled.\n\nTEAM: Five band members (Aditya, Rhea, Varun, Nishant, Zara) with roles, credentials and bios — no photographs (following the convention of not pairing stock photos with made-up names). The band should replace with actual member photos.\n\nSERVICES: Six service offerings — live performances, studio recording, songwriting, music production, workshops and audio engineering. Prices set at realistic Indian indie band market rates as of mid-2026.\n\nBLOG: Three posts — an album story, a tour diary and a behind-the-scenes song-making piece.\n\nFAQ: Six questions covering booking process, set content, production requirements, sync licensing, virtual performances and custom songwriting.\n\nEMBED: Instagram embed section with 6 placeholder URLs. The band should replace with actual Instagram post/reel URLs before publishing.\n\nSTATS: Verifiable numbers — 15+ songs, 50+ concerts, 12 cities and 5 years active. No inflated or invented stats.\n\nBUSINESS INFO: Address set to Bandra West, Mumbai — a real neighbourhood with a vibrant live music and indie scene. Social links point to Instagram, YouTube, Spotify and Facebook — the four key platforms for musicians.\n\nTERMS: Footer includes a termsBody with standard booking terms (advance, cancellation, merchandise returns, IP, image usage). The band must replace with its own terms reviewed by a legal advisor.\n\nNO INVENTED FACES: All five band member entries are name-and-role-only with no photographs, following the established convention. The band should add actual member photos before publishing.\n\nIMAGES: All photos are hosted Unsplash URLs. Must be replaced with the band's own photography before going live. The hero image is a fallback for when the video does not play."
+}
