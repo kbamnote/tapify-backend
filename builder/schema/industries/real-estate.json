@@ -463,7 +463,8 @@
         "showHours": true,
         "showSocial": true,
         "showLegal": true,
-        "copyright": "© 2026 Prudent Realty. RERA Reg. No. MAHARERA-A-12345678 | TN-RERA-2024-P-87654321. Property photos are representative; actual condition may vary. Prices are indicative and subject to change without notice. This website does not constitute an offer or invitation to invest. Please verify all project details and RERA registration status with the respective State RERA Authority before booking."
+        "copyright": "© 2026 Prudent Realty. RERA Reg. No. MAHARERA-A-12345678 | TN-RERA-2024-P-87654321",
+        "termsBody": "Property photos are representative; actual condition may vary. Prices are indicative and subject to change without notice.\n\nThis website does not constitute an offer or an invitation to invest. Nothing here should be read as a guarantee of returns, appreciation or possession date.\n\nPlease verify all project details and RERA registration status with the respective State RERA Authority before booking. Replace this text with your own terms, reviewed by your legal advisor, before going live."
       }
     }
   },
