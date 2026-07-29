@@ -3,7 +3,7 @@
   "label": "Gym / Fitness Centre",
   "aliases": ["fitness", "fitness-centre", "health-club", "crossfit", "yoga", "zumba", "personal-trainer", "gymnasium", "pilates"],
   "icon": "dumbbell",
-  "theme": { "preset": "graphite-emerald" },
+  "theme": { "preset": "iron-blaze" },
 
   "description": "A gym or fitness centre — membership plans with transparent pricing, certified trainer profiles, class timetables, gallery and free trial bookings.",
 

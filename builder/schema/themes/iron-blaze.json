@@ -1,0 +1,29 @@
+{
+  "preset": "iron-blaze",
+  "label": "Iron Blaze",
+  "description": "Bold red on near-black with a burnt-orange accent. Energetic, modern and intense — suits gyms, fitness centres, CrossFit boxes and combat sports studios.",
+  "industries": ["gym", "fitness"],
+
+  "tokens": {
+    "mode": "light",
+    "color": {
+      "primary":   "#DC2626",
+      "secondary": "#7F1D1D",
+      "accent":    "#C2410C",
+      "bg":        "#0A0A0A",
+      "surface":   "#18181B",
+      "text":      "#F8FAFC",
+      "muted":     "#A1A1AA",
+      "border":    "#27272A"
+    },
+    "font": {
+      "heading": "Inter",
+      "body":    "Inter"
+    },
+    "radius":    "md",
+    "spacing":   "comfortable",
+    "container": "normal"
+  },
+
+  "notes": "Tokens only — sections never hardcode colours, they read these as CSS variables. The dark bg and bold red primary give this theme its gym-floor energy. Sections with default bg will be transparent (inheriting the page's near-black) while surface (e.g. gallery, team) lifts content off that same dark background. The burnt orange accent is dark enough to pass WCAG AA at 5:1 against white text. Changing `primary` here restyles every section, every page, instantly."
+}
