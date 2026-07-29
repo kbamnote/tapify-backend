@@ -2875,8 +2875,8 @@ JS;
 
     /**
      * Mobile Sticky Bottom Action Bar — visible only on screens <641px.
-     * Provides WhatsApp, Add-to-Contacts, Bookmark and Location buttons
-     * using data from doc.business.
+     * Provides WhatsApp, Add-to-Contacts, Share, Add-to-Home-Screen and
+     * Location buttons using data from doc.business.
      */
     private static function mobileBar(array $doc): string
     {
@@ -2901,15 +2901,20 @@ JS;
 
         // Add to Contacts (vCard)
         if ($phone !== '') {
-            $h .= '<button class="tf-mbar-btn" data-action="vcard" data-phone="' . $phone . '" data-name="' . $name . '" aria-label="Save contact">'
+            $h .= '<button class="tf-mbar-btn" data-action="vcard" data-phone="' . $phone . '" data-name="' . $name . '" aria-label="Add to Contacts">'
                 . '<svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M15 14c-2.67 0-8 1.33-8 4v2h16v-2c0-2.67-5.33-4-8-4m-9-4V7H4v3H1v2h3v3h2v-3h3v-2m6-1a4 4 0 100-8 4 4 0 000 8z"/></svg>'
-                . '<span>Save</span></button>';
+                . '<span>Add to<br>Contacts</span></button>';
         }
 
-        // Bookmark
-        $h .= '<button class="tf-mbar-btn" data-action="bookmark" data-url="' . $url . '" data-title="' . $name . '" aria-label="Bookmark">'
-            . '<svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>'
-            . '<span>Bookmark</span></button>';
+        // Share
+        $h .= '<button class="tf-mbar-btn" data-action="share" data-url="' . $url . '" data-title="' . $name . '" aria-label="Share">'
+            . '<svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>'
+            . '<span>Share</span></button>';
+
+        // Add to Home Screen / Install
+        $h .= '<button class="tf-mbar-btn" data-action="install" aria-label="Add to Home Screen">'
+            . '<svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>'
+            . '<span>Add to<br>Home Screen</span></button>';
 
         // Location
         if ($address !== '') {
@@ -2923,11 +2928,12 @@ JS;
         return $h;
     }
 
-    /** JavaScript for vCard download + bookmark/share. */
+    /** JavaScript for vCard download + share + install. */
     private static function mobileBarScript(): string
     {
         return <<<'JS'
 <script>(function(){var b=document.querySelector('.tf-mobile-bar[data-bar="1"]');if(!b)return;
+var _defer=null;window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();_defer=e;});
 b.addEventListener('click',function(e){
  var t=e.target.closest('[data-action]');if(!t)return;e.preventDefault();
  var a=t.getAttribute.bind(t);
@@ -2937,12 +2943,16 @@ b.addEventListener('click',function(e){
   l.href=URL.createObjectURL(b2);l.download=n.replace(/\s+/g,'_')+'.vcf';
   document.body.appendChild(l);l.click();document.body.removeChild(l);
   setTimeout(function(){URL.revokeObjectURL(l.href)},5e3)}
- if(t.getAttribute('data-action')==='bookmark'){
+ if(t.getAttribute('data-action')==='share'){
   var u=a('data-url')||location.href,ti=a('data-title')||document.title;
   if(navigator.share){navigator.share({title:ti,url:u})['catch'](function(){})}else{
    var i=document.createElement('input');i.value=u;document.body.appendChild(i);i.select();
-   try{document.execCommand('copy');alert('Link copied — you can bookmark it from your browser menu.')}catch(ex){}
-   document.body.removeChild(i)}}})})();</script>
+   try{document.execCommand('copy');alert('Link copied to clipboard')}catch(ex){}
+   document.body.removeChild(i)}}
+ if(t.getAttribute('data-action')==='install'){
+  if(_defer){_defer.prompt();_defer.userChoice['finally'](function(){_defer=null})}else if(navigator.share){
+   navigator.share({title:a('data-title')||document.title,url:a('data-url')||location.href})['catch'](function(){})}else{
+   alert('Open your browser menu and select "Add to Home Screen" or "Install App".')}}})})();</script>
 JS;
     }
 
