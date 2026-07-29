@@ -1,0 +1,320 @@
+{
+  "id": "portfolio",
+  "label": "Portfolio / Personal",
+  "aliases": ["designer", "developer", "photographer", "freelancer", "cv", "resume", "personal-site", "personal-website", "creative", "artist", "design-studio", "creative-agency", "illustrator", "architect", "writer"],
+  "icon": "briefcase",
+  "theme": { "preset": "midnight-ink" },
+
+  "description": "A personal portfolio site for freelancers, designers, developers and creative professionals — showcase your work, services and story in a dark, modern layout.",
+
+  "sections": [
+    "header",
+    "hero",
+    "about",
+    "services",
+    "gallery",
+    "stats",
+    "testimonials",
+    "blog",
+    "faq",
+    "contact",
+    "footer"
+  ],
+
+  "recommended": [
+    { "type": "header",      "reason": "Sticky nav bar with links to your sections and a 'Hire Me' CTA" },
+    { "type": "hero",        "reason": "Full-height opening banner — headline, what you do, and two CTAs" },
+    { "type": "about",       "reason": "Your story, approach and values, with vision cards" },
+    { "type": "services",    "reason": "What you offer — design, development, consulting, etc." },
+    { "type": "gallery",     "reason": "Portfolio grid with lightbox so visitors can see your work" },
+    { "type": "stats",       "reason": "Quick trust-builders — projects, clients, years of experience" },
+    { "type": "testimonials","reason": "Real client quotes build credibility" },
+    { "type": "blog",        "reason": "Articles, case studies and thoughts to demonstrate expertise" },
+    { "type": "faq",         "reason": "Answer common questions about process, pricing and availability" },
+    { "type": "contact",     "reason": "Enquiry form plus phone, WhatsApp and map" },
+    { "type": "footer",      "reason": "Quick links, social icons and copyright" }
+  ],
+
+  "business": {
+    "phone": "+91 98765 43210",
+    "whatsapp": "+91 98765 43210",
+    "email": "hello@example.in",
+    "address": "Bengaluru, Karnataka, India"
+  },
+
+  "content": {
+    "header": {
+      "variant": "left",
+      "props": {
+        "sticky": true,
+        "links": [
+          { "text": "Work",     "href": "#gallery" },
+          { "text": "Services", "href": "#services" },
+          { "text": "About",    "href": "#about" },
+          { "text": "Contact",  "href": "#contact" }
+        ],
+        "cta": { "text": "Hire Me", "href": "#contact", "style": "primary" }
+      }
+    },
+
+    "hero": {
+      "variant": "centered-bg",
+      "props": {
+        "badge": "Available for Freelance Projects",
+        "heading": "I design & develop digital experiences that make an impact",
+        "sub": "Full-stack designer and developer focused on creating clean, accessible, and performant web applications for startups and growing businesses.",
+        "image": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=2000&q=80",
+        "fullHeight": true,
+        "ctaPrimary":   { "text": "View My Work", "href": "#gallery", "style": "primary" },
+        "ctaSecondary": { "text": "Get in Touch", "href": "#contact", "style": "ghost" },
+        "showWhatsapp": false,
+        "showCall": false
+      },
+      "style": { "overlay": 0.6 }
+    },
+
+    "about": {
+      "variant": "image-left",
+      "props": {
+        "label": "About Me",
+        "heading": "Building digital products from concept to launch",
+        "body": "I'm a full-stack designer and developer with over six years of experience helping startups and businesses turn ideas into polished digital products. My approach is design-led and user-focused — I believe great code alone doesn't make a great product.\n\nI work across the entire stack, from wireframing and prototyping to front-end and back-end development, deployment, and performance optimisation. Every project starts with understanding the problem, not picking the tech stack.\n\nWhen I'm not building, I write about design systems, accessibility, and the business of freelancing.",
+        "image": "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1400&q=80",
+        "showPillars": true,
+        "pillars": [
+          { "icon": "palette", "title": "Design-Led",     "text": "Every pixel has a purpose. I design before I build, and I test before I launch." },
+          { "icon": "users",   "title": "User-Focused",   "text": "Accessibility and usability aren't afterthoughts — they're baked into every decision." },
+          { "icon": "zap",     "title": "Performance-Minded", "text": "Fast load times, clean code, and Core Web Vitals that consistently score 90+." }
+        ]
+      }
+    },
+
+    "services": {
+      "variant": "cards-3",
+      "props": {
+        "label": "What I Do",
+        "heading": "Services",
+        "sub": "From concept to launch — I help you build digital products that stand out.",
+        "items": [
+          {
+            "image": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
+            "title": "Web Development",
+            "desc": "Full-stack web applications using modern frameworks. React, Node.js, and serverless architecture for fast, scalable products.",
+            "meta": "React · Node.js · Next.js"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=80",
+            "title": "UI / UX Design",
+            "desc": "Wireframes, interactive prototypes, and polished designs. I build design systems that are consistent, accessible, and a pleasure to use.",
+            "meta": "Figma · Prototyping · Systems"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1200&q=80",
+            "title": "Brand Identity",
+            "desc": "Logos, typography, colour systems, and visual guidelines. A cohesive brand that works across web, print, and social media.",
+            "meta": "Logo · Typography · Guidelines"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80",
+            "title": "Mobile Apps",
+            "desc": "Cross-platform mobile applications with React Native and Expo. Native feel, shared codebase, fast iteration cycles.",
+            "meta": "React Native · Expo · iOS + Android"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+            "title": "Performance Optimisation",
+            "desc": "Speed audits, Core Web Vitals improvements, and code splitting. I make your site faster for every user on every device.",
+            "meta": "Lighthouse · CWV · Optimisation"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+            "title": "Tech Consulting",
+            "desc": "Architecture reviews, technology selection, and team mentoring. An independent perspective on your toughest technical decisions.",
+            "meta": "Architecture · Review · Strategy"
+          }
+        ]
+      }
+    },
+
+    "gallery": {
+      "variant": "grid-3",
+      "props": {
+        "label": "Portfolio",
+        "heading": "Selected work",
+        "sub": "A handful of recent projects I'm proud of.",
+        "lightbox": true,
+        "images": [
+          { "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80", "alt": "SaaS analytics dashboard" },
+          { "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80", "alt": "Data visualisation interface" },
+          { "image": "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80", "alt": "Client presentation website" },
+          { "image": "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=1200&q=80", "alt": "Brand identity and style guide" },
+          { "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80", "alt": "Team collaboration platform" },
+          { "image": "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80", "alt": "Creative portfolio site" },
+          { "image": "https://images.unsplash.com/photo-1555421689-d68471e189f2?auto=format&fit=crop&w=1200&q=80", "alt": "E-commerce storefront" },
+          { "image": "https://images.unsplash.com/photo-1432889821006-3149403b3c05?auto=format&fit=crop&w=1200&q=80", "alt": "Productivity app interface" }
+        ]
+      }
+    },
+
+    "stats": {
+      "variant": "cards",
+      "props": {
+        "label": "By the Numbers",
+        "heading": "Impact so far",
+        "sub": "A quick look at what the last few years have added up to.",
+        "items": [
+          { "icon": "briefcase", "value": 50, "suffix": "+", "label": "Projects Delivered" },
+          { "icon": "users",     "value": 35, "suffix": "+", "label": "Happy Clients" },
+          { "icon": "clock",     "value": 6,  "suffix": "+", "label": "Years of Experience" },
+          { "icon": "award",     "value": 12, "suffix": "",  "label": "Awards & Recognition" }
+        ],
+        "countUp": true
+      }
+    },
+
+    "testimonials": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Testimonials",
+        "heading": "What clients say",
+        "items": [
+          {
+            "quote": "Ravi redesigned our entire customer dashboard in three weeks — from wireframes to production. The team loved the new interface and our support tickets dropped by 40%.",
+            "name": "Priya Sharma",
+            "role": "Product lead, fintech startup",
+            "rating": 5
+          },
+          {
+            "quote": "We brought Ravi in to fix our Core Web Vitals. He identified the issues, rewrote the critical rendering path, and got us from 45 to 92 on mobile Lighthouse in two sprints.",
+            "name": "Rahul Verma",
+            "role": "Engineering manager",
+            "rating": 5
+          },
+          {
+            "quote": "Ravi built our entire brand site from scratch — design through deployment. Clean code, thoughtful UX, and he actually reads the accessibility audit reports. Rare find.",
+            "name": "Ananya Patel",
+            "role": "Founder, health-tech platform",
+            "rating": 5
+          }
+        ]
+      }
+    },
+
+    "blog": {
+      "variant": "grid-3",
+      "props": {
+        "label": "Blog",
+        "heading": "Thoughts & writing",
+        "sub": "On design, development, and running a freelance business.",
+        "posts": [
+          {
+            "image": "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=1200&q=80",
+            "title": "Why I stopped using CSS frameworks for client projects",
+            "date": "14 Jul 2026",
+            "excerpt": "After six years of Tailwind, Bootstrap, and a dozen flavour-of-the-month libraries, I went back to vanilla CSS. Here is what I learned.",
+            "linkText": "Read more"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80",
+            "title": "Building accessible design systems from scratch",
+            "date": "22 Jun 2026",
+            "excerpt": "A practical guide to creating a component library that meets WCAG 2.2 AA out of the box — without relying on a third-party UI kit.",
+            "linkText": "Read more"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+            "title": "How I structure freelance projects for predictable delivery",
+            "date": "8 May 2026",
+            "excerpt": "Scope creep is the number one reason freelancers burn out. Here is the contract template and workflow I use to keep every project on track.",
+            "linkText": "Read more"
+          }
+        ]
+      }
+    },
+
+    "faq": {
+      "variant": "accordion",
+      "props": {
+        "label": "FAQ",
+        "heading": "Common questions",
+        "items": [
+          {
+            "q": "What is your typical project timeline?",
+            "a": "Most projects take 4–8 weeks from kickoff to launch, depending on scope. A simple landing page can ship in two weeks; a full web application with dashboards and integrations typically takes 8–12 weeks. I'll give you a clear timeline during the discovery call."
+          },
+          {
+            "q": "Do you work with startups on a tight budget?",
+            "a": "Yes — I keep a few slots each quarter for early-stage startups at reduced rates, often with equity or deferred payment instead of the usual retainer. Mention it in your enquiry and I'll share what's available."
+          },
+          {
+            "q": "What technologies do you work with?",
+            "a": "React, Next.js, Node.js, TypeScript, PostgreSQL, and serverless (AWS Lambda / Vercel) on the backend. Figma for UI/UX and Framer for interactive prototypes. I also have experience with React Native and Expo for mobile."
+          },
+          {
+            "q": "Do you offer ongoing maintenance after launch?",
+            "a": "Yes. Most clients move to a monthly retainer covering security updates, content changes, performance monitoring, and light feature work. Retainers start at ₹15,000/month for a simple site."
+          },
+          {
+            "q": "How do you handle revisions?",
+            "a": "The scope document we sign upfront includes two rounds of revisions per deliverable. Additional rounds are billed hourly. This keeps the project moving while still giving you room to refine things."
+          },
+          {
+            "q": "Can you work with my existing team or agency?",
+            "a": "Absolutely. I regularly collaborate with agencies as a design or development partner — white-label, embedded in their team Slack, or as a dedicated sprint resource. We'll structure it however works best."
+          }
+        ],
+        "openFirst": true
+      }
+    },
+
+    "contact": {
+      "variant": "form-map",
+      "props": {
+        "label": "Contact",
+        "heading": "Let's work together",
+        "sub": "Have a project in mind or just want to say hello? Fill in the form below and I'll get back to you within 24 hours.",
+        "showPhone": true,
+        "showWhatsapp": true,
+        "showEmail": true,
+        "showAddress": true,
+        "showHours": false,
+        "showMap": true,
+        "submitText": "Send Message"
+      }
+    },
+
+    "footer": {
+      "variant": "columns",
+      "props": {
+        "blurb": "Full-stack designer and developer. I build digital products that make an impact — from concept to launch, and beyond.",
+        "showContact": true,
+        "showSocial": true,
+        "showLegal": false,
+        "columns": [
+          {
+            "title": "Explore",
+            "links": [
+              { "text": "Work",     "href": "#gallery" },
+              { "text": "Services", "href": "#services" },
+              { "text": "About",    "href": "#about" },
+              { "text": "Contact",  "href": "#contact" }
+            ]
+          },
+          {
+            "title": "Services",
+            "links": [
+              { "text": "Web Development",  "href": "#services" },
+              { "text": "UI / UX Design",   "href": "#services" },
+              { "text": "Mobile Apps",      "href": "#services" },
+              { "text": "Consulting",       "href": "#services" }
+            ]
+          }
+        ],
+        "copyright": "© 2026 Ravi Sharma. All rights reserved.",
+        "showBranding": true
+      }
+    }
+  },
+
+  "notes": "Built for a personal portfolio on the Midnight Ink dark theme. The hero overlay is bumped to 0.6 to keep text readable on dark backgrounds. Services use a 3-column card layout; gallery is a 3-column grid with lightbox. Stats use the card variant with the theme's primary background — a strong visual break on a dark page. Sections default to transparent and alternate with surface where the manifest defaults call for it (gallery, testimonials). Testimonials avoid invented company names; roles describe the project context instead. Privacy and Terms links are disabled (showLegal: false) since a personal portfolio does not need legal pages."
+}
