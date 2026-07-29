@@ -122,6 +122,19 @@
     "forms": {
       "type": "array", "maxItems": 20,
       "items": { "$ref": "#/definitions/form" }
+    },
+
+    "settings": {
+      "description": "Site-wide feature toggles and configuration.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "showMobileActionBar": {
+          "description": "Show a sticky bottom action bar on mobile with WhatsApp, Save Contact, Bookmark and Location buttons.",
+          "type": "boolean",
+          "default": false
+        }
+      }
     }
   },
 

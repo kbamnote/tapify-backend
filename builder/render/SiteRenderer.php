@@ -205,6 +205,7 @@ class SiteRenderer
              . "<style>.tf-site{" . $vars . "}" . self::baseCss() . "</style>"
              . "</head><body>"
              . "<main class=\"tf-site\">" . $sections . "</main>"
+             . self::mobileBar($doc)
              . self::carouselScript()
              . self::cartScript()
              . self::animScript()
@@ -2870,6 +2871,81 @@ for(var i=0;i<els.length;i++)run(els[i]);})();</script>
 JS;
     }
 
+    /* -------------------------------------------------------- mobile bar */
+
+    /**
+     * Mobile Sticky Bottom Action Bar — visible only on screens <641px.
+     * Provides WhatsApp, Add-to-Contacts, Bookmark and Location buttons
+     * using data from doc.business.
+     */
+    private static function mobileBar(array $doc): string
+    {
+        $show = $doc['settings']['showMobileActionBar'] ?? false;
+        if (!$show) return '';
+
+        $biz     = $doc['business'] ?? [];
+        $wa      = preg_replace('/\D+/', '', $biz['whatsapp'] ?? $biz['phone'] ?? '');
+        $phone   = preg_replace('/\D+/', '', $biz['phone'] ?? '');
+        $address = trim((string)($biz['address'] ?? ''));
+        $name    = self::esc($doc['site']['name'] ?? 'Website');
+        $url     = self::esc('https://' . ($_SERVER['HTTP_HOST'] ?? (self::$slug . '.tapify.co.in')));
+
+        $h = '<div class="tf-mobile-bar" data-bar="1"><div class="tf-mbar-inner">';
+
+        // WhatsApp
+        if ($wa !== '') {
+            $h .= '<a class="tf-mbar-btn" href="https://wa.me/' . $wa . '" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">'
+                . '<svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>'
+                . '<span>WhatsApp</span></a>';
+        }
+
+        // Add to Contacts (vCard)
+        if ($phone !== '') {
+            $h .= '<button class="tf-mbar-btn" data-action="vcard" data-phone="' . $phone . '" data-name="' . $name . '" aria-label="Save contact">'
+                . '<svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M15 14c-2.67 0-8 1.33-8 4v2h16v-2c0-2.67-5.33-4-8-4m-9-4V7H4v3H1v2h3v3h2v-3h3v-2m6-1a4 4 0 100-8 4 4 0 000 8z"/></svg>'
+                . '<span>Save</span></button>';
+        }
+
+        // Bookmark
+        $h .= '<button class="tf-mbar-btn" data-action="bookmark" data-url="' . $url . '" data-title="' . $name . '" aria-label="Bookmark">'
+            . '<svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2z"/></svg>'
+            . '<span>Bookmark</span></button>';
+
+        // Location
+        if ($address !== '') {
+            $mapUrl = 'https://maps.google.com/maps?q=' . rawurlencode($address);
+            $h .= '<a class="tf-mbar-btn" href="' . $mapUrl . '" target="_blank" rel="noopener noreferrer" aria-label="Location">'
+                . '<svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>'
+                . '<span>Location</span></a>';
+        }
+
+        $h .= '</div></div>' . self::mobileBarScript();
+        return $h;
+    }
+
+    /** JavaScript for vCard download + bookmark/share. */
+    private static function mobileBarScript(): string
+    {
+        return <<<'JS'
+<script>(function(){var b=document.querySelector('.tf-mobile-bar[data-bar="1"]');if(!b)return;
+b.addEventListener('click',function(e){
+ var t=e.target.closest('[data-action]');if(!t)return;e.preventDefault();
+ var a=t.getAttribute.bind(t);
+ if(t.getAttribute('data-action')==='vcard'){
+  var n=a('data-name')||'Contact',p=a('data-phone')||'',v='BEGIN:VCARD\nVERSION:3.0\nFN:'+n+'\nTEL;TYPE=CELL:'+p+'\nEND:VCARD',
+   b2=new Blob([v],{type:'text/vcard;charset=utf-8'}),l=document.createElement('a');
+  l.href=URL.createObjectURL(b2);l.download=n.replace(/\s+/g,'_')+'.vcf';
+  document.body.appendChild(l);l.click();document.body.removeChild(l);
+  setTimeout(function(){URL.revokeObjectURL(l.href)},5e3)}
+ if(t.getAttribute('data-action')==='bookmark'){
+  var u=a('data-url')||location.href,ti=a('data-title')||document.title;
+  if(navigator.share){navigator.share({title:ti,url:u})['catch'](function(){})}else{
+   var i=document.createElement('input');i.value=u;document.body.appendChild(i);i.select();
+   try{document.execCommand('copy');alert('Link copied — you can bookmark it from your browser menu.')}catch(ex){}
+   document.body.removeChild(i)}}})})();</script>
+JS;
+    }
+
     /* --------------------------------------------------------- base css */
 
     private static function baseCss(): string
@@ -3012,6 +3088,14 @@ iframe{max-width:100%}
 .tf-anim-ready [data-anim="zoom"]{transform:scale(.93)}
 .tf-anim-ready [data-anim].tf-in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.tf-anim-ready [data-anim]{opacity:1;transform:none;transition:none}}
+/* Mobile sticky bottom action bar */
+.tf-mobile-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:1000;background:var(--color-surface,#fff);border-top:1px solid var(--color-border,#e5e7eb);padding:6px 0 calc(6px + env(safe-area-inset-bottom,0px));box-shadow:0 -2px 12px rgba(0,0,0,.1)}
+.tf-mbar-inner{display:flex;align-items:stretch;justify-content:space-around;max-width:500px;margin:0 auto}
+.tf-mbar-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:4px 2px;background:none;border:none;color:var(--color-text,#111827);cursor:pointer;font-size:9px;font-weight:600;line-height:1.2;text-decoration:none;min-height:44px;transition:opacity .15s;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+.tf-mbar-btn:active{opacity:.6}
+.tf-mbar-btn svg{width:20px;height:20px;display:block}
+.tf-mbar-btn span{display:block;text-align:center}
+@media(min-width:641px){.tf-site .tf-mobile-bar{display:none!important}}
 CSS;
     }
 }
