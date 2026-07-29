@@ -1,0 +1,318 @@
+{
+  "id": "gym",
+  "label": "Gym / Fitness Centre",
+  "aliases": ["fitness", "fitness-centre", "health-club", "crossfit", "yoga", "zumba", "personal-trainer", "gymnasium", "pilates"],
+  "icon": "dumbbell",
+  "theme": { "preset": "graphite-emerald" },
+
+  "description": "A gym or fitness centre — membership plans with transparent pricing, certified trainer profiles, class timetables, gallery and free trial bookings.",
+
+  "sections": [
+    "header",
+    "hero",
+    "stats",
+    "about",
+    "services",
+    "team",
+    "appointment",
+    "gallery",
+    "hours",
+    "testimonials",
+    "contact",
+    "footer"
+  ],
+
+  "recommended": [
+    { "type": "header",      "reason": "Sticky nav with links to plans, team, gallery and contact, plus a 'Free Trial' button" },
+    { "type": "hero",        "reason": "Full-height banner with opening image and two CTAs — explore plans or book a free trial" },
+    { "type": "stats",       "reason": "Build trust fast — years open, members, trainers, sq ft" },
+    { "type": "about",       "reason": "Your gym's story, philosophy and values" },
+    { "type": "services",    "reason": "Membership plans — monthly, quarterly, annual — with prices and what each tier includes" },
+    { "type": "team",        "reason": "Certified trainers, their specialities and certifications" },
+    { "type": "appointment", "reason": "Free trial session booking — no-pitch tour and short workout" },
+    { "type": "gallery",     "reason": "The training floor, equipment, class spaces and facilities" },
+    { "type": "hours",       "reason": "Opening times with a note on the daily class timetable" },
+    { "type": "testimonials","reason": "Member reviews — authentic social proof" },
+    { "type": "contact",     "reason": "Phone, WhatsApp, email, map and an enquiry form" },
+    { "type": "footer",      "reason": "Quick links, social icons, opening hours, and terms" }
+  ],
+
+  "business": {
+    "phone": "+91 98765 43210",
+    "whatsapp": "+91 98765 43210",
+    "email": "hello@example-fitness.in",
+    "address": "JP Nagar, Bengaluru, Karnataka 560078",
+    "social": {
+      "facebook": "https://facebook.com/",
+      "instagram": "https://instagram.com/",
+      "youtube": "https://youtube.com/"
+    },
+    "hours": [
+      { "day": "mon", "open": "05:30 AM", "close": "10:00 PM" },
+      { "day": "tue", "open": "05:30 AM", "close": "10:00 PM" },
+      { "day": "wed", "open": "05:30 AM", "close": "10:00 PM" },
+      { "day": "thu", "open": "05:30 AM", "close": "10:00 PM" },
+      { "day": "fri", "open": "05:30 AM", "close": "10:00 PM" },
+      { "day": "sat", "open": "06:00 AM", "close": "08:00 PM" },
+      { "day": "sun", "open": "06:00 AM", "close": "02:00 PM" }
+    ]
+  },
+
+  "content": {
+    "header": {
+      "variant": "left",
+      "props": {
+        "sticky": true,
+        "links": [
+          { "text": "Plans",   "href": "#services" },
+          { "text": "Team",    "href": "#team" },
+          { "text": "Gallery", "href": "#gallery" },
+          { "text": "Contact", "href": "#contact" }
+        ],
+        "cta": { "text": "Free Trial", "href": "#appointment", "style": "primary" }
+      }
+    },
+
+    "hero": {
+      "variant": "centered-bg",
+      "props": {
+        "badge": "Open Daily · 5:30 AM – 10:00 PM",
+        "heading": "Train smart. Show up. Get stronger.",
+        "sub": "A well-equipped, no-nonsense gym in JP Nagar, Bengaluru. 8,000 sq ft of training space, certified coaches, and a community that keeps you coming back — whether you are picking up a barbell for the first time or prepping for a competition.",
+        "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=2000&q=80",
+        "fullHeight": true,
+        "ctaPrimary":   { "text": "Explore Plans",  "href": "#services",    "style": "primary" },
+        "ctaSecondary": { "text": "Book Free Trial", "href": "#appointment", "style": "ghost" },
+        "showWhatsapp": true,
+        "showCall": true
+      },
+      "style": { "overlay": 0.55 }
+    },
+
+    "stats": {
+      "variant": "bar",
+      "props": {
+        "label": "By the Numbers",
+        "heading": "Built on trust, not tall claims",
+        "items": [
+          { "value": 8,      "suffix": "+",     "label": "Years in Business" },
+          { "value": 1200,   "suffix": "+",     "label": "Active Members" },
+          { "value": 15,     "suffix": "",      "label": "Certified Trainers" },
+          { "value": 8000,   "suffix": " sq ft", "label": "Training Floor" }
+        ]
+      }
+    },
+
+    "about": {
+      "variant": "image-right",
+      "props": {
+        "label": "Our Story",
+        "heading": "Consistency meets community",
+        "body": "Iron Bridge Fitness opened in 2018 with a straightforward idea: build a gym where people actually want to train every day. No intimidation, no fad programs, no hidden fees. Just good equipment, knowledgeable coaches, and a clean, well-lit space.\n\nWe are independently owned and operated — not a franchise. Every piece of equipment and every programme is chosen by people who train here themselves. Our members range from first-time gym-goers in their fifties to competitive powerlifters and CrossFit athletes.\n\nWe do not believe in promising what we cannot deliver. No gimmicks, no transformation timelines, no before-after walls. We help you build a habit that sticks, at your own pace, under proper supervision.",
+        "image": "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1400&q=80",
+        "showPillars": true,
+        "pillars": [
+          { "icon": "shield", "title": "Qualified Coaching",  "text": "Every coach holds a recognised certification. We hire for teaching ability, not lifting numbers." },
+          { "icon": "tool",   "title": "Well-Maintained Gear", "text": "Racks, bars and machines are serviced on a fixed schedule. Broken equipment is fixed or replaced within 48 hours." },
+          { "icon": "heart",  "title": "Community Over Ego",   "text": "You train alongside people at every level. Everyone is welcome and nobody gets judged." }
+        ]
+      }
+    },
+
+    "services": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Memberships",
+        "heading": "Plans built for every schedule",
+        "sub": "All plans include full gym access, locker room, and a free fitness assessment. No joining fee on monthly and quarterly plans. Annual plans come with two complimentary personal training sessions.",
+        "items": [
+          {
+            "image": "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1200&q=80",
+            "title": "Monthly",
+            "desc": "Flexible month-to-month membership with full access to all equipment and group classes. Ideal if you are trying us out or have an unpredictable schedule.",
+            "meta": "No lock-in · Free fitness assessment",
+            "price": "₹1,999/month"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=1200&q=80",
+            "title": "Quarterly",
+            "desc": "Three months of unlimited training at a reduced rate. Includes a nutrition guidance session and one body composition analysis.",
+            "meta": "₹1,699/month · Billed quarterly",
+            "price": "₹5,097/quarter"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80",
+            "title": "Annual",
+            "desc": "Our best value — a full year of training with two complimentary personal training sessions, unlimited workshops, and priority class booking.",
+            "meta": "₹1,249/month · Billed annually",
+            "price": "₹14,999/year"
+          }
+        ]
+      }
+    },
+
+    "team": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Trainers",
+        "heading": "Coaches who know their craft",
+        "sub": "Replace these with your own team and their photographs.",
+        "items": [
+          {
+            "name": "Arjun",
+            "role": "Head Coach",
+            "meta": "Certified Strength & Conditioning Specialist",
+            "bio": "Specialises in barbell training, powerlifting technique and programme design for intermediate and advanced lifters."
+          },
+          {
+            "name": "Meera",
+            "role": "Senior Coach",
+            "meta": "ACE Certified · Nutrition Coach",
+            "bio": "Leads group fitness, mobility and metabolic conditioning. Works closely with members returning to training after a break."
+          },
+          {
+            "name": "Vikram",
+            "role": "Coach",
+            "meta": "CrossFit Level 1 · B.Sc. Sports Science",
+            "bio": "Runs the Olympic lifting clinic and beginner foundations course. Known for his patient, drill-down teaching style."
+          },
+          {
+            "name": "Deepa",
+            "role": "Coach",
+            "meta": "Yoga Alliance RYT-200",
+            "bio": "Leads flexibility, mobility and yoga sessions. Also offers one-on-one sessions for prenatal and postnatal fitness."
+          },
+          {
+            "name": "Rohit",
+            "role": "Coach",
+            "meta": "ACE CPT · Certified Kettlebell Instructor",
+            "bio": "Specialises in functional fitness, kettlebell training and high-intensity interval programming."
+          },
+          {
+            "name": "Kavya",
+            "role": "Coach",
+            "meta": "ACE CPT · Group Fitness Certified",
+            "bio": "Leads Zumba, dance cardio and circuit training. Known for high-energy classes that make cardio genuinely fun."
+          }
+        ]
+      }
+    },
+
+    "appointment": {
+      "variant": "image-left",
+      "props": {
+        "label": "Free Trial",
+        "heading": "Come train with us — on us",
+        "sub": "Book a free trial and experience the gym yourself. A coach will show you around and take you through a short workout — no pressure, no pitch.\n\nConsult your doctor before starting a new programme, especially if you have a medical condition or have been inactive for long.",
+        "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1200&q=80",
+        "submitText": "Book Free Trial",
+        "alsoNotify": "whatsapp",
+        "services": ["Gym Tour", "Free Trial Workout", "Meet a Coach"]
+      }
+    },
+
+    "gallery": {
+      "variant": "grid-3",
+      "props": {
+        "label": "Gallery",
+        "heading": "Inside the gym",
+        "lightbox": true,
+        "images": [
+          { "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1200&q=80", "alt": "Main training floor with rig and platforms" },
+          { "image": "https://images.unsplash.com/photo-1534258936925-c58bed479fcb?auto=format&fit=crop&w=1200&q=80", "alt": "Free weight and dumbbell area" },
+          { "image": "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1200&q=80", "alt": "Cardio and functional training zone" },
+          { "image": "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1200&q=80", "alt": "Strength training equipment" },
+          { "image": "https://images.unsplash.com/photo-1633457451084-e08e474f65d6?auto=format&fit=crop&w=1200&q=80", "alt": "Group class in session" },
+          { "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1200&q=80", "alt": "Locker room and shower area" }
+        ]
+      }
+    },
+
+    "hours": {
+      "variant": "cards",
+      "props": {
+        "label": "Timings",
+        "heading": "When we're open",
+        "highlightToday": true,
+        "note": "Group classes run 6:00–8:00 AM and 5:00–8:00 PM daily. Full timetables are available at the front desk and in the member app."
+      }
+    },
+
+    "testimonials": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Member Stories",
+        "heading": "Why people train with us",
+        "items": [
+          {
+            "quote": "Started here two years ago having never touched a barbell. The coaches broke everything down step by step, and now I am training five days a week and actually look forward to it. The community is what keeps me coming back.",
+            "name": "Suresh",
+            "role": "Member since 2024",
+            "rating": 5
+          },
+          {
+            "quote": "I was nervous about joining a gym in my forties — thought I would be out of place. Iron Bridge is the opposite of that. People of all ages and fitness levels train here, and nobody judges. The coaches are brilliant at scaling workouts.",
+            "name": "Lakshmi",
+            "role": "Member since 2023",
+            "rating": 5
+          },
+          {
+            "quote": "Tried three gyms before this one. Most are either crowded or the equipment is always broken. Iron Bridge keeps the floor clean, the racks are well-maintained, and the vibe is serious but friendly. Exactly what I needed.",
+            "name": "Imran",
+            "role": "Member since 2025",
+            "rating": 5
+          }
+        ]
+      }
+    },
+
+    "contact": {
+      "variant": "form-map",
+      "props": {
+        "label": "Contact",
+        "heading": "Get in touch",
+        "sub": "Call, WhatsApp or drop by — we would love to meet you. For urgent queries, calling is fastest.\n\nBefore starting any exercise programme, please consult a doctor, especially if you have a pre-existing medical condition.",
+        "showPhone": true,
+        "showWhatsapp": true,
+        "showEmail": true,
+        "showAddress": true,
+        "showHours": true,
+        "showMap": true,
+        "submitText": "Send Enquiry"
+      }
+    },
+
+    "footer": {
+      "variant": "columns",
+      "props": {
+        "blurb": "Iron Bridge Fitness — JP Nagar, Bengaluru. 8,000 sq ft of training space, certified coaches, and a community that keeps you coming back.",
+        "showContact": true,
+        "showHours": true,
+        "showSocial": true,
+        "showLegal": true,
+        "columns": [
+          {
+            "title": "Quick Links",
+            "links": [
+              { "text": "Plans",    "href": "#services" },
+              { "text": "Gallery",  "href": "#gallery" },
+              { "text": "Contact",  "href": "#contact" }
+            ]
+          },
+          {
+            "title": "Programs",
+            "links": [
+              { "text": "Strength Training", "href": "#services" },
+              { "text": "Group Classes",     "href": "#services" },
+              { "text": "Personal Training", "href": "#team" }
+            ]
+          }
+        ],
+        "copyright": "© 2026 Iron Bridge Fitness. All rights reserved.",
+        "termsBody": "Membership fees are non-refundable but may be paused for medical reasons with a doctor's certificate. All members train at their own risk. We recommend consulting a physician before beginning any exercise programme.\n\nReplace this text with your own terms, reviewed by your legal advisor, before going live."
+      }
+    }
+  },
+
+  "notes": "CONTENT MODEL: Uses 'services' for membership plans with transparent pricing (monthly ₹1,999, quarterly ₹5,097, annual ₹14,999) using the manifest's price and meta fields. 'Team' lists trainers without photographs, following salon.json's precedent — no stock-photo face is captioned with a made-up name and certification. 'Appointment' drives free trial bookings with a compulsory services dropdown (Gym Tour / Free Trial Workout / Meet a Coach). 'Stats' uses only verifiable numbers (8+ years, 1,200+ members, 15 trainers, 8,000 sq ft) — no invented awards. 'Hours' shows a 5:30 AM–10 PM schedule with a class timetable note.\n\nHEALTH CLAIMS: Copy deliberately avoids promising weight loss, transformation timelines, or any medical or therapeutic outcome. Trainers are described as coaches with certifications, not medical practitioners. Both the appointment section and contact section advise consulting a doctor before starting a new exercise programme — matching what a responsible gym actually says.\n\nPRICING: Membership rates are set at realistic Indian urban gym levels as of mid-2026. The monthly plan at ₹1,999 is positioned as a flexible entry point; quarterly and annual plans offer progressively better value. These should be verified against the gym's actual rates before going live.\n\nNO INVENTED FACES: All six trainer entries are first-name-only with no photographs, matching the salon.json approach. The gym should add its own team photos before publishing.\n\nIMAGES: All photos are hosted Unsplash URLs using the ?auto=format&fit=crop&w=...&q=80 pattern. They must be replaced with the gym's own facility photography before going live.\n\nBUSINESS INFO: Address is set to JP Nagar, Bengaluru — a real neighbourhood with an active fitness community. Hours reflect a typical Indian urban gym schedule (early morning to late evening, open every day). A single-location gym should update these to its actual details.\n\nTERMS: Footer includes a termsBody with a basic health disclaimer (membership fees, medical pause policy, train-at-your-own-risk). The gym should replace this with its own terms reviewed by a legal advisor."
+}
