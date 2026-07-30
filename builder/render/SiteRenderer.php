@@ -190,13 +190,18 @@ class SiteRenderer
         $head  = self::head($doc, $page, $fonts);
 
         $sections = '';
+        // If this page has no header, prepend one from another page so the
+        // site chrome (logo, nav) is consistent on every page.
+        if (!self::pageHasType($page, 'header')) {
+            $sections .= self::chromeSection($doc, 'header');
+        }
         foreach (($page['sections'] ?? []) as $s) {
             if (($s['visible'] ?? true) === false) continue;
             if (!empty($s['style']['hidden'])) continue;
             $sections .= self::section($s, $doc);
         }
-        // If this page has no footer section, append one from another page
-        // so every page always shows a footer (new pages seeded without one).
+        // If this page has no footer, append one from another page so every
+        // page always shows a footer (new pages seeded without one).
         if (!self::pageHasType($page, 'footer')) {
             $sections .= self::chromeSection($doc, 'footer');
         }
