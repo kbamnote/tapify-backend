@@ -195,6 +195,11 @@ class SiteRenderer
             if (!empty($s['style']['hidden'])) continue;
             $sections .= self::section($s, $doc);
         }
+        // If this page has no footer section, append one from another page
+        // so every page always shows a footer (new pages seeded without one).
+        if (!self::pageHasType($page, 'footer')) {
+            $sections .= self::chromeSection($doc, 'footer');
+        }
 
         // The theme tokens go in a <style> block, NOT an inline style attribute:
         // font values contain double quotes ("DM Sans") which would otherwise
@@ -1579,6 +1584,17 @@ class SiteRenderer
         foreach (($doc['pages'] ?? []) as $pg) {
             foreach (($pg['sections'] ?? []) as $s) {
                 if (($s['type'] ?? '') === 'header' && !empty($s['props']['showAccount'])) return true;
+            }
+        }
+        return false;
+    }
+
+    /** True when a page (or any page) has at least one visible section of a type. */
+    private static function pageHasType(array $page, string $type): bool
+    {
+        foreach (($page['sections'] ?? []) as $s) {
+            if (($s['type'] ?? '') === $type && ($s['visible'] ?? true) !== false && empty($s['style']['hidden'])) {
+                return true;
             }
         }
         return false;
