@@ -2910,6 +2910,19 @@ JS;
         $address = trim((string)($biz['address'] ?? ''));
         $name    = self::esc($doc['site']['name'] ?? 'Website');
         $url     = self::esc('https://' . ($_SERVER['HTTP_HOST'] ?? (self::$slug . '.tapify.co.in')));
+        $email   = self::esc($biz['email'] ?? '');
+        $waPhone = preg_replace('/\D+/', '', $biz['whatsapp'] ?? '');
+
+        // Find logo from the first header or footer section that has one.
+        $logo = '';
+        foreach (($doc['pages'] ?? []) as $pg) {
+            foreach (($pg['sections'] ?? []) as $s) {
+                if (in_array($s['type'] ?? '', ['header', 'footer'], true) && !empty($s['props']['logo'])) {
+                    $logo = self::media($s['props']['logo']) ?? '';
+                    break 2;
+                }
+            }
+        }
 
         $h = '<div class="tf-mobile-bar" data-bar="1"><div class="tf-mbar-inner">';
 
@@ -2925,8 +2938,13 @@ JS;
             $h .= '<button class="tf-mbar-btn" data-action="vcard"'
                 . ' data-phone="' . $phone . '"'
                 . ' data-name="' . $name . '"'
-                . ' data-email="' . self::esc($biz['email'] ?? '') . '"'
+                . ' data-email="' . $email . '"'
                 . ' data-url="' . $url . '"'
+                . ' data-org="' . $name . '"'
+                . ' data-whatsapp="' . $waPhone . '"'
+                . ' data-address="' . self::esc($address) . '"'
+                . ($logo ? ' data-logo="' . self::esc($logo) . '"' : '')
+                . ($biz['mapUrl'] ?? '' ? ' data-mapurl="' . self::esc($biz['mapUrl']) . '"' : '')
                 . ' aria-label="Add to Contacts">'
                 . '<svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M15 14c-2.67 0-8 1.33-8 4v2h16v-2c0-2.67-5.33-4-8-4m-9-4V7H4v3H1v2h3v3h2v-3h3v-2m6-1a4 4 0 100-8 4 4 0 000 8z"/></svg>'
                 . '<span>Add to<br>Contacts</span></button>';
@@ -2964,12 +2982,22 @@ b.addEventListener('click',function(e){
  var t=e.target.closest('[data-action]');if(!t)return;e.preventDefault();
  var a=t.getAttribute.bind(t);
  if(t.getAttribute('data-action')==='vcard'){
-  var n=a('data-name')||'Contact',p=a('data-phone')||'',e=a('data-email')||'',u=a('data-url')||'',
-   v='BEGIN:VCARD\nVERSION:3.0\nFN:'+n+'\nTEL;TYPE=CELL:'+p+'\n'+(e?'EMAIL:'+e+'\n':'')+(u?'URL:'+u+'\n':'')+'END:VCARD',
-   b2=new Blob([v],{type:'text/vcard;charset=utf-8'}),l=document.createElement('a');
-  l.href=URL.createObjectURL(b2);l.download=n.replace(/\s+/g,'_')+'.vcf';
-  document.body.appendChild(l);l.click();document.body.removeChild(l);
-  setTimeout(function(){URL.revokeObjectURL(l.href)},5e3)}
+  var n=a('data-name')||'Contact',p=a('data-phone')||'',em=a('data-email')||'',u=a('data-url')||'',
+   o=a('data-org')||'',w=a('data-whatsapp')||'',ad=a('data-address')||'',lo=a('data-logo')||'',mu=a('data-mapurl')||'',
+   v='BEGIN:VCARD\nVERSION:3.0\nFN:'+n
+   +(o?'\nORG:'+o:'')
+   +(lo?'\nPHOTO;VALUE=URI:'+lo:'')
+   +'\nTEL;TYPE=CELL:'+p
+   +(w&&w!==p?'\nTEL;TYPE=WHATSAPP:'+w:'')
+   +(em?'\nEMAIL:'+em:'')
+   +(ad?'\nADR;TYPE=WORK:'+ad.replace(/\n/g,'\\n'):'')
+   +(u?'\nURL:'+u:'')
+   +(mu?'\nURL;TYPE=WORK:'+mu:'')
+   +'\nEND:VCARD',
+   b2=new Blob([v],{type:'text/vcard;charset=utf-8'}),lk=document.createElement('a');
+  lk.href=URL.createObjectURL(b2);lk.download=n.replace(/\s+/g,'_')+'.vcf';
+  document.body.appendChild(lk);lk.click();document.body.removeChild(lk);
+  setTimeout(function(){URL.revokeObjectURL(lk.href)},5e3)}
  if(t.getAttribute('data-action')==='share'){
   var u=a('data-url')||location.href,ti=a('data-title')||document.title;
   if(navigator.share){navigator.share({title:ti,url:u})['catch'](function(){})}else{
