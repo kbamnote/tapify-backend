@@ -3085,8 +3085,6 @@ b.addEventListener('click',function(e){
   // Never prompt when already in standalone mode (already added to home screen).
   if(!navigator.standalone&&!matchMedia('(display-mode:standalone)').matches){
    if(_defer){_defer.prompt();_defer.userChoice['finally'](function(){_defer=null})}
-   else if(navigator.share){
-    navigator.share({title:a('data-title')||document.title,url:a('data-url')||location.href})['catch'](function(){})}
    else{
     alert('Tap your browser menu and select "Add to Home Screen" or "Install App".')}}}
 });})();</script>
