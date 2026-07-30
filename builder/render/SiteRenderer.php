@@ -2901,7 +2901,12 @@ JS;
 
         // Add to Contacts (vCard)
         if ($phone !== '') {
-            $h .= '<button class="tf-mbar-btn" data-action="vcard" data-phone="' . $phone . '" data-name="' . $name . '" aria-label="Add to Contacts">'
+            $h .= '<button class="tf-mbar-btn" data-action="vcard"'
+                . ' data-phone="' . $phone . '"'
+                . ' data-name="' . $name . '"'
+                . ' data-email="' . self::esc($biz['email'] ?? '') . '"'
+                . ' data-url="' . $url . '"'
+                . ' aria-label="Add to Contacts">'
                 . '<svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M15 14c-2.67 0-8 1.33-8 4v2h16v-2c0-2.67-5.33-4-8-4m-9-4V7H4v3H1v2h3v3h2v-3h3v-2m6-1a4 4 0 100-8 4 4 0 000 8z"/></svg>'
                 . '<span>Add to<br>Contacts</span></button>';
         }
@@ -2938,7 +2943,8 @@ b.addEventListener('click',function(e){
  var t=e.target.closest('[data-action]');if(!t)return;e.preventDefault();
  var a=t.getAttribute.bind(t);
  if(t.getAttribute('data-action')==='vcard'){
-  var n=a('data-name')||'Contact',p=a('data-phone')||'',v='BEGIN:VCARD\nVERSION:3.0\nFN:'+n+'\nTEL;TYPE=CELL:'+p+'\nEND:VCARD',
+  var n=a('data-name')||'Contact',p=a('data-phone')||'',e=a('data-email')||'',u=a('data-url')||'',
+   v='BEGIN:VCARD\nVERSION:3.0\nFN:'+n+'\nTEL;TYPE=CELL:'+p+'\n'+(e?'EMAIL:'+e+'\n':'')+(u?'URL:'+u+'\n':'')+'END:VCARD',
    b2=new Blob([v],{type:'text/vcard;charset=utf-8'}),l=document.createElement('a');
   l.href=URL.createObjectURL(b2);l.download=n.replace(/\s+/g,'_')+'.vcf';
   document.body.appendChild(l);l.click();document.body.removeChild(l);
