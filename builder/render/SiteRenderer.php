@@ -2965,6 +2965,22 @@ JS;
             }
         }
 
+        // Social links for vCard (Instagram, Facebook).
+        $social = $biz['social'] ?? [];
+        $socialIg = !empty($social['instagram']) ? self::esc($social['instagram']) : '';
+        $socialFb = !empty($social['facebook']) ? self::esc($social['facebook']) : '';
+
+        // "About us" blurb from the footer for vCard NOTE field.
+        $note = '';
+        foreach (($doc['pages'] ?? []) as $pg) {
+            foreach (($pg['sections'] ?? []) as $s) {
+                if (($s['type'] ?? '') === 'footer' && !empty($s['props']['blurb'])) {
+                    $note = self::esc(strip_tags((string)$s['props']['blurb']));
+                    break 2;
+                }
+            }
+        }
+
         $h = '<div class="tf-mobile-bar" data-bar="1"><div class="tf-mbar-inner">';
 
         // WhatsApp
@@ -2986,6 +3002,9 @@ JS;
                 . ' data-address="' . self::esc($address) . '"'
                 . ($logo ? ' data-logo="' . self::esc($logo) . '"' : '')
                 . ($biz['mapUrl'] ?? '' ? ' data-mapurl="' . self::esc($biz['mapUrl']) . '"' : '')
+                . ($socialIg ? ' data-social-ig="' . $socialIg . '"' : '')
+                . ($socialFb ? ' data-social-fb="' . $socialFb . '"' : '')
+                . ($note ? ' data-note="' . $note . '"' : '')
                 . ' aria-label="Add to Contacts">'
                 . '<svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M15 14c-2.67 0-8 1.33-8 4v2h16v-2c0-2.67-5.33-4-8-4m-9-4V7H4v3H1v2h3v3h2v-3h3v-2m6-1a4 4 0 100-8 4 4 0 000 8z"/></svg>'
                 . '<span>Add to<br>Contacts</span></button>';
@@ -3025,6 +3044,7 @@ b.addEventListener('click',function(e){
  if(t.getAttribute('data-action')==='vcard'){
   var n=a('data-name')||'Contact',p=a('data-phone')||'',em=a('data-email')||'',u=a('data-url')||'',
    o=a('data-org')||'',w=a('data-whatsapp')||'',ad=a('data-address')||'',lo=a('data-logo')||'',mu=a('data-mapurl')||'',
+   ig=a('data-social-ig')||'',fb=a('data-social-fb')||'',no=a('data-note')||'',
    v='BEGIN:VCARD\nVERSION:3.0\nFN:'+n
    +(o?'\nORG:'+o:'')
    +(lo?'\nPHOTO;VALUE=URI:'+lo:'')
@@ -3034,6 +3054,9 @@ b.addEventListener('click',function(e){
    +(ad?'\nADR;TYPE=WORK:'+ad.replace(/\n/g,'\\n'):'')
    +(u?'\nURL:'+u:'')
    +(mu?'\nURL;TYPE=WORK:'+mu:'')
+   +(ig?'\nURL:'+ig:'')
+   +(fb?'\nURL:'+fb:'')
+   +(no?'\nNOTE:'+no.replace(/\n/g,'\\n'):'')
    +'\nEND:VCARD',
    b2=new Blob([v],{type:'text/vcard;charset=utf-8'}),lk=document.createElement('a');
   lk.href=URL.createObjectURL(b2);lk.download=n.replace(/\s+/g,'_')+'.vcf';
