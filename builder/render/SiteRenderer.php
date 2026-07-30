@@ -235,7 +235,10 @@ class SiteRenderer
         $host = $_SERVER['HTTP_HOST'] ?? (self::$slug . '.tapify.co.in');
         $canonical = $seo['canonical'] ?? ('https://' . $host . ($page['slug'] === '/' ? '' : $page['slug']));
         $og = self::media($seo['ogImage'] ?? null);
+        // Fallback: use the favicon as a social share image when no specific
+        // OG image is set — better than no image at all on WhatsApp / Facebook.
         $favicon = self::media($site['favicon'] ?? null);
+        if (!$og) $og = $favicon;
 
         $h  = '<meta charset="utf-8">';
         $h .= '<meta name="viewport" content="width=device-width, initial-scale=1">';
@@ -254,6 +257,7 @@ class SiteRenderer
         $h .= '<meta property="og:url" content="' . self::esc($canonical) . '">';
         if ($og) {
             $h .= '<meta property="og:image" content="' . self::esc($og) . '">';
+            $h .= '<meta property="og:image:alt" content="' . self::esc($title) . '">';
             $h .= '<meta name="twitter:card" content="summary_large_image">';
             $h .= '<meta name="twitter:image" content="' . self::esc($og) . '">';
         } else {
@@ -369,6 +373,37 @@ class SiteRenderer
             return $base . '/api/sites/media.php?id=' . $m[1];
         }
         return null;
+    }
+
+    /**
+     * Fetch an image URL and return a base64 data URI suitable for embedding
+     * in a vCard PHOTO field. Returns null when the image cannot be fetched
+     * or is not a recognised image type (callers fall back to the plain URL).
+     */
+    private static function imageToDataUri(string $url): ?string
+    {
+        if (!preg_match('#^https?://#i', $url)) return null;
+        $ch = @curl_init($url);
+        if ($ch === false) return null;
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_TIMEOUT        => 5,
+            CURLOPT_CONNECTTIMEOUT => 3,
+            CURLOPT_MAXREDIRS      => 2,
+            // Cap at 512 KB — a logo larger than that would bloat the vCard anyway.
+            CURLOPT_BUFFERSIZE     => 524288,
+        ]);
+        $data     = @curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $mime     = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
+        curl_close($ch);
+
+        if ($httpCode !== 200 || empty($data) || !is_string($mime)) return null;
+        // Only accept image MIME types.
+        if (!preg_match('#^image/#i', $mime)) return null;
+
+        return 'data:' . $mime . ';base64,' . base64_encode($data);
     }
 
     private static function isDarkBg(array $s): bool
@@ -2914,11 +2949,17 @@ JS;
         $waPhone = preg_replace('/\D+/', '', $biz['whatsapp'] ?? '');
 
         // Find logo from the first header or footer section that has one.
+        // Convert to base64 data URI so phone contacts apps can embed it
+        // (most ignore PHOTO;VALUE=URI with an HTTP URL).
         $logo = '';
         foreach (($doc['pages'] ?? []) as $pg) {
             foreach (($pg['sections'] ?? []) as $s) {
                 if (in_array($s['type'] ?? '', ['header', 'footer'], true) && !empty($s['props']['logo'])) {
-                    $logo = self::media($s['props']['logo']) ?? '';
+                    $logoUrl = self::media($s['props']['logo']) ?? '';
+                    if ($logoUrl) {
+                        $dataUri = self::imageToDataUri($logoUrl);
+                        $logo = $dataUri !== null ? $dataUri : $logoUrl;
+                    }
                     break 2;
                 }
             }
