@@ -3089,7 +3089,7 @@ b.addEventListener('click',function(e){
     navigator.share({title:a('data-title')||document.title,url:a('data-url')||location.href})['catch'](function(){})}
    else{
     alert('Tap your browser menu and select "Add to Home Screen" or "Install App".')}}}
-})();</script>
+});})();</script>
 JS;
     }
 
