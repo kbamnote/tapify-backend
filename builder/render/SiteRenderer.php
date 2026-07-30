@@ -248,6 +248,7 @@ class SiteRenderer
         $h .= '<meta name="robots" content="' . self::esc($seo['robots'] ?? 'index,follow') . '">';
         $h .= '<link rel="canonical" href="' . self::esc($canonical) . '">';
         if ($favicon) $h .= '<link rel="icon" href="' . self::esc($favicon) . '">';
+        $h .= '<link rel="manifest" href="/manifest.json">';
 
         // Open Graph / Twitter
         $h .= '<meta property="og:title" content="' . self::esc($title) . '">';
@@ -2949,16 +2950,22 @@ JS;
         $waPhone = preg_replace('/\D+/', '', $biz['whatsapp'] ?? '');
 
         // Find logo from the first header or footer section that has one.
-        // Convert to base64 data URI so phone contacts apps can embed it
-        // (most ignore PHOTO;VALUE=URI with an HTTP URL).
-        $logo = '';
+        // Fetch the image and embed as raw base64 in the vCard so phone
+        // contacts apps (iOS, Android) can display the photo — most ignore
+        // a URL or data-URI in PHOTO;VALUE=URI.
+        $logoUrl = '';
+        $logoB64 = '';
+        $logoMime = '';
         foreach (($doc['pages'] ?? []) as $pg) {
             foreach (($pg['sections'] ?? []) as $s) {
                 if (in_array($s['type'] ?? '', ['header', 'footer'], true) && !empty($s['props']['logo'])) {
                     $logoUrl = self::media($s['props']['logo']) ?? '';
                     if ($logoUrl) {
                         $dataUri = self::imageToDataUri($logoUrl);
-                        $logo = $dataUri !== null ? $dataUri : $logoUrl;
+                        if ($dataUri !== null && preg_match('/^data:(image\/\w+);base64,(.+)$/', $dataUri, $m)) {
+                            $logoMime = $m[1];
+                            $logoB64  = $m[2];
+                        }
                     }
                     break 2;
                 }
@@ -3000,7 +3007,7 @@ JS;
                 . ' data-org="' . $name . '"'
                 . ' data-whatsapp="' . $waPhone . '"'
                 . ' data-address="' . self::esc($address) . '"'
-                . ($logo ? ' data-logo="' . self::esc($logo) . '"' : '')
+                . ($logoB64 ? ' data-logo-b64="' . $logoB64 . '" data-logo-mime="' . $logoMime . '"' : ($logoUrl ? ' data-logo="' . self::esc($logoUrl) . '"' : ''))
                 . ($biz['mapUrl'] ?? '' ? ' data-mapurl="' . self::esc($biz['mapUrl']) . '"' : '')
                 . ($socialIg ? ' data-social-ig="' . $socialIg . '"' : '')
                 . ($socialFb ? ' data-social-fb="' . $socialFb . '"' : '')
@@ -3043,11 +3050,17 @@ b.addEventListener('click',function(e){
  var a=t.getAttribute.bind(t);
  if(t.getAttribute('data-action')==='vcard'){
   var n=a('data-name')||'Contact',p=a('data-phone')||'',em=a('data-email')||'',u=a('data-url')||'',
-   o=a('data-org')||'',w=a('data-whatsapp')||'',ad=a('data-address')||'',lo=a('data-logo')||'',mu=a('data-mapurl')||'',
+   o=a('data-org')||'',w=a('data-whatsapp')||'',ad=a('data-address')||'',mu=a('data-mapurl')||'',
    ig=a('data-social-ig')||'',fb=a('data-social-fb')||'',no=a('data-note')||'',
+   loB64=a('data-logo-b64')||'',loMime=a('data-logo-mime')||'',loUrl=a('data-logo')||'',
+   // Use ENCODING=BASE64 (raw inline data) for maximum contacts-app
+   // compatibility — VALUE=URI with a URL or data-URI is ignored by
+   // many iPhone and Android contacts apps.
+   ph=loB64&&loMime?'\nPHOTO;ENCODING=BASE64;TYPE='+loMime.replace('image/','').toUpperCase()+':'+loB64
+      :(loUrl?'\nPHOTO;VALUE=URI:'+loUrl:''),
    v='BEGIN:VCARD\nVERSION:3.0\nFN:'+n
    +(o?'\nORG:'+o:'')
-   +(lo?'\nPHOTO;VALUE=URI:'+lo:'')
+   +ph
    +'\nTEL;TYPE=CELL:'+p
    +(w&&w!==p?'\nTEL;TYPE=WHATSAPP:'+w:'')
    +(em?'\nEMAIL:'+em:'')
@@ -3069,9 +3082,14 @@ b.addEventListener('click',function(e){
    try{document.execCommand('copy');alert('Link copied to clipboard')}catch(ex){}
    document.body.removeChild(i)}}
  if(t.getAttribute('data-action')==='install'){
-  if(_defer){_defer.prompt();_defer.userChoice['finally'](function(){_defer=null})}else if(navigator.share){
-   navigator.share({title:a('data-title')||document.title,url:a('data-url')||location.href})['catch'](function(){})}else{
-   alert('Open your browser menu and select "Add to Home Screen" or "Install App".')}}})})();</script>
+  // Never prompt when already in standalone mode (already added to home screen).
+  if(!navigator.standalone&&!matchMedia('(display-mode:standalone)').matches){
+   if(_defer){_defer.prompt();_defer.userChoice['finally'](function(){_defer=null})}
+   else if(navigator.share){
+    navigator.share({title:a('data-title')||document.title,url:a('data-url')||location.href})['catch'](function(){})}
+   else{
+    alert('Tap your browser menu and select "Add to Home Screen" or "Install App".')}}}
+})();</script>
 JS;
     }
 

@@ -46,6 +46,10 @@ if ($alias === 'robots.txt') {
     require __DIR__ . '/robots.php';
     exit;
 }
+if ($alias === 'manifest.json') {
+    require __DIR__ . '/manifest.php';
+    exit;
+}
 
 // Ignore static files
 if (preg_match('/\.(?:png|jpg|jpeg|gif|css|js|ico)$/', $alias)) {
