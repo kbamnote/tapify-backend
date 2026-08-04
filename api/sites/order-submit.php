@@ -108,17 +108,19 @@ try {
     // just logs and returns false — the order is unaffected.
     try {
         require_once __DIR__ . '/../../includes/whatsapp-helper.php';
+        // Route via the site owner's own WhatsApp number when they have one.
+        $ownerId = (int)($site['user_id'] ?? 0);
         $item = trim((string)($in['item'] ?? 'your order')) ?: 'your order';
 
         // 1) confirmation to the customer (if they left a phone)
         if ($phone !== '') {
-            sendWhatsAppTemplate($phone, 'order_confirmation', [$name, '#' . $orderId, $item]);
+            sendWhatsAppTemplateFor($ownerId, $phone, 'order_confirmation', [$name, '#' . $orderId, $item]);
         }
         // 2) new-order alert to the site's own business number
         $biz = $published['doc']['business'] ?? [];
         $bizPhone = trim((string)($biz['whatsapp'] ?? $biz['phone'] ?? ''));
         if ($bizPhone !== '') {
-            sendWhatsAppTemplate($bizPhone, 'new_order_alert', [$name, ($phone !== '' ? $phone : 'Not provided'), $item]);
+            sendWhatsAppTemplateFor($ownerId, $bizPhone, 'new_order_alert', [$name, ($phone !== '' ? $phone : 'Not provided'), $item]);
         }
     } catch (Exception $e) {
         error_log('site order WhatsApp failed: ' . $e->getMessage());

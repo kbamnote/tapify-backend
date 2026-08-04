@@ -170,6 +170,8 @@ try {
     // 'new_inquiry_alert' templates on the same Tapify number.
     try {
         require_once __DIR__ . '/../../includes/whatsapp-helper.php';
+        // Route via the site owner's own WhatsApp number when they have one.
+        $ownerId = (int)($site['user_id'] ?? 0);
 
         // Pull the common contact fields out of whatever this form declared.
         $pick = function (array $keys) use ($data) {
@@ -185,7 +187,7 @@ try {
         $cMsg   = $pick(['message', 'comments', 'comment', 'note', 'notes', 'enquiry', 'inquiry', 'details']);
 
         // 1) confirmation to the customer (only if they left a phone)
-        if ($cPhone !== '') sendWhatsAppTemplate($cPhone, 'welcome', [$cName]);
+        if ($cPhone !== '') sendWhatsAppTemplateFor($ownerId, $cPhone, 'welcome', [$cName]);
 
         // 2) new-lead alert to the site's own business number
         $biz = $published['doc']['business'] ?? [];
@@ -193,7 +195,7 @@ try {
         if ($bizPhone !== '') {
             $msg = $cMsg !== '' ? preg_replace('/\s+/', ' ', $cMsg) : '(no message)';
             if (mb_strlen($msg) > 300) $msg = mb_substr($msg, 0, 297) . '...';
-            sendWhatsAppTemplate($bizPhone, 'new_inquiry_alert', [$cName, ($cPhone !== '' ? $cPhone : 'Not provided'), $msg]);
+            sendWhatsAppTemplateFor($ownerId, $bizPhone, 'new_inquiry_alert', [$cName, ($cPhone !== '' ? $cPhone : 'Not provided'), $msg]);
         }
     } catch (Exception $e) {
         error_log('site form WhatsApp failed: ' . $e->getMessage());

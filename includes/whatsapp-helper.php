@@ -103,3 +103,66 @@ if (!function_exists('sendWhatsAppTemplate')) {
         return true;
     }
 }
+
+if (!function_exists('sendWhatsAppTemplateFor')) {
+    /**
+     * Send a template on behalf of a Tapify CUSTOMER.
+     *
+     * When that customer has connected their own WhatsApp number, the message is
+     * routed through the CRM so it (a) leaves from THEIR number rather than
+     * Tapify's, and (b) is recorded as a WhatsAppMessage — which is what makes it
+     * appear in their inbox. Sending straight to Meta from here would deliver the
+     * message but leave no record, so the customer would see the replies to a
+     * conversation without ever seeing their own half of it.
+     *
+     * Falls back to the shared Tapify number whenever the customer has not
+     * connected one, or the CRM is unreachable — so behaviour for every existing
+     * site is exactly what it was before.
+     *
+     * @param int    $ownerUserId  the site's users.id (0 / null to skip routing)
+     * @return bool  true when the message was accepted by either path
+     */
+    function sendWhatsAppTemplateFor($ownerUserId, $to, $template, $params = [], $lang = 'en')
+    {
+        $ownerUserId = (int)$ownerUserId;
+        $configured  = defined('CRM_SERVICE_URL') && CRM_SERVICE_URL !== ''
+                    && defined('CRM_SERVICE_KEY') && CRM_SERVICE_KEY !== '';
+
+        if ($ownerUserId > 0 && $configured) {
+            $ch = curl_init(rtrim(CRM_SERVICE_URL, '/') . '/api/partner/whatsapp/send');
+            curl_setopt_array($ch, [
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_POST           => true,
+                CURLOPT_TIMEOUT        => 15,
+                CURLOPT_CONNECTTIMEOUT => 5,
+                CURLOPT_HTTPHEADER     => [
+                    'Content-Type: application/json',
+                    'Accept: application/json',
+                    'X-Service-Key: ' . CRM_SERVICE_KEY,
+                    'X-Tapify-User: ' . $ownerUserId,
+                ],
+                CURLOPT_POSTFIELDS => json_encode([
+                    'phone'        => $to,
+                    'templateName' => $template,
+                    'params'       => array_values((array)$params),
+                ]),
+            ]);
+            $resp = curl_exec($ch);
+            $code = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $err  = curl_error($ch);
+            curl_close($ch);
+
+            if ($err === '' && $code >= 200 && $code < 300) {
+                return true;
+            }
+            // 409 not_connected is the normal case for a customer who has not
+            // onboarded — quietly fall through rather than logging noise.
+            if ($code !== 409) {
+                error_log('WhatsApp CRM route failed (HTTP ' . $code . ') for "' . $template
+                    . '" user ' . $ownerUserId . ': ' . ($err !== '' ? $err : substr((string)$resp, 0, 200)));
+            }
+        }
+
+        return sendWhatsAppTemplate($to, $template, $params, $lang);
+    }
+}

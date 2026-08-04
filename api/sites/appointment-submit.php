@@ -149,16 +149,18 @@ try {
     // templates (same as the vCard appointment flow).
     try {
         require_once __DIR__ . '/../../includes/whatsapp-helper.php';
+        // Route via the site owner's own WhatsApp number when they have one.
+        $ownerId = (int)($site['user_id'] ?? 0);
 
         // 1) confirmation to the customer
         if ($phone !== '') {
-            sendWhatsAppTemplate($phone, 'appointment_reminder', [$name, $date, $time]);
+            sendWhatsAppTemplateFor($ownerId, $phone, 'appointment_reminder', [$name, $date, $time]);
         }
         // 2) new-appointment alert to the site's own business number
         $biz = $published['doc']['business'] ?? [];
         $bizPhone = trim((string)($biz['whatsapp'] ?? $biz['phone'] ?? ''));
         if ($bizPhone !== '') {
-            sendWhatsAppTemplate($bizPhone, 'new_appointment_alert', [$name, ($phone !== '' ? $phone : 'Not provided'), $date, $time]);
+            sendWhatsAppTemplateFor($ownerId, $bizPhone, 'new_appointment_alert', [$name, ($phone !== '' ? $phone : 'Not provided'), $date, $time]);
         }
     } catch (Exception $e) {
         error_log('site appointment WhatsApp failed: ' . $e->getMessage());

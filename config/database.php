@@ -142,6 +142,21 @@ define('WHATSAPP_PHONE_ID', getenv('WHATSAPP_PHONE_ID') ?: '');
 define('WHATSAPP_ACCESS_TOKEN', getenv('WHATSAPP_ACCESS_TOKEN') ?: '');
 define('WHATSAPP_WABA_ID', getenv('WHATSAPP_WABA_ID') ?: '');
 
+// ── CRM service bridge ──────────────────────────────────────────────────────
+// The WhatsApp inbox/broadcast engine lives in the Node CRM. Customers never
+// call it directly: this backend proxies their requests server-to-server,
+// asserting the logged-in user's id and proving itself with the shared key.
+// CRM_SERVICE_KEY must match the CRM's own env var and must NEVER be exposed to
+// a browser. Without both values the WhatsApp section reports "unavailable".
+define('CRM_SERVICE_URL', getenv('CRM_SERVICE_URL') ?: 'https://crm-api.tapify.co.in');
+define('CRM_SERVICE_KEY', getenv('CRM_SERVICE_KEY') ?: '');
+
+// WhatsApp Embedded Signup — its own Login-for-Business configuration in the
+// Meta app, SEPARATE from FACEBOOK_CONFIG_ID (which carries the Pages/Instagram
+// permissions). This one must carry whatsapp_business_management +
+// whatsapp_business_messaging, and requires Tech Provider status + App Review.
+define('FACEBOOK_WA_CONFIG_ID', getenv('FACEBOOK_WA_CONFIG_ID') ?: '');
+
 // Error reporting
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
