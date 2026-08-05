@@ -54,22 +54,29 @@ class InstagramProvider implements SocialProviderInterface
                     'image_url' => $images[0]['url'],
                     'caption'   => $caption,
                 ]);
+                $this->waitForContainer($igUserId, $token, $creationId);
                 return $this->publishContainer($igUserId, $token, $creationId);
             }
 
-            // Carousel (2–10 images).
+            // Carousel (2–10 images). Each child must finish processing before the
+            // carousel container is created, and the carousel container itself must
+            // finish before publish — publishing early races and fails with "media
+            // is still being processed".
             $childIds = [];
             foreach (array_slice($images, 0, 10) as $img) {
-                $childIds[] = $this->createContainer($igUserId, $token, [
+                $id = $this->createContainer($igUserId, $token, [
                     'image_url'        => $img['url'],
                     'is_carousel_item' => 'true',
                 ]);
+                $childIds[] = $id;
+                $this->waitForContainer($igUserId, $token, $id);
             }
             $creationId = $this->createContainer($igUserId, $token, [
                 'media_type' => 'CAROUSEL',
                 'children'   => implode(',', $childIds),
                 'caption'    => $caption,
             ]);
+            $this->waitForContainer($igUserId, $token, $creationId);
             return $this->publishContainer($igUserId, $token, $creationId);
         }
 
@@ -93,7 +100,12 @@ class InstagramProvider implements SocialProviderInterface
         return $res['id'];
     }
 
-    /** Poll a (video) container until it finishes processing. */
+    /**
+     * Poll a media container until Instagram finishes processing it. Images are
+     * usually ready instantly (first check), videos take longer. Publishing
+     * before the container is FINISHED races and fails with "media is still
+     * being processed", so every media path waits before publishContainer().
+     */
     private function waitForContainer($igUserId, $token, $creationId)
     {
         for ($i = 0; $i < 12; $i++) {          // up to ~36s
@@ -104,12 +116,12 @@ class InstagramProvider implements SocialProviderInterface
             $status = $res['status_code'] ?? 'IN_PROGRESS';
             if ($status === 'FINISHED') return;
             if ($status === 'ERROR' || $status === 'EXPIRED') {
-                throw new SocialException('Instagram could not process the video. Try a shorter/standard MP4.', 502,
+                throw new SocialException('Instagram could not process the media. Try a different file (shorter/standard MP4 for video).', 502,
                     "container status {$status}");
             }
             sleep(3);
         }
-        throw new SocialException('Instagram is still processing the video. Please try again in a moment.', 504,
+        throw new SocialException('Instagram is still processing the media. Please try again in a moment.', 504,
             'container processing timeout');
     }
 
