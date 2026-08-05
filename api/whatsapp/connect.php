@@ -8,10 +8,10 @@
  *
  * The browser runs Meta's Embedded Signup popup (Facebook JS SDK), which returns
  * an authorization CODE plus the customer's waba_id / phone_number_id. Only this
- * backend holds FACEBOOK_APP_SECRET, so the code→token exchange happens here,
- * never in the browser. The resulting token is handed to the CRM over the
- * service bridge and stored there encrypted; it is never returned to the client
- * and never logged.
+ * backend holds FACEBOOK_WA_APP_SECRET (the WhatsApp Meta app's secret), so the
+ * code→token exchange happens here, never in the browser. The resulting token is
+ * handed to the CRM over the service bridge and stored there encrypted; it is
+ * never returned to the client and never logged.
  *
  * Requires Tech Provider status and App Review for
  * whatsapp_business_management + whatsapp_business_messaging.
@@ -29,12 +29,13 @@ $graphVersion = defined('FACEBOOK_GRAPH_VERSION') && FACEBOOK_GRAPH_VERSION !== 
 /* ---------------------------------------------- what the browser needs ---- */
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     sendSuccess('OK', [
-        'app_id'        => defined('FACEBOOK_APP_ID') ? FACEBOOK_APP_ID : '',
+        'app_id'        => defined('FACEBOOK_WA_APP_ID') ? FACEBOOK_WA_APP_ID : '',
         'config_id'     => defined('FACEBOOK_WA_CONFIG_ID') ? FACEBOOK_WA_CONFIG_ID : '',
         'graph_version' => $graphVersion,
         // The UI hides the Connect button unless everything is configured,
         // rather than opening a popup that is certain to fail.
-        'ready'         => (defined('FACEBOOK_APP_ID') && FACEBOOK_APP_ID !== '')
+        'ready'         => (defined('FACEBOOK_WA_APP_ID') && FACEBOOK_WA_APP_ID !== '')
+                        && (defined('FACEBOOK_WA_APP_SECRET') && FACEBOOK_WA_APP_SECRET !== '')
                         && (defined('FACEBOOK_WA_CONFIG_ID') && FACEBOOK_WA_CONFIG_ID !== '')
                         && CRM_SERVICE_KEY !== '',
     ]);
@@ -88,7 +89,7 @@ if ($code === '')          sendError('Missing authorization code from the WhatsA
 if ($wabaId === '')        sendError('Missing WhatsApp Business Account id.');
 if ($phoneNumberId === '') sendError('Missing WhatsApp phone number id.');
 
-if (!defined('FACEBOOK_APP_ID') || FACEBOOK_APP_ID === '' || !defined('FACEBOOK_APP_SECRET') || FACEBOOK_APP_SECRET === '') {
+if (!defined('FACEBOOK_WA_APP_ID') || FACEBOOK_WA_APP_ID === '' || !defined('FACEBOOK_WA_APP_SECRET') || FACEBOOK_WA_APP_SECRET === '') {
     sendError('WhatsApp onboarding is not configured.', 503);
 }
 
@@ -96,8 +97,8 @@ if (!defined('FACEBOOK_APP_ID') || FACEBOOK_APP_ID === '' || !defined('FACEBOOK_
 // Embedded Signup returns a code exchanged WITHOUT a redirect_uri (unlike the
 // classic OAuth redirect flow used for Pages).
 $tokenUrl = 'https://graph.facebook.com/' . $graphVersion . '/oauth/access_token?' . http_build_query([
-    'client_id'     => FACEBOOK_APP_ID,
-    'client_secret' => FACEBOOK_APP_SECRET,
+    'client_id'     => FACEBOOK_WA_APP_ID,
+    'client_secret' => FACEBOOK_WA_APP_SECRET,
     'code'          => $code,
 ]);
 

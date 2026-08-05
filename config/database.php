@@ -151,11 +151,15 @@ define('WHATSAPP_WABA_ID', getenv('WHATSAPP_WABA_ID') ?: '');
 define('CRM_SERVICE_URL', getenv('CRM_SERVICE_URL') ?: 'https://crm-api.tapify.co.in');
 define('CRM_SERVICE_KEY', getenv('CRM_SERVICE_KEY') ?: '');
 
-// WhatsApp Embedded Signup — its own Login-for-Business configuration in the
-// Meta app, SEPARATE from FACEBOOK_CONFIG_ID (which carries the Pages/Instagram
-// permissions). This one must carry whatsapp_business_management +
-// whatsapp_business_messaging, and requires Tech Provider status + App Review.
-define('FACEBOOK_WA_CONFIG_ID', getenv('FACEBOOK_WA_CONFIG_ID') ?: '');
+// WhatsApp Embedded Signup — runs on its OWN Meta app, SEPARATE from the
+// Pages/Instagram/ads app (FACEBOOK_APP_ID / FACEBOOK_CONFIG_ID). FACEBOOK_WA_APP_ID /
+// FACEBOOK_WA_APP_SECRET are that app's credentials from App Settings > Basic, and
+// FACEBOOK_WA_CONFIG_ID is its Embedded Signup configuration id. The config must
+// carry whatsapp_business_management + whatsapp_business_messaging, and requires
+// Tech Provider status + App Review.
+define('FACEBOOK_WA_APP_ID',     getenv('FACEBOOK_WA_APP_ID')     ?: '');
+define('FACEBOOK_WA_APP_SECRET', getenv('FACEBOOK_WA_APP_SECRET') ?: '');
+define('FACEBOOK_WA_CONFIG_ID',  getenv('FACEBOOK_WA_CONFIG_ID')  ?: '');
 
 // Error reporting
 error_reporting(E_ALL);
