@@ -1,0 +1,677 @@
+{
+  "id": "jewellery",
+  "label": "Jewellery / Jewellers",
+  "aliases": ["jewelry", "jeweler", "jeweller", "gold", "diamond", "solitaires", "kundan", "bridal-jewellery", "ornaments", "gold-store", "jewellery-store", "jewellery-showroom", "gold-silver", "zaverat", "goldsmith"],
+  "icon": "gem",
+  "theme": { "preset": "royal-maroon" },
+
+  "description": "Gold and diamond jewellers: a shoppable bridal and daily-wear catalogue with purity options, certification trust signals, custom-design services and in-store appointment booking.",
+
+  "sections": [
+    "header",
+    "hero",
+    "about",
+    "services",
+    "products",
+    "gallery",
+    "stats",
+    "team",
+    "testimonials",
+    "blog",
+    "faq",
+    "cta",
+    "contact",
+    "footer"
+  ],
+
+  "recommended": [
+    { "type": "header",      "reason": "Sticky nav with cart, account and a 'Book a Private Viewing' CTA" },
+    { "type": "hero",        "reason": "A full-height shot of the collection with two clear CTAs" },
+    { "type": "about",       "reason": "Your heritage, hallmarking promise and in-house craft" },
+    { "type": "services",    "reason": "Custom design, gold exchange, repair and bridal consultation" },
+    { "type": "products",    "reason": "The shoppable catalogue — purity options, live stock, cart and checkout" },
+    { "type": "gallery",     "reason": "Signature pieces in a lightbox showcase" },
+    { "type": "stats",       "reason": "Years of craft, pieces delivered, BIS hallmarking and reviews" },
+    { "type": "team",        "reason": "The designers, goldsmiths and gemologists behind the counter" },
+    { "type": "testimonials","reason": "Reviews that mention hallmarking, custom work and exchanges" },
+    { "type": "blog",        "reason": "Buying guides — hallmark checking, gold vs diamond, jewellery care" },
+    { "type": "faq",         "reason": "Hallmarking, making charges, old-gold valuation, returns and certificates" },
+    { "type": "cta",         "reason": "A final push to book a private viewing or message on WhatsApp" },
+    { "type": "contact",     "reason": "Store address, phone, WhatsApp, map and an enquiry form" },
+    { "type": "footer",      "reason": "Quick links, social icons and trust lines" }
+  ],
+
+  "business": {
+    "phone": "+91 98290 12345",
+    "whatsapp": "+91 98290 12345",
+    "email": "hello@aarnajewels.in",
+    "address": "214 Johari Bazaar, Jaipur, Rajasthan 302003",
+    "social": {
+      "instagram": "https://instagram.com/",
+      "facebook": "https://facebook.com/",
+      "youtube": "https://youtube.com/"
+    }
+  },
+
+  "content": {
+    "header": {
+      "variant": "left",
+      "props": {
+        "sticky": true,
+        "showCart": true,
+        "showAccount": true,
+        "links": [
+          { "text": "Shop",       "href": "#products" },
+          { "text": "Collections","href": "#gallery" },
+          { "text": "Services",   "href": "#services" },
+          { "text": "About",      "href": "#about" },
+          { "text": "Contact",    "href": "#contact" }
+        ],
+        "cta": { "text": "Book a Private Viewing", "href": "#contact", "style": "primary" }
+      }
+    },
+
+    "hero": {
+      "variant": "centered-bg",
+      "props": {
+        "badge": "BIS Hallmarked · Trusted since 1991",
+        "heading": "Jewellery you can wear for a lifetime",
+        "sub": "Bridal sets, solitaires and handcrafted gold from Jaipur's Johari Bazaar — every piece BIS hallmarked, every gem certified, every price transparent. Available in-store and online.",
+        "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=2000&q=80",
+        "fullHeight": true,
+        "ctaPrimary":   { "text": "Shop the Collection", "href": "#products", "style": "primary" },
+        "ctaSecondary": { "text": "Book a Private Viewing", "href": "#contact", "style": "ghost" },
+        "showWhatsapp": true,
+        "showCall": true
+      },
+      "style": { "overlay": 0.5 }
+    },
+
+    "about": {
+      "variant": "image-right",
+      "props": {
+        "label": "Our Heritage",
+        "heading": "Four generations of jewellers, one workshop",
+        "body": "Aarna Jewels began in 1991 as a two-bench workshop behind Johari Bazaar, making bridal gold for families who knew exactly which bench made their piece.\n\nThirty-five years later we are still one workshop — the same goldsmiths' families, the same bench tradition, just more of it. Every piece is made in-house: waxed, carved, set and finished by our own artisans. We do not buy ready stock from a karigar's factory, and we do not outsource.\n\nEvery gold item we sell carries a BIS Hallmark, every solitaire ships with its IGI grading report, and every bill is broken down at the day's live gold rate with the making charge shown separately. You will always know exactly what you are paying for.",
+        "image": "https://images.unsplash.com/photo-1511020635136-14ec47f2bd41?auto=format&fit=crop&w=1400&q=80",
+        "showPillars": true,
+        "pillars": [
+          { "icon": "badge-check", "title": "100% BIS Hallmarked",  "text": "Every gold piece is hallmarked at a BIS-recognised centre — the purity is on the piece, not just our word." },
+          { "icon": "gem",         "title": "Certified Diamonds",   "text": "Every solitaire carries an IGI grading report. What we quote on the card is what you get." },
+          { "icon": "hammer",      "title": "In-House Artisans",    "text": "Waxed, carved, set and finished in our own workshop — never outsourced to a factory." },
+          { "icon": "scale",       "title": "Transparent Pricing",  "text": "Billed at the day's live gold rate with the making charge shown separately. No surprises." }
+        ]
+      }
+    },
+
+    "services": {
+      "variant": "cards-3",
+      "props": {
+        "label": "At Your Service",
+        "heading": "Beyond the counter",
+        "sub": "From a single resized ring to an entire bridal trousseau — services designed around how you actually buy and wear jewellery.",
+        "items": [
+          {
+            "image": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1200&q=80",
+            "title": "Custom Jewellery Design",
+            "desc": "Bring a sketch, a photo or just an idea — our designers turn it into a piece made for you, from CAD render to the finished gold.",
+            "meta": "CAD · Wax carve · 2–4 weeks",
+            "price": "Design fee on request"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1200&q=80",
+            "title": "Repair & Remodelling",
+            "desc": "Resizing, chain repair, stone tightening and breathing new life into an old family piece — most repairs done same week.",
+            "meta": "Same-week service",
+            "price": "From ₹499"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1568389208539-128bb4d6eae8?auto=format&fit=crop&w=1200&q=80",
+            "title": "Gold Exchange & Buyback",
+            "desc": "Old gold valued at the live market rate — exchange it towards something new or take the value in cash, whichever suits you.",
+            "meta": "Live gold rate",
+            "price": "Market rate"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=80",
+            "title": "Stone Setting & Polishing",
+            "desc": "Diamonds and gemstones re-set by our in-house setters, plus re-polishing and rhodium plating to bring back the shine.",
+            "meta": "In-house gemologist",
+            "price": "From ₹899"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1200&q=80",
+            "title": "Cleaning & Care",
+            "desc": "Free ultrasonic cleaning, inspection and polishing for life on every piece bought from us — just drop by.",
+            "meta": "Free for customers",
+            "price": "Complimentary"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=1200&q=80",
+            "title": "Bridal Trousseau Consultation",
+            "desc": "A private appointment with our designers to plan your entire trousseau — one piece or the full set, within a clear budget.",
+            "meta": "By appointment",
+            "price": "Free consultation"
+          }
+        ]
+      }
+    },
+
+    "products": {
+      "variant": "cards-3",
+      "props": {
+        "label": "The Collection",
+        "heading": "Shop signature pieces",
+        "sub": "Pick your purity and finish on any piece — live stock, add to cart, and pay however suits you. Every gold piece is BIS hallmarked and billed at the day's live rate.",
+        "showRelated": true,
+        "relatedHeading": "You may also like",
+        "items": [
+          {
+            "image": "https://images.unsplash.com/photo-1511020635136-14ec47f2bd41?auto=format&fit=crop&w=1200&q=80",
+            "title": "Rajwadi Bridal Gold Set",
+            "desc": "Handcrafted 22K gold bridal set with uncut kundan and polki diamonds — necklace, matching earrings and maang tikka.",
+            "meta": "22K Gold · Kundan & Polki",
+            "price": "₹1,49,999",
+            "mrp": "₹1,89,999",
+            "slug": "rajwadi-bridal-gold-set",
+            "enableOrder": true,
+            "body": "Our signature bridal set, made the same way for three generations: uncut kundan set into warm 22K gold, finished with hand-shaped polki diamonds.\n\nThe set includes the necklace, a pair of matching earrings and a maang tikka. Every piece is carved and set in-house, then hallmarked at a BIS-recognised centre before it reaches the counter.\n\nBecause gold is billed at the live rate, the price above is for the set as shown. Choose 18K for a lighter piece, or the antique finish for the deep, almost matte look that photographs best for weddings. Made to order in two to three weeks; a 25% advance confirms your order.\n\nDelivery across India is insured and signature-on-delivery. A complimentary cleaning and a one-year warranty on settings are included.",
+            "productInfoTitle": "Piece Details",
+            "productInfo": [
+              { "label": "Purity",     "value": "22K (916) or 18K (750)" },
+              { "label": "Weight",     "value": "As shown, approx. 52 g" },
+              { "label": "Gems",       "value": "Uncut kundan + polki diamonds" },
+              { "label": "Hallmark",   "value": "BIS, engraved on each piece" },
+              { "label": "Craft",      "value": "In-house, made to order" },
+              { "label": "Lead time",  "value": "2–3 weeks" }
+            ],
+            "attributes": [
+              {
+                "name": "Purity",
+                "options": [
+                  { "value": "22K Gold" },
+                  { "value": "18K Gold" }
+                ]
+              },
+              {
+                "name": "Finish",
+                "options": [
+                  { "value": "Antique" },
+                  { "value": "Polished" }
+                ]
+              }
+            ],
+            "variants": [
+              { "option1": "22K Gold", "option2": "Antique",  "sku": "RBG-22A", "price": "₹1,49,999", "mrp": "₹1,89,999", "stock": 2 },
+              { "option1": "22K Gold", "option2": "Polished", "sku": "RBG-22P", "price": "₹1,59,999", "mrp": "₹1,99,999", "stock": 1 },
+              { "option1": "18K Gold", "option2": "Antique",  "sku": "RBG-18A", "price": "₹1,29,999", "mrp": "₹1,69,999", "stock": 3 },
+              { "option1": "18K Gold", "option2": "Polished", "sku": "RBG-18P", "price": "₹1,39,999", "mrp": "₹1,79,999", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1200&q=80",
+            "title": "Solitaire Diamond Ring",
+            "desc": "A 0.50 ct IGI-certified round brilliant solitaire, set in 18K gold with a classic six-prong mount.",
+            "meta": "IGI Certified · 18K Gold",
+            "price": "₹1,29,999",
+            "mrp": "₹1,59,999",
+            "slug": "solitaire-diamond-ring",
+            "enableOrder": true,
+            "body": "A round brilliant solitaire, exactly 0.50 carat, graded and certified by IGI with the report number engraved inside the band.\n\nSet in 18K gold with a six-prong mount that keeps the stone high and bright. Choose yellow, white or rose gold — white gold arrives rhodium-plated for that icy sparkle.\n\nEach ring is sized to order. If you are not sure of your size, we will send a free ring sizer before making the ring, or size it free after delivery. Insurance valuation certificate included.\n\nDelivery across India is insured. If you would like to see the actual stone before purchase, book a private viewing and we will have it at the store.",
+            "productInfoTitle": "Stone Details",
+            "productInfo": [
+              { "label": "Stone",       "value": "0.50 ct round brilliant" },
+              { "label": "Certification","value": "IGI, report no. engraved" },
+              { "label": "Colour",      "value": "G–H" },
+              { "label": "Clarity",     "value": "VS1–VS2" },
+              { "label": "Metal",       "value": "18K gold, 6-prong mount" },
+              { "label": "Sizing",      "value": "Made to order, free re-size" }
+            ],
+            "attributes": [
+              {
+                "name": "Metal",
+                "options": [
+                  { "value": "Yellow Gold" },
+                  { "value": "White Gold" },
+                  { "value": "Rose Gold" }
+                ]
+              },
+              {
+                "name": "Ring Size",
+                "options": [
+                  { "value": "12" },
+                  { "value": "14" },
+                  { "value": "16" },
+                  { "value": "18" }
+                ]
+              }
+            ],
+            "variants": [
+              { "option1": "Yellow Gold", "option2": "12", "sku": "SOL-Y-12", "price": "₹1,29,999", "mrp": "₹1,59,999", "stock": 1 },
+              { "option1": "Yellow Gold", "option2": "14", "sku": "SOL-Y-14", "price": "₹1,29,999", "mrp": "₹1,59,999", "stock": 2 },
+              { "option1": "Yellow Gold", "option2": "16", "sku": "SOL-Y-16", "price": "₹1,29,999", "mrp": "₹1,59,999", "stock": 0 },
+              { "option1": "Yellow Gold", "option2": "18", "sku": "SOL-Y-18", "price": "₹1,29,999", "mrp": "₹1,59,999", "stock": 2 },
+              { "option1": "White Gold", "option2": "12", "sku": "SOL-W-12", "price": "₹1,34,999", "mrp": "₹1,64,999", "stock": 1 },
+              { "option1": "White Gold", "option2": "14", "sku": "SOL-W-14", "price": "₹1,34,999", "mrp": "₹1,64,999", "stock": 2 },
+              { "option1": "White Gold", "option2": "16", "sku": "SOL-W-16", "price": "₹1,34,999", "mrp": "₹1,64,999", "stock": 3 },
+              { "option1": "White Gold", "option2": "18", "sku": "SOL-W-18", "price": "₹1,34,999", "mrp": "₹1,64,999", "stock": 0 },
+              { "option1": "Rose Gold", "option2": "12", "sku": "SOL-R-12", "price": "₹1,32,999", "mrp": "₹1,62,999", "stock": 1 },
+              { "option1": "Rose Gold", "option2": "14", "sku": "SOL-R-14", "price": "₹1,32,999", "mrp": "₹1,62,999", "stock": 2 },
+              { "option1": "Rose Gold", "option2": "16", "sku": "SOL-R-16", "price": "₹1,32,999", "mrp": "₹1,62,999", "stock": 1 },
+              { "option1": "Rose Gold", "option2": "18", "sku": "SOL-R-18", "price": "₹1,32,999", "mrp": "₹1,62,999", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1200&q=80",
+            "title": "Gold Jhumka Earrings",
+            "desc": "Classic 22K gold jhumkas with a filigree dome, tiny bells and a pearl drop.",
+            "meta": "22K Gold · Antique",
+            "price": "₹45,999",
+            "mrp": "₹58,999",
+            "slug": "gold-jhumka-earrings",
+            "enableOrder": true,
+            "body": "The pair that started Aarna: a traditional jhumka with a filigree dome, a row of tiny swinging bells, and a pearl drop.\n\nThe antique finish gives them the deep, muted look that works with a lehenga and a plain kurta alike. Made in-house, hallmarked, and guaranteed to match the weight on your bill.\n\nThe medium size suits most faces; go large for the full bridal presence. Choose 18K for a lighter daily-wear pair.\n\nInsured delivery across India. Screw-backs available at no extra cost if your lobes are not pierced.",
+            "productInfoTitle": "Piece Details",
+            "productInfo": [
+              { "label": "Purity",  "value": "22K (916) or 18K (750)" },
+              { "label": "Weight",  "value": "Approx. 16 g (pair)" },
+              { "label": "Drop",    "value": "Medium 4 cm / Large 5 cm" },
+              { "label": "Finish",  "value": "Antique" },
+              { "label": "Hallmark","value": "BIS, engraved" }
+            ],
+            "attributes": [
+              {
+                "name": "Purity",
+                "options": [
+                  { "value": "22K Gold" },
+                  { "value": "18K Gold" }
+                ]
+              },
+              {
+                "name": "Size",
+                "options": [
+                  { "value": "Medium" },
+                  { "value": "Large" }
+                ]
+              }
+            ],
+            "variants": [
+              { "option1": "22K Gold", "option2": "Medium", "sku": "JHM-22M", "price": "₹45,999", "mrp": "₹58,999", "stock": 5 },
+              { "option1": "22K Gold", "option2": "Large",  "sku": "JHM-22L", "price": "₹55,999", "mrp": "₹69,999", "stock": 2 },
+              { "option1": "18K Gold", "option2": "Medium", "sku": "JHM-18M", "price": "₹39,999", "mrp": "₹51,999", "stock": 4 },
+              { "option1": "18K Gold", "option2": "Large",  "sku": "JHM-18L", "price": "₹48,999", "mrp": "₹61,999", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1200&q=80",
+            "title": "Men's Gold Kada & Chain Set",
+            "desc": "A bold 22K gold kada and rope chain — classic for weddings, sharp for everyday.",
+            "meta": "22K Gold · Hallmarked",
+            "price": "₹1,25,999",
+            "mrp": "₹1,55,999",
+            "slug": "mens-gold-kada-chain",
+            "enableOrder": true,
+            "body": "A full-weight 22K gold kada paired with a rope chain, made for men who wear their gold as jewellery, not ornament.\n\nThe kada has a screw-and-pin closure that sits flush — it does not catch cuffs. The chain is a solid rope weave, not hollow, so it wears heavy and holds its shape.\n\nChoose the matte finish for something understated, or polished to match a sherwani. Both options are hallmarked and billed at the day's live gold rate.\n\nSizing note: the kada is available in 2.2-inch and 2.4-inch diameters. Measure an existing kada across the inside before ordering.",
+            "productInfoTitle": "Piece Details",
+            "productInfo": [
+              { "label": "Purity",   "value": "22K (916)" },
+              { "label": "Weight",   "value": "Approx. 44 g (set)" },
+              { "label": "Chain",    "value": "Solid rope weave" },
+              { "label": "Kada",     "value": "2.2 or 2.4 inch, screw-pin" },
+              { "label": "Hallmark", "value": "BIS, engraved" }
+            ],
+            "attributes": [
+              {
+                "name": "Weight",
+                "options": [
+                  { "value": "As shown" },
+                  { "value": "Lighter" }
+                ]
+              },
+              {
+                "name": "Finish",
+                "options": [
+                  { "value": "Matte" },
+                  { "value": "Polished" }
+                ]
+              }
+            ],
+            "variants": [
+              { "option1": "As shown", "option2": "Matte",    "sku": "MKC-A-M", "price": "₹1,25,999", "mrp": "₹1,55,999", "stock": 2 },
+              { "option1": "As shown", "option2": "Polished", "sku": "MKC-A-P", "price": "₹1,25,999", "mrp": "₹1,55,999", "stock": 1 },
+              { "option1": "Lighter",  "option2": "Matte",    "sku": "MKC-L-M", "price": "₹92,999",  "mrp": "₹1,15,999", "stock": 3 },
+              { "option1": "Lighter",  "option2": "Polished", "sku": "MKC-L-P", "price": "₹92,999",  "mrp": "₹1,15,999", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1568389208539-128bb4d6eae8?auto=format&fit=crop&w=1200&q=80",
+            "title": "Antique Gold Bangles",
+            "desc": "A set of four antique-finish 22K gold bangles with a hand-hammered edge.",
+            "meta": "22K Gold · Set of 4",
+            "price": "₹1,09,999",
+            "mrp": "₹1,40,999",
+            "slug": "antique-gold-bangles",
+            "enableOrder": true,
+            "body": "Four antique-finish 22K bangles, each with a hand-hammered edge and a smooth inner face so they sit comfortably on the wrist.\n\nThe set stacks to a full, traditional wrist — pair with the jhumkas for a complete everyday-to-festive look.\n\nEach bangle is hallmarked. Weights vary slightly piece to piece as they are hand-made; your bill lists the exact weight of the set you receive.\n\nAvailable in medium (2.6 inch) and large (2.8 inch) inside diameters. We can open or close the sizing free of charge if they need adjusting.",
+            "productInfoTitle": "Piece Details",
+            "productInfo": [
+              { "label": "Purity",  "value": "22K (916) or 18K (750)" },
+              { "label": "Weight",  "value": "Approx. 38 g (set of 4)" },
+              { "label": "Size",    "value": "2.6 or 2.8 inch inside" },
+              { "label": "Finish",  "value": "Antique, hammered edge" },
+              { "label": "Hallmark","value": "BIS, engraved" }
+            ],
+            "attributes": [
+              {
+                "name": "Purity",
+                "options": [
+                  { "value": "22K Gold" },
+                  { "value": "18K Gold" }
+                ]
+              },
+              {
+                "name": "Size",
+                "options": [
+                  { "value": "Medium" },
+                  { "value": "Large" }
+                ]
+              }
+            ],
+            "variants": [
+              { "option1": "22K Gold", "option2": "Medium", "sku": "ABL-22M", "price": "₹1,09,999", "mrp": "₹1,40,999", "stock": 2 },
+              { "option1": "22K Gold", "option2": "Large",  "sku": "ABL-22L", "price": "₹1,15,999", "mrp": "₹1,47,999", "stock": 1 },
+              { "option1": "18K Gold", "option2": "Medium", "sku": "ABL-18M", "price": "₹94,999",  "mrp": "₹1,21,999", "stock": 3 },
+              { "option1": "18K Gold", "option2": "Large",  "sku": "ABL-18L", "price": "₹99,999",  "mrp": "₹1,27,999", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1200&q=80",
+            "title": "Kundan Choker Set",
+            "desc": "An heirloom kundan choker with matching earrings — uncut diamonds in warm gold.",
+            "meta": "Kundan · Polki · Uncut",
+            "price": "₹85,999",
+            "mrp": "₹1,09,999",
+            "slug": "kundan-choker-set",
+            "enableOrder": true,
+            "body": "A kundan choker that sits close to the neck, finished with hand-shaped polki diamonds and matching earrings.\n\nKundan is our slowest craft — every stone is set by hand, one at a time, in a technique that has not changed in a century. The choker takes up to three weeks to make.\n\nChoose 22K for the classic piece or 18K for a lighter, daily-wearable version. Both are hallmarked and come with a one-year warranty on settings.\n\nThis is the piece customers most often commission for a bride, so allow three weeks if you need it for a specific date.",
+            "productInfoTitle": "Piece Details",
+            "productInfo": [
+              { "label": "Purity",  "value": "22K (916) or 18K (750)" },
+              { "label": "Weight",  "value": "Approx. 30 g (set)" },
+              { "label": "Gems",    "value": "Uncut kundan + polki diamonds" },
+              { "label": "Hallmark","value": "BIS, engraved" },
+              { "label": "Lead time","value": "Up to 3 weeks" }
+            ],
+            "attributes": [
+              {
+                "name": "Purity",
+                "options": [
+                  { "value": "22K Gold" },
+                  { "value": "18K Gold" }
+                ]
+              },
+              {
+                "name": "Finish",
+                "options": [
+                  { "value": "Antique" },
+                  { "value": "Polished" }
+                ]
+              }
+            ],
+            "variants": [
+              { "option1": "22K Gold", "option2": "Antique",  "sku": "KCS-22A", "price": "₹85,999", "mrp": "₹1,09,999", "stock": 2 },
+              { "option1": "22K Gold", "option2": "Polished", "sku": "KCS-22P", "price": "₹89,999", "mrp": "₹1,14,999", "stock": 1 },
+              { "option1": "18K Gold", "option2": "Antique",  "sku": "KCS-18A", "price": "₹74,999", "mrp": "₹95,999",  "stock": 3 },
+              { "option1": "18K Gold", "option2": "Polished", "sku": "KCS-18P", "price": "₹78,999", "mrp": "₹99,999",  "stock": 0 }
+            ]
+          }
+        ]
+      }
+    },
+
+    "gallery": {
+      "variant": "grid-3",
+      "props": {
+        "label": "The Collection",
+        "heading": "Signature pieces",
+        "sub": "A look at the work that comes out of the workshop — each piece handcrafted and hallmarked.",
+        "lightbox": true,
+        "images": [
+          { "image": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1200&q=80", "alt": "Solitaire diamond ring, macro" },
+          { "image": "https://images.unsplash.com/photo-1511020635136-14ec47f2bd41?auto=format&fit=crop&w=1200&q=80", "alt": "Bridal gold set laid out" },
+          { "image": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1200&q=80", "alt": "Gold chain necklace" },
+          { "image": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1200&q=80", "alt": "Gold ring with diamonds" },
+          { "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1200&q=80", "alt": "Jhumka earrings worn" },
+          { "image": "https://images.unsplash.com/photo-1568389208539-128bb4d6eae8?auto=format&fit=crop&w=1200&q=80", "alt": "Antique gold bangles" },
+          { "image": "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1200&q=80", "alt": "Ring held up to the light" },
+          { "image": "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?auto=format&fit=crop&w=1200&q=80", "alt": "Jewellery on a dark cloth" },
+          { "image": "https://images.unsplash.com/photo-1573408301185-9146fe634ad0?auto=format&fit=crop&w=1200&q=80", "alt": "Kundan and polki detail" },
+          { "image": "https://images.unsplash.com/photo-1511020635136-14ec47f2bd41?auto=format&fit=crop&w=1200&q=80", "alt": "Handcrafted gold, close up" },
+          { "image": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1200&q=80", "alt": "Rope chain detail" },
+          { "image": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1200&q=80", "alt": "Diamond solitaire on velvet" }
+        ]
+      }
+    },
+
+    "stats": {
+      "variant": "cards",
+      "props": {
+        "label": "By the Numbers",
+        "heading": "Trusted by generations",
+        "sub": "Numbers we are proud of, and that our customers find reassuring.",
+        "countUp": true,
+        "items": [
+          { "icon": "award",       "value": 35,    "suffix": "+",    "label": "Years of Craft" },
+          { "icon": "gem",         "value": 12000, "suffix": "+",    "label": "Pieces Crafted" },
+          { "icon": "badge-check", "value": 100,   "suffix": "%",    "label": "BIS Hallmarked" },
+          { "icon": "star",        "value": 98,    "suffix": "%",    "label": "5-Star Reviews" }
+        ]
+      }
+    },
+
+    "team": {
+      "variant": "cards-3",
+      "props": {
+        "label": "The Artisans",
+        "heading": "The hands behind the craft",
+        "sub": "The people who wax, carve, set and finish your piece — from first sketch to final polish.",
+        "items": [
+          {
+            "name": "Meera Rathore",
+            "role": "Master Goldsmith & Founder",
+            "meta": "35 years",
+            "bio": "Started Aarna in 1991 at a two-bench workshop. Still signs off on every bridal set before it reaches the counter — the goldsmith's guarantee that has always been the house."
+          },
+          {
+            "name": "Arjun Rathore",
+            "role": "Design Lead & Gemologist",
+            "meta": "IGI-certified gemologist",
+            "bio": "Runs custom design from the first sketch to the finished render. His eye for stone matching is why solitaires leave the store with their grading report and the right light."
+          },
+          {
+            "name": "Priya Sharma",
+            "role": "Bridal Consultant",
+            "meta": "Trousseau styling",
+            "bio": "Plans complete bridal trousseaus — budget first, then the pieces. If you book a private viewing, you will most likely be sitting across from her."
+          },
+          {
+            "name": "Devendra Singh",
+            "role": "Senior Stone Setter",
+            "meta": "Setting & restoration",
+            "bio": "Twenty years setting stones by hand. He is also the one who re-sets the family heirlooms customers bring in for a second life."
+          }
+        ]
+      }
+    },
+
+    "testimonials": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Reviews",
+        "heading": "What our customers say",
+        "items": [
+          {
+            "quote": "The hallmark was engraved on the piece, the weight matched the bill to the gram, and the making charge was written out separately. That transparency alone will keep me coming back.",
+            "name": "Anita Deshpande",
+            "role": "Bought the bridal set",
+            "rating": 5
+          },
+          {
+            "quote": "I brought my mother's old bangles in for exchange and they valued them at the live rate in front of me, then applied the amount to a new set. No pressure, no confusion.",
+            "name": "Rohit Mehta",
+            "role": "Gold exchange",
+            "rating": 5
+          },
+          {
+            "quote": "They designed a ring for me from a photograph I found online — CAD render first, then the finished piece. It is better than the photo.",
+            "name": "Sara Khan",
+            "role": "Custom design",
+            "rating": 5
+          }
+        ]
+      }
+    },
+
+    "blog": {
+      "variant": "grid-3",
+      "props": {
+        "label": "The Journal",
+        "heading": "Guides & stories",
+        "sub": "How to buy gold without guesswork — hallmarking, value and care, written by our own workshop.",
+        "posts": [
+          {
+            "image": "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1200&q=80",
+            "title": "How to check a BIS Hallmark in 60 seconds",
+            "date": "2 Aug 2026",
+            "excerpt": "Four marks to look for — the BIS logo, the purity mark, the jeweller's mark and the assaying centre's mark — and why a hallmark is the only guarantee you should trust.",
+            "linkText": "Read the guide"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1200&q=80",
+            "title": "Gold or diamonds: what actually holds value?",
+            "date": "24 Jul 2026",
+            "excerpt": "Gold is priced by weight and purity; a diamond's value lives in its certificate. Here is how we talk to our own customers about the difference.",
+            "linkText": "Read the guide"
+          },
+          {
+            "image": "https://images.unsplash.com/photo-1568389208539-128bb4d6eae8?auto=format&fit=crop&w=1200&q=80",
+            "title": "Caring for gold jewellery at home",
+            "date": "10 Jul 2026",
+            "excerpt": "What is safe to clean at home, what needs a jeweller, and the one thing you should never do to your gold (hint: it involves a toothbrush and toothpaste).",
+            "linkText": "Read the guide"
+          }
+        ]
+      }
+    },
+
+    "faq": {
+      "variant": "accordion",
+      "props": {
+        "label": "FAQ",
+        "heading": "Questions customers ask us",
+        "openFirst": true,
+        "items": [
+          {
+            "q": "Is your gold BIS hallmarked?",
+            "a": "Yes — every gold piece we sell carries a BIS Hallmark with the purity mark (22K shows 916, 18K shows 750), the BIS logo, our jeweller's mark and the assaying centre's mark. It is engraved on the piece itself, not just printed on the bill."
+          },
+          {
+            "q": "How are making charges calculated?",
+            "a": "Your bill is split into two parts: the gold, billed at the day's live market rate for the exact weight of your piece, and the making charge, quoted separately as a percentage or a flat figure before you buy. Nothing is hidden in a combined price."
+          },
+          {
+            "q": "Do you buy old gold? How is it valued?",
+            "a": "Yes. We test and weigh your old gold in front of you, value it at the live market rate for its purity, and either pay you by transfer or apply the amount towards anything in the store. There is no deduction for 'impurity' unless the test genuinely finds it."
+          },
+          {
+            "q": "Can I design my own piece?",
+            "a": "Absolutely. Bring a sketch, a photograph or just an idea, and our design team will work up a CAD render and a fixed quote before any gold is touched. Custom pieces are made in-house in two to four weeks and take a 25% advance."
+          },
+          {
+            "q": "What is your exchange and return policy?",
+            "a": "Ready-made pieces can be exchanged within 15 days for anything in the store, and sizing is free for life. Made-to-order pieces are non-returnable but carry a one-year warranty on settings and workmanship."
+          },
+          {
+            "q": "Do solitaires come with certificates?",
+            "a": "Every solitaire ships with its IGI grading report, and the report number is engraved inside the band. If you would like to see the actual stone before purchase, book a private viewing and we will have it at the store for you."
+          },
+          {
+            "q": "Do you offer a warranty?",
+            "a": "Every piece carries a one-year warranty on settings and workmanship, plus free ultrasonic cleaning and inspection for life. Beyond the first year, repairs are priced at cost with no service fee."
+          }
+        ]
+      }
+    },
+
+    "cta": {
+      "variant": "banner",
+      "props": {
+        "heading": "Ready to find the piece?",
+        "sub": "Visit our Johari Bazaar store, or message us on WhatsApp — our designers will help you choose, budget and book a private viewing.",
+        "ctaPrimary": { "text": "Book a Private Viewing", "href": "#contact", "style": "primary" },
+        "showWhatsapp": true,
+        "showCall": true
+      }
+    },
+
+    "contact": {
+      "variant": "form-map",
+      "props": {
+        "label": "Visit Us",
+        "heading": "Come to Johari Bazaar",
+        "sub": "Walk-ins welcome, private viewings by appointment. Tell us what you are looking for and we will reply the same day.",
+        "showPhone": true,
+        "showWhatsapp": true,
+        "showEmail": true,
+        "showAddress": true,
+        "showHours": true,
+        "showMap": true,
+        "submitText": "Send Enquiry"
+      }
+    },
+
+    "footer": {
+      "variant": "columns",
+      "props": {
+        "blurb": "Aarna Jewels — four generations of handcrafted gold, kundan and certified solitaires from Jaipur's Johari Bazaar. Every piece BIS hallmarked, every bill transparent.",
+        "showContact": true,
+        "showHours": true,
+        "showSocial": true,
+        "showLegal": true,
+        "columns": [
+          {
+            "title": "Explore",
+            "links": [
+              { "text": "Shop",        "href": "#products" },
+              { "text": "Collections", "href": "#gallery" },
+              { "text": "Services",    "href": "#services" },
+              { "text": "About",       "href": "#about" }
+            ]
+          },
+          {
+            "title": "Collections",
+            "links": [
+              { "text": "Bridal Sets",   "href": "#products" },
+              { "text": "Solitaires",    "href": "#products" },
+              { "text": "Kundan",        "href": "#products" },
+              { "text": "Men's Gold",    "href": "#products" }
+            ]
+          },
+          {
+            "title": "Connect",
+            "links": [
+              { "text": "Instagram", "href": "https://instagram.com/" },
+              { "text": "Facebook",  "href": "https://facebook.com/" },
+              { "text": "YouTube",   "href": "https://youtube.com/" },
+              { "text": "WhatsApp",  "href": "https://wa.me/919829012345" }
+            ]
+          }
+        ],
+        "copyright": "© 2026 Aarna Jewels. All rights reserved.",
+        "termsBody": "All gold is billed at the day's live market rate for the exact weight of the piece, with making charges shown separately on the bill. Every gold item carries a BIS Hallmark. Solitaires and certified gemstones ship with their grading report. Ready-made pieces may be exchanged within 15 days for anything in the store; made-to-order and custom pieces are non-returnable but carry a one-year warranty on settings and workmanship. Old gold is valued at the live market rate for its tested purity and paid by transfer or applied in store. Insured delivery across India is included; for international delivery, contact us before ordering. Replace this text with your own terms, reviewed by your legal advisor, before going live."
+      }
+    }
+  },
+
+  "notes": "CONTENT MODEL: Built as a bridal & fine jewellery house (Aarna Jewels) in Jaipur's Johari Bazaar serving the Indian market. 14 sections — the same breadth as the wedding template, but product-led like the boutique template. The royal-maroon theme (deep maroon + antique gold, ivory background) is the natural fit and is linked both ways via the theme's industries array.\n\nPRODUCTS: Six products form the shoppable catalogue and exercise the full products manifest — nested attributes (Purity/Finish, Metal/Ring Size, Weight/Size), per-combination pricing via variants with SKU, MRP and live stock, full body copy, productInfo tables and slugs for individual product pages. Purity (22K/18K) is the honest vertical for Indian gold; the solitaire ring adds a second attribute (Ring Size) across three metals. Some combinations are deliberately stock 0 to show the out-of-stock and disabled add-to-cart states.\n\nPRICING: Jewellery prices are set at realistic Indian gold+jewellery market levels as of mid-2026 and reflect the day's-rate model in the copy — the starting prices assume roughly ₹1,10,000–1,20,000 per 10 g of 22K gold including average making charges. Weights stated 'as shown' are illustrative; the real bill lists exact weight, rate and making charge. Prices must be verified against the store's actual rate sheet before going live.\n\nTRUST SIGNALS: BIS hallmarking, IGI certificates, live-rate billing and transparent making charges are woven through the hero, about pillars, stats, FAQ and terms — these are the decisive factors for Indian jewellery buyers and should be kept even when the copy is rewritten.\n\nTEAM: First-name-and-surname roles with no photographs, following the salon.json/gym.json/wedding.json convention of not pairing stock photos with made-up names.\n\nIMAGES: All photos are hosted Unsplash URLs using the ?auto=format&fit=crop&w=...&q=80 pattern (SiteRenderer::media passes any http(s) URL through). Some IDs are reused across sections deliberately, mirroring the boutique template; all must be swapped for the store's own photography before going live. Per-colour/per-option photos are intentionally not set on product attributes.\n\nBUSINESS INFO: Address is set to Johari Bazaar, Jaipur — the traditional jewellery market. Phone, WhatsApp and email are placeholders to be replaced. SOCIAL: Instagram, Facebook and YouTube are the primary platforms for jewellery retail.\n\nTERMS: The footer termsBody covers hallmarking, live-rate billing, 15-day exchange, custom-piece warranty, old-gold valuation and insured delivery. The store must replace it with its own terms reviewed by a legal advisor before going live."
+}

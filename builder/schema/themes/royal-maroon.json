@@ -1,0 +1,29 @@
+{
+  "preset": "royal-maroon",
+  "label": "Royal Maroon & Gold",
+  "description": "Deep maroon with antique gold — traditional Indian luxury for jewellers, boutiques, bridal and gift stores.",
+  "industries": ["jewellery", "jewelry", "boutique", "bridal", "gift"],
+
+  "tokens": {
+    "mode": "light",
+    "color": {
+      "primary":   "#7A1F2B",
+      "secondary": "#9A3B45",
+      "accent":    "#C8A24A",
+      "bg":        "#FDF8F1",
+      "surface":   "#F7EFE1",
+      "text":      "#2B1D12",
+      "muted":     "#8A7355",
+      "border":    "#E8DBC2"
+    },
+    "font": {
+      "heading": "Playfair Display",
+      "body":    "Lato"
+    },
+    "radius":    "lg",
+    "spacing":   "comfortable",
+    "container": "normal"
+  },
+
+  "notes": "Tokens only — sections never hardcode colours, they read these as CSS variables. Changing `primary` here restyles every section, every page, instantly. Ivory background keeps the gold accent legible; maroon does the heavy lifting for buttons and highlights."
+}
