@@ -117,13 +117,20 @@ if ($customerEmail !== '') {
     // presentable instead of "Your headline goes here / Service one".
     $content = $recipe['content'] ?? [];
 
-    $sections = [];
-    foreach ($types as $type) {
+    // Build one section instance from a type, seeding it from the recipe copy.
+    // A per-page seed wins over the recipe-wide seed for that type.
+    $buildSection = function (string $type, array $seeds) use ($content) {
         $instance = SchemaRegistry::newSectionInstance($type);
-        if (!$instance) continue;                 // silently skip types not built yet
+        if (!$instance) return null;              // silently skip types not built yet
 
-        $seed = $content[$type] ?? null;
-        if (is_array($seed)) {
+        // A per-page seed DEEP-merges over the recipe-wide seed for that type, so
+        // a page can retitle a shared section (new heading/sub/label) without
+        // losing the section's items from the recipe-wide copy.
+        $seed = array_replace_recursive(
+            (array)($content[$type] ?? null),
+            (array)($seeds[$type] ?? null)
+        );
+        if ($seed) {
             if (!empty($seed['variant'])) $instance['variant'] = $seed['variant'];
             if (isset($seed['props'])) {
                 // Shallow merge: a seeded key replaces the default outright (a
@@ -134,11 +141,67 @@ if ($customerEmail !== '') {
                 $instance['style'] = array_merge((array)($instance['style'] ?? []), (array)$seed['style']);
             }
         }
-        $sections[] = $instance;
+        return $instance;
+    };
+
+    // A recipe may define multiple real pages (Home / Shop / About / Contact …)
+    // so the header nav links to real page URLs instead of same-page anchors.
+    // Each page lists its section types and may override copy per type. When a
+    // recipe has no `pages`, fall back to the classic single home page.
+    $recipePages = $recipe['pages'] ?? null;
+    $pages = [];
+    if (is_array($recipePages) && count($recipePages)) {
+        foreach ($recipePages as $i => $pageDef) {
+            $pageTypes = (array)($pageDef['sections'] ?? $types);
+            $pageSeeds = (array)($pageDef['content'] ?? []);
+            $pageId    = $pageDef['id'] ?? ('page-' . ($i + 1));
+            $pageSlug  = $pageDef['slug'] ?? ($i === 0 ? '/' : '/' . $pageId);
+
+            $pageSections = [];
+            foreach ($pageTypes as $type) {
+                $instance = $buildSection($type, $pageSeeds);
+                if ($instance) $pageSections[] = $instance;
+            }
+            $pages[] = [
+                'id'       => $pageId,
+                'slug'     => $pageSlug,
+                'title'    => $pageDef['title'] ?? ucfirst(str_replace('-', ' ', $pageId)),
+                'seo'      => (array)($pageDef['seo'] ?? ['title' => $name, 'robots' => 'index,follow']),
+                'sections' => $pageSections,
+            ];
+        }
+        if (!$pages) {
+            $pages[] = [
+                'id' => 'home', 'slug' => '/', 'title' => 'Home',
+                'seo' => ['title' => $name, 'robots' => 'index,follow'],
+                'sections' => [],
+            ];
+        }
+    } else {
+        $sections = [];
+        foreach ($types as $type) {
+            $instance = $buildSection($type, []);
+            if ($instance) $sections[] = $instance;
+        }
+        if (!$sections) {
+            $hero = SchemaRegistry::newSectionInstance('hero');
+            if ($hero) $sections[] = $hero;
+        }
+        $pages = [[
+            'id'    => 'home',
+            'slug'  => '/',
+            'title' => 'Home',
+            'seo'   => ['title' => $name, 'robots' => 'index,follow'],
+            'sections' => $sections,
+        ]];
     }
-    if (!$sections) {
-        $hero = SchemaRegistry::newSectionInstance('hero');
-        if ($hero) $sections[] = $hero;
+
+    // Nav for the Pages tab — one entry per page, in document order. The header
+    // SECTION renders its own links (props.links) on the live site, so a recipe
+    // that sets them to real page slugs gets a multi-page menu for free.
+    $headerNav = [];
+    foreach ($pages as $p) {
+        $headerNav[] = ['label' => $p['title'], 'pageId' => $p['id']];
     }
 
     // ---- theme ----
@@ -174,15 +237,9 @@ if ($customerEmail !== '') {
         ]),
         'theme' => $theme,
         'nav' => [
-            'header' => [['label' => 'Home', 'pageId' => 'home']],
+            'header' => $headerNav ?: [['label' => 'Home', 'pageId' => 'home']],
         ],
-        'pages' => [[
-            'id'    => 'home',
-            'slug'  => '/',
-            'title' => 'Home',
-            'seo'   => ['title' => $name, 'robots' => 'index,follow'],
-            'sections' => $sections,
-        ]],
+        'pages' => $pages,
         // Contact/hours sections read this, so a recipe seeds placeholder details
         // rather than rendering an empty "Get in touch" block on a demo site.
         'business' => !empty($recipe['business']) ? $recipe['business'] : new stdClass(),
