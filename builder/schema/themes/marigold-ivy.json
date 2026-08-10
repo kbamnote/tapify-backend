@@ -1,0 +1,34 @@
+{
+  "preset": "marigold-ivy",
+  "label": "Marigold & Ivy",
+  "description": "Deep ivy green, marigold saffron and warm petal ivory. Botanical and festive without being bridal-pink — suits flower decorators, florists, event florals, nurseries, garden studios and organic brands.",
+  "industries": [
+    "flower-decoration",
+    "florist",
+    "flowers",
+    "nursery",
+    "garden",
+    "organic"
+  ],
+  "tokens": {
+    "mode": "light",
+    "color": {
+      "primary": "#1D4B3A",
+      "secondary": "#35735A",
+      "accent": "#E8A33D",
+      "bg": "#FFFBF3",
+      "surface": "#FFFFFF",
+      "text": "#1C2621",
+      "muted": "#647268",
+      "border": "#E6E3D8"
+    },
+    "font": {
+      "heading": "Bodoni Moda",
+      "body": "DM Sans"
+    },
+    "radius": "md",
+    "spacing": "spacious",
+    "container": "normal"
+  },
+  "notes": "Tokens only — sections never hardcode colours, they read these as CSS variables.\n\nPALETTE LOGIC: the two colours a flower business actually works in — stem and leaf (deep ivy #1D4B3A) against marigold (#E8A33D) — over a warm petal ivory rather than a cold white. Every other warm theme in this set is red, maroon, rose or terracotta, and the only other greens are sage-linen (a much lighter, greyer sage with a tan accent) and graphite-emerald (charcoal primary, emerald only as an accent). This is the sole theme where a saturated botanical green is the PRIMARY, which is what keeps flower-decoration from looking like a second wedding template.\n\nCONTRAST: every pair was measured, not eyeballed. Body text on bg 15.09:1, white on primary 9.91:1, white on secondary 5.60:1, text on accent 7.22:1, primary on bg 9.60:1, muted on bg 4.90:1 — all above WCAG AA 4.5:1. Muted is deliberately darker than most themes in this set (velvet-rose sits at 2.92:1, copper-ridge at 3.45:1) because it carries meta lines like prices and timings. Accent-on-bg is 2.09:1, which is FINE and matches the house pattern (every light theme here is 2.1–3.1) — `accent` is a fill colour with dark text on top of it, never body text on the background. Keep it that way if you retune it.\n\nFONTS: Bodoni Moda (headings) + DM Sans (body). Neither is used by any other theme. IMPORTANT — the renderer requests `wght@400;500;600;700` for both families in one css2 call, so a face must actually SERVE those weights or headings silently fall back to 400 and look thin at 600/700. Prata, Gilda Display, Italiana and DM Serif Display all serve 400 only and were rejected for this reason; Bodoni Moda and DM Sans both serve all four. Verify with `curl` on the css2 URL and grep the font-weight rules before swapping either font.\n\nChanging `primary` here restyles every section, every page, instantly."
+}

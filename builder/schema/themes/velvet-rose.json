@@ -5,10 +5,7 @@
   "industries": [
     "wedding",
     "event",
-    "photography",
-    "flower-decoration",
-    "florist",
-    "flowers"
+    "photography"
   ],
   "tokens": {
     "mode": "light",
