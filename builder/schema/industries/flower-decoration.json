@@ -1,0 +1,819 @@
+{
+  "id": "flower-decoration",
+  "label": "Flower Decoration / Florist",
+  "aliases": ["florist", "flowers", "flower-decor", "flower-decorator", "car-decoration", "wedding-car-decoration", "phool", "phoolwala", "garland", "marigold", "mandap-decoration", "stage-decoration", "haldi-decoration", "event-florist", "floral-designer", "bouquet", "flower-shop", "wedding-decoration"],
+  "icon": "flower",
+  "theme": { "preset": "velvet-rose" },
+
+  "description": "Flower decorators and florists: wedding car decoration, stage and mandap floral work, haldi and entrance decor, garlands and bouquets — with a bookable, priced catalogue that customers can order from directly.",
+
+  "sections": [
+    "header",
+    "hero",
+    "about",
+    "services",
+    "products",
+    "gallery",
+    "stats",
+    "testimonials",
+    "blog",
+    "faq",
+    "cta",
+    "contact",
+    "footer"
+  ],
+
+  "recommended": [
+    { "type": "header",      "reason": "Sticky nav with cart and a 'Book Decoration' CTA" },
+    { "type": "hero",        "reason": "A full-height flower video with the car-decoration promise up front" },
+    { "type": "about",       "reason": "Who arranges the flowers, where they come from and how early they arrive" },
+    { "type": "services",    "reason": "Car, stage, haldi, entrance, birthday and garland work" },
+    { "type": "products",    "reason": "The priced, bookable catalogue — flower type, coverage and size options" },
+    { "type": "gallery",     "reason": "Real decorations, because this business is bought with the eyes" },
+    { "type": "stats",       "reason": "Cars decorated, events covered, on-time record" },
+    { "type": "testimonials","reason": "Reviews that mention punctuality on the wedding morning" },
+    { "type": "blog",        "reason": "Flower-choice and season guides that bring in search traffic" },
+    { "type": "faq",         "reason": "Advance booking, travel, wilting, cancellations and payment" },
+    { "type": "cta",         "reason": "A final push to WhatsApp a date and get a quote" },
+    { "type": "contact",     "reason": "Shop address, phone, WhatsApp, map and a booking form" },
+    { "type": "footer",      "reason": "Quick links, social icons and service-area lines" }
+  ],
+
+  "business": {
+    "phone": "+91 98220 41567",
+    "whatsapp": "+91 98220 41567",
+    "email": "hello@gulmohardecor.in",
+    "address": "Shop 14, Sitabuldi Main Road, Nagpur, Maharashtra 440012",
+    "social": {
+      "instagram": "https://instagram.com/",
+      "facebook": "https://facebook.com/",
+      "youtube": "https://youtube.com/"
+    }
+  },
+
+  "content": {
+    "header": {
+      "variant": "left",
+      "props": {
+        "sticky": true,
+        "showCart": true,
+        "showAccount": true,
+        "links": [
+          { "text": "Home",        "href": "/" },
+          { "text": "Decorations", "href": "/decorations" },
+          { "text": "Shop",        "href": "/shop" },
+          { "text": "Contact",     "href": "/contact" }
+        ],
+        "cta": { "text": "Book Decoration", "href": "/contact", "style": "primary" }
+      }
+    },
+
+    "hero": {
+      "variant": "centered-bg",
+      "props": {
+        "badge": "Car decoration from ₹2,499 · Same-day slots",
+        "heading": "Flowers that arrive before you do",
+        "sub": "Wedding car decoration, stage and mandap floral work, haldi and entrance decor across Nagpur. Fresh flowers cut the same morning, fitted on site, and finished a full hour before your muhurat.",
+        "image": "https://images.pexels.com/photos/38132266/pexels-photo-38132266.jpeg?auto=compress&cs=tinysrgb&w=2000",
+        "videoUrl": "https://videos.pexels.com/video-files/4317645/4317645-hd_1920_1080_25fps.mp4",
+        "fullHeight": true,
+        "ctaPrimary":   { "text": "See Decoration Packages", "href": "/shop", "style": "primary" },
+        "ctaSecondary": { "text": "Check My Date", "href": "/contact", "style": "ghost" },
+        "showWhatsapp": true,
+        "showCall": true
+      },
+      "style": { "overlay": 0.58 }
+    },
+
+    "about": {
+      "variant": "image-right",
+      "props": {
+        "label": "About Us",
+        "heading": "A flower shop that keeps wedding-morning hours",
+        "body": "Gulmohar started in 2009 as a single garland counter on Sitabuldi Main Road, tying marigold for the temples across the street.\n\nThe car decoration came later, almost by accident — a customer asked us to dress his brother's Ambassador for a baraat, and we have been doing it ever since. Today car work is more than half of what we do, and we still tie the temple garlands every morning.\n\nWe buy at the Kalamna flower market between 4 and 5 a.m., which is why our roses open on your wedding day and not the night before. Everything is fitted on site by our own team, and we finish a full hour before your muhurat — never at the last minute, never while the baraat waits.",
+        "image": "https://images.pexels.com/photos/5566818/pexels-photo-5566818.jpeg?auto=compress&cs=tinysrgb&w=1400",
+        "showPillars": true,
+        "pillars": [
+          { "icon": "clock",       "title": "Finished an hour early",  "text": "We fit and finish a full hour before your muhurat, so nothing is being tied while the baraat is waiting." },
+          { "icon": "flower",      "title": "Cut the same morning",    "text": "Bought at Kalamna market between 4 and 5 a.m. — the flowers open on your day, not the night before." },
+          { "icon": "car",         "title": "Fitted without damage",   "text": "Magnetic and suction mounts only. No tape on your paint, no adhesive, no scratches — we remove everything after." },
+          { "icon": "badge-check", "title": "Fixed written quote",     "text": "The price we confirm on WhatsApp is the price on the bill. No festival surcharge added on the day." }
+        ]
+      }
+    },
+
+    "services": {
+      "variant": "cards-3",
+      "props": {
+        "label": "What We Decorate",
+        "heading": "From one car to the whole venue",
+        "sub": "Every job is quoted on the flowers you pick and the size of the space — tell us the date and we will send a written estimate the same day.",
+        "items": [
+          {
+            "image": "https://images.pexels.com/photos/19464961/pexels-photo-19464961.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Wedding Car Decoration",
+            "desc": "Bonnet arrangements, door and mirror work, ribbon trails and full-car floral dressing — fitted at your home or the venue, with no tape on the paint.",
+            "meta": "Fitted in 45–90 min",
+            "price": "From ₹2,499"
+          },
+          {
+            "image": "https://images.pexels.com/photos/34079355/pexels-photo-34079355.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Stage & Mandap Decoration",
+            "desc": "Floral mandaps, backdrops, pillars and seating for weddings and receptions — designed to your stage size and colour scheme.",
+            "meta": "Site visit included",
+            "price": "From ₹14,999"
+          },
+          {
+            "image": "https://images.pexels.com/photos/38721726/pexels-photo-38721726.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Haldi & Mehendi Decor",
+            "desc": "Marigold curtains, seating swings, umbrellas and photo corners in the bright yellows and oranges the function is meant to be.",
+            "meta": "Set up in 3–4 hours",
+            "price": "From ₹8,999"
+          },
+          {
+            "image": "https://images.pexels.com/photos/33508474/pexels-photo-33508474.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Entrance & Gate Decoration",
+            "desc": "Welcome gates, arched entrances and pathway florals — the first thing your guests photograph, so we build it to be photographed.",
+            "meta": "Arch, gate or pathway",
+            "price": "From ₹6,999"
+          },
+          {
+            "image": "https://images.pexels.com/photos/14457438/pexels-photo-14457438.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Birthday & Anniversary Decor",
+            "desc": "Room and terrace setups with flowers, balloons and lights — surprise arrangements set up while they are out of the house.",
+            "meta": "Home or banquet",
+            "price": "From ₹3,499"
+          },
+          {
+            "image": "https://images.pexels.com/photos/12087682/pexels-photo-12087682.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Garlands & Daily Flowers",
+            "desc": "Marigold, jasmine and rose garlands for temples, offices, poojas and shop openings — with a standing daily-delivery option.",
+            "meta": "Daily delivery available",
+            "price": "From ₹149"
+          }
+        ]
+      }
+    },
+
+    "products": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Book Online",
+        "heading": "Packages you can order today",
+        "sub": "Pick your flowers, coverage and size — the price updates as you choose. Book at least 48 hours ahead; same-day slots depend on availability, so call to confirm.",
+        "showRelated": true,
+        "relatedHeading": "Often booked together",
+        "items": [
+          {
+            "image": "https://images.pexels.com/photos/38132266/pexels-photo-38132266.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Classic Rose Car Decoration",
+            "desc": "A heart or oval rose arrangement across the bonnet, with matching mirror and handle work. Our most-booked car package.",
+            "meta": "Fitted on site · 45–60 min",
+            "price": "₹2,499",
+            "mrp": "₹3,200",
+            "slug": "classic-rose-car-decoration",
+            "enableOrder": true,
+            "body": "The package most of our baraat customers book, and the one we have fitted more than any other.\n\nA rose arrangement is built across the bonnet in a heart or oval, with smaller matching pieces on the wing mirrors and door handles. If you choose the wider coverage we carry the flowers down the doors and add a ribbon trail along the boot.\n\nEverything mounts with magnets and suction cups. There is no tape, no glue and nothing adhesive touching your paint, and we come back to remove it all after the function at no extra cost.\n\nWe reach your address 90 minutes before you need the car and finish a clear hour before you leave. Tell us the car's colour when you book and we will match the ribbon to it.",
+            "productInfoTitle": "Package Details",
+            "productInfo": [
+              { "label": "Fitting time",  "value": "45–60 minutes on site" },
+              { "label": "Mounting",      "value": "Magnetic + suction, no tape" },
+              { "label": "Removal",       "value": "Included, same day" },
+              { "label": "Travel",        "value": "Free within Nagpur city" },
+              { "label": "Booking",       "value": "48 hours ahead preferred" },
+              { "label": "Freshness",     "value": "Cut the same morning" }
+            ],
+            "attributes": [
+              {
+                "name": "Flower",
+                "options": [
+                  { "value": "Red Rose" },
+                  { "value": "Pink Rose" },
+                  { "value": "Mixed Seasonal" }
+                ]
+              },
+              {
+                "name": "Coverage",
+                "options": [
+                  { "value": "Bonnet Only" },
+                  { "value": "Bonnet + Doors" },
+                  { "value": "Full Car" }
+                ]
+              }
+            ],
+            "variants": [
+              { "option1": "Red Rose",       "option2": "Bonnet Only",    "sku": "CAR-CL-RR-B", "price": "₹2,499", "mrp": "₹3,200", "stock": 12 },
+              { "option1": "Red Rose",       "option2": "Bonnet + Doors", "sku": "CAR-CL-RR-D", "price": "₹4,299", "mrp": "₹5,400", "stock": 10 },
+              { "option1": "Red Rose",       "option2": "Full Car",       "sku": "CAR-CL-RR-F", "price": "₹7,499", "mrp": "₹9,200", "stock": 6 },
+              { "option1": "Pink Rose",      "option2": "Bonnet Only",    "sku": "CAR-CL-PR-B", "price": "₹2,699", "mrp": "₹3,400", "stock": 9 },
+              { "option1": "Pink Rose",      "option2": "Bonnet + Doors", "sku": "CAR-CL-PR-D", "price": "₹4,599", "mrp": "₹5,700", "stock": 7 },
+              { "option1": "Pink Rose",      "option2": "Full Car",       "sku": "CAR-CL-PR-F", "price": "₹7,899", "mrp": "₹9,600", "stock": 4 },
+              { "option1": "Mixed Seasonal", "option2": "Bonnet Only",    "sku": "CAR-CL-MS-B", "price": "₹2,299", "mrp": "₹2,900", "stock": 14 },
+              { "option1": "Mixed Seasonal", "option2": "Bonnet + Doors", "sku": "CAR-CL-MS-D", "price": "₹3,999", "mrp": "₹5,000", "stock": 11 },
+              { "option1": "Mixed Seasonal", "option2": "Full Car",       "sku": "CAR-CL-MS-F", "price": "₹6,999", "mrp": "₹8,700", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/9128979/pexels-photo-9128979.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Royal Full-Car Decoration",
+            "desc": "Full-length floral runner from bonnet to boot, pillar work and a decorated roofline — the package for the bride and groom's car.",
+            "meta": "Premium · 90 min fitting",
+            "price": "₹11,999",
+            "mrp": "₹14,500",
+            "slug": "royal-full-car-decoration",
+            "enableOrder": true,
+            "body": "This is the car everyone photographs, so it is built to hold up in photographs.\n\nA continuous floral runner is laid from the bonnet across the roof to the boot, with worked pillars, mirror pieces and a finished roofline. The white-and-green theme is the classic choice; red rose reads stronger in evening light, and pastel pink photographs best in daylight.\n\nBecause the runner crosses the roof we need the car for a full 90 minutes, and we ask that it be washed and dry before we start — flowers do not sit well on a wet or dusty finish.\n\nMounting is magnetic and suction only, and removal after the function is included. For an open-top or vintage car, message us first so we can plan the mounting.",
+            "productInfoTitle": "Package Details",
+            "productInfo": [
+              { "label": "Fitting time",  "value": "90 minutes on site" },
+              { "label": "Coverage",      "value": "Bonnet, roof, boot, pillars" },
+              { "label": "Mounting",      "value": "Magnetic + suction, no tape" },
+              { "label": "Car prep",      "value": "Washed and dry before fitting" },
+              { "label": "Removal",       "value": "Included, same day" },
+              { "label": "Booking",       "value": "3–4 days ahead recommended" }
+            ],
+            "attributes": [
+              {
+                "name": "Theme",
+                "options": [
+                  { "value": "White & Green" },
+                  { "value": "Red Rose" },
+                  { "value": "Pastel Pink" }
+                ]
+              },
+              {
+                "name": "Car Size",
+                "options": [
+                  { "value": "Sedan" },
+                  { "value": "SUV" }
+                ]
+              }
+            ],
+            "variants": [
+              { "option1": "White & Green", "option2": "Sedan", "sku": "CAR-RY-WG-S", "price": "₹11,999", "mrp": "₹14,500", "stock": 5 },
+              { "option1": "White & Green", "option2": "SUV",   "sku": "CAR-RY-WG-U", "price": "₹13,999", "mrp": "₹16,800", "stock": 3 },
+              { "option1": "Red Rose",      "option2": "Sedan", "sku": "CAR-RY-RR-S", "price": "₹12,499", "mrp": "₹15,000", "stock": 4 },
+              { "option1": "Red Rose",      "option2": "SUV",   "sku": "CAR-RY-RR-U", "price": "₹14,499", "mrp": "₹17,400", "stock": 2 },
+              { "option1": "Pastel Pink",   "option2": "Sedan", "sku": "CAR-RY-PP-S", "price": "₹12,999", "mrp": "₹15,600", "stock": 3 },
+              { "option1": "Pastel Pink",   "option2": "SUV",   "sku": "CAR-RY-PP-U", "price": "₹14,999", "mrp": "₹17,900", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/38132269/pexels-photo-38132269.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Car Interior Floral Setup",
+            "desc": "Dashboard and rear-deck arrangements with a fresh-flower scent — for the ride home, the airport pickup or an anniversary surprise.",
+            "meta": "Inside the car · 30 min",
+            "price": "₹1,999",
+            "mrp": "₹2,600",
+            "slug": "car-interior-floral-setup",
+            "enableOrder": true,
+            "body": "Not every occasion needs the outside of the car dressed. This one works inside it.\n\nA low arrangement is fitted along the dashboard, the rear deck, or both, shaped so it never blocks your mirror or your view. We use non-slip bases so nothing moves when you brake.\n\nIt is the setup people book for an anniversary drive, a first ride home after the wedding, or an airport pickup — and it is the one arrangement we can usually do same-day.\n\nRoses carry the strongest scent in a closed car. Lilies look the most dramatic but are heavily perfumed, so tell us if anyone travelling is sensitive to it.",
+            "productInfoTitle": "Package Details",
+            "productInfo": [
+              { "label": "Fitting time", "value": "30 minutes" },
+              { "label": "Placement",    "value": "Dashboard, rear deck or both" },
+              { "label": "Safety",       "value": "Never blocks mirror or view" },
+              { "label": "Base",         "value": "Non-slip, brake-safe" },
+              { "label": "Same-day",     "value": "Usually available" }
+            ],
+            "attributes": [
+              {
+                "name": "Placement",
+                "options": [
+                  { "value": "Dashboard" },
+                  { "value": "Rear Deck" },
+                  { "value": "Both" }
+                ]
+              },
+              {
+                "name": "Flower",
+                "options": [
+                  { "value": "Rose" },
+                  { "value": "Lily" },
+                  { "value": "Mixed" }
+                ]
+              }
+            ],
+            "variants": [
+              { "option1": "Dashboard", "option2": "Rose",  "sku": "CAR-IN-D-R", "price": "₹1,999", "mrp": "₹2,600", "stock": 15 },
+              { "option1": "Dashboard", "option2": "Lily",  "sku": "CAR-IN-D-L", "price": "₹2,399", "mrp": "₹3,000", "stock": 10 },
+              { "option1": "Dashboard", "option2": "Mixed", "sku": "CAR-IN-D-M", "price": "₹2,199", "mrp": "₹2,800", "stock": 12 },
+              { "option1": "Rear Deck", "option2": "Rose",  "sku": "CAR-IN-R-R", "price": "₹2,199", "mrp": "₹2,800", "stock": 11 },
+              { "option1": "Rear Deck", "option2": "Lily",  "sku": "CAR-IN-R-L", "price": "₹2,599", "mrp": "₹3,300", "stock": 8 },
+              { "option1": "Rear Deck", "option2": "Mixed", "sku": "CAR-IN-R-M", "price": "₹2,399", "mrp": "₹3,000", "stock": 9 },
+              { "option1": "Both",      "option2": "Rose",  "sku": "CAR-IN-B-R", "price": "₹3,499", "mrp": "₹4,400", "stock": 7 },
+              { "option1": "Both",      "option2": "Lily",  "sku": "CAR-IN-B-L", "price": "₹3,999", "mrp": "₹5,000", "stock": 5 },
+              { "option1": "Both",      "option2": "Mixed", "sku": "CAR-IN-B-M", "price": "₹3,699", "mrp": "₹4,600", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/32819814/pexels-photo-32819814.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Vintage Car Decoration",
+            "desc": "Retro-styled florals for a Beetle, Ambassador or open-top — ribbons, hearts and trailing garlands built for the photographs.",
+            "meta": "Vintage & open-top",
+            "price": "₹8,999",
+            "mrp": "₹11,000",
+            "slug": "vintage-car-decoration",
+            "enableOrder": true,
+            "body": "Vintage cars are decorated differently, and we plan them differently too.\n\nOlder paint and chrome mark easily, so we work with soft ties and padded mounts instead of the magnets we use on modern cars. The styling leans retro — heart pieces on the bonnet, ribbon and tulle trails, and garlands along the running boards.\n\nOpen-top cars get a rear-seat surround, which is the shot most couples actually want.\n\nSend a photograph of the car when you enquire. Every vintage body is a different shape and we would rather plan the mounting before the day than improvise on it.",
+            "productInfoTitle": "Package Details",
+            "productInfo": [
+              { "label": "Suits",        "value": "Beetle, Ambassador, open-top" },
+              { "label": "Mounting",     "value": "Soft ties + padded, chrome-safe" },
+              { "label": "Fitting time", "value": "90–120 minutes" },
+              { "label": "Before you book", "value": "Send a photo of the car" },
+              { "label": "Removal",      "value": "Included, same day" }
+            ],
+            "attributes": [
+              {
+                "name": "Style",
+                "options": [
+                  { "value": "Classic Ribbon" },
+                  { "value": "Full Floral" }
+                ]
+              },
+              {
+                "name": "Flower",
+                "options": [
+                  { "value": "Rose" },
+                  { "value": "Marigold" },
+                  { "value": "Mixed Seasonal" }
+                ]
+              }
+            ],
+            "variants": [
+              { "option1": "Classic Ribbon", "option2": "Rose",           "sku": "CAR-VT-CR-R", "price": "₹8,999",  "mrp": "₹11,000", "stock": 4 },
+              { "option1": "Classic Ribbon", "option2": "Marigold",       "sku": "CAR-VT-CR-M", "price": "₹7,499",  "mrp": "₹9,300",  "stock": 6 },
+              { "option1": "Classic Ribbon", "option2": "Mixed Seasonal", "sku": "CAR-VT-CR-S", "price": "₹8,299",  "mrp": "₹10,300", "stock": 5 },
+              { "option1": "Full Floral",    "option2": "Rose",           "sku": "CAR-VT-FF-R", "price": "₹13,999", "mrp": "₹17,000", "stock": 2 },
+              { "option1": "Full Floral",    "option2": "Marigold",       "sku": "CAR-VT-FF-M", "price": "₹11,499", "mrp": "₹14,200", "stock": 3 },
+              { "option1": "Full Floral",    "option2": "Mixed Seasonal", "sku": "CAR-VT-FF-S", "price": "₹12,999", "mrp": "₹15,900", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/30891127/pexels-photo-30891127.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Bridal Bouquet",
+            "desc": "A hand-tied bouquet with a wrapped, ribboned handle — made the morning of, not the night before.",
+            "meta": "Made same morning",
+            "price": "₹899",
+            "mrp": "₹1,200",
+            "slug": "bridal-bouquet",
+            "enableOrder": true,
+            "body": "Hand-tied the morning of your function, so it is at its best when you are holding it and not eight hours earlier.\n\nThe handle is wrapped and ribboned to match your outfit — tell us the colour and we will match it. The medium size photographs best for most brides; the large is for a full-length lehenga shot where a smaller bouquet disappears.\n\nWe can deliver it to your home, the parlour or the venue, whichever is easier on the morning.\n\nIf you want the bouquet to match the car decoration, book both together and we will use the same flowers across the two.",
+            "productInfoTitle": "Bouquet Details",
+            "productInfo": [
+              { "label": "Made",     "value": "Morning of your function" },
+              { "label": "Handle",   "value": "Wrapped + ribboned, colour matched" },
+              { "label": "Sizes",    "value": "Medium or large" },
+              { "label": "Delivery", "value": "Home, parlour or venue" }
+            ],
+            "attributes": [
+              {
+                "name": "Flower",
+                "options": [
+                  { "value": "Rose" },
+                  { "value": "Orchid" },
+                  { "value": "Mixed Pastel" }
+                ]
+              },
+              {
+                "name": "Size",
+                "options": [
+                  { "value": "Medium" },
+                  { "value": "Large" }
+                ]
+              }
+            ],
+            "variants": [
+              { "option1": "Rose",         "option2": "Medium", "sku": "BQT-RS-M", "price": "₹899",   "mrp": "₹1,200", "stock": 20 },
+              { "option1": "Rose",         "option2": "Large",  "sku": "BQT-RS-L", "price": "₹1,499", "mrp": "₹1,900", "stock": 14 },
+              { "option1": "Orchid",       "option2": "Medium", "sku": "BQT-OR-M", "price": "₹1,699", "mrp": "₹2,100", "stock": 9 },
+              { "option1": "Orchid",       "option2": "Large",  "sku": "BQT-OR-L", "price": "₹2,499", "mrp": "₹3,100", "stock": 5 },
+              { "option1": "Mixed Pastel", "option2": "Medium", "sku": "BQT-MP-M", "price": "₹1,199", "mrp": "₹1,500", "stock": 16 },
+              { "option1": "Mixed Pastel", "option2": "Large",  "sku": "BQT-MP-L", "price": "₹1,899", "mrp": "₹2,400", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/19981725/pexels-photo-19981725.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Fresh Flower Garlands",
+            "desc": "Marigold, jasmine and rose garlands by the piece or in bulk — for temples, poojas, shop openings and welcome lines.",
+            "meta": "Bulk rates · Daily delivery",
+            "price": "₹149",
+            "mrp": "₹200",
+            "slug": "fresh-flower-garlands",
+            "enableOrder": true,
+            "body": "The work we started with, and still the first thing tied every morning.\n\nGarlands are made to the length you order — 3 feet for a welcome garland or a photo frame, 5 feet for doorways and pillars, 8 feet for stage edges and gate work.\n\nMarigold lasts longest and holds colour in the sun, which is why it is the standard for outdoor and daytime work. Jasmine is the most fragrant but wilts fastest, so we cut it as late as we can. The marigold-and-jasmine mix is the usual choice for weddings.\n\nFor temples, offices and shops we run a standing daily delivery before 7 a.m. at a lower per-piece rate. Bulk orders above 50 garlands need 24 hours' notice.",
+            "productInfoTitle": "Garland Details",
+            "productInfo": [
+              { "label": "Lengths",       "value": "3 ft, 5 ft or 8 ft" },
+              { "label": "Longest life",  "value": "Marigold — best outdoors" },
+              { "label": "Most fragrant", "value": "Jasmine — cut latest" },
+              { "label": "Daily delivery","value": "Before 7 a.m., lower rate" },
+              { "label": "Bulk notice",   "value": "24 hours above 50 pieces" }
+            ],
+            "attributes": [
+              {
+                "name": "Flower",
+                "options": [
+                  { "value": "Marigold" },
+                  { "value": "Marigold & Jasmine" },
+                  { "value": "Rose" }
+                ]
+              },
+              {
+                "name": "Length",
+                "options": [
+                  { "value": "3 ft" },
+                  { "value": "5 ft" },
+                  { "value": "8 ft" }
+                ]
+              }
+            ],
+            "variants": [
+              { "option1": "Marigold",           "option2": "3 ft", "sku": "GRL-MG-3", "price": "₹149", "mrp": "₹200", "stock": 200 },
+              { "option1": "Marigold",           "option2": "5 ft", "sku": "GRL-MG-5", "price": "₹229", "mrp": "₹300", "stock": 150 },
+              { "option1": "Marigold",           "option2": "8 ft", "sku": "GRL-MG-8", "price": "₹349", "mrp": "₹450", "stock": 90 },
+              { "option1": "Marigold & Jasmine", "option2": "3 ft", "sku": "GRL-MJ-3", "price": "₹229", "mrp": "₹300", "stock": 120 },
+              { "option1": "Marigold & Jasmine", "option2": "5 ft", "sku": "GRL-MJ-5", "price": "₹349", "mrp": "₹450", "stock": 80 },
+              { "option1": "Marigold & Jasmine", "option2": "8 ft", "sku": "GRL-MJ-8", "price": "₹499", "mrp": "₹650", "stock": 50 },
+              { "option1": "Rose",               "option2": "3 ft", "sku": "GRL-RS-3", "price": "₹299", "mrp": "₹380", "stock": 100 },
+              { "option1": "Rose",               "option2": "5 ft", "sku": "GRL-RS-5", "price": "₹449", "mrp": "₹580", "stock": 60 },
+              { "option1": "Rose",               "option2": "8 ft", "sku": "GRL-RS-8", "price": "₹649", "mrp": "₹840", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/33469001/pexels-photo-33469001.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Stage Backdrop Package",
+            "desc": "A full floral backdrop with pillars and seating florals, built to your stage width — for weddings, receptions and sangeet.",
+            "meta": "Site visit · Setup included",
+            "price": "₹14,999",
+            "mrp": "₹18,500",
+            "slug": "stage-backdrop-package",
+            "enableOrder": true,
+            "body": "Priced by stage width, because that is what actually determines the work.\n\nA 10-foot backdrop suits a home function or a small hall. 16 feet is the usual banquet stage. 24 feet is for a large lawn or a hotel ballroom, where anything narrower looks lost.\n\nFresh flowers are unmatched for a daytime function and photograph beautifully, but they are cut that morning and are at their best for about eight hours. Premium artificial holds up for a multi-day function, an outdoor mandap in peak summer, or a late-night reception — and it costs less.\n\nEvery booking includes a site visit before the day. Setup and teardown are included; we arrive the morning of unless your venue only allows access the night before.",
+            "productInfoTitle": "Package Details",
+            "productInfo": [
+              { "label": "Priced by",    "value": "Stage width" },
+              { "label": "Includes",     "value": "Backdrop, pillars, seating florals" },
+              { "label": "Site visit",   "value": "Included before the day" },
+              { "label": "Setup",        "value": "Included, plus teardown" },
+              { "label": "Fresh life",   "value": "Best for about 8 hours" },
+              { "label": "Booking",      "value": "7 days ahead recommended" }
+            ],
+            "attributes": [
+              {
+                "name": "Stage Width",
+                "options": [
+                  { "value": "10 ft" },
+                  { "value": "16 ft" },
+                  { "value": "24 ft" }
+                ]
+              },
+              {
+                "name": "Flower Type",
+                "options": [
+                  { "value": "Fresh Flowers" },
+                  { "value": "Premium Artificial" }
+                ]
+              }
+            ],
+            "variants": [
+              { "option1": "10 ft", "option2": "Fresh Flowers",      "sku": "STG-10-F", "price": "₹14,999", "mrp": "₹18,500", "stock": 6 },
+              { "option1": "10 ft", "option2": "Premium Artificial", "sku": "STG-10-A", "price": "₹11,999", "mrp": "₹14,900", "stock": 8 },
+              { "option1": "16 ft", "option2": "Fresh Flowers",      "sku": "STG-16-F", "price": "₹24,999", "mrp": "₹30,500", "stock": 4 },
+              { "option1": "16 ft", "option2": "Premium Artificial", "sku": "STG-16-A", "price": "₹19,999", "mrp": "₹24,500", "stock": 5 },
+              { "option1": "24 ft", "option2": "Fresh Flowers",      "sku": "STG-24-F", "price": "₹42,999", "mrp": "₹52,000", "stock": 2 },
+              { "option1": "24 ft", "option2": "Premium Artificial", "sku": "STG-24-A", "price": "₹33,999", "mrp": "₹41,500", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/34808254/pexels-photo-34808254.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Table Centerpieces",
+            "desc": "Low or tall arrangements for guest tables — priced per table, delivered arranged and ready to place.",
+            "meta": "Per table · Min 5 tables",
+            "price": "₹699",
+            "mrp": "₹900",
+            "slug": "table-centerpieces",
+            "enableOrder": true,
+            "body": "Priced per table and delivered already arranged, so your venue staff only have to place them.\n\nLow arrangements sit under eye level and let guests talk across the table — the right choice for a dinner. Tall arrangements on a raised stand make far more impact in photographs and suit a reception, where people are moving around rather than seated.\n\nMinimum order is 5 tables. Vases are included on loan and collected the next day; if one goes missing we simply do not charge for it.\n\nOrder these with a stage backdrop and we will use the same flowers so the room reads as one setup.",
+            "productInfoTitle": "Package Details",
+            "productInfo": [
+              { "label": "Priced",     "value": "Per table" },
+              { "label": "Minimum",    "value": "5 tables" },
+              { "label": "Low style",  "value": "Under eye level, for dinners" },
+              { "label": "Tall style", "value": "Raised stand, for receptions" },
+              { "label": "Vases",      "value": "Included on loan, collected next day" }
+            ],
+            "attributes": [
+              {
+                "name": "Style",
+                "options": [
+                  { "value": "Low" },
+                  { "value": "Tall" }
+                ]
+              },
+              {
+                "name": "Flower",
+                "options": [
+                  { "value": "Rose" },
+                  { "value": "Mixed Seasonal" },
+                  { "value": "Orchid" }
+                ]
+              }
+            ],
+            "variants": [
+              { "option1": "Low",  "option2": "Rose",           "sku": "TBL-LO-R", "price": "₹699",   "mrp": "₹900",   "stock": 60 },
+              { "option1": "Low",  "option2": "Mixed Seasonal", "sku": "TBL-LO-M", "price": "₹599",   "mrp": "₹780",   "stock": 80 },
+              { "option1": "Low",  "option2": "Orchid",         "sku": "TBL-LO-O", "price": "₹1,099", "mrp": "₹1,400", "stock": 30 },
+              { "option1": "Tall", "option2": "Rose",           "sku": "TBL-TA-R", "price": "₹1,299", "mrp": "₹1,650", "stock": 40 },
+              { "option1": "Tall", "option2": "Mixed Seasonal", "sku": "TBL-TA-M", "price": "₹1,099", "mrp": "₹1,400", "stock": 50 },
+              { "option1": "Tall", "option2": "Orchid",         "sku": "TBL-TA-O", "price": "₹1,899", "mrp": "₹2,400", "stock": 0 }
+            ]
+          }
+        ]
+      }
+    },
+
+    "gallery": {
+      "variant": "grid-3",
+      "props": {
+        "label": "Our Work",
+        "heading": "Recently decorated",
+        "sub": "Cars, stages and entrances from the last season — all of it fitted by our own team.",
+        "lightbox": true,
+        "images": [
+          { "image": "https://images.pexels.com/photos/33921055/pexels-photo-33921055.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "White wedding car with a white and green bonnet arrangement" },
+          { "image": "https://images.pexels.com/photos/11474248/pexels-photo-11474248.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Pink and cream flowers arranged across a car bonnet" },
+          { "image": "https://images.pexels.com/photos/11474253/pexels-photo-11474253.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Pastel floral piece with ribbon trails on a car" },
+          { "image": "https://images.pexels.com/photos/38132273/pexels-photo-38132273.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Floral arrangement fitted inside a car interior" },
+          { "image": "https://images.pexels.com/photos/13044866/pexels-photo-13044866.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Black luxury car dressed with a floral garland" },
+          { "image": "https://images.pexels.com/photos/37399553/pexels-photo-37399553.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Vintage car with a colourful bouquet on the bonnet" },
+          { "image": "https://images.pexels.com/photos/12584803/pexels-photo-12584803.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Wedding stage with a floral arch and seating" },
+          { "image": "https://images.pexels.com/photos/18836899/pexels-photo-18836899.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Reception stage with pink drapes and floral work" },
+          { "image": "https://images.pexels.com/photos/36669332/pexels-photo-36669332.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Stage in white and green drapery with floral detail" },
+          { "image": "https://images.pexels.com/photos/35124359/pexels-photo-35124359.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Close-up of fresh orange marigold garlands" },
+          { "image": "https://images.pexels.com/photos/14703685/pexels-photo-14703685.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "White floral aisle and arch set up outdoors" },
+          { "image": "https://images.pexels.com/photos/33104578/pexels-photo-33104578.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Long guest table with pink and white centerpieces" }
+        ]
+      }
+    },
+
+    "stats": {
+      "variant": "cards",
+      "props": {
+        "label": "By the Numbers",
+        "heading": "Sixteen seasons of weddings",
+        "sub": "What we have actually done, counted from our own booking register.",
+        "countUp": true,
+        "items": [
+          { "icon": "calendar", "value": 16,   "suffix": "+", "label": "Years Decorating" },
+          { "icon": "car",      "value": 4200, "suffix": "+", "label": "Cars Decorated" },
+          { "icon": "sparkles", "value": 1800, "suffix": "+", "label": "Events Covered" },
+          { "icon": "clock",    "value": 100,  "suffix": "%", "label": "On-Time Record" }
+        ]
+      }
+    },
+
+    "testimonials": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Reviews",
+        "heading": "What our customers say",
+        "items": [
+          {
+            "quote": "They reached my house at six in the morning and the car was ready by seven, exactly as promised. Not one piece of tape on the paint, and they came back that night to take it all off.",
+            "name": "Rohit Kalbande",
+            "role": "Baraat car, Nagpur",
+            "rating": 5
+          },
+          {
+            "quote": "We booked the stage backdrop and the table centerpieces together and they used the same flowers for both. The whole hall looked like one thought instead of three separate orders.",
+            "name": "Sneha Wankhede",
+            "role": "Reception, Civil Lines",
+            "rating": 5
+          },
+          {
+            "quote": "The quote they sent on WhatsApp was the amount on the bill. It was Diwali week and nothing was added on the day, which honestly surprised me.",
+            "name": "Imran Sheikh",
+            "role": "Shop opening",
+            "rating": 5
+          }
+        ]
+      }
+    },
+
+    "blog": {
+      "variant": "grid-3",
+      "props": {
+        "label": "Guides",
+        "heading": "Before you book",
+        "sub": "The questions customers ask us most often, answered properly.",
+        "posts": [
+          {
+            "image": "https://images.pexels.com/photos/18006119/pexels-photo-18006119.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Will flower decoration damage your car's paint?",
+            "date": "28 Jul 2026",
+            "excerpt": "Not if it is fitted properly. What magnetic and suction mounting actually means, why tape and glue should never touch your paint, and what to check before the decorator starts.",
+            "linkText": "Read the guide"
+          },
+          {
+            "image": "https://images.pexels.com/photos/12087682/pexels-photo-12087682.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Marigold, rose or jasmine: which lasts longest?",
+            "date": "15 Jul 2026",
+            "excerpt": "Marigold holds colour all day in the sun, jasmine is the most fragrant but wilts fastest, and rose sits in between. How to choose for a daytime or evening function.",
+            "linkText": "Read the guide"
+          },
+          {
+            "image": "https://images.pexels.com/photos/16120224/pexels-photo-16120224.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "How far ahead should you book a decorator?",
+            "date": "2 Jul 2026",
+            "excerpt": "Forty-eight hours is enough for a car. A stage needs a week and a site visit. In wedding season, the good dates go a month out — here is how the calendar really fills.",
+            "linkText": "Read the guide"
+          }
+        ]
+      }
+    },
+
+    "faq": {
+      "variant": "accordion",
+      "props": {
+        "label": "FAQ",
+        "heading": "Questions customers ask us",
+        "openFirst": true,
+        "items": [
+          {
+            "q": "Will the decoration damage my car's paint?",
+            "a": "No. We mount everything with magnets and suction cups — no tape, no glue and nothing adhesive touches your paint. We also come back after the function to remove it all at no extra cost. For vintage cars, where the paint and chrome are more delicate, we use padded soft ties instead."
+          },
+          {
+            "q": "How far in advance should I book?",
+            "a": "Forty-eight hours is enough for a car decoration. Stage and mandap work needs about a week because it includes a site visit. During wedding season and around major festivals the good dates go a month ahead, so book as early as you can once your date is fixed."
+          },
+          {
+            "q": "How long do fresh flowers last on the day?",
+            "a": "Fresh flowers are cut the same morning and look their best for roughly eight hours, which covers a normal function comfortably. For a multi-day event, an outdoor mandap in peak summer, or a late-night reception, we recommend premium artificial — it holds up right through and costs less."
+          },
+          {
+            "q": "Do you travel outside Nagpur?",
+            "a": "Yes. Travel is free anywhere inside Nagpur city. Beyond city limits we add a travel charge based on distance, quoted in writing before you confirm. We regularly cover Wardha, Bhandara, Katol and Ramtek."
+          },
+          {
+            "q": "What if it rains on the day?",
+            "a": "Car decorations are fitted under cover wherever possible and we carry replacement flowers to touch up afterwards at no charge. For outdoor stage work we will advise you honestly at the site visit about what will and will not survive weather, and suggest a covered alternative if the forecast is bad."
+          },
+          {
+            "q": "Can I cancel or change my booking?",
+            "a": "Cancel more than 48 hours before and the advance is fully refunded. Inside 48 hours the flowers have already been bought at market, so the advance is not refundable — but we will happily move your booking to another date at no cost. Changes to flowers or coverage are free until 24 hours before."
+          },
+          {
+            "q": "How do I pay, and is a deposit required?",
+            "a": "We take 30% as an advance to confirm the date and the balance on the day, by UPI, card or cash. The written quote is the final amount — we do not add festival or peak-season surcharges after you have confirmed."
+          }
+        ]
+      }
+    },
+
+    "cta": {
+      "variant": "banner",
+      "props": {
+        "heading": "Tell us your date",
+        "sub": "Send us the date, the car or the venue, and roughly what you have in mind. We will send a written quote the same day — no visit needed to get a price.",
+        "ctaPrimary": { "text": "Get a Quote", "href": "/contact", "style": "primary" },
+        "showWhatsapp": true,
+        "showCall": true
+      }
+    },
+
+    "contact": {
+      "variant": "form-map",
+      "props": {
+        "label": "Reach Us",
+        "heading": "Book a decoration",
+        "sub": "The shop is open from 6 a.m. — we are usually back from the flower market by seven. Send your date and we will confirm availability the same day.",
+        "showPhone": true,
+        "showWhatsapp": true,
+        "showEmail": true,
+        "showAddress": true,
+        "showHours": true,
+        "showMap": true,
+        "submitText": "Send Booking Request"
+      }
+    },
+
+    "footer": {
+      "variant": "columns",
+      "props": {
+        "blurb": "Gulmohar Flower Decor — wedding car decoration, stage and mandap floral work, haldi and entrance decor across Nagpur. Flowers bought at Kalamna market every morning and fitted by our own team.",
+        "showContact": true,
+        "showHours": true,
+        "showSocial": true,
+        "showLegal": true,
+        "columns": [
+          {
+            "title": "Explore",
+            "links": [
+              { "text": "Home",        "href": "/" },
+              { "text": "Decorations", "href": "/decorations" },
+              { "text": "Shop",        "href": "/shop" },
+              { "text": "Contact",     "href": "/contact" }
+            ]
+          },
+          {
+            "title": "Popular",
+            "links": [
+              { "text": "Wedding Car Decoration", "href": "/shop" },
+              { "text": "Stage & Mandap",         "href": "/decorations" },
+              { "text": "Haldi Decor",            "href": "/decorations" },
+              { "text": "Garlands",               "href": "/shop" }
+            ]
+          },
+          {
+            "title": "Connect",
+            "links": [
+              { "text": "Instagram", "href": "https://instagram.com/" },
+              { "text": "Facebook",  "href": "https://facebook.com/" },
+              { "text": "YouTube",   "href": "https://youtube.com/" },
+              { "text": "WhatsApp",  "href": "https://wa.me/919822041567" }
+            ]
+          }
+        ],
+        "copyright": "© 2026 Gulmohar Flower Decor. All rights reserved.",
+        "termsBody": "Prices are quoted in writing before booking and are the final amount payable; no festival or peak-season surcharge is added after a booking is confirmed. A 30% advance confirms the date, with the balance due on the day of the function. Cancellations more than 48 hours before the booked date are refunded in full; inside 48 hours the advance is non-refundable as flowers have already been purchased, but the booking may be moved to another date at no cost. Fresh flowers are cut on the morning of the function and are at their best for approximately eight hours; premium artificial is recommended for multi-day, peak-summer outdoor or late-night events. Car decorations are fitted using magnetic and suction mounts only, with no adhesive contact with paintwork, and removal after the function is included. Travel within Nagpur city is free; outside city limits a distance-based travel charge applies and is quoted before confirmation. Replace this text with your own terms, reviewed by your legal advisor, before going live."
+      }
+    }
+  },
+
+  "pages": [
+    {
+      "id": "home",
+      "slug": "/",
+      "title": "Home",
+      "seo": {
+        "title": "Gulmohar Flower Decor | Wedding Car & Stage Decoration in Nagpur",
+        "description": "Wedding car decoration from ₹2,499, stage and mandap floral work, haldi and entrance decor across Nagpur. Fresh flowers cut the same morning, fitted on site.",
+        "robots": "index,follow"
+      },
+      "sections": ["header", "hero", "about", "services", "products", "stats", "testimonials", "cta", "contact", "footer"]
+    },
+    {
+      "id": "decorations",
+      "slug": "/decorations",
+      "title": "Decorations",
+      "seo": {
+        "title": "Our Decoration Services | Gulmohar Flower Decor",
+        "description": "Car decoration, stage and mandap florals, haldi and mehendi decor, entrance gates, birthday setups and daily garlands — with real photographs of past work.",
+        "robots": "index,follow"
+      },
+      "sections": ["services", "gallery", "faq", "cta"],
+      "content": {
+        "services": {
+          "props": {
+            "label": "Everything We Do",
+            "heading": "Decoration services",
+            "sub": "Six kinds of work, one team. Every job is quoted on the flowers you pick and the size of the space — send us your date for a written estimate the same day."
+          }
+        }
+      }
+    },
+    {
+      "id": "shop",
+      "slug": "/shop",
+      "title": "Shop",
+      "seo": {
+        "title": "Book Flower Decoration Online | Gulmohar Flower Decor",
+        "description": "Order car decoration packages, bridal bouquets, fresh garlands, stage backdrops and table centerpieces online. Pick your flowers, coverage and size.",
+        "robots": "index,follow"
+      },
+      "sections": ["products", "gallery", "faq"],
+      "content": {
+        "products": {
+          "props": {
+            "label": "The Full Catalogue",
+            "heading": "Every package, ready to book",
+            "sub": "Car decoration, bouquets, garlands, stage backdrops and centerpieces. Choose your flowers, coverage and size — the price updates as you pick, and you can book the date right here."
+          }
+        },
+        "gallery": {
+          "props": {
+            "label": "In Real Life",
+            "heading": "How these packages look on the day",
+            "sub": "Photographs of the same packages, fitted at real functions across Nagpur."
+          }
+        }
+      }
+    },
+    {
+      "id": "contact",
+      "slug": "/contact",
+      "title": "Contact",
+      "seo": {
+        "title": "Contact & Booking | Gulmohar Flower Decor, Nagpur",
+        "description": "Visit the shop on Sitabuldi Main Road, Nagpur, or message us on WhatsApp with your date. Written quotes the same day, open from 6 a.m.",
+        "robots": "index,follow"
+      },
+      "sections": ["contact", "faq", "cta"]
+    }
+  ],
+
+  "notes": "CONTENT MODEL: Built as a flower decoration business (Gulmohar Flower Decor) on Sitabuldi Main Road, Nagpur, with WEDDING CAR DECORATION as the lead offering — it is the hero promise, the first three products, and the first service card. Four real pages via the recipe-level 'pages' array (consumed by api/sites/create.php): Home (/), Decorations (/decorations), Shop (/shop) and Contact (/contact). The header nav and footer links point at those slugs, so the site is genuinely multi-page out of the box; the renderer auto-fills header/footer on pages that don't carry them. Per-page 'content' overrides retitle the shared services/products/gallery sections so the same section reads differently on each page.\n\nVIDEO: The home hero plays a muted, looping, autoplay background video of hanging rose garlands (videoUrl — a direct MP4 from Pexels) under a 0.58 overlay, rendering light-on-dark. The 'image' field is the static fallback and is deliberately a car-decoration shot, so the car focus reads even if the video is blocked or slow. Both should be swapped for the business's own footage before going live.\n\nIMAGES: All photos are hosted Pexels CDN URLs (https://images.pexels.com/photos/<id>/pexels-photo-<id>.jpeg?auto=compress&cs=tinysrgb&w=...). SiteRenderer::media passes any http(s) URL through untouched. EVERY URL in this file was fetched and visually checked before being used — two candidates were dropped because the deterministic filename pattern 404s for some Pexels photos, so do NOT add an id here without downloading it first. A few ids repeat across gallery/blog deliberately; all should be replaced with the business's own photography before going live.\n\nPRODUCTS: Eight packages exercise the full products manifest — nested attributes, per-combination variants with SKU/price/MRP/stock, body copy, productInfo tables and slugs for individual product pages. The attribute axes are the ones this trade actually sells on: Flower × Coverage for cars, Stage Width × Fresh-vs-Artificial for backdrops, Flower × Length for garlands. Variant option strings must match the attribute option values EXACTLY or the renderer shows 'combination not available'. The last variant of each product is deliberately stock 0 to exercise the out-of-stock and disabled add-to-cart states.\n\nPRICING: Set at realistic Indian flower-decoration market levels for a tier-2 city as of mid-2026 — car decoration ₹2,499–₹14,999, garlands ₹149–₹649, stage backdrops ₹11,999–₹42,999. Fresh is priced ABOVE premium artificial throughout, which matches the trade. Verify against the business's own rate card before going live.\n\nTRUST SIGNALS: The decisive objections in this trade are paint damage, wilting and last-minute no-shows, so 'no tape on your paint', 'cut the same morning', 'finished an hour before the muhurat' and 'the quote is the bill' run through the hero, about pillars, FAQ, reviews and terms. Keep these even when the copy is rewritten.\n\nNO TEAM SECTION: Deliberately omitted, following the salon/gym/wedding convention of not pairing stock photographs with invented staff names — and to keep the site to the four pages requested.\n\nBUSINESS INFO: Address is Sitabuldi Main Road, Nagpur, with the Kalamna flower market referenced in the about copy as the sourcing story. Phone, WhatsApp and email are placeholders to be replaced. Social is Instagram, Facebook and YouTube — Instagram is by far the most important channel for this trade.\n\nTHEME: velvet-rose (deep rose, gold accent, ivory background, Playfair headings) — already tagged for wedding/event and linked both ways via the theme's industries array."
+}

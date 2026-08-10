@@ -2,28 +2,33 @@
   "preset": "velvet-rose",
   "label": "Velvet Rose",
   "description": "Warm ivory, deep burgundy and champagne gold with a dusty-rose complement. Romantic, elegant and premium — suits wedding photographers, event planners, luxury creatives and bridal studios.",
-  "industries": ["wedding", "event", "photography"],
-
+  "industries": [
+    "wedding",
+    "event",
+    "photography",
+    "flower-decoration",
+    "florist",
+    "flowers"
+  ],
   "tokens": {
     "mode": "light",
     "color": {
-      "primary":   "#9B1B30",
+      "primary": "#9B1B30",
       "secondary": "#CD5C5C",
-      "accent":    "#C9A96E",
-      "bg":        "#FCF6F0",
-      "surface":   "#FFFFFF",
-      "text":      "#2C2420",
-      "muted":     "#9C8F89",
-      "border":    "#E8DDD4"
+      "accent": "#C9A96E",
+      "bg": "#FCF6F0",
+      "surface": "#FFFFFF",
+      "text": "#2C2420",
+      "muted": "#9C8F89",
+      "border": "#E8DDD4"
     },
     "font": {
       "heading": "Playfair Display",
-      "body":    "Lora"
+      "body": "Lora"
     },
-    "radius":    "lg",
-    "spacing":   "spacious",
+    "radius": "lg",
+    "spacing": "spacious",
     "container": "normal"
   },
-
   "notes": "Tokens only — sections never hardcode colours, they read these as CSS variables. The warm ivory bg and deep burgundy primary give this theme its romantic, editorial feel. Serif fonts (Playfair Display for headings, Lora for body) are a deliberate departure from the Inter default used by all other themes — serifs read as luxury and craft, which fits the wedding and event space. The champagne gold accent is warm enough for WCAG AA at 4.5:1 against the dark text colour. Changing `primary` here restyles every section, every page, instantly."
 }
