@@ -48,8 +48,17 @@ class SiteValidator
             return ['Document must be a JSON object.'];
         }
 
+        // A document that will not encode must be rejected here, not waved
+        // through. Skipping the size check on false let an unencodable document
+        // reach SiteRepo::saveDraft, which then stored the false as an empty
+        // string — the customer's draft silently wiped while the API reported
+        // success.
         $encoded = json_encode($doc);
-        if ($encoded !== false && strlen($encoded) > self::MAX_DOC_BYTES) {
+        if ($encoded === false) {
+            $this->err('', 'Document could not be encoded (' . json_last_error_msg() . ').');
+            return $this->errors;
+        }
+        if (strlen($encoded) > self::MAX_DOC_BYTES) {
             $this->err('', 'Document is too large (max ' . round(self::MAX_DOC_BYTES / 1048576, 1) . ' MB).');
             return $this->errors;
         }

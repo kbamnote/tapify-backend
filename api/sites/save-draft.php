@@ -53,14 +53,11 @@ try {
     $validator = new SiteValidator();
     $errors = $validator->validate($doc, false);
     if ($errors) {
-        http_response_code(422);
-        header('Content-Type: application/json');
-        echo json_encode([
+        emitJson([
             'success' => false,
             'message' => 'Document is invalid (' . count($errors) . ' problem' . (count($errors) === 1 ? '' : 's') . ')',
             'errors'  => array_slice($errors, 0, 50),
-        ]);
-        exit;
+        ], 422);
     }
 
     // ---- save (optimistic lock inside) ----
@@ -78,15 +75,12 @@ try {
     $fresh = SiteRepo::findById($siteId);
     $draft = $fresh ? SiteRepo::getDraft($fresh) : null;
 
-    http_response_code(409);
-    header('Content-Type: application/json');
-    echo json_encode([
+    emitJson([
         'success'  => false,
         'conflict' => true,
         'message'  => $e->getMessage(),
         'current'  => $draft ? ['rev' => $draft['rev'], 'doc' => $draft['doc'], 'updated_at' => $draft['updated_at']] : null,
-    ]);
-    exit;
+    ], 409);
 
 } catch (Exception $e) {
     sendError('Failed to save draft: ' . $e->getMessage(), 500);

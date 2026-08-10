@@ -161,9 +161,20 @@ define('FACEBOOK_WA_APP_ID',     getenv('FACEBOOK_WA_APP_ID')     ?: '');
 define('FACEBOOK_WA_APP_SECRET', getenv('FACEBOOK_WA_APP_SECRET') ?: '');
 define('FACEBOOK_WA_CONFIG_ID',  getenv('FACEBOOK_WA_CONFIG_ID')  ?: '');
 
-// Error reporting
+// Error reporting.
+//
+// Everything is still REPORTED and written to the error log — but never printed
+// into the response body. Printing was actively harmful: PHP 8.4 raises a notice
+// or deprecation for things that are otherwise harmless, and with display_errors
+// on, that text lands in front of the JSON. The client then gets a 200 whose body
+// it cannot parse, reports "Save failed (200)" even though the write succeeded,
+// and — because it never receives the new rev — 409s on the next attempt.
+//
+// Set PHP_DISPLAY_ERRORS=1 in the environment to see them inline while debugging
+// locally; leave it unset in production.
 error_reporting(E_ALL);
-ini_set('display_errors', 1);
+ini_set('display_errors', getenv('PHP_DISPLAY_ERRORS') === '1' ? '1' : '0');
+ini_set('log_errors', '1');
 date_default_timezone_set('Asia/Kolkata');
 
 /**

@@ -43,14 +43,11 @@ try {
     // must never publish something the renderer cannot draw.
     $errors = (new SiteValidator())->validate($draft['doc']);
     if ($errors) {
-        http_response_code(422);
-        header('Content-Type: application/json');
-        echo json_encode([
+        emitJson([
             'success' => false,
             'message' => 'Cannot publish — the draft is invalid. Fix these first.',
             'errors'  => array_slice($errors, 0, 50),
-        ]);
-        exit;
+        ], 422);
     }
 
     $result = SiteRepo::publish($site, getCurrentUserId(), $label, $source);

@@ -11,8 +11,55 @@ if (session_status() === PHP_SESSION_NONE) {
 /**
  * Send JSON response
  */
-function sendJson($success, $message, $data = null, $statusCode = 200) {
+/**
+ * Emit an arbitrary payload as JSON and exit.
+ *
+ * The single place that is allowed to write a JSON body. Every response must go
+ * through here so the same two guarantees hold everywhere:
+ *   1. nothing else is already in the output buffer in front of the JSON, and
+ *   2. json_encode cannot return false and silently echo an empty body.
+ *
+ * Use this for shapes sendJson() cannot express (409 conflicts, 422 field
+ * errors). For the ordinary success/error envelope use sendJson()/sendError().
+ */
+function emitJson(array $payload, $statusCode = 200) {
+    // Guard the drain: ob_get_clean() returns false WITHOUT dropping the level
+    // for a non-removable buffer (zlib.output_compression, or output_buffering
+    // with a non-removable handler). A plain while(ob_get_level()) would then
+    // spin forever and hang the request, so bail the moment it stops shrinking.
+    $stray = '';
+    $level = ob_get_level();
+    while ($level > 0) {
+        $chunk = ob_get_clean();
+        if ($chunk === false) { break; }
+        $stray .= $chunk;
+        $next = ob_get_level();
+        if ($next >= $level) { break; }
+        $level = $next;
+    }
+    if (trim($stray) !== '') {
+        error_log('emitJson: discarded stray output before JSON: ' . substr(trim($stray), 0, 500));
+    }
+
     http_response_code($statusCode);
+    header('Content-Type: application/json; charset=utf-8');
+
+    // INVALID_UTF8_SUBSTITUTE + PARTIAL_OUTPUT_ON_ERROR: encoding must never
+    // return false here. A false would echo nothing at all — an empty body,
+    // which the client reports as "Save failed (<status>)" while the write
+    // actually succeeded. Documents read back from MySQL are the real risk:
+    // unlike request bodies (which json_decode already rejected if malformed)
+    // stored bytes are not guaranteed to be valid UTF-8.
+    $json = json_encode($payload, JSON_INVALID_UTF8_SUBSTITUTE | JSON_PARTIAL_OUTPUT_ON_ERROR);
+    if ($json === false) {
+        error_log('emitJson: json_encode failed: ' . json_last_error_msg());
+        $json = json_encode(['success' => false, 'message' => 'Response could not be encoded.']);
+    }
+    echo $json;
+    exit;
+}
+
+function sendJson($success, $message, $data = null, $statusCode = 200) {
     $response = [
         'success' => $success,
         'message' => $message
@@ -20,8 +67,8 @@ function sendJson($success, $message, $data = null, $statusCode = 200) {
     if ($data !== null) {
         $response['data'] = $data;
     }
-    echo json_encode($response);
-    exit;
+
+    emitJson($response, $statusCode);
 }
 
 /**

@@ -256,8 +256,16 @@ class SiteRepo
                     SET doc = ?, rev = ?, schema_version = ?, author_user_id = ?, source = ?
                   WHERE id = ? AND site_id = ? AND rev = ? AND kind = 'draft'"
             );
+            // json_encode returning false here would bind an empty string and
+            // silently wipe the customer's draft while still reporting success.
+            // Fail loudly instead of destroying their work.
+            $encoded = json_encode($doc, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+            if ($encoded === false) {
+                throw new Exception('Could not encode the document (' . json_last_error_msg() . ').');
+            }
+
             $stmt->execute([
-                json_encode($doc, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES),
+                $encoded,
                 $newRev,
                 (int)($doc['schemaVersion'] ?? 1),
                 $userId ? (int)$userId : null,
