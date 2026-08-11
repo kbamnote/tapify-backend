@@ -40,12 +40,9 @@ if ($name === '') sendError('name is required');
 // Slug must be a valid DNS label (so <slug>.tapify.co.in stays possible) and
 // must not collide with another site. Checked BEFORE any account is created —
 // otherwise a rejected slug would leave an orphan customer login behind.
+$slug = SiteRepo::normaliseSlug($slug, $name);
 if ($slug === '') {
-    $slug = strtolower(preg_replace('/[^a-z0-9]+/i', '-', $name));
-}
-$slug = trim(preg_replace('/-+/', '-', $slug), '-');
-if (!preg_match('/^[a-z0-9](?:[a-z0-9-]{1,61}[a-z0-9])?$/', $slug)) {
-    sendError('slug must be 3-63 chars, a-z 0-9 and hyphens, not starting/ending with a hyphen');
+    sendError(SiteRepo::SLUG_RULE);
 }
 
 // Everything below touches the database, so it all sits inside one try — a

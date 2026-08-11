@@ -75,6 +75,23 @@ try {
             SiteRenderer::renderBySlug($builderSlug, $pagePath);
             exit;
         }
+
+        // The site may have been renamed. A retired address must keep working —
+        // QR codes and business cards are already printed with it — so send a
+        // permanent redirect to the current one, preserving path and query.
+        // Checked only AFTER the live lookup, so an address reissued as a real
+        // site always wins over an old redirect.
+        require_once __DIR__ . '/builder/lib/SiteRepo.php';
+        $movedTo = SiteRepo::redirectTargetForSlug($builderSlug);
+        if ($movedTo !== null) {
+            $base = defined('PUBLIC_BASE_DOMAIN') ? PUBLIC_BASE_DOMAIN : 'tapify.co.in';
+            // Not $uri — that is the request path parsed at the top of this file
+            // and reusing the name would clobber it for anything added later.
+            $reqUri = $_SERVER['REQUEST_URI'] ?? '/';
+            if ($reqUri === '' || $reqUri[0] !== '/') $reqUri = '/' . $reqUri;
+            header('Location: https://' . $movedTo . '.' . $base . $reqUri, true, 301);
+            exit;
+        }
     }
 
     // 1. Check if it's a vCard

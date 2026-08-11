@@ -100,7 +100,124 @@ class SiteRepo
         if ($exceptSiteId) { $sql .= " AND id != ?"; $params[] = (int)$exceptSiteId; }
         $stmt = getDB()->prepare($sql . " LIMIT 1");
         $stmt->execute($params);
-        return !$stmt->fetch();
+        if ($stmt->fetch()) return false;
+
+        // A retired slug still 301s to whichever site used to own it, so handing
+        // it to a DIFFERENT site would make that address ambiguous. The site that
+        // retired it may reclaim it (renaming back is allowed).
+        return self::slugHistoryOwner($slug, $exceptSiteId) === null;
+    }
+
+    /**
+     * Normalise a slug to a DNS label. Shared by create and rename so the two
+     * can never drift apart.
+     *
+     * @return string '' when the input cannot be made into a valid label
+     */
+    public static function normaliseSlug(string $raw, string $fallbackFrom = ''): string
+    {
+        $slug = strtolower(trim($raw));
+        if ($slug === '' && $fallbackFrom !== '') {
+            $slug = strtolower(preg_replace('/[^a-z0-9]+/i', '-', $fallbackFrom));
+        }
+        $slug = trim(preg_replace('/-+/', '-', $slug), '-');
+        return preg_match('/^[a-z0-9](?:[a-z0-9-]{1,61}[a-z0-9])?$/', $slug) ? $slug : '';
+    }
+
+    /** The human-readable rule, so every caller reports it identically. */
+    const SLUG_RULE = 'Address must be 3-63 characters: a-z, 0-9 and hyphens, not starting or ending with a hyphen.';
+
+    // ── Slug history / redirects ──────────────────────────────────────────────
+
+    /**
+     * Site id that retired this slug, or null. Used both to resolve redirects
+     * and to stop a retired address being reissued to someone else.
+     */
+    public static function slugHistoryOwner(string $slug, $exceptSiteId = null): ?int
+    {
+        $sql = "SELECT site_id FROM site_slug_history WHERE old_slug = ?";
+        $params = [$slug];
+        if ($exceptSiteId) { $sql .= " AND site_id != ?"; $params[] = (int)$exceptSiteId; }
+        try {
+            $stmt = getDB()->prepare($sql . " LIMIT 1");
+            $stmt->execute($params);
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            // Table not migrated yet — behave as if there is no history rather
+            // than breaking site creation.
+            return null;
+        }
+        return $row ? (int)$row['site_id'] : null;
+    }
+
+    /**
+     * Resolve a retired slug to the site's CURRENT slug for a 301.
+     * Returns null when there is nothing to redirect to, and deliberately
+     * returns null if the target equals the requested slug — that would be a
+     * redirect loop (possible after renaming foo -> bar -> foo).
+     */
+    public static function redirectTargetForSlug(string $slug): ?string
+    {
+        $siteId = self::slugHistoryOwner($slug);
+        if (!$siteId) return null;
+
+        $stmt = getDB()->prepare("SELECT slug, published_version_id FROM sites WHERE id = ? LIMIT 1");
+        $stmt->execute([$siteId]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (!$row || empty($row['published_version_id'])) return null;   // nothing live to send them to
+        if ($row['slug'] === $slug) return null;                         // loop guard
+
+        return $row['slug'];
+    }
+
+    /**
+     * Rename a site's public address, recording the old one so it keeps working.
+     *
+     * @throws Exception with a customer-safe message
+     */
+    public static function changeSlug(array $site, string $newSlug, $userId): array
+    {
+        $siteId  = (int)$site['id'];
+        $oldSlug = (string)$site['slug'];
+
+        if ($newSlug === $oldSlug) {
+            throw new Exception('That is already this website\'s address.');
+        }
+        if (!self::slugAvailable($newSlug, $siteId)) {
+            throw new Exception('That address is already taken. Try another.');
+        }
+
+        $pdo = getDB();
+        $pdo->beginTransaction();
+        try {
+            self::lockSite($pdo, $siteId);
+
+            // Re-check under the lock: two renames racing for the same address
+            // would otherwise both pass the check above.
+            $chk = $pdo->prepare("SELECT id FROM sites WHERE slug = ? AND id != ? LIMIT 1");
+            $chk->execute([$newSlug, $siteId]);
+            if ($chk->fetch()) throw new Exception('That address was just taken. Try another.');
+
+            // Reclaiming an address this site previously retired: drop the stale
+            // redirect first, or it would point at itself.
+            $pdo->prepare("DELETE FROM site_slug_history WHERE old_slug = ? AND site_id = ?")
+                ->execute([$newSlug, $siteId]);
+
+            $pdo->prepare("UPDATE sites SET slug = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?")
+                ->execute([$newSlug, $siteId]);
+
+            // Keep the old address working. INSERT IGNORE because the same slug
+            // may already be recorded from an earlier rename of this same site.
+            $pdo->prepare("INSERT IGNORE INTO site_slug_history (site_id, old_slug, changed_by) VALUES (?, ?, ?)")
+                ->execute([$siteId, $oldSlug, $userId ?: null]);
+
+            $pdo->commit();
+        } catch (Exception $e) {
+            $pdo->rollBack();
+            throw $e;
+        }
+
+        return ['slug' => $newSlug, 'previous_slug' => $oldSlug];
     }
 
     /**
