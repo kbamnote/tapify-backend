@@ -1,0 +1,1049 @@
+{
+ "schemaVersion": 1,
+ "site": {
+  "name": "Dr. Aayas Dental Clinic",
+  "industry": "hospital",
+  "locale": "en-IN"
+ },
+ "theme": {
+  "preset": "clinical-teal",
+  "mode": "light",
+  "color": {
+   "primary": "#0B5C74",
+   "secondary": "#127B96",
+   "accent": "#17A398",
+   "bg": "#FFFFFF",
+   "surface": "#F2F8FA",
+   "text": "#10242B",
+   "muted": "#5B7079",
+   "border": "#DCE7EB"
+  },
+  "font": {
+   "heading": "Source Sans 3",
+   "body": "Source Sans 3"
+  },
+  "radius": "md",
+  "spacing": "comfortable",
+  "container": "normal"
+ },
+ "nav": {
+  "header": [
+   {
+    "label": "Home",
+    "pageId": "home"
+   },
+   {
+    "label": "Treatments",
+    "pageId": "treatments"
+   },
+   {
+    "label": "About",
+    "pageId": "about"
+   },
+   {
+    "label": "Contact",
+    "pageId": "contact"
+   }
+  ]
+ },
+ "business": {
+  "phone": "+91 96651 94569",
+  "whatsapp": "+91 96651 94569",
+  "email": "drssumeetaya@gmail.com",
+  "address": "U 15, Shraddha Apartment, HB Town Sq, Near Grulaxmi Enterprises, Old Pardi Naka, Pardi, Nagpur, Maharashtra 440035",
+  "social": {
+   "instagram": "https://www.instagram.com/dr_sumeet_aya"
+  },
+  "hours": [
+   {
+    "day": "mon",
+    "open": "10:00 AM",
+    "close": "8:30 PM"
+   },
+   {
+    "day": "tue",
+    "open": "10:00 AM",
+    "close": "8:30 PM"
+   },
+   {
+    "day": "wed",
+    "open": "10:00 AM",
+    "close": "8:30 PM"
+   },
+   {
+    "day": "thu",
+    "open": "10:00 AM",
+    "close": "8:30 PM"
+   },
+   {
+    "day": "fri",
+    "open": "10:00 AM",
+    "close": "8:30 PM"
+   },
+   {
+    "day": "sat",
+    "open": "10:00 AM",
+    "close": "8:30 PM"
+   },
+   {
+    "day": "sun",
+    "closed": true
+   }
+  ]
+ },
+ "pages": [
+  {
+   "id": "home",
+   "slug": "/",
+   "title": "Home",
+   "seo": {
+    "title": "Dr. Aayas Dental Clinic | Dentist in Pardi, Nagpur",
+    "description": "Dental clinic in Pardi, Nagpur led by Dr. Sumeet Aya. Root canals, implants, braces, whitening, kids dentistry and more. Open Mon–Sat, 10:00 AM to 8:30 PM.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "header-1",
+     "type": "header",
+     "visible": true,
+     "props": {
+      "sticky": true,
+      "showCart": false,
+      "showAccount": false,
+      "links": [
+       {
+        "text": "Home",
+        "href": "/"
+       },
+       {
+        "text": "Treatments",
+        "href": "/treatments"
+       },
+       {
+        "text": "About",
+        "href": "/about"
+       },
+       {
+        "text": "Contact",
+        "href": "/contact"
+       }
+      ],
+      "cta": {
+       "text": "Book Appointment",
+       "href": "/contact",
+       "style": "primary"
+      }
+     },
+     "variant": "left"
+    },
+    {
+     "id": "hero-2",
+     "type": "hero",
+     "visible": true,
+     "props": {
+      "badge": "Open Mon–Sat · 10:00 AM to 8:30 PM",
+      "heading": "Healthy smiles, gentle care",
+      "sub": "Dr. Aayas Dental Clinic in Pardi, Nagpur — advanced dental treatment with modern technology and personalised care, explained in plain language before anything begins.",
+      "image": "https://tapifyworld.com/uploads/vcards/covers/2223/WhatsApp-Image-2026-05-25-at-11.03.59-AM.jpeg",
+      "fullHeight": true,
+      "ctaPrimary": {
+       "text": "Book an Appointment",
+       "href": "/contact",
+       "style": "primary"
+      },
+      "ctaSecondary": {
+       "text": "See Treatments",
+       "href": "/treatments",
+       "style": "ghost"
+      },
+      "showWhatsapp": true,
+      "showCall": true
+     },
+     "variant": "centered-bg",
+     "style": {
+      "overlay": 0.55
+     }
+    },
+    {
+     "id": "about-3",
+     "type": "about",
+     "visible": true,
+     "props": {
+      "label": "About the Clinic",
+      "heading": "Healthy smiles, gentle care, advanced treatment",
+      "body": "Welcome to Dr. Aayas Dental Clinic, where healthy smiles and patient comfort come first. We provide advanced dental treatments with modern technology and personalised care to ensure the best oral health for every patient.\n\nThe clinic is led by Dr. Sumeet Aya and covers everything from a routine cleaning to implants, braces and surgical work — so most treatment can be completed in one place rather than sending you elsewhere.\n\nWe would rather explain than rush. You are told what we have found, what the options are and what each involves, and nothing starts until you are comfortable with the plan. Digital X-rays are taken on site and reviewed with you during the same visit.\n\nAt Dr. Aayas Dental Clinic, we are dedicated to giving you confident and beautiful smiles.",
+      "image": "https://tapifyworld.com/uploads/vcards/profiles/1968/WhatsApp-Image-2026-05-12-at-4.53.21-PM.jpeg",
+      "showPillars": true,
+      "pillars": [
+       {
+        "icon": "heart",
+        "title": "Comfort first",
+        "text": "Anaesthesia checked before we begin, and a slower pace if you are anxious. Tell us and we adapt."
+       },
+       {
+        "icon": "sparkles",
+        "title": "Modern equipment",
+        "text": "On-site digital X-rays with lower radiation, reviewed with you during the same visit."
+       },
+       {
+        "icon": "badge-check",
+        "title": "Explained upfront",
+        "text": "What we found, the options, and the cost — before treatment starts, not after."
+       },
+       {
+        "icon": "clock",
+        "title": "Open six days",
+        "text": "Monday to Saturday, 10:00 AM to 8:30 PM, so appointments fit around work."
+       }
+      ]
+     },
+     "variant": "image-right"
+    },
+    {
+     "id": "services-4",
+     "type": "services",
+     "visible": true,
+     "props": {
+      "label": "Our Treatments",
+      "heading": "What we treat",
+      "sub": "General, cosmetic and surgical dentistry under one roof. Tap any treatment to ask about it on WhatsApp.",
+      "items": [
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/1986/ad87a6df34ba4a00f3b62e861619061f.jpg",
+        "title": "Teeth Whitening",
+        "desc": "Professional in-clinic whitening that lifts staining from tea, coffee, tobacco and age. Shade is assessed before and after so you can see the change.",
+        "meta": "Single visit · 45–60 min",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/1987/0fedd5c3a2f0110961ab4ecdae16c0ee.jpg",
+        "title": "Veeners",
+        "desc": "Thin custom shells bonded to the front of the teeth to correct chips, gaps, worn edges and stubborn discolouration. Shade and shape are chosen with you first.",
+        "meta": "2–3 visits",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/1988/bfc0eb37725ba73149b4263ea70eda65.jpg",
+        "title": "Checkups",
+        "desc": "A full examination of teeth, gums and bite, with digital X-rays where needed. You leave knowing exactly what, if anything, needs doing and in what order.",
+        "meta": "Recommended every 6 months",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/2187/WhatsApp-Image-2026-05-23-at-2.00.31-PM-(1).jpeg",
+        "title": "Dental Implants",
+        "desc": "A titanium post placed in the jaw to replace a missing tooth root, later restored with a crown. Includes planning, placement and the healing review.",
+        "meta": "Staged over 3–6 months",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/1990/79716869e87efc171e437ac0943698f7.jpg",
+        "title": "Dentures & Bridges",
+        "desc": "Removable dentures and fixed bridges to replace missing teeth and restore chewing. Fit is adjusted over follow-up visits until it is comfortable.",
+        "meta": "Fitted over 2–4 visits",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/2183/WhatsApp-Image-2026-05-23-at-2.00.32-PM.jpeg",
+        "title": "Oral Surgery",
+        "desc": "Surgical extractions including impacted and wisdom teeth, carried out under local anaesthesia with written aftercare instructions.",
+        "meta": "By appointment",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/1993/f2f509d996652301325ab3405d94a587.jpg",
+        "title": "Fillings & Sealants",
+        "desc": "Decay removed and the cavity restored, plus protective sealants on the biting surfaces of back teeth to prevent decay starting.",
+        "meta": "Usually one visit",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/2215/WhatsApp-Image-2026-05-25-at-10.45.14-AM.jpeg",
+        "title": "Orthodontics Treatment",
+        "desc": "Braces and aligners to correct crowding, spacing and bite problems, with regular adjustment visits through the course of treatment.",
+        "meta": "Assessment first",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/2165/WhatsApp-Image-2026-05-23-at-2.01.49-PM.jpeg",
+        "title": "Kids Dentistry",
+        "desc": "Check-ups, fluoride application, sealants and fillings for children, at a pace that keeps the visit calm and unhurried.",
+        "meta": "Children of all ages",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       }
+      ]
+     },
+     "variant": "cards-3"
+    },
+    {
+     "id": "testimonials-5",
+     "type": "testimonials",
+     "visible": true,
+     "props": {
+      "label": "Patient Reviews",
+      "heading": "What our patients say",
+      "items": [
+       {
+        "quote": "Dental services provided here are very good. I was previously anxious, had severe pain in my tooth, and the doctor suggested the appropriate treatment for it. I am very much satisfied.",
+        "name": "Kartik Sarker",
+        "role": "Patient",
+        "rating": 5
+       },
+       {
+        "quote": "I had a severe gum infection and bleeding from my teeth. The doctor advised me treatment for my gums — now I am pain free, the bleeding has reduced and the swelling has gone. Recommend for dental services to others.",
+        "name": "Sarvin Vatti",
+        "role": "Patient",
+        "rating": 5
+       },
+       {
+        "quote": "I came to the clinic with severe pain, swelling and a severe headache. After treatment I am pain free, without swelling and no headache. Very much satisfied and happy with my treatment. Will recommend to my friends and family.",
+        "name": "Sunil Nakhate",
+        "role": "Patient",
+        "rating": 5
+       },
+       {
+        "quote": "I had severe pain in my tooth and visited here for my dental problem. The doctor advised that we could save the tooth and I went ahead with what the doctor said. After treatment I am relieved of the pain.",
+        "name": "Rakesh Yadav",
+        "role": "Patient",
+        "rating": 5
+       },
+       {
+        "quote": "The clinic was clean and the staff were polite. The procedure went smoothly and there was no irritation or issue of any kind.",
+        "name": "Ashutosh",
+        "role": "Patient",
+        "rating": 5
+       }
+      ]
+     },
+     "variant": "cards-3"
+    },
+    {
+     "id": "cta-6",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Book an appointment",
+      "sub": "Tell us what is bothering you and when suits. We confirm by phone or WhatsApp, usually within the hour during clinic timings.",
+      "ctaPrimary": {
+       "text": "Send an Enquiry",
+       "href": "/contact",
+       "style": "primary"
+      },
+      "showWhatsapp": true,
+      "showCall": true
+     },
+     "variant": "banner"
+    },
+    {
+     "id": "contact-7",
+     "type": "contact",
+     "visible": true,
+     "props": {
+      "label": "Reach Us",
+      "heading": "Visit the clinic",
+      "sub": "Pardi, Nagpur. Walk-ins are seen between booked slots — booking ahead means you are seen at your slot time.",
+      "showPhone": true,
+      "showWhatsapp": true,
+      "showEmail": true,
+      "showAddress": true,
+      "showHours": true,
+      "showMap": true,
+      "submitText": "Send Enquiry"
+     },
+     "variant": "form-map"
+    },
+    {
+     "id": "footer-8",
+     "type": "footer",
+     "visible": true,
+     "props": {
+      "blurb": "Dr. Aayas Dental Clinic — general, cosmetic and surgical dentistry in Pardi, Nagpur. Healthy smiles, gentle care and advanced treatment, with every step explained before it starts.",
+      "showContact": true,
+      "showHours": true,
+      "showSocial": true,
+      "showLegal": true,
+      "columns": [
+       {
+        "title": "Explore",
+        "links": [
+         {
+          "text": "Home",
+          "href": "/"
+         },
+         {
+          "text": "Treatments",
+          "href": "/treatments"
+         },
+         {
+          "text": "About",
+          "href": "/about"
+         },
+         {
+          "text": "Contact",
+          "href": "/contact"
+         }
+        ]
+       },
+       {
+        "title": "Popular Treatments",
+        "links": [
+         {
+          "text": "Root Canal",
+          "href": "/treatments"
+         },
+         {
+          "text": "Dental Implants",
+          "href": "/treatments"
+         },
+         {
+          "text": "Teeth Whitening",
+          "href": "/treatments"
+         },
+         {
+          "text": "Braces & Aligners",
+          "href": "/treatments"
+         }
+        ]
+       },
+       {
+        "title": "Connect",
+        "links": [
+         {
+          "text": "Instagram",
+          "href": "https://www.instagram.com/dr_sumeet_aya"
+         },
+         {
+          "text": "WhatsApp",
+          "href": "https://wa.me/919665194569"
+         },
+         {
+          "text": "Google Reviews",
+          "href": "https://share.google/GCevZb7z7ao3tJQvE"
+         },
+         {
+          "text": "Call the clinic",
+          "href": "tel:+919665194569"
+         }
+        ]
+       }
+      ],
+      "copyright": "© 2026 Dr. Aayas Dental Clinic. All rights reserved.",
+      "termsBody": "The information on this website is general and is not a substitute for a clinical examination, diagnosis or personalised dental advice. Treatment options, the number of visits and the time each takes vary from patient to patient and can only be confirmed after an examination at the clinic. No outcome is guaranteed. Appointment requests submitted through this website are requests only and are confirmed by the clinic by phone or WhatsApp. Please tell us about any medical conditions, allergies or medicines you are taking before treatment begins. Replace this text with your own terms, reviewed by your advisor, before going live."
+     },
+     "variant": "columns"
+    }
+   ]
+  },
+  {
+   "id": "treatments",
+   "slug": "/treatments",
+   "title": "Treatments",
+   "seo": {
+    "title": "Dental Treatments | Dr. Aayas Dental Clinic, Nagpur",
+    "description": "Root canal, dental implants, crowns and bridges, braces, teeth whitening, veneers, gum surgery, kids dentistry, scaling and digital X-ray in Pardi, Nagpur.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "services-9",
+     "type": "services",
+     "visible": true,
+     "props": {
+      "label": "Full Treatment List",
+      "heading": "Every treatment we offer",
+      "sub": "Eighteen treatments covering routine care, cosmetic work, replacement of missing teeth and surgery. Costs are confirmed after an examination — message us and we will tell you what is involved.",
+      "items": [
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/1986/ad87a6df34ba4a00f3b62e861619061f.jpg",
+        "title": "Teeth Whitening",
+        "desc": "Professional in-clinic whitening that lifts staining from tea, coffee, tobacco and age. Shade is assessed before and after so you can see the change.",
+        "meta": "Single visit · 45–60 min",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/1987/0fedd5c3a2f0110961ab4ecdae16c0ee.jpg",
+        "title": "Veeners",
+        "desc": "Thin custom shells bonded to the front of the teeth to correct chips, gaps, worn edges and stubborn discolouration. Shade and shape are chosen with you first.",
+        "meta": "2–3 visits",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/1988/bfc0eb37725ba73149b4263ea70eda65.jpg",
+        "title": "Checkups",
+        "desc": "A full examination of teeth, gums and bite, with digital X-rays where needed. You leave knowing exactly what, if anything, needs doing and in what order.",
+        "meta": "Recommended every 6 months",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/2187/WhatsApp-Image-2026-05-23-at-2.00.31-PM-(1).jpeg",
+        "title": "Dental Implants",
+        "desc": "A titanium post placed in the jaw to replace a missing tooth root, later restored with a crown. Includes planning, placement and the healing review.",
+        "meta": "Staged over 3–6 months",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/1990/79716869e87efc171e437ac0943698f7.jpg",
+        "title": "Dentures & Bridges",
+        "desc": "Removable dentures and fixed bridges to replace missing teeth and restore chewing. Fit is adjusted over follow-up visits until it is comfortable.",
+        "meta": "Fitted over 2–4 visits",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/2183/WhatsApp-Image-2026-05-23-at-2.00.32-PM.jpeg",
+        "title": "Oral Surgery",
+        "desc": "Surgical extractions including impacted and wisdom teeth, carried out under local anaesthesia with written aftercare instructions.",
+        "meta": "By appointment",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/1993/f2f509d996652301325ab3405d94a587.jpg",
+        "title": "Fillings & Sealants",
+        "desc": "Decay removed and the cavity restored, plus protective sealants on the biting surfaces of back teeth to prevent decay starting.",
+        "meta": "Usually one visit",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/2215/WhatsApp-Image-2026-05-25-at-10.45.14-AM.jpeg",
+        "title": "Orthodontics Treatment",
+        "desc": "Braces and aligners to correct crowding, spacing and bite problems, with regular adjustment visits through the course of treatment.",
+        "meta": "Assessment first",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/2165/WhatsApp-Image-2026-05-23-at-2.01.49-PM.jpeg",
+        "title": "Kids Dentistry",
+        "desc": "Check-ups, fluoride application, sealants and fillings for children, at a pace that keeps the visit calm and unhurried.",
+        "meta": "Children of all ages",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/1998/5697821f27cb85c93305b896227b6d44.jpg",
+        "title": "Root Canal",
+        "desc": "Treatment for an infected or badly decayed tooth: the nerve space is cleaned, disinfected and sealed, then the tooth is capped to protect it.",
+        "meta": "1–2 visits",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/1999/60d9ace590fff101cc891c26bd0261ab.jpg",
+        "title": "Teeth Cleaning",
+        "desc": "Removal of plaque and hardened tartar above and below the gumline — the routine treatment for bleeding gums and persistent bad breath.",
+        "meta": "Single visit · 30–45 min",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/2000/62b8a4633b563a54318d5d555c82aab6.jpg",
+        "title": "Complete Denture",
+        "desc": "A full upper or lower denture where all teeth are missing, made from impressions and adjusted across follow-ups for a comfortable fit.",
+        "meta": "Made over 3–4 visits",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/2001/ba8aa9ac24b2b01c85c19ce55107a3c0.jpg",
+        "title": "Gum Surgery",
+        "desc": "Surgical treatment for advanced gum disease and overgrown or receding gum tissue, where cleaning alone is not enough.",
+        "meta": "By appointment",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/2002/0314e8c49f86c698fbe4cef2d3e2c6a9.jpg",
+        "title": "Periodontal Surgery",
+        "desc": "Deeper treatment of the bone and tissue supporting the teeth in established periodontitis, aimed at stabilising teeth that have become loose.",
+        "meta": "Assessment first",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/2184/WhatsApp-Image-2026-05-23-at-2.01.11-PM.jpeg",
+        "title": "Scaling and Polishing",
+        "desc": "Ultrasonic scaling to lift tartar, followed by polishing to smooth the tooth surface so plaque is slower to build back up.",
+        "meta": "Single visit · 30 min",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/2186/WhatsApp-Image-2026-05-23-at-5.37.51-PM.jpeg",
+        "title": "Digital X ray",
+        "desc": "On-site digital radiographs with lower radiation than film, viewable immediately so findings can be explained to you during the same visit.",
+        "meta": "Same visit",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/2190/WhatsApp-Image-2026-05-23-at-2.00.30-PM.jpeg",
+        "title": "Crown and Brideges",
+        "desc": "Custom crowns to cap a weakened or root-treated tooth, and bridges to span a gap using the neighbouring teeth for support.",
+        "meta": "2 visits",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/2191/WhatsApp-Image-2026-05-23-at-2.00.31-PM-(2).jpeg",
+        "title": "Tooth Coloured Filling",
+        "desc": "Composite fillings matched to your natural tooth shade, bonded directly so less healthy tooth needs to be removed than with metal.",
+        "meta": "Single visit",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919665194569",
+         "style": "link"
+        }
+       }
+      ]
+     },
+     "variant": "cards-3"
+    },
+    {
+     "id": "gallery-a",
+     "type": "gallery",
+     "visible": true,
+     "props": {
+      "label": "Inside the Clinic",
+      "heading": "The clinic",
+      "sub": "A look at where you will be treated.",
+      "lightbox": true,
+      "images": [
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/gallery/1970/2025-10-08.jpg",
+        "alt": "Dr. Aayas Dental Clinic, Nagpur — photo 1"
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/gallery/1971/2025-10-08-(1).jpg",
+        "alt": "Dr. Aayas Dental Clinic, Nagpur — photo 2"
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/gallery/1972/2023-07-03.jpg",
+        "alt": "Dr. Aayas Dental Clinic, Nagpur — photo 3"
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/gallery/1973/2025-10-08-(2).jpg",
+        "alt": "Dr. Aayas Dental Clinic, Nagpur — photo 4"
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/gallery/1974/2025-10-08-(3).jpg",
+        "alt": "Dr. Aayas Dental Clinic, Nagpur — photo 5"
+       }
+      ]
+     },
+     "variant": "grid-3"
+    },
+    {
+     "id": "faq-b",
+     "type": "faq",
+     "visible": true,
+     "props": {
+      "label": "FAQ",
+      "heading": "Questions patients ask us",
+      "openFirst": true,
+      "items": [
+       {
+        "q": "Do I need an appointment, or can I walk in?",
+        "a": "Both work. Walk-ins are seen between booked slots, so there may be a wait. Booking ahead means you are seen at your slot time. For pain or swelling, call or message on WhatsApp and we will fit you in the same day wherever possible."
+       },
+       {
+        "q": "Will the treatment hurt?",
+        "a": "Local anaesthesia is used for anything that would otherwise be uncomfortable, and we check you are numb before starting. Tell us if you are anxious or have had a difficult experience before — we will go slower and explain each step as we go."
+       },
+       {
+        "q": "How much will it cost?",
+        "a": "Cost depends on what the examination finds, so we give you the figure after looking, before any treatment starts. For longer treatments like implants, braces or full dentures you get the full plan and cost in writing first."
+       },
+       {
+        "q": "How many visits will I need?",
+        "a": "A cleaning, filling or whitening is usually one visit. A root canal is one or two. Crowns and bridges take two. Implants and orthodontics run over months. You will be told the expected number at the assessment."
+       },
+       {
+        "q": "My gums bleed when I brush. Is that normal?",
+        "a": "No — bleeding gums are the earliest sign of gum disease and are worth getting looked at. At this stage it is usually reversible with scaling and a change in brushing technique. Left alone it can progress to loose teeth."
+       },
+       {
+        "q": "From what age should children see a dentist?",
+        "a": "Bring them for a first check-up once the milk teeth are through, around age two to three. Early visits are short and mostly about getting comfortable with the chair, which makes every later visit easier."
+       },
+       {
+        "q": "Do you take emergencies?",
+        "a": "Yes. For severe pain, swelling, a knocked-out tooth or a broken front tooth, call or WhatsApp 96651 94569 during clinic hours and we will see you as soon as we can."
+       }
+      ]
+     },
+     "variant": "accordion"
+    },
+    {
+     "id": "cta-c",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Book an appointment",
+      "sub": "Tell us what is bothering you and when suits. We confirm by phone or WhatsApp, usually within the hour during clinic timings.",
+      "ctaPrimary": {
+       "text": "Send an Enquiry",
+       "href": "/contact",
+       "style": "primary"
+      },
+      "showWhatsapp": true,
+      "showCall": true
+     },
+     "variant": "banner"
+    }
+   ]
+  },
+  {
+   "id": "about",
+   "slug": "/about",
+   "title": "About",
+   "seo": {
+    "title": "About Dr. Sumeet Aya | Dr. Aayas Dental Clinic, Nagpur",
+    "description": "Meet Dr. Sumeet Aya and the team at Dr. Aayas Dental Clinic in Pardi, Nagpur — comfort-first dentistry with treatment explained before it starts.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "about-d",
+     "type": "about",
+     "visible": true,
+     "props": {
+      "label": "About the Clinic",
+      "heading": "Healthy smiles, gentle care, advanced treatment",
+      "body": "Welcome to Dr. Aayas Dental Clinic, where healthy smiles and patient comfort come first. We provide advanced dental treatments with modern technology and personalised care to ensure the best oral health for every patient.\n\nThe clinic is led by Dr. Sumeet Aya and covers everything from a routine cleaning to implants, braces and surgical work — so most treatment can be completed in one place rather than sending you elsewhere.\n\nWe would rather explain than rush. You are told what we have found, what the options are and what each involves, and nothing starts until you are comfortable with the plan. Digital X-rays are taken on site and reviewed with you during the same visit.\n\nAt Dr. Aayas Dental Clinic, we are dedicated to giving you confident and beautiful smiles.",
+      "image": "https://tapifyworld.com/uploads/vcards/profiles/1968/WhatsApp-Image-2026-05-12-at-4.53.21-PM.jpeg",
+      "showPillars": true,
+      "pillars": [
+       {
+        "icon": "heart",
+        "title": "Comfort first",
+        "text": "Anaesthesia checked before we begin, and a slower pace if you are anxious. Tell us and we adapt."
+       },
+       {
+        "icon": "sparkles",
+        "title": "Modern equipment",
+        "text": "On-site digital X-rays with lower radiation, reviewed with you during the same visit."
+       },
+       {
+        "icon": "badge-check",
+        "title": "Explained upfront",
+        "text": "What we found, the options, and the cost — before treatment starts, not after."
+       },
+       {
+        "icon": "clock",
+        "title": "Open six days",
+        "text": "Monday to Saturday, 10:00 AM to 8:30 PM, so appointments fit around work."
+       }
+      ]
+     },
+     "variant": "image-left"
+    },
+    {
+     "id": "team-e",
+     "type": "team",
+     "visible": true,
+     "props": {
+      "label": "Your Dentist",
+      "heading": "Who you will be seeing",
+      "items": [
+       {
+        "photo": "https://tapifyworld.com/uploads/vcards/profiles/1968/WhatsApp-Image-2026-05-12-at-4.53.21-PM.jpeg",
+        "name": "Dr. Sumeet Aya",
+        "role": "Dentist",
+        "bio": "Leads Dr. Aayas Dental Clinic in Pardi, Nagpur, treating everything from routine check-ups and cleanings through to root canals, implants, braces and surgical work. Patients most often mention being seen quickly when in pain, and having the treatment explained before it starts."
+       }
+      ]
+     },
+     "variant": "cards-2"
+    },
+    {
+     "id": "gallery-f",
+     "type": "gallery",
+     "visible": true,
+     "props": {
+      "label": "Gallery",
+      "heading": "Inside the clinic",
+      "sub": null,
+      "lightbox": true,
+      "images": [
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/gallery/1970/2025-10-08.jpg",
+        "alt": "Dr. Aayas Dental Clinic, Nagpur — photo 1"
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/gallery/1971/2025-10-08-(1).jpg",
+        "alt": "Dr. Aayas Dental Clinic, Nagpur — photo 2"
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/gallery/1972/2023-07-03.jpg",
+        "alt": "Dr. Aayas Dental Clinic, Nagpur — photo 3"
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/gallery/1973/2025-10-08-(2).jpg",
+        "alt": "Dr. Aayas Dental Clinic, Nagpur — photo 4"
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/gallery/1974/2025-10-08-(3).jpg",
+        "alt": "Dr. Aayas Dental Clinic, Nagpur — photo 5"
+       }
+      ]
+     },
+     "variant": "grid-3"
+    },
+    {
+     "id": "testimonials-g",
+     "type": "testimonials",
+     "visible": true,
+     "props": {
+      "label": "Patient Reviews",
+      "heading": "In our patients’ words",
+      "items": [
+       {
+        "quote": "Dental services provided here are very good. I was previously anxious, had severe pain in my tooth, and the doctor suggested the appropriate treatment for it. I am very much satisfied.",
+        "name": "Kartik Sarker",
+        "role": "Patient",
+        "rating": 5
+       },
+       {
+        "quote": "I had a severe gum infection and bleeding from my teeth. The doctor advised me treatment for my gums — now I am pain free, the bleeding has reduced and the swelling has gone. Recommend for dental services to others.",
+        "name": "Sarvin Vatti",
+        "role": "Patient",
+        "rating": 5
+       },
+       {
+        "quote": "I came to the clinic with severe pain, swelling and a severe headache. After treatment I am pain free, without swelling and no headache. Very much satisfied and happy with my treatment. Will recommend to my friends and family.",
+        "name": "Sunil Nakhate",
+        "role": "Patient",
+        "rating": 5
+       },
+       {
+        "quote": "I had severe pain in my tooth and visited here for my dental problem. The doctor advised that we could save the tooth and I went ahead with what the doctor said. After treatment I am relieved of the pain.",
+        "name": "Rakesh Yadav",
+        "role": "Patient",
+        "rating": 5
+       },
+       {
+        "quote": "The clinic was clean and the staff were polite. The procedure went smoothly and there was no irritation or issue of any kind.",
+        "name": "Ashutosh",
+        "role": "Patient",
+        "rating": 5
+       }
+      ]
+     },
+     "variant": "cards-3"
+    },
+    {
+     "id": "embed-h",
+     "type": "embed",
+     "visible": true,
+     "props": {
+      "label": "Instagram",
+      "heading": "Latest from the clinic",
+      "sub": "Follow @dr_sumeet_aya for cases, tips and clinic updates.",
+      "embeds": [
+       {
+        "url": "https://www.instagram.com/p/DYNk0Pvms4D/"
+       },
+       {
+        "url": "https://www.instagram.com/p/DYIaxPjkx29/"
+       }
+      ]
+     },
+     "variant": "grid-2"
+    }
+   ]
+  },
+  {
+   "id": "contact",
+   "slug": "/contact",
+   "title": "Contact",
+   "seo": {
+    "title": "Contact & Appointments | Dr. Aayas Dental Clinic, Nagpur",
+    "description": "Book an appointment at Dr. Aayas Dental Clinic, U 15 Shraddha Apartment, Old Pardi Naka, Pardi, Nagpur. Call or WhatsApp 96651 94569. Open Mon–Sat.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "contact-i",
+     "type": "contact",
+     "visible": true,
+     "props": {
+      "label": "Reach Us",
+      "heading": "Book an appointment",
+      "sub": "Call or WhatsApp +91 96651 94569, or send the form below and we will confirm your slot. Second line: +91 98227 39739.",
+      "showPhone": true,
+      "showWhatsapp": true,
+      "showEmail": true,
+      "showAddress": true,
+      "showHours": true,
+      "showMap": true,
+      "submitText": "Send Enquiry"
+     },
+     "variant": "form-map"
+    },
+    {
+     "id": "hours-j",
+     "type": "hours",
+     "visible": true,
+     "props": {
+      "label": "Clinic Timings",
+      "heading": "When we are open",
+      "highlightToday": true,
+      "note": "Closed on Sunday. For pain or swelling outside these hours, message us on WhatsApp and we will advise."
+     },
+     "variant": "list"
+    },
+    {
+     "id": "faq-k",
+     "type": "faq",
+     "visible": true,
+     "props": {
+      "label": "FAQ",
+      "heading": "Questions patients ask us",
+      "openFirst": true,
+      "items": [
+       {
+        "q": "Do I need an appointment, or can I walk in?",
+        "a": "Both work. Walk-ins are seen between booked slots, so there may be a wait. Booking ahead means you are seen at your slot time. For pain or swelling, call or message on WhatsApp and we will fit you in the same day wherever possible."
+       },
+       {
+        "q": "Will the treatment hurt?",
+        "a": "Local anaesthesia is used for anything that would otherwise be uncomfortable, and we check you are numb before starting. Tell us if you are anxious or have had a difficult experience before — we will go slower and explain each step as we go."
+       },
+       {
+        "q": "How much will it cost?",
+        "a": "Cost depends on what the examination finds, so we give you the figure after looking, before any treatment starts. For longer treatments like implants, braces or full dentures you get the full plan and cost in writing first."
+       },
+       {
+        "q": "How many visits will I need?",
+        "a": "A cleaning, filling or whitening is usually one visit. A root canal is one or two. Crowns and bridges take two. Implants and orthodontics run over months. You will be told the expected number at the assessment."
+       },
+       {
+        "q": "My gums bleed when I brush. Is that normal?",
+        "a": "No — bleeding gums are the earliest sign of gum disease and are worth getting looked at. At this stage it is usually reversible with scaling and a change in brushing technique. Left alone it can progress to loose teeth."
+       },
+       {
+        "q": "From what age should children see a dentist?",
+        "a": "Bring them for a first check-up once the milk teeth are through, around age two to three. Early visits are short and mostly about getting comfortable with the chair, which makes every later visit easier."
+       },
+       {
+        "q": "Do you take emergencies?",
+        "a": "Yes. For severe pain, swelling, a knocked-out tooth or a broken front tooth, call or WhatsApp 96651 94569 during clinic hours and we will see you as soon as we can."
+       }
+      ]
+     },
+     "variant": "accordion"
+    },
+    {
+     "id": "cta-l",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Book an appointment",
+      "sub": "Tell us what is bothering you and when suits. We confirm by phone or WhatsApp, usually within the hour during clinic timings.",
+      "ctaPrimary": {
+       "text": "Send an Enquiry",
+       "href": "/contact",
+       "style": "primary"
+      },
+      "showWhatsapp": true,
+      "showCall": true
+     },
+     "variant": "banner"
+    }
+   ]
+  }
+ ]
+}
