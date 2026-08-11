@@ -1,0 +1,1101 @@
+{
+ "schemaVersion": 1,
+ "site": {
+  "name": "Secno Spects",
+  "industry": "optical",
+  "locale": "en-IN"
+ },
+ "theme": {
+  "preset": "indigo-optic",
+  "mode": "light",
+  "color": {
+   "primary": "#2B2D74",
+   "secondary": "#4B4FA6",
+   "accent": "#FF6B4A",
+   "bg": "#FBFBFD",
+   "surface": "#FFFFFF",
+   "text": "#14152E",
+   "muted": "#63667F",
+   "border": "#E3E4EE"
+  },
+  "font": {
+   "heading": "Sora",
+   "body": "Manrope"
+  },
+  "radius": "lg",
+  "spacing": "comfortable",
+  "container": "normal"
+ },
+ "nav": {
+  "header": [
+   {
+    "label": "Home",
+    "pageId": "home"
+   },
+   {
+    "label": "Eyewear",
+    "pageId": "eyewear"
+   },
+   {
+    "label": "Eye Care",
+    "pageId": "eye-care"
+   },
+   {
+    "label": "Contact",
+    "pageId": "contact"
+   }
+  ]
+ },
+ "business": {
+  "phone": "+91 95457 08333",
+  "whatsapp": "+91 95457 08333",
+  "email": "secno2019@gmail.com",
+  "address": "Akshay Heights - 1, Shop No. T-02, Besa Road, Omkar Nagar, Nagpur, Maharashtra 440027",
+  "social": {
+   "instagram": "https://www.instagram.com/secnos_01"
+  },
+  "hours": [
+   {
+    "day": "mon",
+    "open": "11:00 AM",
+    "close": "9:00 PM"
+   },
+   {
+    "day": "tue",
+    "open": "11:00 AM",
+    "close": "9:00 PM"
+   },
+   {
+    "day": "wed",
+    "open": "11:00 AM",
+    "close": "9:00 PM"
+   },
+   {
+    "day": "thu",
+    "open": "11:00 AM",
+    "close": "9:00 PM"
+   },
+   {
+    "day": "fri",
+    "open": "11:00 AM",
+    "close": "9:00 PM"
+   },
+   {
+    "day": "sat",
+    "open": "11:00 AM",
+    "close": "9:00 PM"
+   },
+   {
+    "day": "sun",
+    "open": "11:00 AM",
+    "close": "9:00 PM"
+   }
+  ]
+ },
+ "pages": [
+  {
+   "id": "home",
+   "slug": "/",
+   "title": "Home",
+   "seo": {
+    "title": "Secno Spects | Eyewear & Eye Testing in Omkar Nagar, Nagpur",
+    "description": "Advanced eye testing, progressive lens experts and over 20 frame brands at Secno Spects, Besa Road, Omkar Nagar, Nagpur. A unit of Shri Eye Care Netralaya & Opticals. Open all 7 days.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "header-1",
+     "type": "header",
+     "visible": true,
+     "props": {
+      "sticky": true,
+      "showCart": false,
+      "showAccount": false,
+      "links": [
+       {
+        "text": "Home",
+        "href": "/"
+       },
+       {
+        "text": "Eyewear",
+        "href": "/eyewear"
+       },
+       {
+        "text": "Eye Care",
+        "href": "/eye-care"
+       },
+       {
+        "text": "Contact",
+        "href": "/contact"
+       }
+      ],
+      "cta": {
+       "text": "Book an Eye Test",
+       "href": "/contact",
+       "style": "primary"
+      }
+     },
+     "variant": "left"
+    },
+    {
+     "id": "hero-2",
+     "type": "hero",
+     "visible": true,
+     "props": {
+      "badge": "Open all 7 days · 11:00 AM to 9:00 PM",
+      "heading": "See the world clearly. Style it your way.",
+      "sub": "Premium eyewear and expert eye care at Omkar Nagar, Nagpur. Advanced eye testing combined with a wide collection of trendy frames and high-quality lenses.",
+      "image": "https://tapifyworld.com/uploads/vcards/covers/1834/44e572d2bfb90700ef7a386ef4170117.jpg",
+      "videoUrl": "https://videos.pexels.com/video-files/5995502/5995502-hd_1920_1080_30fps.mp4",
+      "fullHeight": true,
+      "ctaPrimary": {
+       "text": "See Our Eyewear",
+       "href": "/eyewear",
+       "style": "primary"
+      },
+      "ctaSecondary": {
+       "text": "Book an Eye Test",
+       "href": "/contact",
+       "style": "ghost"
+      },
+      "showWhatsapp": true,
+      "showCall": true
+     },
+     "variant": "centered-bg",
+     "style": {
+      "overlay": 0.58
+     }
+    },
+    {
+     "id": "about-3",
+     "type": "about",
+     "visible": true,
+     "props": {
+      "label": "About Us",
+      "heading": "Clear vision and stylish confidence",
+      "body": "Step into a world of clear vision and stylish confidence at Secno Spects — your trusted destination for premium eyewear and expert eye care. Combining advanced eye testing with a wide collection of trendy frames and high-quality lenses, we make sure you see better and look even better.\n\nFrom classic to contemporary designs, every pair is matched to your personality and comfort. Backed by the trusted care of Shri Eye Care Netralaya, we prioritise precision, quality and customer satisfaction at every step.\n\nWe are open all seven days at Omkar Nagar on Besa Road, so an eye test does not have to wait for a day off.\n\nSee the world clearly. Style it your way.",
+      "image": "https://tapifyworld.com/uploads/vcards/services/1830/6bce0d75badd3157e324428211b34c9b.jpg",
+      "showPillars": true,
+      "pillars": [
+       {
+        "icon": "eye",
+        "title": "Advanced eye testing",
+        "text": "Full vision check and consultation on proper equipment, with your prescription written down for you."
+       },
+       {
+        "icon": "glasses",
+        "title": "Stylish frames",
+        "text": "Over twenty brand ranges of frames and sunglasses, from classic shapes to contemporary designs."
+       },
+       {
+        "icon": "sparkles",
+        "title": "Quality lenses",
+        "text": "High-quality lenses and contact lens solutions, including progressives fitted to precise measurements."
+       },
+       {
+        "icon": "badge-check",
+        "title": "Satisfaction guaranteed",
+        "text": "If the glasses are not right we re-check, re-fit and remake where the fault is ours."
+       }
+      ]
+     },
+     "variant": "image-right"
+    },
+    {
+     "id": "services-4",
+     "type": "services",
+     "visible": true,
+     "props": {
+      "label": "Eye Care",
+      "heading": "What we do",
+      "sub": "Testing, fitting and follow-up — the part of buying glasses that decides whether you actually wear them.",
+      "items": [
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/1829/7357f9ea10a30db55004776db87becad.jpg",
+        "title": "Comprehensive Eye Test",
+        "desc": "A full vision check covering distance, near, astigmatism and eye coordination, carried out on proper testing equipment rather than a quick chart reading. You leave with your prescription written down.",
+        "meta": "Walk in any day",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/1830/6bce0d75badd3157e324428211b34c9b.jpg",
+        "title": "Contact Lens Clinic",
+        "desc": "Corneal measurement, trial lenses and a taught insertion-and-care session before you take a box home. Soft, toric and coloured lenses, with follow-up to check the fit is still right.",
+        "meta": "By appointment",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/1831/02cbd677203fc0b2988b2e24293a6fef.jpg",
+        "title": "Progressive Lens Experts",
+        "desc": "Distance, intermediate and reading in a single lens with no visible line. Fitted from precise pupil-height measurements, which is what decides whether a progressive feels natural or never quite works.",
+        "meta": "Measured in store",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/1832/26968cd490e3ec4d4a4baa966a3fc961.jpg",
+        "title": "Scientific Dispensing Optician",
+        "desc": "The frame is fitted to your face and your prescription — pupillary distance, vertex distance, pantoscopic tilt. The same lens in a badly fitted frame is a worse lens, which is where most eyewear complaints come from.",
+        "meta": "Included with every pair",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/1833/d5b1103e95871794001e3c15610f24f8.jpg",
+        "title": "100% Satisfaction Guarantee",
+        "desc": "If the glasses are not right, bring them back. We will re-check the prescription, re-fit the frame and remake the lenses where the fault is ours, at no cost.",
+        "meta": "On every purchase",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       }
+      ]
+     },
+     "variant": "cards-3"
+    },
+    {
+     "id": "products-5",
+     "type": "products",
+     "visible": true,
+     "props": {
+      "label": "Brands",
+      "heading": "Frames we stock",
+      "sub": "A selection of the ranges on our shelves. Message us to check what is in stock in your size and colour.",
+      "items": [
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2136/DENVEER-EYEWEAR.jpg",
+        "title": "Denveer Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2137/DYNAMITE-EYEWEAR.jpg",
+        "title": "Dynamite Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2138/ERSKI-EYEWEAR.jpg",
+        "title": "Erski Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2139/EYONES-EYEWEAR.jpg",
+        "title": "Eyones Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2140/FORGIVE-EYEWEAR.jpg",
+        "title": "Forgive Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2141/FREE-FLY-EYEWEAR.jpg",
+        "title": "Free Fly Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2142/FUSIONN-EYEWEAR.jpg",
+        "title": "Fusionn Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2143/HAAZEL-EYEWEAR.jpg",
+        "title": "Haazel Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       }
+      ]
+     },
+     "variant": "cards-4"
+    },
+    {
+     "id": "hours-6",
+     "type": "hours",
+     "visible": true,
+     "props": {
+      "label": "Store Timings",
+      "heading": "Open all seven days",
+      "highlightToday": true,
+      "note": "Last eye test is taken about 30 minutes before closing."
+     },
+     "variant": "list"
+    },
+    {
+     "id": "cta-7",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Book an eye test",
+      "sub": "Walk in any day between 11:00 AM and 9:00 PM, or message us on WhatsApp and we will keep a slot for you.",
+      "ctaPrimary": {
+       "text": "Send an Enquiry",
+       "href": "/contact",
+       "style": "primary"
+      },
+      "showWhatsapp": true,
+      "showCall": true
+     },
+     "variant": "banner"
+    },
+    {
+     "id": "contact-8",
+     "type": "contact",
+     "visible": true,
+     "props": {
+      "label": "Visit Us",
+      "heading": "Come and try them on",
+      "sub": "Besa Road, Omkar Nagar. Walk in any day, or send us a message and we will hold a slot.",
+      "showPhone": true,
+      "showWhatsapp": true,
+      "showEmail": true,
+      "showAddress": true,
+      "showHours": true,
+      "showMap": true,
+      "submitText": "Send Enquiry"
+     },
+     "variant": "form-map"
+    },
+    {
+     "id": "footer-9",
+     "type": "footer",
+     "visible": true,
+     "props": {
+      "blurb": "Secno Spects, a unit of Shri Eye Care Netralaya & Opticals — advanced eye testing and a wide collection of trendy frames and high-quality lenses at Omkar Nagar, Nagpur. Open all seven days.",
+      "showContact": true,
+      "showHours": true,
+      "showSocial": true,
+      "showLegal": true,
+      "columns": [
+       {
+        "title": "Explore",
+        "links": [
+         {
+          "text": "Home",
+          "href": "/"
+         },
+         {
+          "text": "Eyewear",
+          "href": "/eyewear"
+         },
+         {
+          "text": "Eye Care",
+          "href": "/eye-care"
+         },
+         {
+          "text": "Contact",
+          "href": "/contact"
+         }
+        ]
+       },
+       {
+        "title": "Eye Care",
+        "links": [
+         {
+          "text": "Comprehensive Eye Test",
+          "href": "/eye-care"
+         },
+         {
+          "text": "Contact Lens Clinic",
+          "href": "/eye-care"
+         },
+         {
+          "text": "Progressive Lenses",
+          "href": "/eye-care"
+         },
+         {
+          "text": "Frame Fitting",
+          "href": "/eye-care"
+         }
+        ]
+       },
+       {
+        "title": "Connect",
+        "links": [
+         {
+          "text": "Instagram",
+          "href": "https://www.instagram.com/secnos_01"
+         },
+         {
+          "text": "WhatsApp",
+          "href": "https://wa.me/919545708333"
+         },
+         {
+          "text": "Call the store",
+          "href": "tel:+919545708333"
+         },
+         {
+          "text": "Email us",
+          "href": "mailto:secno2019@gmail.com"
+         }
+        ]
+       }
+      ],
+      "copyright": "© 2026 Secno Spects. A unit of Shri Eye Care Netralaya & Opticals.",
+      "termsBody": "Eye tests are a refraction and screening service and are not a substitute for medical examination by an ophthalmologist; where anything requires a doctor we will refer you. Prescriptions are issued in writing. Frames and lenses shown on this website represent ranges carried in store; availability of a particular model, colour or size varies, so please confirm before travelling. Prices are quoted in store after your prescription and frame are confirmed. Contact lenses require an in-store fitting for first-time wearers and cannot be supplied without one. Replace this text with your own terms, reviewed by your advisor, before going live."
+     },
+     "variant": "columns"
+    }
+   ]
+  },
+  {
+   "id": "eyewear",
+   "slug": "/eyewear",
+   "title": "Eyewear",
+   "seo": {
+    "title": "Frames & Sunglasses | Secno Spects, Nagpur",
+    "description": "Over 20 eyewear ranges in store including Denveer, Dynamite, Erski, Inspire, Leo, Oreo, Qloo, Titex, Tom Star sunglasses and Wilton. Besa Road, Omkar Nagar, Nagpur.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "products-a",
+     "type": "products",
+     "visible": true,
+     "props": {
+      "label": "The Collection",
+      "heading": "Every range we carry",
+      "sub": "Twenty-two eyewear ranges, from classic to contemporary. Stock and sizes change week to week, so message us on WhatsApp and we will tell you exactly what is on the shelf.",
+      "items": [
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2136/DENVEER-EYEWEAR.jpg",
+        "title": "Denveer Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2137/DYNAMITE-EYEWEAR.jpg",
+        "title": "Dynamite Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2138/ERSKI-EYEWEAR.jpg",
+        "title": "Erski Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2139/EYONES-EYEWEAR.jpg",
+        "title": "Eyones Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2140/FORGIVE-EYEWEAR.jpg",
+        "title": "Forgive Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2141/FREE-FLY-EYEWEAR.jpg",
+        "title": "Free Fly Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2142/FUSIONN-EYEWEAR.jpg",
+        "title": "Fusionn Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2143/HAAZEL-EYEWEAR.jpg",
+        "title": "Haazel Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2144/ILLUSION-EYEWEAR.jpg",
+        "title": "Illusion Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2145/INSPIRE-EYEWARE-2.jpg",
+        "title": "Inspire Eyewear 2",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2146/inspire-EYEWARE.jpg",
+        "title": "Inspire Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2147/KNIGTH-HORSE-EYEWEAR.jpg",
+        "title": "Knigth Horse Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2148/LEO-EYEWEAR.jpg",
+        "title": "Leo Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2149/LIFE-LINE-EYEWEAR.jpg",
+        "title": "Life Line Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2150/LIVELPOOL-EYEWEAR.jpg",
+        "title": "Livelpool Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2151/OREO-EYEWEAR.jpg",
+        "title": "Oreo Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2152/PILLARS-EYEWEAR.jpg",
+        "title": "Pillars Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2153/QLOO-EYEWEAR.jpg",
+        "title": "Qloo Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2154/TAG-EYE-EYEWEAR.jpg",
+        "title": "Tag Eye Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2155/TITEX-EYEWEAR.jpg",
+        "title": "Titex Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2156/TOM-STAR-SUNGLASSES.jpg",
+        "title": "Tom Star Sunglasses",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/products/2157/WILTON-EYEWEAR.jpg",
+        "title": "Wilton Eyewear",
+        "desc": "Part of our in-store collection. Come and try the range on, or message us and we will send photographs of what is currently in stock.",
+        "meta": "Available in store",
+        "cta": {
+         "text": "Check availability",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       }
+      ]
+     },
+     "variant": "cards-4"
+    },
+    {
+     "id": "faq-b",
+     "type": "faq",
+     "visible": true,
+     "props": {
+      "label": "FAQ",
+      "heading": "Questions customers ask us",
+      "openFirst": true,
+      "items": [
+       {
+        "q": "Do I need an appointment for an eye test?",
+        "a": "No, walk in any day between 11:00 AM and 9:00 PM. If you would rather not wait, message us on WhatsApp with a time and we will keep a slot for you. Contact lens fittings are best booked ahead as they take longer."
+       },
+       {
+        "q": "How long will my glasses take?",
+        "a": "It depends on the lens. Standard single-vision is usually quick; progressives, high powers and specialist coatings are ordered to your measurements and take longer. We will give you a firm date when you order rather than a guess."
+       },
+       {
+        "q": "Can I use a prescription from another optician or hospital?",
+        "a": "Yes, as long as it is recent. Bring it with you or send a photo on WhatsApp. If it does not include your pupillary distance we will measure it here."
+       },
+       {
+        "q": "Which brands do you stock?",
+        "a": "Over twenty ranges including Denveer, Dynamite, Erski, Eyones, Forgive, Free Fly, Fusionn, Haazel, Illusion, Inspire, Knight Horse, Leo, Life Line, Livelpool, Oreo, Pillars, Qloo, Tag Eye, Titex, Tom Star and Wilton. Stock changes, so message us if you are looking for something specific."
+       },
+       {
+        "q": "Do you fit progressive lenses?",
+        "a": "Yes, and it is one of the things we specialise in. A progressive lives or dies on the pupil-height measurement, so we measure it in the frame you have actually chosen rather than working from a standard figure."
+       },
+       {
+        "q": "I have never worn contact lenses. Can I start?",
+        "a": "Most people can. You need a fitting first: we measure the curvature of your cornea, trial a lens, and teach you to insert, remove and store them. We will not supply a box to a first-time wearer without that session."
+       },
+       {
+        "q": "What if I am not happy with my glasses?",
+        "a": "Bring them back. We will re-check the prescription and re-fit the frame, and where the fault is ours we remake the lenses at no cost."
+       }
+      ]
+     },
+     "variant": "accordion"
+    },
+    {
+     "id": "cta-c",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Book an eye test",
+      "sub": "Walk in any day between 11:00 AM and 9:00 PM, or message us on WhatsApp and we will keep a slot for you.",
+      "ctaPrimary": {
+       "text": "Send an Enquiry",
+       "href": "/contact",
+       "style": "primary"
+      },
+      "showWhatsapp": true,
+      "showCall": true
+     },
+     "variant": "banner"
+    }
+   ]
+  },
+  {
+   "id": "eye-care",
+   "slug": "/eye-care",
+   "title": "Eye Care",
+   "seo": {
+    "title": "Eye Testing, Contact Lens Clinic & Progressive Lenses | Secno Spects",
+    "description": "Comprehensive eye tests, contact lens fitting, progressive lens expertise and scientific dispensing at Secno Spects, Omkar Nagar, Nagpur.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "services-d",
+     "type": "services",
+     "visible": true,
+     "props": {
+      "label": "Our Services",
+      "heading": "Eye care at the counter",
+      "sub": "Backed by the trusted care of Shri Eye Care Netralaya — precision, quality and satisfaction at every step.",
+      "items": [
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/1829/7357f9ea10a30db55004776db87becad.jpg",
+        "title": "Comprehensive Eye Test",
+        "desc": "A full vision check covering distance, near, astigmatism and eye coordination, carried out on proper testing equipment rather than a quick chart reading. You leave with your prescription written down.",
+        "meta": "Walk in any day",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/1830/6bce0d75badd3157e324428211b34c9b.jpg",
+        "title": "Contact Lens Clinic",
+        "desc": "Corneal measurement, trial lenses and a taught insertion-and-care session before you take a box home. Soft, toric and coloured lenses, with follow-up to check the fit is still right.",
+        "meta": "By appointment",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/1831/02cbd677203fc0b2988b2e24293a6fef.jpg",
+        "title": "Progressive Lens Experts",
+        "desc": "Distance, intermediate and reading in a single lens with no visible line. Fitted from precise pupil-height measurements, which is what decides whether a progressive feels natural or never quite works.",
+        "meta": "Measured in store",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/1832/26968cd490e3ec4d4a4baa966a3fc961.jpg",
+        "title": "Scientific Dispensing Optician",
+        "desc": "The frame is fitted to your face and your prescription — pupillary distance, vertex distance, pantoscopic tilt. The same lens in a badly fitted frame is a worse lens, which is where most eyewear complaints come from.",
+        "meta": "Included with every pair",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/services/1833/d5b1103e95871794001e3c15610f24f8.jpg",
+        "title": "100% Satisfaction Guarantee",
+        "desc": "If the glasses are not right, bring them back. We will re-check the prescription, re-fit the frame and remake the lenses where the fault is ours, at no cost.",
+        "meta": "On every purchase",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919545708333",
+         "style": "link"
+        }
+       }
+      ]
+     },
+     "variant": "cards-3"
+    },
+    {
+     "id": "about-e",
+     "type": "about",
+     "visible": true,
+     "props": {
+      "label": "About Us",
+      "heading": "Clear vision and stylish confidence",
+      "body": "Step into a world of clear vision and stylish confidence at Secno Spects — your trusted destination for premium eyewear and expert eye care. Combining advanced eye testing with a wide collection of trendy frames and high-quality lenses, we make sure you see better and look even better.\n\nFrom classic to contemporary designs, every pair is matched to your personality and comfort. Backed by the trusted care of Shri Eye Care Netralaya, we prioritise precision, quality and customer satisfaction at every step.\n\nWe are open all seven days at Omkar Nagar on Besa Road, so an eye test does not have to wait for a day off.\n\nSee the world clearly. Style it your way.",
+      "image": "https://tapifyworld.com/uploads/vcards/services/1830/6bce0d75badd3157e324428211b34c9b.jpg",
+      "showPillars": true,
+      "pillars": [
+       {
+        "icon": "eye",
+        "title": "Advanced eye testing",
+        "text": "Full vision check and consultation on proper equipment, with your prescription written down for you."
+       },
+       {
+        "icon": "glasses",
+        "title": "Stylish frames",
+        "text": "Over twenty brand ranges of frames and sunglasses, from classic shapes to contemporary designs."
+       },
+       {
+        "icon": "sparkles",
+        "title": "Quality lenses",
+        "text": "High-quality lenses and contact lens solutions, including progressives fitted to precise measurements."
+       },
+       {
+        "icon": "badge-check",
+        "title": "Satisfaction guaranteed",
+        "text": "If the glasses are not right we re-check, re-fit and remake where the fault is ours."
+       }
+      ]
+     },
+     "variant": "image-left"
+    },
+    {
+     "id": "faq-f",
+     "type": "faq",
+     "visible": true,
+     "props": {
+      "label": "FAQ",
+      "heading": "Questions customers ask us",
+      "openFirst": true,
+      "items": [
+       {
+        "q": "Do I need an appointment for an eye test?",
+        "a": "No, walk in any day between 11:00 AM and 9:00 PM. If you would rather not wait, message us on WhatsApp with a time and we will keep a slot for you. Contact lens fittings are best booked ahead as they take longer."
+       },
+       {
+        "q": "How long will my glasses take?",
+        "a": "It depends on the lens. Standard single-vision is usually quick; progressives, high powers and specialist coatings are ordered to your measurements and take longer. We will give you a firm date when you order rather than a guess."
+       },
+       {
+        "q": "Can I use a prescription from another optician or hospital?",
+        "a": "Yes, as long as it is recent. Bring it with you or send a photo on WhatsApp. If it does not include your pupillary distance we will measure it here."
+       },
+       {
+        "q": "Which brands do you stock?",
+        "a": "Over twenty ranges including Denveer, Dynamite, Erski, Eyones, Forgive, Free Fly, Fusionn, Haazel, Illusion, Inspire, Knight Horse, Leo, Life Line, Livelpool, Oreo, Pillars, Qloo, Tag Eye, Titex, Tom Star and Wilton. Stock changes, so message us if you are looking for something specific."
+       },
+       {
+        "q": "Do you fit progressive lenses?",
+        "a": "Yes, and it is one of the things we specialise in. A progressive lives or dies on the pupil-height measurement, so we measure it in the frame you have actually chosen rather than working from a standard figure."
+       },
+       {
+        "q": "I have never worn contact lenses. Can I start?",
+        "a": "Most people can. You need a fitting first: we measure the curvature of your cornea, trial a lens, and teach you to insert, remove and store them. We will not supply a box to a first-time wearer without that session."
+       },
+       {
+        "q": "What if I am not happy with my glasses?",
+        "a": "Bring them back. We will re-check the prescription and re-fit the frame, and where the fault is ours we remake the lenses at no cost."
+       }
+      ]
+     },
+     "variant": "accordion"
+    },
+    {
+     "id": "cta-g",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Book an eye test",
+      "sub": "Walk in any day between 11:00 AM and 9:00 PM, or message us on WhatsApp and we will keep a slot for you.",
+      "ctaPrimary": {
+       "text": "Send an Enquiry",
+       "href": "/contact",
+       "style": "primary"
+      },
+      "showWhatsapp": true,
+      "showCall": true
+     },
+     "variant": "banner"
+    }
+   ]
+  },
+  {
+   "id": "contact",
+   "slug": "/contact",
+   "title": "Contact",
+   "seo": {
+    "title": "Visit Us & Book an Eye Test | Secno Spects, Omkar Nagar, Nagpur",
+    "description": "Akshay Heights - 1, Shop No. T-02, Besa Road, Omkar Nagar, Nagpur 440027. Call or WhatsApp 95457 08333. Open all seven days, 11:00 AM to 9:00 PM.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "contact-h",
+     "type": "contact",
+     "visible": true,
+     "props": {
+      "label": "Visit Us",
+      "heading": "Book an eye test",
+      "sub": "Call or WhatsApp +91 95457 08333, or send the form below. Second line: +91 95617 60704.",
+      "showPhone": true,
+      "showWhatsapp": true,
+      "showEmail": true,
+      "showAddress": true,
+      "showHours": true,
+      "showMap": true,
+      "submitText": "Send Enquiry"
+     },
+     "variant": "form-map"
+    },
+    {
+     "id": "hours-i",
+     "type": "hours",
+     "visible": true,
+     "props": {
+      "label": "Store Timings",
+      "heading": "Open all seven days",
+      "highlightToday": true,
+      "note": "Last eye test is taken about 30 minutes before closing."
+     },
+     "variant": "list"
+    },
+    {
+     "id": "faq-j",
+     "type": "faq",
+     "visible": true,
+     "props": {
+      "label": "FAQ",
+      "heading": "Questions customers ask us",
+      "openFirst": true,
+      "items": [
+       {
+        "q": "Do I need an appointment for an eye test?",
+        "a": "No, walk in any day between 11:00 AM and 9:00 PM. If you would rather not wait, message us on WhatsApp with a time and we will keep a slot for you. Contact lens fittings are best booked ahead as they take longer."
+       },
+       {
+        "q": "How long will my glasses take?",
+        "a": "It depends on the lens. Standard single-vision is usually quick; progressives, high powers and specialist coatings are ordered to your measurements and take longer. We will give you a firm date when you order rather than a guess."
+       },
+       {
+        "q": "Can I use a prescription from another optician or hospital?",
+        "a": "Yes, as long as it is recent. Bring it with you or send a photo on WhatsApp. If it does not include your pupillary distance we will measure it here."
+       },
+       {
+        "q": "Which brands do you stock?",
+        "a": "Over twenty ranges including Denveer, Dynamite, Erski, Eyones, Forgive, Free Fly, Fusionn, Haazel, Illusion, Inspire, Knight Horse, Leo, Life Line, Livelpool, Oreo, Pillars, Qloo, Tag Eye, Titex, Tom Star and Wilton. Stock changes, so message us if you are looking for something specific."
+       },
+       {
+        "q": "Do you fit progressive lenses?",
+        "a": "Yes, and it is one of the things we specialise in. A progressive lives or dies on the pupil-height measurement, so we measure it in the frame you have actually chosen rather than working from a standard figure."
+       },
+       {
+        "q": "I have never worn contact lenses. Can I start?",
+        "a": "Most people can. You need a fitting first: we measure the curvature of your cornea, trial a lens, and teach you to insert, remove and store them. We will not supply a box to a first-time wearer without that session."
+       },
+       {
+        "q": "What if I am not happy with my glasses?",
+        "a": "Bring them back. We will re-check the prescription and re-fit the frame, and where the fault is ours we remake the lenses at no cost."
+       }
+      ]
+     },
+     "variant": "accordion"
+    },
+    {
+     "id": "cta-k",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Book an eye test",
+      "sub": "Walk in any day between 11:00 AM and 9:00 PM, or message us on WhatsApp and we will keep a slot for you.",
+      "ctaPrimary": {
+       "text": "Send an Enquiry",
+       "href": "/contact",
+       "style": "primary"
+      },
+      "showWhatsapp": true,
+      "showCall": true
+     },
+     "variant": "banner"
+    }
+   ]
+  }
+ ]
+}

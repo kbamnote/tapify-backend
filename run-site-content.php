@@ -1,13 +1,13 @@
 <?php
 /**
- * TAPIFY — one-time content loader for Dr. Aayas Dental Clinic.
+ * TAPIFY — one-time content loader for a builder site.
  *
- * Replaces the site's DRAFT with the prepared document in
- * content-aayas-dental.json (4 pages, 18 treatments, real patient reviews,
- * clinic hours and contact details taken from the client's vCard).
+ * Replaces a site's DRAFT with a prepared document built from the customer's
+ * existing vCard. Open in a browser, signed in as an admin:
  *
- * Open in a browser, signed in as an admin:
- *   https://app.tapify.co.in/run-aayas-content.php?slug=aayasdental&confirm=apply
+ *   https://app.tapify.co.in/run-site-content.php?slug=aayasdental&confirm=apply
+ *   https://app.tapify.co.in/run-site-content.php?slug=secnospects&confirm=apply
+ *
  * Add &publish=1 to publish immediately instead of leaving it as a draft.
  *
  * The document is validated strictly before anything is written, and the write
@@ -15,8 +15,18 @@
  * the existing one — so the previous version stays in site_versions and can be
  * restored from the builder's version history.
  *
- * DELETE THIS FILE once the content is in.
+ * The slug is looked up in a fixed map rather than used to build a filename:
+ * this script runs before any content validation, and letting a query string
+ * choose which file to read is how you turn an admin tool into a file-disclosure
+ * bug. To load another site, add a line to $SITES.
+ *
+ * DELETE THIS FILE AND THE content-*.json FILES once the content is in.
  */
+
+$SITES = [
+    'aayasdental' => ['file' => 'content-aayas-dental.json', 'label' => 'Dr. Aayas Dental Clinic'],
+    'secnospects' => ['file' => 'content-secno-spects.json', 'label' => 'Secno Spects'],
+];
 
 require_once __DIR__ . '/config/database.php';
 require_once __DIR__ . '/includes/functions.php';
@@ -25,7 +35,7 @@ require_once __DIR__ . '/builder/lib/SiteValidator.php';
 
 header('Content-Type: text/html; charset=utf-8');
 echo "<meta name='viewport' content='width=device-width,initial-scale=1'>";
-echo "<h2>Tapify — load content for Dr. Aayas Dental Clinic</h2>";
+echo "<h2>Tapify — load site content</h2>";
 
 $ok   = fn($m) => print("<p style='color:green'>OK &mdash; $m</p>");
 $bad  = fn($m) => print("<p style='color:#b91c1c'><b>Stopped</b> &mdash; $m</p>");
@@ -42,14 +52,22 @@ if (($_GET['confirm'] ?? '') !== 'apply') {
     exit;
 }
 
-$slug = preg_replace('/[^a-z0-9-]/', '', strtolower($_GET['slug'] ?? 'aayasdental'));
+$slug = preg_replace('/[^a-z0-9-]/', '', strtolower($_GET['slug'] ?? ''));
+if (!isset($SITES[$slug])) {
+    $bad("Unknown slug. Pass one of: " . implode(', ', array_map(
+        fn($s) => "<code>?slug=$s&amp;confirm=apply</code>", array_keys($SITES)
+    )));
+    exit;
+}
+$label = $SITES[$slug]['label'];
+echo "<p>Target: <b>" . htmlspecialchars($label) . "</b> (" . htmlspecialchars($slug) . ".tapify.co.in)</p>";
 
 try {
-    $file = __DIR__ . '/content-aayas-dental.json';
-    if (!file_exists($file)) { $bad("content-aayas-dental.json not found next to this script."); exit; }
+    $file = __DIR__ . '/' . $SITES[$slug]['file'];
+    if (!file_exists($file)) { $bad(htmlspecialchars($SITES[$slug]['file']) . " not found next to this script."); exit; }
 
     $doc = json_decode(file_get_contents($file), true);
-    if (!is_array($doc)) { $bad("content-aayas-dental.json is not valid JSON: " . json_last_error_msg()); exit; }
+    if (!is_array($doc)) { $bad(htmlspecialchars($SITES[$slug]['file']) . " is not valid JSON: " . json_last_error_msg()); exit; }
     $ok("Loaded document — " . count($doc['pages'] ?? []) . " pages.");
 
     $site = SiteRepo::findBySlug($slug);
@@ -107,11 +125,12 @@ try {
 
         $ins = $pdo->prepare(
             "INSERT INTO site_versions (site_id, rev, doc, schema_version, kind, label, author_user_id, source)
-             VALUES (?, ?, ?, ?, 'draft', 'Dental content load', ?, 'web')"
+             VALUES (?, ?, ?, ?, 'draft', ?, ?, 'web')"
         );
         $ins->execute([
             (int)$site['id'], $newRev, $encoded,
             (int)($doc['schemaVersion'] ?? 1),
+            'Content load: ' . $label,
             getCurrentUserId() ? (int)getCurrentUserId() : null,
         ]);
         $vid = (int)$pdo->lastInsertId();
@@ -130,7 +149,7 @@ try {
 
     if (($_GET['publish'] ?? '') === '1') {
         $fresh = SiteRepo::findById($site['id']);
-        SiteRepo::publish($fresh, getCurrentUserId(), 'Dental content load', 'web');
+        SiteRepo::publish($fresh, getCurrentUserId(), 'Content load: ' . $label, 'web');
         $ok("Published. Live now at <a href='https://" . htmlspecialchars($slug) . ".tapify.co.in'>"
             . htmlspecialchars($slug) . ".tapify.co.in</a>");
     } else {
@@ -138,7 +157,7 @@ try {
             . "(or re-run this URL with <code>&amp;publish=1</code>).");
     }
 
-    $note("<b>Delete run-aayas-content.php and content-aayas-dental.json now.</b>");
+    $note("<b>Delete run-site-content.php and the content-*.json files once every site is loaded.</b>");
 
 } catch (Exception $e) {
     $bad(htmlspecialchars($e->getMessage()));
