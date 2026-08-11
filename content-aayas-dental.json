@@ -312,7 +312,41 @@
      "variant": "cards-3"
     },
     {
-     "id": "testimonials-5",
+     "id": "gallery-5",
+     "type": "gallery",
+     "visible": true,
+     "props": {
+      "label": "Inside the Clinic",
+      "heading": "A look around",
+      "sub": "The clinic, the chair and the equipment you will actually be treated with.",
+      "lightbox": true,
+      "images": [
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/gallery/1970/2025-10-08.jpg",
+        "alt": "Dr. Aayas Dental Clinic, Nagpur — photo 1"
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/gallery/1971/2025-10-08-(1).jpg",
+        "alt": "Dr. Aayas Dental Clinic, Nagpur — photo 2"
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/gallery/1972/2023-07-03.jpg",
+        "alt": "Dr. Aayas Dental Clinic, Nagpur — photo 3"
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/gallery/1973/2025-10-08-(2).jpg",
+        "alt": "Dr. Aayas Dental Clinic, Nagpur — photo 4"
+       },
+       {
+        "image": "https://tapifyworld.com/uploads/vcards/gallery/1974/2025-10-08-(3).jpg",
+        "alt": "Dr. Aayas Dental Clinic, Nagpur — photo 5"
+       }
+      ]
+     },
+     "variant": "grid-3"
+    },
+    {
+     "id": "testimonials-6",
      "type": "testimonials",
      "visible": true,
      "props": {
@@ -354,7 +388,26 @@
      "variant": "cards-3"
     },
     {
-     "id": "cta-6",
+     "id": "embed-7",
+     "type": "embed",
+     "visible": true,
+     "props": {
+      "label": "Instagram",
+      "heading": "Latest from the clinic",
+      "sub": "Follow @dr_sumeet_aya for cases, tips and clinic updates.",
+      "embeds": [
+       {
+        "url": "https://www.instagram.com/p/DYNk0Pvms4D/"
+       },
+       {
+        "url": "https://www.instagram.com/p/DYIaxPjkx29/"
+       }
+      ]
+     },
+     "variant": "grid-2"
+    },
+    {
+     "id": "cta-8",
      "type": "cta",
      "visible": true,
      "props": {
@@ -371,7 +424,7 @@
      "variant": "banner"
     },
     {
-     "id": "contact-7",
+     "id": "contact-9",
      "type": "contact",
      "visible": true,
      "props": {
@@ -389,7 +442,7 @@
      "variant": "form-map"
     },
     {
-     "id": "footer-8",
+     "id": "footer-a",
      "type": "footer",
      "visible": true,
      "props": {
@@ -481,7 +534,7 @@
    },
    "sections": [
     {
-     "id": "services-9",
+     "id": "services-b",
      "type": "services",
      "visible": true,
      "props": {
@@ -692,7 +745,7 @@
      "variant": "cards-3"
     },
     {
-     "id": "gallery-a",
+     "id": "gallery-c",
      "type": "gallery",
      "visible": true,
      "props": {
@@ -726,7 +779,7 @@
      "variant": "grid-3"
     },
     {
-     "id": "faq-b",
+     "id": "faq-d",
      "type": "faq",
      "visible": true,
      "props": {
@@ -767,7 +820,7 @@
      "variant": "accordion"
     },
     {
-     "id": "cta-c",
+     "id": "cta-e",
      "type": "cta",
      "visible": true,
      "props": {
@@ -796,7 +849,7 @@
    },
    "sections": [
     {
-     "id": "about-d",
+     "id": "about-f",
      "type": "about",
      "visible": true,
      "props": {
@@ -831,7 +884,7 @@
      "variant": "image-left"
     },
     {
-     "id": "team-e",
+     "id": "team-g",
      "type": "team",
      "visible": true,
      "props": {
@@ -849,7 +902,7 @@
      "variant": "cards-2"
     },
     {
-     "id": "gallery-f",
+     "id": "gallery-h",
      "type": "gallery",
      "visible": true,
      "props": {
@@ -883,7 +936,7 @@
      "variant": "grid-3"
     },
     {
-     "id": "testimonials-g",
+     "id": "testimonials-i",
      "type": "testimonials",
      "visible": true,
      "props": {
@@ -925,7 +978,7 @@
      "variant": "cards-3"
     },
     {
-     "id": "embed-h",
+     "id": "embed-j",
      "type": "embed",
      "visible": true,
      "props": {
@@ -956,7 +1009,7 @@
    },
    "sections": [
     {
-     "id": "contact-i",
+     "id": "contact-k",
      "type": "contact",
      "visible": true,
      "props": {
@@ -974,7 +1027,7 @@
      "variant": "form-map"
     },
     {
-     "id": "hours-j",
+     "id": "hours-l",
      "type": "hours",
      "visible": true,
      "props": {
@@ -986,7 +1039,7 @@
      "variant": "list"
     },
     {
-     "id": "faq-k",
+     "id": "faq-m",
      "type": "faq",
      "visible": true,
      "props": {
@@ -1027,7 +1080,7 @@
      "variant": "accordion"
     },
     {
-     "id": "cta-l",
+     "id": "cta-n",
      "type": "cta",
      "visible": true,
      "props": {

@@ -10,9 +10,10 @@
  *   https://app.tapify.co.in/run-aayas-content.php?slug=aayasdental&confirm=apply
  * Add &publish=1 to publish immediately instead of leaving it as a draft.
  *
- * It writes through SiteRepo::saveDraft, so the document is validated, the
- * revision counter is respected and the previous version stays in site_versions
- * and can be restored from the builder's version history.
+ * The document is validated strictly before anything is written, and the write
+ * inserts a NEW draft version under the site row lock rather than overwriting
+ * the existing one — so the previous version stays in site_versions and can be
+ * restored from the builder's version history.
  *
  * DELETE THIS FILE once the content is in.
  */
@@ -67,10 +68,65 @@ try {
     }
     $ok("Document passed strict validation.");
 
-    $draft = SiteRepo::getDraft($site);
-    $rev   = $draft ? (int)$draft['rev'] : 0;
-    $res   = SiteRepo::saveDraft($site, $doc, $rev, getCurrentUserId(), 'web');
-    $ok("Draft saved — now at revision " . (int)$res['rev'] . ". The previous version is still in the builder's version history.");
+    // Show the real state first — if anything goes wrong this is what explains it.
+    $pdo = getDB();
+    $cur = $pdo->prepare(
+        "SELECT id, rev, kind, LENGTH(doc) AS bytes, created_at
+           FROM site_versions WHERE site_id = ? ORDER BY rev DESC LIMIT 5"
+    );
+    $cur->execute([(int)$site['id']]);
+    $rows = $cur->fetchAll(PDO::FETCH_ASSOC);
+    echo "<p><b>Current versions</b> (draft_version_id = " . (int)$site['draft_version_id']
+       . ", published_version_id = " . (int)$site['published_version_id'] . ")</p><ul>";
+    foreach ($rows as $r) {
+        $marks = [];
+        if ((int)$r['id'] === (int)$site['draft_version_id'])     $marks[] = 'DRAFT POINTER';
+        if ((int)$r['id'] === (int)$site['published_version_id']) $marks[] = 'PUBLISHED POINTER';
+        echo "<li>id " . (int)$r['id'] . " &middot; rev " . (int)$r['rev'] . " &middot; kind <b>"
+           . htmlspecialchars($r['kind']) . "</b> &middot; " . (int)$r['bytes'] . " bytes &middot; "
+           . htmlspecialchars($r['created_at']) . ($marks ? ' &middot; <b>' . implode(' + ', $marks) . '</b>' : '') . "</li>";
+    }
+    echo "</ul>";
+
+    // Write a NEW draft version and repoint the site at it, inside the site row
+    // lock. Deliberately NOT saveDraft(): its rev check guards two people editing
+    // at once, which is not this — it only made a one-off admin load fail with a
+    // conflict it can do nothing about. The old draft row is left in place, so
+    // the builder's version history can still restore it.
+    $pdo->beginTransaction();
+    try {
+        $lock = $pdo->prepare("SELECT id FROM sites WHERE id = ? FOR UPDATE");
+        $lock->execute([(int)$site['id']]);
+
+        $nr = $pdo->prepare("SELECT COALESCE(MAX(rev), 0) + 1 FROM site_versions WHERE site_id = ?");
+        $nr->execute([(int)$site['id']]);
+        $newRev = (int)$nr->fetchColumn();
+
+        $encoded = json_encode($doc, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+        if ($encoded === false) throw new Exception('Could not encode the document: ' . json_last_error_msg());
+
+        $ins = $pdo->prepare(
+            "INSERT INTO site_versions (site_id, rev, doc, schema_version, kind, label, author_user_id, source)
+             VALUES (?, ?, ?, ?, 'draft', 'Dental content load', ?, 'web')"
+        );
+        $ins->execute([
+            (int)$site['id'], $newRev, $encoded,
+            (int)($doc['schemaVersion'] ?? 1),
+            getCurrentUserId() ? (int)getCurrentUserId() : null,
+        ]);
+        $vid = (int)$pdo->lastInsertId();
+
+        $pdo->prepare("UPDATE sites SET draft_version_id = ?, updated_at = CURRENT_TIMESTAMP WHERE id = ?")
+            ->execute([$vid, (int)$site['id']]);
+
+        $pdo->commit();
+    } catch (Exception $e) {
+        if ($pdo->inTransaction()) $pdo->rollBack();
+        throw $e;
+    }
+
+    $ok("Draft written — new version id $vid at revision $newRev (" . number_format(strlen($encoded)) . " bytes). "
+      . "The previous draft is still in site_versions and can be restored from the builder's version history.");
 
     if (($_GET['publish'] ?? '') === '1') {
         $fresh = SiteRepo::findById($site['id']);
