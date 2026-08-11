@@ -1,0 +1,35 @@
+{
+  "preset": "indigo-optic",
+  "label": "Indigo Optic",
+  "description": "Deep ink indigo with a warm coral accent on cool porcelain. Modern, retail and confident — suits opticians, eyewear brands, sunglasses stores and any direct-to-consumer product catalogue.",
+  "industries": [
+    "optical",
+    "opticals",
+    "eyewear",
+    "optician",
+    "sunglasses",
+    "contact-lenses",
+    "optometry"
+  ],
+  "tokens": {
+    "mode": "light",
+    "color": {
+      "primary": "#2B2D74",
+      "secondary": "#4B4FA6",
+      "accent": "#FF6B4A",
+      "bg": "#FBFBFD",
+      "surface": "#FFFFFF",
+      "text": "#14152E",
+      "muted": "#63667F",
+      "border": "#E3E4EE"
+    },
+    "font": {
+      "heading": "Sora",
+      "body": "Manrope"
+    },
+    "radius": "lg",
+    "spacing": "comfortable",
+    "container": "normal"
+  },
+  "notes": "Tokens only — sections never hardcode colours, they read these as CSS variables.\n\nPALETTE LOGIC: eyewear retail is a fashion category sold on trust, so the base is a deep ink indigo (authority, clinical competence) lifted by a warm coral accent (the offer, the CTA, the price tag). Cool porcelain rather than pure white keeps product photography — which is nearly always shot on white — from disappearing into the page. No other theme in this set pairs indigo with coral: navy-gold is navy plus gold and reads corporate/finance, and the other blues (midnight-ink, octane, neon-pulse) are all dark-background themes.\n\nCONTRAST: measured, not eyeballed. Body text on bg 17.27:1, white on primary 12.14:1, white on secondary 7.07:1, text on accent 6.34:1, primary on bg 11.74:1, muted on bg 5.44:1 — all well clear of WCAG AA 4.5:1. Accent-on-bg is 2.73:1, which is correct and matches the house pattern: accent is a FILL with dark text on top of it (a Buy button, a discount pill), never body text on the background. If you retune it, keep text-on-accent above 4.5:1 and do not chase the accent-on-bg number.\n\nFONTS: Sora (headings) + Manrope (body). Neither is used by another theme. IMPORTANT — the renderer requests wght@400;500;600;700 for both families in a single css2 call, and Google returns HTTP 200 even when a face only serves some of those, which silently renders headings at 400. Both of these were checked against the live css2 response and serve all four. Verify the same way before swapping either.\n\nradius is lg because product cards and frame photography look better with a softer corner; spacing is comfortable rather than spacious so a long catalogue does not turn into endless scrolling."
+}

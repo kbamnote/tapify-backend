@@ -1,0 +1,726 @@
+{
+  "id": "optical",
+  "label": "Opticals / Eyewear",
+  "aliases": ["opticals", "optician", "eyewear", "eyeglasses", "spectacles", "glasses", "sunglasses", "contact-lenses", "lenses", "optometry", "optometrist", "eye-care", "eye-clinic", "chashma", "optical-store", "eye-test"],
+  "icon": "glasses",
+  "theme": { "preset": "indigo-optic" },
+
+  "description": "Opticians and eyewear stores: a shoppable frame catalogue with lens options and prescription types, plus eye testing, contact lens fitting and children's eye care — built to convert like a modern eyewear brand.",
+
+  "sections": [
+    "header",
+    "hero",
+    "about",
+    "products",
+    "services",
+    "gallery",
+    "stats",
+    "testimonials",
+    "blog",
+    "faq",
+    "hours",
+    "cta",
+    "contact",
+    "footer"
+  ],
+
+  "recommended": [
+    { "type": "header",      "reason": "Sticky nav with cart, account and a 'Book Eye Test' CTA" },
+    { "type": "hero",        "reason": "A full-height video of frames on an eye chart with two clear CTAs" },
+    { "type": "about",       "reason": "Who tests your eyes, what lenses you fit and how fast" },
+    { "type": "products",    "reason": "The shoppable frame catalogue — colour, lens type, live stock and cart" },
+    { "type": "services",    "reason": "Eye testing, contact lens fitting, kids' eye care and screening" },
+    { "type": "gallery",     "reason": "The store and the wall of frames — this category is bought with the eyes" },
+    { "type": "stats",       "reason": "Frames in stock, eyes tested, fitting turnaround" },
+    { "type": "testimonials","reason": "Reviews that mention the test, the fit and the turnaround" },
+    { "type": "blog",        "reason": "Buying guides — blue-cut, progressives, kids' screen time" },
+    { "type": "faq",         "reason": "Prescriptions, warranty, turnaround, insurance and returns" },
+    { "type": "hours",       "reason": "Store timings, and which day you're closed" },
+    { "type": "cta",         "reason": "A final push to book a free eye test" },
+    { "type": "contact",     "reason": "Store address, phone, WhatsApp, map and an enquiry form" },
+    { "type": "footer",      "reason": "Quick links, social icons and trust lines" }
+  ],
+
+  "business": {
+    "phone": "+91 90210 44567",
+    "whatsapp": "+91 90210 44567",
+    "email": "hello@lensoraopticals.in",
+    "address": "22 FC Road, Shivajinagar, Pune, Maharashtra 411005",
+    "social": {
+      "instagram": "https://instagram.com/",
+      "facebook": "https://facebook.com/",
+      "youtube": "https://youtube.com/"
+    },
+    "hours": [
+      { "day": "mon", "open": "10:00 AM", "close": "8:30 PM" },
+      { "day": "tue", "open": "10:00 AM", "close": "8:30 PM" },
+      { "day": "wed", "open": "10:00 AM", "close": "8:30 PM" },
+      { "day": "thu", "open": "10:00 AM", "close": "8:30 PM" },
+      { "day": "fri", "open": "10:00 AM", "close": "8:30 PM" },
+      { "day": "sat", "open": "10:00 AM", "close": "9:00 PM" },
+      { "day": "sun", "open": "11:00 AM", "close": "6:00 PM" }
+    ]
+  },
+
+  "content": {
+    "header": {
+      "variant": "left",
+      "props": {
+        "sticky": true,
+        "showCart": true,
+        "showAccount": true,
+        "links": [
+          { "text": "Home",     "href": "/" },
+          { "text": "Eyewear",  "href": "/eyewear" },
+          { "text": "Eye Care", "href": "/eye-care" },
+          { "text": "Contact",  "href": "/contact" }
+        ],
+        "cta": { "text": "Book Eye Test", "href": "/contact", "style": "primary" }
+      }
+    },
+
+    "hero": {
+      "variant": "centered-bg",
+      "props": {
+        "badge": "Free eye test · Lenses fitted in 60 minutes",
+        "heading": "See better. Look better.",
+        "sub": "Over 2,000 frames in store, prescription lenses cut and fitted the same day, and an eye test by a qualified optometrist that actually takes its time.",
+        "image": "https://images.pexels.com/photos/5201896/pexels-photo-5201896.jpeg?auto=compress&cs=tinysrgb&w=2000",
+        "videoUrl": "https://videos.pexels.com/video-files/5995502/5995502-hd_1920_1080_30fps.mp4",
+        "fullHeight": true,
+        "ctaPrimary":   { "text": "Shop Frames", "href": "/eyewear", "style": "primary" },
+        "ctaSecondary": { "text": "Book a Free Eye Test", "href": "/contact", "style": "ghost" },
+        "showWhatsapp": true,
+        "showCall": true
+      },
+      "style": { "overlay": 0.58 }
+    },
+
+    "about": {
+      "variant": "image-right",
+      "props": {
+        "label": "About Us",
+        "heading": "An eye test, not a sales pitch",
+        "body": "We started as a single counter on FC Road fitting reading glasses, and the thing that kept people coming back was never the frames — it was that the test was unhurried and nobody was pushed into a lens they did not need.\n\nEvery eye test is done by a qualified optometrist on computerised equipment, and takes about twenty minutes. You get your prescription in writing whether or not you buy from us.\n\nOur edging lab is in the store, so single-vision lenses are usually cut and fitted within the hour. Progressives and specialist coatings take two to three days because they are ordered to your exact measurements.\n\nIf a frame does not suit you, we will say so. That is the whole job.",
+        "image": "https://images.pexels.com/photos/5201890/pexels-photo-5201890.jpeg?auto=compress&cs=tinysrgb&w=1400",
+        "showPillars": true,
+        "pillars": [
+          { "icon": "eye",         "title": "Free 20-minute eye test", "text": "Computerised testing by a qualified optometrist. Your prescription in writing, yours to keep." },
+          { "icon": "clock",       "title": "Fitted in 60 minutes",    "text": "In-store edging lab. Most single-vision lenses are cut and fitted while you wait." },
+          { "icon": "badge-check", "title": "One-year warranty",       "text": "Manufacturing defects on frames and lens coatings covered for a full year." },
+          { "icon": "scale",       "title": "Honest advice",           "text": "We will tell you when the cheaper lens is the right one. No commission on upgrades." }
+        ]
+      }
+    },
+
+    "products": {
+      "variant": "cards-3",
+      "props": {
+        "label": "The Collection",
+        "heading": "Frames you will actually wear",
+        "sub": "Pick your frame, then your lens — single vision, blue-cut or progressive. Prices include the frame and standard lenses; add your prescription at checkout or bring it in store.",
+        "showRelated": true,
+        "relatedHeading": "You may also like",
+        "items": [
+          {
+            "image": "https://images.pexels.com/photos/32398468/pexels-photo-32398468.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Classic Metal Rectangle",
+            "desc": "A slim stainless-steel rectangle with adjustable nose pads. The safest frame in the store — suits almost every face shape.",
+            "meta": "Stainless steel · Unisex",
+            "price": "₹1,299",
+            "mrp": "₹2,499",
+            "slug": "classic-metal-rectangle",
+            "enableOrder": true,
+            "body": "If you are not sure what suits you, start here. A slim rectangular stainless-steel frame is the most forgiving shape there is — it flatters round, oval and square faces alike, and reads as smart rather than fashionable, which matters if these are your everyday work glasses.\n\nThe nose pads are adjustable, so the fit can be corrected in seconds if the frame slides. Spring hinges take the strain when you push them onto your head.\n\nThe price shown includes standard single-vision lenses. Choose blue-cut if you are on a screen all day, or progressive if you need both distance and reading in one lens.\n\nUsually cut and fitted within the hour in single vision. Progressives take two to three working days.",
+            "productInfoTitle": "Frame Details",
+            "productInfo": [
+              { "label": "Material",   "value": "Stainless steel" },
+              { "label": "Shape",      "value": "Rectangle" },
+              { "label": "Width",      "value": "Medium, 138 mm" },
+              { "label": "Nose pads",  "value": "Adjustable silicone" },
+              { "label": "Hinges",     "value": "Spring loaded" },
+              { "label": "Warranty",   "value": "1 year on manufacturing defects" }
+            ],
+            "attributes": [
+              { "name": "Frame Colour", "options": [ { "value": "Gunmetal" }, { "value": "Black" }, { "value": "Rose Gold" } ] },
+              { "name": "Lens Type",    "options": [ { "value": "Single Vision" }, { "value": "Blue-Cut" }, { "value": "Progressive" } ] }
+            ],
+            "variants": [
+              { "option1": "Gunmetal",  "option2": "Single Vision", "sku": "CMR-GM-SV", "price": "₹1,299", "mrp": "₹2,499", "stock": 14 },
+              { "option1": "Gunmetal",  "option2": "Blue-Cut",      "sku": "CMR-GM-BC", "price": "₹1,999", "mrp": "₹3,499", "stock": 11 },
+              { "option1": "Gunmetal",  "option2": "Progressive",   "sku": "CMR-GM-PG", "price": "₹4,499", "mrp": "₹6,999", "stock": 6 },
+              { "option1": "Black",     "option2": "Single Vision", "sku": "CMR-BK-SV", "price": "₹1,299", "mrp": "₹2,499", "stock": 18 },
+              { "option1": "Black",     "option2": "Blue-Cut",      "sku": "CMR-BK-BC", "price": "₹1,999", "mrp": "₹3,499", "stock": 12 },
+              { "option1": "Black",     "option2": "Progressive",   "sku": "CMR-BK-PG", "price": "₹4,499", "mrp": "₹6,999", "stock": 5 },
+              { "option1": "Rose Gold", "option2": "Single Vision", "sku": "CMR-RG-SV", "price": "₹1,499", "mrp": "₹2,799", "stock": 9 },
+              { "option1": "Rose Gold", "option2": "Blue-Cut",      "sku": "CMR-RG-BC", "price": "₹2,199", "mrp": "₹3,799", "stock": 7 },
+              { "option1": "Rose Gold", "option2": "Progressive",   "sku": "CMR-RG-PG", "price": "₹4,699", "mrp": "₹7,299", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/16683295/pexels-photo-16683295.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Bold Acetate Square",
+            "desc": "A thick hand-polished acetate square with a keyhole bridge. Makes a statement without shouting.",
+            "meta": "Acetate · Wide fit",
+            "price": "₹1,899",
+            "mrp": "₹3,499",
+            "slug": "bold-acetate-square",
+            "enableOrder": true,
+            "body": "Thick acetate in a squared-off shape, hand polished so the edges catch the light rather than looking flat. This is the frame people notice — good if you want your glasses to be part of how you dress rather than something you apologise for.\n\nThe keyhole bridge sits on the bridge of the nose rather than on pads, which suits a flatter nose profile and stops the frame sliding.\n\nIt is a wide fit at 145 mm, so it works better on broader faces. If you have a narrow face, the Classic Metal Rectangle or the Round Retro will sit better.\n\nIncludes standard single-vision lenses. Comes with a hard case and cloth.",
+            "productInfoTitle": "Frame Details",
+            "productInfo": [
+              { "label": "Material", "value": "Hand-polished acetate" },
+              { "label": "Shape",    "value": "Square" },
+              { "label": "Width",    "value": "Wide, 145 mm" },
+              { "label": "Bridge",   "value": "Keyhole" },
+              { "label": "Includes", "value": "Hard case + cloth" },
+              { "label": "Warranty", "value": "1 year" }
+            ],
+            "attributes": [
+              { "name": "Frame Colour", "options": [ { "value": "Matte Navy" }, { "value": "Tortoise" }, { "value": "Jet Black" } ] },
+              { "name": "Lens Type",    "options": [ { "value": "Single Vision" }, { "value": "Blue-Cut" }, { "value": "Progressive" } ] }
+            ],
+            "variants": [
+              { "option1": "Matte Navy", "option2": "Single Vision", "sku": "BAS-NV-SV", "price": "₹1,899", "mrp": "₹3,499", "stock": 10 },
+              { "option1": "Matte Navy", "option2": "Blue-Cut",      "sku": "BAS-NV-BC", "price": "₹2,599", "mrp": "₹4,499", "stock": 8 },
+              { "option1": "Matte Navy", "option2": "Progressive",   "sku": "BAS-NV-PG", "price": "₹5,099", "mrp": "₹7,999", "stock": 4 },
+              { "option1": "Tortoise",   "option2": "Single Vision", "sku": "BAS-TR-SV", "price": "₹1,899", "mrp": "₹3,499", "stock": 12 },
+              { "option1": "Tortoise",   "option2": "Blue-Cut",      "sku": "BAS-TR-BC", "price": "₹2,599", "mrp": "₹4,499", "stock": 9 },
+              { "option1": "Tortoise",   "option2": "Progressive",   "sku": "BAS-TR-PG", "price": "₹5,099", "mrp": "₹7,999", "stock": 3 },
+              { "option1": "Jet Black",  "option2": "Single Vision", "sku": "BAS-JB-SV", "price": "₹1,899", "mrp": "₹3,499", "stock": 15 },
+              { "option1": "Jet Black",  "option2": "Blue-Cut",      "sku": "BAS-JB-BC", "price": "₹2,599", "mrp": "₹4,499", "stock": 10 },
+              { "option1": "Jet Black",  "option2": "Progressive",   "sku": "BAS-JB-PG", "price": "₹5,099", "mrp": "₹7,999", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/5202050/pexels-photo-5202050.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Round Retro",
+            "desc": "A slim round metal frame with a double bridge. Light on the face and easy to wear all day.",
+            "meta": "Metal · Lightweight",
+            "price": "₹1,599",
+            "mrp": "₹2,999",
+            "slug": "round-retro",
+            "enableOrder": true,
+            "body": "A slim round metal frame with a double bridge — the shape that softens angular faces and has stayed in fashion for about a century, which is a reasonable sign it will still look right in three years.\n\nAt around 18 grams it is one of the lightest frames we stock, so it suits anyone who takes their glasses off because they get uncomfortable by the afternoon.\n\nRound frames need a smaller lens area, which makes them a poor choice for a strong progressive — the corridor gets cramped. If your prescription is high, ask us before choosing this one.\n\nIncludes standard single-vision lenses, hard case and cloth.",
+            "productInfoTitle": "Frame Details",
+            "productInfo": [
+              { "label": "Material", "value": "Lightweight metal alloy" },
+              { "label": "Shape",    "value": "Round, double bridge" },
+              { "label": "Weight",   "value": "Approx. 18 g" },
+              { "label": "Width",    "value": "Narrow to medium, 134 mm" },
+              { "label": "Note",     "value": "Ask us first for strong progressives" },
+              { "label": "Warranty", "value": "1 year" }
+            ],
+            "attributes": [
+              { "name": "Frame Colour", "options": [ { "value": "Antique Gold" }, { "value": "Silver" }, { "value": "Matte Black" } ] },
+              { "name": "Lens Type",    "options": [ { "value": "Single Vision" }, { "value": "Blue-Cut" } ] }
+            ],
+            "variants": [
+              { "option1": "Antique Gold", "option2": "Single Vision", "sku": "RRT-AG-SV", "price": "₹1,599", "mrp": "₹2,999", "stock": 11 },
+              { "option1": "Antique Gold", "option2": "Blue-Cut",      "sku": "RRT-AG-BC", "price": "₹2,299", "mrp": "₹3,999", "stock": 8 },
+              { "option1": "Silver",       "option2": "Single Vision", "sku": "RRT-SL-SV", "price": "₹1,599", "mrp": "₹2,999", "stock": 13 },
+              { "option1": "Silver",       "option2": "Blue-Cut",      "sku": "RRT-SL-BC", "price": "₹2,299", "mrp": "₹3,999", "stock": 6 },
+              { "option1": "Matte Black",  "option2": "Single Vision", "sku": "RRT-MB-SV", "price": "₹1,599", "mrp": "₹2,999", "stock": 14 },
+              { "option1": "Matte Black",  "option2": "Blue-Cut",      "sku": "RRT-MB-BC", "price": "₹2,299", "mrp": "₹3,999", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/26682030/pexels-photo-26682030.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Cat-Eye Acetate",
+            "desc": "An upswept cat-eye in layered acetate — lifts the face and works as well with a saree as with a shirt.",
+            "meta": "Acetate · Women's",
+            "price": "₹1,799",
+            "mrp": "₹3,299",
+            "slug": "cat-eye-acetate",
+            "enableOrder": true,
+            "body": "An upswept cat-eye cut from layered acetate, so the colour changes slightly along the edge of the frame rather than sitting flat.\n\nThe lift at the outer corner draws the eye upward, which is why this shape is the usual recommendation for a rounder or heart-shaped face. It dresses up easily — it works with a saree at a wedding and with a shirt at the office, which most statement frames do not manage.\n\nMedium width at 140 mm with a standard bridge. Comes with a hard case and cloth, and standard single-vision lenses included.\n\nAvailable in blue-cut if you are at a screen all day, and in progressive.",
+            "productInfoTitle": "Frame Details",
+            "productInfo": [
+              { "label": "Material", "value": "Layered acetate" },
+              { "label": "Shape",    "value": "Cat-eye" },
+              { "label": "Width",    "value": "Medium, 140 mm" },
+              { "label": "Suits",    "value": "Round and heart-shaped faces" },
+              { "label": "Includes", "value": "Hard case + cloth" },
+              { "label": "Warranty", "value": "1 year" }
+            ],
+            "attributes": [
+              { "name": "Frame Colour", "options": [ { "value": "Tortoise" }, { "value": "Burgundy" }, { "value": "Crystal Pink" } ] },
+              { "name": "Lens Type",    "options": [ { "value": "Single Vision" }, { "value": "Blue-Cut" }, { "value": "Progressive" } ] }
+            ],
+            "variants": [
+              { "option1": "Tortoise",     "option2": "Single Vision", "sku": "CEA-TR-SV", "price": "₹1,799", "mrp": "₹3,299", "stock": 12 },
+              { "option1": "Tortoise",     "option2": "Blue-Cut",      "sku": "CEA-TR-BC", "price": "₹2,499", "mrp": "₹4,299", "stock": 9 },
+              { "option1": "Tortoise",     "option2": "Progressive",   "sku": "CEA-TR-PG", "price": "₹4,999", "mrp": "₹7,799", "stock": 4 },
+              { "option1": "Burgundy",     "option2": "Single Vision", "sku": "CEA-BG-SV", "price": "₹1,799", "mrp": "₹3,299", "stock": 10 },
+              { "option1": "Burgundy",     "option2": "Blue-Cut",      "sku": "CEA-BG-BC", "price": "₹2,499", "mrp": "₹4,299", "stock": 7 },
+              { "option1": "Burgundy",     "option2": "Progressive",   "sku": "CEA-BG-PG", "price": "₹4,999", "mrp": "₹7,799", "stock": 3 },
+              { "option1": "Crystal Pink", "option2": "Single Vision", "sku": "CEA-CP-SV", "price": "₹1,899", "mrp": "₹3,499", "stock": 8 },
+              { "option1": "Crystal Pink", "option2": "Blue-Cut",      "sku": "CEA-CP-BC", "price": "₹2,599", "mrp": "₹4,499", "stock": 5 },
+              { "option1": "Crystal Pink", "option2": "Progressive",   "sku": "CEA-CP-PG", "price": "₹5,099", "mrp": "₹7,999", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/7923931/pexels-photo-7923931.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Gold Slim Rimless",
+            "desc": "A rimless frame on a slim gold temple — as close to wearing nothing as glasses get.",
+            "meta": "Rimless · Titanium",
+            "price": "₹3,499",
+            "mrp": "₹5,999",
+            "slug": "gold-slim-rimless",
+            "enableOrder": true,
+            "body": "Rimless titanium: the lens is mounted directly to the bridge and temples, so there is no frame outline on your face at all. If you want glasses that disappear in photographs, this is the one.\n\nTitanium is both lighter and stronger than steel and does not corrode, which matters for a frame with this little material holding it together.\n\nOne honest caveat: rimless is the most fragile construction we sell, because all the stress goes through the mounting holes in the lens. It is not the right frame for a building site, a sport, or a small child in the house. Under normal office use it lasts years.\n\nNot available in progressive — the lens shape does not leave enough depth. Bring your prescription and we will advise.",
+            "productInfoTitle": "Frame Details",
+            "productInfo": [
+              { "label": "Material",  "value": "Titanium, rimless" },
+              { "label": "Weight",    "value": "Approx. 12 g" },
+              { "label": "Best for",  "value": "Office and everyday wear" },
+              { "label": "Not for",   "value": "Sport, site work, rough handling" },
+              { "label": "Lenses",    "value": "Single vision and blue-cut only" },
+              { "label": "Warranty",  "value": "1 year" }
+            ],
+            "attributes": [
+              { "name": "Frame Colour", "options": [ { "value": "Gold" }, { "value": "Silver" } ] },
+              { "name": "Lens Type",    "options": [ { "value": "Single Vision" }, { "value": "Blue-Cut" } ] }
+            ],
+            "variants": [
+              { "option1": "Gold",   "option2": "Single Vision", "sku": "GSR-GD-SV", "price": "₹3,499", "mrp": "₹5,999", "stock": 7 },
+              { "option1": "Gold",   "option2": "Blue-Cut",      "sku": "GSR-GD-BC", "price": "₹4,199", "mrp": "₹6,999", "stock": 5 },
+              { "option1": "Silver", "option2": "Single Vision", "sku": "GSR-SL-SV", "price": "₹3,499", "mrp": "₹5,999", "stock": 6 },
+              { "option1": "Silver", "option2": "Blue-Cut",      "sku": "GSR-SL-BC", "price": "₹4,199", "mrp": "₹6,999", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/13430474/pexels-photo-13430474.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Colour Pop Collection",
+            "desc": "Bright acetate frames for people who own more than one pair. Buy two and the second is half price.",
+            "meta": "Acetate · Buy 2 offer",
+            "price": "₹999",
+            "mrp": "₹1,999",
+            "slug": "colour-pop-collection",
+            "enableOrder": true,
+            "body": "Glasses are the only medical device you wear on your face every day, so there is a reasonable argument for owning more than one pair. This range exists for that.\n\nBright acetate in four colours at a price that makes a second pair sensible rather than indulgent — one for work, one for the weekend, or a spare in the car so a lost pair is not a crisis.\n\nSame construction as the rest of the range: spring hinges, standard single-vision lenses included, one-year warranty. The only thing that is cheaper is the frame material, not the lenses or the fitting.\n\nBuy two frames from this collection and the second is half price. Ask in store or mention it when you order.",
+            "productInfoTitle": "Frame Details",
+            "productInfo": [
+              { "label": "Material", "value": "Acetate" },
+              { "label": "Shape",    "value": "Rectangle and oval" },
+              { "label": "Width",    "value": "Medium, 138 mm" },
+              { "label": "Offer",    "value": "Second frame half price" },
+              { "label": "Warranty", "value": "1 year" }
+            ],
+            "attributes": [
+              { "name": "Frame Colour", "options": [ { "value": "Teal" }, { "value": "Red" }, { "value": "Purple" }, { "value": "Grey" } ] },
+              { "name": "Lens Type",    "options": [ { "value": "Single Vision" }, { "value": "Blue-Cut" } ] }
+            ],
+            "variants": [
+              { "option1": "Teal",   "option2": "Single Vision", "sku": "CPC-TL-SV", "price": "₹999",   "mrp": "₹1,999", "stock": 20 },
+              { "option1": "Teal",   "option2": "Blue-Cut",      "sku": "CPC-TL-BC", "price": "₹1,699", "mrp": "₹2,999", "stock": 15 },
+              { "option1": "Red",    "option2": "Single Vision", "sku": "CPC-RD-SV", "price": "₹999",   "mrp": "₹1,999", "stock": 18 },
+              { "option1": "Red",    "option2": "Blue-Cut",      "sku": "CPC-RD-BC", "price": "₹1,699", "mrp": "₹2,999", "stock": 12 },
+              { "option1": "Purple", "option2": "Single Vision", "sku": "CPC-PR-SV", "price": "₹999",   "mrp": "₹1,999", "stock": 16 },
+              { "option1": "Purple", "option2": "Blue-Cut",      "sku": "CPC-PR-BC", "price": "₹1,699", "mrp": "₹2,999", "stock": 10 },
+              { "option1": "Grey",   "option2": "Single Vision", "sku": "CPC-GY-SV", "price": "₹999",   "mrp": "₹1,999", "stock": 22 },
+              { "option1": "Grey",   "option2": "Blue-Cut",      "sku": "CPC-GY-BC", "price": "₹1,699", "mrp": "₹2,999", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/12291538/pexels-photo-12291538.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Polarised Sunglasses",
+            "desc": "UV400 polarised sunglasses that cut glare off roads and water. Available with your prescription.",
+            "meta": "UV400 · Polarised",
+            "price": "₹1,499",
+            "mrp": "₹2,899",
+            "slug": "polarised-sunglasses",
+            "enableOrder": true,
+            "body": "Polarised lenses cut the horizontal glare that bounces off wet roads, car bonnets and water. The difference while driving in afternoon sun is the kind you notice immediately and cannot un-notice.\n\nAll lenses here are UV400, which blocks the full UVA and UVB range — worth knowing, because a dark lens without UV protection is worse than no sunglasses at all. It opens your pupil while letting the UV through.\n\nAvailable plain or with your prescription ground in, so you are not choosing between seeing clearly and not squinting.\n\nPrescription sunglasses take two to three working days. Plain tinted are available off the shelf the same day.",
+            "productInfoTitle": "Lens Details",
+            "productInfo": [
+              { "label": "UV protection", "value": "UV400 (full UVA + UVB)" },
+              { "label": "Polarised",     "value": "Yes, cuts horizontal glare" },
+              { "label": "Best for",      "value": "Driving, water, high sun" },
+              { "label": "Prescription",  "value": "Available, 2–3 working days" },
+              { "label": "Off the shelf", "value": "Plain tint, same day" },
+              { "label": "Warranty",      "value": "1 year" }
+            ],
+            "attributes": [
+              { "name": "Lens Tint", "options": [ { "value": "Smoke Grey" }, { "value": "Brown" }, { "value": "Green" } ] },
+              { "name": "Type",      "options": [ { "value": "Plain" }, { "value": "With Prescription" } ] }
+            ],
+            "variants": [
+              { "option1": "Smoke Grey", "option2": "Plain",             "sku": "PSG-SG-PL", "price": "₹1,499", "mrp": "₹2,899", "stock": 16 },
+              { "option1": "Smoke Grey", "option2": "With Prescription", "sku": "PSG-SG-RX", "price": "₹3,299", "mrp": "₹5,499", "stock": 8 },
+              { "option1": "Brown",      "option2": "Plain",             "sku": "PSG-BR-PL", "price": "₹1,499", "mrp": "₹2,899", "stock": 13 },
+              { "option1": "Brown",      "option2": "With Prescription", "sku": "PSG-BR-RX", "price": "₹3,299", "mrp": "₹5,499", "stock": 6 },
+              { "option1": "Green",      "option2": "Plain",             "sku": "PSG-GR-PL", "price": "₹1,599", "mrp": "₹2,999", "stock": 9 },
+              { "option1": "Green",      "option2": "With Prescription", "sku": "PSG-GR-RX", "price": "₹3,399", "mrp": "₹5,699", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/5843414/pexels-photo-5843414.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Monthly Contact Lenses",
+            "desc": "Soft monthly disposables in a six-month box, fitted and taught in store before you take them home.",
+            "meta": "6-month box · Fitting included",
+            "price": "₹1,199",
+            "mrp": "₹1,899",
+            "slug": "monthly-contact-lenses",
+            "enableOrder": true,
+            "body": "Soft monthly disposables supplied in a six-month box, with the fitting consultation included in the price.\n\nContact lenses are not a shelf product. Your cornea has a curvature as individual as your prescription, and a lens that does not match it will feel fine for an hour and hurt by evening. We measure it, trial a lens, and only supply the box once it sits properly.\n\nIf you have not worn lenses before, we will teach you to insert, remove and store them in store, and you leave with a written care routine. That session takes about twenty minutes and is included.\n\nToric lenses are available if you have astigmatism — the price differs, so ask us. First-time wearers must have a fitting; we cannot ship a box without one.",
+            "productInfoTitle": "Lens Details",
+            "productInfo": [
+              { "label": "Type",        "value": "Soft monthly disposable" },
+              { "label": "Box",         "value": "6 months supply" },
+              { "label": "Fitting",     "value": "Included, about 20 minutes" },
+              { "label": "First-timer", "value": "In-store fitting required" },
+              { "label": "Astigmatism", "value": "Toric available, ask us" },
+              { "label": "Solution",    "value": "Sold separately" }
+            ],
+            "attributes": [
+              { "name": "Wear",  "options": [ { "value": "Clear" }, { "value": "Coloured" } ] },
+              { "name": "Power", "options": [ { "value": "Standard" }, { "value": "Toric (astigmatism)" } ] }
+            ],
+            "variants": [
+              { "option1": "Clear",    "option2": "Standard",             "sku": "MCL-CL-ST", "price": "₹1,199", "mrp": "₹1,899", "stock": 24 },
+              { "option1": "Clear",    "option2": "Toric (astigmatism)",  "sku": "MCL-CL-TO", "price": "₹2,299", "mrp": "₹3,499", "stock": 11 },
+              { "option1": "Coloured", "option2": "Standard",             "sku": "MCL-CO-ST", "price": "₹1,699", "mrp": "₹2,599", "stock": 14 },
+              { "option1": "Coloured", "option2": "Toric (astigmatism)",  "sku": "MCL-CO-TO", "price": "₹2,899", "mrp": "₹4,299", "stock": 0 }
+            ]
+          }
+        ]
+      }
+    },
+
+    "services": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Eye Care",
+        "heading": "More than selling frames",
+        "sub": "Testing, fitting and follow-up by qualified optometrists. Your prescription is always given to you in writing, whether you buy here or not.",
+        "items": [
+          {
+            "image": "https://images.pexels.com/photos/6749734/pexels-photo-6749734.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Comprehensive Eye Test",
+            "desc": "A full twenty-minute test on computerised equipment — distance, near, astigmatism and eye coordination — with your prescription in writing.",
+            "meta": "About 20 minutes",
+            "price": "Free"
+          },
+          {
+            "image": "https://images.pexels.com/photos/5766215/pexels-photo-5766215.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Computerised Eye Testing",
+            "desc": "Autorefractor and digital phoropter for an objective starting point, so the test is not guesswork before the letters even come out.",
+            "meta": "Same visit",
+            "price": "Included"
+          },
+          {
+            "image": "https://images.pexels.com/photos/5752282/pexels-photo-5752282.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Eye Health Screening",
+            "desc": "Slit-lamp examination of the front of the eye and a retinal check. We refer you to an ophthalmologist if anything needs a doctor.",
+            "meta": "By appointment",
+            "price": "₹300"
+          },
+          {
+            "image": "https://images.pexels.com/photos/5843338/pexels-photo-5843338.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Contact Lens Fitting",
+            "desc": "Corneal measurement, a trial lens and a taught insertion-and-care session before you take a box home. Required for first-time wearers.",
+            "meta": "About 20 minutes",
+            "price": "₹500, refunded on purchase"
+          },
+          {
+            "image": "https://images.pexels.com/photos/5996647/pexels-photo-5996647.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Children's Eye Care",
+            "desc": "Child-friendly testing from age three, screen-time advice and frames built to survive a school bag. Squints and lazy eye referred promptly.",
+            "meta": "From age 3",
+            "price": "Free"
+          },
+          {
+            "image": "https://images.pexels.com/photos/5621833/pexels-photo-5621833.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Frame Styling & Repairs",
+            "desc": "Help choosing a shape that suits your face, plus free adjustments, nose-pad replacement and screw tightening for life on anything bought here.",
+            "meta": "Walk in any time",
+            "price": "Free for customers"
+          }
+        ]
+      }
+    },
+
+    "gallery": {
+      "variant": "grid-3",
+      "props": {
+        "label": "The Store",
+        "heading": "Two thousand frames, one wall",
+        "sub": "Come and try them on — nothing beats seeing a frame on your own face.",
+        "lightbox": true,
+        "images": [
+          { "image": "https://images.pexels.com/photos/5201896/pexels-photo-5201896.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Frames displayed on a lit shelf in the store" },
+          { "image": "https://images.pexels.com/photos/5202053/pexels-photo-5202053.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "A full wall of eyeglass frames" },
+          { "image": "https://images.pexels.com/photos/5201890/pexels-photo-5201890.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "A customer choosing frames from the display wall" },
+          { "image": "https://images.pexels.com/photos/9474178/pexels-photo-9474178.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Frames lit in the shop window at dusk" },
+          { "image": "https://images.pexels.com/photos/12291538/pexels-photo-12291538.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Sunglasses on a display stand" },
+          { "image": "https://images.pexels.com/photos/5766154/pexels-photo-5766154.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "A customer trying on a pair of glasses" },
+          { "image": "https://images.pexels.com/photos/5621829/pexels-photo-5621829.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "A parent and child choosing frames together" },
+          { "image": "https://images.pexels.com/photos/14738939/pexels-photo-14738939.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Eyewear display with soft reflections" },
+          { "image": "https://images.pexels.com/photos/6749774/pexels-photo-6749774.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "An optometrist holding a trial lens frame" }
+        ]
+      }
+    },
+
+    "stats": {
+      "variant": "cards",
+      "props": {
+        "label": "By the Numbers",
+        "heading": "What that adds up to",
+        "sub": "Numbers from our own store register. Replace them with yours before going live.",
+        "countUp": true,
+        "items": [
+          { "icon": "glasses",     "value": 2000, "suffix": "+", "label": "Frames in Store" },
+          { "icon": "eye",         "value": 48000, "suffix": "+", "label": "Eyes Tested" },
+          { "icon": "clock",       "value": 60,   "suffix": " min", "label": "Typical Fitting" },
+          { "icon": "badge-check", "value": 1,    "suffix": " yr", "label": "Warranty on Every Pair" }
+        ]
+      }
+    },
+
+    "testimonials": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Reviews",
+        "heading": "What our customers say",
+        "items": [
+          {
+            "quote": "They told me the blue-cut coating would not do much for my usage and sold me the cheaper lens. First optician who has ever talked me out of spending more.",
+            "name": "Rahul Kanetkar",
+            "role": "Single vision, blue-cut",
+            "rating": 5
+          },
+          {
+            "quote": "Test at eleven, glasses in my hand by half twelve. I had booked the afternoon off for nothing.",
+            "name": "Meghana Kulkarni",
+            "role": "Same-day fitting",
+            "rating": 5
+          },
+          {
+            "quote": "My daughter is six and would not sit still for the test anywhere else. They made a game of it and got a proper prescription out of her.",
+            "name": "Firoz Shaikh",
+            "role": "Children's eye care",
+            "rating": 5
+          }
+        ]
+      }
+    },
+
+    "blog": {
+      "variant": "grid-3",
+      "props": {
+        "label": "Guides",
+        "heading": "Before you buy",
+        "sub": "Plain answers to the questions we get asked across the counter every week.",
+        "posts": [
+          {
+            "image": "https://images.pexels.com/photos/9328548/pexels-photo-9328548.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Do blue-cut lenses actually work?",
+            "date": "4 Aug 2026",
+            "excerpt": "What the evidence says about screen glare, eye strain and sleep — and the situations where a blue-cut coating genuinely helps versus where it is just an upsell.",
+            "linkText": "Read the guide"
+          },
+          {
+            "image": "https://images.pexels.com/photos/28616331/pexels-photo-28616331.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "How to choose a frame for your face shape",
+            "date": "22 Jul 2026",
+            "excerpt": "Round, oval, square or heart — the one rule that matters more than all the charts, and why the frame that suits you may not be the one you expected.",
+            "linkText": "Read the guide"
+          },
+          {
+            "image": "https://images.pexels.com/photos/5996647/pexels-photo-5996647.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "When should a child have their first eye test?",
+            "date": "9 Jul 2026",
+            "excerpt": "Age three is the usual answer, but the signs to watch for come earlier — sitting close to the television, squinting, headaches after school and losing their place while reading.",
+            "linkText": "Read the guide"
+          }
+        ]
+      }
+    },
+
+    "faq": {
+      "variant": "accordion",
+      "props": {
+        "label": "FAQ",
+        "heading": "Questions customers ask us",
+        "openFirst": true,
+        "items": [
+          {
+            "q": "Is the eye test really free?",
+            "a": "Yes, the standard eye test is free with no obligation to buy, and you get the prescription in writing to take anywhere. Only the eye health screening, which includes a slit-lamp and retinal check, is charged separately at ₹300."
+          },
+          {
+            "q": "How long will my glasses take?",
+            "a": "Standard single-vision lenses are cut in our own lab and are usually ready in about an hour. Progressives, high powers and specialist coatings are ordered to your measurements and take two to three working days."
+          },
+          {
+            "q": "Can I use a prescription from another optician or a hospital?",
+            "a": "Yes, as long as it is less than a year old and includes your pupillary distance. If the PD is missing we will measure it here at no charge. Bring the prescription with you or send a photo on WhatsApp."
+          },
+          {
+            "q": "What does the warranty cover?",
+            "a": "One year on manufacturing defects in the frame and on lens coatings peeling or crazing. It does not cover accidental damage, scratches from cleaning with a shirt, or a lost pair. Adjustments, nose pads and screws are free for life on anything bought here."
+          },
+          {
+            "q": "Can I return them if I don't get on with them?",
+            "a": "Frames can be exchanged within 15 days in unused condition. Lenses ground to your prescription cannot be resold, so they are non-returnable, but if you are struggling to adapt to a new progressive, come back — that is usually a fitting adjustment, not a wrong lens."
+          },
+          {
+            "q": "Do you do home eye tests?",
+            "a": "For elderly and mobility-restricted customers we test at home by appointment within the city, at no extra charge on a purchase. Call or WhatsApp to arrange one."
+          },
+          {
+            "q": "How often should I get my eyes tested?",
+            "a": "Every two years for most adults, annually if you are over 40, diabetic, or your prescription has been changing. Children should be tested every year while their eyes are still developing."
+          }
+        ]
+      }
+    },
+
+    "hours": {
+      "variant": "list",
+      "props": {
+        "label": "Store Timings",
+        "heading": "When we are open",
+        "highlightToday": true,
+        "note": "Last eye test is taken 30 minutes before closing."
+      }
+    },
+
+    "cta": {
+      "variant": "banner",
+      "props": {
+        "heading": "Book a free eye test",
+        "sub": "Twenty minutes, no obligation, and you keep the prescription. Walk in or message us on WhatsApp with a time that suits.",
+        "ctaPrimary": { "text": "Book an Eye Test", "href": "/contact", "style": "primary" },
+        "showWhatsapp": true,
+        "showCall": true
+      }
+    },
+
+    "contact": {
+      "variant": "form-map",
+      "props": {
+        "label": "Visit Us",
+        "heading": "Come and try them on",
+        "sub": "Walk-ins welcome all week. Tell us roughly when you would like an eye test and we will confirm the slot.",
+        "showPhone": true,
+        "showWhatsapp": true,
+        "showEmail": true,
+        "showAddress": true,
+        "showHours": true,
+        "showMap": true,
+        "submitText": "Book / Enquire"
+      }
+    },
+
+    "footer": {
+      "variant": "columns",
+      "props": {
+        "blurb": "Lensora Opticals — over 2,000 frames, free eye tests by qualified optometrists, and prescription lenses cut and fitted in our own lab on FC Road, Pune.",
+        "showContact": true,
+        "showHours": true,
+        "showSocial": true,
+        "showLegal": true,
+        "columns": [
+          {
+            "title": "Explore",
+            "links": [
+              { "text": "Home",     "href": "/" },
+              { "text": "Eyewear",  "href": "/eyewear" },
+              { "text": "Eye Care", "href": "/eye-care" },
+              { "text": "Contact",  "href": "/contact" }
+            ]
+          },
+          {
+            "title": "Shop",
+            "links": [
+              { "text": "Eyeglasses",      "href": "/eyewear" },
+              { "text": "Sunglasses",      "href": "/eyewear" },
+              { "text": "Contact Lenses",  "href": "/eyewear" },
+              { "text": "Kids' Frames",    "href": "/eyewear" }
+            ]
+          },
+          {
+            "title": "Connect",
+            "links": [
+              { "text": "Instagram", "href": "https://instagram.com/" },
+              { "text": "Facebook",  "href": "https://facebook.com/" },
+              { "text": "YouTube",   "href": "https://youtube.com/" },
+              { "text": "WhatsApp",  "href": "https://wa.me/919021044567" }
+            ]
+          }
+        ],
+        "copyright": "© 2026 Lensora Opticals. All rights reserved.",
+        "termsBody": "Eye tests are carried out by qualified optometrists and are a refraction and screening service, not a substitute for medical examination by an ophthalmologist; where anything requires a doctor we will refer you. Prescriptions are issued in writing and are valid for one year. Prices shown include the frame and standard lenses of the type selected; specialist coatings, high powers and progressive designs are quoted separately after measurement. Frames may be exchanged within 15 days in unused condition; lenses ground to an individual prescription are non-returnable. The one-year warranty covers manufacturing defects in the frame and lens coatings and excludes accidental damage, scratches and loss. Contact lenses require an in-store fitting for first-time wearers and cannot be supplied without one. Replace this text with your own terms, reviewed by your legal advisor, before going live."
+      }
+    }
+  },
+
+  "pages": [
+    {
+      "id": "home",
+      "slug": "/",
+      "title": "Home",
+      "seo": {
+        "title": "Lensora Opticals | Eyeglasses, Sunglasses & Free Eye Tests in Pune",
+        "description": "Over 2,000 frames, free eye tests by qualified optometrists, and prescription lenses cut and fitted in 60 minutes. FC Road, Shivajinagar, Pune.",
+        "robots": "index,follow"
+      },
+      "sections": ["header", "hero", "about", "products", "services", "stats", "testimonials", "cta", "contact", "footer"]
+    },
+    {
+      "id": "eyewear",
+      "slug": "/eyewear",
+      "title": "Eyewear",
+      "seo": {
+        "title": "Buy Eyeglasses, Sunglasses & Contact Lenses | Lensora Opticals",
+        "description": "Shop metal, acetate, rimless and cat-eye frames with single-vision, blue-cut or progressive lenses. Polarised sunglasses and monthly contact lenses too.",
+        "robots": "index,follow"
+      },
+      "sections": ["products", "gallery", "faq"],
+      "content": {
+        "products": {
+          "props": {
+            "label": "The Full Range",
+            "heading": "Every frame, ready to order",
+            "sub": "Metal, acetate, rimless, cat-eye and sunglasses — with single-vision, blue-cut or progressive lenses. Pick your combination and the price updates as you choose."
+          }
+        }
+      }
+    },
+    {
+      "id": "eye-care",
+      "slug": "/eye-care",
+      "title": "Eye Care",
+      "seo": {
+        "title": "Eye Tests, Contact Lens Fitting & Children's Eye Care | Lensora Opticals",
+        "description": "Free 20-minute computerised eye tests, eye health screening, contact lens fitting and child-friendly testing from age three, in Shivajinagar, Pune.",
+        "robots": "index,follow"
+      },
+      "sections": ["services", "about", "gallery", "faq", "cta"],
+      "content": {
+        "services": {
+          "props": {
+            "label": "Our Services",
+            "heading": "Eye care at the counter",
+            "sub": "Everything an optician should do beyond selling you a frame — testing, screening, fitting, and free adjustments for as long as you own the glasses."
+          }
+        }
+      }
+    },
+    {
+      "id": "contact",
+      "slug": "/contact",
+      "title": "Contact",
+      "seo": {
+        "title": "Visit Us & Book an Eye Test | Lensora Opticals, Pune",
+        "description": "22 FC Road, Shivajinagar, Pune. Open seven days. Call or WhatsApp to book a free eye test, or just walk in and try frames on.",
+        "robots": "index,follow"
+      },
+      "sections": ["contact", "hours", "faq", "cta"]
+    }
+  ],
+
+  "notes": "CONTENT MODEL: Built as a modern eyewear retailer (Lensora Opticals) on FC Road, Pune, deliberately in the Lenskart mould — the frame catalogue is the centre of the site, with eye care as the trust layer that justifies buying there rather than online. FOUR pages via the recipe-level 'pages' array (consumed by api/sites/create.php): Home (/), Eyewear (/eyewear), Eye Care (/eye-care) and Contact (/contact). Header and footer link to those slugs, and per-page 'content' overrides retitle the shared products/services sections so they read differently on each page.\n\nVIDEO: The home hero plays a muted, looping, autoplay background video of prescription glasses resting on a Landolt-C eye chart (videoUrl — a direct MP4 from Pexels) under a 0.58 overlay, rendering light-on-dark. No faces and no third-party branding in frame, which is why this clip was chosen over the eye-examination footage. The 'image' field is the static fallback. Swap both for the store's own footage before going live.\n\nPRODUCTS: Eight items exercise the full products manifest — nested attributes, per-combination variants with SKU, MRP and live stock, body copy, productInfo tables and slugs for individual product pages. The attribute axes are the ones this trade actually sells on: Frame Colour x Lens Type (single vision / blue-cut / progressive) for eyeglasses, Lens Tint x Plain-vs-Prescription for sunglasses, Wear x Power for contact lenses. Rimless is deliberately offered WITHOUT a progressive option because the lens depth genuinely does not allow it — the copy says so rather than silently omitting it. The last variant of each product is stock 0 to exercise the out-of-stock and disabled add-to-cart states.\n\nPRICING: Set at realistic Indian optical retail levels for mid-2026 — frames with standard lenses from Rs 999, blue-cut around Rs 700 more, progressives Rs 4,499-5,099, polarised sunglasses Rs 1,499 plain and Rs 3,299 with prescription, monthly contact lenses Rs 1,199 for a six-month box. Verify against the store's own rate card before going live.\n\nCOPY ANGLE: The decisive objection in optical retail is 'am I being upsold?', so the site leans hard the other way — free test with the prescription given in writing whether or not you buy, an explicit 'no commission on upgrades' pillar, a review about being talked OUT of a coating, an FAQ answering whether blue-cut actually works, and an honest warning that rimless is the most fragile construction sold. Keep that posture if the copy is rewritten; it is what differentiates a local optician from an online seller.\n\nIMAGES: All photos are hosted Pexels CDN URLs (https://images.pexels.com/photos/<id>/pexels-photo-<id>.jpeg?auto=compress&cs=tinysrgb&w=...). SiteRenderer::media passes any http(s) URL through untouched. EVERY URL here was downloaded and visually inspected before use — the deterministic Pexels filename pattern 404s for some ids, so never add one without fetching it first. All should be replaced with the store's own product photography before going live, especially the frame shots, which must match actual stock.\n\nNO TEAM SECTION: Omitted deliberately, following the salon/gym/wedding convention of not pairing stock photographs with invented staff names.\n\nTHEME: indigo-optic, created for this recipe — deep ink indigo with a warm coral accent on cool porcelain, Sora headings and Manrope body. Linked both ways via the theme's industries array. All colour pairs were contrast-measured; see the theme file's notes before retuning any token."
+}
