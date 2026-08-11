@@ -44,4 +44,18 @@ interface SocialProviderInterface
      * @throws SocialException
      */
     public function publish(array $connection, array $content);
+
+    /**
+     * Read engagement for one post this app published.
+     *
+     * Return null when the platform cannot report it (no permission granted, the
+     * post was deleted on the platform, or the provider does not support it) —
+     * callers treat null as "no numbers to show" and must never surface it as a
+     * failure, because a missing count is not a broken post.
+     *
+     * @param array  $connection    a social_connections row
+     * @param string $remotePostId  social_post_targets.remote_post_id
+     * @return array|null ['likes'=>int|null,'comments'=>int|null,'shares'=>int|null,'permalink'=>string|null]
+     */
+    public function getEngagement(array $connection, $remotePostId);
 }

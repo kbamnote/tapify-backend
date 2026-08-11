@@ -151,6 +151,58 @@ class SocialService
         return $this->repo->listPosts($userId, $limit);
     }
 
+    // ── Engagement ────────────────────────────────────────────────────────────
+    /**
+     * Engagement for everything this user published through Tapify.
+     *
+     * Refreshes at most $maxRefresh stale targets per call and serves the rest
+     * from cache, so opening the history screen costs a bounded number of Graph
+     * calls no matter how many posts the customer has. Counts move slowly, so a
+     * 30-minute cache is invisible to the user and keeps us well inside the
+     * app's rate limit.
+     *
+     * Never throws for a single unreadable post — a deleted post or a revoked
+     * permission returns no numbers, which is not an error worth failing the
+     * whole screen over.
+     */
+    public function getEngagement($userId, $maxRefresh = 12, $staleMinutes = 30)
+    {
+        foreach ($this->repo->staleEngagementTargets($userId, $staleMinutes, $maxRefresh) as $t) {
+            $conn = $this->repo->getConnection($userId, $t['connection_id']);
+            if (!$conn) { $this->repo->saveEngagement($t['id'], null); continue; }
+
+            try {
+                $provider = SocialProviderFactory::make($t['platform']);
+                $metrics  = $provider->getEngagement($conn, $t['remote_post_id']);
+                $this->repo->saveEngagement($t['id'], $metrics);
+            } catch (Exception $e) {
+                // Stamp it anyway so one broken target does not get re-tried on
+                // every request and starve the refresh queue.
+                $this->repo->saveEngagement($t['id'], null);
+                SocialLogger::warn('engagement.refresh_failed', [
+                    'platform' => $t['platform'], 'target' => $t['id'],
+                ]);
+            }
+        }
+
+        $rows = $this->repo->engagementFor($userId);
+
+        $totals = ['likes' => 0, 'comments' => 0, 'shares' => 0, 'posts' => 0];
+        $byPost = [];
+        foreach ($rows as $r) {
+            $m = $r['metrics'];
+            if (is_array($m)) {
+                $totals['likes']    += (int) ($m['likes'] ?? 0);
+                $totals['comments'] += (int) ($m['comments'] ?? 0);
+                $totals['shares']   += (int) ($m['shares'] ?? 0);
+                $totals['posts']++;
+            }
+            $byPost[$r['post_id']][] = $r;
+        }
+
+        return ['totals' => $totals, 'targets' => $rows, 'by_post' => $byPost];
+    }
+
     /** Publish all due scheduled posts (called by the cron worker). Returns count. */
     public function runDuePosts()
     {

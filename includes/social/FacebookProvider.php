@@ -12,7 +12,16 @@ class FacebookProvider implements SocialProviderInterface
     // pages_manage_ads maps to the Page ADVERTISE task and ads_management to ad
     // creation — both are needed so a customer's consent lets Tapify boost their
     // Page's posts (reseller ads model).
-    const SCOPES = 'pages_show_list,pages_manage_posts,pages_manage_ads,ads_management,business_management,instagram_basic,instagram_content_publish';
+    // pages_read_engagement backs getEngagement() (likes/comments/shares on posts
+    // we published) and is ALSO a hard dependency Meta enforces on
+    // pages_manage_posts and ads_management. ads_read backs the ad insights read
+    // in MetaAdsClient. Both must be in the App Review submission too.
+    //
+    // NOTE: when FACEBOOK_CONFIG_ID is set, buildAuthUrl() sends config_id and
+    // this constant is IGNORED — the permission list then lives in the Facebook
+    // Login for Business configuration in the App Dashboard, and it must be
+    // updated there as well or these scopes are never actually granted.
+    const SCOPES = 'pages_show_list,pages_read_engagement,pages_manage_posts,pages_manage_ads,ads_management,ads_read,business_management,instagram_basic,instagram_content_publish';
 
     public function platform() { return 'facebook'; }
 
@@ -184,5 +193,38 @@ class FacebookProvider implements SocialProviderInterface
         ]);
         $id = $res['id'] ?? '';
         return ['remote_post_id' => $id, 'remote_url' => $id ? "https://www.facebook.com/{$id}" : null];
+    }
+
+    /**
+     * Likes / comments / shares for a Page post — requires pages_read_engagement.
+     *
+     * summary(true) returns just the total_count, so we never pull the actual
+     * likers or comment bodies. That is deliberate: the customer only needs the
+     * numbers, and not requesting people's names and PSIDs keeps this to the
+     * minimum personal data the feature can run on.
+     */
+    public function getEngagement(array $connection, $remotePostId)
+    {
+        $remotePostId = trim((string) $remotePostId);
+        if ($remotePostId === '') return null;
+
+        try {
+            $res = SocialHttp::get($this->graph() . '/' . rawurlencode($remotePostId) . '?' . http_build_query([
+                'fields'       => 'likes.summary(true).limit(0),comments.summary(true).limit(0),shares,permalink_url',
+                'access_token' => $connection['access_token'],
+            ]));
+        } catch (Exception $e) {
+            // A post deleted on Facebook, a revoked permission or an expired token
+            // must not break the history screen — the post itself still published.
+            SocialLogger::warn('engagement.fb_failed', ['post' => $remotePostId]);
+            return null;
+        }
+
+        return [
+            'likes'     => isset($res['likes']['summary']['total_count'])    ? (int) $res['likes']['summary']['total_count']    : null,
+            'comments'  => isset($res['comments']['summary']['total_count']) ? (int) $res['comments']['summary']['total_count'] : null,
+            'shares'    => isset($res['shares']['count'])                    ? (int) $res['shares']['count']                    : 0,
+            'permalink' => $res['permalink_url'] ?? null,
+        ];
     }
 }

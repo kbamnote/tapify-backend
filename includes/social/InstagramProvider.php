@@ -144,4 +144,34 @@ class InstagramProvider implements SocialProviderInterface
         }
         return ['remote_post_id' => $mediaId, 'remote_url' => $url];
     }
+
+    /**
+     * Likes / comments for an IG media item — covered by instagram_basic, which
+     * the Facebook connect flow already requests.
+     *
+     * Instagram has no share count on the Graph API, so 'shares' is always null
+     * and the UI simply omits it rather than showing a misleading zero.
+     */
+    public function getEngagement(array $connection, $remotePostId)
+    {
+        $remotePostId = trim((string) $remotePostId);
+        if ($remotePostId === '') return null;
+
+        try {
+            $res = SocialHttp::get($this->graph() . '/' . rawurlencode($remotePostId) . '?' . http_build_query([
+                'fields'       => 'like_count,comments_count,permalink',
+                'access_token' => $connection['access_token'],
+            ]));
+        } catch (Exception $e) {
+            SocialLogger::warn('engagement.ig_failed', ['media' => $remotePostId]);
+            return null;
+        }
+
+        return [
+            'likes'     => isset($res['like_count'])     ? (int) $res['like_count']     : null,
+            'comments'  => isset($res['comments_count']) ? (int) $res['comments_count'] : null,
+            'shares'    => null,
+            'permalink' => $res['permalink'] ?? null,
+        ];
+    }
 }

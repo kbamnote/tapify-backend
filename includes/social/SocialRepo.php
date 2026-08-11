@@ -125,7 +125,7 @@ class SocialRepo
             $p['media'] = $p['media_json'] ? json_decode($p['media_json'], true) : [];
             unset($p['media_json']);
             $ts = $this->db->prepare(
-                "SELECT t.platform, t.status, t.remote_url, t.error, c.account_name
+                "SELECT t.id AS target_id, t.platform, t.status, t.remote_url, t.error, c.account_name
                  FROM social_post_targets t LEFT JOIN social_connections c ON c.id = t.connection_id
                  WHERE t.post_id = ?"
             );
@@ -152,5 +152,83 @@ class SocialRepo
         $stmt = $this->db->prepare("SELECT * FROM social_post_targets WHERE post_id = ? AND status = 'pending'");
         $stmt->execute([(int) $postId]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // ── Engagement ────────────────────────────────────────────────────────────
+
+    /**
+     * Published targets belonging to this user whose cached metrics are older
+     * than $staleMinutes (or were never fetched).
+     *
+     * Ordered stalest-first with NULLs leading, so a bounded refresh always
+     * works on the rows that need it most and every post gets its turn instead
+     * of the same few being refreshed forever.
+     */
+    public function staleEngagementTargets($userId, $staleMinutes = 30, $limit = 25)
+    {
+        $limit = max(1, min(50, (int) $limit));
+        // $staleMinutes is interpolated, not bound: PDO emulates prepares here,
+        // so a placeholder inside INTERVAL ? MINUTE would arrive quoted. It is
+        // cast and clamped first, so nothing user-supplied reaches the SQL.
+        $stale = max(1, min(10080, (int) $staleMinutes));
+        $stmt = $this->db->prepare(
+            "SELECT t.id, t.platform, t.connection_id, t.remote_post_id
+               FROM social_post_targets t
+               JOIN social_posts p ON p.id = t.post_id
+              WHERE p.user_id = ?
+                AND t.status = 'published'
+                AND t.remote_post_id IS NOT NULL AND t.remote_post_id <> ''
+                AND (t.metrics_fetched_at IS NULL
+                     OR t.metrics_fetched_at < (NOW() - INTERVAL " . $stale . " MINUTE))
+              ORDER BY t.metrics_fetched_at IS NOT NULL, t.metrics_fetched_at ASC
+              LIMIT " . $limit
+        );
+        $stmt->execute([$userId]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    /**
+     * Store a metrics read. A null $metrics still stamps metrics_fetched_at so a
+     * post the platform cannot report on (deleted, permission revoked) is not
+     * retried on every single request.
+     */
+    public function saveEngagement($targetId, $metrics)
+    {
+        $stmt = $this->db->prepare(
+            "UPDATE social_post_targets
+                SET metrics_json = ?, metrics_fetched_at = NOW()
+              WHERE id = ?"
+        );
+        $stmt->execute([$metrics === null ? null : json_encode($metrics), (int) $targetId]);
+    }
+
+    /** Cached metrics for the user's published targets, keyed by target id. */
+    public function engagementFor($userId, $limit = 100)
+    {
+        $limit = max(1, min(200, (int) $limit));
+        $stmt = $this->db->prepare(
+            "SELECT t.id, t.post_id, t.platform, t.remote_url, t.metrics_json, t.metrics_fetched_at,
+                    c.account_name
+               FROM social_post_targets t
+               JOIN social_posts p ON p.id = t.post_id
+          LEFT JOIN social_connections c ON c.id = t.connection_id
+              WHERE p.user_id = ? AND t.status = 'published'
+              ORDER BY t.post_id DESC
+              LIMIT " . $limit
+        );
+        $stmt->execute([$userId]);
+        $out = [];
+        foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $r) {
+            $out[] = [
+                'target_id'    => (int) $r['id'],
+                'post_id'      => (int) $r['post_id'],
+                'platform'     => $r['platform'],
+                'account_name' => $r['account_name'],
+                'remote_url'   => $r['remote_url'],
+                'metrics'      => $r['metrics_json'] ? json_decode($r['metrics_json'], true) : null,
+                'fetched_at'   => $r['metrics_fetched_at'],
+            ];
+        }
+        return $out;
     }
 }
