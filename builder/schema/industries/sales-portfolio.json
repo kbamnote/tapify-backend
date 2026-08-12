@@ -1,0 +1,354 @@
+{
+  "id": "sales-portfolio",
+  "label": "Sales Rep Portfolio (Tapify team)",
+  "aliases": ["sales-rep", "rep-portfolio", "team-portfolio", "sales-portfolio", "consultant-portfolio", "field-sales"],
+  "icon": "user",
+  "theme": { "preset": "copper-ridge" },
+
+  "description": "Personal landing page for a Tapify sales representative: who they are, the Tapify products they sell, and a direct line to them. Internal template — one site per team member.",
+
+  "sections": [
+    "header",
+    "hero",
+    "about",
+    "services",
+    "gallery",
+    "products",
+    "testimonials",
+    "contact",
+    "footer"
+  ],
+
+  "recommended": [
+    { "type": "header",      "reason": "Sticky nav with a 'Talk to me' CTA" },
+    { "type": "hero",        "reason": "Name, role and how to reach them, over a product shot" },
+    { "type": "about",       "reason": "Who they are and which area they cover" },
+    { "type": "services",    "reason": "What they set up for a customer, end to end" },
+    { "type": "gallery",     "reason": "The products in real use" },
+    { "type": "products",    "reason": "The Tapify range they sell" },
+    { "type": "testimonials","reason": "Customers they have already set up" },
+    { "type": "contact",     "reason": "A direct line to this rep, not a head office queue" },
+    { "type": "footer",      "reason": "Links and contact details" }
+  ],
+
+  "business": {
+    "email": "{{REP_EMAIL}}",
+    "social": {}
+  },
+
+  "content": {
+    "header": {
+      "variant": "left",
+      "props": {
+        "sticky": true,
+        "showCart": false,
+        "showAccount": false,
+        "links": [
+          { "text": "Home",     "href": "/" },
+          { "text": "Products", "href": "/products" },
+          { "text": "Services", "href": "/services" },
+          { "text": "Contact",  "href": "/contact" }
+        ],
+        "cta": { "text": "Talk to me", "href": "/contact", "style": "primary" }
+      }
+    },
+
+    "hero": {
+      "variant": "centered-bg",
+      "props": {
+        "badge": "Tapify · Business Growth Consultant",
+        "heading": "{{REP_NAME}}",
+        "sub": "I help local businesses replace the paper visiting card with something that actually brings work back — a digital card, a proper website, and the follow-up that turns an enquiry into a customer.",
+        "image": "https://images.pexels.com/photos/4138154/pexels-photo-4138154.jpeg?auto=compress&cs=tinysrgb&w=2000",
+        "fullHeight": true,
+        "ctaPrimary":   { "text": "See What I Set Up", "href": "/products", "style": "primary" },
+        "ctaSecondary": { "text": "Get In Touch", "href": "/contact", "style": "ghost" },
+        "showWhatsapp": false,
+        "showCall": false
+      },
+      "style": { "overlay": 0.62 }
+    },
+
+    "about": {
+      "variant": "image-right",
+      "props": {
+        "label": "About Me",
+        "heading": "I set the whole thing up for you",
+        "body": "I work with Tapify, helping shops, clinics, salons and service businesses get online properly — not just a page that exists, but one that brings enquiries in.\n\nMost people I meet already have a website they paid for once and never touched again, or a stack of visiting cards in a drawer. The problem is rarely the design. It is that nothing sends work back to them.\n\nWhat I do is set the whole thing up: the digital card, the website, the QR code on the counter, the review link that goes out after a job, the WhatsApp replies that answer at nine at night. Then I show you how to change it yourself, because you should not have to call me to update your own prices.\n\nIf you want to see what that looks like for your business, message me and I will walk you through it — no charge for the conversation.",
+        "image": "https://images.pexels.com/photos/8112186/pexels-photo-8112186.jpeg?auto=compress&cs=tinysrgb&w=1400",
+        "showPillars": true,
+        "pillars": [
+          { "icon": "user",        "title": "One person, start to finish", "text": "You deal with me, not a ticket queue. Same number before and after you have paid." },
+          { "icon": "clock",       "title": "Live in a few days",          "text": "Card and website set up and published quickly, with your real content in it." },
+          { "icon": "badge-check", "title": "You can edit it yourself",    "text": "I show you how to change text, prices and photos from your phone." },
+          { "icon": "sparkles",    "title": "Built to bring work back",    "text": "Reviews, WhatsApp and enquiry alerts wired in, not bolted on later." }
+        ]
+      }
+    },
+
+    "services": {
+      "variant": "cards-3",
+      "props": {
+        "label": "What I Do",
+        "heading": "Set up, explained, and handed over",
+        "sub": "Everything below is done for you. You give me the details once and I build it out.",
+        "items": [
+          {
+            "image": "https://images.pexels.com/photos/5706020/pexels-photo-5706020.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Digital Visiting Card Setup",
+            "desc": "Your logo, services, photos, payment details and social links on a card that opens on any phone. I load your content in and hand it over ready to share.",
+            "meta": "Set up same week"
+          },
+          {
+            "image": "https://images.pexels.com/photos/12935072/pexels-photo-12935072.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "NFC Card Personalisation",
+            "desc": "A physical card printed with your branding that opens your digital card when someone taps their phone on it. Works without an app at the other end.",
+            "meta": "Printed and programmed"
+          },
+          {
+            "image": "https://images.pexels.com/photos/18096282/pexels-photo-18096282.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Website Design & Launch",
+            "desc": "A full website on your own address, built from an industry template and filled with your real photos, services and prices. Published and indexed.",
+            "meta": "Live in a few days"
+          },
+          {
+            "image": "https://images.pexels.com/photos/278430/pexels-photo-278430.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Dynamic QR Codes",
+            "desc": "QR codes for your counter, menu, packaging or vehicle. Change where they point later without reprinting anything.",
+            "meta": "Reprint-free"
+          },
+          {
+            "image": "https://images.pexels.com/photos/221043/pexels-photo-221043.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Google Review Growth",
+            "desc": "A review funnel that sends happy customers to your Google page and catches complaints privately first, so you hear about a problem before the internet does.",
+            "meta": "Set up and tested"
+          },
+          {
+            "image": "https://images.pexels.com/photos/7191162/pexels-photo-7191162.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "WhatsApp & Social Setup",
+            "desc": "Automatic WhatsApp replies for the questions you answer twenty times a week, and scheduled posts to your Facebook Page and Instagram.",
+            "meta": "Configured for you"
+          }
+        ]
+      }
+    },
+
+    "gallery": {
+      "variant": "grid-3",
+      "props": {
+        "label": "In Use",
+        "heading": "What it looks like in the real world",
+        "sub": "Replace these with photographs of your own customers' cards, counters and shopfronts — nothing sells this better than local work.",
+        "lightbox": true,
+        "images": [
+          { "image": "https://images.pexels.com/photos/8489961/pexels-photo-8489961.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Business cards on a textured surface" },
+          { "image": "https://images.pexels.com/photos/5420976/pexels-photo-5420976.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Cards and pen laid out on a desk" },
+          { "image": "https://images.pexels.com/photos/7561698/pexels-photo-7561698.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "A phone tapped against a contactless terminal" },
+          { "image": "https://images.pexels.com/photos/6773517/pexels-photo-6773517.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Two people shaking hands over a deal" },
+          { "image": "https://images.pexels.com/photos/461073/pexels-photo-461073.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "A website open on a laptop at a desk" },
+          { "image": "https://images.pexels.com/photos/9490632/pexels-photo-9490632.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "A handshake closing a business meeting" }
+        ]
+      }
+    },
+
+    "products": {
+      "variant": "cards-3",
+      "props": {
+        "label": "The Range",
+        "heading": "What I can set up for you",
+        "sub": "Message me for current pricing — it depends on what you need and whether you take one product or the bundle.",
+        "showRelated": false,
+        "items": [
+          {
+            "image": "https://images.pexels.com/photos/4138154/pexels-photo-4138154.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "NFC Smart Card",
+            "desc": "A printed card carrying your branding. Someone taps their phone on it and your digital card opens — no app, no typing, nothing to install.",
+            "meta": "Physical card · Tap to share"
+          },
+          {
+            "image": "https://images.pexels.com/photos/5706018/pexels-photo-5706018.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Digital Visiting Card",
+            "desc": "Your services, photos, hours, location, payment details and social links on one page. Update it any time — the card people already have updates with it.",
+            "meta": "Share by link or QR"
+          },
+          {
+            "image": "https://images.pexels.com/photos/461073/pexels-photo-461073.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Business Website",
+            "desc": "A full multi-page website on your own web address, with enquiry forms, appointment booking and an online store if you sell products.",
+            "meta": "Your own web address"
+          },
+          {
+            "image": "https://images.pexels.com/photos/16062008/pexels-photo-16062008.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Dynamic QR Code",
+            "desc": "One printed code that you can repoint at any time — this month a menu, next month an offer. The sticker on your counter never changes.",
+            "meta": "Repoint any time"
+          },
+          {
+            "image": "https://images.pexels.com/photos/8489955/pexels-photo-8489955.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Review Funnel",
+            "desc": "Sends satisfied customers straight to your Google review page, and routes unhappy ones to a private form so you can fix it first.",
+            "meta": "Google reviews"
+          },
+          {
+            "image": "https://images.pexels.com/photos/5239819/pexels-photo-5239819.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "WhatsApp Business Suite",
+            "desc": "Automatic replies, a shared inbox for customer conversations, and order and enquiry alerts straight to your phone.",
+            "meta": "Automatic replies"
+          }
+        ]
+      }
+    },
+
+    "testimonials": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Customer Feedback",
+        "heading": "PLACEHOLDER — replace before sharing this page",
+        "sub": "These three quotes are examples, not real customers. Swap them for genuine feedback from businesses you have actually set up, or delete this section.",
+        "items": [
+          {
+            "quote": "Example quote. Replace this with a real customer's own words about working with you — two lines is plenty.",
+            "name": "Customer name",
+            "role": "Business name, area",
+            "rating": 5
+          },
+          {
+            "quote": "Example quote. Ask a customer what changed for them after the setup and use their answer here.",
+            "name": "Customer name",
+            "role": "Business name, area",
+            "rating": 5
+          },
+          {
+            "quote": "Example quote. A short, specific line about one thing that worked beats a long general one.",
+            "name": "Customer name",
+            "role": "Business name, area",
+            "rating": 5
+          }
+        ]
+      }
+    },
+
+    "contact": {
+      "variant": "form-map",
+      "props": {
+        "label": "Get In Touch",
+        "heading": "Tell me about your business",
+        "sub": "Send me what you do and what you are trying to fix. I will reply with what I would set up and roughly what it costs — no obligation.",
+        "showPhone": false,
+        "showWhatsapp": false,
+        "showEmail": true,
+        "showAddress": false,
+        "showHours": false,
+        "showMap": false,
+        "submitText": "Send Message"
+      }
+    },
+
+    "footer": {
+      "variant": "columns",
+      "props": {
+        "blurb": "{{REP_NAME}} — Business Growth Consultant at Tapify. Digital visiting cards, NFC cards, websites, QR codes, reviews and WhatsApp automation for local businesses.",
+        "showContact": true,
+        "showHours": false,
+        "showSocial": true,
+        "showLegal": true,
+        "columns": [
+          {
+            "title": "Explore",
+            "links": [
+              { "text": "Home",     "href": "/" },
+              { "text": "Products", "href": "/products" },
+              { "text": "Services", "href": "/services" },
+              { "text": "Contact",  "href": "/contact" }
+            ]
+          },
+          {
+            "title": "Products",
+            "links": [
+              { "text": "NFC Smart Card",         "href": "/products" },
+              { "text": "Digital Visiting Card",  "href": "/products" },
+              { "text": "Business Website",       "href": "/products" },
+              { "text": "Dynamic QR Code",        "href": "/products" }
+            ]
+          },
+          {
+            "title": "Tapify",
+            "links": [
+              { "text": "tapify.co.in", "href": "https://www.tapify.co.in" },
+              { "text": "Contact",      "href": "/contact" }
+            ]
+          }
+        ],
+        "copyright": "© 2026 Tapify. All rights reserved.",
+        "termsBody": "This is the personal page of a Tapify representative. Products and services described here are supplied by Tapify, and any pricing discussed is confirmed in writing before an order is placed. Timelines given are typical and depend on how quickly content and photographs are supplied. Replace this text with your own terms before going live."
+      }
+    }
+  },
+
+  "pages": [
+    {
+      "id": "home",
+      "slug": "/",
+      "title": "Home",
+      "seo": {
+        "title": "{{REP_NAME}} | Tapify Business Growth Consultant",
+        "description": "I help local businesses get online properly — digital visiting cards, NFC cards, websites, QR codes, Google reviews and WhatsApp automation. Set up for you end to end.",
+        "robots": "index,follow"
+      },
+      "sections": ["header", "hero", "about", "services", "gallery", "products", "testimonials", "contact", "footer"]
+    },
+    {
+      "id": "products",
+      "slug": "/products",
+      "title": "Products",
+      "seo": {
+        "title": "Products | {{REP_NAME}}, Tapify",
+        "description": "NFC smart cards, digital visiting cards, business websites, dynamic QR codes, review funnels and WhatsApp automation for local businesses.",
+        "robots": "index,follow"
+      },
+      "sections": ["products", "gallery", "contact"],
+      "content": {
+        "products": {
+          "props": {
+            "label": "The Full Range",
+            "heading": "Everything I can set up",
+            "sub": "Take one or take the lot. Message me and I will tell you what actually makes sense for your business rather than selling you all six."
+          }
+        }
+      }
+    },
+    {
+      "id": "services",
+      "slug": "/services",
+      "title": "Services",
+      "seo": {
+        "title": "How It Works | {{REP_NAME}}, Tapify",
+        "description": "Digital card setup, NFC personalisation, website design and launch, QR codes, review growth and WhatsApp automation — done for you, then handed over.",
+        "robots": "index,follow"
+      },
+      "sections": ["services", "gallery", "testimonials", "contact"],
+      "content": {
+        "services": {
+          "props": {
+            "label": "How It Works",
+            "heading": "What setting it up actually involves",
+            "sub": "You give me your details and photos once. I build it out, publish it, and then show you how to change it yourself."
+          }
+        }
+      }
+    },
+    {
+      "id": "contact",
+      "slug": "/contact",
+      "title": "Contact",
+      "seo": {
+        "title": "Contact {{REP_NAME}} | Tapify",
+        "description": "Message me about digital visiting cards, websites, QR codes, reviews and WhatsApp for your business. I will reply with what I would set up and what it costs.",
+        "robots": "index,follow"
+      },
+      "sections": ["contact"]
+    }
+  ],
+
+  "notes": "INTERNAL TEMPLATE. One site per Tapify sales representative — a personal landing page they can hand to a prospect so the prospect contacts THEM rather than head office. Four pages: Home (/), Products (/products), Services (/services), Contact (/contact). Home carries all nine requested sections in the requested order.\n\nTOKENS: {{REP_NAME}} and {{REP_EMAIL}} are substituted per representative when the site is created (see run-sales-portfolios.php). If you create a site from this recipe through the builder UI instead, those tokens appear literally and must be edited by hand — that is deliberate, they read as obvious placeholders rather than someone else's name.\n\nTHEME: copper-ridge, the same preset the architecture recipe uses — bronze #8B6914 with a warm sand background, Poppins headings and Inter body. Requested specifically. No new theme was created.\n\nNO PHOTOGRAPH OF A PERSON ANYWHERE. These are real named people's pages, so putting a stock model's face on them would be a lie the moment a prospect met them. Hero and about use product and handshake imagery with no identifiable face. Each rep should add their own photograph to the about section.\n\nNO PHONE OR WHATSAPP: showPhone, showWhatsapp and showAddress are all FALSE on the contact section and no phone is set in business, because no numbers were supplied. The enquiry form and the rep's own email are the working channels. Turn the phone fields on in the builder once each rep's number is added to Business Info — the section picks it up automatically.\n\nTESTIMONIALS ARE DELIBERATELY MARKED AS PLACEHOLDERS, in the heading itself, not just in a note. Fabricating customer quotes for a real named salesperson is not the same as seeding a demo template, and these sites go live under real people's names. Either replace them with genuine feedback or delete the section before the page is shared.\n\nIMAGES: hosted Pexels CDN URLs, every one fetched and visually checked. Replace the gallery with photographs of real local customers as soon as there are any — that is the single highest-value edit on this page.\n\nPRICING is deliberately absent. The copy says 'message me for pricing' throughout, so reps are not bound to a number on a public page and can quote per deal."
+}
