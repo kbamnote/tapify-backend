@@ -203,6 +203,11 @@ class SiteValidator
             return;
         }
 
+        // From here on, name the section in the path. "pages[0].sections[5].props.embeds"
+        // tells a customer nothing — they cannot count sections to find which one is
+        // section 5 — whereas "pages[0].sections[5](embed)" points straight at it.
+        $path .= '(' . $type . ')';
+
         // variant must exist in the manifest
         $variant = $section['variant'] ?? null;
         if ($variant !== null) {

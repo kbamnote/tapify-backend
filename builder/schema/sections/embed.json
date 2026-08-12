@@ -20,7 +20,7 @@
     { "key": "sub",     "type": "textarea", "label": "Description", "maxLength": 300, "group": "Heading" },
 
     { "key": "embeds", "type": "repeater", "label": "Instagram posts / reels", "group": "Posts",
-      "max": 9, "min": 1, "itemLabel": "{{url}}", "addLabel": "Add post / reel",
+      "max": 9, "itemLabel": "{{url}}", "addLabel": "Add post / reel",
       "help": "Paste the link to a public Instagram post or reel.",
       "fields": [
         { "key": "url", "type": "text", "label": "Instagram link", "required": true, "maxLength": 600,
@@ -37,5 +37,7 @@
   "defaults": {
     "variant": "grid-2",
     "props": { "label": "Follow us", "heading": "From our Instagram", "embeds": [] }
-  }
+  },
+
+  "notes": "No `min` on `embeds` on purpose. It used to be min:1 while these defaults seed an empty array, so the moment anyone added this section from the picker the whole document failed STRICT validation and the site could not be published — with an error naming a section index, which nobody can map back to a section. Drafts validate leniently so it only bit on publish. SiteRenderer::secEmbed already returns an empty string when there are no valid Instagram URLs, so an empty section simply renders nothing and is harmless. Do not reintroduce min here unless the defaults seed a real post at the same time — and a placeholder URL would just render a broken embed."
 }
