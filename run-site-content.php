@@ -32,6 +32,8 @@ $SITES = [
     // table — so reusing those slugs here would silently take the vCard's URL.
     'jamaltours'  => ['file' => 'content-jamal-tours.json',  'label' => 'Jamal Tours Solutions'],
     'sasservices' => ['file' => 'content-sas-services.json', 'label' => 'SAS Services'],
+    // vCard lives at raavee-kitchen-and-interiors — same reasoning as above.
+    'raaveekitchen' => ['file' => 'content-raavee-kitchen.json', 'label' => 'Raavee Kitchen and Interior'],
 ];
 
 require_once __DIR__ . '/config/database.php';

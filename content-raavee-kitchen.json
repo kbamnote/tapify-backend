@@ -1,0 +1,925 @@
+{
+ "schemaVersion": 1,
+ "site": {
+  "name": "Raavee Kitchen and Interior",
+  "industry": "architecture",
+  "locale": "en-IN"
+ },
+ "theme": {
+  "preset": "copper-ridge",
+  "mode": "light",
+  "color": {
+   "primary": "#8B6914",
+   "secondary": "#5C4A3A",
+   "accent": "#C88A3D",
+   "bg": "#F7F4F0",
+   "surface": "#FFFFFF",
+   "text": "#1E1B16",
+   "muted": "#8A827A",
+   "border": "#E0DAD3"
+  },
+  "font": {
+   "heading": "Poppins",
+   "body": "Inter"
+  },
+  "radius": "md",
+  "spacing": "comfortable",
+  "container": "normal"
+ },
+ "nav": {
+  "header": [
+   {
+    "label": "Home",
+    "pageId": "home"
+   },
+   {
+    "label": "Work",
+    "pageId": "work"
+   },
+   {
+    "label": "Services",
+    "pageId": "services"
+   },
+   {
+    "label": "Contact",
+    "pageId": "contact"
+   }
+  ]
+ },
+ "business": {
+  "phone": "+91 83294 95223",
+  "whatsapp": "+91 83294 95223",
+  "email": "pritidharmik0@gmail.com",
+  "address": "Manewada Square, Ulhas Nagar, Nagpur, Maharashtra 440027",
+  "social": {
+   "instagram": "https://www.instagram.com/raaveekitcheninteriorsofficial/"
+  }
+ },
+ "pages": [
+  {
+   "id": "home",
+   "slug": "/",
+   "title": "Home",
+   "seo": {
+    "title": "Raavee Kitchen and Interior | Modular Kitchens & Interiors in Nagpur",
+    "description": "Bespoke modular kitchens, wardrobes and custom interiors at Manewada Square, Nagpur. Smart storage, premium finishes and ergonomic layouts, designed and installed by our own team.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "header-1",
+     "type": "header",
+     "visible": true,
+     "props": {
+      "sticky": true,
+      "showCart": false,
+      "showAccount": false,
+      "links": [
+       {
+        "text": "Home",
+        "href": "/"
+       },
+       {
+        "text": "Work",
+        "href": "/work"
+       },
+       {
+        "text": "Services",
+        "href": "/services"
+       },
+       {
+        "text": "Contact",
+        "href": "/contact"
+       }
+      ],
+      "cta": {
+       "text": "Get a Quote",
+       "href": "/contact",
+       "style": "primary"
+      }
+     },
+     "variant": "left"
+    },
+    {
+     "id": "hero-2",
+     "type": "hero",
+     "visible": true,
+     "props": {
+      "badge": "Modular Kitchen & Interiors · Nagpur",
+      "heading": "Bespoke kitchens, built around you",
+      "sub": "Modular kitchens and custom interiors that blend aesthetic elegance with everyday functionality — smart storage, premium finishes and ergonomic layouts designed for how you actually live.",
+      "image": "https://images.pexels.com/photos/7148841/pexels-photo-7148841.jpeg?auto=compress&cs=tinysrgb&w=2000",
+      "videoUrl": "https://videos.pexels.com/video-files/17211936/17211936-hd_1920_1080_30fps.mp4",
+      "fullHeight": true,
+      "ctaPrimary": {
+       "text": "See Our Work",
+       "href": "/work",
+       "style": "primary"
+      },
+      "ctaSecondary": {
+       "text": "Get a Quote",
+       "href": "/contact",
+       "style": "ghost"
+      },
+      "showWhatsapp": true,
+      "showCall": true
+     },
+     "variant": "centered-bg",
+     "style": {
+      "overlay": 0.6
+     }
+    },
+    {
+     "id": "about-3",
+     "type": "about",
+     "visible": true,
+     "props": {
+      "label": "About Us",
+      "heading": "Spaces designed around how you actually live",
+      "body": "Raavee Kitchen and Interior offers bespoke design and remodelling solutions, blending aesthetic elegance with everyday functionality.\n\nWe specialise in modular kitchens and custom interiors, crafting personalised spaces tailored to your lifestyle. Our designs feature smart storage solutions, premium finishes and ergonomic layouts designed to maximise your home's potential.\n\nA kitchen is the room you use most and forgive least. We plan the working triangle, the height of the counter and the position of every drawer around the person who will actually cook in it — because a kitchen that photographs well and works badly is a failure you live with for fifteen years.\n\nCome to the studio at Manewada Square with your floor plan, or send it on WhatsApp, and we will talk through what is possible before anything is quoted.",
+      "image": "https://images.pexels.com/photos/35189707/pexels-photo-35189707.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "showPillars": true,
+      "pillars": [
+       {
+        "icon": "ruler",
+        "title": "Made to your plan",
+        "text": "Every unit is built to your measurements, not adjusted from a standard size and filled with a gap."
+       },
+       {
+        "icon": "package",
+        "title": "Smart storage",
+        "text": "Corner pull-outs, tall units and drawer inserts planned around what you actually store."
+       },
+       {
+        "icon": "sparkles",
+        "title": "Premium finishes",
+        "text": "Laminate, acrylic and PU finishes with the wear and cleaning trade-offs of each explained honestly."
+       },
+       {
+        "icon": "badge-check",
+        "title": "Ergonomic layouts",
+        "text": "Counter and unit heights set to the person who cooks, not a catalogue default."
+       }
+      ]
+     },
+     "variant": "image-right"
+    },
+    {
+     "id": "services-4",
+     "type": "services",
+     "visible": true,
+     "props": {
+      "label": "What We Do",
+      "heading": "Kitchens, wardrobes and interiors",
+      "sub": "Designed, built and installed by one team, so there is nobody to pass the blame to.",
+      "items": [
+       {
+        "image": "https://images.pexels.com/photos/38310837/pexels-photo-38310837.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Modular Kitchen",
+        "desc": "A complete modular kitchen designed to your floor plan — carcass, shutters, hardware, counter and appliance planning, installed as one job.",
+        "meta": "Design to installation",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918329495223",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/6580395/pexels-photo-6580395.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Modular Furniture",
+        "desc": "Wardrobes, storage units and loft solutions built as modules to your measurements, so the fit is exact and future changes are possible.",
+        "meta": "Built to measure",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918329495223",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/34688219/pexels-photo-34688219.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Home Furniture",
+        "desc": "TV units, crockery units, study tables, beds and seating designed to match the rest of the interior rather than bought piece by piece.",
+        "meta": "Matched to your interior",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918329495223",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/9300768/pexels-photo-9300768.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Office Furniture",
+        "desc": "Workstations, storage, reception counters and cabin furniture for offices and clinics, planned around how the space is actually used.",
+        "meta": "Commercial fit-out",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918329495223",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/29012619/pexels-photo-29012619.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Design Consultation",
+        "desc": "Bring your floor plan and we will work through layout, storage and finishes before a rupee is committed. Drawings before decisions.",
+        "meta": "Before you commit",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918329495223",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/7045356/pexels-photo-7045356.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Remodelling & Installation",
+        "desc": "Remodelling an existing kitchen or interior, and installation handled by our own team so nobody is blaming a third-party fitter.",
+        "meta": "Our own team",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918329495223",
+         "style": "link"
+        }
+       }
+      ]
+     },
+     "variant": "cards-3"
+    },
+    {
+     "id": "products-5",
+     "type": "products",
+     "visible": true,
+     "props": {
+      "label": "Layouts",
+      "heading": "Kitchen and wardrobe layouts",
+      "sub": "The configurations we build most often. Which one suits you depends on the room — send us the plan and we will tell you.",
+      "showRelated": false,
+      "items": [
+       {
+        "image": "https://images.pexels.com/photos/30857234/pexels-photo-30857234.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "L-Shaped Kitchen",
+        "desc": "Two adjacent runs of counter. The most efficient layout for a small to medium kitchen and the one we build most often.",
+        "meta": "Best for compact spaces",
+        "cta": {
+         "text": "Enquire",
+         "href": "https://wa.me/918329495223",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/8146160/pexels-photo-8146160.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Parallel Kitchen",
+        "desc": "Two facing runs with a walkway between. Excellent for narrow kitchens and for two people working at once.",
+        "meta": "Best for narrow rooms",
+        "cta": {
+         "text": "Enquire",
+         "href": "https://wa.me/918329495223",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/38310837/pexels-photo-38310837.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Island Kitchen",
+        "desc": "A free-standing central unit adding counter, storage and a place to sit. Needs the floor area to carry it — we will tell you honestly if yours does not.",
+        "meta": "Needs an open plan",
+        "cta": {
+         "text": "Enquire",
+         "href": "https://wa.me/918329495223",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/30465909/pexels-photo-30465909.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Walk-in Wardrobe",
+        "desc": "A dressing area with open and glass-fronted storage, planned around what you own rather than a standard rail-and-shelf split.",
+        "meta": "For a separate dressing area",
+        "cta": {
+         "text": "Enquire",
+         "href": "https://wa.me/918329495223",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/6580395/pexels-photo-6580395.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Sliding Wardrobe",
+        "desc": "Sliding shutters where a hinged door has nowhere to open into — the usual answer in a compact bedroom.",
+        "meta": "Space saving",
+        "cta": {
+         "text": "Enquire",
+         "href": "https://wa.me/918329495223",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/7166645/pexels-photo-7166645.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "TV & Crockery Units",
+        "desc": "Living and dining storage built to match the kitchen, with cable management and lighting planned in rather than added after.",
+        "meta": "Matched finishes",
+        "cta": {
+         "text": "Enquire",
+         "href": "https://wa.me/918329495223",
+         "style": "link"
+        }
+       }
+      ]
+     },
+     "variant": "cards-3"
+    },
+    {
+     "id": "gallery-6",
+     "type": "gallery",
+     "visible": true,
+     "props": {
+      "label": "Our Work",
+      "heading": "Recent projects",
+      "sub": "Replace these with photographs of your own completed projects — nothing sells this trade better than finished work.",
+      "lightbox": true,
+      "images": [
+       {
+        "image": "https://images.pexels.com/photos/7148841/pexels-photo-7148841.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "A completed modular kitchen with island seating"
+       },
+       {
+        "image": "https://images.pexels.com/photos/35189707/pexels-photo-35189707.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Warm wood and stone kitchen interior"
+       },
+       {
+        "image": "https://images.pexels.com/photos/7045356/pexels-photo-7045356.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Dark wood kitchen with built-in oven"
+       },
+       {
+        "image": "https://images.pexels.com/photos/8146160/pexels-photo-8146160.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "A parallel kitchen in a narrow room"
+       },
+       {
+        "image": "https://images.pexels.com/photos/30857234/pexels-photo-30857234.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "L-shaped kitchen in wood and white"
+       },
+       {
+        "image": "https://images.pexels.com/photos/30465909/pexels-photo-30465909.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Walk-in wardrobe with glass doors"
+       },
+       {
+        "image": "https://images.pexels.com/photos/6580395/pexels-photo-6580395.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Wardrobe internals with drawer and shelf planning"
+       },
+       {
+        "image": "https://images.pexels.com/photos/34688219/pexels-photo-34688219.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Living room furniture and seating"
+       },
+       {
+        "image": "https://images.pexels.com/photos/9300768/pexels-photo-9300768.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Office interior with workstations"
+       }
+      ]
+     },
+     "variant": "grid-3"
+    },
+    {
+     "id": "cta-7",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Send us your floor plan",
+      "sub": "WhatsApp your plan or a few photographs of the space and we will come back with a layout suggestion and a written quotation.",
+      "ctaPrimary": {
+       "text": "Get a Quote",
+       "href": "/contact",
+       "style": "primary"
+      },
+      "showWhatsapp": true,
+      "showCall": true
+     },
+     "variant": "banner"
+    },
+    {
+     "id": "contact-8",
+     "type": "contact",
+     "visible": true,
+     "props": {
+      "label": "Get In Touch",
+      "heading": "Talk to us",
+      "sub": "The studio is at Manewada Square. Send your floor plan on WhatsApp and we will come back with a layout and a written quotation.",
+      "showPhone": true,
+      "showWhatsapp": true,
+      "showEmail": true,
+      "showAddress": true,
+      "showHours": false,
+      "showMap": true,
+      "submitText": "Send Enquiry"
+     },
+     "variant": "form-map"
+    },
+    {
+     "id": "footer-9",
+     "type": "footer",
+     "visible": true,
+     "props": {
+      "blurb": "Raavee Kitchen and Interior — bespoke modular kitchens, wardrobes and custom interiors at Manewada Square, Nagpur. Smart storage, premium finishes and ergonomic layouts, designed and installed by our own team.",
+      "showContact": true,
+      "showHours": false,
+      "showSocial": true,
+      "showLegal": true,
+      "columns": [
+       {
+        "title": "Explore",
+        "links": [
+         {
+          "text": "Home",
+          "href": "/"
+         },
+         {
+          "text": "Work",
+          "href": "/work"
+         },
+         {
+          "text": "Services",
+          "href": "/services"
+         },
+         {
+          "text": "Contact",
+          "href": "/contact"
+         }
+        ]
+       },
+       {
+        "title": "What We Build",
+        "links": [
+         {
+          "text": "Modular Kitchens",
+          "href": "/services"
+         },
+         {
+          "text": "Wardrobes",
+          "href": "/work"
+         },
+         {
+          "text": "Home Furniture",
+          "href": "/services"
+         },
+         {
+          "text": "Office Furniture",
+          "href": "/services"
+         }
+        ]
+       },
+       {
+        "title": "Connect",
+        "links": [
+         {
+          "text": "Instagram",
+          "href": "https://www.instagram.com/raaveekitcheninteriorsofficial/"
+         },
+         {
+          "text": "WhatsApp",
+          "href": "https://wa.me/918329495223"
+         },
+         {
+          "text": "Call us",
+          "href": "tel:+918329495223"
+         },
+         {
+          "text": "Email us",
+          "href": "mailto:pritidharmik0@gmail.com"
+         }
+        ]
+       }
+      ],
+      "copyright": "© 2026 Raavee Kitchen and Interior. All rights reserved.",
+      "termsBody": "Designs, drawings and visualisations prepared for a client remain the property of Raavee Kitchen and Interior until the project is paid for in full. Quotations are valid for the period stated on them and are based on the measurements and specification agreed at the time; changes to layout, finish or hardware after approval will be re-quoted. Installation timelines run from final drawing approval and depend on site readiness — civil work, plumbing and electrical points being complete. Colour and grain of natural materials vary between batches and cannot be matched exactly to a sample. Warranty terms on hardware are as provided by the respective manufacturer. Replace this text with your own terms, reviewed by your legal advisor, before going live."
+     },
+     "variant": "columns"
+    }
+   ]
+  },
+  {
+   "id": "work",
+   "slug": "/work",
+   "title": "Work",
+   "seo": {
+    "title": "Our Work | Raavee Kitchen and Interior, Nagpur",
+    "description": "Modular kitchens, walk-in and sliding wardrobes, TV and crockery units, and office interiors built to measure in Nagpur.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "gallery-a",
+     "type": "gallery",
+     "visible": true,
+     "props": {
+      "label": "Portfolio",
+      "heading": "Kitchens, wardrobes and interiors",
+      "sub": "A selection of layouts and finishes. Bring your floor plan and we will show you what works in your space.",
+      "lightbox": true,
+      "images": [
+       {
+        "image": "https://images.pexels.com/photos/7148841/pexels-photo-7148841.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "A completed modular kitchen with island seating"
+       },
+       {
+        "image": "https://images.pexels.com/photos/35189707/pexels-photo-35189707.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Warm wood and stone kitchen interior"
+       },
+       {
+        "image": "https://images.pexels.com/photos/7045356/pexels-photo-7045356.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Dark wood kitchen with built-in oven"
+       },
+       {
+        "image": "https://images.pexels.com/photos/8146160/pexels-photo-8146160.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "A parallel kitchen in a narrow room"
+       },
+       {
+        "image": "https://images.pexels.com/photos/30857234/pexels-photo-30857234.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "L-shaped kitchen in wood and white"
+       },
+       {
+        "image": "https://images.pexels.com/photos/30465909/pexels-photo-30465909.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Walk-in wardrobe with glass doors"
+       },
+       {
+        "image": "https://images.pexels.com/photos/6580395/pexels-photo-6580395.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Wardrobe internals with drawer and shelf planning"
+       },
+       {
+        "image": "https://images.pexels.com/photos/34688219/pexels-photo-34688219.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Living room furniture and seating"
+       },
+       {
+        "image": "https://images.pexels.com/photos/9300768/pexels-photo-9300768.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Office interior with workstations"
+       }
+      ]
+     },
+     "variant": "grid-3"
+    },
+    {
+     "id": "products-b",
+     "type": "products",
+     "visible": true,
+     "props": {
+      "label": "Layouts",
+      "heading": "The configurations we build",
+      "sub": "L-shaped, parallel and island kitchens, walk-in and sliding wardrobes, and matched living-room storage.",
+      "showRelated": false,
+      "items": [
+       {
+        "image": "https://images.pexels.com/photos/30857234/pexels-photo-30857234.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "L-Shaped Kitchen",
+        "desc": "Two adjacent runs of counter. The most efficient layout for a small to medium kitchen and the one we build most often.",
+        "meta": "Best for compact spaces",
+        "cta": {
+         "text": "Enquire",
+         "href": "https://wa.me/918329495223",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/8146160/pexels-photo-8146160.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Parallel Kitchen",
+        "desc": "Two facing runs with a walkway between. Excellent for narrow kitchens and for two people working at once.",
+        "meta": "Best for narrow rooms",
+        "cta": {
+         "text": "Enquire",
+         "href": "https://wa.me/918329495223",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/38310837/pexels-photo-38310837.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Island Kitchen",
+        "desc": "A free-standing central unit adding counter, storage and a place to sit. Needs the floor area to carry it — we will tell you honestly if yours does not.",
+        "meta": "Needs an open plan",
+        "cta": {
+         "text": "Enquire",
+         "href": "https://wa.me/918329495223",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/30465909/pexels-photo-30465909.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Walk-in Wardrobe",
+        "desc": "A dressing area with open and glass-fronted storage, planned around what you own rather than a standard rail-and-shelf split.",
+        "meta": "For a separate dressing area",
+        "cta": {
+         "text": "Enquire",
+         "href": "https://wa.me/918329495223",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/6580395/pexels-photo-6580395.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Sliding Wardrobe",
+        "desc": "Sliding shutters where a hinged door has nowhere to open into — the usual answer in a compact bedroom.",
+        "meta": "Space saving",
+        "cta": {
+         "text": "Enquire",
+         "href": "https://wa.me/918329495223",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/7166645/pexels-photo-7166645.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "TV & Crockery Units",
+        "desc": "Living and dining storage built to match the kitchen, with cable management and lighting planned in rather than added after.",
+        "meta": "Matched finishes",
+        "cta": {
+         "text": "Enquire",
+         "href": "https://wa.me/918329495223",
+         "style": "link"
+        }
+       }
+      ]
+     },
+     "variant": "cards-3"
+    },
+    {
+     "id": "cta-c",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Send us your floor plan",
+      "sub": "WhatsApp your plan or a few photographs of the space and we will come back with a layout suggestion and a written quotation.",
+      "ctaPrimary": {
+       "text": "Get a Quote",
+       "href": "/contact",
+       "style": "primary"
+      },
+      "showWhatsapp": true,
+      "showCall": true
+     },
+     "variant": "banner"
+    }
+   ]
+  },
+  {
+   "id": "services",
+   "slug": "/services",
+   "title": "Services",
+   "seo": {
+    "title": "Modular Kitchen, Furniture & Interior Services | Raavee, Nagpur",
+    "description": "Modular kitchens, modular furniture, home and office furniture, design consultation, remodelling and installation in Nagpur.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "services-d",
+     "type": "services",
+     "visible": true,
+     "props": {
+      "label": "Our Services",
+      "heading": "From first drawing to final fitting",
+      "sub": "Design, manufacture and installation handled together — one team, one point of contact, one person answerable.",
+      "items": [
+       {
+        "image": "https://images.pexels.com/photos/38310837/pexels-photo-38310837.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Modular Kitchen",
+        "desc": "A complete modular kitchen designed to your floor plan — carcass, shutters, hardware, counter and appliance planning, installed as one job.",
+        "meta": "Design to installation",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918329495223",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/6580395/pexels-photo-6580395.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Modular Furniture",
+        "desc": "Wardrobes, storage units and loft solutions built as modules to your measurements, so the fit is exact and future changes are possible.",
+        "meta": "Built to measure",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918329495223",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/34688219/pexels-photo-34688219.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Home Furniture",
+        "desc": "TV units, crockery units, study tables, beds and seating designed to match the rest of the interior rather than bought piece by piece.",
+        "meta": "Matched to your interior",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918329495223",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/9300768/pexels-photo-9300768.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Office Furniture",
+        "desc": "Workstations, storage, reception counters and cabin furniture for offices and clinics, planned around how the space is actually used.",
+        "meta": "Commercial fit-out",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918329495223",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/29012619/pexels-photo-29012619.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Design Consultation",
+        "desc": "Bring your floor plan and we will work through layout, storage and finishes before a rupee is committed. Drawings before decisions.",
+        "meta": "Before you commit",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918329495223",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/7045356/pexels-photo-7045356.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Remodelling & Installation",
+        "desc": "Remodelling an existing kitchen or interior, and installation handled by our own team so nobody is blaming a third-party fitter.",
+        "meta": "Our own team",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918329495223",
+         "style": "link"
+        }
+       }
+      ]
+     },
+     "variant": "cards-3"
+    },
+    {
+     "id": "about-e",
+     "type": "about",
+     "visible": true,
+     "props": {
+      "label": "About Us",
+      "heading": "Spaces designed around how you actually live",
+      "body": "Raavee Kitchen and Interior offers bespoke design and remodelling solutions, blending aesthetic elegance with everyday functionality.\n\nWe specialise in modular kitchens and custom interiors, crafting personalised spaces tailored to your lifestyle. Our designs feature smart storage solutions, premium finishes and ergonomic layouts designed to maximise your home's potential.\n\nA kitchen is the room you use most and forgive least. We plan the working triangle, the height of the counter and the position of every drawer around the person who will actually cook in it — because a kitchen that photographs well and works badly is a failure you live with for fifteen years.\n\nCome to the studio at Manewada Square with your floor plan, or send it on WhatsApp, and we will talk through what is possible before anything is quoted.",
+      "image": "https://images.pexels.com/photos/35189707/pexels-photo-35189707.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "showPillars": true,
+      "pillars": [
+       {
+        "icon": "ruler",
+        "title": "Made to your plan",
+        "text": "Every unit is built to your measurements, not adjusted from a standard size and filled with a gap."
+       },
+       {
+        "icon": "package",
+        "title": "Smart storage",
+        "text": "Corner pull-outs, tall units and drawer inserts planned around what you actually store."
+       },
+       {
+        "icon": "sparkles",
+        "title": "Premium finishes",
+        "text": "Laminate, acrylic and PU finishes with the wear and cleaning trade-offs of each explained honestly."
+       },
+       {
+        "icon": "badge-check",
+        "title": "Ergonomic layouts",
+        "text": "Counter and unit heights set to the person who cooks, not a catalogue default."
+       }
+      ]
+     },
+     "variant": "image-left"
+    },
+    {
+     "id": "faq-f",
+     "type": "faq",
+     "visible": true,
+     "props": {
+      "label": "FAQ",
+      "heading": "Questions customers ask us",
+      "openFirst": true,
+      "items": [
+       {
+        "q": "How long does a modular kitchen take?",
+        "a": "Typically four to six weeks from final drawing approval to installation, depending on the finish and the hardware. Site measurement and design come before that. We give you a date at the time of the order rather than a vague estimate."
+       },
+       {
+        "q": "What does it cost?",
+        "a": "It depends on the size, the finish and the hardware, so we quote after measuring rather than giving a figure that changes later. Bring or send your floor plan and we will give you a written quotation with the specification itemised."
+       },
+       {
+        "q": "Which finish should I choose?",
+        "a": "Laminate is the most durable for the money and the easiest to live with. Acrylic gives a high gloss but shows fingerprints. PU gives the best paint finish but costs more and is harder to repair locally. We will talk through the trade-offs for your usage rather than pushing the expensive one."
+       },
+       {
+        "q": "Do you handle the installation?",
+        "a": "Yes, with our own team. That matters more than it sounds — when the manufacturer and the fitter are different companies, any problem becomes an argument between them with you in the middle."
+       },
+       {
+        "q": "Can you remodel my existing kitchen?",
+        "a": "Yes. Sometimes the carcass is sound and only the shutters, hardware and counter need replacing, which costs far less than a full rebuild. We will tell you which situation you are in after seeing it."
+       },
+       {
+        "q": "Do you work on offices as well as homes?",
+        "a": "Yes — workstations, storage, reception counters and cabin furniture for offices and clinics, using the same modular approach."
+       },
+       {
+        "q": "What do you need from me to start?",
+        "a": "A floor plan with measurements, or an appointment for us to measure. Then a conversation about how you cook, what you store and who uses the space. Everything else follows from that."
+       }
+      ]
+     },
+     "variant": "accordion"
+    },
+    {
+     "id": "cta-g",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Send us your floor plan",
+      "sub": "WhatsApp your plan or a few photographs of the space and we will come back with a layout suggestion and a written quotation.",
+      "ctaPrimary": {
+       "text": "Get a Quote",
+       "href": "/contact",
+       "style": "primary"
+      },
+      "showWhatsapp": true,
+      "showCall": true
+     },
+     "variant": "banner"
+    }
+   ]
+  },
+  {
+   "id": "contact",
+   "slug": "/contact",
+   "title": "Contact",
+   "seo": {
+    "title": "Contact & Quote | Raavee Kitchen and Interior, Nagpur",
+    "description": "Manewada Square, Ulhas Nagar, Nagpur 440027. Call or WhatsApp 83294 95223 with your floor plan for a layout suggestion and a written quotation.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "contact-h",
+     "type": "contact",
+     "visible": true,
+     "props": {
+      "label": "Get In Touch",
+      "heading": "Send us your plan",
+      "sub": "Manewada Square, Ulhas Nagar. Call or WhatsApp 83294 95223, or send the form below with your floor plan attached.",
+      "showPhone": true,
+      "showWhatsapp": true,
+      "showEmail": true,
+      "showAddress": true,
+      "showHours": false,
+      "showMap": true,
+      "submitText": "Send Enquiry"
+     },
+     "variant": "form-map"
+    },
+    {
+     "id": "faq-i",
+     "type": "faq",
+     "visible": true,
+     "props": {
+      "label": "FAQ",
+      "heading": "Questions customers ask us",
+      "openFirst": true,
+      "items": [
+       {
+        "q": "How long does a modular kitchen take?",
+        "a": "Typically four to six weeks from final drawing approval to installation, depending on the finish and the hardware. Site measurement and design come before that. We give you a date at the time of the order rather than a vague estimate."
+       },
+       {
+        "q": "What does it cost?",
+        "a": "It depends on the size, the finish and the hardware, so we quote after measuring rather than giving a figure that changes later. Bring or send your floor plan and we will give you a written quotation with the specification itemised."
+       },
+       {
+        "q": "Which finish should I choose?",
+        "a": "Laminate is the most durable for the money and the easiest to live with. Acrylic gives a high gloss but shows fingerprints. PU gives the best paint finish but costs more and is harder to repair locally. We will talk through the trade-offs for your usage rather than pushing the expensive one."
+       },
+       {
+        "q": "Do you handle the installation?",
+        "a": "Yes, with our own team. That matters more than it sounds — when the manufacturer and the fitter are different companies, any problem becomes an argument between them with you in the middle."
+       },
+       {
+        "q": "Can you remodel my existing kitchen?",
+        "a": "Yes. Sometimes the carcass is sound and only the shutters, hardware and counter need replacing, which costs far less than a full rebuild. We will tell you which situation you are in after seeing it."
+       },
+       {
+        "q": "Do you work on offices as well as homes?",
+        "a": "Yes — workstations, storage, reception counters and cabin furniture for offices and clinics, using the same modular approach."
+       },
+       {
+        "q": "What do you need from me to start?",
+        "a": "A floor plan with measurements, or an appointment for us to measure. Then a conversation about how you cook, what you store and who uses the space. Everything else follows from that."
+       }
+      ]
+     },
+     "variant": "accordion"
+    },
+    {
+     "id": "cta-j",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Send us your floor plan",
+      "sub": "WhatsApp your plan or a few photographs of the space and we will come back with a layout suggestion and a written quotation.",
+      "ctaPrimary": {
+       "text": "Get a Quote",
+       "href": "/contact",
+       "style": "primary"
+      },
+      "showWhatsapp": true,
+      "showCall": true
+     },
+     "variant": "banner"
+    }
+   ]
+  }
+ ]
+}
