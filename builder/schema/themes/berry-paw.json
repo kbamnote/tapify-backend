@@ -1,0 +1,35 @@
+{
+  "preset": "berry-paw",
+  "label": "Berry & Paw",
+  "description": "Deep berry violet with a warm apricot accent on soft cream. Playful and friendly without being childish — suits pet shops, groomers, veterinary clinics, pet boarding and kids' brands.",
+  "industries": [
+    "pet-shop",
+    "pets",
+    "pet-store",
+    "veterinary",
+    "pet-grooming",
+    "aquarium",
+    "kids"
+  ],
+  "tokens": {
+    "mode": "light",
+    "color": {
+      "primary": "#5A2D82",
+      "secondary": "#7B4BA8",
+      "accent": "#F5883C",
+      "bg": "#FFFAF3",
+      "surface": "#FFFFFF",
+      "text": "#211A2B",
+      "muted": "#6E6478",
+      "border": "#EBE3DC"
+    },
+    "font": {
+      "heading": "Nunito",
+      "body": "Rubik"
+    },
+    "radius": "lg",
+    "spacing": "comfortable",
+    "container": "normal"
+  },
+  "notes": "Tokens only — sections never hardcode colours, they read these as CSS variables.\n\nPALETTE LOGIC: pet retail has to read as warm and fun without tipping into a children's cartoon, because the people spending real money on a dog are adults who want to trust you with a live animal. Deep berry violet carries the trust, warm apricot carries the play and lands on every price and CTA, and the cream background keeps animal photography — which is overwhelmingly warm brown, tan and gold — from going cold. No other theme in the set uses violet on a light background: neon-pulse is violet but dark-background, and every other warm theme is red, maroon, rose, terracotta or bronze.\n\nCONTRAST: measured, not eyeballed. Body text on bg 16.21:1, white on primary 9.85:1, white on secondary 6.15:1, text on accent 6.79:1, primary on bg 9.48:1, muted on bg 5.38:1 — all clear of WCAG AA 4.5:1. Accent-on-bg is 2.39:1, which is correct and matches the house pattern: accent is a FILL with dark text on it (Add to cart, a discount pill), never body text on the background. Keep text-on-accent above 4.5:1 if you retune it and ignore the accent-on-bg figure.\n\nFONTS: Nunito (headings) + Rubik (body). Neither is used by another theme. Nunito's rounded terminals do the friendliness the palette hints at, and Rubik keeps long product copy readable. IMPORTANT — the renderer requests wght@400;500;600;700 for both families in one css2 call and Google returns HTTP 200 even when a face serves fewer, which silently renders headings at 400. Both were checked against the live css2 response and serve all four. Verify the same way before swapping either.\n\nradius is lg because product cards and animal photography both soften well; spacing is comfortable rather than spacious so a long product catalogue does not become endless scrolling."
+}

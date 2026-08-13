@@ -1,0 +1,716 @@
+{
+  "id": "pet-shop",
+  "label": "Pet Shop / Pet Store",
+  "aliases": ["pets", "pet-store", "pet-supplies", "petshop", "aquarium", "pet-grooming", "groomer", "veterinary", "vet-clinic", "dog-food", "cat-food", "pet-care", "animal-store"],
+  "icon": "paw",
+  "theme": { "preset": "berry-paw" },
+
+  "description": "Pet shops and pet care: a shoppable catalogue of food, toys, carriers and aquarium kit with size and flavour options, plus grooming, veterinary consultation and boarding services.",
+
+  "sections": [
+    "header",
+    "hero",
+    "about",
+    "products",
+    "services",
+    "gallery",
+    "stats",
+    "testimonials",
+    "blog",
+    "faq",
+    "hours",
+    "cta",
+    "contact",
+    "footer"
+  ],
+
+  "recommended": [
+    { "type": "header",      "reason": "Sticky nav with cart, account and a 'Book Grooming' CTA" },
+    { "type": "hero",        "reason": "A full-height video of a pet at home, with shop and booking CTAs" },
+    { "type": "about",       "reason": "Who runs the shop and why an owner should trust you with their animal" },
+    { "type": "products",    "reason": "The shoppable catalogue — sizes, flavours, live stock and cart" },
+    { "type": "services",    "reason": "Grooming, vet consultation, boarding and aquarium setup" },
+    { "type": "gallery",     "reason": "Real animals in the shop — this category sells on photographs" },
+    { "type": "stats",       "reason": "Years open, pets groomed, brands stocked" },
+    { "type": "testimonials","reason": "Owners are cautious; other owners' words carry the weight" },
+    { "type": "blog",        "reason": "Feeding, puppy care and grooming guides bring in search traffic" },
+    { "type": "faq",         "reason": "Delivery, returns on food, vaccination records and boarding rules" },
+    { "type": "hours",       "reason": "Shop timings, including weekends" },
+    { "type": "cta",         "reason": "A final push to book grooming or message on WhatsApp" },
+    { "type": "contact",     "reason": "Shop address, phone, WhatsApp, map and an enquiry form" },
+    { "type": "footer",      "reason": "Quick links, social icons and delivery lines" }
+  ],
+
+  "business": {
+    "phone": "+91 88888 21045",
+    "whatsapp": "+91 88888 21045",
+    "email": "hello@whiskersandpaws.in",
+    "address": "9 Ramdaspeth Main Road, Nagpur, Maharashtra 440010",
+    "social": {
+      "instagram": "https://instagram.com/",
+      "facebook": "https://facebook.com/",
+      "youtube": "https://youtube.com/"
+    },
+    "hours": [
+      { "day": "mon", "open": "10:00 AM", "close": "9:00 PM" },
+      { "day": "tue", "open": "10:00 AM", "close": "9:00 PM" },
+      { "day": "wed", "open": "10:00 AM", "close": "9:00 PM" },
+      { "day": "thu", "open": "10:00 AM", "close": "9:00 PM" },
+      { "day": "fri", "open": "10:00 AM", "close": "9:00 PM" },
+      { "day": "sat", "open": "9:30 AM", "close": "9:30 PM" },
+      { "day": "sun", "open": "10:00 AM", "close": "7:00 PM" }
+    ]
+  },
+
+  "content": {
+    "header": {
+      "variant": "left",
+      "props": {
+        "sticky": true,
+        "showCart": true,
+        "showAccount": true,
+        "links": [
+          { "text": "Home",     "href": "/" },
+          { "text": "Shop",     "href": "/shop" },
+          { "text": "Services", "href": "/services" },
+          { "text": "Contact",  "href": "/contact" }
+        ],
+        "cta": { "text": "Book Grooming", "href": "/contact", "style": "primary" }
+      }
+    },
+
+    "hero": {
+      "variant": "centered-bg",
+      "props": {
+        "badge": "Free delivery over ₹799 · Grooming & vet on site",
+        "heading": "Everything your pet needs",
+        "sub": "Food, toys, carriers and aquarium kit from the brands vets actually recommend — plus grooming and consultation in store. Delivered across Nagpur, or come and say hello.",
+        "image": "https://images.pexels.com/photos/37051950/pexels-photo-37051950.jpeg?auto=compress&cs=tinysrgb&w=2000",
+        "videoUrl": "https://videos.pexels.com/video-files/8498457/8498457-hd_1920_1080_24fps.mp4",
+        "fullHeight": true,
+        "ctaPrimary":   { "text": "Shop Products", "href": "/shop", "style": "primary" },
+        "ctaSecondary": { "text": "Book Grooming", "href": "/contact", "style": "ghost" },
+        "showWhatsapp": true,
+        "showCall": true
+      },
+      "style": { "overlay": 0.58 }
+    },
+
+    "about": {
+      "variant": "image-right",
+      "props": {
+        "label": "About Us",
+        "heading": "Run by people who own animals too",
+        "body": "We opened on Ramdaspeth Main Road because we kept driving across the city for a decent bag of food, and decided somebody ought to just stock it properly.\n\nEverything on our shelves is something we would give our own animals. We do not stock the cheap filler food that keeps a dog alive and slowly ruins its coat, and we will tell you honestly when the expensive bag is not worth the difference for your pet.\n\nGrooming and veterinary consultation both happen in store, so a nervous dog does not have to be driven to a third place on the same day. Our groomers work by appointment so there is no waiting room full of barking.\n\nIf you have just brought a puppy or kitten home and have no idea where to start, come in and ask. We will talk you through food, vaccination timing and what you actually need versus what the internet says you need.",
+        "image": "https://images.pexels.com/photos/38587869/pexels-photo-38587869.jpeg?auto=compress&cs=tinysrgb&w=1400",
+        "showPillars": true,
+        "pillars": [
+          { "icon": "heart",       "title": "Stocked by owners",     "text": "Nothing on the shelf that we would not feed our own animals. We will say when the cheaper bag is fine." },
+          { "icon": "sparkles",    "title": "Grooming on site",      "text": "By appointment, so a nervous animal is not waiting in a room full of barking." },
+          { "icon": "badge-check", "title": "Vet consultation",      "text": "A consulting vet in store on scheduled days for check-ups, vaccination and advice." },
+          { "icon": "truck",       "title": "Delivered across Nagpur","text": "Free over ₹799. Heavy bags of food carried to your door, not left at the gate." }
+        ]
+      }
+    },
+
+    "products": {
+      "variant": "cards-3",
+      "props": {
+        "label": "The Shop",
+        "heading": "Food, toys and everything else",
+        "sub": "Pick your size and flavour — the price updates as you choose. Free delivery across Nagpur on orders over ₹799.",
+        "showRelated": true,
+        "relatedHeading": "Often bought together",
+        "items": [
+          {
+            "image": "https://images.pexels.com/photos/8434635/pexels-photo-8434635.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Adult Dog Food",
+            "desc": "Complete dry food for adult dogs, with real meat as the first ingredient and no artificial colouring. The bag most of our regulars come back for.",
+            "meta": "Dry food · Adult dogs",
+            "price": "₹649",
+            "mrp": "₹899",
+            "slug": "adult-dog-food",
+            "enableOrder": true,
+            "body": "A complete dry food for adult dogs, meaning it has everything they need without a supplement on the side.\n\nMeat is the first ingredient rather than a cereal, which is the single thing worth checking on any bag you pick up. No artificial colouring — the dye in cheaper food is there for the human buying it, not the dog eating it.\n\nChicken and rice suits most dogs and is the easiest on a sensitive stomach. Lamb is the one to try if your dog has been itchy or has reacted to chicken before. The vegetarian option is a genuine complete food, not a compromise, for households that do not keep meat.\n\nIf you are switching from another brand, mix it in over about a week rather than changing overnight. Sudden switches upset stomachs and then people blame the new food.",
+            "productInfoTitle": "Product Details",
+            "productInfo": [
+              { "label": "For",           "value": "Adult dogs, 1 year and over" },
+              { "label": "First ingredient", "value": "Real meat" },
+              { "label": "Contains",      "value": "No artificial colouring" },
+              { "label": "Switching",     "value": "Mix in gradually over a week" },
+              { "label": "Storage",       "value": "Airtight, out of sunlight" },
+              { "label": "Delivery",      "value": "Free across Nagpur over ₹799" }
+            ],
+            "attributes": [
+              { "name": "Size",    "options": [ { "value": "1 kg" }, { "value": "3 kg" }, { "value": "10 kg" } ] },
+              { "name": "Flavour", "options": [ { "value": "Chicken & Rice" }, { "value": "Lamb" }, { "value": "Vegetarian" } ] }
+            ],
+            "variants": [
+              { "option1": "1 kg",  "option2": "Chicken & Rice", "sku": "ADF-1-CR",  "price": "₹649",   "mrp": "₹899",   "stock": 24 },
+              { "option1": "1 kg",  "option2": "Lamb",           "sku": "ADF-1-LM",  "price": "₹749",   "mrp": "₹999",   "stock": 18 },
+              { "option1": "1 kg",  "option2": "Vegetarian",     "sku": "ADF-1-VG",  "price": "₹599",   "mrp": "₹849",   "stock": 15 },
+              { "option1": "3 kg",  "option2": "Chicken & Rice", "sku": "ADF-3-CR",  "price": "₹1,699", "mrp": "₹2,299", "stock": 16 },
+              { "option1": "3 kg",  "option2": "Lamb",           "sku": "ADF-3-LM",  "price": "₹1,949", "mrp": "₹2,599", "stock": 11 },
+              { "option1": "3 kg",  "option2": "Vegetarian",     "sku": "ADF-3-VG",  "price": "₹1,549", "mrp": "₹2,099", "stock": 9 },
+              { "option1": "10 kg", "option2": "Chicken & Rice", "sku": "ADF-10-CR", "price": "₹4,999", "mrp": "₹6,499", "stock": 7 },
+              { "option1": "10 kg", "option2": "Lamb",           "sku": "ADF-10-LM", "price": "₹5,699", "mrp": "₹7,299", "stock": 4 },
+              { "option1": "10 kg", "option2": "Vegetarian",     "sku": "ADF-10-VG", "price": "₹4,499", "mrp": "₹5,899", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/30070537/pexels-photo-30070537.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Cat Food",
+            "desc": "Complete food for adult cats in dry and wet varieties, with taurine for heart and eye health.",
+            "meta": "Adult cats · Dry or wet",
+            "price": "₹549",
+            "mrp": "₹749",
+            "slug": "cat-food",
+            "enableOrder": true,
+            "body": "Complete food for adult cats, formulated with added taurine — cats cannot make enough of it themselves and a shortage causes heart and eye problems over time. Every reputable cat food includes it; it is worth checking the ones that do not.\n\nDry food is more economical and better for teeth. Wet food carries far more moisture, which matters because cats have a weak thirst drive and a lot of urinary trouble traces back to chronic mild dehydration. Many owners here do dry in the morning and wet in the evening.\n\nFish is the flavour most cats go for. Chicken is the one to try if your cat has a sensitive stomach.\n\nIf your cat is over seven, ask us about the senior formulation instead.",
+            "productInfoTitle": "Product Details",
+            "productInfo": [
+              { "label": "For",       "value": "Adult cats, 1 year and over" },
+              { "label": "Contains",  "value": "Added taurine" },
+              { "label": "Dry",       "value": "Economical, better for teeth" },
+              { "label": "Wet",       "value": "Higher moisture, urinary health" },
+              { "label": "Senior?",   "value": "Ask us about the 7+ formula" }
+            ],
+            "attributes": [
+              { "name": "Type",    "options": [ { "value": "Dry" }, { "value": "Wet" } ] },
+              { "name": "Flavour", "options": [ { "value": "Fish" }, { "value": "Chicken" }, { "value": "Mixed" } ] }
+            ],
+            "variants": [
+              { "option1": "Dry", "option2": "Fish",    "sku": "CAT-D-FS", "price": "₹549",   "mrp": "₹749",   "stock": 22 },
+              { "option1": "Dry", "option2": "Chicken", "sku": "CAT-D-CH", "price": "₹549",   "mrp": "₹749",   "stock": 19 },
+              { "option1": "Dry", "option2": "Mixed",   "sku": "CAT-D-MX", "price": "₹599",   "mrp": "₹799",   "stock": 14 },
+              { "option1": "Wet", "option2": "Fish",    "sku": "CAT-W-FS", "price": "₹899",   "mrp": "₹1,199", "stock": 16 },
+              { "option1": "Wet", "option2": "Chicken", "sku": "CAT-W-CH", "price": "₹899",   "mrp": "₹1,199", "stock": 12 },
+              { "option1": "Wet", "option2": "Mixed",   "sku": "CAT-W-MX", "price": "₹949",   "mrp": "₹1,249", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/38724017/pexels-photo-38724017.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Handmade Cat Toys",
+            "desc": "Crochet toys made locally, stuffed with catnip. No glued-on eyes or plastic parts to come loose.",
+            "meta": "Handmade · Catnip filled",
+            "price": "₹249",
+            "mrp": "₹399",
+            "slug": "handmade-cat-toys",
+            "enableOrder": true,
+            "body": "Crochet toys made by a small group of women here in Nagpur, filled with catnip.\n\nWe stock these instead of the imported plastic ones because there is nothing on them to come loose. No glued eyes, no squeaker to be chewed out and swallowed, no hard plastic to crack into sharp pieces. Just yarn and stuffing, which is far less interesting to an emergency vet.\n\nThe catnip fades after a few weeks of play. Put the toy in a sealed bag with a pinch of fresh catnip for a day and it comes back.\n\nThe set of three is the sensible buy — cats lose toys under furniture at a remarkable rate.",
+            "productInfoTitle": "Product Details",
+            "productInfo": [
+              { "label": "Made",       "value": "By hand, locally in Nagpur" },
+              { "label": "Filling",    "value": "Catnip" },
+              { "label": "Safety",     "value": "No glued eyes or plastic parts" },
+              { "label": "Refreshing", "value": "Seal with fresh catnip for a day" },
+              { "label": "Washable",   "value": "Hand wash, air dry" }
+            ],
+            "attributes": [
+              { "name": "Pack",   "options": [ { "value": "Single" }, { "value": "Set of 3" } ] },
+              { "name": "Filling","options": [ { "value": "With Catnip" }, { "value": "Without Catnip" } ] }
+            ],
+            "variants": [
+              { "option1": "Single",   "option2": "With Catnip",    "sku": "HCT-1-CN", "price": "₹249", "mrp": "₹399",   "stock": 30 },
+              { "option1": "Single",   "option2": "Without Catnip", "sku": "HCT-1-NC", "price": "₹219", "mrp": "₹349",   "stock": 26 },
+              { "option1": "Set of 3", "option2": "With Catnip",    "sku": "HCT-3-CN", "price": "₹649", "mrp": "₹1,049", "stock": 18 },
+              { "option1": "Set of 3", "option2": "Without Catnip", "sku": "HCT-3-NC", "price": "₹579", "mrp": "₹929",   "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/35651203/pexels-photo-35651203.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Travel Pet Carrier",
+            "desc": "A padded carrier with mesh panels on three sides, a seatbelt strap and a base board that stops it sagging.",
+            "meta": "Padded · Airline-style",
+            "price": "₹1,899",
+            "mrp": "₹2,899",
+            "slug": "travel-pet-carrier",
+            "enableOrder": true,
+            "body": "A soft-sided carrier with mesh on three sides, which matters more than it sounds — an animal that can see out is dramatically calmer than one in a box.\n\nThere is a rigid board in the base so the floor does not sag under the animal's weight, and a strap that runs through a car seatbelt so the carrier does not slide across the seat on a corner.\n\nSize by weight, not by how big the animal looks. Small suits up to about 5 kg, medium to 9 kg, large to 15 kg. The animal should be able to stand up and turn around; if it cannot, size up.\n\nIf you are flying, check your airline's exact cabin dimensions before buying — they differ, and we cannot take back a carrier that has been used.",
+            "productInfoTitle": "Product Details",
+            "productInfo": [
+              { "label": "Small",     "value": "Up to about 5 kg" },
+              { "label": "Medium",    "value": "Up to about 9 kg" },
+              { "label": "Large",     "value": "Up to about 15 kg" },
+              { "label": "Mesh",      "value": "Three sides, for airflow and calm" },
+              { "label": "Car use",   "value": "Seatbelt strap included" },
+              { "label": "Flying",    "value": "Check your airline's dimensions first" }
+            ],
+            "attributes": [
+              { "name": "Size",   "options": [ { "value": "Small" }, { "value": "Medium" }, { "value": "Large" } ] },
+              { "name": "Colour", "options": [ { "value": "Charcoal" }, { "value": "Tan" } ] }
+            ],
+            "variants": [
+              { "option1": "Small",  "option2": "Charcoal", "sku": "TPC-S-CH", "price": "₹1,899", "mrp": "₹2,899", "stock": 12 },
+              { "option1": "Small",  "option2": "Tan",      "sku": "TPC-S-TN", "price": "₹1,899", "mrp": "₹2,899", "stock": 9 },
+              { "option1": "Medium", "option2": "Charcoal", "sku": "TPC-M-CH", "price": "₹2,399", "mrp": "₹3,499", "stock": 10 },
+              { "option1": "Medium", "option2": "Tan",      "sku": "TPC-M-TN", "price": "₹2,399", "mrp": "₹3,499", "stock": 7 },
+              { "option1": "Large",  "option2": "Charcoal", "sku": "TPC-L-CH", "price": "₹2,999", "mrp": "₹4,299", "stock": 5 },
+              { "option1": "Large",  "option2": "Tan",      "sku": "TPC-L-TN", "price": "₹2,999", "mrp": "₹4,299", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/37051950/pexels-photo-37051950.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Collar & Leash Set",
+            "desc": "A padded collar and matching leash in nylon webbing, with a welded D-ring rather than a bent one.",
+            "meta": "Collar + leash · Padded",
+            "price": "₹699",
+            "mrp": "₹1,099",
+            "slug": "collar-leash-set",
+            "enableOrder": true,
+            "body": "A padded collar and matching leash in nylon webbing.\n\nThe D-ring is welded closed rather than bent into shape. This is the part that fails on cheap collars — a bent ring pulls open under a hard lunge, usually next to a road, which is exactly when it matters.\n\nThe padding sits against the neck so the webbing does not rub a bald patch on a dog that pulls. Two fingers should fit between the collar and the neck; tighter and it chafes, looser and a determined dog backs out of it.\n\nA harness is the better choice for a dog that pulls hard or has a short muzzle — ask us and we will fit one properly rather than selling you this.",
+            "productInfoTitle": "Product Details",
+            "productInfo": [
+              { "label": "Material", "value": "Nylon webbing, padded" },
+              { "label": "D-ring",   "value": "Welded closed, not bent" },
+              { "label": "Fit",      "value": "Two fingers under the collar" },
+              { "label": "Leash",    "value": "1.5 m, matching" },
+              { "label": "Note",     "value": "Ask about a harness for hard pullers" }
+            ],
+            "attributes": [
+              { "name": "Size",   "options": [ { "value": "Small" }, { "value": "Medium" }, { "value": "Large" } ] },
+              { "name": "Colour", "options": [ { "value": "Red" }, { "value": "Blue" }, { "value": "Black" } ] }
+            ],
+            "variants": [
+              { "option1": "Small",  "option2": "Red",   "sku": "CLS-S-RD", "price": "₹699",   "mrp": "₹1,099", "stock": 20 },
+              { "option1": "Small",  "option2": "Blue",  "sku": "CLS-S-BL", "price": "₹699",   "mrp": "₹1,099", "stock": 17 },
+              { "option1": "Small",  "option2": "Black", "sku": "CLS-S-BK", "price": "₹699",   "mrp": "₹1,099", "stock": 21 },
+              { "option1": "Medium", "option2": "Red",   "sku": "CLS-M-RD", "price": "₹849",   "mrp": "₹1,299", "stock": 15 },
+              { "option1": "Medium", "option2": "Blue",  "sku": "CLS-M-BL", "price": "₹849",   "mrp": "₹1,299", "stock": 13 },
+              { "option1": "Medium", "option2": "Black", "sku": "CLS-M-BK", "price": "₹849",   "mrp": "₹1,299", "stock": 18 },
+              { "option1": "Large",  "option2": "Red",   "sku": "CLS-L-RD", "price": "₹999",   "mrp": "₹1,499", "stock": 9 },
+              { "option1": "Large",  "option2": "Blue",  "sku": "CLS-L-BL", "price": "₹999",   "mrp": "₹1,499", "stock": 8 },
+              { "option1": "Large",  "option2": "Black", "sku": "CLS-L-BK", "price": "₹999",   "mrp": "₹1,499", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/23542061/pexels-photo-23542061.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Home Grooming Kit",
+            "desc": "Clippers, a slicker brush, nail clippers with a guard and a de-shedding comb, in a case.",
+            "meta": "5 pieces · Case included",
+            "price": "₹1,499",
+            "mrp": "₹2,299",
+            "slug": "home-grooming-kit",
+            "enableOrder": true,
+            "body": "Clippers, slicker brush, nail clippers with a guard, de-shedding comb and scissors, in a case that keeps them together.\n\nThe nail clippers have a quick guard on them, which is the part worth paying for. Cutting into the quick hurts, bleeds a lot, and teaches an animal to fight you every time the clippers come out afterwards.\n\nThe basic kit covers a short-coated dog or a cat. The pro kit adds a quieter clipper with adjustable blade lengths, which is what you need for a double coat — a Golden, a Husky, a Pomeranian — where a standard clipper stalls and pulls.\n\nBrushing is the bit that actually matters. Ten minutes twice a week on a long coat prevents the mats that otherwise have to be shaved out.",
+            "productInfoTitle": "What's In It",
+            "productInfo": [
+              { "label": "Clippers",      "value": "Cordless, rechargeable" },
+              { "label": "Nail clippers", "value": "With quick guard" },
+              { "label": "Brushes",       "value": "Slicker + de-shedding comb" },
+              { "label": "Also",          "value": "Grooming scissors, carry case" },
+              { "label": "Basic",         "value": "Short coats and cats" },
+              { "label": "Pro",           "value": "Double coats, adjustable blades" }
+            ],
+            "attributes": [
+              { "name": "Kit",  "options": [ { "value": "Basic" }, { "value": "Pro" } ] },
+              { "name": "Coat", "options": [ { "value": "Short Coat" }, { "value": "Long Coat" } ] }
+            ],
+            "variants": [
+              { "option1": "Basic", "option2": "Short Coat", "sku": "HGK-B-SC", "price": "₹1,499", "mrp": "₹2,299", "stock": 14 },
+              { "option1": "Basic", "option2": "Long Coat",  "sku": "HGK-B-LC", "price": "₹1,699", "mrp": "₹2,599", "stock": 11 },
+              { "option1": "Pro",   "option2": "Short Coat", "sku": "HGK-P-SC", "price": "₹2,899", "mrp": "₹4,199", "stock": 6 },
+              { "option1": "Pro",   "option2": "Long Coat",  "sku": "HGK-P-LC", "price": "₹3,199", "mrp": "₹4,599", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/29848116/pexels-photo-29848116.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Aquarium Starter Kit",
+            "desc": "Tank, filter, light and heater together, sized so a first fishkeeper is not fighting the water chemistry.",
+            "meta": "Tank + filter + light",
+            "price": "₹3,499",
+            "mrp": "₹4,999",
+            "slug": "aquarium-starter-kit",
+            "enableOrder": true,
+            "body": "Tank, filter, LED light and heater in one box, so nothing is missing on the day you set it up.\n\nStart bigger than feels sensible. A 20-litre tank is far harder to keep alive than a 55-litre one, because a small volume of water swings in temperature and chemistry fast and gives you no time to react. Most first tanks fail for this reason and the owner concludes they are bad at fishkeeping.\n\nSet it up and run it empty for a week before you buy any fish. The filter needs that time to grow the bacteria that process waste. Adding fish on day one is the other reason first tanks fail.\n\nBring us a sample of your water when you come for fish and we will test it for free.",
+            "productInfoTitle": "Kit Details",
+            "productInfo": [
+              { "label": "Includes",  "value": "Tank, filter, LED light, heater" },
+              { "label": "20 L",      "value": "Betta or shrimp only" },
+              { "label": "55 L",      "value": "Recommended first tank" },
+              { "label": "110 L",     "value": "Community tank" },
+              { "label": "Before fish","value": "Run empty for a week to cycle" },
+              { "label": "Free",      "value": "Water testing in store" }
+            ],
+            "attributes": [
+              { "name": "Tank Size", "options": [ { "value": "20 L" }, { "value": "55 L" }, { "value": "110 L" } ] },
+              { "name": "Water",     "options": [ { "value": "Freshwater" }, { "value": "Tropical" } ] }
+            ],
+            "variants": [
+              { "option1": "20 L",  "option2": "Freshwater", "sku": "AQS-20-FW",  "price": "₹3,499", "mrp": "₹4,999",  "stock": 10 },
+              { "option1": "20 L",  "option2": "Tropical",   "sku": "AQS-20-TR",  "price": "₹3,999", "mrp": "₹5,599",  "stock": 8 },
+              { "option1": "55 L",  "option2": "Freshwater", "sku": "AQS-55-FW",  "price": "₹6,499", "mrp": "₹8,999",  "stock": 6 },
+              { "option1": "55 L",  "option2": "Tropical",   "sku": "AQS-55-TR",  "price": "₹7,299", "mrp": "₹9,999",  "stock": 5 },
+              { "option1": "110 L", "option2": "Freshwater", "sku": "AQS-110-FW", "price": "₹11,999","mrp": "₹15,999", "stock": 3 },
+              { "option1": "110 L", "option2": "Tropical",   "sku": "AQS-110-TR", "price": "₹13,499","mrp": "₹17,999", "stock": 0 }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/1340376/pexels-photo-1340376.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Interactive Puzzle Feeder",
+            "desc": "A feeder that makes the food take twenty minutes instead of ninety seconds — for boredom, and for dogs that gulp.",
+            "meta": "Slow feeder · Enrichment",
+            "price": "₹899",
+            "mrp": "₹1,399",
+            "slug": "interactive-puzzle-feeder",
+            "enableOrder": true,
+            "body": "A feeder with compartments and sliders the animal has to work out to reach the food.\n\nTwo reasons to buy one. First, a dog that inhales its dinner in ninety seconds swallows a lot of air with it, which causes bloating and, in deep-chested breeds, something considerably worse. Slowing the meal down helps.\n\nSecond, boredom. Most destructive behaviour at home is an under-stimulated animal with nothing to do. Making dinner into a twenty-minute problem to solve does more for that than another walk.\n\nStart on the easy level even if you think your pet is clever. An animal that cannot solve it gives up and walks away, and then the feeder sits in a cupboard.",
+            "productInfoTitle": "Product Details",
+            "productInfo": [
+              { "label": "Good for",  "value": "Fast eaters and bored pets" },
+              { "label": "Levels",    "value": "Easy or advanced" },
+              { "label": "Material",  "value": "Food-safe, non-slip base" },
+              { "label": "Cleaning",  "value": "Rinse after each meal" },
+              { "label": "Tip",       "value": "Start easy, then increase" }
+            ],
+            "attributes": [
+              { "name": "Level", "options": [ { "value": "Easy" }, { "value": "Advanced" } ] },
+              { "name": "For",   "options": [ { "value": "Dog" }, { "value": "Cat" } ] }
+            ],
+            "variants": [
+              { "option1": "Easy",     "option2": "Dog", "sku": "IPF-E-DG", "price": "₹899",   "mrp": "₹1,399", "stock": 18 },
+              { "option1": "Easy",     "option2": "Cat", "sku": "IPF-E-CT", "price": "₹849",   "mrp": "₹1,299", "stock": 15 },
+              { "option1": "Advanced", "option2": "Dog", "sku": "IPF-A-DG", "price": "₹1,199", "mrp": "₹1,799", "stock": 11 },
+              { "option1": "Advanced", "option2": "Cat", "sku": "IPF-A-CT", "price": "₹1,149", "mrp": "₹1,699", "stock": 0 }
+            ]
+          }
+        ]
+      }
+    },
+
+    "services": {
+      "variant": "cards-3",
+      "props": {
+        "label": "In Store",
+        "heading": "More than a shop",
+        "sub": "Grooming and veterinary consultation happen here, so a nervous animal is not driven to three places in one day.",
+        "items": [
+          {
+            "image": "https://images.pexels.com/photos/19145879/pexels-photo-19145879.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Dog Grooming",
+            "desc": "Bath, blow dry, brush out, nail trim and a breed-appropriate cut. By appointment, so your dog is not waiting among barking strangers.",
+            "meta": "By appointment · 1–2 hrs",
+            "price": "From ₹799"
+          },
+          {
+            "image": "https://images.pexels.com/photos/6816855/pexels-photo-6816855.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Cat Grooming",
+            "desc": "Handled by groomers who work with cats specifically. Quiet room, no dogs in earshot, and we stop if your cat has had enough.",
+            "meta": "Cat-only sessions",
+            "price": "From ₹999"
+          },
+          {
+            "image": "https://images.pexels.com/photos/6235650/pexels-photo-6235650.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Veterinary Consultation",
+            "desc": "A consulting vet in store on scheduled days for check-ups, vaccination, deworming and advice. We refer on for anything needing a full clinic.",
+            "meta": "Scheduled days",
+            "price": "₹500"
+          },
+          {
+            "image": "https://images.pexels.com/photos/6816862/pexels-photo-6816862.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Nail Trim & Basic Care",
+            "desc": "Nail clipping, ear cleaning and anal gland expression — the small jobs most owners would rather not do at home.",
+            "meta": "Walk in, 15 min",
+            "price": "From ₹299"
+          },
+          {
+            "image": "https://images.pexels.com/photos/8570243/pexels-photo-8570243.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Day Care & Boarding",
+            "desc": "Day boarding while you are at work and overnight stays when you travel. Vaccination record required, no exceptions.",
+            "meta": "Booking required",
+            "price": "From ₹600/day"
+          },
+          {
+            "image": "https://images.pexels.com/photos/18528201/pexels-photo-18528201.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Aquarium Setup & Service",
+            "desc": "We set the tank up at your home, cycle it properly and come back monthly to clean and test the water if you would rather not.",
+            "meta": "At your home",
+            "price": "From ₹1,500"
+          }
+        ]
+      }
+    },
+
+    "gallery": {
+      "variant": "grid-3",
+      "props": {
+        "label": "The Shop",
+        "heading": "Come and say hello",
+        "sub": "Replace these with photographs of your own shop and your own customers' animals — nothing sells a pet shop better.",
+        "lightbox": true,
+        "images": [
+          { "image": "https://images.pexels.com/photos/38587869/pexels-photo-38587869.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "A dog and a cat in harnesses outside the shop" },
+          { "image": "https://images.pexels.com/photos/29817786/pexels-photo-29817786.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Two small dogs on leashes outside a lit shopfront" },
+          { "image": "https://images.pexels.com/photos/37051950/pexels-photo-37051950.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "A wall of collars, leashes and accessories" },
+          { "image": "https://images.pexels.com/photos/7527370/pexels-photo-7527370.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "A Labrador meeting a small grey kitten" },
+          { "image": "https://images.pexels.com/photos/16544122/pexels-photo-16544122.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "A small dog wrapped in a towel after a bath" },
+          { "image": "https://images.pexels.com/photos/23542061/pexels-photo-23542061.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "A Schnauzer standing on the grooming table" },
+          { "image": "https://images.pexels.com/photos/18528201/pexels-photo-18528201.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Tropical fish in a planted aquarium" },
+          { "image": "https://images.pexels.com/photos/22504402/pexels-photo-22504402.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "A vet examining a dog with its owner present" },
+          { "image": "https://images.pexels.com/photos/8570243/pexels-photo-8570243.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "A puppy and a cat asleep in the sun" }
+        ]
+      }
+    },
+
+    "stats": {
+      "variant": "cards",
+      "props": {
+        "label": "By the Numbers",
+        "heading": "Since we opened",
+        "sub": "From our own register. Replace with your figures before going live.",
+        "countUp": true,
+        "items": [
+          { "icon": "calendar",    "value": 11,   "suffix": "+", "label": "Years on Ramdaspeth" },
+          { "icon": "sparkles",    "value": 9400, "suffix": "+", "label": "Pets Groomed" },
+          { "icon": "package",     "value": 40,   "suffix": "+", "label": "Brands Stocked" },
+          { "icon": "heart",       "value": 3200, "suffix": "+", "label": "Regular Customers" }
+        ]
+      }
+    },
+
+    "testimonials": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Reviews",
+        "heading": "What pet parents say",
+        "items": [
+          {
+            "quote": "They talked me out of the expensive food and explained why the cheaper bag was better for my dog's age. I have bought everything here since.",
+            "name": "Sneha Deshmukh",
+            "role": "Labrador owner",
+            "rating": 5
+          },
+          {
+            "quote": "My cat has bitten every groomer she has ever met. Here they took an hour, stopped twice, and she walked out fine. Worth every rupee.",
+            "name": "Aditya Raut",
+            "role": "Cat grooming",
+            "rating": 5
+          },
+          {
+            "quote": "First aquarium. They made me run it empty for a week before selling me a single fish, which no other shop suggested. Everything is still alive a year on.",
+            "name": "Faisal Qureshi",
+            "role": "Aquarium starter kit",
+            "rating": 5
+          }
+        ]
+      }
+    },
+
+    "blog": {
+      "variant": "grid-3",
+      "props": {
+        "label": "Guides",
+        "heading": "Looking after them properly",
+        "sub": "The questions we answer across the counter every week.",
+        "posts": [
+          {
+            "image": "https://images.pexels.com/photos/8434670/pexels-photo-8434670.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "How to switch your pet's food without upsetting them",
+            "date": "6 Aug 2026",
+            "excerpt": "Change it over a week, not overnight. The mixing ratio day by day, and what a normal adjustment looks like versus a reaction worth a vet visit.",
+            "linkText": "Read the guide"
+          },
+          {
+            "image": "https://images.pexels.com/photos/27175967/pexels-photo-27175967.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "First week with a puppy: what you actually need",
+            "date": "25 Jul 2026",
+            "excerpt": "The short list of things worth buying on day one, the things that can wait a month, and the vaccination timing nobody explains clearly.",
+            "linkText": "Read the guide"
+          },
+          {
+            "image": "https://images.pexels.com/photos/6131005/pexels-photo-6131005.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Why your dog's coat mats, and how to stop it",
+            "date": "12 Jul 2026",
+            "excerpt": "Ten minutes of brushing twice a week prevents the mats that otherwise have to be shaved off. Which brush for which coat, and where mats form first.",
+            "linkText": "Read the guide"
+          }
+        ]
+      }
+    },
+
+    "faq": {
+      "variant": "accordion",
+      "props": {
+        "label": "FAQ",
+        "heading": "Questions customers ask us",
+        "openFirst": true,
+        "items": [
+          {
+            "q": "Do you deliver, and how much is it?",
+            "a": "Yes, across Nagpur. Free on orders over ₹799, otherwise ₹60. Heavy bags of food are carried to your door rather than left at the gate. Same-day delivery if you order before 4 PM."
+          },
+          {
+            "q": "Can I return food my pet will not eat?",
+            "a": "An unopened bag, yes, within 15 days. An opened one we cannot resell, so no — but come and talk to us. Fussiness is often the switch being done too fast rather than the food itself, and we would rather fix that than lose you as a customer."
+          },
+          {
+            "q": "Do I need to book grooming?",
+            "a": "Yes. We work by appointment specifically so animals are not stacked up waiting in a noisy room. Nail trims and ear cleaning are walk-in. Cat grooming is booked into cat-only slots with no dogs in earshot."
+          },
+          {
+            "q": "What do you need for boarding?",
+            "a": "An up-to-date vaccination record, with no exceptions — it protects every other animal staying with us. Bring their own food if they are on something specific, and a blanket or toy that smells of home makes a real difference on the first night."
+          },
+          {
+            "q": "Is the vet here every day?",
+            "a": "No, the consulting vet is in on scheduled days. Call or message before coming so you are not making the trip for nothing. Anything needing surgery, imaging or overnight care is referred to a full clinic, and we will tell you honestly when that is the case."
+          },
+          {
+            "q": "Do you sell animals?",
+            "a": "We do not sell dogs or cats. We stock fish and small pets, and for dogs and cats we will happily point you towards local rescues and shelters with animals looking for homes."
+          },
+          {
+            "q": "My puppy has just come home and I do not know where to start.",
+            "a": "Come in and ask. That conversation is free and takes about fifteen minutes — food, vaccination timing, what to buy now and what can wait. It saves people a lot of money on things they do not need yet."
+          }
+        ]
+      }
+    },
+
+    "hours": {
+      "variant": "list",
+      "props": {
+        "label": "Shop Timings",
+        "heading": "Open all seven days",
+        "highlightToday": true,
+        "note": "Last grooming appointment is taken two hours before closing."
+      }
+    },
+
+    "cta": {
+      "variant": "banner",
+      "props": {
+        "heading": "Book a grooming slot",
+        "sub": "Message us with your pet's breed and rough size and we will tell you the time needed and the price before you commit.",
+        "ctaPrimary": { "text": "Book Grooming", "href": "/contact", "style": "primary" },
+        "showWhatsapp": true,
+        "showCall": true
+      }
+    },
+
+    "contact": {
+      "variant": "form-map",
+      "props": {
+        "label": "Visit Us",
+        "heading": "Come and meet us",
+        "sub": "Ramdaspeth Main Road. Well-behaved pets welcome in store — that is rather the point.",
+        "showPhone": true,
+        "showWhatsapp": true,
+        "showEmail": true,
+        "showAddress": true,
+        "showHours": true,
+        "showMap": true,
+        "submitText": "Send Enquiry"
+      }
+    },
+
+    "footer": {
+      "variant": "columns",
+      "props": {
+        "blurb": "Whiskers & Paws — pet food, toys, carriers and aquarium supplies on Ramdaspeth Main Road, Nagpur, with grooming and veterinary consultation in store. Free delivery over ₹799.",
+        "showContact": true,
+        "showHours": true,
+        "showSocial": true,
+        "showLegal": true,
+        "columns": [
+          {
+            "title": "Explore",
+            "links": [
+              { "text": "Home",     "href": "/" },
+              { "text": "Shop",     "href": "/shop" },
+              { "text": "Services", "href": "/services" },
+              { "text": "Contact",  "href": "/contact" }
+            ]
+          },
+          {
+            "title": "Shop",
+            "links": [
+              { "text": "Dog Food",       "href": "/shop" },
+              { "text": "Cat Food",       "href": "/shop" },
+              { "text": "Toys",           "href": "/shop" },
+              { "text": "Aquarium",       "href": "/shop" }
+            ]
+          },
+          {
+            "title": "Connect",
+            "links": [
+              { "text": "Instagram", "href": "https://instagram.com/" },
+              { "text": "Facebook",  "href": "https://facebook.com/" },
+              { "text": "YouTube",   "href": "https://youtube.com/" },
+              { "text": "WhatsApp",  "href": "https://wa.me/918888821045" }
+            ]
+          }
+        ],
+        "copyright": "© 2026 Whiskers & Paws Pet Store. All rights reserved.",
+        "termsBody": "Veterinary consultation offered in store is a general consultation and screening service and is not a substitute for a full veterinary clinic; anything requiring surgery, imaging or overnight medical care is referred on. Product prices include the item as described; sizes, flavours and colours are subject to availability. Unopened food may be returned within 15 days in resaleable condition; opened food cannot be returned for hygiene reasons. Boarding requires an up-to-date vaccination record and is refused without one. Grooming times and prices vary by breed, coat condition and temperament and are confirmed before work begins. Free delivery applies to orders over ₹799 within Nagpur city limits. Replace this text with your own terms, reviewed by your legal advisor, before going live."
+      }
+    }
+  },
+
+  "pages": [
+    {
+      "id": "home",
+      "slug": "/",
+      "title": "Home",
+      "seo": {
+        "title": "Whiskers & Paws | Pet Shop, Grooming & Vet in Nagpur",
+        "description": "Pet food, toys, carriers and aquarium supplies on Ramdaspeth Main Road, Nagpur. Grooming and veterinary consultation in store. Free delivery over ₹799.",
+        "robots": "index,follow"
+      },
+      "sections": ["header", "hero", "about", "products", "services", "stats", "testimonials", "cta", "contact", "footer"]
+    },
+    {
+      "id": "shop",
+      "slug": "/shop",
+      "title": "Shop",
+      "seo": {
+        "title": "Buy Pet Food, Toys & Supplies Online | Whiskers & Paws, Nagpur",
+        "description": "Dog and cat food, handmade toys, carriers, collars, grooming kits and aquarium starter kits. Pick your size and flavour. Free delivery across Nagpur over ₹799.",
+        "robots": "index,follow"
+      },
+      "sections": ["products", "gallery", "faq"],
+      "content": {
+        "products": {
+          "props": {
+            "label": "Everything In Store",
+            "heading": "The full range",
+            "sub": "Food, toys, carriers, collars, grooming kit and aquarium supplies. Choose your size and flavour and the price updates as you pick."
+          }
+        }
+      }
+    },
+    {
+      "id": "services",
+      "slug": "/services",
+      "title": "Services",
+      "seo": {
+        "title": "Dog & Cat Grooming, Vet Consultation, Boarding | Whiskers & Paws",
+        "description": "Dog and cat grooming by appointment, veterinary consultation on scheduled days, nail trims, day care, boarding and aquarium setup in Nagpur.",
+        "robots": "index,follow"
+      },
+      "sections": ["services", "about", "gallery", "faq", "cta"],
+      "content": {
+        "services": {
+          "props": {
+            "label": "Our Services",
+            "heading": "Grooming, vet and boarding",
+            "sub": "Booked properly so no animal is left waiting. Prices depend on breed, coat and temperament, and are confirmed before we start."
+          }
+        }
+      }
+    },
+    {
+      "id": "contact",
+      "slug": "/contact",
+      "title": "Contact",
+      "seo": {
+        "title": "Visit Us & Book Grooming | Whiskers & Paws, Nagpur",
+        "description": "9 Ramdaspeth Main Road, Nagpur 440010. Open all seven days. Call or WhatsApp 88888 21045 to book grooming or ask about delivery.",
+        "robots": "index,follow"
+      },
+      "sections": ["contact", "hours", "faq", "cta"]
+    }
+  ],
+
+  "notes": "CONTENT MODEL: Built as a neighbourhood pet shop (Whiskers & Paws) on Ramdaspeth Main Road, Nagpur, with the shoppable catalogue as the centre and grooming/vet as the reason to buy locally rather than online. FOUR pages via the recipe-level 'pages' array: Home (/), Shop (/shop), Services (/services) and Contact (/contact). Header and footer link to those slugs; per-page 'content' overrides retitle the shared products/services sections.\n\nVIDEO: The home hero plays a muted, looping, autoplay background video of a child with a dog at home (videoUrl — a direct MP4 from Pexels) under a 0.58 overlay, rendering light-on-dark. Chosen over the other landscape candidates because it is warm, indoor and affectionate; the rest were outdoor street dogs that read as strays rather than as a retail brand, and one was a cold grey landscape. The 'image' fallback is the wall-of-accessories shot so the shop reads even if the video is blocked.\n\nPRODUCTS: Eight items exercising the full products manifest — nested attributes, per-combination variants with SKU, MRP and live stock, body copy, productInfo tables and slugs. Axes are what this trade actually sells on: Size x Flavour for food, Pack x Filling for toys, Size x Colour for carriers and collars, Kit x Coat for grooming, Tank Size x Water for aquariums, Level x Species for feeders. Last variant of each product is stock 0 to exercise the out-of-stock and disabled add-to-cart states.\n\nPRICING at realistic Indian pet-retail levels for mid-2026 — food Rs 549 to Rs 5,699, toys Rs 219 to Rs 649, carriers Rs 1,899 to Rs 2,999, aquarium kits Rs 3,499 to Rs 13,499. Verify against the shop's own rate card before going live.\n\nCOPY ANGLE: pet owners are wary of being upsold on an animal they love, so the copy repeatedly does the opposite — a review about being talked out of the expensive food, an explicit 'we will say when the cheaper bag is fine' pillar, honest warnings that rimless-style fragility applies to cheap collar D-rings, that small aquariums are HARDER not easier, and that a harness beats this collar for a hard puller. That posture is the differentiator against an online seller and should survive any rewrite.\n\nDELIBERATE: the FAQ states the shop does NOT sell dogs or cats and points at rescues instead. Live-animal sales are an ethical and increasingly a legal minefield in India, and a template that assumes a puppy counter would be a bad default to ship to every customer. A shop that does sell animals can add it themselves.\n\nIMAGES: hosted Pexels CDN URLs, every one fetched and visually inspected — the deterministic filename pattern 404s for some ids, so never add one without checking. Replace with the shop's own photography before going live.\n\nTHEME: berry-paw, created for this recipe — deep berry violet with a warm apricot accent on cream, Nunito headings and Rubik body. Linked both ways via the theme's industries array. All colour pairs contrast-measured; see the theme file's notes before retuning."
+}
