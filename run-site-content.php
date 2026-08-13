@@ -26,6 +26,12 @@
 $SITES = [
     'aayasdental' => ['file' => 'content-aayas-dental.json', 'label' => 'Dr. Aayas Dental Clinic'],
     'secnospects' => ['file' => 'content-secno-spects.json', 'label' => 'Secno Spects'],
+    // NOTE the slugs: the existing vCards live at jamal-tours-solutions and
+    // sas-services. index.php resolves a published BUILDER site before it looks
+    // at vcards.url_alias, and SiteRepo::slugAvailable never consults the vcards
+    // table — so reusing those slugs here would silently take the vCard's URL.
+    'jamaltours'  => ['file' => 'content-jamal-tours.json',  'label' => 'Jamal Tours Solutions'],
+    'sasservices' => ['file' => 'content-sas-services.json', 'label' => 'SAS Services'],
 ];
 
 require_once __DIR__ . '/config/database.php';

@@ -1,0 +1,990 @@
+{
+ "schemaVersion": 1,
+ "site": {
+  "name": "Jamal Tours Solutions",
+  "industry": "travel",
+  "locale": "en-IN"
+ },
+ "theme": {
+  "preset": "azure-sand",
+  "mode": "light",
+  "color": {
+   "primary": "#0E5A6B",
+   "secondary": "#137E92",
+   "accent": "#E08D3C",
+   "bg": "#FDFBF7",
+   "surface": "#EFF6F7",
+   "text": "#12262B",
+   "muted": "#5F7378",
+   "border": "#DCE8EA"
+  },
+  "font": {
+   "heading": "Fraunces",
+   "body": "Inter"
+  },
+  "radius": "md",
+  "spacing": "comfortable",
+  "container": "normal"
+ },
+ "nav": {
+  "header": [
+   {
+    "label": "Home",
+    "pageId": "home"
+   },
+   {
+    "label": "Packages",
+    "pageId": "packages"
+   },
+   {
+    "label": "About",
+    "pageId": "about"
+   },
+   {
+    "label": "Contact",
+    "pageId": "contact"
+   }
+  ]
+ },
+ "business": {
+  "phone": "+91 93265 01326",
+  "whatsapp": "+91 93265 01326",
+  "email": "jamaltourssolutions22@gmail.com",
+  "address": "Dighori Rd, Taj Bagh, Nagpur, Maharashtra 440034",
+  "social": {
+   "instagram": "https://www.instagram.com/jamal_tours_solutions"
+  }
+ },
+ "pages": [
+  {
+   "id": "home",
+   "slug": "/",
+   "title": "Home",
+   "seo": {
+    "title": "Jamal Tours Solutions | Hajj, Umrah & Ziyarat from Nagpur",
+    "description": "Complete Hajj and Umrah packages with visa assistance, flights, hotels, transport and guided pilgrimage. Monthly departures from Mumbai, Nagpur and Hyderabad.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "header-1",
+     "type": "header",
+     "visible": true,
+     "props": {
+      "sticky": true,
+      "showCart": false,
+      "showAccount": false,
+      "links": [
+       {
+        "text": "Home",
+        "href": "/"
+       },
+       {
+        "text": "Packages",
+        "href": "/packages"
+       },
+       {
+        "text": "About",
+        "href": "/about"
+       },
+       {
+        "text": "Contact",
+        "href": "/contact"
+       }
+      ],
+      "cta": {
+       "text": "Enquire Now",
+       "href": "/contact",
+       "style": "primary"
+      }
+     },
+     "variant": "left"
+    },
+    {
+     "id": "hero-2",
+     "type": "hero",
+     "visible": true,
+     "props": {
+      "badge": "Hajj · Umrah · Baghdad Ziyarat",
+      "heading": "Your blessed journey begins here",
+      "sub": "Complete Hajj and Umrah packages with visa assistance, flights, hotels, transport and guided pilgrimage — arranged so you can focus on your ibadah with peace of mind.",
+      "image": "https://images.pexels.com/photos/38789865/pexels-photo-38789865.jpeg?auto=compress&cs=tinysrgb&w=2000",
+      "videoUrl": "https://videos.pexels.com/video-files/35098658/14869469_1920_1080_60fps.mp4",
+      "fullHeight": true,
+      "ctaPrimary": {
+       "text": "See Packages",
+       "href": "/packages",
+       "style": "primary"
+      },
+      "ctaSecondary": {
+       "text": "Talk To Us",
+       "href": "/contact",
+       "style": "ghost"
+      },
+      "showWhatsapp": true,
+      "showCall": true
+     },
+     "variant": "centered-bg",
+     "style": {
+      "overlay": 0.6
+     }
+    },
+    {
+     "id": "about-3",
+     "type": "about",
+     "visible": true,
+     "props": {
+      "label": "About Us",
+      "heading": "Serving pilgrims with care, trust and dedication",
+      "body": "Embark on your sacred journey with Jamal Tours Solutions. We provide complete Hajj and Umrah packages with visa assistance, flight bookings, hotel accommodation, transportation and guided pilgrimage services.\n\nOur experienced team handles the arrangements end to end — the documentation, the departures, the hotels near the Haram, the buses for Ziyarat — so that a first-time pilgrim is never left working out logistics in an unfamiliar country.\n\nWe run monthly Umrah departures from Mumbai, Nagpur, Hyderabad and other cities, and we arrange Baghdad Ziyarat separately or combined with Umrah in a single itinerary.\n\nOur priority is a comfortable, hassle-free and spiritually fulfilling experience. Come to the office at Taj Bagh, or message us on WhatsApp and we will talk you through what is available for your dates.",
+      "image": "https://images.pexels.com/photos/36954374/pexels-photo-36954374.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "showPillars": true,
+      "pillars": [
+       {
+        "icon": "plane",
+        "title": "Complete packages",
+        "text": "Air fare, visa, hotels, transport and guidance arranged together — not pieces you have to assemble."
+       },
+       {
+        "icon": "map-pin",
+        "title": "Multiple departures",
+        "text": "Monthly Umrah departures from Mumbai, Nagpur, Hyderabad and other cities."
+       },
+       {
+        "icon": "users",
+        "title": "Experienced guidance",
+        "text": "A professional guide with the group to assist with the rites and the routine."
+       },
+       {
+        "icon": "phone",
+        "title": "24/7 support",
+        "text": "Reachable throughout your journey, not only until you have paid."
+       }
+      ]
+     },
+     "variant": "image-right"
+    },
+    {
+     "id": "services-4",
+     "type": "services",
+     "visible": true,
+     "props": {
+      "label": "What We Arrange",
+      "heading": "Everything arranged for you",
+      "sub": "Packages and individual services. Tell us your month and group size and we will put together what suits.",
+      "items": [
+       {
+        "image": "https://images.pexels.com/photos/38789865/pexels-photo-38789865.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Hajj Packages",
+        "desc": "Complete Hajj arrangements — visa, flights, accommodation, transport within the holy sites and guidance throughout the rites of the pilgrimage.",
+        "meta": "Seasonal",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919326501326",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/34956761/pexels-photo-34956761.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Umrah Packages",
+        "desc": "Umrah packages with monthly departures, covering visa, air fare, hotel stay and local transport. Suitable for individuals, families and groups.",
+        "meta": "Monthly departures",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919326501326",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/20277839/pexels-photo-20277839.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Baghdad Ziyarat Packages",
+        "desc": "Organised Ziyarat itineraries to Baghdad, with the travel, accommodation and local movement arranged and a guide accompanying the group.",
+        "meta": "Group departures",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919326501326",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/36954374/pexels-photo-36954374.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Umrah + Baghdad Ziyarat",
+        "desc": "Both journeys in one itinerary, planned so the travel between them is handled and you are not booking two separate trips.",
+        "meta": "Combined itinerary",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919326501326",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/31763113/pexels-photo-31763113.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Visa Assistance",
+        "desc": "Full assistance with the visa application and documentation. We prepare and submit the paperwork and keep you updated on the status.",
+        "meta": "Documentation handled",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919326501326",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/35321316/pexels-photo-35321316.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Air Fare & Ticketing",
+        "desc": "Flight bookings from your chosen departure city, held as part of the package or booked separately if you are arranging the rest yourself.",
+        "meta": "Multiple cities",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919326501326",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/32290182/pexels-photo-32290182.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Hotel Accommodation",
+        "desc": "Hotel stays selected for their distance from the Haram, so the walk to prayer is realistic for elderly members of the group.",
+        "meta": "Near the Haram",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919326501326",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/36739005/pexels-photo-36739005.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Local Ziyarat by AC Bus",
+        "desc": "Visits to the significant sites in Makkah and Madinah by air-conditioned bus, with a guide explaining each location.",
+        "meta": "AC coach",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919326501326",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/4118058/pexels-photo-4118058.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Professional Guide",
+        "desc": "An experienced guide with the group throughout, to assist with the rites, the language and the day-to-day questions that come up.",
+        "meta": "With every group",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919326501326",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/33169780/pexels-photo-33169780.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Indian Food Buffet",
+        "desc": "Indian meals arranged through the stay, which matters more than people expect over a two-week journey.",
+        "meta": "Included in packages",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919326501326",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/38877478/pexels-photo-38877478.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Travel Insurance",
+        "desc": "Travel insurance arranged as part of the package, with the cover explained before you travel rather than buried in the paperwork.",
+        "meta": "Arranged for you",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919326501326",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/28209449/pexels-photo-28209449.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Currency Exchange & Laundry",
+        "desc": "Currency exchange before departure and laundry service during the stay — the small things that make a long journey easier.",
+        "meta": "On request",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919326501326",
+         "style": "link"
+        }
+       }
+      ]
+     },
+     "variant": "cards-3"
+    },
+    {
+     "id": "gallery-5",
+     "type": "gallery",
+     "visible": true,
+     "props": {
+      "label": "The Journey",
+      "heading": "Where you will be",
+      "sub": "Makkah, Madinah and the Ziyarat sites your group will visit.",
+      "lightbox": true,
+      "images": [
+       {
+        "image": "https://images.pexels.com/photos/38789865/pexels-photo-38789865.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "The Kaaba at night, Masjid al-Haram"
+       },
+       {
+        "image": "https://images.pexels.com/photos/36954374/pexels-photo-36954374.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Pilgrims at the Kaaba, Makkah"
+       },
+       {
+        "image": "https://images.pexels.com/photos/34956761/pexels-photo-34956761.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Masjid al-Haram during evening prayer"
+       },
+       {
+        "image": "https://images.pexels.com/photos/20277839/pexels-photo-20277839.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Outside the Prophet's Mosque, Madinah"
+       },
+       {
+        "image": "https://images.pexels.com/photos/33169780/pexels-photo-33169780.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "The Green Dome, Al-Masjid an-Nabawi"
+       },
+       {
+        "image": "https://images.pexels.com/photos/36739005/pexels-photo-36739005.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "The courtyard umbrellas at Madinah"
+       },
+       {
+        "image": "https://images.pexels.com/photos/35321316/pexels-photo-35321316.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Aerial view of pilgrims at the Grand Mosque"
+       },
+       {
+        "image": "https://images.pexels.com/photos/32290182/pexels-photo-32290182.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "The Kaaba and the clock tower, Makkah"
+       },
+       {
+        "image": "https://images.pexels.com/photos/4118058/pexels-photo-4118058.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Pilgrims performing tawaf"
+       }
+      ]
+     },
+     "variant": "grid-3"
+    },
+    {
+     "id": "cta-6",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Planning your journey?",
+      "sub": "Message us on WhatsApp with your preferred month and group size, and we will send the current packages and what each one includes.",
+      "ctaPrimary": {
+       "text": "Send an Enquiry",
+       "href": "/contact",
+       "style": "primary"
+      },
+      "showWhatsapp": true,
+      "showCall": true
+     },
+     "variant": "banner"
+    },
+    {
+     "id": "contact-7",
+     "type": "contact",
+     "visible": true,
+     "props": {
+      "label": "Get In Touch",
+      "heading": "Talk to us",
+      "sub": "The office is at Dighori Road, Taj Bagh. Message us on WhatsApp with your preferred month and group size and we will send the current packages.",
+      "showPhone": true,
+      "showWhatsapp": true,
+      "showEmail": true,
+      "showAddress": true,
+      "showHours": false,
+      "showMap": true,
+      "submitText": "Send Enquiry"
+     },
+     "variant": "form-map"
+    },
+    {
+     "id": "footer-8",
+     "type": "footer",
+     "visible": true,
+     "props": {
+      "blurb": "Jamal Tours Solutions — complete Hajj, Umrah and Baghdad Ziyarat packages from Nagpur, with visa assistance, flights, hotels, transport and guided pilgrimage.",
+      "showContact": true,
+      "showHours": false,
+      "showSocial": true,
+      "showLegal": true,
+      "columns": [
+       {
+        "title": "Explore",
+        "links": [
+         {
+          "text": "Home",
+          "href": "/"
+         },
+         {
+          "text": "Packages",
+          "href": "/packages"
+         },
+         {
+          "text": "About",
+          "href": "/about"
+         },
+         {
+          "text": "Contact",
+          "href": "/contact"
+         }
+        ]
+       },
+       {
+        "title": "Packages",
+        "links": [
+         {
+          "text": "Hajj Packages",
+          "href": "/packages"
+         },
+         {
+          "text": "Umrah Packages",
+          "href": "/packages"
+         },
+         {
+          "text": "Baghdad Ziyarat",
+          "href": "/packages"
+         },
+         {
+          "text": "Visa Assistance",
+          "href": "/packages"
+         }
+        ]
+       },
+       {
+        "title": "Connect",
+        "links": [
+         {
+          "text": "Instagram",
+          "href": "https://www.instagram.com/jamal_tours_solutions"
+         },
+         {
+          "text": "WhatsApp",
+          "href": "https://wa.me/919326501326"
+         },
+         {
+          "text": "Call us",
+          "href": "tel:+919326501326"
+         },
+         {
+          "text": "Email us",
+          "href": "mailto:jamaltourssolutions22@gmail.com"
+         }
+        ]
+       }
+      ],
+      "copyright": "© 2026 Jamal Tours Solutions. All rights reserved.",
+      "termsBody": "Package prices, departure dates and inclusions are confirmed in writing at the time of booking and are subject to airline fares, hotel availability and prevailing exchange rates. Visa issuance is decided solely by the authorities of the Kingdom of Saudi Arabia (and, for Ziyarat itineraries, by the relevant authorities of the destination country); we assist with the application and documentation but cannot guarantee approval, and government fees are non-refundable once submitted. Pilgrims are responsible for holding a valid passport with sufficient validity, for meeting all health and vaccination requirements in force at the time of travel, and for complying with the regulations of the destination country. Cancellation and refund terms are set out in your booking confirmation. Itineraries may change where required by the authorities, by the airline, or for the safety of the group. Replace this text with your own terms, reviewed by your legal advisor, before going live."
+     },
+     "variant": "columns"
+    }
+   ]
+  },
+  {
+   "id": "packages",
+   "slug": "/packages",
+   "title": "Packages",
+   "seo": {
+    "title": "Hajj, Umrah & Baghdad Ziyarat Packages | Jamal Tours Solutions",
+    "description": "Hajj packages, monthly Umrah departures, Baghdad Ziyarat and combined itineraries, plus visa, air fare, hotels and guided local Ziyarat.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "services-9",
+     "type": "services",
+     "visible": true,
+     "props": {
+      "label": "All Packages",
+      "heading": "Everything we arrange",
+      "sub": "Hajj, Umrah and Baghdad Ziyarat, plus the individual services if you only need part of it arranged.",
+      "items": [
+       {
+        "image": "https://images.pexels.com/photos/38789865/pexels-photo-38789865.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Hajj Packages",
+        "desc": "Complete Hajj arrangements — visa, flights, accommodation, transport within the holy sites and guidance throughout the rites of the pilgrimage.",
+        "meta": "Seasonal",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919326501326",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/34956761/pexels-photo-34956761.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Umrah Packages",
+        "desc": "Umrah packages with monthly departures, covering visa, air fare, hotel stay and local transport. Suitable for individuals, families and groups.",
+        "meta": "Monthly departures",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919326501326",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/20277839/pexels-photo-20277839.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Baghdad Ziyarat Packages",
+        "desc": "Organised Ziyarat itineraries to Baghdad, with the travel, accommodation and local movement arranged and a guide accompanying the group.",
+        "meta": "Group departures",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919326501326",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/36954374/pexels-photo-36954374.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Umrah + Baghdad Ziyarat",
+        "desc": "Both journeys in one itinerary, planned so the travel between them is handled and you are not booking two separate trips.",
+        "meta": "Combined itinerary",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919326501326",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/31763113/pexels-photo-31763113.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Visa Assistance",
+        "desc": "Full assistance with the visa application and documentation. We prepare and submit the paperwork and keep you updated on the status.",
+        "meta": "Documentation handled",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919326501326",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/35321316/pexels-photo-35321316.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Air Fare & Ticketing",
+        "desc": "Flight bookings from your chosen departure city, held as part of the package or booked separately if you are arranging the rest yourself.",
+        "meta": "Multiple cities",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919326501326",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/32290182/pexels-photo-32290182.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Hotel Accommodation",
+        "desc": "Hotel stays selected for their distance from the Haram, so the walk to prayer is realistic for elderly members of the group.",
+        "meta": "Near the Haram",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919326501326",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/36739005/pexels-photo-36739005.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Local Ziyarat by AC Bus",
+        "desc": "Visits to the significant sites in Makkah and Madinah by air-conditioned bus, with a guide explaining each location.",
+        "meta": "AC coach",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919326501326",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/4118058/pexels-photo-4118058.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Professional Guide",
+        "desc": "An experienced guide with the group throughout, to assist with the rites, the language and the day-to-day questions that come up.",
+        "meta": "With every group",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919326501326",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/33169780/pexels-photo-33169780.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Indian Food Buffet",
+        "desc": "Indian meals arranged through the stay, which matters more than people expect over a two-week journey.",
+        "meta": "Included in packages",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919326501326",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/38877478/pexels-photo-38877478.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Travel Insurance",
+        "desc": "Travel insurance arranged as part of the package, with the cover explained before you travel rather than buried in the paperwork.",
+        "meta": "Arranged for you",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919326501326",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/28209449/pexels-photo-28209449.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Currency Exchange & Laundry",
+        "desc": "Currency exchange before departure and laundry service during the stay — the small things that make a long journey easier.",
+        "meta": "On request",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/919326501326",
+         "style": "link"
+        }
+       }
+      ]
+     },
+     "variant": "cards-3"
+    },
+    {
+     "id": "gallery-a",
+     "type": "gallery",
+     "visible": true,
+     "props": {
+      "label": "In Pictures",
+      "heading": "Makkah, Madinah and Ziyarat",
+      "sub": null,
+      "lightbox": true,
+      "images": [
+       {
+        "image": "https://images.pexels.com/photos/38789865/pexels-photo-38789865.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "The Kaaba at night, Masjid al-Haram"
+       },
+       {
+        "image": "https://images.pexels.com/photos/36954374/pexels-photo-36954374.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Pilgrims at the Kaaba, Makkah"
+       },
+       {
+        "image": "https://images.pexels.com/photos/34956761/pexels-photo-34956761.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Masjid al-Haram during evening prayer"
+       },
+       {
+        "image": "https://images.pexels.com/photos/20277839/pexels-photo-20277839.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Outside the Prophet's Mosque, Madinah"
+       },
+       {
+        "image": "https://images.pexels.com/photos/33169780/pexels-photo-33169780.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "The Green Dome, Al-Masjid an-Nabawi"
+       },
+       {
+        "image": "https://images.pexels.com/photos/36739005/pexels-photo-36739005.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "The courtyard umbrellas at Madinah"
+       },
+       {
+        "image": "https://images.pexels.com/photos/35321316/pexels-photo-35321316.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Aerial view of pilgrims at the Grand Mosque"
+       },
+       {
+        "image": "https://images.pexels.com/photos/32290182/pexels-photo-32290182.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "The Kaaba and the clock tower, Makkah"
+       },
+       {
+        "image": "https://images.pexels.com/photos/4118058/pexels-photo-4118058.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Pilgrims performing tawaf"
+       }
+      ]
+     },
+     "variant": "grid-3"
+    },
+    {
+     "id": "faq-b",
+     "type": "faq",
+     "visible": true,
+     "props": {
+      "label": "FAQ",
+      "heading": "Questions pilgrims ask us",
+      "openFirst": true,
+      "items": [
+       {
+        "q": "What does a package include?",
+        "a": "Typically air fare, visa processing, hotel accommodation, transport within Saudi Arabia, local Ziyarat by AC bus, Indian meals and a guide with the group. Exactly what is included depends on the package, and we set it out in writing before you pay anything."
+       },
+       {
+        "q": "Which cities do you depart from?",
+        "a": "We arrange departures from Mumbai, Nagpur, Hyderabad and other cities depending on the month. Tell us where you would prefer to fly from and we will tell you what is available for your dates."
+       },
+       {
+        "q": "How far in advance should I book?",
+        "a": "For Umrah, a month is usually comfortable. For Hajj, considerably longer — quota and visa timelines are set by the authorities, so start the conversation early rather than close to the season."
+       },
+       {
+        "q": "Can you handle the visa if I book only that?",
+        "a": "Yes. Visa assistance, air ticketing, hotel booking and insurance can each be arranged on their own if you are putting the rest of the journey together yourself."
+       },
+       {
+        "q": "Is the visa guaranteed?",
+        "a": "No, and be cautious of anyone who says otherwise. Visa issuance is decided by the Saudi authorities. We prepare and submit the application correctly and keep you updated, but the decision is not ours to make."
+       },
+       {
+        "q": "Are the hotels near the Haram?",
+        "a": "We select hotels with the walk to the Haram in mind, and we will tell you the realistic walking distance rather than a marketing figure. If the group includes elderly pilgrims, tell us and we will factor that in."
+       },
+       {
+        "q": "Do you take groups from the same family or community?",
+        "a": "Yes, and it is a large part of what we do. Give us the group size and preferred month and we will put together an itinerary and a written quotation."
+       }
+      ]
+     },
+     "variant": "accordion"
+    },
+    {
+     "id": "cta-c",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Planning your journey?",
+      "sub": "Message us on WhatsApp with your preferred month and group size, and we will send the current packages and what each one includes.",
+      "ctaPrimary": {
+       "text": "Send an Enquiry",
+       "href": "/contact",
+       "style": "primary"
+      },
+      "showWhatsapp": true,
+      "showCall": true
+     },
+     "variant": "banner"
+    }
+   ]
+  },
+  {
+   "id": "about",
+   "slug": "/about",
+   "title": "About",
+   "seo": {
+    "title": "About Us | Jamal Tours Solutions, Nagpur",
+    "description": "Serving pilgrims with care, trust and dedication. Complete Hajj and Umrah arrangements handled end to end from Taj Bagh, Nagpur.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "about-d",
+     "type": "about",
+     "visible": true,
+     "props": {
+      "label": "About Us",
+      "heading": "Serving pilgrims with care, trust and dedication",
+      "body": "Embark on your sacred journey with Jamal Tours Solutions. We provide complete Hajj and Umrah packages with visa assistance, flight bookings, hotel accommodation, transportation and guided pilgrimage services.\n\nOur experienced team handles the arrangements end to end — the documentation, the departures, the hotels near the Haram, the buses for Ziyarat — so that a first-time pilgrim is never left working out logistics in an unfamiliar country.\n\nWe run monthly Umrah departures from Mumbai, Nagpur, Hyderabad and other cities, and we arrange Baghdad Ziyarat separately or combined with Umrah in a single itinerary.\n\nOur priority is a comfortable, hassle-free and spiritually fulfilling experience. Come to the office at Taj Bagh, or message us on WhatsApp and we will talk you through what is available for your dates.",
+      "image": "https://images.pexels.com/photos/36954374/pexels-photo-36954374.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "showPillars": true,
+      "pillars": [
+       {
+        "icon": "plane",
+        "title": "Complete packages",
+        "text": "Air fare, visa, hotels, transport and guidance arranged together — not pieces you have to assemble."
+       },
+       {
+        "icon": "map-pin",
+        "title": "Multiple departures",
+        "text": "Monthly Umrah departures from Mumbai, Nagpur, Hyderabad and other cities."
+       },
+       {
+        "icon": "users",
+        "title": "Experienced guidance",
+        "text": "A professional guide with the group to assist with the rites and the routine."
+       },
+       {
+        "icon": "phone",
+        "title": "24/7 support",
+        "text": "Reachable throughout your journey, not only until you have paid."
+       }
+      ]
+     },
+     "variant": "image-left"
+    },
+    {
+     "id": "gallery-e",
+     "type": "gallery",
+     "visible": true,
+     "props": {
+      "label": "Gallery",
+      "heading": "The sacred sites",
+      "sub": null,
+      "lightbox": true,
+      "images": [
+       {
+        "image": "https://images.pexels.com/photos/38789865/pexels-photo-38789865.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "The Kaaba at night, Masjid al-Haram"
+       },
+       {
+        "image": "https://images.pexels.com/photos/36954374/pexels-photo-36954374.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Pilgrims at the Kaaba, Makkah"
+       },
+       {
+        "image": "https://images.pexels.com/photos/34956761/pexels-photo-34956761.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Masjid al-Haram during evening prayer"
+       },
+       {
+        "image": "https://images.pexels.com/photos/20277839/pexels-photo-20277839.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Outside the Prophet's Mosque, Madinah"
+       },
+       {
+        "image": "https://images.pexels.com/photos/33169780/pexels-photo-33169780.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "The Green Dome, Al-Masjid an-Nabawi"
+       },
+       {
+        "image": "https://images.pexels.com/photos/36739005/pexels-photo-36739005.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "The courtyard umbrellas at Madinah"
+       },
+       {
+        "image": "https://images.pexels.com/photos/35321316/pexels-photo-35321316.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Aerial view of pilgrims at the Grand Mosque"
+       },
+       {
+        "image": "https://images.pexels.com/photos/32290182/pexels-photo-32290182.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "The Kaaba and the clock tower, Makkah"
+       },
+       {
+        "image": "https://images.pexels.com/photos/4118058/pexels-photo-4118058.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Pilgrims performing tawaf"
+       }
+      ]
+     },
+     "variant": "grid-3"
+    },
+    {
+     "id": "embed-f",
+     "type": "embed",
+     "visible": true,
+     "props": {
+      "label": "Instagram",
+      "heading": "From our groups",
+      "sub": "Follow @jamal_tours_solutions for departure updates and photographs from recent groups.",
+      "embeds": [
+       {
+        "url": "https://www.instagram.com/reel/DXJqOI1CENh/"
+       },
+       {
+        "url": "https://www.instagram.com/reel/DWk7cDhAfFT/"
+       }
+      ]
+     },
+     "variant": "grid-2"
+    },
+    {
+     "id": "faq-g",
+     "type": "faq",
+     "visible": true,
+     "props": {
+      "label": "FAQ",
+      "heading": "Questions pilgrims ask us",
+      "openFirst": true,
+      "items": [
+       {
+        "q": "What does a package include?",
+        "a": "Typically air fare, visa processing, hotel accommodation, transport within Saudi Arabia, local Ziyarat by AC bus, Indian meals and a guide with the group. Exactly what is included depends on the package, and we set it out in writing before you pay anything."
+       },
+       {
+        "q": "Which cities do you depart from?",
+        "a": "We arrange departures from Mumbai, Nagpur, Hyderabad and other cities depending on the month. Tell us where you would prefer to fly from and we will tell you what is available for your dates."
+       },
+       {
+        "q": "How far in advance should I book?",
+        "a": "For Umrah, a month is usually comfortable. For Hajj, considerably longer — quota and visa timelines are set by the authorities, so start the conversation early rather than close to the season."
+       },
+       {
+        "q": "Can you handle the visa if I book only that?",
+        "a": "Yes. Visa assistance, air ticketing, hotel booking and insurance can each be arranged on their own if you are putting the rest of the journey together yourself."
+       },
+       {
+        "q": "Is the visa guaranteed?",
+        "a": "No, and be cautious of anyone who says otherwise. Visa issuance is decided by the Saudi authorities. We prepare and submit the application correctly and keep you updated, but the decision is not ours to make."
+       },
+       {
+        "q": "Are the hotels near the Haram?",
+        "a": "We select hotels with the walk to the Haram in mind, and we will tell you the realistic walking distance rather than a marketing figure. If the group includes elderly pilgrims, tell us and we will factor that in."
+       },
+       {
+        "q": "Do you take groups from the same family or community?",
+        "a": "Yes, and it is a large part of what we do. Give us the group size and preferred month and we will put together an itinerary and a written quotation."
+       }
+      ]
+     },
+     "variant": "accordion"
+    }
+   ]
+  },
+  {
+   "id": "contact",
+   "slug": "/contact",
+   "title": "Contact",
+   "seo": {
+    "title": "Contact | Jamal Tours Solutions, Taj Bagh, Nagpur",
+    "description": "Dighori Rd, Taj Bagh, Nagpur 440034. Call or WhatsApp 93265 01326 to plan your Hajj, Umrah or Ziyarat journey.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "contact-h",
+     "type": "contact",
+     "visible": true,
+     "props": {
+      "label": "Get In Touch",
+      "heading": "Plan your journey",
+      "sub": "The office is at Dighori Road, Taj Bagh. Message us on WhatsApp with your preferred month and group size and we will send the current packages.",
+      "showPhone": true,
+      "showWhatsapp": true,
+      "showEmail": true,
+      "showAddress": true,
+      "showHours": false,
+      "showMap": true,
+      "submitText": "Send Enquiry"
+     },
+     "variant": "form-map"
+    },
+    {
+     "id": "faq-i",
+     "type": "faq",
+     "visible": true,
+     "props": {
+      "label": "FAQ",
+      "heading": "Questions pilgrims ask us",
+      "openFirst": true,
+      "items": [
+       {
+        "q": "What does a package include?",
+        "a": "Typically air fare, visa processing, hotel accommodation, transport within Saudi Arabia, local Ziyarat by AC bus, Indian meals and a guide with the group. Exactly what is included depends on the package, and we set it out in writing before you pay anything."
+       },
+       {
+        "q": "Which cities do you depart from?",
+        "a": "We arrange departures from Mumbai, Nagpur, Hyderabad and other cities depending on the month. Tell us where you would prefer to fly from and we will tell you what is available for your dates."
+       },
+       {
+        "q": "How far in advance should I book?",
+        "a": "For Umrah, a month is usually comfortable. For Hajj, considerably longer — quota and visa timelines are set by the authorities, so start the conversation early rather than close to the season."
+       },
+       {
+        "q": "Can you handle the visa if I book only that?",
+        "a": "Yes. Visa assistance, air ticketing, hotel booking and insurance can each be arranged on their own if you are putting the rest of the journey together yourself."
+       },
+       {
+        "q": "Is the visa guaranteed?",
+        "a": "No, and be cautious of anyone who says otherwise. Visa issuance is decided by the Saudi authorities. We prepare and submit the application correctly and keep you updated, but the decision is not ours to make."
+       },
+       {
+        "q": "Are the hotels near the Haram?",
+        "a": "We select hotels with the walk to the Haram in mind, and we will tell you the realistic walking distance rather than a marketing figure. If the group includes elderly pilgrims, tell us and we will factor that in."
+       },
+       {
+        "q": "Do you take groups from the same family or community?",
+        "a": "Yes, and it is a large part of what we do. Give us the group size and preferred month and we will put together an itinerary and a written quotation."
+       }
+      ]
+     },
+     "variant": "accordion"
+    },
+    {
+     "id": "cta-j",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Planning your journey?",
+      "sub": "Message us on WhatsApp with your preferred month and group size, and we will send the current packages and what each one includes.",
+      "ctaPrimary": {
+       "text": "Send an Enquiry",
+       "href": "/contact",
+       "style": "primary"
+      },
+      "showWhatsapp": true,
+      "showCall": true
+     },
+     "variant": "banner"
+    }
+   ]
+  }
+ ]
+}
