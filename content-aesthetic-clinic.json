@@ -1,0 +1,1072 @@
+{
+ "schemaVersion": 1,
+ "site": {
+  "name": "Aesthetic Dental & Skin Clinic",
+  "industry": "hospital",
+  "locale": "en-IN"
+ },
+ "theme": {
+  "preset": "clinical-teal",
+  "mode": "light",
+  "color": {
+   "primary": "#0B5C74",
+   "secondary": "#127B96",
+   "accent": "#17A398",
+   "bg": "#FFFFFF",
+   "surface": "#F2F8FA",
+   "text": "#10242B",
+   "muted": "#5B7079",
+   "border": "#DCE7EB"
+  },
+  "font": {
+   "heading": "Source Sans 3",
+   "body": "Source Sans 3"
+  },
+  "radius": "md",
+  "spacing": "comfortable",
+  "container": "normal"
+ },
+ "nav": {
+  "header": [
+   {
+    "label": "Home",
+    "pageId": "home"
+   },
+   {
+    "label": "Treatments",
+    "pageId": "treatments"
+   },
+   {
+    "label": "About",
+    "pageId": "about"
+   },
+   {
+    "label": "Contact",
+    "pageId": "contact"
+   }
+  ]
+ },
+ "business": {
+  "phone": "+91 82376 67762",
+  "whatsapp": "+91 82376 67762",
+  "email": "aestheticdentalandskinclinic@gmail.com",
+  "address": "197, First Floor, Above Dhanalakshmi Auto Deals, Gajanan Square, Juni Shukrawari Road, Sakkardara, Nagpur, Maharashtra 440024",
+  "social": {},
+  "hours": [
+   {
+    "day": "mon",
+    "open": "11:00 AM",
+    "close": "8:00 PM"
+   },
+   {
+    "day": "tue",
+    "open": "11:00 AM",
+    "close": "8:00 PM"
+   },
+   {
+    "day": "wed",
+    "open": "11:00 AM",
+    "close": "8:00 PM"
+   },
+   {
+    "day": "thu",
+    "open": "11:00 AM",
+    "close": "8:00 PM"
+   },
+   {
+    "day": "fri",
+    "open": "11:00 AM",
+    "close": "8:00 PM"
+   },
+   {
+    "day": "sat",
+    "open": "11:00 AM",
+    "close": "8:00 PM"
+   },
+   {
+    "day": "sun",
+    "closed": true
+   }
+  ]
+ },
+ "pages": [
+  {
+   "id": "home",
+   "slug": "/",
+   "title": "Home",
+   "seo": {
+    "title": "Aesthetic Dental & Skin Clinic, Nagpur | Dr. Kanchan Lokhande",
+    "description": "Dental implants, root canal, teeth whitening, acne and pigmentation treatment, PRP hair therapy and laser procedures in Sakkardara, Nagpur. Open Mon–Sat, 11 AM to 8 PM.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "header-1",
+     "type": "header",
+     "visible": true,
+     "props": {
+      "sticky": true,
+      "showCart": false,
+      "showAccount": false,
+      "links": [
+       {
+        "text": "Home",
+        "href": "/"
+       },
+       {
+        "text": "Treatments",
+        "href": "/treatments"
+       },
+       {
+        "text": "About",
+        "href": "/about"
+       },
+       {
+        "text": "Contact",
+        "href": "/contact"
+       }
+      ],
+      "cta": {
+       "text": "Book Consultation",
+       "href": "/contact",
+       "style": "primary"
+      }
+     },
+     "variant": "left"
+    },
+    {
+     "id": "hero-2",
+     "type": "hero",
+     "visible": true,
+     "props": {
+      "badge": "Dental · Skin · Hair · Laser · Sakkardara, Nagpur",
+      "heading": "Healthier smiles, healthier skin",
+      "sub": "Comprehensive dental care, dental implants, root canal treatment, advanced skin treatments, PRP hair therapy and aesthetic laser procedures by Dr. Kanchan Lokhande.",
+      "image": "https://images.pexels.com/photos/7803059/pexels-photo-7803059.jpeg?auto=compress&cs=tinysrgb&w=2000",
+      "videoUrl": "https://videos.pexels.com/video-files/6763242/6763242-hd_1920_1080_25fps.mp4",
+      "fullHeight": true,
+      "ctaPrimary": {
+       "text": "See Treatments",
+       "href": "/treatments",
+       "style": "primary"
+      },
+      "ctaSecondary": {
+       "text": "Book Consultation",
+       "href": "/contact",
+       "style": "ghost"
+      },
+      "showWhatsapp": true,
+      "showCall": true
+     },
+     "variant": "centered-bg",
+     "style": {
+      "overlay": 0.58
+     }
+    },
+    {
+     "id": "about-3",
+     "type": "about",
+     "visible": true,
+     "props": {
+      "label": "About the Clinic",
+      "heading": "Evidence-based dental, skin and hair care",
+      "body": "Welcome to Aesthetic Dental & Skin Clinic, Nagpur. Led by Dr. Kanchan Lokhande, our clinic provides evidence-based dental, skin, hair and aesthetic treatments tailored to each patient's individual needs.\n\nWe combine clinical expertise, modern technology and personalised care to help patients achieve healthier smiles, healthier skin, stronger hair and enhanced confidence. Our approach focuses on accurate diagnosis, evidence-based treatment, patient education and long-term results.\n\nFrom preventive dental care and smile designing to acne treatment, pigmentation correction, hair restoration and laser procedures, we focus on safe, ethical and result-oriented treatment in a comfortable clinical environment.\n\nEvery treatment plan is tailored to the individual's needs, concerns and treatment goals.",
+      "image": "https://images.pexels.com/photos/6812450/pexels-photo-6812450.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "showPillars": true,
+      "pillars": [
+       {
+        "icon": "user",
+        "title": "Personalised plans",
+        "text": "Every treatment plan is built around your assessment, concerns and goals — not a standard protocol."
+       },
+       {
+        "icon": "badge-check",
+        "title": "Evidence-based approach",
+        "text": "Accurate diagnosis first, then treatment supported by clinical evidence rather than trend."
+       },
+       {
+        "icon": "sparkles",
+        "title": "Modern equipment",
+        "text": "Current technology across dental, skin, hair and laser treatment, with strict sterilisation and safety protocols."
+       },
+       {
+        "icon": "heart",
+        "title": "All care in one place",
+        "text": "Dental, skin, hair and aesthetic laser treatment under one roof, so you are not sent elsewhere mid-plan."
+       }
+      ]
+     },
+     "variant": "image-right"
+    },
+    {
+     "id": "services-4",
+     "type": "services",
+     "visible": true,
+     "props": {
+      "label": "Our Services",
+      "heading": "Dental, skin, hair and laser",
+      "sub": "Comprehensive treatment under one roof. Plans are customised according to each patient's needs and clinical assessment.",
+      "items": [
+       {
+        "image": "https://images.pexels.com/photos/7803054/pexels-photo-7803054.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Teeth Cleaning & Polishing",
+        "desc": "Removal of plaque and hardened tartar above and below the gumline, followed by polishing. The routine treatment for bleeding gums and persistent bad breath.",
+        "meta": "Single visit",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/7803059/pexels-photo-7803059.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Root Canal Treatment",
+        "desc": "Treatment for an infected or badly decayed tooth — the nerve space is cleaned, disinfected and sealed, then the tooth is capped to protect it.",
+        "meta": "1–2 visits",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/19976568/pexels-photo-19976568.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Tooth-Coloured Fillings",
+        "desc": "Composite fillings matched to your natural tooth shade and bonded directly, so less healthy tooth is removed than with metal.",
+        "meta": "Single visit",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/7446659/pexels-photo-7446659.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Acne Treatment",
+        "desc": "Assessment of the cause of your acne followed by a treatment plan — topical, procedural or both — rather than a single generic protocol.",
+        "meta": "Assessment first",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/6568231/pexels-photo-6568231.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Pigmentation Treatment",
+        "desc": "Treatment for melasma, sun damage and uneven tone, planned after a detailed skin assessment and matched to your skin type.",
+        "meta": "Plan after diagnosis",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/30809947/pexels-photo-30809947.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Chemical Peels",
+        "desc": "Medical-grade peels selected by strength and type for your concern and skin type, to improve texture, tone and blemishes.",
+        "meta": "Course of sessions",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       }
+      ]
+     },
+     "variant": "cards-3"
+    },
+    {
+     "id": "gallery-5",
+     "type": "gallery",
+     "visible": true,
+     "props": {
+      "label": "Inside the Clinic",
+      "heading": "A comfortable clinical environment",
+      "sub": "Replace these with photographs of your own clinic before going live.",
+      "lightbox": true,
+      "images": [
+       {
+        "image": "https://images.pexels.com/photos/6812450/pexels-photo-6812450.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Consultation room at the clinic"
+       },
+       {
+        "image": "https://images.pexels.com/photos/7803059/pexels-photo-7803059.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Dental treatment in progress"
+       },
+       {
+        "image": "https://images.pexels.com/photos/7803054/pexels-photo-7803054.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Teeth cleaning and polishing"
+       },
+       {
+        "image": "https://images.pexels.com/photos/7446659/pexels-photo-7446659.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Skin treatment room"
+       },
+       {
+        "image": "https://images.pexels.com/photos/36436447/pexels-photo-36436447.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Medi facial treatment"
+       },
+       {
+        "image": "https://images.pexels.com/photos/7772639/pexels-photo-7772639.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Laser treatment in progress"
+       },
+       {
+        "image": "https://images.pexels.com/photos/7446672/pexels-photo-7446672.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Hair and scalp evaluation"
+       },
+       {
+        "image": "https://images.pexels.com/photos/7789678/pexels-photo-7789678.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Sterilised instruments ready for use"
+       },
+       {
+        "image": "https://images.pexels.com/photos/30809947/pexels-photo-30809947.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Aesthetic treatment being carried out"
+       }
+      ]
+     },
+     "variant": "grid-3"
+    },
+    {
+     "id": "testimonials-6",
+     "type": "testimonials",
+     "visible": true,
+     "props": {
+      "label": "Patient Reviews",
+      "heading": "What our patients say",
+      "items": [
+       {
+        "quote": "I went to Aesthetic Dental and Skin Clinic for my skin concern. The doctor did my skin assessment and then prescribed treatment according to my concern. I like the ambience of the clinic and had a great experience.",
+        "name": "Verified Google review",
+        "role": "Skin treatment",
+        "rating": 5
+       },
+       {
+        "quote": "I am very satisfied with the skin treatment and the results I have seen so far. My skin texture has improved noticeably and feels much smoother and healthier. The treatment helped reduce acne, redness and uneven skin tone.",
+        "name": "Verified Google review",
+        "role": "Skin treatment",
+        "rating": 5
+       },
+       {
+        "quote": "I recently visited for a laser procedure. The doctor patiently explained the pros and cons and carried out the treatment quite effectively. The ambience of the clinic was pleasing as well. Satisfied with the treatment.",
+        "name": "Verified Google review",
+        "role": "Laser treatment",
+        "rating": 5
+       }
+      ]
+     },
+     "variant": "cards-3"
+    },
+    {
+     "id": "cta-7",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Book your consultation",
+      "sub": "Dental, skin, hair or laser — tell us your concern and we will arrange an assessment at a time that suits you.",
+      "ctaPrimary": {
+       "text": "Book an Appointment",
+       "href": "/contact",
+       "style": "primary"
+      },
+      "showWhatsapp": true,
+      "showCall": true
+     },
+     "variant": "banner"
+    },
+    {
+     "id": "contact-8",
+     "type": "contact",
+     "visible": true,
+     "props": {
+      "label": "Reach Us",
+      "heading": "Visit the clinic",
+      "sub": "Gajanan Square, Juni Shukrawari Road, Sakkardara. Call or WhatsApp 82376 67762 to arrange your assessment.",
+      "showPhone": true,
+      "showWhatsapp": true,
+      "showEmail": true,
+      "showAddress": true,
+      "showHours": true,
+      "showMap": true,
+      "submitText": "Request Appointment"
+     },
+     "variant": "form-map"
+    },
+    {
+     "id": "footer-9",
+     "type": "footer",
+     "visible": true,
+     "props": {
+      "blurb": "Aesthetic Dental & Skin Clinic, Nagpur — comprehensive dental, skin, hair and aesthetic laser treatment led by Dr. Kanchan Lokhande, at Gajanan Square, Sakkardara.",
+      "showContact": true,
+      "showHours": true,
+      "showSocial": false,
+      "showLegal": true,
+      "columns": [
+       {
+        "title": "Explore",
+        "links": [
+         {
+          "text": "Home",
+          "href": "/"
+         },
+         {
+          "text": "Treatments",
+          "href": "/treatments"
+         },
+         {
+          "text": "About",
+          "href": "/about"
+         },
+         {
+          "text": "Contact",
+          "href": "/contact"
+         }
+        ]
+       },
+       {
+        "title": "Treatments",
+        "links": [
+         {
+          "text": "Dental Care",
+          "href": "/treatments"
+         },
+         {
+          "text": "Skin Treatment",
+          "href": "/treatments"
+         },
+         {
+          "text": "Hair Care",
+          "href": "/treatments"
+         },
+         {
+          "text": "Laser Treatments",
+          "href": "/treatments"
+         }
+        ]
+       },
+       {
+        "title": "Contact",
+        "links": [
+         {
+          "text": "Call 82376 67762",
+          "href": "tel:+918237667762"
+         },
+         {
+          "text": "WhatsApp",
+          "href": "https://wa.me/918237667762"
+         },
+         {
+          "text": "Email us",
+          "href": "mailto:aestheticdentalandskinclinic@gmail.com"
+         }
+        ]
+       }
+      ],
+      "copyright": "© 2026 Aesthetic Dental and Skin Clinic, Nagpur. All rights reserved.",
+      "termsBody": "The information on this website is general and is not a substitute for a clinical examination, diagnosis or personalised medical advice. Treatment options, the number of sessions required and the time each takes vary between patients and can only be confirmed after an assessment at the clinic. Individual results vary depending on the condition being treated, the treatment plan and patient compliance with aftercare; no outcome is guaranteed. Appointment requests submitted through this website or by WhatsApp are requests only and are confirmed by the clinic during clinic hours. Please disclose any medical conditions, allergies, medications or previous procedures before treatment begins. Replace this text with your own terms, reviewed by your legal advisor, before going live."
+     },
+     "variant": "columns"
+    }
+   ]
+  },
+  {
+   "id": "treatments",
+   "slug": "/treatments",
+   "title": "Treatments",
+   "seo": {
+    "title": "Dental, Skin, Hair & Laser Treatments | Aesthetic Clinic, Nagpur",
+    "description": "Root canal, dental implants, crowns and bridges, smile designing, acne and pigmentation treatment, chemical peels, PRP hair therapy, trichoscopy and laser hair reduction in Nagpur.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "services-a",
+     "type": "services",
+     "visible": true,
+     "props": {
+      "label": "Every Treatment",
+      "heading": "What we treat",
+      "sub": "Twenty treatments across dental, skin, hair and laser care. Every plan begins with an assessment, and the options are explained to you before anything starts.",
+      "items": [
+       {
+        "image": "https://images.pexels.com/photos/7803054/pexels-photo-7803054.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Teeth Cleaning & Polishing",
+        "desc": "Removal of plaque and hardened tartar above and below the gumline, followed by polishing. The routine treatment for bleeding gums and persistent bad breath.",
+        "meta": "Single visit",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/7803059/pexels-photo-7803059.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Root Canal Treatment",
+        "desc": "Treatment for an infected or badly decayed tooth — the nerve space is cleaned, disinfected and sealed, then the tooth is capped to protect it.",
+        "meta": "1–2 visits",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/19976568/pexels-photo-19976568.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Tooth-Coloured Fillings",
+        "desc": "Composite fillings matched to your natural tooth shade and bonded directly, so less healthy tooth is removed than with metal.",
+        "meta": "Single visit",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/7789678/pexels-photo-7789678.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Crowns & Bridges",
+        "desc": "Custom crowns to cap a weakened or root-treated tooth, and bridges to span a gap using the neighbouring teeth for support.",
+        "meta": "2 visits",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/6812450/pexels-photo-6812450.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Dental Implants",
+        "desc": "A titanium post placed in the jaw to replace a missing tooth root, later restored with a crown. Includes planning, placement and the healing review.",
+        "meta": "Staged treatment",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/7803059/pexels-photo-7803059.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Smile Designing",
+        "desc": "A planned combination of treatments to improve the appearance of your smile, assessed and designed around your facial proportions.",
+        "meta": "Assessment first",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/7446659/pexels-photo-7446659.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Acne Treatment",
+        "desc": "Assessment of the cause of your acne followed by a treatment plan — topical, procedural or both — rather than a single generic protocol.",
+        "meta": "Assessment first",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/6568231/pexels-photo-6568231.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Pigmentation Treatment",
+        "desc": "Treatment for melasma, sun damage and uneven tone, planned after a detailed skin assessment and matched to your skin type.",
+        "meta": "Plan after diagnosis",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/30809947/pexels-photo-30809947.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Chemical Peels",
+        "desc": "Medical-grade peels selected by strength and type for your concern and skin type, to improve texture, tone and blemishes.",
+        "meta": "Course of sessions",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/29648624/pexels-photo-29648624.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Anti-Aging Procedures",
+        "desc": "Clinical procedures for fine lines, volume loss and skin laxity, discussed with realistic expectations before anything is carried out.",
+        "meta": "Consultation first",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/36436447/pexels-photo-36436447.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Medi Facials",
+        "desc": "Clinically formulated facial treatments chosen for your skin assessment, rather than an off-the-shelf salon facial.",
+        "meta": "Single session",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/6810869/pexels-photo-6810869.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Acne Scar Management",
+        "desc": "Treatment of post-acne scarring and marks using the approach suited to the scar type, which is what actually determines the result.",
+        "meta": "Course of sessions",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/7446672/pexels-photo-7446672.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Hair Fall Evaluation",
+        "desc": "Clinical evaluation to identify the underlying cause of hair loss before any treatment is recommended — the step most often skipped.",
+        "meta": "Consultation",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/29648642/pexels-photo-29648642.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Trichoscopy",
+        "desc": "Magnified examination of the scalp and hair shafts to assess follicle health and support an accurate diagnosis.",
+        "meta": "In clinic",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/7446659/pexels-photo-7446659.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Hair Regrowth Consultation",
+        "desc": "A customised treatment plan based on your evaluation, including PRP therapy and other hair restoration options where suitable.",
+        "meta": "Plan after evaluation",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/6810869/pexels-photo-6810869.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Dandruff Management",
+        "desc": "Assessment and treatment of scalp conditions causing flaking, itching and irritation, addressing the cause rather than masking it.",
+        "meta": "Assessment first",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/5069508/pexels-photo-5069508.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Laser Hair Reduction",
+        "desc": "Laser hair reduction with settings selected according to your skin type and hair characteristics, over a planned course of sessions.",
+        "meta": "Course of sessions",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/7772639/pexels-photo-7772639.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Laser Toning",
+        "desc": "Laser treatment to improve overall skin tone and clarity, planned according to your concern and desired outcome.",
+        "meta": "Course of sessions",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/7772652/pexels-photo-7772652.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Pigmentation Laser Treatment",
+        "desc": "Targeted laser treatment for pigmentation, chosen after assessment of the type and depth of the pigment.",
+        "meta": "Assessment first",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       },
+       {
+        "image": "https://images.pexels.com/photos/30809947/pexels-photo-30809947.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Skin Rejuvenation",
+        "desc": "Procedures to improve overall skin quality, texture and radiance, selected according to skin type and clinical goals.",
+        "meta": "Course of sessions",
+        "cta": {
+         "text": "Ask about this",
+         "href": "https://wa.me/918237667762",
+         "style": "link"
+        }
+       }
+      ]
+     },
+     "variant": "cards-3"
+    },
+    {
+     "id": "gallery-b",
+     "type": "gallery",
+     "visible": true,
+     "props": {
+      "label": "The Clinic",
+      "heading": "Where you will be treated",
+      "sub": null,
+      "lightbox": true,
+      "images": [
+       {
+        "image": "https://images.pexels.com/photos/6812450/pexels-photo-6812450.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Consultation room at the clinic"
+       },
+       {
+        "image": "https://images.pexels.com/photos/7803059/pexels-photo-7803059.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Dental treatment in progress"
+       },
+       {
+        "image": "https://images.pexels.com/photos/7803054/pexels-photo-7803054.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Teeth cleaning and polishing"
+       },
+       {
+        "image": "https://images.pexels.com/photos/7446659/pexels-photo-7446659.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Skin treatment room"
+       },
+       {
+        "image": "https://images.pexels.com/photos/36436447/pexels-photo-36436447.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Medi facial treatment"
+       },
+       {
+        "image": "https://images.pexels.com/photos/7772639/pexels-photo-7772639.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Laser treatment in progress"
+       },
+       {
+        "image": "https://images.pexels.com/photos/7446672/pexels-photo-7446672.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Hair and scalp evaluation"
+       },
+       {
+        "image": "https://images.pexels.com/photos/7789678/pexels-photo-7789678.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Sterilised instruments ready for use"
+       },
+       {
+        "image": "https://images.pexels.com/photos/30809947/pexels-photo-30809947.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Aesthetic treatment being carried out"
+       }
+      ]
+     },
+     "variant": "grid-3"
+    },
+    {
+     "id": "faq-c",
+     "type": "faq",
+     "visible": true,
+     "props": {
+      "label": "FAQ",
+      "heading": "Questions patients ask us",
+      "openFirst": true,
+      "items": [
+       {
+        "q": "Do I need an appointment?",
+        "a": "Monday to Saturday we see patients between 11 AM and 8 PM, and booking ahead means you are seen at your slot. Sunday is by prior appointment only. Call or WhatsApp 82376 67762 to arrange a time."
+       },
+       {
+        "q": "How do I know which treatment I need?",
+        "a": "You do not need to decide beforehand. Every plan starts with an assessment — a dental examination, a skin assessment or a hair and scalp evaluation — and the treatment options are explained to you after that, with the reasoning."
+       },
+       {
+        "q": "What will it cost?",
+        "a": "Cost depends entirely on what the assessment finds and which plan you choose, so we give you the figure after examining rather than a number that changes later. For longer courses you get the full plan and cost before anything begins."
+       },
+       {
+        "q": "How many sessions will I need?",
+        "a": "A filling or a cleaning is usually one visit. A root canal is one or two. Skin and laser treatments generally run as a course of sessions, and the expected number is given at your assessment rather than open-ended."
+       },
+       {
+        "q": "Are results guaranteed?",
+        "a": "No, and be cautious of any clinic that promises otherwise. Individual results vary with the condition being treated, the treatment plan and how closely aftercare is followed. We will tell you honestly what is realistic for your case."
+       },
+       {
+        "q": "Is the clinic safe and sterile?",
+        "a": "We follow strict sterilisation and safety protocols across dental, skin, hair and laser treatment. If you would like to see how instruments are processed, ask — we are happy to show you."
+       },
+       {
+        "q": "Which areas do you serve?",
+        "a": "We see patients from Sakkardara, Azamshah Layout, Nandanvan, Manewada, Besa, Chitnis Park, Mahal and nearby areas of Nagpur. The clinic is at Gajanan Square on Juni Shukrawari Road."
+       }
+      ]
+     },
+     "variant": "accordion"
+    },
+    {
+     "id": "cta-d",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Book your consultation",
+      "sub": "Dental, skin, hair or laser — tell us your concern and we will arrange an assessment at a time that suits you.",
+      "ctaPrimary": {
+       "text": "Book an Appointment",
+       "href": "/contact",
+       "style": "primary"
+      },
+      "showWhatsapp": true,
+      "showCall": true
+     },
+     "variant": "banner"
+    }
+   ]
+  },
+  {
+   "id": "about",
+   "slug": "/about",
+   "title": "About",
+   "seo": {
+    "title": "About Dr. Kanchan Lokhande | Aesthetic Dental & Skin Clinic, Nagpur",
+    "description": "Evidence-based dental, skin, hair and aesthetic care in Sakkardara, Nagpur, led by Dr. Kanchan Lokhande, with personalised treatment plans and strict safety protocols.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "about-e",
+     "type": "about",
+     "visible": true,
+     "props": {
+      "label": "About the Clinic",
+      "heading": "Evidence-based dental, skin and hair care",
+      "body": "Welcome to Aesthetic Dental & Skin Clinic, Nagpur. Led by Dr. Kanchan Lokhande, our clinic provides evidence-based dental, skin, hair and aesthetic treatments tailored to each patient's individual needs.\n\nWe combine clinical expertise, modern technology and personalised care to help patients achieve healthier smiles, healthier skin, stronger hair and enhanced confidence. Our approach focuses on accurate diagnosis, evidence-based treatment, patient education and long-term results.\n\nFrom preventive dental care and smile designing to acne treatment, pigmentation correction, hair restoration and laser procedures, we focus on safe, ethical and result-oriented treatment in a comfortable clinical environment.\n\nEvery treatment plan is tailored to the individual's needs, concerns and treatment goals.",
+      "image": "https://images.pexels.com/photos/6812450/pexels-photo-6812450.jpeg?auto=compress&cs=tinysrgb&w=1400",
+      "showPillars": true,
+      "pillars": [
+       {
+        "icon": "user",
+        "title": "Personalised plans",
+        "text": "Every treatment plan is built around your assessment, concerns and goals — not a standard protocol."
+       },
+       {
+        "icon": "badge-check",
+        "title": "Evidence-based approach",
+        "text": "Accurate diagnosis first, then treatment supported by clinical evidence rather than trend."
+       },
+       {
+        "icon": "sparkles",
+        "title": "Modern equipment",
+        "text": "Current technology across dental, skin, hair and laser treatment, with strict sterilisation and safety protocols."
+       },
+       {
+        "icon": "heart",
+        "title": "All care in one place",
+        "text": "Dental, skin, hair and aesthetic laser treatment under one roof, so you are not sent elsewhere mid-plan."
+       }
+      ]
+     },
+     "variant": "image-left"
+    },
+    {
+     "id": "team-f",
+     "type": "team",
+     "visible": true,
+     "props": {
+      "label": "Your Doctor",
+      "heading": "Who you will be seeing",
+      "items": [
+       {
+        "photo": "https://images.pexels.com/photos/6812450/pexels-photo-6812450.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "name": "Dr. Kanchan Lokhande",
+        "role": "Founder — Dental, Skin & Aesthetic Care",
+        "bio": "Leads Aesthetic Dental & Skin Clinic in Sakkardara, Nagpur, treating dental, skin, hair and aesthetic laser concerns. The approach is diagnosis first: assess accurately, explain the options and the reasoning, then treat — with the plan built around the individual patient rather than a standard protocol."
+       }
+      ]
+     },
+     "variant": "cards-2"
+    },
+    {
+     "id": "gallery-g",
+     "type": "gallery",
+     "visible": true,
+     "props": {
+      "label": "Gallery",
+      "heading": "Inside the clinic",
+      "sub": null,
+      "lightbox": true,
+      "images": [
+       {
+        "image": "https://images.pexels.com/photos/6812450/pexels-photo-6812450.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Consultation room at the clinic"
+       },
+       {
+        "image": "https://images.pexels.com/photos/7803059/pexels-photo-7803059.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Dental treatment in progress"
+       },
+       {
+        "image": "https://images.pexels.com/photos/7803054/pexels-photo-7803054.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Teeth cleaning and polishing"
+       },
+       {
+        "image": "https://images.pexels.com/photos/7446659/pexels-photo-7446659.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Skin treatment room"
+       },
+       {
+        "image": "https://images.pexels.com/photos/36436447/pexels-photo-36436447.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Medi facial treatment"
+       },
+       {
+        "image": "https://images.pexels.com/photos/7772639/pexels-photo-7772639.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Laser treatment in progress"
+       },
+       {
+        "image": "https://images.pexels.com/photos/7446672/pexels-photo-7446672.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Hair and scalp evaluation"
+       },
+       {
+        "image": "https://images.pexels.com/photos/7789678/pexels-photo-7789678.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Sterilised instruments ready for use"
+       },
+       {
+        "image": "https://images.pexels.com/photos/30809947/pexels-photo-30809947.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "alt": "Aesthetic treatment being carried out"
+       }
+      ]
+     },
+     "variant": "grid-3"
+    },
+    {
+     "id": "testimonials-h",
+     "type": "testimonials",
+     "visible": true,
+     "props": {
+      "label": "Patient Reviews",
+      "heading": "In our patients' words",
+      "items": [
+       {
+        "quote": "I went to Aesthetic Dental and Skin Clinic for my skin concern. The doctor did my skin assessment and then prescribed treatment according to my concern. I like the ambience of the clinic and had a great experience.",
+        "name": "Verified Google review",
+        "role": "Skin treatment",
+        "rating": 5
+       },
+       {
+        "quote": "I am very satisfied with the skin treatment and the results I have seen so far. My skin texture has improved noticeably and feels much smoother and healthier. The treatment helped reduce acne, redness and uneven skin tone.",
+        "name": "Verified Google review",
+        "role": "Skin treatment",
+        "rating": 5
+       },
+       {
+        "quote": "I recently visited for a laser procedure. The doctor patiently explained the pros and cons and carried out the treatment quite effectively. The ambience of the clinic was pleasing as well. Satisfied with the treatment.",
+        "name": "Verified Google review",
+        "role": "Laser treatment",
+        "rating": 5
+       }
+      ]
+     },
+     "variant": "cards-3"
+    }
+   ]
+  },
+  {
+   "id": "contact",
+   "slug": "/contact",
+   "title": "Contact",
+   "seo": {
+    "title": "Contact & Appointments | Aesthetic Dental & Skin Clinic, Nagpur",
+    "description": "197 First Floor, Gajanan Square, Juni Shukrawari Road, Sakkardara, Nagpur 440024. Call or WhatsApp 82376 67762. Open Mon–Sat 11 AM to 8 PM, Sunday by appointment.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "contact-i",
+     "type": "contact",
+     "visible": true,
+     "props": {
+      "label": "Reach Us",
+      "heading": "Book an appointment",
+      "sub": "Call or WhatsApp 82376 67762, or send the form below. Alternate number: 84593 78030.",
+      "showPhone": true,
+      "showWhatsapp": true,
+      "showEmail": true,
+      "showAddress": true,
+      "showHours": true,
+      "showMap": true,
+      "submitText": "Request Appointment"
+     },
+     "variant": "form-map"
+    },
+    {
+     "id": "hours-j",
+     "type": "hours",
+     "visible": true,
+     "props": {
+      "label": "Clinic Timing",
+      "heading": "When we are open",
+      "highlightToday": true,
+      "note": "Sunday is by prior appointment only. Appointment requests sent on WhatsApp are answered during clinic hours."
+     },
+     "variant": "list"
+    },
+    {
+     "id": "faq-k",
+     "type": "faq",
+     "visible": true,
+     "props": {
+      "label": "FAQ",
+      "heading": "Questions patients ask us",
+      "openFirst": true,
+      "items": [
+       {
+        "q": "Do I need an appointment?",
+        "a": "Monday to Saturday we see patients between 11 AM and 8 PM, and booking ahead means you are seen at your slot. Sunday is by prior appointment only. Call or WhatsApp 82376 67762 to arrange a time."
+       },
+       {
+        "q": "How do I know which treatment I need?",
+        "a": "You do not need to decide beforehand. Every plan starts with an assessment — a dental examination, a skin assessment or a hair and scalp evaluation — and the treatment options are explained to you after that, with the reasoning."
+       },
+       {
+        "q": "What will it cost?",
+        "a": "Cost depends entirely on what the assessment finds and which plan you choose, so we give you the figure after examining rather than a number that changes later. For longer courses you get the full plan and cost before anything begins."
+       },
+       {
+        "q": "How many sessions will I need?",
+        "a": "A filling or a cleaning is usually one visit. A root canal is one or two. Skin and laser treatments generally run as a course of sessions, and the expected number is given at your assessment rather than open-ended."
+       },
+       {
+        "q": "Are results guaranteed?",
+        "a": "No, and be cautious of any clinic that promises otherwise. Individual results vary with the condition being treated, the treatment plan and how closely aftercare is followed. We will tell you honestly what is realistic for your case."
+       },
+       {
+        "q": "Is the clinic safe and sterile?",
+        "a": "We follow strict sterilisation and safety protocols across dental, skin, hair and laser treatment. If you would like to see how instruments are processed, ask — we are happy to show you."
+       },
+       {
+        "q": "Which areas do you serve?",
+        "a": "We see patients from Sakkardara, Azamshah Layout, Nandanvan, Manewada, Besa, Chitnis Park, Mahal and nearby areas of Nagpur. The clinic is at Gajanan Square on Juni Shukrawari Road."
+       }
+      ]
+     },
+     "variant": "accordion"
+    },
+    {
+     "id": "cta-l",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Book your consultation",
+      "sub": "Dental, skin, hair or laser — tell us your concern and we will arrange an assessment at a time that suits you.",
+      "ctaPrimary": {
+       "text": "Book an Appointment",
+       "href": "/contact",
+       "style": "primary"
+      },
+      "showWhatsapp": true,
+      "showCall": true
+     },
+     "variant": "banner"
+    }
+   ]
+  }
+ ]
+}

@@ -34,6 +34,7 @@ $SITES = [
     'sasservices' => ['file' => 'content-sas-services.json', 'label' => 'SAS Services'],
     // vCard lives at raavee-kitchen-and-interiors — same reasoning as above.
     'raaveekitchen' => ['file' => 'content-raavee-kitchen.json', 'label' => 'Raavee Kitchen and Interior'],
+    'aestheticclinic' => ['file' => 'content-aesthetic-clinic.json', 'label' => 'Aesthetic Dental & Skin Clinic'],
 ];
 
 require_once __DIR__ . '/config/database.php';
