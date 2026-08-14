@@ -88,4 +88,83 @@ class GoogleBusinessRepo
         $stmt = $this->db->prepare("DELETE FROM google_business_connections WHERE user_id = ?");
         $stmt->execute([$userId]);
     }
+
+    /* --------------------------------------------------------- score history */
+
+    /** Most recent recorded score for this user, or null. */
+    public function lastScore($userId)
+    {
+        try {
+            $stmt = $this->db->prepare(
+                "SELECT score, created_at FROM google_business_scores WHERE user_id = ? ORDER BY id DESC LIMIT 1"
+            );
+            $stmt->execute([$userId]);
+            return $stmt->fetch(PDO::FETCH_ASSOC) ?: null;
+        } catch (Exception $e) {
+            // Table not migrated yet — a missing history must not break the score
+            // itself, which is useful on its own.
+            return null;
+        }
+    }
+
+    public function recordScore($userId, $locationId, $score, array $breakdown)
+    {
+        try {
+            $stmt = $this->db->prepare(
+                "INSERT INTO google_business_scores (user_id, location_id, score, breakdown) VALUES (?, ?, ?, ?)"
+            );
+            $stmt->execute([$userId, $locationId, (int)$score, json_encode($breakdown)]);
+        } catch (Exception $e) {
+            // Same reasoning: recording is a nicety, the score is the product.
+        }
+    }
+
+    /* ------------------------------------------------------- review replies */
+
+    /** True when we have already replied to this review (any source). */
+    public function hasReplied($reviewId)
+    {
+        try {
+            $stmt = $this->db->prepare("SELECT id FROM google_review_replies WHERE review_id = ? LIMIT 1");
+            $stmt->execute([$reviewId]);
+            return (bool)$stmt->fetch();
+        } catch (Exception $e) {
+            // If we cannot tell, assume we HAVE replied. Skipping a reply is
+            // recoverable; double-posting in public under the customer's name
+            // is not.
+            return true;
+        }
+    }
+
+    public function recordReply($userId, $reviewId, $stars, $text, $source = 'manual')
+    {
+        try {
+            $stmt = $this->db->prepare(
+                "INSERT INTO google_review_replies (user_id, review_id, star_rating, reply_text, source)
+                 VALUES (?, ?, ?, ?, ?)
+                 ON DUPLICATE KEY UPDATE reply_text = VALUES(reply_text), source = VALUES(source)"
+            );
+            $stmt->execute([$userId, $reviewId, $stars !== null ? (int)$stars : null, $text, $source]);
+        } catch (Exception $e) {
+            GoogleLogger::warn('reply.record_failed', ['review' => substr((string)$reviewId, -24)]);
+        }
+    }
+
+    public function setAutoReply($userId, $enabled, $minStars)
+    {
+        $stmt = $this->db->prepare(
+            "UPDATE google_business_connections SET auto_reply_enabled = ?, auto_reply_min_stars = ? WHERE user_id = ?"
+        );
+        $stmt->execute([(int)$enabled, (int)$minStars, $userId]);
+    }
+
+    /** Connections that have opted in to automatic replying (for the cron). */
+    public function autoReplyUsers()
+    {
+        $stmt = $this->db->query(
+            "SELECT user_id, auto_reply_min_stars FROM google_business_connections
+              WHERE auto_reply_enabled = 1 AND location_id IS NOT NULL AND location_id <> ''"
+        );
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

@@ -153,6 +153,113 @@ class GoogleBusinessService
         return FieldMap::toApp($loc);
     }
 
+    /* ------------------------------------------------------- profile score */
+
+    /**
+     * Health score for the connected listing, plus the movement since the last
+     * time it was computed.
+     *
+     * Recording every computation is what makes the number worth returning to:
+     * "78, up from 54" is progress, "78" is trivia. We only write a new row when
+     * the score actually changed, so opening the screen five times in a day does
+     * not manufacture a flat history.
+     */
+    public function getScore($userId)
+    {
+        $fields = $this->getFields($userId);
+        $result = ProfileScore::compute($fields);
+
+        $conn     = $this->repo->get($userId);
+        $previous = $this->repo->lastScore($userId);
+
+        $result['previous'] = $previous ? (int)$previous['score'] : null;
+        $result['delta']    = $previous ? $result['score'] - (int)$previous['score'] : null;
+        $result['since']    = $previous['created_at'] ?? null;
+
+        if (!$previous || (int)$previous['score'] !== $result['score']) {
+            $this->repo->recordScore($userId, $conn['location_id'] ?? null, $result['score'], $result);
+        }
+        return $result;
+    }
+
+    /* -------------------------------------------------------------- reviews */
+
+    /** Reviews for the connected location, newest first. */
+    public function listReviews($userId, $pageSize = 50)
+    {
+        $conn = $this->requireConnection($userId);
+        if (empty($conn['location_id']) || empty($conn['google_account_id'])) {
+            throw new GoogleException('No Google Business location is linked yet.', 404, 'location or account empty');
+        }
+        $res = $this->client($userId)->listReviews($conn['google_account_id'], $conn['location_id'], $pageSize);
+
+        // Flatten to what the app needs. Google's shape is deeply nested and
+        // changes between API versions; the app should not have to know it.
+        $out = [];
+        foreach ($res['reviews'] as $r) {
+            $out[] = [
+                'id'          => $r['name'] ?? ($r['reviewId'] ?? ''),
+                'reviewer'    => $r['reviewer']['displayName'] ?? 'A Google user',
+                'photo'       => $r['reviewer']['profilePhotoUrl'] ?? null,
+                'stars'       => self::starsToInt($r['starRating'] ?? null),
+                'comment'     => $r['comment'] ?? '',
+                'created_at'  => $r['createTime'] ?? null,
+                'updated_at'  => $r['updateTime'] ?? null,
+                'reply'       => $r['reviewReply']['comment'] ?? null,
+                'replied_at'  => $r['reviewReply']['updateTime'] ?? null,
+            ];
+        }
+        return [
+            'reviews'        => $out,
+            'total'          => $res['total'],
+            'average'        => $res['average'],
+            'location_title' => $conn['location_title'] ?? '',
+            'unanswered'     => count(array_filter($out, fn($r) => empty($r['reply']))),
+            'auto_reply'   => [
+                'enabled'   => (int)($conn['auto_reply_enabled'] ?? 0) === 1,
+                'min_stars' => (int)($conn['auto_reply_min_stars'] ?? 4),
+            ],
+        ];
+    }
+
+    /** Post (or replace) the owner's reply to one review. */
+    public function replyToReview($userId, $reviewId, $comment, $source = 'manual')
+    {
+        $conn = $this->requireConnection($userId);
+        $comment = trim((string)$comment);
+        if ($comment === '') {
+            throw new GoogleException('A reply cannot be empty.', 422, 'empty comment');
+        }
+        // Google rejects anything over 4096 characters outright.
+        if (mb_strlen($comment) > 4096) {
+            throw new GoogleException('That reply is too long. Google allows up to 4096 characters.', 422, 'comment too long');
+        }
+        // The review id we hand the app is already the full resource name.
+        if (strpos($reviewId, 'accounts/') !== 0) {
+            throw new GoogleException('That review could not be identified.', 422, 'unexpected review id: ' . substr($reviewId, 0, 60));
+        }
+
+        $this->client($userId)->replyToReview($reviewId, $comment);
+        $this->repo->recordReply($userId, $reviewId, null, $comment, $source);
+        return ['review_id' => $reviewId, 'reply' => $comment];
+    }
+
+    /** Turn on/off automatic replying, and the star floor it applies from. */
+    public function setAutoReply($userId, $enabled, $minStars = 4)
+    {
+        $this->requireConnection($userId);
+        $minStars = max(1, min(5, (int)$minStars));
+        $this->repo->setAutoReply($userId, $enabled ? 1 : 0, $minStars);
+        return ['enabled' => (bool)$enabled, 'min_stars' => $minStars];
+    }
+
+    /** "FIVE" → 5. Google sends an enum, not a number. */
+    private static function starsToInt($enum)
+    {
+        $map = ['ONE' => 1, 'TWO' => 2, 'THREE' => 3, 'FOUR' => 4, 'FIVE' => 5];
+        return $map[strtoupper((string)$enum)] ?? 0;
+    }
+
     public function disconnect($userId)
     {
         $this->repo->delete($userId);

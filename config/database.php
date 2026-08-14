@@ -70,6 +70,9 @@ define('GOOGLE_CLIENT_SECRET', getenv('GOOGLE_CLIENT_SECRET') ?: '');
 define('GOOGLE_OAUTH_REDIRECT', getenv('GOOGLE_OAUTH_REDIRECT') ?: (SITE_URL . '/api/google/gbp/callback.php'));
 // Restricted scope — requires OAuth verification + Business Profile API allowlisting.
 define('GOOGLE_BUSINESS_SCOPE', 'https://www.googleapis.com/auth/business.manage');
+// Guards the review auto-reply worker. Unset = the worker refuses to run, which
+// is the right default: it publishes text on the customer's public listing.
+define('GBP_CRON_SECRET', getenv('GBP_CRON_SECRET') ?: '');
 // Deep link the OAuth callback bounces back to so the app knows we're done.
 define('APP_DEEP_LINK', getenv('APP_DEEP_LINK') ?: 'tapifapp://gbp-connected');
 

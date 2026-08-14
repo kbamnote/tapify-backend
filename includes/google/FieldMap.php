@@ -32,6 +32,11 @@ class FieldMap
             // read-only display
             'primary_category' => $loc['categories']['primaryCategory']['displayName'] ?? '',
             'address'          => self::formatAddress($loc['storefrontAddress'] ?? null),
+            // City on its own, because `address` is a flattened comma-joined string
+            // and the AI Growth tools need the city as a discrete value. Splitting
+            // the joined string on the client guesses wrong the moment a listing has
+            // one address line, or none.
+            'city'             => $loc['storefrontAddress']['locality'] ?? '',
             'hours'            => self::formatHours($loc['regularHours'] ?? null),
         ];
     }

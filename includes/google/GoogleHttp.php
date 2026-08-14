@@ -23,6 +23,12 @@ class GoogleHttp
         return self::request('POST', $url, $accessToken, $body, true);
     }
 
+    /** PUT JSON with bearer token → decoded array (review replies are a PUT). */
+    public static function put($url, $accessToken, array $body)
+    {
+        return self::request('PUT', $url, $accessToken, $body, true);
+    }
+
     /** POST application/x-www-form-urlencoded (OAuth token endpoint) → decoded array. */
     public static function postForm($url, array $fields)
     {
