@@ -1,0 +1,29 @@
+{
+  "preset": "plum-petal",
+  "label": "Plum & Petal",
+  "description": "Deep plum with a bronze accent on a barely-pink page. Feminine but built for catalogues — suits cosmetics and salon-supply retailers, beauty wholesalers, parlour equipment dealers and multi-brand product stores.",
+  "industries": ["cosmetics", "beauty", "salon-supply", "beauty-wholesale", "parlour", "boutique", "retail", "skincare", "haircare"],
+
+  "tokens": {
+    "mode": "light",
+    "color": {
+      "primary":   "#7B2E5E",
+      "secondary": "#3F1A32",
+      "accent":    "#995F26",
+      "bg":        "#FDF8FA",
+      "surface":   "#FFFFFF",
+      "text":      "#231018",
+      "muted":     "#7A6570",
+      "border":    "#EFE1E8"
+    },
+    "font": {
+      "heading": "Fraunces",
+      "body":    "DM Sans"
+    },
+    "radius":    "md",
+    "spacing":   "comfortable",
+    "container": "normal"
+  },
+
+  "notes": "Tokens only — sections never hardcode colours, they read these as CSS variables.\n\nWHY NOT 'blush-noir': that theme lists beauty among its industries, but it is an editorial ivory-and-Cormorant palette built for fashion boutiques. A salon-supply business sells chairs, wax heaters, developers and mannequin stands to working beauticians — dressing that as a luxury fashion label misrepresents what the shop is. This palette stays feminine but reads as a product catalogue.\n\nACCENT IS CONTRAST-CHECKED, NOT PICKED BY EYE: the renderer uses --color-accent as the colour of the 12px meta line on product cards, so it has to clear WCAG AA at small text. The obvious lighter bronze (#A66A2C) measures 4.23:1 on this background and fails; #995F26 measures 4.97:1 and passes. Primary is 8.35:1, muted 5.09:1, white-on-primary 8.77:1. Re-measure before changing the accent — a prettier gold here will quietly fail the one place it is actually used as text."
+}

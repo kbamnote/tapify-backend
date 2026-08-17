@@ -1,0 +1,791 @@
+{
+  "schemaVersion": 1,
+  "site": {
+    "name": "Indrashobha Cosmetics",
+    "industry": "boutique",
+    "locale": "en-IN"
+  },
+  "theme": {
+    "preset": "plum-petal",
+    "mode": "light",
+    "color": {
+      "primary": "#7B2E5E",
+      "secondary": "#3F1A32",
+      "accent": "#995F26",
+      "bg": "#FDF8FA",
+      "surface": "#FFFFFF",
+      "text": "#231018",
+      "muted": "#7A6570",
+      "border": "#EFE1E8"
+    },
+    "font": {
+      "heading": "Fraunces",
+      "body": "DM Sans"
+    },
+    "radius": "md",
+    "spacing": "comfortable",
+    "container": "normal"
+  },
+  "nav": {
+    "header": [
+      { "label": "Home", "pageId": "home" },
+      { "label": "Products", "pageId": "products" },
+      { "label": "About", "pageId": "about" },
+      { "label": "Contact", "pageId": "contact" }
+    ]
+  },
+  "business": {
+    "social": {
+      "instagram": "https://www.instagram.com/indrashobha_cosmetics?igsh=bHVwMXg1Z2p5cDVi",
+      "facebook": "https://www.facebook.com/profile.php?id=100092406031030"
+    },
+    "hours": [
+      { "day": "mon", "open": "10:00 AM", "close": "10:00 PM" },
+      { "day": "tue", "open": "10:00 AM", "close": "10:00 PM" },
+      { "day": "wed", "open": "10:00 AM", "close": "10:00 PM" },
+      { "day": "thu", "open": "10:00 AM", "close": "10:00 PM" },
+      { "day": "fri", "open": "10:00 AM", "close": "10:00 PM" },
+      { "day": "sat", "open": "10:00 AM", "close": "10:00 PM" },
+      { "day": "sun", "open": "10:00 AM", "close": "10:00 PM" }
+    ]
+  },
+
+  "pages": [
+    {
+      "id": "home",
+      "slug": "/",
+      "title": "Home",
+      "seo": {
+        "title": "Indrashobha Cosmetics | Salon & Parlour Products, Equipment and Cosmetics",
+        "description": "Everything a salon or parlour needs — chairs and facial beds, hair machines, wax and parlour products, skin care, hair colour, makeup, brushes, disposables and jewellery. Gents and ladies parlour products, all brands.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-1",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "links": [
+              { "text": "Home", "href": "/" },
+              { "text": "Products", "href": "/products" },
+              { "text": "About", "href": "/about" },
+              { "text": "Contact", "href": "/contact" }
+            ],
+            "cta": { "text": "Enquire", "href": "/contact", "style": "primary" }
+          }
+        },
+        {
+          "id": "hero-1",
+          "type": "hero",
+          "visible": true,
+          "variant": "centered-bg",
+          "props": {
+            "badge": "Gents & Ladies Parlour Products · All Brands",
+            "heading": "Everything your parlour runs on",
+            "sub": "From salon chairs and facial beds to wax, hair colour, skin care, makeup and brushes — one counter for the whole shopping list. Twenty categories, all major brands, open every day 10 AM to 10 PM.",
+            "image": "https://images.pexels.com/photos/1571585/beauty-fashion-background-shop-1571585.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "videoUrl": "https://videos.pexels.com/video-files/16945750/16945750-hd_1280_720_50fps.mp4",
+            "fullHeight": true,
+            "ctaPrimary": { "text": "See all products", "href": "/products", "style": "primary" },
+            "ctaSecondary": { "text": "Enquire on WhatsApp", "href": "/contact", "style": "ghost" }
+          },
+          "style": { "overlay": 0.55 }
+        },
+        {
+          "id": "about-1",
+          "type": "about",
+          "visible": true,
+          "variant": "image-right",
+          "props": {
+            "label": "About Us",
+            "heading": "A supply counter built for working beauticians",
+            "body": "Indrashobha Cosmetics stocks what a salon or parlour actually gets through in a month — not a curated shelf of a few premium lines, but the full working list. Wax in every flavour and band size, developers in all brands, hair colour from L'Oréal, Matrix, Streax, Yutika, Enega and Bigen, facial kits, skin care, disposables, brushes and the machines to use them with.\n\nWe supply both gents and ladies parlour products, and we carry the equipment side too — salon chairs, facial beds, crimpers, dryers, straighteners and tongs, dummy stands for practice, and manicure and pedicure sets.\n\nRetail customers are just as welcome as salon owners. If you are buying skin care, makeup, nail polish or jewellery for yourself, the same counter and the same brands are open to you.\n\nRun by Manisha Choudhari. Open seven days a week, 10 AM to 10 PM.",
+            "image": "https://images.pexels.com/photos/3735655/pexels-photo-3735655.jpeg?auto=compress&cs=tinysrgb&w=1400",
+            "showPillars": true,
+            "pillars": [
+              { "icon": "package", "title": "20 categories", "text": "Chairs and beds through to jewellery — the whole parlour list in one place, so you are not chasing four suppliers." },
+              { "icon": "award", "title": "All major brands", "text": "L'Oréal, Matrix, Streax, Yutika, Enega, Bigen and more — for hair colour, developers and facial kits." },
+              { "icon": "users", "title": "Salon and retail", "text": "Bulk for parlour owners, single pieces for walk-in customers. Same counter, same brands." },
+              { "icon": "clock", "title": "Open every day", "text": "10 AM to 10 PM, all seven days — including the evenings when most salon owners are free to restock." }
+            ]
+          }
+        },
+        {
+          "id": "products-1",
+          "type": "products",
+          "visible": true,
+          "variant": "cards-3",
+          "props": {
+            "label": "What We Stock",
+            "heading": "Popular categories",
+            "sub": "A sample of what is on the shelves. Rates depend on brand, size and quantity — send us the item and we will quote.",
+            "items": [
+              {
+                "image": "https://images.pexels.com/photos/3993308/pexels-photo-3993308.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Salon Chairs & Facial Beds",
+                "desc": "Styling chairs, shampoo stations and facial beds for parlour setups — new fit-outs and replacements.",
+                "meta": "Equipment · Delivery available",
+                "price": "Ask for rate"
+              },
+              {
+                "image": "https://images.pexels.com/photos/33401814/pexels-photo-33401814.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Hair Machines",
+                "desc": "Crimpers, dryers, straighteners and tongs — professional models built for daily salon use.",
+                "meta": "Crimper · Dryer · Straightener · Tong",
+                "price": "Ask for rate"
+              },
+              {
+                "image": "https://images.pexels.com/photos/12969358/pexels-photo-12969358.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Parlour Products & Wax",
+                "desc": "Wax in all flavours and band sizes, wax strips, wax heaters and containers, waxing oil, eyebrow razors, massage cream, scrub and pack.",
+                "meta": "All flavours · All band sizes",
+                "price": "Ask for rate"
+              },
+              {
+                "image": "https://images.pexels.com/photos/3993471/pexels-photo-3993471.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Hair Colour",
+                "desc": "L'Oréal, Matrix, Streax, Yutika, Enega Fruit Color and Bigen — full shade ranges, plus developers in all brands.",
+                "meta": "L'Oréal · Matrix · Streax · Bigen",
+                "price": "Ask for rate"
+              },
+              {
+                "image": "https://images.pexels.com/photos/33362027/pexels-photo-33362027.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Skin Care",
+                "desc": "Face wash, toner, scrub, serum, and day and night creams across all the brands salons and customers ask for.",
+                "meta": "Cleanse · Tone · Treat · Moisturise",
+                "price": "Ask for rate"
+              },
+              {
+                "image": "https://images.pexels.com/photos/1571585/beauty-fashion-background-shop-1571585.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Makeup Material",
+                "desc": "The full makeup counter — foundation, primer, highlighter, strobe, compact, lipsticks and eye products.",
+                "meta": "All brands",
+                "price": "Ask for rate"
+              }
+            ]
+          }
+        },
+        {
+          "id": "gallery-1",
+          "type": "gallery",
+          "visible": true,
+          "variant": "masonry",
+          "props": {
+            "label": "In Store",
+            "heading": "A look at the shelves",
+            "sub": "Products, equipment and accessories across the counter.",
+            "lightbox": true,
+            "images": [
+              { "image": "https://images.pexels.com/photos/1571585/beauty-fashion-background-shop-1571585.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Rows of lipsticks and makeup on a store display" },
+              { "image": "https://images.pexels.com/photos/7446413/pexels-photo-7446413.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Professional makeup brush set laid out" },
+              { "image": "https://images.pexels.com/photos/6387876/pexels-photo-6387876.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Colourful shampoo and conditioner bottles" },
+              { "image": "https://images.pexels.com/photos/38180246/pexels-photo-38180246.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Display wall of earrings on a shop stand" },
+              { "image": "https://images.pexels.com/photos/3992850/pexels-photo-3992850.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Salon interior with styling chairs and equipment" },
+              { "image": "https://images.pexels.com/photos/10600142/pexels-photo-10600142.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Row of serum and treatment bottles" },
+              { "image": "https://images.pexels.com/photos/32989030/pexels-photo-32989030.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Gold jhumka earrings on a display stand" },
+              { "image": "https://images.pexels.com/photos/1502219/pexels-photo-1502219.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Flat lay of assorted cosmetics and skincare" },
+              { "image": "https://images.pexels.com/photos/17124942/pexels-photo-17124942.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Nail polish bottles in a range of shades" }
+            ]
+          }
+        },
+        {
+          "id": "cta-1",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Need a rate or want to check stock?",
+            "sub": "Send us the item name and the brand you use — we will confirm availability and price. Bulk rates for salons and parlours.",
+            "ctaPrimary": { "text": "Send an enquiry", "href": "/contact", "style": "primary" }
+          }
+        },
+        {
+          "id": "footer-1",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "blurb": "Indrashobha Cosmetics — gents and ladies parlour products, salon equipment, cosmetics and jewellery. All major brands, open every day 10 AM to 10 PM.",
+            "showContact": false,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Shop",
+                "links": [
+                  { "text": "All products", "href": "/products" },
+                  { "text": "Parlour products & wax", "href": "/products" },
+                  { "text": "Hair colour & developers", "href": "/products" },
+                  { "text": "Salon equipment", "href": "/products" }
+                ]
+              },
+              {
+                "title": "Company",
+                "links": [
+                  { "text": "About us", "href": "/about" },
+                  { "text": "Contact", "href": "/contact" },
+                  { "text": "Opening hours", "href": "/contact" }
+                ]
+              },
+              {
+                "title": "Follow",
+                "links": [
+                  { "text": "Instagram", "href": "https://www.instagram.com/indrashobha_cosmetics?igsh=bHVwMXg1Z2p5cDVi" },
+                  { "text": "Facebook", "href": "https://www.facebook.com/profile.php?id=100092406031030" }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Indrashobha Cosmetics. All rights reserved.",
+            "termsBody": "Product availability, brand and pack size vary with stock. Rates quoted are valid on the day of enquiry and may change with brand pricing.\n\nBulk and salon rates are offered on qualifying quantities and are confirmed at the counter or in writing before an order is packed.\n\nCosmetics, skin care and hair products are sold sealed. For hygiene reasons, opened items cannot be returned or exchanged unless the product is faulty or the seal was broken before sale.\n\nEquipment such as chairs, facial beds and hair machines carries the manufacturer's warranty on the manufacturer's terms. Damage caused by misuse, incorrect voltage or unauthorised repair is not covered.\n\nShade, colour and finish shown in photographs on this website are indicative. Actual product appearance may differ between batches and brands.\n\nThis text is a sample. Replace it with your own terms, reviewed by your advisor, before going live."
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "products",
+      "slug": "/products",
+      "title": "Products",
+      "seo": {
+        "title": "All Products | Salon Equipment, Wax, Hair Colour, Skin Care & Makeup — Indrashobha Cosmetics",
+        "description": "Twenty categories of parlour and salon supplies: chairs and facial beds, hair machines, makeup, facial kits, skin care, wax and parlour products, hair care, hair colour, nail polish, blades, aftershave, keratin and spa, brushes, disposables, manicure sets, developers, dummy stands and jewellery.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-2",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "links": [
+              { "text": "Home", "href": "/" },
+              { "text": "Products", "href": "/products" },
+              { "text": "About", "href": "/about" },
+              { "text": "Contact", "href": "/contact" }
+            ],
+            "cta": { "text": "Enquire", "href": "/contact", "style": "primary" }
+          }
+        },
+        {
+          "id": "hero-2",
+          "type": "hero",
+          "visible": true,
+          "variant": "centered-bg",
+          "props": {
+            "heading": "All products",
+            "sub": "Twenty categories covering the whole parlour list — equipment, consumables, cosmetics and accessories.",
+            "image": "https://images.pexels.com/photos/3735655/pexels-photo-3735655.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "fullHeight": false
+          },
+          "style": { "overlay": 0.6 }
+        },
+        {
+          "id": "products-2",
+          "type": "products",
+          "visible": true,
+          "variant": "cards-3",
+          "props": {
+            "label": "Full Range",
+            "heading": "Everything we stock",
+            "sub": "Rates depend on brand, pack size and quantity. Send us the item and brand you use and we will quote — bulk rates for salons and parlours.",
+            "items": [
+              {
+                "image": "https://images.pexels.com/photos/3993308/pexels-photo-3993308.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Salon Chairs & Facial Beds",
+                "desc": "Styling chairs, shampoo stations and facial beds for new parlour setups and replacements.",
+                "meta": "Equipment",
+                "price": "Ask for rate"
+              },
+              {
+                "image": "https://images.pexels.com/photos/33401814/pexels-photo-33401814.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Hair Machines",
+                "desc": "Crimpers, dryers, straighteners and tongs — professional models for daily salon use.",
+                "meta": "Crimper · Dryer · Straightener · Tong",
+                "price": "Ask for rate"
+              },
+              {
+                "image": "https://images.pexels.com/photos/1571585/beauty-fashion-background-shop-1571585.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Makeup Material",
+                "desc": "The full makeup counter across all the brands salons and customers ask for.",
+                "meta": "All brands",
+                "price": "Ask for rate"
+              },
+              {
+                "image": "https://images.pexels.com/photos/5563664/pexels-photo-5563664.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Facial Kits — All Brands",
+                "desc": "Complete facial kits in every brand, for salon treatments and home use.",
+                "meta": "All brands",
+                "price": "Ask for rate"
+              },
+              {
+                "image": "https://images.pexels.com/photos/33362027/pexels-photo-33362027.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Skin Care",
+                "desc": "Face wash, toner, scrub, serum, and day and night creams.",
+                "meta": "Cleanse · Tone · Treat · Moisturise",
+                "price": "Ask for rate"
+              },
+              {
+                "image": "https://images.pexels.com/photos/12969358/pexels-photo-12969358.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Parlour Products & Wax",
+                "desc": "Wax in all flavours and band sizes, wax strips, wax heaters and containers, waxing oil, eyebrow razors, massage cream, scrub and pack.",
+                "meta": "All flavours · All band sizes",
+                "price": "Ask for rate"
+              },
+              {
+                "image": "https://images.pexels.com/photos/6387876/pexels-photo-6387876.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Hair Care",
+                "desc": "Shampoo, conditioner and hair spa products for salon and retail.",
+                "meta": "Shampoo · Conditioner · Spa",
+                "price": "Ask for rate"
+              },
+              {
+                "image": "https://images.pexels.com/photos/3993471/pexels-photo-3993471.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Hair Colour",
+                "desc": "L'Oréal, Matrix, Streax, Yutika, Enega Fruit Color and Bigen — full shade ranges.",
+                "meta": "L'Oréal · Matrix · Streax · Bigen",
+                "price": "Ask for rate"
+              },
+              {
+                "image": "https://images.pexels.com/photos/17124942/pexels-photo-17124942.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Nail Polish",
+                "desc": "Full shade ranges in gel and regular finishes, single pieces or by the box.",
+                "meta": "All shades",
+                "price": "Ask for rate"
+              },
+              {
+                "image": "https://images.pexels.com/photos/4202325/pexels-photo-4202325.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Moisturizer",
+                "desc": "Face and body moisturisers across brands, in retail and salon pack sizes.",
+                "meta": "Retail & salon packs",
+                "price": "Ask for rate"
+              },
+              {
+                "image": "https://images.pexels.com/photos/15642778/pexels-photo-15642778.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Blades for Salon",
+                "desc": "Salon razor blades and eyebrow razors — sold in boxes for professional use.",
+                "meta": "Boxed · Professional",
+                "price": "Ask for rate"
+              },
+              {
+                "image": "https://images.pexels.com/photos/4154194/pexels-photo-4154194.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Aftershave",
+                "desc": "Aftershave lotions and balms for gents parlour work.",
+                "meta": "Gents parlour",
+                "price": "Ask for rate"
+              },
+              {
+                "image": "https://images.pexels.com/photos/10600142/pexels-photo-10600142.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Smoothening, Keratin & Spa",
+                "desc": "Smoothening and straightening systems, keratin, hair botox, spa products and hair serum.",
+                "meta": "Keratin · Botox · Serum",
+                "price": "Ask for rate"
+              },
+              {
+                "image": "https://images.pexels.com/photos/1327689/pexels-photo-1327689.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Face Makeup",
+                "desc": "Foundation, primer, highlighter, strobe and compact across all brands.",
+                "meta": "Foundation · Primer · Compact",
+                "price": "Ask for rate"
+              },
+              {
+                "image": "https://images.pexels.com/photos/3735655/pexels-photo-3735655.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Salon Disposables",
+                "desc": "Tissue paper, facial gowns, facial bedsheets and facial aprons — the consumables that run out fastest.",
+                "meta": "Gowns · Bedsheets · Aprons",
+                "price": "Ask for rate"
+              },
+              {
+                "image": "https://images.pexels.com/photos/7446413/pexels-photo-7446413.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Makeup Brushes",
+                "desc": "Individual brushes and full professional sets, with holders and cleaning products.",
+                "meta": "Singles & sets",
+                "price": "Ask for rate"
+              },
+              {
+                "image": "https://images.pexels.com/photos/6954964/pexels-photo-6954964.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Manicure & Pedicure",
+                "desc": "Manicure and pedicure tools, kits and consumables for salon treatments.",
+                "meta": "Tools & kits",
+                "price": "Ask for rate"
+              },
+              {
+                "image": "https://images.pexels.com/photos/6387880/pexels-photo-6387880.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Developers — All Brands",
+                "desc": "Cream developers in every volume and brand, matched to the colour lines we stock.",
+                "meta": "All volumes · All brands",
+                "price": "Ask for rate"
+              },
+              {
+                "image": "https://images.pexels.com/photos/3992850/pexels-photo-3992850.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Dummy Stands",
+                "desc": "Mannequin heads and stands for cutting, colouring and styling practice — for salons and training students.",
+                "meta": "Practice heads & stands",
+                "price": "Ask for rate"
+              },
+              {
+                "image": "https://images.pexels.com/photos/38180246/pexels-photo-38180246.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Jewellery",
+                "desc": "Earrings, necklaces, bangles and mangalsutra — imitation jewellery for retail and gifting.",
+                "meta": "Earrings · Necklace · Bangles",
+                "price": "Ask for rate"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-2",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Tell us what you need and we will quote",
+            "sub": "Item, brand and quantity is all we need. Salon and parlour owners get bulk rates.",
+            "ctaPrimary": { "text": "Send an enquiry", "href": "/contact", "style": "primary" }
+          }
+        },
+        {
+          "id": "footer-2",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "blurb": "Indrashobha Cosmetics — gents and ladies parlour products, salon equipment, cosmetics and jewellery. All major brands, open every day 10 AM to 10 PM.",
+            "showContact": false,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Shop",
+                "links": [
+                  { "text": "All products", "href": "/products" },
+                  { "text": "Parlour products & wax", "href": "/products" },
+                  { "text": "Hair colour & developers", "href": "/products" },
+                  { "text": "Salon equipment", "href": "/products" }
+                ]
+              },
+              {
+                "title": "Company",
+                "links": [
+                  { "text": "About us", "href": "/about" },
+                  { "text": "Contact", "href": "/contact" },
+                  { "text": "Opening hours", "href": "/contact" }
+                ]
+              },
+              {
+                "title": "Follow",
+                "links": [
+                  { "text": "Instagram", "href": "https://www.instagram.com/indrashobha_cosmetics?igsh=bHVwMXg1Z2p5cDVi" },
+                  { "text": "Facebook", "href": "https://www.facebook.com/profile.php?id=100092406031030" }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Indrashobha Cosmetics. All rights reserved."
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "about",
+      "slug": "/about",
+      "title": "About",
+      "seo": {
+        "title": "About Indrashobha Cosmetics | Salon Supply, Run by Manisha Choudhari",
+        "description": "Indrashobha Cosmetics supplies gents and ladies parlour products, salon equipment and cosmetics across twenty categories and all major brands. Run by Manisha Choudhari, open seven days a week.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-3",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "links": [
+              { "text": "Home", "href": "/" },
+              { "text": "Products", "href": "/products" },
+              { "text": "About", "href": "/about" },
+              { "text": "Contact", "href": "/contact" }
+            ],
+            "cta": { "text": "Enquire", "href": "/contact", "style": "primary" }
+          }
+        },
+        {
+          "id": "hero-3",
+          "type": "hero",
+          "visible": true,
+          "variant": "centered-bg",
+          "props": {
+            "heading": "About us",
+            "sub": "The supply counter behind a lot of local parlours.",
+            "image": "https://images.pexels.com/photos/1502219/pexels-photo-1502219.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "fullHeight": false
+          },
+          "style": { "overlay": 0.6 }
+        },
+        {
+          "id": "about-2",
+          "type": "about",
+          "visible": true,
+          "variant": "image-left",
+          "props": {
+            "label": "Our Story",
+            "heading": "Stock the whole list, not the highlights",
+            "body": "Most beauty shops carry the products that photograph well. A working parlour needs the rest of it too — the wax strips, the developers, the facial aprons, the box of blades, the dummy stand for practice. Indrashobha Cosmetics was built around that full list.\n\nWe carry twenty categories. On the equipment side that means salon chairs, facial beds, crimpers, dryers, straighteners, tongs, manicure and pedicure sets and dummy stands. On the consumable side it means wax in every flavour and band size, wax heaters and containers, waxing oil, eyebrow razors, tissue, gowns, bedsheets and aprons. And on the product side, hair colour and developers in all brands, facial kits, skin care, hair care, smoothening and keratin systems, makeup, brushes, nail polish and jewellery.\n\nWe sell to both gents and ladies parlours, and to retail customers buying for themselves. There is no separate counter and no minimum — a salon owner restocking for the month and a customer buying one lipstick get the same brands and the same attention.\n\nThe shop is run by Manisha Choudhari and is open seven days a week, 10 AM to 10 PM, which is deliberate: most parlour owners can only get out to restock after their own shop closes.",
+            "image": "https://images.pexels.com/photos/34689878/pexels-photo-34689878.jpeg?auto=compress&cs=tinysrgb&w=1400",
+            "showPillars": false
+          }
+        },
+        {
+          "id": "team-1",
+          "type": "team",
+          "visible": true,
+          "variant": "cards-2",
+          "props": {
+            "label": "Who You Deal With",
+            "heading": "Behind the counter",
+            "items": [
+              {
+                "name": "Manisha Choudhari",
+                "role": "Owner",
+                "meta": "Indrashobha Cosmetics",
+                "bio": "Runs the shop day to day. Knows which brand of colour matches which developer, what a parlour gets through in a month, and what is worth ordering in bulk — worth asking before you buy."
+              },
+              {
+                "name": "Salon & retail counter",
+                "role": "Bulk orders and walk-ins",
+                "meta": "Open 10 AM – 10 PM, seven days",
+                "bio": "Bulk rates for parlour and salon owners, single pieces for retail customers. Send the item, brand and quantity and we will confirm stock and price."
+              }
+            ]
+          }
+        },
+        {
+          "id": "services-1",
+          "type": "services",
+          "visible": true,
+          "variant": "list",
+          "props": {
+            "label": "What We Supply",
+            "heading": "The twenty categories",
+            "sub": "Everything below is stocked. Brands and pack sizes vary — ask and we will tell you what is on the shelf today.",
+            "items": [
+              { "icon": "package", "title": "Salon chairs & facial beds", "desc": "Styling chairs, shampoo stations and facial beds." },
+              { "icon": "zap", "title": "Hair machines", "desc": "Crimper, dryer, straightener and tong." },
+              { "icon": "star", "title": "Makeup material", "desc": "The full makeup counter, all brands." },
+              { "icon": "heart", "title": "Facial kits", "desc": "Complete facial kits in every brand." },
+              { "icon": "heart", "title": "Skin care", "desc": "Face wash, toner, scrub, serum, day and night cream." },
+              { "icon": "package", "title": "Parlour products", "desc": "Wax in all flavours and band sizes, wax strips, heaters, containers, waxing oil, massage cream, scrub and pack." },
+              { "icon": "package", "title": "Hair care", "desc": "Shampoo, conditioner and hair spa." },
+              { "icon": "tag", "title": "Hair colour", "desc": "L'Oréal, Matrix, Streax, Yutika, Enega Fruit Color and Bigen." },
+              { "icon": "star", "title": "Nail polish", "desc": "Full shade ranges, gel and regular." },
+              { "icon": "heart", "title": "Moisturizer", "desc": "Face and body, retail and salon pack sizes." },
+              { "icon": "tool", "title": "Blades for salon", "desc": "Salon razor blades and eyebrow razors, boxed." },
+              { "icon": "package", "title": "Aftershave", "desc": "Lotions and balms for gents parlour work." },
+              { "icon": "award", "title": "Smoothening & keratin", "desc": "Smoothening, straightening, keratin, hair botox, spa products and serum." },
+              { "icon": "star", "title": "Face makeup", "desc": "Foundation, primer, highlighter, strobe and compact." },
+              { "icon": "package", "title": "Salon disposables", "desc": "Tissue paper, facial gowns, bedsheets and aprons." },
+              { "icon": "tool", "title": "Makeup brushes", "desc": "Singles and full professional sets." },
+              { "icon": "tool", "title": "Manicure & pedicure", "desc": "Tools, kits and consumables." },
+              { "icon": "tag", "title": "Developers", "desc": "Cream developers in every volume and brand." },
+              { "icon": "users", "title": "Dummy stands", "desc": "Mannequin heads and stands for practice and training." },
+              { "icon": "star", "title": "Jewellery", "desc": "Earrings, necklaces, bangles and mangalsutra." }
+            ]
+          }
+        },
+        {
+          "id": "gallery-2",
+          "type": "gallery",
+          "visible": true,
+          "variant": "masonry",
+          "props": {
+            "label": "In Store",
+            "heading": "On the shelves",
+            "lightbox": true,
+            "images": [
+              { "image": "https://images.pexels.com/photos/3993308/pexels-photo-3993308.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Row of salon styling chairs" },
+              { "image": "https://images.pexels.com/photos/29038003/pexels-photo-29038003.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Traditional Indian jewellery on a decorated tray" },
+              { "image": "https://images.pexels.com/photos/6954964/pexels-photo-6954964.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Manicure being carried out on a client" },
+              { "image": "https://images.pexels.com/photos/1327689/pexels-photo-1327689.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Eyeshadow palette with a makeup brush" },
+              { "image": "https://images.pexels.com/photos/4154194/pexels-photo-4154194.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Amber pump bottles on a tiled surface" },
+              { "image": "https://images.pexels.com/photos/5563664/pexels-photo-5563664.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Skincare product set arranged on a table" }
+            ]
+          }
+        },
+        {
+          "id": "cta-3",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Restocking this week?",
+            "sub": "Send your list. We will confirm what is in stock and quote bulk rates for parlours and salons.",
+            "ctaPrimary": { "text": "Send an enquiry", "href": "/contact", "style": "primary" }
+          }
+        },
+        {
+          "id": "footer-3",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "blurb": "Indrashobha Cosmetics — gents and ladies parlour products, salon equipment, cosmetics and jewellery. All major brands, open every day 10 AM to 10 PM.",
+            "showContact": false,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Shop",
+                "links": [
+                  { "text": "All products", "href": "/products" },
+                  { "text": "Parlour products & wax", "href": "/products" },
+                  { "text": "Hair colour & developers", "href": "/products" },
+                  { "text": "Salon equipment", "href": "/products" }
+                ]
+              },
+              {
+                "title": "Company",
+                "links": [
+                  { "text": "About us", "href": "/about" },
+                  { "text": "Contact", "href": "/contact" },
+                  { "text": "Opening hours", "href": "/contact" }
+                ]
+              },
+              {
+                "title": "Follow",
+                "links": [
+                  { "text": "Instagram", "href": "https://www.instagram.com/indrashobha_cosmetics?igsh=bHVwMXg1Z2p5cDVi" },
+                  { "text": "Facebook", "href": "https://www.facebook.com/profile.php?id=100092406031030" }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Indrashobha Cosmetics. All rights reserved."
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "contact",
+      "slug": "/contact",
+      "title": "Contact",
+      "seo": {
+        "title": "Contact & Opening Hours | Indrashobha Cosmetics",
+        "description": "Send an enquiry with the item, brand and quantity you need and we will confirm stock and rate. Open every day, 10 AM to 10 PM.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-4",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "links": [
+              { "text": "Home", "href": "/" },
+              { "text": "Products", "href": "/products" },
+              { "text": "About", "href": "/about" },
+              { "text": "Contact", "href": "/contact" }
+            ],
+            "cta": { "text": "Enquire", "href": "/contact", "style": "primary" }
+          }
+        },
+        {
+          "id": "contact-1",
+          "type": "contact",
+          "visible": true,
+          "variant": "form-only",
+          "props": {
+            "label": "Contact",
+            "heading": "Send us an enquiry",
+            "sub": "Tell us the item, the brand you use and roughly how much you need. We will confirm what is in stock and what it will cost.\n\nParlour and salon owners — mention that you are ordering for a salon and we will quote bulk rates.",
+            "showPhone": false,
+            "showWhatsapp": false,
+            "showEmail": false,
+            "showAddress": false,
+            "showHours": true,
+            "submitText": "Send Enquiry"
+          }
+        },
+        {
+          "id": "hours-1",
+          "type": "hours",
+          "visible": true,
+          "props": {
+            "label": "Opening Hours",
+            "heading": "Open every day",
+            "sub": "10 AM to 10 PM, seven days a week.",
+            "highlightToday": true,
+            "note": "Evenings are usually quieter if you are coming in with a long restocking list."
+          }
+        },
+        {
+          "id": "cta-4",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Find us on Instagram and Facebook",
+            "sub": "New stock, brand arrivals and offers get posted there first.",
+            "ctaPrimary": { "text": "Instagram", "href": "https://www.instagram.com/indrashobha_cosmetics?igsh=bHVwMXg1Z2p5cDVi", "style": "primary" },
+            "ctaSecondary": { "text": "Facebook", "href": "https://www.facebook.com/profile.php?id=100092406031030", "style": "ghost" }
+          }
+        },
+        {
+          "id": "footer-4",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "blurb": "Indrashobha Cosmetics — gents and ladies parlour products, salon equipment, cosmetics and jewellery. All major brands, open every day 10 AM to 10 PM.",
+            "showContact": false,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Shop",
+                "links": [
+                  { "text": "All products", "href": "/products" },
+                  { "text": "Parlour products & wax", "href": "/products" },
+                  { "text": "Hair colour & developers", "href": "/products" },
+                  { "text": "Salon equipment", "href": "/products" }
+                ]
+              },
+              {
+                "title": "Company",
+                "links": [
+                  { "text": "About us", "href": "/about" },
+                  { "text": "Contact", "href": "/contact" },
+                  { "text": "Opening hours", "href": "/contact" }
+                ]
+              },
+              {
+                "title": "Follow",
+                "links": [
+                  { "text": "Instagram", "href": "https://www.instagram.com/indrashobha_cosmetics?igsh=bHVwMXg1Z2p5cDVi" },
+                  { "text": "Facebook", "href": "https://www.facebook.com/profile.php?id=100092406031030" }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Indrashobha Cosmetics. All rights reserved."
+          }
+        }
+      ]
+    }
+  ]
+}

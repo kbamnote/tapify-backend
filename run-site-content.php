@@ -36,6 +36,7 @@ $SITES = [
     'raaveekitchen' => ['file' => 'content-raavee-kitchen.json', 'label' => 'Raavee Kitchen and Interior'],
     'aestheticclinic' => ['file' => 'content-aesthetic-clinic.json', 'label' => 'Aesthetic Dental & Skin Clinic'],
     'shrikrushnamotors' => ['file' => 'content-shrikrushna-motors.json', 'label' => 'Shri Krushna Motors'],
+    'indrashobha' => ['file' => 'content-indrashobha-cosmetics.json', 'label' => 'Indrashobha Cosmetics'],
 ];
 
 require_once __DIR__ . '/config/database.php';
