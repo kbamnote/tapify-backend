@@ -13,6 +13,11 @@ class GoogleBusinessClient
     // Business API") and must be enabled there, even though the OAuth scope
     // (business.manage) already covers it. Review calls 404 until it is on.
     const REVIEWS_BASE  = 'https://mybusiness.googleapis.com/v4';
+    // Two more separately-enabled APIs. Same OAuth scope, same 403 until each is
+    // switched on in Cloud Console. Both address a location as a bare
+    // "locations/456" — no account prefix, unlike v4.
+    const PERF_BASE     = 'https://businessprofileperformance.googleapis.com/v1';
+    const QANDA_BASE    = 'https://mybusinessqanda.googleapis.com/v1';
 
     /** @var PDO */
     private $db;
@@ -119,5 +124,178 @@ class GoogleBusinessClient
     {
         $url = self::REVIEWS_BASE . '/' . $reviewName . '/reply';
         return GoogleHttp::put($url, $this->accessToken(), ['comment' => (string)$comment]);
+    }
+
+    /* --------------------------------------------------------------- media */
+
+    /** Photos on the listing. Same v4 API as reviews. */
+    public function listMedia($accountName, $locationName, $pageSize = 100)
+    {
+        $pageSize = max(1, min(2500, (int)$pageSize));
+        $url = self::REVIEWS_BASE . '/' . $accountName . '/' . $locationName . '/media?pageSize=' . $pageSize;
+        $res = GoogleHttp::get($url, $this->accessToken());
+        return [
+            'items' => $res['mediaItems'] ?? [],
+            'total' => (int)($res['totalMediaItemCount'] ?? count($res['mediaItems'] ?? [])),
+        ];
+    }
+
+    /**
+     * Add a photo to the listing from a publicly reachable URL.
+     *
+     * Google fetches the image itself, so the URL must be public and stay up
+     * long enough for that fetch — which is why we push to Cloudinary first
+     * rather than trying to stream bytes from the phone.
+     *
+     * @param string $category LOGO|COVER|EXTERIOR|INTERIOR|PRODUCT|AT_WORK|TEAM|ADDITIONAL…
+     */
+    public function uploadPhoto($accountName, $locationName, $sourceUrl, $category = 'ADDITIONAL')
+    {
+        $url = self::REVIEWS_BASE . '/' . $accountName . '/' . $locationName . '/media';
+        return GoogleHttp::postJson($url, $this->accessToken(), [
+            'mediaFormat'   => 'PHOTO',
+            'locationAssociation' => ['category' => $category],
+            'sourceUrl'     => $sourceUrl,
+        ]);
+    }
+
+    /* --------------------------------------------------------- performance */
+
+    /**
+     * Daily counts for several metrics over one date range, in a single call.
+     *
+     * Dates are passed as separate y/m/d query parameters because that is how
+     * Google's REST transcoding exposes the nested Date message — there is no
+     * "2026-01-31" form.
+     *
+     * @param string $locationName "locations/456"
+     * @param array  $metrics      DailyMetric enum names
+     * @param array  $start        ['y'=>,'m'=>,'d'=>]
+     * @param array  $end          ['y'=>,'m'=>,'d'=>] inclusive
+     * @return array metric name => [ 'YYYY-MM-DD' => int ]
+     */
+    public function fetchDailyMetrics($locationName, array $metrics, array $start, array $end)
+    {
+        $q = [];
+        foreach ($metrics as $m) $q[] = 'dailyMetrics=' . rawurlencode($m);
+        foreach ([['start_date', $start], ['end_date', $end]] as list($k, $d)) {
+            $q[] = "dailyRange.{$k}.year="  . (int)$d['y'];
+            $q[] = "dailyRange.{$k}.month=" . (int)$d['m'];
+            $q[] = "dailyRange.{$k}.day="   . (int)$d['d'];
+        }
+        $url = self::PERF_BASE . '/' . $locationName . ':fetchMultiDailyMetricsTimeSeries?' . implode('&', $q);
+        $res = GoogleHttp::get($url, $this->accessToken());
+
+        // Flatten Google's four levels of nesting into metric => date => count.
+        // Days with no activity are omitted from the response entirely, so the
+        // caller must treat a missing date as zero rather than as missing data.
+        $out = [];
+        foreach ($res['multiDailyMetricTimeSeries'] ?? [] as $group) {
+            foreach ($group['dailyMetricTimeSeries'] ?? [] as $series) {
+                $metric = $series['dailyMetric'] ?? '';
+                if ($metric === '') continue;
+                $byDate = [];
+                foreach ($series['timeSeries']['datedValues'] ?? [] as $dv) {
+                    $dt = $dv['date'] ?? [];
+                    if (empty($dt['year'])) continue;
+                    $key = sprintf('%04d-%02d-%02d', $dt['year'], $dt['month'] ?? 1, $dt['day'] ?? 1);
+                    $byDate[$key] = (int)($dv['value'] ?? 0);
+                }
+                $out[$metric] = $byDate;
+            }
+        }
+        return $out;
+    }
+
+    /* ------------------------------------------------------------------ Q&A */
+
+    /** Questions on the listing, most recently active first. */
+    public function listQuestions($locationName, $pageSize = 20, $answersPerQuestion = 3)
+    {
+        $url = self::QANDA_BASE . '/' . $locationName . '/questions'
+             . '?pageSize=' . max(1, min(50, (int)$pageSize))
+             . '&answersPerQuestion=' . max(1, min(10, (int)$answersPerQuestion))
+             . '&orderBy=' . rawurlencode('updateTime desc');
+        $res = GoogleHttp::get($url, $this->accessToken());
+        return $res['questions'] ?? [];
+    }
+
+    /**
+     * Answer a question as the business.
+     *
+     * upsert, not create: a location may have exactly one answer from the owner,
+     * and posting again edits it. Same shape of constraint as a review reply.
+     *
+     * @param string $questionName "locations/456/questions/789"
+     */
+    public function upsertAnswer($questionName, $text)
+    {
+        $url = self::QANDA_BASE . '/' . $questionName . '/answers:upsert';
+        return GoogleHttp::postJson($url, $this->accessToken(), ['answer' => ['text' => (string)$text]]);
+    }
+
+    /** Post a question on your own listing — how an owner seeds an FAQ. */
+    public function createQuestion($locationName, $text)
+    {
+        $url = self::QANDA_BASE . '/' . $locationName . '/questions';
+        return GoogleHttp::postJson($url, $this->accessToken(), ['text' => (string)$text]);
+    }
+
+    /* ----------------------------------------------------------- attributes */
+
+    /** Attribute values currently set on the listing. */
+    public function getAttributes($locationName)
+    {
+        $res = GoogleHttp::get(self::INFO_BASE . '/' . $locationName . '/attributes', $this->accessToken());
+        return $res['attributes'] ?? [];
+    }
+
+    /**
+     * Every attribute Google offers this listing, with display names.
+     *
+     * Attribute ids are opaque ("has_wheelchair_accessible_entrance"), so the
+     * metadata call is not optional — without it there is nothing to label a
+     * toggle with.
+     */
+    public function listAvailableAttributes($locationName, $languageCode = 'en')
+    {
+        $url = self::INFO_BASE . '/attributes?parent=' . rawurlencode($locationName)
+             . '&languageCode=' . rawurlencode($languageCode) . '&pageSize=200';
+        $res = GoogleHttp::get($url, $this->accessToken());
+        return $res['attributeMetadata'] ?? [];
+    }
+
+    /**
+     * Write attribute values.
+     *
+     * The update mask lists attribute ids, not field paths — an attribute left
+     * out of the mask is untouched, and one named in the mask but absent from
+     * the body is cleared.
+     */
+    public function updateAttributes($locationName, array $attributes, array $attributeIds)
+    {
+        $url = self::INFO_BASE . '/' . $locationName . '/attributes?updateMask='
+             . rawurlencode(implode(',', $attributeIds));
+        return GoogleHttp::patch($url, $this->accessToken(), [
+            'name'       => $locationName . '/attributes',
+            'attributes' => $attributes,
+        ]);
+    }
+
+    /* ------------------------------------------------------------- services */
+
+    /**
+     * Service types Google predefines for a category, e.g. "Teeth whitening"
+     * under Dentist. view=FULL is required — the default view omits them.
+     *
+     * @param string $categoryName "categories/gcid:dentist"
+     */
+    public function listServiceTypes($categoryName, $regionCode = 'IN', $languageCode = 'en')
+    {
+        $url = self::INFO_BASE . '/categories:batchGet?names=' . rawurlencode($categoryName)
+             . '&view=FULL&regionCode=' . rawurlencode($regionCode)
+             . '&languageCode=' . rawurlencode($languageCode);
+        $res = GoogleHttp::get($url, $this->accessToken());
+        return $res['categories'][0]['serviceTypes'] ?? [];
     }
 }

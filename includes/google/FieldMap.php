@@ -21,7 +21,10 @@ class FieldMap
         // receiving them hides its street address, and Google then omits
         // storefrontAddress entirely. Without asking for serviceArea such a
         // listing looks addressless to us even though it is complete on Google.
-        return 'name,title,profile,phoneNumbers,websiteUri,categories,storefrontAddress,serviceArea,regularHours';
+        // metadata carries newReviewUri — the short "write a review" link Google
+        // generates for this listing. It is the only supported way to get it;
+        // building one from the place ID is a fallback, not a substitute.
+        return 'name,title,profile,phoneNumbers,websiteUri,categories,storefrontAddress,serviceArea,regularHours,metadata,serviceItems';
     }
 
     /** Google location resource → flat, app-friendly array. */
@@ -35,6 +38,11 @@ class FieldMap
             'website'          => $loc['websiteUri'] ?? '',
             // read-only display
             'primary_category' => $loc['categories']['primaryCategory']['displayName'] ?? '',
+            // The category's opaque id ("categories/gcid:dentist"). Needed to look
+            // up Google's suggested service types, and required on every
+            // free-form service we write back.
+            'primary_category_id' => $loc['categories']['primaryCategory']['name'] ?? '',
+            'services'         => self::servicesToApp($loc['serviceItems'] ?? []),
             'address'          => self::formatAddress($loc['storefrontAddress'] ?? null)
                                   ?: self::formatServiceArea($loc['serviceArea'] ?? null),
             // City on its own, because `address` is a flattened comma-joined string
@@ -47,7 +55,31 @@ class FieldMap
             // so nothing downstream should treat it as a gap to be fixed.
             'is_service_area'  => empty($loc['storefrontAddress']) && !empty($loc['serviceArea']),
             'hours'            => self::formatHours($loc['regularHours'] ?? null),
+            // Links Google publishes for this listing. Not fields — you cannot
+            // write them — but the review link is what the whole Request a
+            // Review feature sends, so it travels with the rest of the listing.
+            'review_link'      => self::reviewLink($loc['metadata'] ?? null),
+            'maps_link'        => $loc['metadata']['mapsUri'] ?? '',
         ];
+    }
+
+    /**
+     * The "write a review" URL for this listing.
+     *
+     * Google hands us a short one in metadata.newReviewUri. When it is absent —
+     * some listings, and any response fetched before `metadata` was added to the
+     * readMask — fall back to composing the documented long form from the place
+     * ID. Returns '' when neither is available, and callers must treat that as
+     * "cannot ask for reviews yet" rather than sending a broken link.
+     */
+    private static function reviewLink($metadata)
+    {
+        if (!is_array($metadata)) return '';
+        if (!empty($metadata['newReviewUri'])) return $metadata['newReviewUri'];
+        if (!empty($metadata['placeId'])) {
+            return 'https://search.google.com/local/writereview?placeid=' . rawurlencode($metadata['placeId']);
+        }
+        return '';
     }
 
     /**
@@ -127,6 +159,110 @@ class FieldMap
         }
         $lastSpace = (int) mb_strrpos($cut, ' ');
         return trim($lastSpace > 0 ? mb_substr($cut, 0, $lastSpace) : $cut);
+    }
+
+    /* --------------------------------------------------------------- services */
+
+    /**
+     * Google's serviceItems → a flat list the app can render and edit.
+     *
+     * Two shapes exist and they are not interchangeable. A *structured* item
+     * points at one of Google's predefined service types for the category and
+     * carries no name of its own — the name lives in Google's taxonomy. A
+     * *free-form* item carries its own label. Both may have a price. The app
+     * gets one shape with a `type` discriminator so it never has to know this.
+     */
+    public static function servicesToApp($items)
+    {
+        if (!is_array($items)) return [];
+        $out = [];
+        foreach ($items as $it) {
+            if (!empty($it['structuredServiceItem'])) {
+                $s = $it['structuredServiceItem'];
+                $out[] = [
+                    'type'            => 'structured',
+                    'service_type_id' => $s['serviceTypeId'] ?? '',
+                    'name'            => '',   // resolved from the category's service types
+                    'description'     => $s['description'] ?? '',
+                    'price'           => self::priceToApp($it['price'] ?? null),
+                ];
+            } elseif (!empty($it['freeFormServiceItem'])) {
+                $f = $it['freeFormServiceItem'];
+                $out[] = [
+                    'type'        => 'free',
+                    'category'    => $f['category'] ?? '',
+                    'name'        => $f['label']['displayName'] ?? '',
+                    'description' => $f['label']['description'] ?? '',
+                    'price'       => self::priceToApp($it['price'] ?? null),
+                ];
+            }
+        }
+        return $out;
+    }
+
+    /**
+     * App list → Google serviceItems.
+     *
+     * @param string $categoryId "categories/gcid:dentist", stamped onto every
+     *                           free-form item because Google requires it and the
+     *                           app has no reason to carry it per row.
+     */
+    public static function servicesToGoogle(array $services, $categoryId, $currency = 'INR')
+    {
+        $out = [];
+        foreach ($services as $s) {
+            $name  = trim((string)($s['name'] ?? ''));
+            $desc  = trim((string)($s['description'] ?? ''));
+            $typeId = trim((string)($s['service_type_id'] ?? ''));
+            $item  = [];
+
+            if ($typeId !== '') {
+                $item['structuredServiceItem'] = array_filter([
+                    'serviceTypeId' => $typeId,
+                    'description'   => $desc,
+                ], fn($v) => $v !== '');
+            } elseif ($name !== '') {
+                if ($categoryId === '') continue;   // free-form without a category is rejected
+                $item['freeFormServiceItem'] = [
+                    'category' => $categoryId,
+                    'label'    => array_filter([
+                        'displayName' => $name,
+                        'description' => $desc,
+                        'languageCode' => 'en',
+                    ], fn($v) => $v !== ''),
+                ];
+            } else {
+                continue;   // neither a type nor a name: nothing to write
+            }
+
+            $price = self::priceToGoogle($s['price'] ?? null, $currency);
+            if ($price !== null) $item['price'] = $price;
+            $out[] = $item;
+        }
+        return $out;
+    }
+
+    /** Google Money → a plain number the app can put in a text field. */
+    private static function priceToApp($price)
+    {
+        if (!is_array($price) || !isset($price['units']) && !isset($price['nanos'])) return null;
+        $units = (float)($price['units'] ?? 0);
+        $nanos = (float)($price['nanos'] ?? 0) / 1000000000;
+        return round($units + $nanos, 2);
+    }
+
+    /** A number the customer typed → Google Money. */
+    private static function priceToGoogle($value, $currency)
+    {
+        if ($value === null || $value === '' || !is_numeric($value)) return null;
+        $amount = (float)$value;
+        if ($amount <= 0) return null;
+        $units = (int)floor($amount);
+        return [
+            'currencyCode' => $currency,
+            'units'        => (string)$units,
+            'nanos'        => (int)round(($amount - $units) * 1000000000),
+        ];
     }
 
     /**

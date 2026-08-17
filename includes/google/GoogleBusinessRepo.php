@@ -158,6 +158,64 @@ class GoogleBusinessRepo
         $stmt->execute([(int)$enabled, (int)$minStars, $userId]);
     }
 
+    /* ------------------------------------------------------ review requests */
+
+    /**
+     * Record that a customer was asked for a review.
+     *
+     * Recorded on the owner's say-so, not on delivery: the message leaves from
+     * their own WhatsApp or SMS app, so we genuinely cannot know whether it was
+     * sent. Logging the intent is honest and still does the job the log exists
+     * for, which is preventing the same person being asked twice.
+     */
+    public function logReviewRequest($userId, $locationId, $name, $phone, $channel)
+    {
+        $stmt = $this->db->prepare(
+            "INSERT INTO google_review_requests (user_id, location_id, customer_name, phone, channel)
+             VALUES (?, ?, ?, ?, ?)"
+        );
+        $stmt->execute([$userId, $locationId, $name !== '' ? $name : null, $phone, $channel]);
+        return (int)$this->db->lastInsertId();
+    }
+
+    /** This user's requests, newest first. */
+    public function reviewRequests($userId, $limit = 100)
+    {
+        try {
+            $limit = max(1, min(500, (int)$limit));
+            // Interpolated because MySQL will not bind a LIMIT under emulated
+            // prepares; cast above makes it safe.
+            $stmt = $this->db->prepare(
+                "SELECT id, customer_name, phone, channel, created_at
+                   FROM google_review_requests
+                  WHERE user_id = ?
+                  ORDER BY id DESC
+                  LIMIT {$limit}"
+            );
+            $stmt->execute([$userId]);
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $e) {
+            // Table not migrated yet — an empty log must not break sending.
+            return [];
+        }
+    }
+
+    /** When this user last asked this number, or null. */
+    public function lastRequestTo($userId, $phone)
+    {
+        try {
+            $stmt = $this->db->prepare(
+                "SELECT created_at FROM google_review_requests
+                  WHERE user_id = ? AND phone = ? ORDER BY id DESC LIMIT 1"
+            );
+            $stmt->execute([$userId, $phone]);
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $row ? $row['created_at'] : null;
+        } catch (Exception $e) {
+            return null;
+        }
+    }
+
     /** Connections that have opted in to automatic replying (for the cron). */
     public function autoReplyUsers()
     {
