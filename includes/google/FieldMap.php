@@ -17,7 +17,11 @@ class FieldMap
     /** readMask for GET location. */
     public static function readMask()
     {
-        return 'name,title,profile,phoneNumbers,websiteUri,categories,storefrontAddress,regularHours';
+        // serviceArea matters: a business that delivers to customers rather than
+        // receiving them hides its street address, and Google then omits
+        // storefrontAddress entirely. Without asking for serviceArea such a
+        // listing looks addressless to us even though it is complete on Google.
+        return 'name,title,profile,phoneNumbers,websiteUri,categories,storefrontAddress,serviceArea,regularHours';
     }
 
     /** Google location resource → flat, app-friendly array. */
@@ -31,12 +35,17 @@ class FieldMap
             'website'          => $loc['websiteUri'] ?? '',
             // read-only display
             'primary_category' => $loc['categories']['primaryCategory']['displayName'] ?? '',
-            'address'          => self::formatAddress($loc['storefrontAddress'] ?? null),
+            'address'          => self::formatAddress($loc['storefrontAddress'] ?? null)
+                                  ?: self::formatServiceArea($loc['serviceArea'] ?? null),
             // City on its own, because `address` is a flattened comma-joined string
             // and the AI Growth tools need the city as a discrete value. Splitting
             // the joined string on the client guesses wrong the moment a listing has
             // one address line, or none.
-            'city'             => $loc['storefrontAddress']['locality'] ?? '',
+            'city'             => $loc['storefrontAddress']['locality'] ?? self::firstServiceArea($loc['serviceArea'] ?? null),
+            // True when the business hides its address and serves customers at
+            // their location. Such a listing is complete WITHOUT a street address,
+            // so nothing downstream should treat it as a gap to be fixed.
+            'is_service_area'  => empty($loc['storefrontAddress']) && !empty($loc['serviceArea']),
             'hours'            => self::formatHours($loc['regularHours'] ?? null),
         ];
     }
@@ -118,6 +127,33 @@ class FieldMap
         }
         $lastSpace = (int) mb_strrpos($cut, ' ');
         return trim($lastSpace > 0 ? mb_substr($cut, 0, $lastSpace) : $cut);
+    }
+
+    /**
+     * Service-area businesses list the places they serve instead of a street
+     * address. Render those as the location line so the app has something true
+     * to show rather than an empty field.
+     */
+    private static function formatServiceArea($area)
+    {
+        if (!is_array($area)) return '';
+        $names = [];
+        foreach ($area['places']['placeInfos'] ?? [] as $p) {
+            if (!empty($p['placeName'])) $names[] = $p['placeName'];
+        }
+        if (!$names) return '';
+        $shown = array_slice($names, 0, 3);
+        $more  = count($names) - count($shown);
+        return 'Serves ' . implode(', ', $shown) . ($more > 0 ? " and {$more} more" : '');
+    }
+
+    /** First served place, used as the city when there is no storefront. */
+    private static function firstServiceArea($area)
+    {
+        if (!is_array($area)) return '';
+        $first = $area['places']['placeInfos'][0]['placeName'] ?? '';
+        // "Nagpur, Maharashtra, India" → "Nagpur"
+        return trim(explode(',', (string)$first)[0]);
     }
 
     private static function formatAddress($addr)

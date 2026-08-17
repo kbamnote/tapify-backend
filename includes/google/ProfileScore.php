@@ -90,13 +90,21 @@ class ProfileScore
             null, 'google_business'
         );
 
-        // ── Address (13) ──────────────────────────────────────────────────────
+        // ── Address or service area (13) ──────────────────────────────────────
+        // A service-area business deliberately hides its street address; Google
+        // considers that listing complete. Scoring it as a missing address would
+        // be both wrong and unfixable, so either satisfies this.
         $addr = trim((string)($fields['address'] ?? ''));
+        $isSab = !empty($fields['is_service_area']);
         $items[] = self::item(
-            'address', 'Business address', 13, $addr !== '' ? 13 : 0,
+            'address',
+            $isSab ? 'Service area' : 'Business address',
+            13, $addr !== '' ? 13 : 0,
             $addr !== ''
-                ? 'Your address is on the listing, so you can appear in "near me" searches.'
-                : 'No address. Without one you are largely excluded from local and "near me" results.',
+                ? ($isSab
+                    ? 'Your service area is set, so you appear in local searches across the places you cover.'
+                    : 'Your address is on the listing, so you can appear in "near me" searches.')
+                : 'No address or service area set. Without either you are largely excluded from local and "near me" results.',
             null, 'google_business'
         );
 
