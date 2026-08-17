@@ -28,10 +28,22 @@
   },
   "nav": {
     "header": [
-      { "label": "Home", "pageId": "home" },
-      { "label": "Products", "pageId": "products" },
-      { "label": "About", "pageId": "about" },
-      { "label": "Contact", "pageId": "contact" }
+      {
+        "label": "Home",
+        "pageId": "home"
+      },
+      {
+        "label": "Products",
+        "pageId": "products"
+      },
+      {
+        "label": "About",
+        "pageId": "about"
+      },
+      {
+        "label": "Contact",
+        "pageId": "contact"
+      }
     ]
   },
   "business": {
@@ -40,16 +52,43 @@
       "facebook": "https://www.facebook.com/profile.php?id=100092406031030"
     },
     "hours": [
-      { "day": "mon", "open": "10:00 AM", "close": "10:00 PM" },
-      { "day": "tue", "open": "10:00 AM", "close": "10:00 PM" },
-      { "day": "wed", "open": "10:00 AM", "close": "10:00 PM" },
-      { "day": "thu", "open": "10:00 AM", "close": "10:00 PM" },
-      { "day": "fri", "open": "10:00 AM", "close": "10:00 PM" },
-      { "day": "sat", "open": "10:00 AM", "close": "10:00 PM" },
-      { "day": "sun", "open": "10:00 AM", "close": "10:00 PM" }
+      {
+        "day": "mon",
+        "open": "10:00 AM",
+        "close": "10:00 PM"
+      },
+      {
+        "day": "tue",
+        "open": "10:00 AM",
+        "close": "10:00 PM"
+      },
+      {
+        "day": "wed",
+        "open": "10:00 AM",
+        "close": "10:00 PM"
+      },
+      {
+        "day": "thu",
+        "open": "10:00 AM",
+        "close": "10:00 PM"
+      },
+      {
+        "day": "fri",
+        "open": "10:00 AM",
+        "close": "10:00 PM"
+      },
+      {
+        "day": "sat",
+        "open": "10:00 AM",
+        "close": "10:00 PM"
+      },
+      {
+        "day": "sun",
+        "open": "10:00 AM",
+        "close": "10:00 PM"
+      }
     ]
   },
-
   "pages": [
     {
       "id": "home",
@@ -67,15 +106,31 @@
           "visible": true,
           "props": {
             "sticky": true,
-            "showCart": false,
+            "showCart": true,
             "showAccount": false,
             "links": [
-              { "text": "Home", "href": "/" },
-              { "text": "Products", "href": "/products" },
-              { "text": "About", "href": "/about" },
-              { "text": "Contact", "href": "/contact" }
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Products",
+                "href": "/products"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
             ],
-            "cta": { "text": "Enquire", "href": "/contact", "style": "primary" }
+            "cta": {
+              "text": "Enquire",
+              "href": "/contact",
+              "style": "primary"
+            }
           }
         },
         {
@@ -90,10 +145,20 @@
             "image": "https://images.pexels.com/photos/1571585/beauty-fashion-background-shop-1571585.jpeg?auto=compress&cs=tinysrgb&w=1600",
             "videoUrl": "https://videos.pexels.com/video-files/16945750/16945750-hd_1280_720_50fps.mp4",
             "fullHeight": true,
-            "ctaPrimary": { "text": "See all products", "href": "/products", "style": "primary" },
-            "ctaSecondary": { "text": "Enquire on WhatsApp", "href": "/contact", "style": "ghost" }
+            "ctaPrimary": {
+              "text": "See all products",
+              "href": "/products",
+              "style": "primary"
+            },
+            "ctaSecondary": {
+              "text": "Enquire on WhatsApp",
+              "href": "/contact",
+              "style": "ghost"
+            }
           },
-          "style": { "overlay": 0.55 }
+          "style": {
+            "overlay": 0.55
+          }
         },
         {
           "id": "about-1",
@@ -107,10 +172,26 @@
             "image": "https://images.pexels.com/photos/3735655/pexels-photo-3735655.jpeg?auto=compress&cs=tinysrgb&w=1400",
             "showPillars": true,
             "pillars": [
-              { "icon": "package", "title": "20 categories", "text": "Chairs and beds through to jewellery — the whole parlour list in one place, so you are not chasing four suppliers." },
-              { "icon": "award", "title": "All major brands", "text": "L'Oréal, Matrix, Streax, Yutika, Enega, Bigen and more — for hair colour, developers and facial kits." },
-              { "icon": "users", "title": "Salon and retail", "text": "Bulk for parlour owners, single pieces for walk-in customers. Same counter, same brands." },
-              { "icon": "clock", "title": "Open every day", "text": "10 AM to 10 PM, all seven days — including the evenings when most salon owners are free to restock." }
+              {
+                "icon": "package",
+                "title": "20 categories",
+                "text": "Chairs and beds through to jewellery — the whole parlour list in one place, so you are not chasing four suppliers."
+              },
+              {
+                "icon": "award",
+                "title": "All major brands",
+                "text": "L'Oréal, Matrix, Streax, Yutika, Enega, Bigen and more — for hair colour, developers and facial kits."
+              },
+              {
+                "icon": "users",
+                "title": "Salon and retail",
+                "text": "Bulk for parlour owners, single pieces for walk-in customers. Same counter, same brands."
+              },
+              {
+                "icon": "clock",
+                "title": "Open every day",
+                "text": "10 AM to 10 PM, all seven days — including the evenings when most salon owners are free to restock."
+              }
             ]
           }
         },
@@ -122,49 +203,183 @@
           "props": {
             "label": "What We Stock",
             "heading": "Popular categories",
-            "sub": "A sample of what is on the shelves. Rates depend on brand, size and quantity — send us the item and we will quote.",
+            "sub": "A sample of what is on the shelves. Open any category to choose your brand and place an order.",
             "items": [
               {
                 "image": "https://images.pexels.com/photos/3993308/pexels-photo-3993308.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Salon Chairs & Facial Beds",
-                "desc": "Styling chairs, shampoo stations and facial beds for parlour setups — new fit-outs and replacements.",
-                "meta": "Equipment · Delivery available",
-                "price": "Ask for rate"
+                "desc": "Styling chairs, shampoo stations and facial beds for new parlour setups and replacements.",
+                "meta": "Equipment",
+                "price": "Ask for rate",
+                "slug": "salon-chairs-facial-beds",
+                "enableOrder": true,
+                "body": "Furniture for a working parlour — salon styling chairs and facial beds, suitable for a new setup or for replacing a chair that has given up.\n\nWe stock more than one build quality, because a chair for a busy chain of appointments is a different purchase from a chair for a home parlour. Come and sit in them if you can; if you cannot, tell us how many hours a day it will be in use and we will point you at the right one.\n\nDelivery can be arranged locally. For a full parlour fit-out, send us your floor plan or just the number of stations and we will quote the lot together — that is usually cheaper than buying piece by piece.\n\nRate on request, as it depends on model and quantity.",
+                "attributes": [
+                  {
+                    "name": "Type",
+                    "options": [
+                      {
+                        "value": "Salon chair"
+                      },
+                      {
+                        "value": "Facial bed"
+                      }
+                    ]
+                  }
+                ]
               },
               {
                 "image": "https://images.pexels.com/photos/33401814/pexels-photo-33401814.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Hair Machines",
-                "desc": "Crimpers, dryers, straighteners and tongs — professional models built for daily salon use.",
+                "desc": "Crimpers, dryers, straighteners and tongs — professional models for daily salon use.",
                 "meta": "Crimper · Dryer · Straightener · Tong",
-                "price": "Ask for rate"
+                "price": "Ask for rate",
+                "slug": "hair-machines",
+                "enableOrder": true,
+                "body": "Professional hair machines built for salon duty cycles rather than occasional home use — crimpers, dryers, straighteners and tongs.\n\nThe difference between a retail model and a salon model is mostly heat recovery and motor life. A dryer used thirty times a day needs a different motor from one used twice a week, and a straightener used back to back needs plates that come back to temperature quickly. We stock both, and we will tell you honestly which one your workload needs.\n\nTell us the machine and roughly how many clients a day it will handle, and we will quote what suits. Rate on request.",
+                "attributes": [
+                  {
+                    "name": "Machine",
+                    "options": [
+                      {
+                        "value": "Crimper"
+                      },
+                      {
+                        "value": "Dryer"
+                      },
+                      {
+                        "value": "Straightener"
+                      },
+                      {
+                        "value": "Tong"
+                      }
+                    ]
+                  }
+                ]
               },
               {
                 "image": "https://images.pexels.com/photos/12969358/pexels-photo-12969358.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Parlour Products & Wax",
-                "desc": "Wax in all flavours and band sizes, wax strips, wax heaters and containers, waxing oil, eyebrow razors, massage cream, scrub and pack.",
+                "desc": "Wax in all flavours and band sizes, wax strips, heaters, containers, waxing oil, eyebrow razors, massage cream, scrub and pack.",
                 "meta": "All flavours · All band sizes",
-                "price": "Ask for rate"
+                "price": "Ask for rate",
+                "slug": "parlour-products-wax",
+                "enableOrder": true,
+                "body": "The waxing and general parlour consumables — the things that run out fastest and are most annoying to be caught short of.\n\nWax in all flavours and band sizes, wax strips, wax heaters and spare containers, waxing oil, eyebrow razors, massage cream, scrub and pack.\n\nThis is the category most worth ordering in bulk. Wax and strips keep well, the per-unit rate drops sharply with quantity, and running out mid-appointment costs more than the storage space. If you tell us roughly how many waxing appointments you do in a month we can suggest a sensible reorder quantity rather than you guessing.\n\nRate on request — it varies by flavour, band size and quantity.",
+                "attributes": [
+                  {
+                    "name": "Item",
+                    "options": [
+                      {
+                        "value": "Wax"
+                      },
+                      {
+                        "value": "Wax strips"
+                      },
+                      {
+                        "value": "Wax heater"
+                      },
+                      {
+                        "value": "Wax container"
+                      },
+                      {
+                        "value": "Waxing oil"
+                      },
+                      {
+                        "value": "Eyebrow razor"
+                      },
+                      {
+                        "value": "Massage cream"
+                      },
+                      {
+                        "value": "Scrub"
+                      },
+                      {
+                        "value": "Pack"
+                      }
+                    ]
+                  }
+                ]
               },
               {
                 "image": "https://images.pexels.com/photos/3993471/pexels-photo-3993471.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Hair Colour",
-                "desc": "L'Oréal, Matrix, Streax, Yutika, Enega Fruit Color and Bigen — full shade ranges, plus developers in all brands.",
+                "desc": "L'Oréal, Matrix, Streax, Yutika, Enega Fruit Color and Bigen — full shade ranges.",
                 "meta": "L'Oréal · Matrix · Streax · Bigen",
-                "price": "Ask for rate"
+                "price": "Ask for rate",
+                "slug": "hair-colour",
+                "enableOrder": true,
+                "body": "Full shade ranges from the brands salons here actually use — L'Oréal, Matrix, Streax, Yutika, Enega Fruit Color and Bigen.\n\nWe keep the common shades in depth rather than one tube of everything, so a mid-appointment top-up is usually possible. If you work in a shade we do not have on the shelf, tell us and we will get it in.\n\nDevelopers are listed separately and are stocked in all brands. If you are new to a colour line, order the matching developer with it — cross-brand mixing is the most common cause of a result that does not lift the way the chart says.\n\nRate on request, by brand and shade.",
+                "attributes": [
+                  {
+                    "name": "Brand",
+                    "options": [
+                      {
+                        "value": "L'Oréal"
+                      },
+                      {
+                        "value": "Matrix"
+                      },
+                      {
+                        "value": "Streax"
+                      },
+                      {
+                        "value": "Yutika"
+                      },
+                      {
+                        "value": "Enega Fruit Color"
+                      },
+                      {
+                        "value": "Bigen"
+                      }
+                    ]
+                  }
+                ]
               },
               {
                 "image": "https://images.pexels.com/photos/33362027/pexels-photo-33362027.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Skin Care",
-                "desc": "Face wash, toner, scrub, serum, and day and night creams across all the brands salons and customers ask for.",
+                "desc": "Face wash, toner, scrub, serum, and day and night creams.",
                 "meta": "Cleanse · Tone · Treat · Moisturise",
-                "price": "Ask for rate"
+                "price": "Ask for rate",
+                "slug": "skin-care",
+                "enableOrder": true,
+                "body": "The full skin care shelf — face wash, toner, scrub, serum, and day and night creams.\n\nStocked for both sides of the counter: salon-size containers for treatments, and retail packs for clients who want to carry the routine home. Retailing the aftercare is usually the easiest extra margin a parlour can add, and clients tend to prefer buying it from the person who just did their facial.\n\nIf you are putting together a retail shelf for the first time, tell us roughly what your clients spend and we will suggest a starting range rather than selling you one of everything.\n\nRate on request.",
+                "attributes": [
+                  {
+                    "name": "Product",
+                    "options": [
+                      {
+                        "value": "Face wash"
+                      },
+                      {
+                        "value": "Toner"
+                      },
+                      {
+                        "value": "Scrub"
+                      },
+                      {
+                        "value": "Serum"
+                      },
+                      {
+                        "value": "Day cream"
+                      },
+                      {
+                        "value": "Night cream"
+                      }
+                    ]
+                  }
+                ]
               },
               {
                 "image": "https://images.pexels.com/photos/1571585/beauty-fashion-background-shop-1571585.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Makeup Material",
-                "desc": "The full makeup counter — foundation, primer, highlighter, strobe, compact, lipsticks and eye products.",
+                "desc": "The full makeup counter across all the brands salons and customers ask for.",
                 "meta": "All brands",
-                "price": "Ask for rate"
+                "price": "Ask for rate",
+                "slug": "makeup-material",
+                "enableOrder": true,
+                "body": "The general makeup counter — lipsticks, eye products, kajal, liners and the rest of the everyday range, across the brands both salons and retail customers ask for.\n\nFor face products specifically (foundation, primer, highlighter, strobe and compact), see the Face Makeup listing, which is stocked separately.\n\nBridal and party makeup artists ordering a working kit rather than single pieces should tell us that when enquiring — we will put the list together and quote it as a set, which usually works out better than item by item.\n\nRate on request; it depends entirely on brand and pack."
               }
             ]
           }
@@ -180,15 +395,42 @@
             "sub": "Products, equipment and accessories across the counter.",
             "lightbox": true,
             "images": [
-              { "image": "https://images.pexels.com/photos/1571585/beauty-fashion-background-shop-1571585.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Rows of lipsticks and makeup on a store display" },
-              { "image": "https://images.pexels.com/photos/7446413/pexels-photo-7446413.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Professional makeup brush set laid out" },
-              { "image": "https://images.pexels.com/photos/6387876/pexels-photo-6387876.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Colourful shampoo and conditioner bottles" },
-              { "image": "https://images.pexels.com/photos/38180246/pexels-photo-38180246.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Display wall of earrings on a shop stand" },
-              { "image": "https://images.pexels.com/photos/3992850/pexels-photo-3992850.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Salon interior with styling chairs and equipment" },
-              { "image": "https://images.pexels.com/photos/10600142/pexels-photo-10600142.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Row of serum and treatment bottles" },
-              { "image": "https://images.pexels.com/photos/32989030/pexels-photo-32989030.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Gold jhumka earrings on a display stand" },
-              { "image": "https://images.pexels.com/photos/1502219/pexels-photo-1502219.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Flat lay of assorted cosmetics and skincare" },
-              { "image": "https://images.pexels.com/photos/17124942/pexels-photo-17124942.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Nail polish bottles in a range of shades" }
+              {
+                "image": "https://images.pexels.com/photos/1571585/beauty-fashion-background-shop-1571585.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Rows of lipsticks and makeup on a store display"
+              },
+              {
+                "image": "https://images.pexels.com/photos/7446413/pexels-photo-7446413.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Professional makeup brush set laid out"
+              },
+              {
+                "image": "https://images.pexels.com/photos/6387876/pexels-photo-6387876.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Colourful shampoo and conditioner bottles"
+              },
+              {
+                "image": "https://images.pexels.com/photos/38180246/pexels-photo-38180246.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Display wall of earrings on a shop stand"
+              },
+              {
+                "image": "https://images.pexels.com/photos/3992850/pexels-photo-3992850.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Salon interior with styling chairs and equipment"
+              },
+              {
+                "image": "https://images.pexels.com/photos/10600142/pexels-photo-10600142.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Row of serum and treatment bottles"
+              },
+              {
+                "image": "https://images.pexels.com/photos/32989030/pexels-photo-32989030.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Gold jhumka earrings on a display stand"
+              },
+              {
+                "image": "https://images.pexels.com/photos/1502219/pexels-photo-1502219.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Flat lay of assorted cosmetics and skincare"
+              },
+              {
+                "image": "https://images.pexels.com/photos/17124942/pexels-photo-17124942.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Nail polish bottles in a range of shades"
+              }
             ]
           }
         },
@@ -200,7 +442,11 @@
           "props": {
             "heading": "Need a rate or want to check stock?",
             "sub": "Send us the item name and the brand you use — we will confirm availability and price. Bulk rates for salons and parlours.",
-            "ctaPrimary": { "text": "Send an enquiry", "href": "/contact", "style": "primary" }
+            "ctaPrimary": {
+              "text": "Send an enquiry",
+              "href": "/contact",
+              "style": "primary"
+            }
           }
         },
         {
@@ -218,25 +464,52 @@
               {
                 "title": "Shop",
                 "links": [
-                  { "text": "All products", "href": "/products" },
-                  { "text": "Parlour products & wax", "href": "/products" },
-                  { "text": "Hair colour & developers", "href": "/products" },
-                  { "text": "Salon equipment", "href": "/products" }
+                  {
+                    "text": "All products",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Parlour products & wax",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Hair colour & developers",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Salon equipment",
+                    "href": "/products"
+                  }
                 ]
               },
               {
                 "title": "Company",
                 "links": [
-                  { "text": "About us", "href": "/about" },
-                  { "text": "Contact", "href": "/contact" },
-                  { "text": "Opening hours", "href": "/contact" }
+                  {
+                    "text": "About us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Contact",
+                    "href": "/contact"
+                  },
+                  {
+                    "text": "Opening hours",
+                    "href": "/contact"
+                  }
                 ]
               },
               {
                 "title": "Follow",
                 "links": [
-                  { "text": "Instagram", "href": "https://www.instagram.com/indrashobha_cosmetics?igsh=bHVwMXg1Z2p5cDVi" },
-                  { "text": "Facebook", "href": "https://www.facebook.com/profile.php?id=100092406031030" }
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/indrashobha_cosmetics?igsh=bHVwMXg1Z2p5cDVi"
+                  },
+                  {
+                    "text": "Facebook",
+                    "href": "https://www.facebook.com/profile.php?id=100092406031030"
+                  }
                 ]
               }
             ],
@@ -246,7 +519,6 @@
         }
       ]
     },
-
     {
       "id": "products",
       "slug": "/products",
@@ -263,15 +535,31 @@
           "visible": true,
           "props": {
             "sticky": true,
-            "showCart": false,
+            "showCart": true,
             "showAccount": false,
             "links": [
-              { "text": "Home", "href": "/" },
-              { "text": "Products", "href": "/products" },
-              { "text": "About", "href": "/about" },
-              { "text": "Contact", "href": "/contact" }
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Products",
+                "href": "/products"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
             ],
-            "cta": { "text": "Enquire", "href": "/contact", "style": "primary" }
+            "cta": {
+              "text": "Enquire",
+              "href": "/contact",
+              "style": "primary"
+            }
           }
         },
         {
@@ -285,7 +573,9 @@
             "image": "https://images.pexels.com/photos/3735655/pexels-photo-3735655.jpeg?auto=compress&cs=tinysrgb&w=1600",
             "fullHeight": false
           },
-          "style": { "overlay": 0.6 }
+          "style": {
+            "overlay": 0.6
+          }
         },
         {
           "id": "products-2",
@@ -295,147 +585,549 @@
           "props": {
             "label": "Full Range",
             "heading": "Everything we stock",
-            "sub": "Rates depend on brand, pack size and quantity. Send us the item and brand you use and we will quote — bulk rates for salons and parlours.",
+            "sub": "Pick a category, choose the brand or item you need, and place the order. We confirm stock and the rate before anything is dispatched — bulk rates for salons and parlours.",
             "items": [
               {
                 "image": "https://images.pexels.com/photos/3993308/pexels-photo-3993308.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Salon Chairs & Facial Beds",
                 "desc": "Styling chairs, shampoo stations and facial beds for new parlour setups and replacements.",
                 "meta": "Equipment",
-                "price": "Ask for rate"
+                "price": "Ask for rate",
+                "slug": "salon-chairs-facial-beds",
+                "enableOrder": true,
+                "body": "Furniture for a working parlour — salon styling chairs and facial beds, suitable for a new setup or for replacing a chair that has given up.\n\nWe stock more than one build quality, because a chair for a busy chain of appointments is a different purchase from a chair for a home parlour. Come and sit in them if you can; if you cannot, tell us how many hours a day it will be in use and we will point you at the right one.\n\nDelivery can be arranged locally. For a full parlour fit-out, send us your floor plan or just the number of stations and we will quote the lot together — that is usually cheaper than buying piece by piece.\n\nRate on request, as it depends on model and quantity.",
+                "attributes": [
+                  {
+                    "name": "Type",
+                    "options": [
+                      {
+                        "value": "Salon chair"
+                      },
+                      {
+                        "value": "Facial bed"
+                      }
+                    ]
+                  }
+                ]
               },
               {
                 "image": "https://images.pexels.com/photos/33401814/pexels-photo-33401814.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Hair Machines",
                 "desc": "Crimpers, dryers, straighteners and tongs — professional models for daily salon use.",
                 "meta": "Crimper · Dryer · Straightener · Tong",
-                "price": "Ask for rate"
+                "price": "Ask for rate",
+                "slug": "hair-machines",
+                "enableOrder": true,
+                "body": "Professional hair machines built for salon duty cycles rather than occasional home use — crimpers, dryers, straighteners and tongs.\n\nThe difference between a retail model and a salon model is mostly heat recovery and motor life. A dryer used thirty times a day needs a different motor from one used twice a week, and a straightener used back to back needs plates that come back to temperature quickly. We stock both, and we will tell you honestly which one your workload needs.\n\nTell us the machine and roughly how many clients a day it will handle, and we will quote what suits. Rate on request.",
+                "attributes": [
+                  {
+                    "name": "Machine",
+                    "options": [
+                      {
+                        "value": "Crimper"
+                      },
+                      {
+                        "value": "Dryer"
+                      },
+                      {
+                        "value": "Straightener"
+                      },
+                      {
+                        "value": "Tong"
+                      }
+                    ]
+                  }
+                ]
               },
               {
                 "image": "https://images.pexels.com/photos/1571585/beauty-fashion-background-shop-1571585.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Makeup Material",
                 "desc": "The full makeup counter across all the brands salons and customers ask for.",
                 "meta": "All brands",
-                "price": "Ask for rate"
+                "price": "Ask for rate",
+                "slug": "makeup-material",
+                "enableOrder": true,
+                "body": "The general makeup counter — lipsticks, eye products, kajal, liners and the rest of the everyday range, across the brands both salons and retail customers ask for.\n\nFor face products specifically (foundation, primer, highlighter, strobe and compact), see the Face Makeup listing, which is stocked separately.\n\nBridal and party makeup artists ordering a working kit rather than single pieces should tell us that when enquiring — we will put the list together and quote it as a set, which usually works out better than item by item.\n\nRate on request; it depends entirely on brand and pack."
               },
               {
                 "image": "https://images.pexels.com/photos/5563664/pexels-photo-5563664.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Facial Kits — All Brands",
                 "desc": "Complete facial kits in every brand, for salon treatments and home use.",
                 "meta": "All brands",
-                "price": "Ask for rate"
+                "price": "Ask for rate",
+                "slug": "facial-kits",
+                "enableOrder": true,
+                "body": "Complete facial kits across all the brands, in both salon packs and single-use retail boxes.\n\nSalon-size kits work out considerably cheaper per facial than buying retail boxes, so if you are running facials commercially it is worth asking for the professional pack even if you have always bought the small ones.\n\nWe carry kits for the common skin concerns — brightening, de-tan, anti-ageing, oily and acne-prone, and gold and fruit ranges. Tell us which brand you already work with and what your clients ask for most, and we will tell you what we have on the shelf.\n\nRate on request."
               },
               {
                 "image": "https://images.pexels.com/photos/33362027/pexels-photo-33362027.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Skin Care",
                 "desc": "Face wash, toner, scrub, serum, and day and night creams.",
                 "meta": "Cleanse · Tone · Treat · Moisturise",
-                "price": "Ask for rate"
+                "price": "Ask for rate",
+                "slug": "skin-care",
+                "enableOrder": true,
+                "body": "The full skin care shelf — face wash, toner, scrub, serum, and day and night creams.\n\nStocked for both sides of the counter: salon-size containers for treatments, and retail packs for clients who want to carry the routine home. Retailing the aftercare is usually the easiest extra margin a parlour can add, and clients tend to prefer buying it from the person who just did their facial.\n\nIf you are putting together a retail shelf for the first time, tell us roughly what your clients spend and we will suggest a starting range rather than selling you one of everything.\n\nRate on request.",
+                "attributes": [
+                  {
+                    "name": "Product",
+                    "options": [
+                      {
+                        "value": "Face wash"
+                      },
+                      {
+                        "value": "Toner"
+                      },
+                      {
+                        "value": "Scrub"
+                      },
+                      {
+                        "value": "Serum"
+                      },
+                      {
+                        "value": "Day cream"
+                      },
+                      {
+                        "value": "Night cream"
+                      }
+                    ]
+                  }
+                ]
               },
               {
                 "image": "https://images.pexels.com/photos/12969358/pexels-photo-12969358.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Parlour Products & Wax",
-                "desc": "Wax in all flavours and band sizes, wax strips, wax heaters and containers, waxing oil, eyebrow razors, massage cream, scrub and pack.",
+                "desc": "Wax in all flavours and band sizes, wax strips, heaters, containers, waxing oil, eyebrow razors, massage cream, scrub and pack.",
                 "meta": "All flavours · All band sizes",
-                "price": "Ask for rate"
+                "price": "Ask for rate",
+                "slug": "parlour-products-wax",
+                "enableOrder": true,
+                "body": "The waxing and general parlour consumables — the things that run out fastest and are most annoying to be caught short of.\n\nWax in all flavours and band sizes, wax strips, wax heaters and spare containers, waxing oil, eyebrow razors, massage cream, scrub and pack.\n\nThis is the category most worth ordering in bulk. Wax and strips keep well, the per-unit rate drops sharply with quantity, and running out mid-appointment costs more than the storage space. If you tell us roughly how many waxing appointments you do in a month we can suggest a sensible reorder quantity rather than you guessing.\n\nRate on request — it varies by flavour, band size and quantity.",
+                "attributes": [
+                  {
+                    "name": "Item",
+                    "options": [
+                      {
+                        "value": "Wax"
+                      },
+                      {
+                        "value": "Wax strips"
+                      },
+                      {
+                        "value": "Wax heater"
+                      },
+                      {
+                        "value": "Wax container"
+                      },
+                      {
+                        "value": "Waxing oil"
+                      },
+                      {
+                        "value": "Eyebrow razor"
+                      },
+                      {
+                        "value": "Massage cream"
+                      },
+                      {
+                        "value": "Scrub"
+                      },
+                      {
+                        "value": "Pack"
+                      }
+                    ]
+                  }
+                ]
               },
               {
                 "image": "https://images.pexels.com/photos/6387876/pexels-photo-6387876.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Hair Care",
                 "desc": "Shampoo, conditioner and hair spa products for salon and retail.",
                 "meta": "Shampoo · Conditioner · Spa",
-                "price": "Ask for rate"
+                "price": "Ask for rate",
+                "slug": "hair-care",
+                "enableOrder": true,
+                "body": "Shampoo, conditioner and hair spa products, in salon backwash sizes and retail bottles.\n\nWe stock the sulphate-free and colour-safe ranges as well as the standard ones — worth stocking if you do a lot of colour work, because washing fresh colour with the wrong shampoo strips it and the client blames the colour.\n\nBackwash-size containers are the cheaper way to buy for salon use. Retail bottles of the same line let clients keep the result going at home, which protects your colour work and adds a little margin.\n\nRate on request.",
+                "attributes": [
+                  {
+                    "name": "Product",
+                    "options": [
+                      {
+                        "value": "Shampoo"
+                      },
+                      {
+                        "value": "Conditioner"
+                      },
+                      {
+                        "value": "Hair spa"
+                      }
+                    ]
+                  }
+                ]
               },
               {
                 "image": "https://images.pexels.com/photos/3993471/pexels-photo-3993471.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Hair Colour",
                 "desc": "L'Oréal, Matrix, Streax, Yutika, Enega Fruit Color and Bigen — full shade ranges.",
                 "meta": "L'Oréal · Matrix · Streax · Bigen",
-                "price": "Ask for rate"
+                "price": "Ask for rate",
+                "slug": "hair-colour",
+                "enableOrder": true,
+                "body": "Full shade ranges from the brands salons here actually use — L'Oréal, Matrix, Streax, Yutika, Enega Fruit Color and Bigen.\n\nWe keep the common shades in depth rather than one tube of everything, so a mid-appointment top-up is usually possible. If you work in a shade we do not have on the shelf, tell us and we will get it in.\n\nDevelopers are listed separately and are stocked in all brands. If you are new to a colour line, order the matching developer with it — cross-brand mixing is the most common cause of a result that does not lift the way the chart says.\n\nRate on request, by brand and shade.",
+                "attributes": [
+                  {
+                    "name": "Brand",
+                    "options": [
+                      {
+                        "value": "L'Oréal"
+                      },
+                      {
+                        "value": "Matrix"
+                      },
+                      {
+                        "value": "Streax"
+                      },
+                      {
+                        "value": "Yutika"
+                      },
+                      {
+                        "value": "Enega Fruit Color"
+                      },
+                      {
+                        "value": "Bigen"
+                      }
+                    ]
+                  }
+                ]
               },
               {
                 "image": "https://images.pexels.com/photos/17124942/pexels-photo-17124942.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Nail Polish",
                 "desc": "Full shade ranges in gel and regular finishes, single pieces or by the box.",
                 "meta": "All shades",
-                "price": "Ask for rate"
+                "price": "Ask for rate",
+                "slug": "nail-polish",
+                "enableOrder": true,
+                "body": "Nail polish in full shade ranges, regular and gel finishes, sold as single pieces or by the box.\n\nBy the box is the sensible way for a parlour to buy — shade ranges sell unevenly and having the range on display sells more than having six bottles of the popular colour.\n\nWe also carry the supporting products: base coat, top coat, remover and the tools. Ask if you are setting up a nail section from scratch and we will put a starter list together.\n\nRate on request.",
+                "attributes": [
+                  {
+                    "name": "Finish",
+                    "options": [
+                      {
+                        "value": "Regular"
+                      },
+                      {
+                        "value": "Gel"
+                      }
+                    ]
+                  }
+                ]
               },
               {
                 "image": "https://images.pexels.com/photos/4202325/pexels-photo-4202325.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Moisturizer",
                 "desc": "Face and body moisturisers across brands, in retail and salon pack sizes.",
                 "meta": "Retail & salon packs",
-                "price": "Ask for rate"
+                "price": "Ask for rate",
+                "slug": "moisturizer",
+                "enableOrder": true,
+                "body": "Face and body moisturisers across the brands, in retail packs and larger salon containers.\n\nSalon sizes for use during treatments, retail packs for clients to take home. Both sit on the same shelf here, and the salon rate applies to either if you are ordering in quantity.\n\nSeasonal note worth planning for: the heavier winter creams move quickly once the weather turns and are the thing parlours most often run short of. Order those a few weeks earlier than feels necessary.\n\nRate on request.",
+                "attributes": [
+                  {
+                    "name": "For",
+                    "options": [
+                      {
+                        "value": "Face"
+                      },
+                      {
+                        "value": "Body"
+                      }
+                    ]
+                  }
+                ]
               },
               {
                 "image": "https://images.pexels.com/photos/15642778/pexels-photo-15642778.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Blades for Salon",
                 "desc": "Salon razor blades and eyebrow razors — sold in boxes for professional use.",
                 "meta": "Boxed · Professional",
-                "price": "Ask for rate"
+                "price": "Ask for rate",
+                "slug": "salon-blades",
+                "enableOrder": true,
+                "body": "Salon razor blades and eyebrow razors, sold in boxes for professional use.\n\nBlades are single-use per client — this is not the place to economise, and clients increasingly notice whether a fresh blade is opened in front of them. Buying by the box keeps the per-blade cost low enough that there is no temptation to stretch one.\n\nWe keep the sizes that fit the common salon razor handles. If you use a less common handle, bring it in or send a photo and we will match the blade to it.\n\nRate on request, by box.",
+                "attributes": [
+                  {
+                    "name": "Type",
+                    "options": [
+                      {
+                        "value": "Salon razor blades"
+                      },
+                      {
+                        "value": "Eyebrow razor"
+                      }
+                    ]
+                  }
+                ]
               },
               {
                 "image": "https://images.pexels.com/photos/4154194/pexels-photo-4154194.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Aftershave",
                 "desc": "Aftershave lotions and balms for gents parlour work.",
                 "meta": "Gents parlour",
-                "price": "Ask for rate"
+                "price": "Ask for rate",
+                "slug": "aftershave",
+                "enableOrder": true,
+                "body": "Aftershave lotions and balms for gents parlour work, in salon containers and retail bottles.\n\nBalms suit clients with sensitive skin or anyone getting a close shave regularly; the alcohol lotions are what most gents parlours use as standard. Stocking both is worth the shelf space — the client who reacts to the standard lotion is the one who stops coming without telling you why.\n\nRetail bottles of whatever you use in the chair tend to sell themselves at the counter.\n\nRate on request.",
+                "attributes": [
+                  {
+                    "name": "Type",
+                    "options": [
+                      {
+                        "value": "Lotion"
+                      },
+                      {
+                        "value": "Balm"
+                      }
+                    ]
+                  }
+                ]
               },
               {
                 "image": "https://images.pexels.com/photos/10600142/pexels-photo-10600142.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Smoothening, Keratin & Spa",
                 "desc": "Smoothening and straightening systems, keratin, hair botox, spa products and hair serum.",
                 "meta": "Keratin · Botox · Serum",
-                "price": "Ask for rate"
+                "price": "Ask for rate",
+                "slug": "smoothening-keratin-spa",
+                "enableOrder": true,
+                "body": "The chemical treatment range — smoothening and straightening systems, keratin, hair botox, spa products and hair serum.\n\nThese are the highest-value services most parlours offer, and the products are correspondingly the most expensive thing on the restocking list, so it is worth buying the full system rather than mixing steps between brands. The aftercare shampoo matters as much as the treatment itself; a keratin job washed with the wrong shampoo will not last, and the client will remember the result rather than their shampoo.\n\nTell us which system you are trained on and we will quote the complete kit including aftercare.\n\nRate on request.",
+                "attributes": [
+                  {
+                    "name": "Treatment",
+                    "options": [
+                      {
+                        "value": "Smoothening"
+                      },
+                      {
+                        "value": "Straightening"
+                      },
+                      {
+                        "value": "Keratin"
+                      },
+                      {
+                        "value": "Hair botox"
+                      },
+                      {
+                        "value": "Spa"
+                      },
+                      {
+                        "value": "Hair serum"
+                      }
+                    ]
+                  }
+                ]
               },
               {
                 "image": "https://images.pexels.com/photos/1327689/pexels-photo-1327689.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Face Makeup",
                 "desc": "Foundation, primer, highlighter, strobe and compact across all brands.",
                 "meta": "Foundation · Primer · Compact",
-                "price": "Ask for rate"
+                "price": "Ask for rate",
+                "slug": "face-makeup",
+                "enableOrder": true,
+                "body": "Face base products — foundation, primer, highlighter, strobe and compact, across all the brands.\n\nStocked in the shade ranges that actually suit Indian skin tones rather than the imported ranges that stop three shades too light. If you do bridal work, the deeper end of the range is the part worth keeping in depth; it is the part most shops run out of.\n\nMakeup artists buying a working kit should ask for it as a kit rather than piece by piece — we will price the list together.\n\nRate on request.",
+                "attributes": [
+                  {
+                    "name": "Product",
+                    "options": [
+                      {
+                        "value": "Foundation"
+                      },
+                      {
+                        "value": "Primer"
+                      },
+                      {
+                        "value": "Highlighter"
+                      },
+                      {
+                        "value": "Strobe"
+                      },
+                      {
+                        "value": "Compact"
+                      }
+                    ]
+                  }
+                ]
               },
               {
                 "image": "https://images.pexels.com/photos/3735655/pexels-photo-3735655.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Salon Disposables",
                 "desc": "Tissue paper, facial gowns, facial bedsheets and facial aprons — the consumables that run out fastest.",
                 "meta": "Gowns · Bedsheets · Aprons",
-                "price": "Ask for rate"
+                "price": "Ask for rate",
+                "slug": "salon-disposables",
+                "enableOrder": true,
+                "body": "The disposables — tissue paper, facial gowns, facial bedsheets and facial aprons.\n\nUnglamorous and the single most common thing to run out of mid-week. They are also the cheapest category to over-order: they do not expire, they stack flat, and the per-unit rate improves noticeably at quantity.\n\nA fresh disposable sheet put on the bed in front of the client does more for how a parlour is judged than most of what is spent on decor.\n\nOrder by the carton for the best rate. Rate on request.",
+                "attributes": [
+                  {
+                    "name": "Item",
+                    "options": [
+                      {
+                        "value": "Tissue paper"
+                      },
+                      {
+                        "value": "Facial gown"
+                      },
+                      {
+                        "value": "Facial bedsheet"
+                      },
+                      {
+                        "value": "Facial apron"
+                      }
+                    ]
+                  }
+                ]
               },
               {
                 "image": "https://images.pexels.com/photos/7446413/pexels-photo-7446413.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Makeup Brushes",
                 "desc": "Individual brushes and full professional sets, with holders and cleaning products.",
                 "meta": "Singles & sets",
-                "price": "Ask for rate"
+                "price": "Ask for rate",
+                "slug": "makeup-brushes",
+                "enableOrder": true,
+                "body": "Individual brushes and complete professional sets, plus holders, rolls and brush cleaning products.\n\nSets are the cheaper way in and fine for general parlour work. Artists who use one or two brushes constantly are usually better off replacing those individually in a better quality rather than buying another whole set — we sell singles for exactly that reason.\n\nBrush cleaner is worth adding to any brush order. Clean brushes last several times longer, and the cost of the cleaner is a fraction of replacing the set.\n\nRate on request.",
+                "attributes": [
+                  {
+                    "name": "Buy as",
+                    "options": [
+                      {
+                        "value": "Single brush"
+                      },
+                      {
+                        "value": "Full set"
+                      }
+                    ]
+                  }
+                ]
               },
               {
                 "image": "https://images.pexels.com/photos/6954964/pexels-photo-6954964.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Manicure & Pedicure",
                 "desc": "Manicure and pedicure tools, kits and consumables for salon treatments.",
                 "meta": "Tools & kits",
-                "price": "Ask for rate"
+                "price": "Ask for rate",
+                "slug": "manicure-pedicure",
+                "enableOrder": true,
+                "body": "Manicure and pedicure tools, complete kits and the consumables that go with them.\n\nTools — cutters, pushers, files, buffers — plus the treatment consumables: soaks, scrubs, packs and creams. Available as a complete kit if you are adding mani-pedi to your service list for the first time, or individually to replace what has worn out.\n\nTools are worth buying once in a decent steel. Cheap cutters blunt within weeks, and a blunt cutter on a client's cuticle is how a parlour gets a bad review.\n\nRate on request.",
+                "attributes": [
+                  {
+                    "name": "Buy as",
+                    "options": [
+                      {
+                        "value": "Tools"
+                      },
+                      {
+                        "value": "Complete kit"
+                      },
+                      {
+                        "value": "Consumables"
+                      }
+                    ]
+                  }
+                ]
               },
               {
                 "image": "https://images.pexels.com/photos/6387880/pexels-photo-6387880.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Developers — All Brands",
                 "desc": "Cream developers in every volume and brand, matched to the colour lines we stock.",
                 "meta": "All volumes · All brands",
-                "price": "Ask for rate"
+                "price": "Ask for rate",
+                "slug": "developers",
+                "enableOrder": true,
+                "body": "Cream developers in all brands, matched to the colour lines we carry.\n\nOrder the developer from the same brand as your colour wherever you can. Cross-brand mixing is the most common reason a colour does not lift the way the shade chart promised, and it is almost always diagnosed as a bad batch of colour when it is really a mismatched developer.\n\nWe stock the standard volumes. Tell us the brand and volume you work with and we will confirm what is on the shelf; if you are unsure which volume a particular lift needs, ask at the counter.\n\nRate on request.",
+                "attributes": [
+                  {
+                    "name": "Brand",
+                    "options": [
+                      {
+                        "value": "L'Oréal"
+                      },
+                      {
+                        "value": "Matrix"
+                      },
+                      {
+                        "value": "Streax"
+                      },
+                      {
+                        "value": "Yutika"
+                      },
+                      {
+                        "value": "Enega Fruit Color"
+                      },
+                      {
+                        "value": "Bigen"
+                      },
+                      {
+                        "value": "Other brand"
+                      }
+                    ]
+                  }
+                ]
               },
               {
                 "image": "https://images.pexels.com/photos/3992850/pexels-photo-3992850.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Dummy Stands",
                 "desc": "Mannequin heads and stands for cutting, colouring and styling practice — for salons and training students.",
                 "meta": "Practice heads & stands",
-                "price": "Ask for rate"
+                "price": "Ask for rate",
+                "slug": "dummy-stands",
+                "enableOrder": true,
+                "body": "Mannequin heads and stands for cutting, colouring and styling practice.\n\nUsed by salons training junior staff and by students working through a beautician course. Available as a head on its own, a head with a clamp stand, or a stand on its own if you already have heads.\n\nHuman-hair heads take colour and chemical treatments properly and are what you need for colour practice; synthetic heads are cheaper and fine for cutting and basic styling. Tell us what the practice is for and we will point you at the right one rather than the dearer one.\n\nRate on request.",
+                "attributes": [
+                  {
+                    "name": "Buy as",
+                    "options": [
+                      {
+                        "value": "Head only"
+                      },
+                      {
+                        "value": "Head with stand"
+                      },
+                      {
+                        "value": "Stand only"
+                      }
+                    ]
+                  }
+                ]
               },
               {
                 "image": "https://images.pexels.com/photos/38180246/pexels-photo-38180246.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Jewellery",
                 "desc": "Earrings, necklaces, bangles and mangalsutra — imitation jewellery for retail and gifting.",
                 "meta": "Earrings · Necklace · Bangles",
-                "price": "Ask for rate"
+                "price": "Ask for rate",
+                "slug": "jewellery",
+                "enableOrder": true,
+                "body": "Imitation jewellery — earrings, necklaces, bangles and mangalsutra.\n\nStocked for retail and gifting, and it sits naturally next to a parlour counter: a client who has just had her hair and makeup done for a function is the most likely person in the shop to buy earrings to go with it.\n\nWe carry everyday pieces and heavier bridal and festive sets. Bridal sets move hardest in wedding season, so order those ahead rather than in the week they are needed.\n\nAvailable as single pieces or by the box for resale. Rate on request.",
+                "attributes": [
+                  {
+                    "name": "Item",
+                    "options": [
+                      {
+                        "value": "Earrings"
+                      },
+                      {
+                        "value": "Necklace"
+                      },
+                      {
+                        "value": "Bangles"
+                      },
+                      {
+                        "value": "Mangalsutra"
+                      }
+                    ]
+                  }
+                ]
               }
             ]
           }
@@ -448,7 +1140,11 @@
           "props": {
             "heading": "Tell us what you need and we will quote",
             "sub": "Item, brand and quantity is all we need. Salon and parlour owners get bulk rates.",
-            "ctaPrimary": { "text": "Send an enquiry", "href": "/contact", "style": "primary" }
+            "ctaPrimary": {
+              "text": "Send an enquiry",
+              "href": "/contact",
+              "style": "primary"
+            }
           }
         },
         {
@@ -466,25 +1162,52 @@
               {
                 "title": "Shop",
                 "links": [
-                  { "text": "All products", "href": "/products" },
-                  { "text": "Parlour products & wax", "href": "/products" },
-                  { "text": "Hair colour & developers", "href": "/products" },
-                  { "text": "Salon equipment", "href": "/products" }
+                  {
+                    "text": "All products",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Parlour products & wax",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Hair colour & developers",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Salon equipment",
+                    "href": "/products"
+                  }
                 ]
               },
               {
                 "title": "Company",
                 "links": [
-                  { "text": "About us", "href": "/about" },
-                  { "text": "Contact", "href": "/contact" },
-                  { "text": "Opening hours", "href": "/contact" }
+                  {
+                    "text": "About us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Contact",
+                    "href": "/contact"
+                  },
+                  {
+                    "text": "Opening hours",
+                    "href": "/contact"
+                  }
                 ]
               },
               {
                 "title": "Follow",
                 "links": [
-                  { "text": "Instagram", "href": "https://www.instagram.com/indrashobha_cosmetics?igsh=bHVwMXg1Z2p5cDVi" },
-                  { "text": "Facebook", "href": "https://www.facebook.com/profile.php?id=100092406031030" }
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/indrashobha_cosmetics?igsh=bHVwMXg1Z2p5cDVi"
+                  },
+                  {
+                    "text": "Facebook",
+                    "href": "https://www.facebook.com/profile.php?id=100092406031030"
+                  }
                 ]
               }
             ],
@@ -493,7 +1216,6 @@
         }
       ]
     },
-
     {
       "id": "about",
       "slug": "/about",
@@ -510,15 +1232,31 @@
           "visible": true,
           "props": {
             "sticky": true,
-            "showCart": false,
+            "showCart": true,
             "showAccount": false,
             "links": [
-              { "text": "Home", "href": "/" },
-              { "text": "Products", "href": "/products" },
-              { "text": "About", "href": "/about" },
-              { "text": "Contact", "href": "/contact" }
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Products",
+                "href": "/products"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
             ],
-            "cta": { "text": "Enquire", "href": "/contact", "style": "primary" }
+            "cta": {
+              "text": "Enquire",
+              "href": "/contact",
+              "style": "primary"
+            }
           }
         },
         {
@@ -532,7 +1270,9 @@
             "image": "https://images.pexels.com/photos/1502219/pexels-photo-1502219.jpeg?auto=compress&cs=tinysrgb&w=1600",
             "fullHeight": false
           },
-          "style": { "overlay": 0.6 }
+          "style": {
+            "overlay": 0.6
+          }
         },
         {
           "id": "about-2",
@@ -581,26 +1321,106 @@
             "heading": "The twenty categories",
             "sub": "Everything below is stocked. Brands and pack sizes vary — ask and we will tell you what is on the shelf today.",
             "items": [
-              { "icon": "package", "title": "Salon chairs & facial beds", "desc": "Styling chairs, shampoo stations and facial beds." },
-              { "icon": "zap", "title": "Hair machines", "desc": "Crimper, dryer, straightener and tong." },
-              { "icon": "star", "title": "Makeup material", "desc": "The full makeup counter, all brands." },
-              { "icon": "heart", "title": "Facial kits", "desc": "Complete facial kits in every brand." },
-              { "icon": "heart", "title": "Skin care", "desc": "Face wash, toner, scrub, serum, day and night cream." },
-              { "icon": "package", "title": "Parlour products", "desc": "Wax in all flavours and band sizes, wax strips, heaters, containers, waxing oil, massage cream, scrub and pack." },
-              { "icon": "package", "title": "Hair care", "desc": "Shampoo, conditioner and hair spa." },
-              { "icon": "tag", "title": "Hair colour", "desc": "L'Oréal, Matrix, Streax, Yutika, Enega Fruit Color and Bigen." },
-              { "icon": "star", "title": "Nail polish", "desc": "Full shade ranges, gel and regular." },
-              { "icon": "heart", "title": "Moisturizer", "desc": "Face and body, retail and salon pack sizes." },
-              { "icon": "tool", "title": "Blades for salon", "desc": "Salon razor blades and eyebrow razors, boxed." },
-              { "icon": "package", "title": "Aftershave", "desc": "Lotions and balms for gents parlour work." },
-              { "icon": "award", "title": "Smoothening & keratin", "desc": "Smoothening, straightening, keratin, hair botox, spa products and serum." },
-              { "icon": "star", "title": "Face makeup", "desc": "Foundation, primer, highlighter, strobe and compact." },
-              { "icon": "package", "title": "Salon disposables", "desc": "Tissue paper, facial gowns, bedsheets and aprons." },
-              { "icon": "tool", "title": "Makeup brushes", "desc": "Singles and full professional sets." },
-              { "icon": "tool", "title": "Manicure & pedicure", "desc": "Tools, kits and consumables." },
-              { "icon": "tag", "title": "Developers", "desc": "Cream developers in every volume and brand." },
-              { "icon": "users", "title": "Dummy stands", "desc": "Mannequin heads and stands for practice and training." },
-              { "icon": "star", "title": "Jewellery", "desc": "Earrings, necklaces, bangles and mangalsutra." }
+              {
+                "icon": "package",
+                "title": "Salon chairs & facial beds",
+                "desc": "Styling chairs, shampoo stations and facial beds."
+              },
+              {
+                "icon": "zap",
+                "title": "Hair machines",
+                "desc": "Crimper, dryer, straightener and tong."
+              },
+              {
+                "icon": "star",
+                "title": "Makeup material",
+                "desc": "The full makeup counter, all brands."
+              },
+              {
+                "icon": "heart",
+                "title": "Facial kits",
+                "desc": "Complete facial kits in every brand."
+              },
+              {
+                "icon": "heart",
+                "title": "Skin care",
+                "desc": "Face wash, toner, scrub, serum, day and night cream."
+              },
+              {
+                "icon": "package",
+                "title": "Parlour products",
+                "desc": "Wax in all flavours and band sizes, wax strips, heaters, containers, waxing oil, massage cream, scrub and pack."
+              },
+              {
+                "icon": "package",
+                "title": "Hair care",
+                "desc": "Shampoo, conditioner and hair spa."
+              },
+              {
+                "icon": "tag",
+                "title": "Hair colour",
+                "desc": "L'Oréal, Matrix, Streax, Yutika, Enega Fruit Color and Bigen."
+              },
+              {
+                "icon": "star",
+                "title": "Nail polish",
+                "desc": "Full shade ranges, gel and regular."
+              },
+              {
+                "icon": "heart",
+                "title": "Moisturizer",
+                "desc": "Face and body, retail and salon pack sizes."
+              },
+              {
+                "icon": "tool",
+                "title": "Blades for salon",
+                "desc": "Salon razor blades and eyebrow razors, boxed."
+              },
+              {
+                "icon": "package",
+                "title": "Aftershave",
+                "desc": "Lotions and balms for gents parlour work."
+              },
+              {
+                "icon": "award",
+                "title": "Smoothening & keratin",
+                "desc": "Smoothening, straightening, keratin, hair botox, spa products and serum."
+              },
+              {
+                "icon": "star",
+                "title": "Face makeup",
+                "desc": "Foundation, primer, highlighter, strobe and compact."
+              },
+              {
+                "icon": "package",
+                "title": "Salon disposables",
+                "desc": "Tissue paper, facial gowns, bedsheets and aprons."
+              },
+              {
+                "icon": "tool",
+                "title": "Makeup brushes",
+                "desc": "Singles and full professional sets."
+              },
+              {
+                "icon": "tool",
+                "title": "Manicure & pedicure",
+                "desc": "Tools, kits and consumables."
+              },
+              {
+                "icon": "tag",
+                "title": "Developers",
+                "desc": "Cream developers in every volume and brand."
+              },
+              {
+                "icon": "users",
+                "title": "Dummy stands",
+                "desc": "Mannequin heads and stands for practice and training."
+              },
+              {
+                "icon": "star",
+                "title": "Jewellery",
+                "desc": "Earrings, necklaces, bangles and mangalsutra."
+              }
             ]
           }
         },
@@ -614,12 +1434,30 @@
             "heading": "On the shelves",
             "lightbox": true,
             "images": [
-              { "image": "https://images.pexels.com/photos/3993308/pexels-photo-3993308.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Row of salon styling chairs" },
-              { "image": "https://images.pexels.com/photos/29038003/pexels-photo-29038003.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Traditional Indian jewellery on a decorated tray" },
-              { "image": "https://images.pexels.com/photos/6954964/pexels-photo-6954964.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Manicure being carried out on a client" },
-              { "image": "https://images.pexels.com/photos/1327689/pexels-photo-1327689.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Eyeshadow palette with a makeup brush" },
-              { "image": "https://images.pexels.com/photos/4154194/pexels-photo-4154194.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Amber pump bottles on a tiled surface" },
-              { "image": "https://images.pexels.com/photos/5563664/pexels-photo-5563664.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Skincare product set arranged on a table" }
+              {
+                "image": "https://images.pexels.com/photos/3993308/pexels-photo-3993308.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Row of salon styling chairs"
+              },
+              {
+                "image": "https://images.pexels.com/photos/29038003/pexels-photo-29038003.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Traditional Indian jewellery on a decorated tray"
+              },
+              {
+                "image": "https://images.pexels.com/photos/6954964/pexels-photo-6954964.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Manicure being carried out on a client"
+              },
+              {
+                "image": "https://images.pexels.com/photos/1327689/pexels-photo-1327689.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Eyeshadow palette with a makeup brush"
+              },
+              {
+                "image": "https://images.pexels.com/photos/4154194/pexels-photo-4154194.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Amber pump bottles on a tiled surface"
+              },
+              {
+                "image": "https://images.pexels.com/photos/5563664/pexels-photo-5563664.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Skincare product set arranged on a table"
+              }
             ]
           }
         },
@@ -631,7 +1469,11 @@
           "props": {
             "heading": "Restocking this week?",
             "sub": "Send your list. We will confirm what is in stock and quote bulk rates for parlours and salons.",
-            "ctaPrimary": { "text": "Send an enquiry", "href": "/contact", "style": "primary" }
+            "ctaPrimary": {
+              "text": "Send an enquiry",
+              "href": "/contact",
+              "style": "primary"
+            }
           }
         },
         {
@@ -649,25 +1491,52 @@
               {
                 "title": "Shop",
                 "links": [
-                  { "text": "All products", "href": "/products" },
-                  { "text": "Parlour products & wax", "href": "/products" },
-                  { "text": "Hair colour & developers", "href": "/products" },
-                  { "text": "Salon equipment", "href": "/products" }
+                  {
+                    "text": "All products",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Parlour products & wax",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Hair colour & developers",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Salon equipment",
+                    "href": "/products"
+                  }
                 ]
               },
               {
                 "title": "Company",
                 "links": [
-                  { "text": "About us", "href": "/about" },
-                  { "text": "Contact", "href": "/contact" },
-                  { "text": "Opening hours", "href": "/contact" }
+                  {
+                    "text": "About us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Contact",
+                    "href": "/contact"
+                  },
+                  {
+                    "text": "Opening hours",
+                    "href": "/contact"
+                  }
                 ]
               },
               {
                 "title": "Follow",
                 "links": [
-                  { "text": "Instagram", "href": "https://www.instagram.com/indrashobha_cosmetics?igsh=bHVwMXg1Z2p5cDVi" },
-                  { "text": "Facebook", "href": "https://www.facebook.com/profile.php?id=100092406031030" }
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/indrashobha_cosmetics?igsh=bHVwMXg1Z2p5cDVi"
+                  },
+                  {
+                    "text": "Facebook",
+                    "href": "https://www.facebook.com/profile.php?id=100092406031030"
+                  }
                 ]
               }
             ],
@@ -676,7 +1545,6 @@
         }
       ]
     },
-
     {
       "id": "contact",
       "slug": "/contact",
@@ -693,15 +1561,31 @@
           "visible": true,
           "props": {
             "sticky": true,
-            "showCart": false,
+            "showCart": true,
             "showAccount": false,
             "links": [
-              { "text": "Home", "href": "/" },
-              { "text": "Products", "href": "/products" },
-              { "text": "About", "href": "/about" },
-              { "text": "Contact", "href": "/contact" }
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Products",
+                "href": "/products"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
             ],
-            "cta": { "text": "Enquire", "href": "/contact", "style": "primary" }
+            "cta": {
+              "text": "Enquire",
+              "href": "/contact",
+              "style": "primary"
+            }
           }
         },
         {
@@ -741,8 +1625,16 @@
           "props": {
             "heading": "Find us on Instagram and Facebook",
             "sub": "New stock, brand arrivals and offers get posted there first.",
-            "ctaPrimary": { "text": "Instagram", "href": "https://www.instagram.com/indrashobha_cosmetics?igsh=bHVwMXg1Z2p5cDVi", "style": "primary" },
-            "ctaSecondary": { "text": "Facebook", "href": "https://www.facebook.com/profile.php?id=100092406031030", "style": "ghost" }
+            "ctaPrimary": {
+              "text": "Instagram",
+              "href": "https://www.instagram.com/indrashobha_cosmetics?igsh=bHVwMXg1Z2p5cDVi",
+              "style": "primary"
+            },
+            "ctaSecondary": {
+              "text": "Facebook",
+              "href": "https://www.facebook.com/profile.php?id=100092406031030",
+              "style": "ghost"
+            }
           }
         },
         {
@@ -760,25 +1652,52 @@
               {
                 "title": "Shop",
                 "links": [
-                  { "text": "All products", "href": "/products" },
-                  { "text": "Parlour products & wax", "href": "/products" },
-                  { "text": "Hair colour & developers", "href": "/products" },
-                  { "text": "Salon equipment", "href": "/products" }
+                  {
+                    "text": "All products",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Parlour products & wax",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Hair colour & developers",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Salon equipment",
+                    "href": "/products"
+                  }
                 ]
               },
               {
                 "title": "Company",
                 "links": [
-                  { "text": "About us", "href": "/about" },
-                  { "text": "Contact", "href": "/contact" },
-                  { "text": "Opening hours", "href": "/contact" }
+                  {
+                    "text": "About us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Contact",
+                    "href": "/contact"
+                  },
+                  {
+                    "text": "Opening hours",
+                    "href": "/contact"
+                  }
                 ]
               },
               {
                 "title": "Follow",
                 "links": [
-                  { "text": "Instagram", "href": "https://www.instagram.com/indrashobha_cosmetics?igsh=bHVwMXg1Z2p5cDVi" },
-                  { "text": "Facebook", "href": "https://www.facebook.com/profile.php?id=100092406031030" }
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/indrashobha_cosmetics?igsh=bHVwMXg1Z2p5cDVi"
+                  },
+                  {
+                    "text": "Facebook",
+                    "href": "https://www.facebook.com/profile.php?id=100092406031030"
+                  }
                 ]
               }
             ],
