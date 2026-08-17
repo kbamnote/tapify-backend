@@ -1,0 +1,854 @@
+{
+  "schemaVersion": 1,
+  "site": {
+    "name": "Shri Krushna Motors",
+    "industry": "automotive",
+    "locale": "en-IN"
+  },
+  "theme": {
+    "preset": "volt-grove",
+    "mode": "light",
+    "color": {
+      "primary": "#0F6B4F",
+      "secondary": "#123B33",
+      "accent": "#F5A524",
+      "bg": "#F7FAF8",
+      "surface": "#FFFFFF",
+      "text": "#10201B",
+      "muted": "#5F7269",
+      "border": "#DDE7E1"
+    },
+    "font": {
+      "heading": "Poppins",
+      "body": "Mukta"
+    },
+    "radius": "md",
+    "spacing": "comfortable",
+    "container": "normal"
+  },
+  "nav": {
+    "header": [
+      { "label": "Home", "pageId": "home" },
+      { "label": "Services", "pageId": "services" },
+      { "label": "About", "pageId": "about" },
+      { "label": "Contact", "pageId": "contact" }
+    ]
+  },
+  "business": {
+    "phone": "+91 95116 36205",
+    "whatsapp": "+91 95453 52560",
+    "email": "shrikrushnamotors07@gmail.com",
+    "address": "Rani Durga Vati Chowk, near Bharat Petrol Pump, Binaki Layout, Nagpur, Maharashtra 440017",
+    "social": {
+      "instagram": "https://www.instagram.com/min_imetro?igsh=MW5mcDduaG55M2lzZQ%3D%3D&utm_source=qr"
+    },
+    "hours": [
+      { "day": "mon", "open": "10:00 AM", "close": "08:00 PM" },
+      { "day": "tue", "open": "10:00 AM", "close": "08:00 PM" },
+      { "day": "wed", "open": "10:00 AM", "close": "08:00 PM" },
+      { "day": "thu", "open": "10:00 AM", "close": "08:00 PM" },
+      { "day": "fri", "open": "10:00 AM", "close": "08:00 PM" },
+      { "day": "sat", "open": "10:00 AM", "close": "08:00 PM" },
+      { "day": "sun", "open": "Closed", "close": "" }
+    ]
+  },
+
+  "pages": [
+    {
+      "id": "home",
+      "slug": "/",
+      "title": "Home",
+      "seo": {
+        "title": "Shri Krushna Motors | E-Rickshaw Sales, Service & Finance in Nagpur",
+        "description": "E-rickshaw and auto sales, servicing, genuine spare parts, RTO work and easy EMI finance. 7 branches across Nagpur, Wardha, Kondhali, Katol and Chimur. Rani Durga Vati Chowk, Binaki Layout, Nagpur.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-1",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "links": [
+              { "text": "Home", "href": "/" },
+              { "text": "Services", "href": "/services" },
+              { "text": "About", "href": "/about" },
+              { "text": "Contact", "href": "/contact" }
+            ],
+            "cta": { "text": "Call Now", "href": "tel:+919511636205", "style": "primary" }
+          }
+        },
+        {
+          "id": "hero-1",
+          "type": "hero",
+          "visible": true,
+          "variant": "centered-bg",
+          "props": {
+            "badge": "7 शाखाएँ · नागपुर, वर्धा, कोंढाली, काटोल, चिमूर",
+            "heading": "आपकी कमाई का भरोसेमंद साथी",
+            "sub": "ई-रिक्शा और ऑटो की बिक्री, सर्विसिंग, असली स्पेयर पार्ट्स, RTO का पूरा काम और आसान किश्तों पर फाइनेंस — सब कुछ एक ही जगह।\n\nE-rickshaw sales, servicing, genuine spare parts, complete RTO paperwork and easy EMI finance — all under one roof.",
+            "image": "https://images.pexels.com/videos/35078086/blue-rickshaw-candid-moment-daily-life-electric-rickshaw-35078086.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "videoUrl": "https://videos.pexels.com/video-files/35078086/14859525_960_540_30fps.mp4",
+            "fullHeight": true,
+            "ctaPrimary": { "text": "आज ही कॉल करें", "href": "tel:+919511636205", "style": "primary" },
+            "ctaSecondary": { "text": "हमारी सेवाएँ", "href": "/services", "style": "ghost" },
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "style": { "overlay": 0.55 }
+        },
+        {
+          "id": "stats-1",
+          "type": "stats",
+          "visible": true,
+          "variant": "bar",
+          "props": {
+            "label": "Shri Krushna Motors",
+            "heading": "हम पर भरोसा क्यों",
+            "countUp": true,
+            "items": [
+              { "icon": "map-pin", "value": 7, "suffix": "", "label": "शाखाएँ / Branches" },
+              { "icon": "users", "value": 34, "suffix": "", "label": "टीम के सदस्य / Team members" },
+              { "icon": "tool", "value": 9, "suffix": "", "label": "सेवाएँ / Services offered" }
+            ]
+          }
+        },
+        {
+          "id": "about-1",
+          "type": "about",
+          "visible": true,
+          "variant": "image-right",
+          "props": {
+            "label": "हमारे बारे में",
+            "heading": "एक छत के नीचे — गाड़ी, सर्विस और फाइनेंस",
+            "body": "श्री कृष्णा मोटर्स नागपुर के रानी दुर्गावती चौक से शुरू होकर आज विदर्भ की सात जगहों तक पहुँच चुका है — नागपुर में तीन शाखाएँ, और वर्धा, कोंढाली, काटोल तथा चिमूर में एक-एक।\n\nहमारे 34 लोगों की टीम में अनुभवी तकनीशियन, सेल्स सलाहकार और RTO व फाइनेंस का काम देखने वाले लोग शामिल हैं। ई-रिक्शा चलाने वाले के लिए गाड़ी सिर्फ़ गाड़ी नहीं, रोज़ की कमाई है — इसलिए हमारा पूरा काम इसी बात पर टिका है कि आपकी गाड़ी कम से कम समय के लिए खड़ी रहे।\n\nनई गाड़ी लेनी हो, पुरानी बदलनी हो, सर्विस करानी हो या सिर्फ़ एक असली स्पेयर पार्ट चाहिए — आपको अलग-अलग जगह भटकना नहीं पड़ेगा। रजिस्ट्रेशन, नंबर प्लेट, RTO के कागज़ और लोन की प्रक्रिया भी हमारे शोरूम से ही पूरी हो जाती है।\n\nShri Krushna Motors runs seven branches across Nagpur, Wardha, Kondhali, Katol and Chimur, with a team of 34. We handle sales, servicing, genuine spare parts, RTO paperwork and finance in one place — because for an e-rickshaw driver, every day the vehicle is off the road is a day of lost income.",
+            "image": "https://images.pexels.com/photos/33442602/pexels-photo-33442602.jpeg?auto=compress&cs=tinysrgb&w=1400",
+            "showPillars": true,
+            "pillars": [
+              { "icon": "shield", "title": "असली पार्ट्स ही", "text": "100% प्रामाणिक स्पेयर पार्ट्स और एक्सेसरीज़। नकली पार्ट सस्ता पड़ता है, पर गाड़ी को महँगा।" },
+              { "icon": "clock", "title": "कम से कम डाउनटाइम", "text": "आपकी गाड़ी जितनी देर खड़ी, उतनी कमाई कम। हमारी कोशिश है कि मरम्मत उसी दिन पूरी हो।" },
+              { "icon": "file-text", "title": "RTO का पूरा काम", "text": "रजिस्ट्रेशन, नंबर प्लेट और सारे ज़रूरी कागज़ात शोरूम से ही पूरे करवाए जाते हैं।" },
+              { "icon": "map-pin", "title": "7 शाखाएँ", "text": "नागपुर, वर्धा, कोंढाली, काटोल और चिमूर — आपके नज़दीक ही एक शाखा।" }
+            ]
+          }
+        },
+        {
+          "id": "services-1",
+          "type": "services",
+          "visible": true,
+          "variant": "cards-3",
+          "props": {
+            "label": "हमारी सेवाएँ",
+            "heading": "बिक्री से सर्विस तक, सब कुछ",
+            "sub": "नई गाड़ी, पुरानी गाड़ी की अदला-बदली, मरम्मत, असली पार्ट्स, RTO और फाइनेंस — नौ सेवाएँ, एक ही शोरूम।",
+            "items": [
+              {
+                "image": "https://images.pexels.com/photos/38935130/pexels-photo-38935130.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "New Vehicle Sales · नई गाड़ी की बिक्री",
+                "desc": "नवीनतम और बेहतरीन मॉडल की बिक्री। शोरूम आइए, मॉडल देखिए, चलाकर देखिए — और फिर तय कीजिए।",
+                "meta": "ई-रिक्शा · ऑटो · लेटेस्ट मॉडल"
+              },
+              {
+                "image": "https://images.pexels.com/videos/34760694/agreement-automotive-business-deal-buying-car-34760694.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "RTO & Finance Support · RTO और फाइनेंस",
+                "desc": "रजिस्ट्रेशन, RTO का काम और आसान लोन/फाइनेंस में पूरी सहायता। कम डाउन पेमेंट और आसान किश्तों की सुविधा उपलब्ध है।",
+                "meta": "EMI · कम डाउन पेमेंट · कागज़ी काम"
+              },
+              {
+                "image": "https://images.pexels.com/photos/8478206/pexels-photo-8478206.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Maintenance · नियमित सर्विस",
+                "desc": "नियमित सर्विस और देखभाल, ताकि छोटी दिक्कत बड़ी खराबी बनने से पहले ही पकड़ी जाए।",
+                "meta": "समय पर सर्विस · लंबी उम्र"
+              },
+              {
+                "image": "https://images.pexels.com/photos/4116221/pexels-photo-4116221.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Quick Repairs · तुरंत मरम्मत",
+                "desc": "कम से कम समय में सही और टिकाऊ मरम्मत। गाड़ी खड़ी रहना यानी कमाई रुकना — यह हम समझते हैं।",
+                "meta": "जल्दी · टिकाऊ"
+              },
+              {
+                "image": "https://images.pexels.com/photos/4238222/pexels-photo-4238222.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Genuine Parts Replacement · असली पार्ट्स",
+                "desc": "केवल प्रामाणिक और असली पार्ट्स का उपयोग। हर पार्ट पर कंपनी की गारंटी, कोई डुप्लीकेट नहीं।",
+                "meta": "100% ओरिजिनल"
+              },
+              {
+                "image": "https://images.pexels.com/photos/7565167/pexels-photo-7565167.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Diagnostic & Inspection · पूरी जाँच",
+                "desc": "वाहन की पूरी जाँच और सही सलाह। जो ठीक है उसे छूते नहीं, जो खराब है वह दिखाकर बताते हैं।",
+                "meta": "जाँच · सही सलाह"
+              },
+              {
+                "image": "https://images.pexels.com/photos/5622286/pexels-photo-5622286.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Vehicle Exchange & Upgrade · अदला-बदली",
+                "desc": "पुराने वाहन को बदलने की आसान सुविधा। पुरानी गाड़ी की कीमत लगवाइए और नई पर लगाइए।",
+                "meta": "एक्सचेंज · अपग्रेड"
+              },
+              {
+                "image": "https://images.pexels.com/photos/33797539/pexels-photo-33797539.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Spare Parts & Accessories · स्पेयर पार्ट्स",
+                "desc": "100% असली स्पेयर पार्ट्स और एक्सेसरीज़ — बैटरी, चार्जर, टायर, मोटर, लाइट और बॉडी पार्ट्स।",
+                "meta": "काउंटर सेल · सभी शाखाओं पर"
+              },
+              {
+                "image": "https://images.pexels.com/photos/7568414/pexels-photo-7568414.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Repair & Servicing · अनुभवी तकनीशियन",
+                "desc": "अनुभवी तकनीशियनों द्वारा सर्विस और मरम्मत। हमारी 34 लोगों की टीम में हर काम के लिए जानकार आदमी है।",
+                "meta": "34 लोगों की टीम"
+              }
+            ]
+          }
+        },
+        {
+          "id": "gallery-1",
+          "type": "gallery",
+          "visible": true,
+          "variant": "masonry",
+          "props": {
+            "label": "शोरूम और वर्कशॉप",
+            "heading": "एक नज़र हमारे काम पर",
+            "sub": "शोरूम, वर्कशॉप और सड़क पर चलती हमारी गाड़ियाँ।",
+            "lightbox": true,
+            "images": [
+              { "image": "https://images.pexels.com/videos/35078086/blue-rickshaw-candid-moment-daily-life-electric-rickshaw-35078086.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Blue electric rickshaw on a city street" },
+              { "image": "https://images.pexels.com/photos/67183/pexels-photo-67183.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Auto rickshaw moving through traffic" },
+              { "image": "https://images.pexels.com/photos/38935130/pexels-photo-38935130.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Rows of two and three wheelers parked in a showroom" },
+              { "image": "https://images.pexels.com/photos/4116221/pexels-photo-4116221.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Technician working on an engine with a spanner" },
+              { "image": "https://images.pexels.com/photos/4238222/pexels-photo-4238222.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Shelves stacked with spare parts and belts" },
+              { "image": "https://images.pexels.com/photos/37991386/pexels-photo-37991386.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Green and yellow auto rickshaw parked in front of a building" },
+              { "image": "https://images.pexels.com/photos/8478206/pexels-photo-8478206.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Mechanic servicing a vehicle under the bonnet" },
+              { "image": "https://images.pexels.com/photos/12280608/pexels-photo-12280608.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Auto rickshaw in motion on an Indian road" },
+              { "image": "https://images.pexels.com/photos/4116222/pexels-photo-4116222.jpeg?auto=compress&cs=tinysrgb&w=1200", "alt": "Hands assembling mechanical components at a workbench" }
+            ]
+          }
+        },
+        {
+          "id": "cta-1",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "नई गाड़ी लेनी है या सर्विस करानी है?",
+            "sub": "एक कॉल या WhatsApp कीजिए — मॉडल, कीमत, EMI और डाउन पेमेंट की पूरी जानकारी तुरंत मिल जाएगी।",
+            "ctaPrimary": { "text": "अभी कॉल करें", "href": "tel:+919511636205", "style": "primary" },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-1",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "blurb": "श्री कृष्णा मोटर्स — ई-रिक्शा और ऑटो की बिक्री, सर्विस, असली स्पेयर पार्ट्स, RTO और फाइनेंस। नागपुर, वर्धा, कोंढाली, काटोल और चिमूर में 7 शाखाएँ।",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "सेवाएँ / Services",
+                "links": [
+                  { "text": "नई गाड़ी की बिक्री", "href": "/services" },
+                  { "text": "सर्विस और मरम्मत", "href": "/services" },
+                  { "text": "स्पेयर पार्ट्स", "href": "/services" },
+                  { "text": "RTO और फाइनेंस", "href": "/services" }
+                ]
+              },
+              {
+                "title": "कंपनी / Company",
+                "links": [
+                  { "text": "हमारे बारे में", "href": "/about" },
+                  { "text": "हमारी शाखाएँ", "href": "/about" },
+                  { "text": "सवाल-जवाब", "href": "/services" },
+                  { "text": "संपर्क करें", "href": "/contact" }
+                ]
+              },
+              {
+                "title": "संपर्क / Connect",
+                "links": [
+                  { "text": "Call · 95116 36205", "href": "tel:+919511636205" },
+                  { "text": "WhatsApp · 95453 52560", "href": "https://wa.me/919545352560" },
+                  { "text": "WhatsApp · 97678 37761", "href": "https://wa.me/919767837761" },
+                  { "text": "Instagram", "href": "https://www.instagram.com/min_imetro?igsh=MW5mcDduaG55M2lzZQ%3D%3D&utm_source=qr" }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Shri Krushna Motors, Nagpur. All rights reserved.",
+            "termsBody": "गाड़ी की कीमत, डाउन पेमेंट और EMI की राशि मॉडल, वेरिएंट और फाइनेंस कंपनी की शर्तों पर निर्भर करती है। शोरूम पर दी गई कीमत ही अंतिम मानी जाएगी।\n\nफाइनेंस और लोन की मंज़ूरी संबंधित बैंक या NBFC के नियमों और आपके दस्तावेज़ों पर निर्भर है। श्री कृष्णा मोटर्स केवल आवेदन में सहायता करता है, मंज़ूरी की गारंटी नहीं देता।\n\nबैटरी, मोटर और वाहन पर वारंटी निर्माता कंपनी की शर्तों के अनुसार दी जाती है। गलत इस्तेमाल, ओवरलोडिंग, बाहर से की गई मरम्मत या अनधिकृत बदलाव की स्थिति में वारंटी लागू नहीं होगी।\n\nRTO रजिस्ट्रेशन और संबंधित सरकारी शुल्क सरकार द्वारा तय होते हैं और समय-समय पर बदल सकते हैं।\n\nयह पाठ एक नमूना है। लाइव करने से पहले अपने सलाहकार से जँचवाकर अपनी शर्तें यहाँ लिखें."
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "services",
+      "slug": "/services",
+      "title": "Services",
+      "seo": {
+        "title": "Services | E-Rickshaw Sales, Servicing, Spare Parts & Finance — Shri Krushna Motors",
+        "description": "Nine services under one roof in Nagpur: new vehicle sales, exchange, maintenance, quick repairs, genuine parts, diagnostics, spare parts, servicing by experienced technicians, and RTO plus EMI finance support.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-2",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "links": [
+              { "text": "Home", "href": "/" },
+              { "text": "Services", "href": "/services" },
+              { "text": "About", "href": "/about" },
+              { "text": "Contact", "href": "/contact" }
+            ],
+            "cta": { "text": "Call Now", "href": "tel:+919511636205", "style": "primary" }
+          }
+        },
+        {
+          "id": "hero-2",
+          "type": "hero",
+          "visible": true,
+          "variant": "centered-bg",
+          "props": {
+            "heading": "हमारी सेवाएँ",
+            "sub": "बिक्री, सर्विस, पार्ट्स, RTO और फाइनेंस — नौ सेवाएँ, एक ही शोरूम।",
+            "image": "https://images.pexels.com/photos/8478206/pexels-photo-8478206.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "style": { "overlay": 0.6 }
+        },
+        {
+          "id": "services-2",
+          "type": "services",
+          "visible": true,
+          "variant": "list",
+          "props": {
+            "label": "पूरी सूची",
+            "heading": "नौ सेवाएँ, विस्तार से",
+            "sub": "हर सेवा हमारी सातों शाखाओं पर उपलब्ध है।",
+            "items": [
+              { "icon": "shopping-bag", "title": "New Vehicle Sales · नई गाड़ी की बिक्री", "desc": "नवीनतम और बेहतरीन मॉडल की बिक्री। शोरूम पर आकर मॉडल देखिए, चलाकर देखिए, और कीमत तथा EMI की पूरी जानकारी लेकर ही फ़ैसला कीजिए।" },
+              { "icon": "refresh-cw", "title": "Vehicle Exchange & Upgrade · अदला-बदली और अपग्रेड", "desc": "पुराने वाहन को बदलने की आसान सुविधा। आपकी पुरानी गाड़ी की जाँच करके कीमत लगाई जाती है और वही रकम नई गाड़ी में समायोजित कर दी जाती है।" },
+              { "icon": "tool", "title": "Maintenance · नियमित सर्विस और देखभाल", "desc": "तय समय पर सर्विस कराने से छोटी दिक्कतें बड़ी खराबी बनने से पहले ही पकड़ में आ जाती हैं — और गाड़ी की उम्र बढ़ती है।" },
+              { "icon": "zap", "title": "Quick Repairs · तुरंत मरम्मत", "desc": "कम से कम समय में सही और टिकाऊ मरम्मत। हम जानते हैं कि गाड़ी खड़ी रहने का मतलब है उस दिन की कमाई का नुकसान।" },
+              { "icon": "shield", "title": "Genuine Parts Replacement · असली पार्ट्स", "desc": "केवल प्रामाणिक और असली पार्ट्स का उपयोग। डुप्लीकेट पार्ट शुरू में सस्ता लगता है, पर गाड़ी और जेब दोनों पर भारी पड़ता है।" },
+              { "icon": "search", "title": "Diagnostic & Inspection · पूरी जाँच और सलाह", "desc": "वाहन की पूरी जाँच और सही सलाह। क्या अभी बदलना ज़रूरी है और क्या कुछ महीने और चल जाएगा — दोनों साफ़-साफ़ बताया जाता है।" },
+              { "icon": "package", "title": "Spare Parts & Accessories · स्पेयर पार्ट्स", "desc": "100% असली स्पेयर पार्ट्स और एक्सेसरीज़ — बैटरी, चार्जर, मोटर, कंट्रोलर, टायर, लाइट, सीट और बॉडी पार्ट्स। काउंटर से सीधे खरीद सकते हैं।" },
+              { "icon": "users", "title": "Repair & Servicing · अनुभवी तकनीशियन", "desc": "अनुभवी तकनीशियनों द्वारा सर्विस और मरम्मत। 34 लोगों की हमारी टीम में मोटर, बैटरी, बॉडी और इलेक्ट्रिकल — हर काम के लिए अलग जानकार है।" },
+              { "icon": "file-text", "title": "RTO & Finance Support · RTO और फाइनेंस", "desc": "रजिस्ट्रेशन, नंबर प्लेट, RTO के सभी ज़रूरी कागज़ी काम और आसान लोन/फाइनेंस में सहायता — सब कुछ शोरूम से ही।" }
+            ]
+          }
+        },
+        {
+          "id": "products-1",
+          "type": "products",
+          "visible": true,
+          "variant": "cards-3",
+          "props": {
+            "label": "स्पेयर पार्ट्स",
+            "heading": "पार्ट्स और एक्सेसरीज़",
+            "sub": "सभी शाखाओं पर उपलब्ध। कीमत मॉडल और ब्रांड के अनुसार बदलती है — WhatsApp पर अपनी गाड़ी का मॉडल भेजिए, हम रेट भेज देंगे।",
+            "items": [
+              {
+                "image": "https://images.pexels.com/photos/4238222/pexels-photo-4238222.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "बैटरी और चार्जर",
+                "desc": "ई-रिक्शा की बैटरी और चार्जर, कंपनी वारंटी के साथ। पुरानी बैटरी एक्सचेंज की सुविधा भी उपलब्ध है।",
+                "meta": "कंपनी वारंटी · एक्सचेंज उपलब्ध",
+                "price": "रेट के लिए पूछें"
+              },
+              {
+                "image": "https://images.pexels.com/photos/4116222/pexels-photo-4116222.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "मोटर और कंट्रोलर",
+                "desc": "असली मोटर, कंट्रोलर और वायरिंग किट। लगवाने की सुविधा भी उसी दिन शोरूम पर।",
+                "meta": "फिटिंग सहित",
+                "price": "रेट के लिए पूछें"
+              },
+              {
+                "image": "https://images.pexels.com/photos/7568414/pexels-photo-7568414.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "टायर, ब्रेक और सस्पेंशन",
+                "desc": "टायर, ट्यूब, ब्रेक शू, शॉकर और सस्पेंशन के पार्ट्स — सभी प्रमुख ब्रांड।",
+                "meta": "सभी ब्रांड",
+                "price": "रेट के लिए पूछें"
+              },
+              {
+                "image": "https://images.pexels.com/photos/33797539/pexels-photo-33797539.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "बॉडी पार्ट्स और सीट",
+                "desc": "बॉडी पैनल, छत, सीट, कुशन और तिरपाल। रंग और साइज़ के विकल्प उपलब्ध।",
+                "meta": "रंग और साइज़ के विकल्प",
+                "price": "रेट के लिए पूछें"
+              },
+              {
+                "image": "https://images.pexels.com/photos/8985969/pexels-photo-8985969.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "लाइट और इलेक्ट्रिकल",
+                "desc": "हेडलाइट, इंडिकेटर, हॉर्न, स्विच और पूरी वायरिंग — असली पार्ट्स ही।",
+                "meta": "100% ओरिजिनल",
+                "price": "रेट के लिए पूछें"
+              },
+              {
+                "image": "https://images.pexels.com/photos/5622320/pexels-photo-5622320.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "एक्सेसरीज़",
+                "desc": "म्यूज़िक सिस्टम, मोबाइल चार्जर पॉइंट, मडगार्ड, स्टिकर और सजावट का सामान।",
+                "meta": "शोरूम पर देखिए",
+                "price": "रेट के लिए पूछें"
+              }
+            ]
+          }
+        },
+        {
+          "id": "faq-1",
+          "type": "faq",
+          "visible": true,
+          "variant": "accordion",
+          "props": {
+            "label": "सवाल-जवाब",
+            "heading": "अक्सर पूछे जाने वाले सवाल",
+            "openFirst": true,
+            "items": [
+              {
+                "q": "क्या रिक्शा/ऑटो पर लोन या फाइनेंस (EMI) की सुविधा उपलब्ध है?",
+                "a": "जी हाँ! हमारे पास आसान किश्तों (EMI) और कम डाउन पेमेंट पर फाइनेंस की सुविधा उपलब्ध है। आवश्यक दस्तावेज़ों के साथ आप तुरंत लोन प्रोसेस करवा सकते हैं। मंज़ूरी बैंक या फाइनेंस कंपनी के नियमों और आपके दस्तावेज़ों पर निर्भर करती है।"
+              },
+              {
+                "q": "क्या रजिस्ट्रेशन और RTO का काम आप करवा कर देते हैं?",
+                "a": "जी बिल्कुल, रजिस्ट्रेशन, नंबर प्लेट और RTO से जुड़े सभी ज़रूरी कागज़ी काम हमारे शोरूम से ही पूरे करवा कर दिए जाते हैं।"
+              },
+              {
+                "q": "एक बार फुल चार्ज करने पर यह रिक्शा कितना किलोमीटर चलती है?",
+                "a": "यह मॉडल, बैटरी की क्षमता, गाड़ी पर कितना वज़न है और सड़क की स्थिति — इन सब पर निर्भर करता है, इसलिए हर मॉडल का आँकड़ा अलग होता है। आप जिस मॉडल में रुचि रखते हैं उसका नाम WhatsApp पर भेजिए या शोरूम पर आइए — उस गाड़ी की सही रेंज हम आपको कंपनी के आँकड़ों के साथ बता देंगे।"
+              },
+              {
+                "q": "बैटरी को फुल चार्ज होने में कितना समय लगता है?",
+                "a": "चार्जिंग का समय बैटरी की क्षमता और चार्जर पर निर्भर करता है, इसलिए यह हर मॉडल में अलग होता है। अपने मॉडल का सही समय जानने के लिए शोरूम पर पूछिए या हमें WhatsApp कीजिए।"
+              },
+              {
+                "q": "बैटरी और गाड़ी पर कितनी गारंटी/वॉरंटी मिलती है?",
+                "a": "बैटरी, मोटर और वाहन पर वारंटी निर्माता कंपनी की शर्तों के अनुसार दी जाती है और मॉडल के हिसाब से अलग-अलग होती है। खरीदते समय आपको वारंटी कार्ड और पूरी शर्तें लिखित में दी जाती हैं। किसी विशेष मॉडल की वारंटी जानने के लिए हमसे संपर्क कीजिए।"
+              },
+              {
+                "q": "आपकी शाखाएँ कहाँ-कहाँ हैं?",
+                "a": "हमारी सात शाखाएँ हैं — नागपुर में रानी दुर्गावती चौक, इतवारी रोड (पेट्रोल पंप के पास) और वाडी-दाभा रिंग रोड; तथा वर्धा, कोंढाली, काटोल और चिमूर में एक-एक। सभी शाखाओं पर बिक्री, सर्विस और स्पेयर पार्ट्स उपलब्ध हैं।"
+              },
+              {
+                "q": "शोरूम कब खुला रहता है?",
+                "a": "सोमवार से शनिवार, सुबह 10 बजे से रात 8 बजे तक। रविवार को अवकाश रहता है।"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-2",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "अपने मॉडल का रेट और EMI जानिए",
+            "sub": "WhatsApp पर मॉडल का नाम भेजिए — कीमत, डाउन पेमेंट और किश्त की पूरी जानकारी भेज देंगे।",
+            "ctaPrimary": { "text": "WhatsApp करें", "href": "https://wa.me/919545352560", "style": "primary" },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-2",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "blurb": "श्री कृष्णा मोटर्स — ई-रिक्शा और ऑटो की बिक्री, सर्विस, असली स्पेयर पार्ट्स, RTO और फाइनेंस। नागपुर, वर्धा, कोंढाली, काटोल और चिमूर में 7 शाखाएँ।",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "सेवाएँ / Services",
+                "links": [
+                  { "text": "नई गाड़ी की बिक्री", "href": "/services" },
+                  { "text": "सर्विस और मरम्मत", "href": "/services" },
+                  { "text": "स्पेयर पार्ट्स", "href": "/services" },
+                  { "text": "RTO और फाइनेंस", "href": "/services" }
+                ]
+              },
+              {
+                "title": "कंपनी / Company",
+                "links": [
+                  { "text": "हमारे बारे में", "href": "/about" },
+                  { "text": "हमारी शाखाएँ", "href": "/about" },
+                  { "text": "सवाल-जवाब", "href": "/services" },
+                  { "text": "संपर्क करें", "href": "/contact" }
+                ]
+              },
+              {
+                "title": "संपर्क / Connect",
+                "links": [
+                  { "text": "Call · 95116 36205", "href": "tel:+919511636205" },
+                  { "text": "WhatsApp · 95453 52560", "href": "https://wa.me/919545352560" },
+                  { "text": "WhatsApp · 97678 37761", "href": "https://wa.me/919767837761" },
+                  { "text": "Instagram", "href": "https://www.instagram.com/min_imetro?igsh=MW5mcDduaG55M2lzZQ%3D%3D&utm_source=qr" }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Shri Krushna Motors, Nagpur. All rights reserved."
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "about",
+      "slug": "/about",
+      "title": "About",
+      "seo": {
+        "title": "About Us & Our 7 Branches | Shri Krushna Motors, Nagpur",
+        "description": "Shri Krushna Motors is run by Nikhil Charde with a team of 34 across seven branches — Rani Durgawati Square, Itwari Road, Wadi Dabha Ring Road, Wardha, Kondhali, Katol and Chimur.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-3",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "links": [
+              { "text": "Home", "href": "/" },
+              { "text": "Services", "href": "/services" },
+              { "text": "About", "href": "/about" },
+              { "text": "Contact", "href": "/contact" }
+            ],
+            "cta": { "text": "Call Now", "href": "tel:+919511636205", "style": "primary" }
+          }
+        },
+        {
+          "id": "hero-3",
+          "type": "hero",
+          "visible": true,
+          "variant": "centered-bg",
+          "props": {
+            "heading": "हमारे बारे में",
+            "sub": "नागपुर से शुरू होकर विदर्भ की सात जगहों तक।",
+            "image": "https://images.pexels.com/photos/37991386/pexels-photo-37991386.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "style": { "overlay": 0.6 }
+        },
+        {
+          "id": "about-2",
+          "type": "about",
+          "visible": true,
+          "variant": "image-left",
+          "props": {
+            "label": "हमारी कहानी",
+            "heading": "गाड़ी सिर्फ़ गाड़ी नहीं — रोज़ की कमाई है",
+            "body": "श्री कृष्णा मोटर्स की शुरुआत नागपुर के रानी दुर्गावती चौक से हुई। आज हमारी सात शाखाएँ हैं — नागपुर में तीन, और वर्धा, कोंढाली, काटोल तथा चिमूर में एक-एक।\n\nहमारा ग्राहक ज़्यादातर वही व्यक्ति है जो अपनी गाड़ी से रोज़ी कमाता है। उसके लिए गाड़ी का एक दिन खड़ा रहना सिर्फ़ असुविधा नहीं, उस दिन की कमाई का नुकसान है। इसीलिए हमारा पूरा काम दो बातों पर टिका है — असली पार्ट्स, और कम से कम डाउनटाइम।\n\nहमारी 34 लोगों की टीम में मोटर, बैटरी, इलेक्ट्रिकल और बॉडी वर्क — हर काम के लिए अलग जानकार तकनीशियन हैं, साथ ही RTO और फाइनेंस का काम देखने वाले लोग भी। इसका सीधा फ़ायदा ग्राहक को यह है कि गाड़ी खरीदने से लेकर नंबर प्लेट लगने तक और फिर हर सर्विस तक, आपको एक ही जगह आना है।\n\nहम यह दावा नहीं करते कि हम सबसे सस्ते हैं। हम यह ज़रूर कहते हैं कि जो पार्ट लगाया जाएगा वह असली होगा, जो काम बताया जाएगा वही किया जाएगा, और जो कीमत बताई जाएगी वही ली जाएगी।",
+            "image": "https://images.pexels.com/photos/38935130/pexels-photo-38935130.jpeg?auto=compress&cs=tinysrgb&w=1400",
+            "showPillars": false
+          }
+        },
+        {
+          "id": "stats-2",
+          "type": "stats",
+          "visible": true,
+          "variant": "cards",
+          "props": {
+            "label": "आँकड़ों में",
+            "heading": "श्री कृष्णा मोटर्स",
+            "countUp": true,
+            "items": [
+              { "icon": "map-pin", "value": 7, "suffix": "", "label": "शाखाएँ / Branches" },
+              { "icon": "users", "value": 34, "suffix": "", "label": "टीम के सदस्य / Team" },
+              { "icon": "tool", "value": 9, "suffix": "", "label": "सेवाएँ / Services" },
+              { "icon": "map", "value": 5, "suffix": "", "label": "शहर / Cities covered" }
+            ]
+          }
+        },
+        {
+          "id": "team-1",
+          "type": "team",
+          "visible": true,
+          "variant": "cards-2",
+          "props": {
+            "label": "संचालन",
+            "heading": "मालिक और टीम",
+            "sub": "शोरूम की पूरी ज़िम्मेदारी और 34 लोगों की टीम।",
+            "items": [
+              {
+                "name": "Nikhil Charde",
+                "role": "Owner · मालिक",
+                "meta": "श्री कृष्णा मोटर्स, नागपुर",
+                "bio": "श्री कृष्णा मोटर्स के संचालक। सातों शाखाओं की देखरेख और ग्राहकों से सीधा संवाद — कोई शिकायत हो या सलाह चाहिए हो, बात सीधे हो सकती है।"
+              },
+              {
+                "name": "34 सदस्यों की टीम",
+                "role": "तकनीशियन, सेल्स, RTO और फाइनेंस",
+                "meta": "सातों शाखाओं में",
+                "bio": "मोटर और बैटरी के जानकार, इलेक्ट्रिकल और बॉडी वर्क के तकनीशियन, सेल्स सलाहकार तथा RTO और फाइनेंस का काम देखने वाले सदस्य — सभी शाखाओं में मौजूद।"
+              }
+            ]
+          }
+        },
+        {
+          "id": "services-3",
+          "type": "services",
+          "visible": true,
+          "variant": "list",
+          "props": {
+            "label": "हमारी शाखाएँ",
+            "heading": "सात शाखाएँ, आपके नज़दीक",
+            "sub": "हर शाखा पर बिक्री, सर्विस और स्पेयर पार्ट्स तीनों उपलब्ध हैं। सोमवार से शनिवार, सुबह 10 से रात 8 बजे तक।",
+            "items": [
+              { "icon": "map-pin", "title": "रानी दुर्गावती चौक, नागपुर", "desc": "Rani Durga Vati Chowk, near Bharat Petrol Pump, Binaki Layout, Nagpur, Maharashtra 440017 — मुख्य शाखा।" },
+              { "icon": "map-pin", "title": "इतवारी रोड, नागपुर", "desc": "Itwari Road, near Petrol Pump, Nagpur." },
+              { "icon": "map-pin", "title": "वाडी दाभा रिंग रोड, नागपुर", "desc": "Wadi Dabha Ring Road, Nagpur." },
+              { "icon": "map-pin", "title": "वर्धा", "desc": "Wardha branch." },
+              { "icon": "map-pin", "title": "कोंढाली", "desc": "Kondhali branch." },
+              { "icon": "map-pin", "title": "काटोल", "desc": "Katol branch." },
+              { "icon": "map-pin", "title": "चिमूर", "desc": "Chimur branch." }
+            ]
+          }
+        },
+        {
+          "id": "blog-1",
+          "type": "blog",
+          "visible": true,
+          "variant": "grid-3",
+          "props": {
+            "label": "जानकारी",
+            "heading": "पढ़िए और समझिए",
+            "sub": "शोरूम, गाड़ियों, सेवाओं और फाइनेंस के बारे में काम की बातें।",
+            "posts": [
+              {
+                "image": "https://images.pexels.com/photos/38935130/pexels-photo-38935130.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "हमारा शोरूम — क्या-क्या मिलेगा एक ही छत के नीचे",
+                "date": "10 अगस्त 2026",
+                "excerpt": "रानी दुर्गावती चौक की मुख्य शाखा से लेकर चिमूर तक — हर शोरूम पर गाड़ी देखने, चलाकर देखने, सर्विस कराने और पार्ट्स खरीदने की सुविधा। जानिए शोरूम आने से पहले क्या साथ लाना चाहिए।",
+                "linkText": "पूरा पढ़ें"
+              },
+              {
+                "image": "https://images.pexels.com/videos/35078086/blue-rickshaw-candid-moment-daily-life-electric-rickshaw-35078086.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "गाड़ी चुनते समय किन बातों का ध्यान रखें",
+                "date": "1 अगस्त 2026",
+                "excerpt": "बैटरी की क्षमता, मोटर, बॉडी की मज़बूती, सीट की संख्या और सर्विस की उपलब्धता — नई ई-रिक्शा या ऑटो लेते समय ये बातें कीमत से भी ज़्यादा मायने रखती हैं।",
+                "linkText": "पूरा पढ़ें"
+              },
+              {
+                "image": "https://images.pexels.com/photos/8478206/pexels-photo-8478206.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "हमारी नौ सेवाएँ — किस काम के लिए कब आएँ",
+                "date": "24 जुलाई 2026",
+                "excerpt": "नियमित सर्विस कब करानी चाहिए, तुरंत मरम्मत किन हालात में ज़रूरी है, और डायग्नोस्टिक जाँच से पैसे कैसे बचते हैं — हमारी सेवाओं की पूरी जानकारी।",
+                "linkText": "पूरा पढ़ें"
+              },
+              {
+                "image": "https://images.pexels.com/videos/34760694/agreement-automotive-business-deal-buying-car-34760694.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "फाइनेंस और EMI — कागज़ात और पूरी प्रक्रिया",
+                "date": "15 जुलाई 2026",
+                "excerpt": "कम डाउन पेमेंट पर गाड़ी कैसे मिलती है, कौन-कौन से दस्तावेज़ लगते हैं, और लोन की प्रक्रिया में कितना समय लगता है — शुरू से आख़िर तक समझिए।",
+                "linkText": "पूरा पढ़ें"
+              },
+              {
+                "image": "https://images.pexels.com/photos/4116221/pexels-photo-4116221.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "आपकी राय हमारे लिए ज़रूरी है",
+                "date": "5 जुलाई 2026",
+                "excerpt": "सर्विस कैसी रही, तकनीशियन ने ठीक से समझाया या नहीं, कीमत में कोई गड़बड़ तो नहीं हुई — आपकी बात हम तक कैसे पहुँचाएँ, और हम शिकायतों पर क्या करते हैं।",
+                "linkText": "पूरा पढ़ें"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-3",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "अपनी नज़दीकी शाखा पर आइए",
+            "sub": "सोमवार से शनिवार, सुबह 10 से रात 8 बजे तक। आने से पहले एक कॉल कर लीजिए ताकि आपका समय बचे।",
+            "ctaPrimary": { "text": "कॉल करें", "href": "tel:+919511636205", "style": "primary" },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-3",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "blurb": "श्री कृष्णा मोटर्स — ई-रिक्शा और ऑटो की बिक्री, सर्विस, असली स्पेयर पार्ट्स, RTO और फाइनेंस। नागपुर, वर्धा, कोंढाली, काटोल और चिमूर में 7 शाखाएँ।",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "सेवाएँ / Services",
+                "links": [
+                  { "text": "नई गाड़ी की बिक्री", "href": "/services" },
+                  { "text": "सर्विस और मरम्मत", "href": "/services" },
+                  { "text": "स्पेयर पार्ट्स", "href": "/services" },
+                  { "text": "RTO और फाइनेंस", "href": "/services" }
+                ]
+              },
+              {
+                "title": "कंपनी / Company",
+                "links": [
+                  { "text": "हमारे बारे में", "href": "/about" },
+                  { "text": "हमारी शाखाएँ", "href": "/about" },
+                  { "text": "सवाल-जवाब", "href": "/services" },
+                  { "text": "संपर्क करें", "href": "/contact" }
+                ]
+              },
+              {
+                "title": "संपर्क / Connect",
+                "links": [
+                  { "text": "Call · 95116 36205", "href": "tel:+919511636205" },
+                  { "text": "WhatsApp · 95453 52560", "href": "https://wa.me/919545352560" },
+                  { "text": "WhatsApp · 97678 37761", "href": "https://wa.me/919767837761" },
+                  { "text": "Instagram", "href": "https://www.instagram.com/min_imetro?igsh=MW5mcDduaG55M2lzZQ%3D%3D&utm_source=qr" }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Shri Krushna Motors, Nagpur. All rights reserved."
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "contact",
+      "slug": "/contact",
+      "title": "Contact",
+      "seo": {
+        "title": "Contact & Location | Shri Krushna Motors, Binaki Layout, Nagpur",
+        "description": "Call 95116 36205 or WhatsApp 95453 52560. Rani Durga Vati Chowk, near Bharat Petrol Pump, Binaki Layout, Nagpur 440017. Open Monday to Saturday, 10 AM to 8 PM.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-4",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "links": [
+              { "text": "Home", "href": "/" },
+              { "text": "Services", "href": "/services" },
+              { "text": "About", "href": "/about" },
+              { "text": "Contact", "href": "/contact" }
+            ],
+            "cta": { "text": "Call Now", "href": "tel:+919511636205", "style": "primary" }
+          }
+        },
+        {
+          "id": "contact-1",
+          "type": "contact",
+          "visible": true,
+          "variant": "form-map",
+          "props": {
+            "label": "संपर्क",
+            "heading": "हमसे बात कीजिए",
+            "sub": "गाड़ी की कीमत, EMI, सर्विस बुकिंग या स्पेयर पार्ट का रेट — कुछ भी पूछिए।\n\nतुरंत जवाब के लिए WhatsApp सबसे अच्छा तरीका है: 95453 52560 या 97678 37761.",
+            "showPhone": true,
+            "showWhatsapp": true,
+            "showEmail": true,
+            "showAddress": true,
+            "showHours": true,
+            "showMap": true,
+            "mapUrl": "https://www.google.com/maps?q=Rani%20Durga%20Vati%20Chowk%2C%20near%20Bharat%20Petrol%20Pump%2C%20Binaki%20Layout%2C%20Nagpur%2C%20Maharashtra%20440017&output=embed",
+            "submitText": "पूछताछ भेजें / Send Enquiry"
+          }
+        },
+        {
+          "id": "hours-1",
+          "type": "hours",
+          "visible": true,
+          "props": {
+            "label": "समय",
+            "heading": "शोरूम का समय",
+            "sub": "सभी सात शाखाओं का समय एक जैसा है।",
+            "highlightToday": true,
+            "note": "रविवार को अवकाश। सार्वजनिक छुट्टियों पर आने से पहले कॉल कर लें."
+          }
+        },
+        {
+          "id": "services-4",
+          "type": "services",
+          "visible": true,
+          "variant": "list",
+          "props": {
+            "label": "शाखाएँ",
+            "heading": "सातों शाखाओं के पते",
+            "items": [
+              { "icon": "map-pin", "title": "रानी दुर्गावती चौक, नागपुर (मुख्य शाखा)", "desc": "Rani Durga Vati Chowk, near Bharat Petrol Pump, Binaki Layout, Nagpur, Maharashtra 440017" },
+              { "icon": "map-pin", "title": "इतवारी रोड, नागपुर", "desc": "Itwari Road, near Petrol Pump, Nagpur" },
+              { "icon": "map-pin", "title": "वाडी दाभा रिंग रोड, नागपुर", "desc": "Wadi Dabha Ring Road, Nagpur" },
+              { "icon": "map-pin", "title": "वर्धा", "desc": "Wardha" },
+              { "icon": "map-pin", "title": "कोंढाली", "desc": "Kondhali" },
+              { "icon": "map-pin", "title": "काटोल", "desc": "Katol" },
+              { "icon": "map-pin", "title": "चिमूर", "desc": "Chimur" }
+            ]
+          }
+        },
+        {
+          "id": "footer-4",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "blurb": "श्री कृष्णा मोटर्स — ई-रिक्शा और ऑटो की बिक्री, सर्विस, असली स्पेयर पार्ट्स, RTO और फाइनेंस। नागपुर, वर्धा, कोंढाली, काटोल और चिमूर में 7 शाखाएँ।",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "सेवाएँ / Services",
+                "links": [
+                  { "text": "नई गाड़ी की बिक्री", "href": "/services" },
+                  { "text": "सर्विस और मरम्मत", "href": "/services" },
+                  { "text": "स्पेयर पार्ट्स", "href": "/services" },
+                  { "text": "RTO और फाइनेंस", "href": "/services" }
+                ]
+              },
+              {
+                "title": "कंपनी / Company",
+                "links": [
+                  { "text": "हमारे बारे में", "href": "/about" },
+                  { "text": "हमारी शाखाएँ", "href": "/about" },
+                  { "text": "सवाल-जवाब", "href": "/services" },
+                  { "text": "संपर्क करें", "href": "/contact" }
+                ]
+              },
+              {
+                "title": "संपर्क / Connect",
+                "links": [
+                  { "text": "Call · 95116 36205", "href": "tel:+919511636205" },
+                  { "text": "WhatsApp · 95453 52560", "href": "https://wa.me/919545352560" },
+                  { "text": "WhatsApp · 97678 37761", "href": "https://wa.me/919767837761" },
+                  { "text": "Instagram", "href": "https://www.instagram.com/min_imetro?igsh=MW5mcDduaG55M2lzZQ%3D%3D&utm_source=qr" }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Shri Krushna Motors, Nagpur. All rights reserved."
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "preset": "volt-grove",
+  "label": "Volt & Grove",
+  "description": "Deep electric green with a marigold accent on a light page. Built for electric mobility — e-rickshaw and EV dealerships, charging and battery businesses, green transport and last-mile fleets.",
+  "industries": ["automotive", "ev", "e-rickshaw", "electric-vehicle", "auto-dealership", "battery", "charging", "three-wheeler", "green-mobility", "transport"],
+
+  "tokens": {
+    "mode": "light",
+    "color": {
+      "primary":   "#0F6B4F",
+      "secondary": "#123B33",
+      "accent":    "#F5A524",
+      "bg":        "#F7FAF8",
+      "surface":   "#FFFFFF",
+      "text":      "#10201B",
+      "muted":     "#5F7269",
+      "border":    "#DDE7E1"
+    },
+    "font": {
+      "heading": "Poppins",
+      "body":    "Mukta"
+    },
+    "radius":    "md",
+    "spacing":   "comfortable",
+    "container": "normal"
+  },
+
+  "notes": "Tokens only — sections never hardcode colours, they read these as CSS variables.\n\nWHY NOT 'octane': the automotive default is a dark motorsport palette built for performance detailing studios. An e-rickshaw dealership sells a livelihood, not a weekend car — the buyer is comparing EMI amounts and running costs, often on a cheap phone in daylight. A light page reads better in those conditions and a green primary carries the electric/eco meaning the product actually has. Marigold accent keeps it warm and local rather than corporate.\n\nFONTS ARE LOAD-BEARING HERE: Poppins and Mukta both ship Devanagari as well as Latin, and both serve weights 400-700. Sites in this category carry a lot of Hindi — services, FAQs, CTAs — and the usual Inter/Space Grotesk pairing has no Devanagari at all, so every Hindi line would silently fall back to a system font and look broken next to the English. Do not swap either font for a Latin-only family without checking the Devanagari subset first."
+}
