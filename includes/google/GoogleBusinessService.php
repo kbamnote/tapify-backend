@@ -462,7 +462,25 @@ class GoogleBusinessService
         if (empty($conn['location_id'])) {
             throw new GoogleException('No Google Business location is linked yet.', 404, 'location empty');
         }
-        $questions = $this->client($userId)->listQuestions($conn['location_id'], $pageSize);
+        // The Q&A API answers with an HTML 404 page — not its usual JSON error —
+        // when the calling project has no access to it. GoogleHttp turns that
+        // into a 502 "unexpected response", which tells the customer nothing.
+        // The request URL itself is correct: it matches the published discovery
+        // document (GET v1/locations/{locationsId}/questions) exactly, so a 404
+        // here means access, never a malformed request.
+        try {
+            $questions = $this->client($userId)->listQuestions($conn['location_id'], $pageSize);
+        } catch (GoogleException $e) {
+            if (in_array((int)$e->getHttpStatus(), [404, 502], true)) {
+                throw new GoogleException(
+                    'Questions & Answers is not available for this Google account yet. '
+                  . 'The My Business Q&A API has to be enabled and approved for the project before this screen can load.',
+                    503,
+                    'qanda 404/502 — API not reachable for this project'
+                );
+            }
+            throw $e;
+        }
 
         $out = []; $unanswered = 0;
         foreach ($questions as $q) {
