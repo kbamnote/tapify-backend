@@ -1,0 +1,29 @@
+{
+  "preset": "onyx-gilt",
+  "label": "Onyx & Gilt",
+  "description": "Near-black and antique gold on warm ivory. Premium without being heavy — suits unisex salons, barbers, grooming studios and any brand whose printed identity is black and gold but whose website has a lot to read.",
+  "industries": ["salon", "unisex-salon", "barber", "grooming", "spa", "beauty", "studio", "boutique"],
+
+  "tokens": {
+    "mode": "light",
+    "color": {
+      "primary":   "#1A1A1D",
+      "secondary": "#3A3A3F",
+      "accent":    "#8F6B18",
+      "bg":        "#FBF9F4",
+      "surface":   "#FFFFFF",
+      "text":      "#1F1D1A",
+      "muted":     "#6B655C",
+      "border":    "#E8E2D6"
+    },
+    "font": {
+      "heading": "Jost",
+      "body":    "Karla"
+    },
+    "radius":    "md",
+    "spacing":   "comfortable",
+    "container": "normal"
+  },
+
+  "notes": "Tokens only — sections never hardcode colours, they read these as CSS variables.\n\nWHY LIGHT WHEN THE BUSINESS CARD IS BLACK: this replaced a dark theme built to mirror the card one-to-one. A card is glanced at; a site with sixteen service descriptions and four product pages is read, and long body copy is harder work on near-black. Black-and-gold also signals expensive — right for bridal and keratin, wrong for the everyday haircut that is the volume business. Gold, the near-black headings and the footer carry the identity; the background does not have to.\n\nTHE GOLD HAD TO BE DARKENED, AND THIS IS THE WHOLE TRICK: --color-accent is used as 12px meta text in fifteen places, so it must clear WCAG AA at small sizes. The card's actual gold (#C9A227) measures 2.30:1 on this background — unusable. #B08A1E is 3.07:1 and #9C761A is 3.98:1, both still failing. #8F6B18 measures 4.66:1 on the page and 4.90:1 on surface, and is the closest to a true gold that passes. The renderer also derives --color-accent-fg via readableOn(), which puts white on the gold in three places; that pairing measures 4.90:1 and passes too. Do not lighten this towards the card's gold without re-measuring both directions.\n\nPrimary is 16.50:1, muted 5.48:1, white-on-primary 17.36:1. Both fonts serve weights 400-700 (checked)."
+}

@@ -6,17 +6,17 @@
     "locale": "en-IN"
   },
   "theme": {
-    "preset": "noir-gold",
-    "mode": "dark",
+    "preset": "onyx-gilt",
+    "mode": "light",
     "color": {
-      "primary": "#C9A227",
-      "secondary": "#8A6D1F",
-      "accent": "#D9B441",
-      "bg": "#0D0D0F",
-      "surface": "#17171A",
-      "text": "#F2EFE9",
-      "muted": "#A39C90",
-      "border": "#2A2A2E"
+      "primary": "#1A1A1D",
+      "secondary": "#3A3A3F",
+      "accent": "#8F6B18",
+      "bg": "#FBF9F4",
+      "surface": "#FFFFFF",
+      "text": "#1F1D1A",
+      "muted": "#6B655C",
+      "border": "#E8E2D6"
     },
     "font": {
       "heading": "Jost",
