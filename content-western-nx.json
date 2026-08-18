@@ -1,0 +1,1448 @@
+{
+  "schemaVersion": 1,
+  "site": {
+    "name": "Western NX",
+    "industry": "boutique",
+    "locale": "en-IN"
+  },
+  "theme": {
+    "preset": "ink-coral",
+    "mode": "light",
+    "color": {
+      "primary": "#1A1A1F",
+      "secondary": "#3D3D46",
+      "accent": "#C2405C",
+      "bg": "#FBF7F5",
+      "surface": "#FFFFFF",
+      "text": "#1A1A1F",
+      "muted": "#6E6670",
+      "border": "#EDE3E0"
+    },
+    "font": {
+      "heading": "Outfit",
+      "body": "DM Sans"
+    },
+    "radius": "md",
+    "spacing": "comfortable",
+    "container": "normal"
+  },
+  "nav": {
+    "header": [
+      {
+        "label": "Home",
+        "pageId": "home"
+      },
+      {
+        "label": "Collection",
+        "pageId": "collection"
+      },
+      {
+        "label": "Wholesale",
+        "pageId": "wholesale"
+      },
+      {
+        "label": "About",
+        "pageId": "about"
+      },
+      {
+        "label": "Contact",
+        "pageId": "contact"
+      }
+    ]
+  },
+  "business": {
+    "phone": "+91 93720 33659",
+    "whatsapp": "+91 93720 33659",
+    "address": "Western Nx, Shop No. 442, Opp. Govind Gallery, Jaripatka Main Market, Nagpur, Maharashtra 440014",
+    "social": {
+      "instagram": "https://www.instagram.com/western_nx_womens/",
+      "facebook": "https://www.facebook.com/share/1AFZsE1AC5/?mibextid=wwXIfr"
+    },
+    "hours": [
+      {
+        "day": "mon",
+        "open": "12:00 PM",
+        "close": "10:00 PM"
+      },
+      {
+        "day": "tue",
+        "open": "12:00 PM",
+        "close": "10:00 PM"
+      },
+      {
+        "day": "wed",
+        "open": "12:00 PM",
+        "close": "10:00 PM"
+      },
+      {
+        "day": "thu",
+        "open": "12:00 PM",
+        "close": "10:00 PM"
+      },
+      {
+        "day": "fri",
+        "open": "12:00 PM",
+        "close": "10:00 PM"
+      },
+      {
+        "day": "sat",
+        "open": "12:00 PM",
+        "close": "10:00 PM"
+      },
+      {
+        "day": "sun",
+        "open": "12:00 PM",
+        "close": "10:00 PM"
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "home",
+      "slug": "/",
+      "title": "Home",
+      "seo": {
+        "title": "Western NX | Women's Clothing Wholesale & Retail, Jaripatka Nagpur — Plus Size to 10XL",
+        "description": "Women's tops, one-piece dresses, co-ord sets, pant sets, jeans, gowns, nightwear, Korean pants, formal shirts and ethnic wear. Plus size up to 10XL. Wholesale and retail since 2008. Shop 442, Jaripatka Main Market, Nagpur.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-1",
+          "type": "header",
+          "visible": true,
+          "variant": "left",
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Collection",
+                "href": "/collection"
+              },
+              {
+                "text": "Wholesale",
+                "href": "/wholesale"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "WhatsApp 93720 33659",
+              "href": "https://wa.me/919372033659",
+              "style": "primary"
+            }
+          }
+        },
+        {
+          "id": "hero-1",
+          "type": "hero",
+          "visible": true,
+          "variant": "centered-bg",
+          "props": {
+            "badge": "Wholesale & Retail · Jaripatka, Nagpur · Since 2008",
+            "heading": "Style has no size",
+            "sub": "Women's tops, one-piece dresses, co-ord sets, pant sets, jeans, gowns, nightwear, Korean pants, formal shirts and ethnic wear — with plus sizes all the way up to 10XL.\n\nEighteen years in the trade, still run by the same three brothers. Open every day, 12 noon to 10 PM.",
+            "image": "https://images.pexels.com/photos/5531709/pexels-photo-5531709.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "videoUrl": "https://videos.pexels.com/video-files/5707909/5707909-hd_1280_720_25fps.mp4",
+            "fullHeight": true,
+            "ctaPrimary": {
+              "text": "See the collection",
+              "href": "/collection",
+              "style": "primary"
+            },
+            "ctaSecondary": {
+              "text": "Wholesale enquiry",
+              "href": "/wholesale",
+              "style": "ghost"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "style": {
+            "overlay": 0.55
+          }
+        },
+        {
+          "id": "stats-1",
+          "type": "stats",
+          "visible": true,
+          "variant": "bar",
+          "props": {
+            "label": "Western NX",
+            "heading": "Since October 2008",
+            "countUp": true,
+            "items": [
+              {
+                "icon": "clock",
+                "value": 18,
+                "suffix": "+",
+                "label": "Years in the trade"
+              },
+              {
+                "icon": "users",
+                "value": 3,
+                "suffix": "",
+                "label": "Brothers, still family-run"
+              },
+              {
+                "icon": "tag",
+                "value": 10,
+                "suffix": "XL",
+                "label": "Largest size we stock"
+              },
+              {
+                "icon": "package",
+                "value": 9,
+                "suffix": "",
+                "label": "Product categories"
+              }
+            ]
+          }
+        },
+        {
+          "id": "about-1",
+          "type": "about",
+          "visible": true,
+          "variant": "image-right",
+          "props": {
+            "label": "Our Story",
+            "heading": "Started in 2008. Still family-run.",
+            "body": "Rahul Khaturia founded our women's clothing business on 9th October 2008 with a simple vision — to make stylish, quality clothing accessible to every woman.\n\nWhat started as a small shop with big dreams was soon joined by his two brothers, Krishna Khaturia and Piyush Khaturia. Together, the three brothers built the brand on trust, quality and hard work.\n\nFrom those humble beginnings in 2008, we have grown into a trusted name in both online and offline wholesale and retail. Today we serve retailers and customers across India with the latest trends in women's fashion.\n\nWe are still family-run, and that is what makes us different. Every design, every order, every customer is handled with the same care we started with 18+ years ago.",
+            "image": "https://images.pexels.com/photos/35717265/pexels-photo-35717265.jpeg?auto=compress&cs=tinysrgb&w=1400",
+            "showPillars": true,
+            "pillars": [
+              {
+                "icon": "heart",
+                "title": "Plus size to 10XL",
+                "text": "Trendy, well-fitted plus size clothing all the way to 10XL. Style has no size, and we make sure of it."
+              },
+              {
+                "icon": "users",
+                "title": "Family-run since 2008",
+                "text": "Three brothers, eighteen years, same shop. Every order is handled by someone whose name is on the business."
+              },
+              {
+                "icon": "package",
+                "title": "Wholesale & retail",
+                "text": "Retailers across India buy from us in bulk; walk-in customers buy single pieces at the same counter."
+              },
+              {
+                "icon": "clock",
+                "title": "Open every day",
+                "text": "12 noon to 10 PM, all days — the only holiday we take is Holi."
+              }
+            ]
+          }
+        },
+        {
+          "id": "products-1",
+          "type": "products",
+          "visible": true,
+          "variant": "cards-3",
+          "props": {
+            "label": "Collection",
+            "heading": "What we stock",
+            "sub": "New designs arrive constantly. WhatsApp 93720 33659 for the current collection, sizes and rates — wholesale and retail both.",
+            "items": [
+              {
+                "image": "https://images.pexels.com/photos/9558711/pexels-photo-9558711.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Tops",
+                "desc": "Casual and formal tops across the current season's cuts and prints, in regular sizes through to plus size.",
+                "meta": "Regular & plus size",
+                "price": "Rate on enquiry",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/8306375/pexels-photo-8306375.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "One-Piece Dresses",
+                "desc": "Everyday and occasion one-pieces in the latest cuts — short, midi and long.",
+                "meta": "Short · Midi · Long",
+                "price": "Rate on enquiry",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/18699670/pexels-photo-18699670.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Co-ord Sets & Pant Sets",
+                "desc": "Matched two-piece sets and pant sets — one of our fastest-moving lines with retailers.",
+                "meta": "2PC · 3PC · Cord sets",
+                "price": "Rate on enquiry",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/36730407/pexels-photo-36730407.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Jeans & Korean Pants",
+                "desc": "Denim in the current fits, plus Korean pants and palazzo sets. Waist sizes through to plus.",
+                "meta": "Denim · Korean pants · Plazo",
+                "price": "Rate on enquiry",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/4427652/pexels-photo-4427652.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Ethnic Wear & Kurtis",
+                "desc": "Kurtis, 2PC and 3PC ethnic sets for daily wear and for festivals and functions.",
+                "meta": "Kurti · 2PC · 3PC",
+                "price": "Rate on enquiry",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/8433431/pexels-photo-8433431.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Plus Size — up to 10XL",
+                "desc": "Our specialty. Trendy, well-fitted plus size clothing across every category we carry, right up to 10XL.",
+                "meta": "Our specialty · Up to 10XL",
+                "price": "Rate on enquiry",
+                "enableOrder": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "gallery-1",
+          "type": "gallery",
+          "visible": true,
+          "variant": "grid-3",
+          "props": {
+            "label": "In Store",
+            "heading": "Jaripatka Main Market",
+            "sub": "Photographs of our own stock will replace these. Meanwhile, the latest designs go up on Instagram and the WhatsApp group first.",
+            "lightbox": true,
+            "images": [
+              {
+                "image": "https://images.pexels.com/photos/5531709/pexels-photo-5531709.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Bright clothing store interior with racks along both walls"
+              },
+              {
+                "image": "https://images.pexels.com/photos/35717265/pexels-photo-35717265.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Racks of clothing in a retail shop"
+              },
+              {
+                "image": "https://images.pexels.com/photos/20052448/pexels-photo-20052448.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Clothing boutique entrance with garments on display"
+              },
+              {
+                "image": "https://images.pexels.com/photos/18699670/pexels-photo-18699670.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Rail of coordinated garments in neutral shades"
+              },
+              {
+                "image": "https://images.pexels.com/photos/4427652/pexels-photo-4427652.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Shop display of Indian ethnic wear on mannequins"
+              },
+              {
+                "image": "https://images.pexels.com/photos/1846014/pexels-photo-1846014.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Busy Indian cloth market with stacks of fabric"
+              },
+              {
+                "image": "https://images.pexels.com/photos/8886948/pexels-photo-8886948.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Customer examining an embroidered dupatta in a shop"
+              },
+              {
+                "image": "https://images.pexels.com/photos/26292716/pexels-photo-26292716.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Long rail of clothing in a warmly lit store"
+              },
+              {
+                "image": "https://images.pexels.com/photos/9558711/pexels-photo-9558711.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Pink knitted top hanging on a rail"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-1",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "See the latest designs first",
+            "sub": "Save 93720 33659 for daily status updates, follow us on Instagram, or join the WhatsApp group — new arrivals go there before anywhere else.",
+            "ctaPrimary": {
+              "text": "Join the WhatsApp group",
+              "href": "https://chat.whatsapp.com/IXouev3VbnK29LxgI4AruI",
+              "style": "primary"
+            },
+            "ctaSecondary": {
+              "text": "Follow on Instagram",
+              "href": "https://www.instagram.com/western_nx_womens/",
+              "style": "ghost"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-1",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "blurb": "Western NX — women's clothing wholesale and retail since 2008. Plus size up to 10XL. Shop No. 442, Opp. Govind Gallery, Jaripatka Main Market, Nagpur 440014.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Collection",
+                "links": [
+                  {
+                    "text": "Tops",
+                    "href": "/collection"
+                  },
+                  {
+                    "text": "One-Piece Dresses",
+                    "href": "/collection"
+                  },
+                  {
+                    "text": "Co-ord & Pant Sets",
+                    "href": "/collection"
+                  },
+                  {
+                    "text": "Jeans & Korean Pants",
+                    "href": "/collection"
+                  },
+                  {
+                    "text": "Ethnic Wear & Kurtis",
+                    "href": "/collection"
+                  },
+                  {
+                    "text": "Plus Size to 10XL",
+                    "href": "/collection"
+                  }
+                ]
+              },
+              {
+                "title": "Business",
+                "links": [
+                  {
+                    "text": "Wholesale",
+                    "href": "/wholesale"
+                  },
+                  {
+                    "text": "About us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Contact & shop address",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "Follow & Order",
+                "links": [
+                  {
+                    "text": "WhatsApp · 93720 33659",
+                    "href": "https://wa.me/919372033659"
+                  },
+                  {
+                    "text": "Assistance · 72767 32657",
+                    "href": "tel:+917276732657"
+                  },
+                  {
+                    "text": "WhatsApp group",
+                    "href": "https://chat.whatsapp.com/IXouev3VbnK29LxgI4AruI"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/western_nx_womens/"
+                  },
+                  {
+                    "text": "Facebook",
+                    "href": "https://www.facebook.com/share/1AFZsE1AC5/?mibextid=wwXIfr"
+                  }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Western NX, Nagpur. All rights reserved.",
+            "termsBody": "Rates are quoted on enquiry and depend on design, quantity and whether the order is wholesale or retail. Wholesale rates apply above the minimum quantity confirmed at the time of order.\n\nOrders are confirmed once size, colour and design are agreed and payment is received. A payment screenshot along with the complete delivery address is required before an order is packed. A tracking ID is shared once the parcel is dispatched.\n\nColours shown in photographs and on screens are indicative. Slight variation between the photograph and the delivered garment can occur with dyed fabric and is not treated as a defect.\n\nSizes vary between designs and manufacturers. Please confirm measurements before ordering, particularly for plus sizes.\n\nDamage or a wrong item must be reported with an unedited parcel-opening video within 24 hours of delivery. Claims without it cannot be verified and cannot be accepted.\n\nWe are open all days, 12 noon to 10 PM, except Holi.\n\nThis text is a sample. Replace it with your own terms, reviewed by your advisor, before relying on it."
+          }
+        }
+      ]
+    },
+    {
+      "id": "collection",
+      "slug": "/collection",
+      "title": "Collection",
+      "seo": {
+        "title": "Collection | Tops, Dresses, Co-ord Sets, Jeans & Ethnic Wear — Western NX Nagpur",
+        "description": "The full Western NX range of women's clothing: tops, one-piece dresses, co-ord and pant sets, jeans, Korean pants, gowns, nightwear, formal shirts, ethnic wear and kurtis. Plus size up to 10XL.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-2",
+          "type": "header",
+          "visible": true,
+          "variant": "left",
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Collection",
+                "href": "/collection"
+              },
+              {
+                "text": "Wholesale",
+                "href": "/wholesale"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "WhatsApp 93720 33659",
+              "href": "https://wa.me/919372033659",
+              "style": "primary"
+            }
+          }
+        },
+        {
+          "id": "hero-2",
+          "type": "hero",
+          "visible": true,
+          "variant": "centered-bg",
+          "props": {
+            "heading": "The collection",
+            "sub": "Nine categories, regular sizes through to 10XL. New designs every week.",
+            "image": "https://images.pexels.com/photos/26292716/pexels-photo-26292716.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "style": {
+            "overlay": 0.6
+          }
+        },
+        {
+          "id": "products-2",
+          "type": "products",
+          "visible": true,
+          "variant": "cards-3",
+          "props": {
+            "label": "Full Range",
+            "heading": "Everything we carry",
+            "sub": "Designs change with the season, so we do not print fixed rates. WhatsApp 93720 33659 with the category you want and we will send the current collection and rates — wholesale or retail.",
+            "items": [
+              {
+                "image": "https://images.pexels.com/photos/9558711/pexels-photo-9558711.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Tops",
+                "desc": "Casual and formal tops in the current season's cuts, prints and fabrics. Regular sizes through to plus size.",
+                "meta": "Regular & plus size",
+                "price": "Rate on enquiry",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/8306375/pexels-photo-8306375.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "One-Piece Dresses",
+                "desc": "Everyday and occasion one-pieces — short, midi and long, in both western and fusion styling.",
+                "meta": "Short · Midi · Long",
+                "price": "Rate on enquiry",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/18699670/pexels-photo-18699670.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Co-ord Sets",
+                "desc": "Matched two-piece sets — one of the fastest-moving lines we carry, and a reliable seller for retailers.",
+                "meta": "2PC · 3PC · Cord sets",
+                "price": "Rate on enquiry",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/8484039/pexels-photo-8484039.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Pant Sets & Plazo Sets",
+                "desc": "Top-and-pant sets and plazo sets, in western and fusion cuts for daily wear and for occasions.",
+                "meta": "Pant set · Plazo set",
+                "price": "Rate on enquiry",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/36730407/pexels-photo-36730407.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Jeans",
+                "desc": "Denim in the fits that are selling — straight, wide leg, mom and skinny. Waist sizes through to plus.",
+                "meta": "Regular to plus waist",
+                "price": "Rate on enquiry",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/8386664/pexels-photo-8386664.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Korean Pants",
+                "desc": "Korean-style pants and trousers — a trend line that moves quickly, so stock changes often.",
+                "meta": "Trend line · Stock changes fast",
+                "price": "Rate on enquiry",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/4427652/pexels-photo-4427652.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Ethnic Wear & Kurtis",
+                "desc": "Kurtis and 2PC and 3PC ethnic sets, for daily wear and for festivals, weddings and functions.",
+                "meta": "Kurti · 2PC · 3PC",
+                "price": "Rate on enquiry",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/7679757/pexels-photo-7679757.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Gowns",
+                "desc": "Party and occasion gowns in a range of lengths and finishes, including plus sizes.",
+                "meta": "Party & occasion",
+                "price": "Rate on enquiry",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/20052448/pexels-photo-20052448.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Nightwear",
+                "desc": "Comfortable nightwear and loungewear sets in cotton and soft blends, regular and plus sizes.",
+                "meta": "Comfort fits · Plus available",
+                "price": "Rate on enquiry",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/8388303/pexels-photo-8388303.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Formal Shirts",
+                "desc": "Office and formal shirts for women, in solids and subtle prints. Regular through to plus size.",
+                "meta": "Office & formal",
+                "price": "Rate on enquiry",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/8433431/pexels-photo-8433431.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Plus Size — up to 10XL",
+                "desc": "Our specialty, and the reason a lot of customers find us. Trendy, well-fitted plus size clothing across every category above, right up to 10XL.",
+                "meta": "Our specialty · Up to 10XL",
+                "price": "Rate on enquiry",
+                "enableOrder": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-2",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Tell us the category and size",
+            "sub": "WhatsApp 93720 33659 and we will send you photographs of what is in stock right now, with rates.",
+            "ctaPrimary": {
+              "text": "WhatsApp us",
+              "href": "https://wa.me/919372033659",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-2",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "blurb": "Western NX — women's clothing wholesale and retail since 2008. Plus size up to 10XL. Shop No. 442, Opp. Govind Gallery, Jaripatka Main Market, Nagpur 440014.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Collection",
+                "links": [
+                  {
+                    "text": "Tops",
+                    "href": "/collection"
+                  },
+                  {
+                    "text": "One-Piece Dresses",
+                    "href": "/collection"
+                  },
+                  {
+                    "text": "Co-ord & Pant Sets",
+                    "href": "/collection"
+                  },
+                  {
+                    "text": "Jeans & Korean Pants",
+                    "href": "/collection"
+                  },
+                  {
+                    "text": "Ethnic Wear & Kurtis",
+                    "href": "/collection"
+                  },
+                  {
+                    "text": "Plus Size to 10XL",
+                    "href": "/collection"
+                  }
+                ]
+              },
+              {
+                "title": "Business",
+                "links": [
+                  {
+                    "text": "Wholesale",
+                    "href": "/wholesale"
+                  },
+                  {
+                    "text": "About us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Contact & shop address",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "Follow & Order",
+                "links": [
+                  {
+                    "text": "WhatsApp · 93720 33659",
+                    "href": "https://wa.me/919372033659"
+                  },
+                  {
+                    "text": "Assistance · 72767 32657",
+                    "href": "tel:+917276732657"
+                  },
+                  {
+                    "text": "WhatsApp group",
+                    "href": "https://chat.whatsapp.com/IXouev3VbnK29LxgI4AruI"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/western_nx_womens/"
+                  },
+                  {
+                    "text": "Facebook",
+                    "href": "https://www.facebook.com/share/1AFZsE1AC5/?mibextid=wwXIfr"
+                  }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Western NX, Nagpur. All rights reserved."
+          }
+        }
+      ]
+    },
+    {
+      "id": "wholesale",
+      "slug": "/wholesale",
+      "title": "Wholesale",
+      "seo": {
+        "title": "Wholesale Women's Clothing | Western NX, Jaripatka Nagpur — Supplying Retailers Across India",
+        "description": "Bulk women's clothing for retailers and boutiques across India — tops, dresses, co-ord sets, jeans, ethnic wear and plus size to 10XL. WhatsApp 93720 33659 for the current catalogue and wholesale rates.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-3",
+          "type": "header",
+          "visible": true,
+          "variant": "left",
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Collection",
+                "href": "/collection"
+              },
+              {
+                "text": "Wholesale",
+                "href": "/wholesale"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "WhatsApp 93720 33659",
+              "href": "https://wa.me/919372033659",
+              "style": "primary"
+            }
+          }
+        },
+        {
+          "id": "hero-3",
+          "type": "hero",
+          "visible": true,
+          "variant": "centered-bg",
+          "props": {
+            "heading": "Wholesale",
+            "sub": "Supplying retailers and boutiques across India since 2008.",
+            "image": "https://images.pexels.com/photos/1846014/pexels-photo-1846014.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "style": {
+            "overlay": 0.6
+          }
+        },
+        {
+          "id": "services-1",
+          "type": "services",
+          "visible": true,
+          "variant": "cards-3",
+          "props": {
+            "label": "For Retailers",
+            "heading": "Buying for your shop",
+            "sub": "We have been supplying retailers for eighteen years. Here is how it works.",
+            "items": [
+              {
+                "image": "https://images.pexels.com/photos/1846014/pexels-photo-1846014.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Bulk Rates",
+                "desc": "Wholesale rates apply above the minimum quantity, which depends on the category. Tell us what you sell and roughly how much you move and we will quote properly.",
+                "meta": "Minimums vary by category"
+              },
+              {
+                "image": "https://images.pexels.com/photos/8886948/pexels-photo-8886948.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Current Catalogue on WhatsApp",
+                "desc": "New designs land constantly, so the catalogue lives on WhatsApp rather than on a page that goes stale. Save 93720 33659 and you will get the updates as they go up.",
+                "meta": "Save the number for daily updates"
+              },
+              {
+                "image": "https://images.pexels.com/photos/8433431/pexels-photo-8433431.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Plus Size Range",
+                "desc": "Sizes up to 10XL across categories. If your shop turns customers away for want of larger sizes, this is the gap we can fill for you.",
+                "meta": "Up to 10XL"
+              },
+              {
+                "image": "https://images.pexels.com/photos/5531709/pexels-photo-5531709.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Shop Visits Welcome",
+                "desc": "See and feel the stock before you commit. We are at Shop No. 442, Jaripatka Main Market, open every day 12 noon to 10 PM.",
+                "meta": "Jaripatka Main Market, Nagpur"
+              },
+              {
+                "image": "https://images.pexels.com/photos/18699670/pexels-photo-18699670.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Dispatch Across India",
+                "desc": "We ship to retailers across the country. Confirm the design, size and colour, send the payment screenshot and full address, and a tracking ID follows once it is dispatched.",
+                "meta": "Tracking ID on dispatch"
+              },
+              {
+                "image": "https://images.pexels.com/photos/35717265/pexels-photo-35717265.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Deal With The Owners",
+                "desc": "You are dealing directly with the brothers who run the business, not a call centre. That is why it has worked for eighteen years.",
+                "meta": "Family-run since 2008"
+              }
+            ]
+          }
+        },
+        {
+          "id": "faq-1",
+          "type": "faq",
+          "visible": true,
+          "variant": "accordion",
+          "props": {
+            "label": "FAQ",
+            "heading": "Questions we get asked",
+            "openFirst": true,
+            "items": [
+              {
+                "q": "How do I place an order?",
+                "a": "Confirm the size and colour of the design you want on WhatsApp, then send the payment screenshot along with your complete address. Once the parcel is dispatched we send you the tracking ID."
+              },
+              {
+                "q": "Why are prices not shown on the website?",
+                "a": "Because rates depend on the design, the quantity and whether you are buying wholesale or retail — and because new designs arrive every week, any price printed here would be out of date almost immediately. WhatsApp 93720 33659 with the category you want and we will send current photographs and rates."
+              },
+              {
+                "q": "What is the minimum for wholesale rates?",
+                "a": "It depends on the category. Tell us what you are looking at and how much you usually move and we will tell you exactly where the wholesale rate starts."
+              },
+              {
+                "q": "How large do the plus sizes go?",
+                "a": "Up to 10XL. This is our specialty and it runs across categories, not just one or two lines. Sizes do vary between designs, so please confirm measurements with us before ordering."
+              },
+              {
+                "q": "Do you deliver outside Nagpur?",
+                "a": "Yes. We serve retailers and customers across India. Send your complete address with the order and a tracking ID follows once the parcel is dispatched."
+              },
+              {
+                "q": "When are you open?",
+                "a": "Every day, 12 noon to 10 PM. The only day we close is Holi."
+              },
+              {
+                "q": "Where exactly is the shop?",
+                "a": "Western Nx, Shop No. 442, Opposite Govind Gallery, Jaripatka Main Market, Nagpur, Maharashtra 440014. Call 93720 33659 if you need directions, or 72767 32657 for any other assistance."
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-3",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Buying for your shop?",
+            "sub": "Send us what you sell and roughly what you move each month, and we will come back with the right rates and the current catalogue.",
+            "ctaPrimary": {
+              "text": "WhatsApp 93720 33659",
+              "href": "https://wa.me/919372033659",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-3",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "blurb": "Western NX — women's clothing wholesale and retail since 2008. Plus size up to 10XL. Shop No. 442, Opp. Govind Gallery, Jaripatka Main Market, Nagpur 440014.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Collection",
+                "links": [
+                  {
+                    "text": "Tops",
+                    "href": "/collection"
+                  },
+                  {
+                    "text": "One-Piece Dresses",
+                    "href": "/collection"
+                  },
+                  {
+                    "text": "Co-ord & Pant Sets",
+                    "href": "/collection"
+                  },
+                  {
+                    "text": "Jeans & Korean Pants",
+                    "href": "/collection"
+                  },
+                  {
+                    "text": "Ethnic Wear & Kurtis",
+                    "href": "/collection"
+                  },
+                  {
+                    "text": "Plus Size to 10XL",
+                    "href": "/collection"
+                  }
+                ]
+              },
+              {
+                "title": "Business",
+                "links": [
+                  {
+                    "text": "Wholesale",
+                    "href": "/wholesale"
+                  },
+                  {
+                    "text": "About us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Contact & shop address",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "Follow & Order",
+                "links": [
+                  {
+                    "text": "WhatsApp · 93720 33659",
+                    "href": "https://wa.me/919372033659"
+                  },
+                  {
+                    "text": "Assistance · 72767 32657",
+                    "href": "tel:+917276732657"
+                  },
+                  {
+                    "text": "WhatsApp group",
+                    "href": "https://chat.whatsapp.com/IXouev3VbnK29LxgI4AruI"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/western_nx_womens/"
+                  },
+                  {
+                    "text": "Facebook",
+                    "href": "https://www.facebook.com/share/1AFZsE1AC5/?mibextid=wwXIfr"
+                  }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Western NX, Nagpur. All rights reserved."
+          }
+        }
+      ]
+    },
+    {
+      "id": "about",
+      "slug": "/about",
+      "title": "About",
+      "seo": {
+        "title": "About Western NX | Family-Run Women's Clothing Business in Nagpur Since 2008",
+        "description": "Founded by Rahul Khaturia on 9 October 2008 and built with his brothers Krishna and Piyush Khaturia. Eighteen years of women's clothing wholesale and retail from Jaripatka Main Market, Nagpur.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-4",
+          "type": "header",
+          "visible": true,
+          "variant": "left",
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Collection",
+                "href": "/collection"
+              },
+              {
+                "text": "Wholesale",
+                "href": "/wholesale"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "WhatsApp 93720 33659",
+              "href": "https://wa.me/919372033659",
+              "style": "primary"
+            }
+          }
+        },
+        {
+          "id": "hero-4",
+          "type": "hero",
+          "visible": true,
+          "variant": "centered-bg",
+          "props": {
+            "heading": "Three brothers, eighteen years",
+            "sub": "Founded 9th October 2008. Still family-run.",
+            "image": "https://images.pexels.com/photos/20052448/pexels-photo-20052448.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "style": {
+            "overlay": 0.6
+          }
+        },
+        {
+          "id": "about-2",
+          "type": "about",
+          "visible": true,
+          "variant": "image-left",
+          "props": {
+            "label": "Our Story",
+            "heading": "A small shop with big dreams",
+            "body": "Rahul Khaturia founded our women's clothing business on 9th October 2008 with a simple vision — to make stylish, quality clothing accessible to every woman.\n\nWhat started as a small shop with big dreams was soon joined by his two brothers, Krishna Khaturia and Piyush Khaturia. Together, the three brothers built the brand on trust, quality and hard work.\n\nFrom those humble beginnings in 2008, we have grown into a trusted name in both online and offline wholesale and retail. Today we serve retailers and customers across India with the latest trends in women's fashion.\n\nWe are still family-run, and that is what makes us different. Every design, every order, every customer is handled with the same care we started with 18+ years ago.\n\nFor the last eighteen years we have been serving customers with quality women's clothing through both wholesale and retail channels. We specialise in one-piece dresses, co-ord sets, pant sets, jeans, tops and ethnic wear — and our specialty is plus size, where we carry sizes up to 10XL so that every woman finds her perfect fit.",
+            "image": "https://images.pexels.com/photos/1846014/pexels-photo-1846014.jpeg?auto=compress&cs=tinysrgb&w=1400",
+            "showPillars": false
+          }
+        },
+        {
+          "id": "team-1",
+          "type": "team",
+          "visible": true,
+          "variant": "cards-3",
+          "props": {
+            "label": "The Brothers",
+            "heading": "Who you are dealing with",
+            "sub": "The same three people who built the business still run it.",
+            "items": [
+              {
+                "name": "Rahul Khaturia",
+                "role": "Founder",
+                "meta": "Started the business, 9 October 2008",
+                "bio": "Opened the first shop in 2008 with the idea that stylish, good-quality clothing should be within reach of every woman — which is still the thing the business is built on."
+              },
+              {
+                "name": "Krishna Khaturia",
+                "role": "Owner",
+                "meta": "Brother · Wholesale & retail",
+                "bio": "Joined his brother in the early years and helped turn a single shop into a wholesale business supplying retailers across India."
+              },
+              {
+                "name": "Piyush Khaturia",
+                "role": "Owner",
+                "meta": "Brother · Wholesale & retail",
+                "bio": "The third of the brothers. Between them they handle buying, stock and customers directly — when you order from Western NX you are dealing with an owner."
+              }
+            ]
+          }
+        },
+        {
+          "id": "services-2",
+          "type": "services",
+          "visible": true,
+          "variant": "list",
+          "props": {
+            "label": "What We Do",
+            "heading": "In short",
+            "items": [
+              {
+                "icon": "heart",
+                "title": "Plus size is our specialty",
+                "desc": "Trendy, well-fitted plus size clothing up to 10XL. Style has no size, and we make sure of it."
+              },
+              {
+                "icon": "package",
+                "title": "Nine categories",
+                "desc": "Tops, one-piece dresses, pant sets and co-ord sets, jeans, ethnic wear, gowns, nightwear, Korean pants and formal shirts."
+              },
+              {
+                "icon": "users",
+                "title": "Wholesale and retail",
+                "desc": "Retailers across India buy from us in bulk. Walk-in customers buy single pieces at the same counter, in the same shop."
+              },
+              {
+                "icon": "map-pin",
+                "title": "Jaripatka Main Market",
+                "desc": "Shop No. 442, opposite Govind Gallery, Nagpur 440014 — open every day 12 noon to 10 PM."
+              },
+              {
+                "icon": "clock",
+                "title": "Open every day but one",
+                "desc": "Twelve to ten, all days. The only holiday we take is Holi."
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-4",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Come and see the stock",
+            "sub": "Shop No. 442, Opp. Govind Gallery, Jaripatka Main Market, Nagpur. Or message us first — 93720 33659.",
+            "ctaPrimary": {
+              "text": "Get directions",
+              "href": "/contact",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-4",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "blurb": "Western NX — women's clothing wholesale and retail since 2008. Plus size up to 10XL. Shop No. 442, Opp. Govind Gallery, Jaripatka Main Market, Nagpur 440014.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Collection",
+                "links": [
+                  {
+                    "text": "Tops",
+                    "href": "/collection"
+                  },
+                  {
+                    "text": "One-Piece Dresses",
+                    "href": "/collection"
+                  },
+                  {
+                    "text": "Co-ord & Pant Sets",
+                    "href": "/collection"
+                  },
+                  {
+                    "text": "Jeans & Korean Pants",
+                    "href": "/collection"
+                  },
+                  {
+                    "text": "Ethnic Wear & Kurtis",
+                    "href": "/collection"
+                  },
+                  {
+                    "text": "Plus Size to 10XL",
+                    "href": "/collection"
+                  }
+                ]
+              },
+              {
+                "title": "Business",
+                "links": [
+                  {
+                    "text": "Wholesale",
+                    "href": "/wholesale"
+                  },
+                  {
+                    "text": "About us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Contact & shop address",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "Follow & Order",
+                "links": [
+                  {
+                    "text": "WhatsApp · 93720 33659",
+                    "href": "https://wa.me/919372033659"
+                  },
+                  {
+                    "text": "Assistance · 72767 32657",
+                    "href": "tel:+917276732657"
+                  },
+                  {
+                    "text": "WhatsApp group",
+                    "href": "https://chat.whatsapp.com/IXouev3VbnK29LxgI4AruI"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/western_nx_womens/"
+                  },
+                  {
+                    "text": "Facebook",
+                    "href": "https://www.facebook.com/share/1AFZsE1AC5/?mibextid=wwXIfr"
+                  }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Western NX, Nagpur. All rights reserved."
+          }
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "slug": "/contact",
+      "title": "Contact",
+      "seo": {
+        "title": "Contact & Shop Address | Western NX, Jaripatka Main Market, Nagpur 440014",
+        "description": "Western Nx, Shop No. 442, Opp. Govind Gallery, Jaripatka Main Market, Nagpur 440014. WhatsApp 93720 33659, assistance 72767 32657. Open all days 12 noon to 10 PM.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-5",
+          "type": "header",
+          "visible": true,
+          "variant": "left",
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Collection",
+                "href": "/collection"
+              },
+              {
+                "text": "Wholesale",
+                "href": "/wholesale"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "WhatsApp 93720 33659",
+              "href": "https://wa.me/919372033659",
+              "style": "primary"
+            }
+          }
+        },
+        {
+          "id": "contact-1",
+          "type": "contact",
+          "visible": true,
+          "variant": "form-map",
+          "props": {
+            "label": "Contact",
+            "heading": "Visit, call or message",
+            "sub": "Western Nx, Shop No. 442, Opposite Govind Gallery, Jaripatka Main Market, Nagpur, Maharashtra 440014.\n\nOrders and daily updates: WhatsApp 93720 33659. For any other assistance: 72767 32657.",
+            "showPhone": true,
+            "showWhatsapp": true,
+            "showEmail": false,
+            "showAddress": true,
+            "showHours": true,
+            "showMap": true,
+            "mapUrl": "https://www.google.com/maps?q=Western%20Nx%2C%20Shop%20No.%20442%2C%20Opp.%20Govind%20Gallery%2C%20Jaripatka%20Main%20Market%2C%20Nagpur%2C%20Maharashtra%20440014&output=embed",
+            "submitText": "Send Enquiry"
+          }
+        },
+        {
+          "id": "hours-1",
+          "type": "hours",
+          "visible": true,
+          "props": {
+            "label": "Opening Hours",
+            "heading": "Open every day",
+            "sub": "12 noon to 10 PM, all seven days.",
+            "highlightToday": true,
+            "note": "The only day we are closed is Holi."
+          }
+        },
+        {
+          "id": "cta-5",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Get the new designs before anyone else",
+            "sub": "Save 93720 33659 for daily status updates, or join the WhatsApp group — new arrivals go there first.",
+            "ctaPrimary": {
+              "text": "Join the WhatsApp group",
+              "href": "https://chat.whatsapp.com/IXouev3VbnK29LxgI4AruI",
+              "style": "primary"
+            },
+            "ctaSecondary": {
+              "text": "Follow on Instagram",
+              "href": "https://www.instagram.com/western_nx_womens/",
+              "style": "ghost"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-5",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "blurb": "Western NX — women's clothing wholesale and retail since 2008. Plus size up to 10XL. Shop No. 442, Opp. Govind Gallery, Jaripatka Main Market, Nagpur 440014.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Collection",
+                "links": [
+                  {
+                    "text": "Tops",
+                    "href": "/collection"
+                  },
+                  {
+                    "text": "One-Piece Dresses",
+                    "href": "/collection"
+                  },
+                  {
+                    "text": "Co-ord & Pant Sets",
+                    "href": "/collection"
+                  },
+                  {
+                    "text": "Jeans & Korean Pants",
+                    "href": "/collection"
+                  },
+                  {
+                    "text": "Ethnic Wear & Kurtis",
+                    "href": "/collection"
+                  },
+                  {
+                    "text": "Plus Size to 10XL",
+                    "href": "/collection"
+                  }
+                ]
+              },
+              {
+                "title": "Business",
+                "links": [
+                  {
+                    "text": "Wholesale",
+                    "href": "/wholesale"
+                  },
+                  {
+                    "text": "About us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Contact & shop address",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "Follow & Order",
+                "links": [
+                  {
+                    "text": "WhatsApp · 93720 33659",
+                    "href": "https://wa.me/919372033659"
+                  },
+                  {
+                    "text": "Assistance · 72767 32657",
+                    "href": "tel:+917276732657"
+                  },
+                  {
+                    "text": "WhatsApp group",
+                    "href": "https://chat.whatsapp.com/IXouev3VbnK29LxgI4AruI"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/western_nx_womens/"
+                  },
+                  {
+                    "text": "Facebook",
+                    "href": "https://www.facebook.com/share/1AFZsE1AC5/?mibextid=wwXIfr"
+                  }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Western NX, Nagpur. All rights reserved."
+          }
+        }
+      ]
+    }
+  ]
+}

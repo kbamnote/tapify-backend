@@ -1,0 +1,29 @@
+{
+  "preset": "ink-coral",
+  "label": "Ink & Coral",
+  "description": "Near-black with a rose-coral accent on warm off-white. Confident and trend-led rather than precious — suits women's fashion labels, clothing wholesalers and retailers, and size-inclusive brands.",
+  "industries": ["boutique", "fashion", "clothing", "womenswear", "apparel", "wholesale", "retail", "plus-size", "ethnic-wear"],
+
+  "tokens": {
+    "mode": "light",
+    "color": {
+      "primary":   "#1A1A1F",
+      "secondary": "#3D3D46",
+      "accent":    "#C2405C",
+      "bg":        "#FBF7F5",
+      "surface":   "#FFFFFF",
+      "text":      "#1A1A1F",
+      "muted":     "#6E6670",
+      "border":    "#EDE3E0"
+    },
+    "font": {
+      "heading": "Outfit",
+      "body":    "DM Sans"
+    },
+    "radius":    "md",
+    "spacing":   "comfortable",
+    "container": "normal"
+  },
+
+  "notes": "Tokens only — sections never hardcode colours, they read these as CSS variables.\n\nWHY NOT 'blush-noir': that theme also lists fashion, but its Cormorant Garamond and dusty rose read as a quiet editorial boutique. A market-based clothing wholesaler selling trend-led womenswear to retailers is not that business — it needs to look current and confident, not hushed. Near-black primary with a geometric sans is the register a customer already recognises from every fashion app on their phone.\n\nACCENT IS CONTRAST-CHECKED: --color-accent is the colour of the 12px meta line on product cards, so it must clear WCAG AA at small text. The obvious brighter coral (#D94F6A) measures 3.74:1 on this background and fails; #C2405C measures 4.72:1 and passes. Primary is 16.28:1, muted 5.19:1, white-on-primary 17.33:1. Re-measure before changing the accent.\n\nBoth fonts serve weights 400-700 on Google Fonts (checked)."
+}
