@@ -1,0 +1,1225 @@
+{
+  "schemaVersion": 1,
+  "site": {
+    "name": "Dhanlaxmi Jewellers",
+    "industry": "jewellery",
+    "locale": "en-IN"
+  },
+  "theme": {
+    "preset": "royal-maroon",
+    "mode": "light",
+    "color": {
+      "primary": "#7A1F2B",
+      "secondary": "#9A3B45",
+      "accent": "#C8A24A",
+      "bg": "#FDF8F1",
+      "surface": "#F7EFE1",
+      "text": "#2B1D12",
+      "muted": "#8A7355",
+      "border": "#E8DBC2"
+    },
+    "font": {
+      "heading": "Playfair Display",
+      "body": "Lato"
+    },
+    "radius": "lg",
+    "spacing": "comfortable",
+    "container": "normal"
+  },
+  "nav": {
+    "header": [
+      {
+        "label": "Home",
+        "pageId": "home"
+      },
+      {
+        "label": "Collections",
+        "pageId": "collections"
+      },
+      {
+        "label": "Services",
+        "pageId": "services"
+      },
+      {
+        "label": "About",
+        "pageId": "about"
+      },
+      {
+        "label": "Contact",
+        "pageId": "contact"
+      }
+    ]
+  },
+  "business": {
+    "phone": "+91 97634 11624",
+    "whatsapp": "+91 97634 11624",
+    "email": "Asareavinash7@gmail.com",
+    "address": "Teliphone Nagar Chowk, Narsala Road, Dhighori, Nagpur, Maharashtra 440024"
+  },
+  "pages": [
+    {
+      "id": "home",
+      "slug": "/",
+      "title": "Home",
+      "seo": {
+        "title": "Dhanlaxmi Jewellers | Gold & Silver Jewellery in Dhighori, Nagpur",
+        "description": "Hallmarked gold and silver jewellery at Teliphone Nagar Chowk, Narsala Road, Dhighori, Nagpur 440024. Chains, rings, bangles, mangalsutra, necklace sets and silver items. Call 97634 11624 for the day's rate.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-1",
+          "type": "header",
+          "visible": true,
+          "variant": "left",
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Collections",
+                "href": "/collections"
+              },
+              {
+                "text": "Services",
+                "href": "/services"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Call 97634 11624",
+              "href": "tel:+919763411624",
+              "style": "primary"
+            }
+          }
+        },
+        {
+          "id": "hero-1",
+          "type": "hero",
+          "visible": true,
+          "variant": "centered-bg",
+          "props": {
+            "badge": "Teliphone Nagar Chowk · Narsala Road · Dhighori, Nagpur",
+            "heading": "Dhanlaxmi Jewellers",
+            "sub": "Gold and silver jewellery for every occasion — chains, rings, bangles, mangalsutra, necklace sets and silver articles.\n\nCome in and see a piece in your hand before you decide. Rates are quoted on the day, against the current gold rate, and every bill is itemised.",
+            "image": "https://images.pexels.com/photos/12708653/pexels-photo-12708653.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "fullHeight": true,
+            "ctaPrimary": {
+              "text": "Call for today's rate",
+              "href": "tel:+919763411624",
+              "style": "primary"
+            },
+            "ctaSecondary": {
+              "text": "See collections",
+              "href": "/collections",
+              "style": "ghost"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "style": {
+            "overlay": 0.55
+          }
+        },
+        {
+          "id": "about-1",
+          "type": "about",
+          "visible": true,
+          "variant": "image-right",
+          "props": {
+            "label": "About Us",
+            "heading": "Your neighbourhood jeweller in Dhighori",
+            "body": "Dhanlaxmi Jewellers is a family jewellery shop at Teliphone Nagar Chowk on Narsala Road, Dhighori, Nagpur.\n\nWe keep gold and silver jewellery for everyday wear and for occasions — chains, rings, earrings, bangles and kada, mangalsutra, necklace sets, and silver articles for pooja and for gifting. If something is not on the counter, it can usually be ordered or made.\n\nBuying jewellery should not feel complicated. The gold rate is public and changes daily, so we quote against the rate on the day you buy, show the weight on the scale in front of you, and explain making charges before you commit rather than after. Every purchase comes with a proper bill.\n\nGold jewellery sold in Nagpur must carry a BIS hallmark with its HUID by law, and ours does. Ask to see the hallmark on any piece and we will show you where it is stamped.",
+            "image": "https://images.pexels.com/photos/1616096/pexels-photo-1616096.jpeg?auto=compress&cs=tinysrgb&w=1400",
+            "showPillars": true,
+            "pillars": [
+              {
+                "icon": "shield",
+                "title": "Hallmarked gold",
+                "text": "BIS hallmark with HUID on gold jewellery, as required by law. Ask and we will point it out on the piece."
+              },
+              {
+                "icon": "file-text",
+                "title": "Itemised billing",
+                "text": "Weight, rate, making charges and GST written out separately — not rolled into one number."
+              },
+              {
+                "icon": "map-pin",
+                "title": "Easy to reach",
+                "text": "On Narsala Road at Teliphone Nagar Chowk, Dhighori — a short ride from most of south Nagpur."
+              },
+              {
+                "icon": "phone",
+                "title": "Ask before you visit",
+                "text": "Call or WhatsApp 97634 11624 to check the day's rate or whether a design is in stock."
+              }
+            ]
+          }
+        },
+        {
+          "id": "products-1",
+          "type": "products",
+          "visible": true,
+          "variant": "cards-3",
+          "props": {
+            "label": "Collections",
+            "heading": "What we keep",
+            "sub": "Gold and silver, for daily wear and for occasions. Prices depend on weight, purity and the day's gold rate — call or WhatsApp and we will quote.",
+            "items": [
+              {
+                "image": "https://images.pexels.com/photos/36519701/pexels-photo-36519701.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Chains & Necklaces",
+                "desc": "Gold chains in daily-wear and heavier designs, plus necklace sets for weddings and functions.",
+                "meta": "Gold · Daily wear & occasion",
+                "price": "Rate on the day",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/1616096/pexels-photo-1616096.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Rings",
+                "desc": "Plain and stone-set rings for men and women, including engagement and gifting pieces. Resizing available.",
+                "meta": "Resizing available",
+                "price": "Rate on the day",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/32989030/pexels-photo-32989030.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Earrings & Tops",
+                "desc": "Studs and tops for everyday wear through to jhumkas and heavier sets for functions.",
+                "meta": "Studs · Tops · Jhumka",
+                "price": "Rate on the day",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/7509916/pexels-photo-7509916.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Bangles & Kada",
+                "desc": "Gold bangles and kada in a range of weights and widths, for daily wear and for bridal sets.",
+                "meta": "Several weights & sizes",
+                "price": "Rate on the day",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/29038003/pexels-photo-29038003.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Mangalsutra",
+                "desc": "Traditional and modern mangalsutra designs, in short and long lengths.",
+                "meta": "Traditional & modern",
+                "price": "Rate on the day",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/35137273/pexels-photo-35137273.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Silver Articles & Jewellery",
+                "desc": "Silver payal, toe rings and jewellery, plus pooja articles and silver items for gifting.",
+                "meta": "Jewellery · Pooja · Gifting",
+                "price": "Rate on the day",
+                "enableOrder": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "gallery-1",
+          "type": "gallery",
+          "visible": true,
+          "variant": "grid-3",
+          "props": {
+            "label": "Gallery",
+            "heading": "A look at the counter",
+            "sub": "Photographs of our own stock will replace these — ask us for pictures of any design on WhatsApp in the meantime.",
+            "lightbox": true,
+            "images": [
+              {
+                "image": "https://images.pexels.com/photos/12708653/pexels-photo-12708653.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Bride wearing layered gold necklaces"
+              },
+              {
+                "image": "https://images.pexels.com/photos/36519701/pexels-photo-36519701.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Gold necklace set worn by a model"
+              },
+              {
+                "image": "https://images.pexels.com/photos/32989030/pexels-photo-32989030.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Gold jhumka earrings on a display stand"
+              },
+              {
+                "image": "https://images.pexels.com/photos/7509916/pexels-photo-7509916.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Stacked gold bangles on mehndi-decorated hands"
+              },
+              {
+                "image": "https://images.pexels.com/photos/29038003/pexels-photo-29038003.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Traditional Indian gold jewellery on a decorated tray"
+              },
+              {
+                "image": "https://images.pexels.com/photos/37601639/pexels-photo-37601639.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Gold jhumka earring worn"
+              },
+              {
+                "image": "https://images.pexels.com/photos/13786772/pexels-photo-13786772.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Gold necklace and earrings worn by a model"
+              },
+              {
+                "image": "https://images.pexels.com/photos/9157350/pexels-photo-9157350.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Maang tikka and bridal jewellery close up"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-1",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Want to know today's rate?",
+            "sub": "Call or WhatsApp 97634 11624. Tell us what you are looking for and roughly what weight, and we will tell you where it lands.",
+            "ctaPrimary": {
+              "text": "Call 97634 11624",
+              "href": "tel:+919763411624",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-1",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "blurb": "Dhanlaxmi Jewellers — gold and silver jewellery at Teliphone Nagar Chowk, Narsala Road, Dhighori, Nagpur 440024.",
+            "showContact": true,
+            "showHours": false,
+            "showSocial": false,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Collections",
+                "links": [
+                  {
+                    "text": "Chains & Necklaces",
+                    "href": "/collections"
+                  },
+                  {
+                    "text": "Rings",
+                    "href": "/collections"
+                  },
+                  {
+                    "text": "Bangles & Kada",
+                    "href": "/collections"
+                  },
+                  {
+                    "text": "Mangalsutra",
+                    "href": "/collections"
+                  },
+                  {
+                    "text": "Silver Articles",
+                    "href": "/collections"
+                  }
+                ]
+              },
+              {
+                "title": "Shop",
+                "links": [
+                  {
+                    "text": "Services",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "About us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Contact & location",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "Contact",
+                "links": [
+                  {
+                    "text": "Call · 97634 11624",
+                    "href": "tel:+919763411624"
+                  },
+                  {
+                    "text": "WhatsApp · 97634 11624",
+                    "href": "https://wa.me/919763411624"
+                  },
+                  {
+                    "text": "Asareavinash7@gmail.com",
+                    "href": "mailto:Asareavinash7@gmail.com"
+                  }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Dhanlaxmi Jewellers, Nagpur. All rights reserved.",
+            "termsBody": "Gold and silver jewellery is priced against the prevailing metal rate on the day of purchase, plus making charges and applicable GST. Rates change daily and any figure quoted earlier is indicative only until billed.\n\nGold jewellery is sold with the BIS hallmark and HUID as required. Purity, gross weight and net weight are stated on the bill.\n\nExchange, buy-back and return terms are explained at the counter before purchase and are shown on your bill. Please retain the original bill and hallmark certificate — these are required for any exchange or buy-back.\n\nMaking charges and wastage are quoted per item before purchase and are not refundable on exchange.\n\nCustom and order-made pieces may require an advance. Timelines are indicative and depend on the design and on karigar availability.\n\nThis text is a sample. Replace it with your own terms, reviewed by your advisor, before relying on it."
+          }
+        }
+      ]
+    },
+    {
+      "id": "collections",
+      "slug": "/collections",
+      "title": "Collections",
+      "seo": {
+        "title": "Collections | Gold & Silver Jewellery — Dhanlaxmi Jewellers, Nagpur",
+        "description": "Gold chains, necklace sets, rings, earrings, bangles and kada, mangalsutra, and silver jewellery and pooja articles. Dhighori, Nagpur. Call 97634 11624 for the day's rate.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-2",
+          "type": "header",
+          "visible": true,
+          "variant": "left",
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Collections",
+                "href": "/collections"
+              },
+              {
+                "text": "Services",
+                "href": "/services"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Call 97634 11624",
+              "href": "tel:+919763411624",
+              "style": "primary"
+            }
+          }
+        },
+        {
+          "id": "hero-2",
+          "type": "hero",
+          "visible": true,
+          "variant": "centered-bg",
+          "props": {
+            "heading": "Collections",
+            "sub": "Gold and silver, for daily wear and for occasions.",
+            "image": "https://images.pexels.com/photos/36519701/pexels-photo-36519701.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "style": {
+            "overlay": 0.6
+          }
+        },
+        {
+          "id": "products-2",
+          "type": "products",
+          "visible": true,
+          "variant": "cards-3",
+          "props": {
+            "label": "Collections",
+            "heading": "Gold & silver at Dhanlaxmi",
+            "sub": "Jewellery is priced by weight, purity and the day's gold rate, so we do not list fixed prices. Send us a photo of what you like on WhatsApp and we will quote it.",
+            "items": [
+              {
+                "image": "https://images.pexels.com/photos/36519701/pexels-photo-36519701.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Chains & Necklaces",
+                "desc": "Gold chains in light daily-wear weights through to heavier designs, and necklace sets for weddings and functions.",
+                "meta": "Gold · Daily wear & occasion",
+                "price": "Rate on the day",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/1616096/pexels-photo-1616096.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Rings",
+                "desc": "Plain bands and stone-set rings for men and women, including engagement and gifting pieces. Resizing available.",
+                "meta": "Resizing available",
+                "price": "Rate on the day",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/32989030/pexels-photo-32989030.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Earrings & Tops",
+                "desc": "Studs and tops for everyday wear, jhumkas and heavier sets for functions and weddings.",
+                "meta": "Studs · Tops · Jhumka",
+                "price": "Rate on the day",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/7509916/pexels-photo-7509916.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Bangles & Kada",
+                "desc": "Gold bangles and kada across a range of weights and widths, sold singly, in pairs or as bridal sets.",
+                "meta": "Several weights & sizes",
+                "price": "Rate on the day",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/29038003/pexels-photo-29038003.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Mangalsutra",
+                "desc": "Traditional and modern mangalsutra designs in short and long lengths, with matching earrings where available.",
+                "meta": "Traditional & modern",
+                "price": "Rate on the day",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/35137273/pexels-photo-35137273.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Silver Jewellery",
+                "desc": "Silver payal, toe rings, chains and rings — hard-wearing and a practical choice for children and for daily use.",
+                "meta": "Payal · Toe rings · Chains",
+                "price": "Rate on the day",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/17669464/pexels-photo-17669464.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Pooja & Gifting Articles",
+                "desc": "Metal pooja articles and gift items — a common choice for housewarmings, weddings and naming ceremonies. Silver pieces available; ask us what is in stock.",
+                "meta": "Pooja · Gifting",
+                "price": "Rate on the day",
+                "enableOrder": false
+              },
+              {
+                "image": "https://images.pexels.com/photos/12992088/pexels-photo-12992088.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Order-Made Pieces",
+                "desc": "Bring a photo or a design and we will get it made. An advance is taken and the timeline depends on the piece.",
+                "meta": "Made to order",
+                "price": "Quoted per design",
+                "enableOrder": false
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-2",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Send us a photo of what you want",
+            "sub": "WhatsApp 97634 11624 with a picture and a rough weight, and we will tell you the price and whether we have it.",
+            "ctaPrimary": {
+              "text": "WhatsApp us",
+              "href": "https://wa.me/919763411624",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-2",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "blurb": "Dhanlaxmi Jewellers — gold and silver jewellery at Teliphone Nagar Chowk, Narsala Road, Dhighori, Nagpur 440024.",
+            "showContact": true,
+            "showHours": false,
+            "showSocial": false,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Collections",
+                "links": [
+                  {
+                    "text": "Chains & Necklaces",
+                    "href": "/collections"
+                  },
+                  {
+                    "text": "Rings",
+                    "href": "/collections"
+                  },
+                  {
+                    "text": "Bangles & Kada",
+                    "href": "/collections"
+                  },
+                  {
+                    "text": "Mangalsutra",
+                    "href": "/collections"
+                  },
+                  {
+                    "text": "Silver Articles",
+                    "href": "/collections"
+                  }
+                ]
+              },
+              {
+                "title": "Shop",
+                "links": [
+                  {
+                    "text": "Services",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "About us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Contact & location",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "Contact",
+                "links": [
+                  {
+                    "text": "Call · 97634 11624",
+                    "href": "tel:+919763411624"
+                  },
+                  {
+                    "text": "WhatsApp · 97634 11624",
+                    "href": "https://wa.me/919763411624"
+                  },
+                  {
+                    "text": "Asareavinash7@gmail.com",
+                    "href": "mailto:Asareavinash7@gmail.com"
+                  }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Dhanlaxmi Jewellers, Nagpur. All rights reserved."
+          }
+        }
+      ]
+    },
+    {
+      "id": "services",
+      "slug": "/services",
+      "title": "Services",
+      "seo": {
+        "title": "Services | Repairs, Order-Made Jewellery & Exchange — Dhanlaxmi Jewellers, Nagpur",
+        "description": "Jewellery repairs and polishing, ring resizing, order-made pieces, old gold exchange and hallmarked gold at Dhanlaxmi Jewellers, Dhighori, Nagpur. Call 97634 11624.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-3",
+          "type": "header",
+          "visible": true,
+          "variant": "left",
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Collections",
+                "href": "/collections"
+              },
+              {
+                "text": "Services",
+                "href": "/services"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Call 97634 11624",
+              "href": "tel:+919763411624",
+              "style": "primary"
+            }
+          }
+        },
+        {
+          "id": "hero-3",
+          "type": "hero",
+          "visible": true,
+          "variant": "centered-bg",
+          "props": {
+            "heading": "Services",
+            "sub": "Beyond the counter — repairs, resizing, order-made pieces and exchange.",
+            "image": "https://images.pexels.com/photos/1616096/pexels-photo-1616096.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "style": {
+            "overlay": 0.6
+          }
+        },
+        {
+          "id": "services-1",
+          "type": "services",
+          "visible": true,
+          "variant": "cards-3",
+          "props": {
+            "label": "What We Do",
+            "heading": "Services at the shop",
+            "sub": "Bring the piece in and we will tell you what is possible and what it will cost before any work starts.",
+            "items": [
+              {
+                "image": "https://images.pexels.com/photos/12992088/pexels-photo-12992088.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Order-Made Jewellery",
+                "desc": "Bring a photograph or a design and we will get it made. An advance is taken against the estimated weight, and the balance is settled at the rate on the day of delivery.",
+                "meta": "Advance required · Timeline per design"
+              },
+              {
+                "image": "https://images.pexels.com/photos/1616096/pexels-photo-1616096.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Repairs & Polishing",
+                "desc": "Broken chains and clasps, loose stones, bent bangles and dull-looking pieces. Most small repairs are quick; anything bigger is quoted before we start.",
+                "meta": "Quoted before work begins"
+              },
+              {
+                "image": "https://images.pexels.com/photos/7509916/pexels-photo-7509916.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Ring Resizing",
+                "desc": "Rings sized up or down. Bring the ring in so we can check the band and the setting — some stone-set designs can only be adjusted so far.",
+                "meta": "Bring the ring in"
+              },
+              {
+                "image": "https://images.pexels.com/photos/29038003/pexels-photo-29038003.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Old Gold Exchange",
+                "desc": "Exchange old jewellery against something new. The piece is weighed and tested in front of you and the terms are explained before you agree to anything.",
+                "meta": "Weighed & tested in front of you"
+              },
+              {
+                "image": "https://images.pexels.com/photos/36519701/pexels-photo-36519701.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Hallmarking & Billing",
+                "desc": "Gold jewellery carries the BIS hallmark and HUID as required by law. Your bill shows purity, gross and net weight, making charges and GST as separate lines.",
+                "meta": "BIS hallmark · Itemised bill"
+              },
+              {
+                "image": "https://images.pexels.com/photos/17669464/pexels-photo-17669464.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Gifting & Occasions",
+                "desc": "Silver articles and light gold pieces for weddings, housewarmings and naming ceremonies. Tell us the budget and we will show you what fits it.",
+                "meta": "Tell us your budget"
+              }
+            ]
+          }
+        },
+        {
+          "id": "faq-1",
+          "type": "faq",
+          "visible": true,
+          "variant": "accordion",
+          "props": {
+            "label": "FAQ",
+            "heading": "Questions we get asked",
+            "openFirst": true,
+            "items": [
+              {
+                "q": "Why are prices not shown on the website?",
+                "a": "Because gold and silver prices change every day. A gold piece is priced on its weight and purity at that day's metal rate, plus making charges and GST — so any figure printed here would be wrong within a day. Call or WhatsApp 97634 11624 and we will quote you the current price for what you have in mind."
+              },
+              {
+                "q": "Is your gold hallmarked?",
+                "a": "Yes. Gold jewellery sold in Nagpur must carry the BIS hallmark along with a six-digit HUID, and ours does. Ask us on any piece and we will show you where it is stamped. Your bill states the purity, and the gross and net weight."
+              },
+              {
+                "q": "What is included in the price?",
+                "a": "The metal value (weight multiplied by the day's rate for that purity), the making charges for that particular piece, and GST. We write these out as separate lines on the bill rather than giving you one combined figure, so you can see exactly what you are paying for."
+              },
+              {
+                "q": "Do you take old gold in exchange?",
+                "a": "Yes. Bring the piece in — it is weighed and its purity tested in front of you, and we explain the terms before you agree to anything. Bring the original bill if you still have it. Making charges and wastage on the old piece are not refundable."
+              },
+              {
+                "q": "Can you make a design I have seen somewhere else?",
+                "a": "Usually, yes. Bring a photograph or send it on WhatsApp and we will tell you whether it can be made, roughly what it will weigh and what it will cost. An advance is taken and the timeline depends on the design and on karigar availability."
+              },
+              {
+                "q": "Where exactly are you, and when are you open?",
+                "a": "Teliphone Nagar Chowk, Narsala Road, Dhighori, Nagpur 440024. Please call 97634 11624 before travelling — it is worth confirming timings and that the piece you want is in stock before you make the trip."
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-3",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Bring the piece in",
+            "sub": "Repairs, resizing and exchange are all quoted before any work starts. Call 97634 11624 to check first.",
+            "ctaPrimary": {
+              "text": "Call 97634 11624",
+              "href": "tel:+919763411624",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-3",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "blurb": "Dhanlaxmi Jewellers — gold and silver jewellery at Teliphone Nagar Chowk, Narsala Road, Dhighori, Nagpur 440024.",
+            "showContact": true,
+            "showHours": false,
+            "showSocial": false,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Collections",
+                "links": [
+                  {
+                    "text": "Chains & Necklaces",
+                    "href": "/collections"
+                  },
+                  {
+                    "text": "Rings",
+                    "href": "/collections"
+                  },
+                  {
+                    "text": "Bangles & Kada",
+                    "href": "/collections"
+                  },
+                  {
+                    "text": "Mangalsutra",
+                    "href": "/collections"
+                  },
+                  {
+                    "text": "Silver Articles",
+                    "href": "/collections"
+                  }
+                ]
+              },
+              {
+                "title": "Shop",
+                "links": [
+                  {
+                    "text": "Services",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "About us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Contact & location",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "Contact",
+                "links": [
+                  {
+                    "text": "Call · 97634 11624",
+                    "href": "tel:+919763411624"
+                  },
+                  {
+                    "text": "WhatsApp · 97634 11624",
+                    "href": "https://wa.me/919763411624"
+                  },
+                  {
+                    "text": "Asareavinash7@gmail.com",
+                    "href": "mailto:Asareavinash7@gmail.com"
+                  }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Dhanlaxmi Jewellers, Nagpur. All rights reserved."
+          }
+        }
+      ]
+    },
+    {
+      "id": "about",
+      "slug": "/about",
+      "title": "About",
+      "seo": {
+        "title": "About Dhanlaxmi Jewellers | Gold & Silver Shop in Dhighori, Nagpur",
+        "description": "Dhanlaxmi Jewellers is a family jewellery shop at Teliphone Nagar Chowk, Narsala Road, Dhighori, Nagpur 440024 — hallmarked gold, silver, itemised billing and repairs.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-4",
+          "type": "header",
+          "visible": true,
+          "variant": "left",
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Collections",
+                "href": "/collections"
+              },
+              {
+                "text": "Services",
+                "href": "/services"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Call 97634 11624",
+              "href": "tel:+919763411624",
+              "style": "primary"
+            }
+          }
+        },
+        {
+          "id": "hero-4",
+          "type": "hero",
+          "visible": true,
+          "variant": "centered-bg",
+          "props": {
+            "heading": "About us",
+            "sub": "A jewellery shop on Narsala Road, Dhighori.",
+            "image": "https://images.pexels.com/photos/29038003/pexels-photo-29038003.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "style": {
+            "overlay": 0.6
+          }
+        },
+        {
+          "id": "about-2",
+          "type": "about",
+          "visible": true,
+          "variant": "image-left",
+          "props": {
+            "label": "Our Shop",
+            "heading": "Straightforward gold buying in Dhighori",
+            "body": "Dhanlaxmi Jewellers sits at Teliphone Nagar Chowk on Narsala Road in Dhighori, Nagpur. We sell gold and silver jewellery — chains and necklace sets, rings, earrings, bangles and kada, mangalsutra, and silver jewellery and pooja articles.\n\nMost people buying jewellery are spending a significant amount and are not certain they are being dealt with straight. So the way we work is deliberately plain. The scale is on the counter where you can see it. The day's rate is what we quote against. Making charges are stated before you commit, not discovered on the bill. And the bill itself separates metal value, making charges and GST rather than presenting one number.\n\nGold jewellery sold here carries the BIS hallmark and HUID that the law requires. Ask on any piece and we will show you the stamp and explain what it says.\n\nWe also repair, polish, resize and take old gold in exchange, and we make pieces to order from a photograph. If you are not sure whether something can be done, bring it in and ask — it costs nothing to find out.",
+            "image": "https://images.pexels.com/photos/12708653/pexels-photo-12708653.jpeg?auto=compress&cs=tinysrgb&w=1400",
+            "showPillars": false
+          }
+        },
+        {
+          "id": "services-2",
+          "type": "services",
+          "visible": true,
+          "variant": "list",
+          "props": {
+            "label": "In Short",
+            "heading": "What to expect",
+            "items": [
+              {
+                "icon": "shield",
+                "title": "Hallmarked gold",
+                "desc": "BIS hallmark and HUID on gold jewellery, as the law requires. We will show you the stamp on the piece."
+              },
+              {
+                "icon": "file-text",
+                "title": "An itemised bill",
+                "desc": "Metal value, making charges and GST written separately, so you can see what each part costs."
+              },
+              {
+                "icon": "refresh-cw",
+                "title": "Exchange and repairs",
+                "desc": "Old gold taken in exchange, weighed and tested in front of you. Repairs, polishing and resizing quoted before work starts."
+              },
+              {
+                "icon": "star",
+                "title": "Made to order",
+                "desc": "Bring a photo of a design and we will tell you whether it can be made, what it will weigh and what it will cost."
+              },
+              {
+                "icon": "phone",
+                "title": "Call before you come",
+                "desc": "97634 11624 — check the day's rate and whether what you want is in stock before making the trip."
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-4",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Come and see the pieces yourself",
+            "sub": "Teliphone Nagar Chowk, Narsala Road, Dhighori, Nagpur 440024. Call 97634 11624 before you set out.",
+            "ctaPrimary": {
+              "text": "Get directions",
+              "href": "/contact",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-4",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "blurb": "Dhanlaxmi Jewellers — gold and silver jewellery at Teliphone Nagar Chowk, Narsala Road, Dhighori, Nagpur 440024.",
+            "showContact": true,
+            "showHours": false,
+            "showSocial": false,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Collections",
+                "links": [
+                  {
+                    "text": "Chains & Necklaces",
+                    "href": "/collections"
+                  },
+                  {
+                    "text": "Rings",
+                    "href": "/collections"
+                  },
+                  {
+                    "text": "Bangles & Kada",
+                    "href": "/collections"
+                  },
+                  {
+                    "text": "Mangalsutra",
+                    "href": "/collections"
+                  },
+                  {
+                    "text": "Silver Articles",
+                    "href": "/collections"
+                  }
+                ]
+              },
+              {
+                "title": "Shop",
+                "links": [
+                  {
+                    "text": "Services",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "About us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Contact & location",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "Contact",
+                "links": [
+                  {
+                    "text": "Call · 97634 11624",
+                    "href": "tel:+919763411624"
+                  },
+                  {
+                    "text": "WhatsApp · 97634 11624",
+                    "href": "https://wa.me/919763411624"
+                  },
+                  {
+                    "text": "Asareavinash7@gmail.com",
+                    "href": "mailto:Asareavinash7@gmail.com"
+                  }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Dhanlaxmi Jewellers, Nagpur. All rights reserved."
+          }
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "slug": "/contact",
+      "title": "Contact",
+      "seo": {
+        "title": "Contact & Location | Dhanlaxmi Jewellers, Dhighori, Nagpur 440024",
+        "description": "Dhanlaxmi Jewellers, Teliphone Nagar Chowk, Narsala Road, Dhighori, Nagpur 440024. Call or WhatsApp 97634 11624, or email Asareavinash7@gmail.com.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-5",
+          "type": "header",
+          "visible": true,
+          "variant": "left",
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Collections",
+                "href": "/collections"
+              },
+              {
+                "text": "Services",
+                "href": "/services"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Call 97634 11624",
+              "href": "tel:+919763411624",
+              "style": "primary"
+            }
+          }
+        },
+        {
+          "id": "contact-1",
+          "type": "contact",
+          "visible": true,
+          "variant": "form-map",
+          "props": {
+            "label": "Contact",
+            "heading": "Come in, call, or message us",
+            "sub": "Teliphone Nagar Chowk, Narsala Road, Dhighori, Nagpur 440024.\n\nFor the day's gold rate, or to check whether a design is in stock, calling or WhatsApp is quickest — 97634 11624.",
+            "showPhone": true,
+            "showWhatsapp": true,
+            "showEmail": true,
+            "showAddress": true,
+            "showHours": false,
+            "showMap": true,
+            "mapUrl": "https://www.google.com/maps?q=Teliphone%20Nagar%20Chowk%2C%20Narsala%20Road%2C%20Dhighori%2C%20Nagpur%2C%20Maharashtra%20440024&output=embed",
+            "submitText": "Send Enquiry"
+          }
+        },
+        {
+          "id": "cta-5",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Ask us anything before you visit",
+            "sub": "Today's rate, whether a design is in stock, or what a repair will cost — one message is enough.",
+            "ctaPrimary": {
+              "text": "WhatsApp 97634 11624",
+              "href": "https://wa.me/919763411624",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-5",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "blurb": "Dhanlaxmi Jewellers — gold and silver jewellery at Teliphone Nagar Chowk, Narsala Road, Dhighori, Nagpur 440024.",
+            "showContact": true,
+            "showHours": false,
+            "showSocial": false,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Collections",
+                "links": [
+                  {
+                    "text": "Chains & Necklaces",
+                    "href": "/collections"
+                  },
+                  {
+                    "text": "Rings",
+                    "href": "/collections"
+                  },
+                  {
+                    "text": "Bangles & Kada",
+                    "href": "/collections"
+                  },
+                  {
+                    "text": "Mangalsutra",
+                    "href": "/collections"
+                  },
+                  {
+                    "text": "Silver Articles",
+                    "href": "/collections"
+                  }
+                ]
+              },
+              {
+                "title": "Shop",
+                "links": [
+                  {
+                    "text": "Services",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "About us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Contact & location",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "Contact",
+                "links": [
+                  {
+                    "text": "Call · 97634 11624",
+                    "href": "tel:+919763411624"
+                  },
+                  {
+                    "text": "WhatsApp · 97634 11624",
+                    "href": "https://wa.me/919763411624"
+                  },
+                  {
+                    "text": "Asareavinash7@gmail.com",
+                    "href": "mailto:Asareavinash7@gmail.com"
+                  }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Dhanlaxmi Jewellers, Nagpur. All rights reserved."
+          }
+        }
+      ]
+    }
+  ]
+}

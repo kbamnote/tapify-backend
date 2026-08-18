@@ -37,6 +37,9 @@ $SITES = [
     'aestheticclinic' => ['file' => 'content-aesthetic-clinic.json', 'label' => 'Aesthetic Dental & Skin Clinic'],
     'shrikrushnamotors' => ['file' => 'content-shrikrushna-motors.json', 'label' => 'Shri Krushna Motors'],
     'indrashobha' => ['file' => 'content-indrashobha-cosmetics.json', 'label' => 'Indrashobha Cosmetics'],
+    // NOTE the spelling: the subdomain is dhanlakshmijewellers, the business is
+    // "Dhanlaxmi Jewellers". The slug must match the existing live site.
+    'dhanlakshmijewellers' => ['file' => 'content-dhanlaxmi-jewellers.json', 'label' => 'Dhanlaxmi Jewellers'],
 ];
 
 require_once __DIR__ . '/config/database.php';
