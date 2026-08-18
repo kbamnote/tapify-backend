@@ -209,12 +209,21 @@ class GoogleBusinessClient
 
     /* ------------------------------------------------------------------ Q&A */
 
-    /** Questions on the listing, most recently active first. */
-    public function listQuestions($locationName, $pageSize = 20, $answersPerQuestion = 3)
+    /**
+     * Questions on the listing, most recently active first.
+     *
+     * BOTH page limits are 10, not a guessable larger number: Google documents
+     * "the default and maximum pageSize values are 10" and the same for
+     * answersPerQuestion. Asking for more is a 400, so the clamp is the
+     * contract rather than a nicety.
+     */
+    const QANDA_MAX_PAGE = 10;
+
+    public function listQuestions($locationName, $pageSize = 10, $answersPerQuestion = 3)
     {
         $url = self::QANDA_BASE . '/' . $locationName . '/questions'
-             . '?pageSize=' . max(1, min(50, (int)$pageSize))
-             . '&answersPerQuestion=' . max(1, min(10, (int)$answersPerQuestion))
+             . '?pageSize=' . max(1, min(self::QANDA_MAX_PAGE, (int)$pageSize))
+             . '&answersPerQuestion=' . max(1, min(self::QANDA_MAX_PAGE, (int)$answersPerQuestion))
              . '&orderBy=' . rawurlencode('updateTime desc');
         $res = GoogleHttp::get($url, $this->accessToken());
         return $res['questions'] ?? [];
@@ -257,10 +266,15 @@ class GoogleBusinessClient
      * metadata call is not optional — without it there is nothing to label a
      * toggle with.
      */
-    public function listAvailableAttributes($locationName, $languageCode = 'en')
+    public function listAvailableAttributes($locationName)
     {
-        $url = self::INFO_BASE . '/attributes?parent=' . rawurlencode($locationName)
-             . '&languageCode=' . rawurlencode($languageCode) . '&pageSize=200';
+        // ONLY `parent` may be sent here. Google's contract is explicit: "If
+        // this field is set, categoryName, regionCode, languageCode and showAll
+        // are not required and must not be set." Passing languageCode alongside
+        // parent — which is what this did — returns a bare 400 "Request
+        // contains an invalid argument" with no hint as to which argument.
+        // Display names come back in the account's language regardless.
+        $url = self::INFO_BASE . '/attributes?parent=' . rawurlencode($locationName) . '&pageSize=200';
         $res = GoogleHttp::get($url, $this->accessToken());
         return $res['attributeMetadata'] ?? [];
     }

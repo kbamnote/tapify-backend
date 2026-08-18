@@ -455,7 +455,8 @@ class GoogleBusinessService
      * concerned, and often worse than silence — Google shows the most upvoted
      * answer, whoever wrote it.
      */
-    public function listQuestions($userId, $pageSize = 20)
+    /** @param int $pageSize Google caps this at 10; the client clamps it. */
+    public function listQuestions($userId, $pageSize = 10)
     {
         $conn = $this->requireConnection($userId);
         if (empty($conn['location_id'])) {

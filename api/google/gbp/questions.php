@@ -31,6 +31,7 @@ gbp_run(function ($userId, $service) {
         sendSuccess('Your answer is now public on Google', $res);
     }
 
-    $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 20;
+    // Google's hard maximum for this endpoint is 10 per page.
+    $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 10;
     sendSuccess('Questions', $service->listQuestions($userId, $limit));
 });
