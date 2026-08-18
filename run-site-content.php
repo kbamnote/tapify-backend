@@ -42,6 +42,10 @@ $SITES = [
     'dhanlakshmijewellers' => ['file' => 'content-dhanlaxmi-jewellers.json', 'label' => 'Dhanlaxmi Jewellers'],
     'westernnx' => ['file' => 'content-western-nx.json', 'label' => 'Western NX'],
     'bloomblade' => ['file' => 'content-bloom-blade-salon.json', 'label' => 'Bloom & Blade Salon'],
+    // Existing client: kalashrealities.tapify.co.in is currently a vCard.
+    // Use a DIFFERENT slug so the builder site does not silently shadow it —
+    // index.php resolves a published builder site before vcards.url_alias.
+    'kalashrealties' => ['file' => 'content-kalash-realities.json', 'label' => 'Kalash Realities'],
 ];
 
 require_once __DIR__ . '/config/database.php';

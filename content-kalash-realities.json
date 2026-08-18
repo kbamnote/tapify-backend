@@ -1,0 +1,807 @@
+{
+  "schemaVersion": 1,
+  "site": {
+    "name": "Kalash Realities",
+    "industry": "real-estate",
+    "locale": "en-IN"
+  },
+  "theme": {
+    "preset": "navy-gold",
+    "mode": "light",
+    "color": {
+      "primary": "#1B3A6B",
+      "secondary": "#2C5AA0",
+      "accent": "#A85608",
+      "bg": "#FFFFFF",
+      "surface": "#F5F7FB",
+      "text": "#111827",
+      "muted": "#6B7280",
+      "border": "#E5E7EB"
+    },
+    "font": {
+      "heading": "Poppins",
+      "body": "Poppins"
+    },
+    "radius": "md",
+    "spacing": "comfortable",
+    "container": "normal"
+  },
+  "nav": {
+    "header": [
+      { "label": "Home", "pageId": "home" },
+      { "label": "Services", "pageId": "services" },
+      { "label": "Gallery", "pageId": "gallery" },
+      { "label": "About", "pageId": "about" },
+      { "label": "Contact", "pageId": "contact" }
+    ]
+  },
+  "business": {
+    "phone": "+91 73504 61009",
+    "whatsapp": "+91 73504 61009",
+    "email": "kalashrealitiesnagpur@gmail.com",
+    "address": "Shop No. F-28, Jayanti Mansion-3, Beltarodi Road, Manish Nagar, Nagpur, Maharashtra",
+    "social": {
+      "instagram": "https://www.instagram.com/kalashrealitiesnagpur/",
+      "facebook": "https://www.facebook.com/profile.php?id=100092625754234"
+    },
+    "hours": [
+      { "day": "mon", "open": "10:00 AM", "close": "07:00 PM" },
+      { "day": "tue", "open": "10:00 AM", "close": "07:00 PM" },
+      { "day": "wed", "open": "10:00 AM", "close": "07:00 PM" },
+      { "day": "thu", "open": "10:00 AM", "close": "07:00 PM" },
+      { "day": "fri", "open": "10:00 AM", "close": "07:00 PM" },
+      { "day": "sat", "open": "10:00 AM", "close": "07:00 PM" },
+      { "day": "sun", "open": "10:00 AM", "close": "07:00 PM" }
+    ]
+  },
+
+  "pages": [
+    {
+      "id": "home",
+      "slug": "/",
+      "title": "Home",
+      "seo": {
+        "title": "Kalash Realities | Plots, Flats, NMRDA, RL Sanction & RERA in Nagpur",
+        "description": "Residential and commercial plot sale, flat sale, NMRDA documentation, RL sanction and RERA compliance. Shop No. F-28, Jayanti Mansion-3, Beltarodi Road, Manish Nagar, Nagpur. Call 73504 61009.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-1",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784713839/jslhqqg6mb0r9vhbtpmp.jpg",
+            "links": [
+              { "text": "Home", "href": "/" },
+              { "text": "Services", "href": "/services" },
+              { "text": "Gallery", "href": "/gallery" },
+              { "text": "About", "href": "/about" },
+              { "text": "Contact", "href": "/contact" }
+            ],
+            "cta": { "text": "Call 73504 61009", "href": "tel:+917350461009", "style": "primary" }
+          }
+        },
+        {
+          "id": "hero-1",
+          "type": "hero",
+          "visible": true,
+          "variant": "centered-bg",
+          "props": {
+            "badge": "The Bond of Trust · Manish Nagar, Nagpur",
+            "heading": "Your property, and the paperwork behind it",
+            "sub": "Residential and commercial plots, and modern flats — plus the NMRDA, RL sanction and RERA documentation that turns a purchase into a clean title.\n\nMost buyers lose time and money in the approvals, not the deal. We handle both ends.",
+            "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784111904/knfchwcqpfceaikljv3p.jpg",
+            "fullHeight": true,
+            "ctaPrimary": { "text": "Call 73504 61009", "href": "tel:+917350461009", "style": "primary" },
+            "ctaSecondary": { "text": "Our services", "href": "/services", "style": "ghost" },
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "style": { "overlay": 0.55 }
+        },
+        {
+          "id": "about-1",
+          "type": "about",
+          "visible": true,
+          "variant": "image-right",
+          "props": {
+            "label": "About Us",
+            "heading": "Property and approvals, end to end",
+            "body": "Welcome to Kalash Realities, your trusted partner in navigating the real estate landscape with absolute transparency and expertise.\n\nWe specialise in the sale of premium residential and commercial plots, as well as modern, high-quality flats designed to elevate your living standard.\n\nBeyond property sales, we simplify the complexities of legal compliance by offering comprehensive documentation services. Our expert team efficiently handles NMRDA documentation, secures hassle-free RL sanctions, and ensures seamless RERA compliance for your peace of mind.\n\nWe bridge the gap between your property dreams and regulatory approvals, safeguarding your investments every step of the way. Whether you are buying your dream home, investing in land, or navigating complex legal paperwork, Kalash Realities delivers reliable, end-to-end real estate solutions tailored to your needs.",
+            "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635437/rfkv8vhrudb0smd4mkda.jpg",
+            "showPillars": true,
+            "pillars": [
+              { "icon": "map", "title": "Plots & flats", "text": "Residential and commercial plots, and modern flats — in and around Nagpur." },
+              { "icon": "file-text", "title": "NMRDA & RL sanction", "text": "The approvals most buyers underestimate, handled by a team that does them daily." },
+              { "icon": "shield", "title": "RERA compliance", "text": "Seamless RERA documentation, so what you buy is registered and defensible." },
+              { "icon": "check", "title": "One point of contact", "text": "Sale and paperwork under one roof — you are not sent between an agent and a consultant." }
+            ]
+          }
+        },
+        {
+          "id": "services-1",
+          "type": "services",
+          "visible": true,
+          "variant": "cards-3",
+          "props": {
+            "label": "Our Services",
+            "heading": "What we handle",
+            "sub": "Buying and selling on one side, regulatory approvals on the other. Most clients need both.",
+            "items": [
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635433/n2ivhukkcgs791bv5j3r.jpg",
+                "title": "Plot Sale",
+                "desc": "Residential and commercial plots in Nagpur prime locations — sanctioned layouts with clear titles and the paperwork to prove it.",
+                "meta": "Residential & commercial"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784111919/rwvy9nvzc3ocoobesfke.jpg",
+                "title": "Flat Sale",
+                "desc": "Modern, high-quality flats. We will tell you what the carpet area actually is, and what the total cost looks like once registration and GST are added.",
+                "meta": "Ready & under construction"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784111967/mimshzn5lugysgc06r7y.jpg",
+                "title": "NMRDA Documentation",
+                "desc": "Layout and building approvals through the Nagpur Metropolitan Region Development Authority. We prepare the file, follow it up and keep you informed.",
+                "meta": "Layout & building approvals"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784111986/xey5zfrs5ztsuch2f5cy.jpg",
+                "title": "RL Sanction Documentation",
+                "desc": "Regular Layout sanction — the approval that separates a plot you can build on and finance from one you cannot. Handled end to end.",
+                "meta": "Regular Layout approval"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784112004/z1to5nrprxcwfd99njpg.jpg",
+                "title": "RERA Documentation",
+                "desc": "RERA registration and compliance for projects and agents, so a sale stands up to scrutiny and a buyer's loan is not held up by it.",
+                "meta": "Registration & compliance"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635442/owkhdqtg8ui2dnascdk5.jpg",
+                "title": "Guidance Before You Buy",
+                "desc": "Come and talk it through before you commit. Which approvals a plot already has, what is still pending and what it will take — better asked before the token than after.",
+                "meta": "Visit the office · No obligation"
+              }
+            ]
+          }
+        },
+        {
+          "id": "gallery-1",
+          "type": "gallery",
+          "visible": true,
+          "variant": "grid-3",
+          "props": {
+            "label": "Gallery",
+            "heading": "Our office and layouts",
+            "sub": "Shop No. F-28, Jayanti Mansion-3, Beltarodi Road, Manish Nagar — come in and see the layout plans in person.",
+            "lightbox": true,
+            "images": [
+              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784111904/knfchwcqpfceaikljv3p.jpg", "alt": "Aerial view of a plotted layout" },
+              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638659/uj6y7xcmjpca40rfpd7n.jpg", "alt": "Kalash Realities office entrance" },
+              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638645/iyil4vsr0wnaekajwfx2.jpg", "alt": "Inside the Kalash Realities office" },
+              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638665/mv1dee9ewrr9hhct6oik.jpg", "alt": "Plot layout plan displayed in the office" },
+              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638648/xw7qmj1jybpzg9k481tg.jpg", "alt": "Office desk with area maps on the wall" },
+              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638652/g1r7qzjcbo2zjhc9zndk.jpg", "alt": "Jayanti Mansion, the building the office is in" },
+              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635430/zbqnnxnrgnwpjg0qxvuw.jpg", "alt": "Kalash Realities plot availability announcement" },
+              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638663/tffajpdcmvkcynekz2th.jpg", "alt": "Office interior" },
+              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635435/d9svbitrp77wymictomu.jpg", "alt": "Layout plan for a Kalash Realities project" }
+            ]
+          }
+        },
+        {
+          "id": "cta-1",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Thinking about a plot or a flat?",
+            "sub": "Call 73504 61009 or 86250 79494. Tell us the budget and the area you are looking at and we will tell you honestly what is available.",
+            "ctaPrimary": { "text": "Call 73504 61009", "href": "tel:+917350461009", "style": "primary" },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-1",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784713839/jslhqqg6mb0r9vhbtpmp.jpg",
+            "blurb": "Kalash Realities — The Bond of Trust. Plot and flat sale, NMRDA documentation, RL sanction and RERA compliance. Shop No. F-28, Jayanti Mansion-3, Beltarodi Road, Manish Nagar, Nagpur.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Services",
+                "links": [
+                  { "text": "Plot Sale", "href": "/services" },
+                  { "text": "Flat Sale", "href": "/services" },
+                  { "text": "NMRDA Documentation", "href": "/services" },
+                  { "text": "RL Sanction", "href": "/services" },
+                  { "text": "RERA Documentation", "href": "/services" }
+                ]
+              },
+              {
+                "title": "Company",
+                "links": [
+                  { "text": "About us", "href": "/about" },
+                  { "text": "Gallery", "href": "/gallery" },
+                  { "text": "Contact & office", "href": "/contact" }
+                ]
+              },
+              {
+                "title": "Contact",
+                "links": [
+                  { "text": "Call · 73504 61009", "href": "tel:+917350461009" },
+                  { "text": "Call · 86250 79494", "href": "tel:+918625079494" },
+                  { "text": "WhatsApp", "href": "https://wa.me/917350461009" },
+                  { "text": "kalashrealitiesnagpur@gmail.com", "href": "mailto:kalashrealitiesnagpur@gmail.com" },
+                  { "text": "Instagram", "href": "https://www.instagram.com/kalashrealitiesnagpur/" }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Kalash Realities, Nagpur. All rights reserved.",
+            "termsBody": "Information about plots, flats, layouts and approvals shown on this website is indicative and is subject to change. Availability, dimensions, pricing and approval status must be confirmed with us in writing before any payment is made.\n\nWe are not the guarantor of any project unless expressly stated. Where we act as a channel partner or agent, the developer or landowner remains responsible for the project, its approvals and its delivery.\n\nDocumentation services — NMRDA, RL sanction and RERA — are carried out on the basis of documents and information provided by the client. Timelines depend on the relevant authority and are outside our control. Government fees, stamp duty, registration charges and taxes are payable by the client and are not included in our fees unless stated in writing.\n\nWe do not guarantee the outcome of any application to a statutory authority. We do guarantee that the file is prepared correctly and followed up properly.\n\nAll images of layouts, plots and buildings are for illustration. Please verify measurements, boundaries and approval status from the sanctioned plan and the relevant authority record before purchase.\n\nThis text is a sample. Replace it with your own terms, reviewed by your legal advisor, before relying on it."
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "services",
+      "slug": "/services",
+      "title": "Services",
+      "seo": {
+        "title": "Services | Plot Sale, Flat Sale, NMRDA, RL Sanction & RERA — Kalash Realities Nagpur",
+        "description": "Residential and commercial plot sale, flat sale, NMRDA documentation, RL sanction documentation and RERA compliance in Nagpur. Call 73504 61009 or 86250 79494.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-2",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784713839/jslhqqg6mb0r9vhbtpmp.jpg",
+            "links": [
+              { "text": "Home", "href": "/" },
+              { "text": "Services", "href": "/services" },
+              { "text": "Gallery", "href": "/gallery" },
+              { "text": "About", "href": "/about" },
+              { "text": "Contact", "href": "/contact" }
+            ],
+            "cta": { "text": "Call 73504 61009", "href": "tel:+917350461009", "style": "primary" }
+          }
+        },
+        {
+          "id": "hero-2",
+          "type": "hero",
+          "visible": true,
+          "variant": "centered-bg",
+          "props": {
+            "heading": "Our services",
+            "sub": "Property on one side, approvals on the other.",
+            "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784111986/xey5zfrs5ztsuch2f5cy.jpg",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "style": { "overlay": 0.6 }
+        },
+        {
+          "id": "services-2",
+          "type": "services",
+          "visible": true,
+          "variant": "list",
+          "props": {
+            "label": "In Detail",
+            "heading": "Five services, one office",
+            "sub": "Call 73504 61009 to discuss any of these. Documentation timelines depend on the authority, and we will give you a realistic one rather than an optimistic one.",
+            "items": [
+              { "icon": "map", "title": "Plot Sale", "desc": "Residential and commercial plots in and around Nagpur. We show you the sanctioned layout, the plot boundaries and the approval status before anything else." },
+              { "icon": "home", "title": "Flat Sale", "desc": "Modern, high-quality flats. Carpet area, the total cost once registration and GST are added, and what stage of construction it is actually at." },
+              { "icon": "file-text", "title": "NMRDA Documentation", "desc": "Layout and building approvals through the Nagpur Metropolitan Region Development Authority — file preparation, submission and follow-up." },
+              { "icon": "check", "title": "RL Sanction Documentation", "desc": "Regular Layout sanction. This is the approval that decides whether a plot can be built on and financed, and it is the one buyers most often discover too late." },
+              { "icon": "shield", "title": "RERA Documentation", "desc": "RERA registration and ongoing compliance for projects and agents, so a sale holds up and a buyer's home loan is not delayed by missing paperwork." }
+            ]
+          }
+        },
+        {
+          "id": "faq-1",
+          "type": "faq",
+          "visible": true,
+          "variant": "accordion",
+          "props": {
+            "label": "FAQ",
+            "heading": "Questions buyers ask",
+            "openFirst": true,
+            "items": [
+              {
+                "q": "Why does the approval status of a plot matter so much?",
+                "a": "Because it decides what you can actually do with the land. An unsanctioned plot can be cheaper to buy and then impossible to build on, difficult to finance and hard to resell. Before you pay a token on any plot, ask what approvals it has and ask to see them. We will check this for you whether or not you buy through us."
+              },
+              {
+                "q": "What is RL sanction and do I need it?",
+                "a": "Regular Layout sanction is the approval that makes a layout legitimate for construction and finance. If you are buying a plot to build on, or intend to take a loan against it, this is the document that matters most. We handle the sanction process end to end."
+              },
+              {
+                "q": "How long does NMRDA or RERA documentation take?",
+                "a": "It depends on the authority, the completeness of the documents and the specific case, so anyone who quotes you a fixed number without seeing the file is guessing. Bring what you have and we will give you a realistic timeline and tell you what is missing."
+              },
+              {
+                "q": "Do you charge for an initial discussion?",
+                "a": "No. Come to the office, tell us what you are looking at, and we will tell you what is involved. It is a better use of everyone's time than finding out about a problem after the token is paid."
+              },
+              {
+                "q": "Do you handle both buying and the paperwork?",
+                "a": "Yes — that is the point of the business. Most clients need both, and dealing with one office rather than an agent plus a separate consultant is faster and leaves fewer gaps for something to be missed."
+              },
+              {
+                "q": "Where is your office and when are you open?",
+                "a": "Shop No. F-28, Jayanti Mansion-3, Beltarodi Road, Manish Nagar, Nagpur. Open every day, 10:00 AM to 7:00 PM. Call 73504 61009 or 86250 79494 before coming if you want a specific layout kept ready."
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-2",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Bring the documents you have",
+            "sub": "Whether it is a plot you are considering or a file that has stalled, come in and we will tell you where it stands.",
+            "ctaPrimary": { "text": "Call 73504 61009", "href": "tel:+917350461009", "style": "primary" },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-2",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784713839/jslhqqg6mb0r9vhbtpmp.jpg",
+            "blurb": "Kalash Realities — The Bond of Trust. Plot and flat sale, NMRDA documentation, RL sanction and RERA compliance. Shop No. F-28, Jayanti Mansion-3, Beltarodi Road, Manish Nagar, Nagpur.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Services",
+                "links": [
+                  { "text": "Plot Sale", "href": "/services" },
+                  { "text": "Flat Sale", "href": "/services" },
+                  { "text": "NMRDA Documentation", "href": "/services" },
+                  { "text": "RL Sanction", "href": "/services" },
+                  { "text": "RERA Documentation", "href": "/services" }
+                ]
+              },
+              {
+                "title": "Company",
+                "links": [
+                  { "text": "About us", "href": "/about" },
+                  { "text": "Gallery", "href": "/gallery" },
+                  { "text": "Contact & office", "href": "/contact" }
+                ]
+              },
+              {
+                "title": "Contact",
+                "links": [
+                  { "text": "Call · 73504 61009", "href": "tel:+917350461009" },
+                  { "text": "Call · 86250 79494", "href": "tel:+918625079494" },
+                  { "text": "WhatsApp", "href": "https://wa.me/917350461009" },
+                  { "text": "kalashrealitiesnagpur@gmail.com", "href": "mailto:kalashrealitiesnagpur@gmail.com" },
+                  { "text": "Instagram", "href": "https://www.instagram.com/kalashrealitiesnagpur/" }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Kalash Realities, Nagpur. All rights reserved."
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "gallery",
+      "slug": "/gallery",
+      "title": "Gallery",
+      "seo": {
+        "title": "Gallery | Office, Layouts & Projects — Kalash Realities Nagpur",
+        "description": "Photographs of the Kalash Realities office at Jayanti Mansion-3, Manish Nagar, plot layouts and current availability in Nagpur.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-3",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784713839/jslhqqg6mb0r9vhbtpmp.jpg",
+            "links": [
+              { "text": "Home", "href": "/" },
+              { "text": "Services", "href": "/services" },
+              { "text": "Gallery", "href": "/gallery" },
+              { "text": "About", "href": "/about" },
+              { "text": "Contact", "href": "/contact" }
+            ],
+            "cta": { "text": "Call 73504 61009", "href": "tel:+917350461009", "style": "primary" }
+          }
+        },
+        {
+          "id": "hero-3",
+          "type": "hero",
+          "visible": true,
+          "variant": "centered-bg",
+          "props": {
+            "heading": "Gallery",
+            "sub": "Our office, our layouts, and what is currently available.",
+            "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638652/g1r7qzjcbo2zjhc9zndk.jpg",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "style": { "overlay": 0.6 }
+        },
+        {
+          "id": "gallery-2",
+          "type": "gallery",
+          "visible": true,
+          "variant": "masonry",
+          "props": {
+            "label": "Office & Layouts",
+            "heading": "Come and see the plans in person",
+            "sub": "Layout plans are far easier to understand on the wall than on a phone. The office is open every day, 10 AM to 7 PM.",
+            "lightbox": true,
+            "images": [
+              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784111904/knfchwcqpfceaikljv3p.jpg", "alt": "Aerial view of a plotted layout" },
+              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635433/n2ivhukkcgs791bv5j3r.jpg", "alt": "Kalash Realities Nagpur plot layout plan" },
+              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635430/zbqnnxnrgnwpjg0qxvuw.jpg", "alt": "Commercial and residential plots available announcement" },
+              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635435/d9svbitrp77wymictomu.jpg", "alt": "Layout plan for a Kalash Realities project" },
+              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638659/uj6y7xcmjpca40rfpd7n.jpg", "alt": "Kalash Realities office entrance" },
+              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638652/g1r7qzjcbo2zjhc9zndk.jpg", "alt": "Jayanti Mansion, the building the office is in" },
+              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638645/iyil4vsr0wnaekajwfx2.jpg", "alt": "Inside the Kalash Realities office" },
+              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638648/xw7qmj1jybpzg9k481tg.jpg", "alt": "Office desk with area maps on the wall" },
+              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638665/mv1dee9ewrr9hhct6oik.jpg", "alt": "Plot layout plan displayed in the office" },
+              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638663/tffajpdcmvkcynekz2th.jpg", "alt": "Office interior" },
+              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638667/cnsrsuaxlgbwfatjj4b1.jpg", "alt": "Office corridor at Jayanti Mansion" },
+              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635437/rfkv8vhrudb0smd4mkda.jpg", "alt": "Kalash Realities office and team" },
+              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635442/owkhdqtg8ui2dnascdk5.jpg", "alt": "Kalash Realities office and current plot availability" },
+              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784787543/gjycucxs3rbwquapvpaz.jpg", "alt": "Kalash Properties services overview" }
+            ]
+          }
+        },
+        {
+          "id": "cta-3",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Want the layout for a specific area?",
+            "sub": "Tell us which side of Nagpur you are looking at and we will send what we have on WhatsApp.",
+            "ctaPrimary": { "text": "WhatsApp us", "href": "https://wa.me/917350461009", "style": "primary" },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-3",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784713839/jslhqqg6mb0r9vhbtpmp.jpg",
+            "blurb": "Kalash Realities — The Bond of Trust. Plot and flat sale, NMRDA documentation, RL sanction and RERA compliance. Shop No. F-28, Jayanti Mansion-3, Beltarodi Road, Manish Nagar, Nagpur.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Services",
+                "links": [
+                  { "text": "Plot Sale", "href": "/services" },
+                  { "text": "Flat Sale", "href": "/services" },
+                  { "text": "NMRDA Documentation", "href": "/services" },
+                  { "text": "RL Sanction", "href": "/services" },
+                  { "text": "RERA Documentation", "href": "/services" }
+                ]
+              },
+              {
+                "title": "Company",
+                "links": [
+                  { "text": "About us", "href": "/about" },
+                  { "text": "Gallery", "href": "/gallery" },
+                  { "text": "Contact & office", "href": "/contact" }
+                ]
+              },
+              {
+                "title": "Contact",
+                "links": [
+                  { "text": "Call · 73504 61009", "href": "tel:+917350461009" },
+                  { "text": "Call · 86250 79494", "href": "tel:+918625079494" },
+                  { "text": "WhatsApp", "href": "https://wa.me/917350461009" },
+                  { "text": "kalashrealitiesnagpur@gmail.com", "href": "mailto:kalashrealitiesnagpur@gmail.com" },
+                  { "text": "Instagram", "href": "https://www.instagram.com/kalashrealitiesnagpur/" }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Kalash Realities, Nagpur. All rights reserved."
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "about",
+      "slug": "/about",
+      "title": "About",
+      "seo": {
+        "title": "About Kalash Realities | Real Estate & Documentation, Manish Nagar Nagpur",
+        "description": "Kalash Realities is a Nagpur real estate company handling plot and flat sales alongside NMRDA, RL sanction and RERA documentation — property and approvals from one office.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-4",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784713839/jslhqqg6mb0r9vhbtpmp.jpg",
+            "links": [
+              { "text": "Home", "href": "/" },
+              { "text": "Services", "href": "/services" },
+              { "text": "Gallery", "href": "/gallery" },
+              { "text": "About", "href": "/about" },
+              { "text": "Contact", "href": "/contact" }
+            ],
+            "cta": { "text": "Call 73504 61009", "href": "tel:+917350461009", "style": "primary" }
+          }
+        },
+        {
+          "id": "hero-4",
+          "type": "hero",
+          "visible": true,
+          "variant": "centered-bg",
+          "props": {
+            "heading": "The Bond of Trust",
+            "sub": "A Nagpur real estate company that handles the approvals as well as the sale.",
+            "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635442/owkhdqtg8ui2dnascdk5.jpg",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "style": { "overlay": 0.6 }
+        },
+        {
+          "id": "about-2",
+          "type": "about",
+          "visible": true,
+          "variant": "image-left",
+          "props": {
+            "label": "About Us",
+            "heading": "Property dreams and regulatory approvals, bridged",
+            "body": "Welcome to Kalash Realities, your trusted partner in navigating the real estate landscape with absolute transparency and expertise.\n\nWe specialise in the sale of premium residential and commercial plots, as well as modern, high-quality flats designed to elevate your living standard.\n\nBeyond property sales, we simplify the complexities of legal compliance by offering comprehensive documentation services. Our expert team efficiently handles NMRDA documentation, secures hassle-free RL sanctions, and ensures seamless RERA compliance for your peace of mind.\n\nWe bridge the gap between your property dreams and regulatory approvals, safeguarding your investments every step of the way. Whether you are buying your dream home, investing in land, or navigating complex legal paperwork, Kalash Realities delivers reliable, end-to-end real estate solutions tailored to your needs.\n\nOur office is at Shop No. F-28, Jayanti Mansion-3, Beltarodi Road, Manish Nagar, Nagpur, and we are open every day from 10:00 AM to 7:00 PM. Layout plans are on the wall — they are much easier to read in person than on a phone.",
+            "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638645/iyil4vsr0wnaekajwfx2.jpg",
+            "showPillars": false
+          }
+        },
+        {
+          "id": "services-3",
+          "type": "services",
+          "visible": true,
+          "variant": "list",
+          "props": {
+            "label": "Why Us",
+            "heading": "What makes the difference",
+            "items": [
+              { "icon": "check", "title": "Sale and paperwork together", "desc": "You are not handed between an agent and a separate consultant. Both sides of the transaction sit in one office, so nothing falls through the gap." },
+              { "icon": "shield", "title": "Approvals checked first", "desc": "We look at what a plot actually has — NMRDA, RL sanction, RERA — before you commit, not after the token is paid." },
+              { "icon": "file-text", "title": "Realistic timelines", "desc": "Authority timelines are outside anyone's control. We tell you what to expect honestly rather than what you want to hear." },
+              { "icon": "map-pin", "title": "Local to Nagpur", "desc": "Manish Nagar office, Nagpur layouts, Nagpur authorities. This is the market we work in every day." },
+              { "icon": "clock", "title": "Open every day", "desc": "10:00 AM to 7:00 PM, seven days a week — including the weekends when most buyers are actually free to look." }
+            ]
+          }
+        },
+        {
+          "id": "cta-4",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Come to the office",
+            "sub": "Shop No. F-28, Jayanti Mansion-3, Beltarodi Road, Manish Nagar, Nagpur. Open every day, 10 AM to 7 PM.",
+            "ctaPrimary": { "text": "Get directions", "href": "/contact", "style": "primary" },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-4",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784713839/jslhqqg6mb0r9vhbtpmp.jpg",
+            "blurb": "Kalash Realities — The Bond of Trust. Plot and flat sale, NMRDA documentation, RL sanction and RERA compliance. Shop No. F-28, Jayanti Mansion-3, Beltarodi Road, Manish Nagar, Nagpur.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Services",
+                "links": [
+                  { "text": "Plot Sale", "href": "/services" },
+                  { "text": "Flat Sale", "href": "/services" },
+                  { "text": "NMRDA Documentation", "href": "/services" },
+                  { "text": "RL Sanction", "href": "/services" },
+                  { "text": "RERA Documentation", "href": "/services" }
+                ]
+              },
+              {
+                "title": "Company",
+                "links": [
+                  { "text": "About us", "href": "/about" },
+                  { "text": "Gallery", "href": "/gallery" },
+                  { "text": "Contact & office", "href": "/contact" }
+                ]
+              },
+              {
+                "title": "Contact",
+                "links": [
+                  { "text": "Call · 73504 61009", "href": "tel:+917350461009" },
+                  { "text": "Call · 86250 79494", "href": "tel:+918625079494" },
+                  { "text": "WhatsApp", "href": "https://wa.me/917350461009" },
+                  { "text": "kalashrealitiesnagpur@gmail.com", "href": "mailto:kalashrealitiesnagpur@gmail.com" },
+                  { "text": "Instagram", "href": "https://www.instagram.com/kalashrealitiesnagpur/" }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Kalash Realities, Nagpur. All rights reserved."
+          }
+        }
+      ]
+    },
+
+    {
+      "id": "contact",
+      "slug": "/contact",
+      "title": "Contact",
+      "seo": {
+        "title": "Contact & Office | Kalash Realities, Manish Nagar, Nagpur",
+        "description": "Shop No. F-28, Jayanti Mansion-3, Beltarodi Road, Manish Nagar, Nagpur. Call 73504 61009 or 86250 79494, or email kalashrealitiesnagpur@gmail.com. Open every day 10 AM to 7 PM.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-5",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784713839/jslhqqg6mb0r9vhbtpmp.jpg",
+            "links": [
+              { "text": "Home", "href": "/" },
+              { "text": "Services", "href": "/services" },
+              { "text": "Gallery", "href": "/gallery" },
+              { "text": "About", "href": "/about" },
+              { "text": "Contact", "href": "/contact" }
+            ],
+            "cta": { "text": "Call 73504 61009", "href": "tel:+917350461009", "style": "primary" }
+          }
+        },
+        {
+          "id": "contact-1",
+          "type": "contact",
+          "visible": true,
+          "variant": "form-map",
+          "props": {
+            "label": "Contact",
+            "heading": "Visit, call or message",
+            "sub": "Shop No. F-28, Jayanti Mansion-3, Beltarodi Road, Manish Nagar, Nagpur.\n\nCall 73504 61009 or 86250 79494, or email kalashrealitiesnagpur@gmail.com. Open every day, 10:00 AM to 7:00 PM.",
+            "showPhone": true,
+            "showWhatsapp": true,
+            "showEmail": true,
+            "showAddress": true,
+            "showHours": true,
+            "showMap": true,
+            "mapUrl": "https://www.google.com/maps?q=Jayanti%20Mansion%203%2C%20Beltarodi%20Road%2C%20Manish%20Nagar%2C%20Nagpur&output=embed",
+            "submitText": "Send Enquiry"
+          }
+        },
+        {
+          "id": "hours-1",
+          "type": "hours",
+          "visible": true,
+          "props": {
+            "label": "Office Hours",
+            "heading": "Open every day",
+            "sub": "10:00 AM to 7:00 PM, seven days a week.",
+            "highlightToday": true,
+            "note": "Call ahead if you want a particular layout plan kept ready."
+          }
+        },
+        {
+          "id": "cta-5",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Follow us for new layouts and availability",
+            "sub": "New plots, projects and availability go up on Instagram and Facebook first.",
+            "ctaPrimary": { "text": "Instagram", "href": "https://www.instagram.com/kalashrealitiesnagpur/", "style": "primary" },
+            "ctaSecondary": { "text": "Facebook", "href": "https://www.facebook.com/profile.php?id=100092625754234", "style": "ghost" }
+          }
+        },
+        {
+          "id": "footer-5",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784713839/jslhqqg6mb0r9vhbtpmp.jpg",
+            "blurb": "Kalash Realities — The Bond of Trust. Plot and flat sale, NMRDA documentation, RL sanction and RERA compliance. Shop No. F-28, Jayanti Mansion-3, Beltarodi Road, Manish Nagar, Nagpur.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Services",
+                "links": [
+                  { "text": "Plot Sale", "href": "/services" },
+                  { "text": "Flat Sale", "href": "/services" },
+                  { "text": "NMRDA Documentation", "href": "/services" },
+                  { "text": "RL Sanction", "href": "/services" },
+                  { "text": "RERA Documentation", "href": "/services" }
+                ]
+              },
+              {
+                "title": "Company",
+                "links": [
+                  { "text": "About us", "href": "/about" },
+                  { "text": "Gallery", "href": "/gallery" },
+                  { "text": "Contact & office", "href": "/contact" }
+                ]
+              },
+              {
+                "title": "Contact",
+                "links": [
+                  { "text": "Call · 73504 61009", "href": "tel:+917350461009" },
+                  { "text": "Call · 86250 79494", "href": "tel:+918625079494" },
+                  { "text": "WhatsApp", "href": "https://wa.me/917350461009" },
+                  { "text": "kalashrealitiesnagpur@gmail.com", "href": "mailto:kalashrealitiesnagpur@gmail.com" },
+                  { "text": "Instagram", "href": "https://www.instagram.com/kalashrealitiesnagpur/" }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Kalash Realities, Nagpur. All rights reserved."
+          }
+        }
+      ]
+    }
+  ]
+}
