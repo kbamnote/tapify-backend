@@ -41,6 +41,7 @@ $SITES = [
     // "Dhanlaxmi Jewellers". The slug must match the existing live site.
     'dhanlakshmijewellers' => ['file' => 'content-dhanlaxmi-jewellers.json', 'label' => 'Dhanlaxmi Jewellers'],
     'westernnx' => ['file' => 'content-western-nx.json', 'label' => 'Western NX'],
+    'bloomblade' => ['file' => 'content-bloom-blade-salon.json', 'label' => 'Bloom & Blade Salon'],
 ];
 
 require_once __DIR__ . '/config/database.php';

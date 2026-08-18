@@ -1,0 +1,1231 @@
+{
+  "schemaVersion": 1,
+  "site": {
+    "name": "Bloom & Blade Salon",
+    "industry": "salon",
+    "locale": "en-IN"
+  },
+  "theme": {
+    "preset": "noir-gold",
+    "mode": "dark",
+    "color": {
+      "primary": "#C9A227",
+      "secondary": "#8A6D1F",
+      "accent": "#D9B441",
+      "bg": "#0D0D0F",
+      "surface": "#17171A",
+      "text": "#F2EFE9",
+      "muted": "#A39C90",
+      "border": "#2A2A2E"
+    },
+    "font": {
+      "heading": "Jost",
+      "body": "Karla"
+    },
+    "radius": "md",
+    "spacing": "comfortable",
+    "container": "normal"
+  },
+  "nav": {
+    "header": [
+      {
+        "label": "Home",
+        "pageId": "home"
+      },
+      {
+        "label": "Services",
+        "pageId": "services"
+      },
+      {
+        "label": "Products",
+        "pageId": "products"
+      },
+      {
+        "label": "Contact",
+        "pageId": "contact"
+      }
+    ]
+  },
+  "business": {
+    "phone": "+91 86001 29124",
+    "whatsapp": "+91 86001 29124",
+    "email": "harshpimpalkar@gmail.com",
+    "social": {
+      "instagram": "https://www.instagram.com/bloom_blade.unsex.salon/",
+      "facebook": "https://www.facebook.com/"
+    },
+    "hours": [
+      {
+        "day": "mon",
+        "open": "08:30 AM",
+        "close": "09:30 PM"
+      },
+      {
+        "day": "tue",
+        "open": "08:30 AM",
+        "close": "09:30 PM"
+      },
+      {
+        "day": "wed",
+        "open": "08:30 AM",
+        "close": "09:30 PM"
+      },
+      {
+        "day": "thu",
+        "open": "08:30 AM",
+        "close": "09:30 PM"
+      },
+      {
+        "day": "fri",
+        "open": "08:30 AM",
+        "close": "09:30 PM"
+      },
+      {
+        "day": "sat",
+        "open": "08:30 AM",
+        "close": "09:30 PM"
+      },
+      {
+        "day": "sun",
+        "open": "08:30 AM",
+        "close": "09:30 PM"
+      }
+    ],
+    "address": "Plot No. 27, Shilpa Society, Near Maharaja Tiles, In Front of Londe Jewellers, Beltarodi Road, Nagpur"
+  },
+  "pages": [
+    {
+      "id": "home",
+      "slug": "/",
+      "title": "Home",
+      "seo": {
+        "title": "Bloom & Blade Unisex Salon | Haircut, Beard, Keratin, Facial & Bridal Makeup",
+        "description": "Unisex salon offering haircut, beard, spa, facial, keratin, botox, nanoplastia, wax, clean-up, D-tan, makeup, ironing, tong and crimping, highlights, smoothing and colour. Open 8:30 AM to 9:30 PM. WhatsApp 86001 29124.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-1",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": true,
+            "showAccount": false,
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Services",
+                "href": "/services"
+              },
+              {
+                "text": "Products",
+                "href": "/products"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Book on WhatsApp",
+              "href": "https://wa.me/918600129124",
+              "style": "primary"
+            }
+          }
+        },
+        {
+          "id": "hero-1",
+          "type": "hero",
+          "visible": true,
+          "variant": "centered-bg",
+          "props": {
+            "badge": "Unisex Salon · Beltarodi Road, Nagpur",
+            "heading": "Style that speaks. Confidence that stays.",
+            "sub": "Bloom & Blade is a unisex salon on Beltarodi Road — haircut and beard on one side of the chair, keratin, facial and bridal makeup on the other.\n\nSixteen services, open 8:30 AM to 9:30 PM. Walk in, or message 86001 29124 to book a slot and skip the wait.",
+            "image": "https://images.pexels.com/photos/2420280/pexels-photo-2420280.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "fullHeight": true,
+            "ctaPrimary": {
+              "text": "Book on WhatsApp",
+              "href": "https://wa.me/918600129124",
+              "style": "primary"
+            },
+            "ctaSecondary": {
+              "text": "See all services",
+              "href": "/services",
+              "style": "ghost"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "style": {
+            "overlay": 0.58
+          }
+        },
+        {
+          "id": "about-1",
+          "type": "about",
+          "visible": true,
+          "variant": "image-right",
+          "props": {
+            "label": "About Us",
+            "heading": "One salon, both sides of the chair",
+            "body": "Bloom & Blade is a unisex salon. That is not a detail on the signboard — it changes what we keep in the cabinet and who is behind the chair.\n\nOn the grooming side: haircuts, beard shaping, hair colour, ironing, tong and crimping. On the treatment side: facials, clean-up, D-tan, waxing, hair spa and bridal makeup. And the chemical work that needs real training — keratin, hair botox, nanoplastia and smoothing.\n\nWe use professional lines rather than whatever is cheapest, and we sell the same brands over the counter so the result you leave with can be maintained at home. Ask before you buy — the wrong shampoo will strip a keratin treatment in a fortnight.\n\nOpen from 8:30 in the morning to 9:30 at night, so a haircut before work or a treatment after it are both possible.",
+            "image": "https://images.pexels.com/photos/36873730/pexels-photo-36873730.jpeg?auto=compress&cs=tinysrgb&w=1400",
+            "showPillars": true,
+            "pillars": [
+              {
+                "icon": "users",
+                "title": "Unisex Experts",
+                "text": "Both sides of the chair, properly. Grooming and beard work as well as colour, treatments and bridal."
+              },
+              {
+                "icon": "star",
+                "title": "Premium Styling",
+                "text": "Cuts, styling, ironing, tong and crimping — finished the way you would want to walk out with it."
+              },
+              {
+                "icon": "droplet",
+                "title": "Hair Care",
+                "text": "Keratin, botox, nanoplastia, smoothing and spa, with the aftercare that decides how long it lasts."
+              },
+              {
+                "icon": "scissors",
+                "title": "Beard Grooming",
+                "text": "Shaping, trims, line-ups and clean shaves. Fresh blade every customer, opened in front of you."
+              }
+            ]
+          }
+        },
+        {
+          "id": "team-1",
+          "type": "team",
+          "visible": true,
+          "variant": "cards-2",
+          "props": {
+            "label": "The Owner",
+            "heading": "Run by Harshal Pimpalkar",
+            "sub": "The number on the card is his. You are dealing with the owner, not a front desk.",
+            "items": [
+              {
+                "name": "Harshal Pimpalkar",
+                "role": "Owner",
+                "meta": "Bloom & Blade Unisex Salon, Beltarodi Road",
+                "bio": "Runs Bloom & Blade day to day and is usually in the salon. If you want to talk through a treatment before booking — whether keratin or nanoplastia suits your hair, what a bridal slot involves, or what something will cost — message 86001 29124 and you are talking to him directly."
+              },
+              {
+                "name": "Style that speaks. Confidence that stays.",
+                "role": "How we work",
+                "meta": "Unisex · Open 8:30 AM to 9:30 PM",
+                "bio": "We would rather tell you a treatment is wrong for your hair than take the booking and have you back in a month unhappy. Chemical services get a condition check first, and every one leaves with aftercare instructions."
+              }
+            ]
+          }
+        },
+        {
+          "id": "services-1",
+          "type": "services",
+          "visible": true,
+          "variant": "cards-3",
+          "props": {
+            "label": "Services",
+            "heading": "What we do",
+            "sub": "Sixteen services for men and women. Rates depend on hair length, condition and the products used — message us and we will tell you exactly.",
+            "items": [
+              {
+                "image": "https://images.pexels.com/photos/7781845/pexels-photo-7781845.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Haircut",
+                "desc": "Cuts for men and women — a trim to keep a shape, or a full restyle. Tell us how you usually wear it and how much time you want to spend on it at home.",
+                "meta": "Men & women"
+              },
+              {
+                "image": "https://images.pexels.com/photos/36873730/pexels-photo-36873730.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Beard",
+                "desc": "Beard shaping, trims, line-ups and clean shaves. Fresh blade every customer, opened in front of you.",
+                "meta": "Shape · Trim · Shave"
+              },
+              {
+                "image": "https://images.pexels.com/photos/2218558/pexels-photo-2218558.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Make Up",
+                "desc": "Party and occasion makeup, and full bridal. Bridal is by appointment — book well ahead in wedding season.",
+                "meta": "Party · Bridal · By appointment"
+              },
+              {
+                "image": "https://images.pexels.com/photos/18367697/pexels-photo-18367697.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Keratin",
+                "desc": "Keratin treatment for frizz control and manageability. Comes with aftercare instructions — the shampoo you use afterwards decides how long it lasts.",
+                "meta": "Frizz control · Aftercare included"
+              },
+              {
+                "image": "https://images.pexels.com/photos/17163945/pexels-photo-17163945.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Hair Botox",
+                "desc": "A deep conditioning treatment for damaged and over-processed hair. Different from keratin — we will tell you honestly which one your hair actually needs.",
+                "meta": "For damaged hair"
+              },
+              {
+                "image": "https://images.pexels.com/photos/18367686/pexels-photo-18367686.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Nanoplastia",
+                "desc": "Formaldehyde-free smoothing that keeps more movement than a traditional straightening. Suits anyone who wants smooth hair without it going flat.",
+                "meta": "Smoothing with movement"
+              },
+              {
+                "image": "https://images.pexels.com/photos/17163786/pexels-photo-17163786.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Hair Smoothing",
+                "desc": "Chemical smoothing for coarse or unmanageable hair. We check the condition of your hair first — smoothing damaged hair makes it worse, not better.",
+                "meta": "Condition checked first"
+              },
+              {
+                "image": "https://images.pexels.com/photos/20046793/pexels-photo-20046793.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Hair Colour",
+                "desc": "Global colour, root touch-ups and grey coverage using professional colour and matched developer.",
+                "meta": "Global · Root touch-up · Grey coverage"
+              },
+              {
+                "image": "https://images.pexels.com/photos/15868761/pexels-photo-15868761.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Hair Highlights",
+                "desc": "Highlights, balayage and streaks. Lightening is the hardest thing to undo, so we talk it through and check your hair can take it.",
+                "meta": "Highlights · Balayage · Streaks"
+              },
+              {
+                "image": "https://images.pexels.com/photos/34025162/pexels-photo-34025162.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Facial",
+                "desc": "Facials for different skin concerns — dullness, dryness, oiliness and tan. Tell us your skin type and what you have reacted to before.",
+                "meta": "By skin type"
+              },
+              {
+                "image": "https://images.pexels.com/photos/36436447/pexels-photo-36436447.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Clean Up",
+                "desc": "A shorter version of a facial — cleanse, scrub, steam, extraction and pack. Good every few weeks between full facials.",
+                "meta": "Quicker than a facial"
+              },
+              {
+                "image": "https://images.pexels.com/photos/30809947/pexels-photo-30809947.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "D-Tan",
+                "desc": "De-tan treatment for face, neck, arms and back. Worth doing before a function rather than the morning of it.",
+                "meta": "Face · Neck · Arms"
+              },
+              {
+                "image": "https://images.pexels.com/photos/37229301/pexels-photo-37229301.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Waxing",
+                "desc": "Full and half waxing in a choice of waxes. Tell us if you have sensitive skin and we will use a gentler option.",
+                "meta": "Full · Half · Sensitive options"
+              },
+              {
+                "image": "https://images.pexels.com/photos/17548721/pexels-photo-17548721.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Hair Spa",
+                "desc": "A conditioning spa with massage — for dryness, scalp build-up, or simply because your hair has had a hard month.",
+                "meta": "Conditioning + massage"
+              },
+              {
+                "image": "https://images.pexels.com/photos/18367686/pexels-photo-18367686.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Hair Ironing",
+                "desc": "Straightening with an iron for the day — no chemicals, nothing permanent. The usual choice before a function.",
+                "meta": "Temporary · No chemicals"
+              },
+              {
+                "image": "https://images.pexels.com/photos/20046793/pexels-photo-20046793.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Tong & Crimping",
+                "desc": "Curls, waves and crimping for occasions. Best booked close to the event — it is a styling job, not a treatment.",
+                "meta": "Curls · Waves · Crimping"
+              }
+            ]
+          }
+        },
+        {
+          "id": "gallery-1",
+          "type": "gallery",
+          "visible": true,
+          "variant": "grid-3",
+          "props": {
+            "label": "The Salon",
+            "heading": "Inside Bloom & Blade",
+            "sub": "Photographs of our own salon and work will replace these — send them across and we will swap them in.",
+            "lightbox": true,
+            "images": [
+              {
+                "image": "https://images.pexels.com/photos/2420280/pexels-photo-2420280.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Interior of an Indian salon with mirrors and chairs"
+              },
+              {
+                "image": "https://images.pexels.com/photos/36873730/pexels-photo-36873730.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Customer being attended to in an Indian salon chair"
+              },
+              {
+                "image": "https://images.pexels.com/photos/2218558/pexels-photo-2218558.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Bridal makeup being applied in a salon"
+              },
+              {
+                "image": "https://images.pexels.com/photos/20046793/pexels-photo-20046793.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Styled wavy hair after a salon blow-dry"
+              },
+              {
+                "image": "https://images.pexels.com/photos/18367697/pexels-photo-18367697.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Long smooth hair after a keratin treatment"
+              },
+              {
+                "image": "https://images.pexels.com/photos/7781845/pexels-photo-7781845.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Haircut in progress at a salon chair"
+              },
+              {
+                "image": "https://images.pexels.com/photos/34025162/pexels-photo-34025162.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Facial treatment being carried out"
+              },
+              {
+                "image": "https://images.pexels.com/photos/17163945/pexels-photo-17163945.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Client with freshly styled long hair"
+              },
+              {
+                "image": "https://images.pexels.com/photos/16098689/pexels-photo-16098689.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Child having a haircut in a salon chair"
+              }
+            ]
+          }
+        },
+        {
+          "id": "embed-1",
+          "type": "embed",
+          "visible": true,
+          "variant": "grid-2",
+          "props": {
+            "label": "Instagram",
+            "heading": "Recent work",
+            "sub": "Cuts, colour and transformations from the chair. More on Instagram — @bloom_blade.unsex.salon.",
+            "embeds": [
+              {
+                "url": "https://www.instagram.com/reel/DadfLe1uUTF/"
+              },
+              {
+                "url": "https://www.instagram.com/reel/Dac0g7NIqJ8/"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-1",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Book a slot and skip the wait",
+            "sub": "Message 86001 29124 with the service and roughly when you want to come. Keratin, smoothing and bridal makeup need booking ahead.",
+            "ctaPrimary": {
+              "text": "WhatsApp 86001 29124",
+              "href": "https://wa.me/918600129124",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-1",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "blurb": "Bloom & Blade Unisex Salon — haircut, beard, colour, keratin, facial, waxing and bridal makeup. Plot No. 27, Shilpa Society, Beltarodi Road, Nagpur. Open every day, 8:30 AM to 9:30 PM.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Services",
+                "links": [
+                  {
+                    "text": "Haircut & Beard",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Hair Colour & Highlights",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Keratin, Botox & Nanoplastia",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Facial, Clean Up & D-Tan",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Makeup & Bridal",
+                    "href": "/services"
+                  }
+                ]
+              },
+              {
+                "title": "Shop",
+                "links": [
+                  {
+                    "text": "QOD & Wella products",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Contact & booking",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "Connect",
+                "links": [
+                  {
+                    "text": "WhatsApp · 86001 29124",
+                    "href": "https://wa.me/918600129124"
+                  },
+                  {
+                    "text": "Call · 86001 29124",
+                    "href": "tel:+918600129124"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/bloom_blade.unsex.salon/"
+                  },
+                  {
+                    "text": "Email",
+                    "href": "mailto:harshpimpalkar@gmail.com"
+                  }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Bloom & Blade Salon. All rights reserved.",
+            "termsBody": "Service rates depend on hair length, hair and skin condition, and the products used. The rate is confirmed before the service begins.\n\nChemical services — keratin, hair botox, nanoplastia, smoothing, colour and highlights — depend on the current condition of your hair. We may advise against a service, or recommend a different one, after seeing your hair in person. Results and how long they last vary between people.\n\nPlease tell us before any facial, waxing or colour service about allergies, skin sensitivity, recent treatments elsewhere, or medication that affects skin or hair. A patch test is advisable before a first colour service.\n\nAppointments for bridal makeup and long chemical services may require an advance. Please give reasonable notice if you need to cancel or reschedule so the slot can be offered to someone else.\n\nRetail products are sold sealed. For hygiene reasons opened products cannot be returned or exchanged unless faulty.\n\nThis text is a sample. Replace it with your own terms, reviewed by your advisor, before relying on it."
+          }
+        }
+      ]
+    },
+    {
+      "id": "services",
+      "slug": "/services",
+      "title": "Services",
+      "seo": {
+        "title": "Services | Haircut, Beard, Keratin, Nanoplastia, Facial & Bridal Makeup — Bloom & Blade",
+        "description": "Sixteen unisex salon services: haircut, beard, spa, facial, keratin, hair botox, nanoplastia, waxing, clean up, D-tan, makeup, ironing, tong and crimping, highlights, smoothing and hair colour.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-2",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": true,
+            "showAccount": false,
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Services",
+                "href": "/services"
+              },
+              {
+                "text": "Products",
+                "href": "/products"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Book on WhatsApp",
+              "href": "https://wa.me/918600129124",
+              "style": "primary"
+            }
+          }
+        },
+        {
+          "id": "hero-2",
+          "type": "hero",
+          "visible": true,
+          "variant": "centered-bg",
+          "props": {
+            "heading": "Services",
+            "sub": "Sixteen services for men and women, from a quick trim to full bridal makeup.",
+            "image": "https://images.pexels.com/photos/36873730/pexels-photo-36873730.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "style": {
+            "overlay": 0.6
+          }
+        },
+        {
+          "id": "services-2",
+          "type": "services",
+          "visible": true,
+          "variant": "list",
+          "props": {
+            "label": "Full List",
+            "heading": "Everything we offer",
+            "sub": "Rates depend on hair length, condition and products, so we confirm the price before we start. Message 86001 29124 for a quote.",
+            "items": [
+              {
+                "icon": "scissors",
+                "title": "Haircut",
+                "desc": "Cuts and restyles for men and women."
+              },
+              {
+                "icon": "scissors",
+                "title": "Beard",
+                "desc": "Beard shaping, trims, line-ups and clean shaves. Fresh blade every customer."
+              },
+              {
+                "icon": "droplet",
+                "title": "Hair Spa",
+                "desc": "Conditioning treatment with a scalp massage, for dryness and build-up."
+              },
+              {
+                "icon": "heart",
+                "title": "Facial",
+                "desc": "Facials matched to your skin type and concern."
+              },
+              {
+                "icon": "star",
+                "title": "Keratin",
+                "desc": "Frizz control and manageability, with aftercare instructions that decide how long it lasts."
+              },
+              {
+                "icon": "star",
+                "title": "Hair Botox",
+                "desc": "Deep conditioning for damaged and over-processed hair."
+              },
+              {
+                "icon": "star",
+                "title": "Nanoplastia",
+                "desc": "Formaldehyde-free smoothing that keeps more movement than straightening."
+              },
+              {
+                "icon": "droplet",
+                "title": "Waxing",
+                "desc": "Full and half waxing, with gentler options for sensitive skin."
+              },
+              {
+                "icon": "heart",
+                "title": "Clean Up",
+                "desc": "Cleanse, scrub, steam, extraction and pack — quicker than a full facial."
+              },
+              {
+                "icon": "sun",
+                "title": "D-Tan",
+                "desc": "De-tan for face, neck, arms and back."
+              },
+              {
+                "icon": "star",
+                "title": "Make Up",
+                "desc": "Party, occasion and full bridal makeup. Bridal by appointment."
+              },
+              {
+                "icon": "zap",
+                "title": "Hair Ironing",
+                "desc": "Temporary straightening for the day — no chemicals."
+              },
+              {
+                "icon": "zap",
+                "title": "Tong & Crimping",
+                "desc": "Curls, waves and crimping for functions and occasions."
+              },
+              {
+                "icon": "droplet",
+                "title": "Hair Highlights",
+                "desc": "Highlights, balayage and streaks, after checking your hair can take the lift."
+              },
+              {
+                "icon": "star",
+                "title": "Hair Smoothing",
+                "desc": "Chemical smoothing for coarse hair, after a condition check."
+              },
+              {
+                "icon": "droplet",
+                "title": "Hair Colour",
+                "desc": "Global colour, root touch-ups and grey coverage with professional colour."
+              }
+            ]
+          }
+        },
+        {
+          "id": "faq-1",
+          "type": "faq",
+          "visible": true,
+          "variant": "accordion",
+          "props": {
+            "label": "FAQ",
+            "heading": "Before you book",
+            "openFirst": true,
+            "items": [
+              {
+                "q": "Why are rates not listed on the website?",
+                "a": "Because most of our services genuinely cannot be priced from a list. A keratin treatment on short hair and on waist-length hair are different amounts of product and time, and a colour on virgin hair is not the same job as a colour over an old one. Message 86001 29124 with your hair length and what you want done and we will give you a proper figure."
+              },
+              {
+                "q": "Keratin, botox, nanoplastia or smoothing — which one do I need?",
+                "a": "They solve different problems. Keratin is mainly for frizz and manageability, hair botox is a deep conditioning treatment for damaged hair, nanoplastia is a formaldehyde-free smoothing that keeps movement, and smoothing is the strongest and straightest result. The right answer depends on the condition of your hair, so let us see it first — we would rather talk you out of the wrong one than take the booking."
+              },
+              {
+                "q": "How long will a treatment last?",
+                "a": "It varies with your hair and, more than anything, with what you wash it with afterwards. A sulphate shampoo will strip a keratin treatment quickly. We give aftercare instructions with every chemical service and stock the shampoos that protect the result."
+              },
+              {
+                "q": "Do I need an appointment?",
+                "a": "Walk in for a haircut, beard or clean-up. Book ahead for keratin, smoothing, nanoplastia, highlights and any bridal or party makeup — these need a longer slot and, in wedding season, they fill up."
+              },
+              {
+                "q": "Is it a unisex salon?",
+                "a": "Yes. We serve both men and women, and we carry the products and the skills for both — grooming and beard work as well as colour, treatments and bridal makeup."
+              },
+              {
+                "q": "What are your timings?",
+                "a": "8:30 AM to 9:30 PM. The early and late slots are the quietest if you want to be in and out."
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-2",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Not sure which treatment you need?",
+            "sub": "Send us a photo of your hair on WhatsApp and tell us what is bothering you about it. We will tell you what would actually help.",
+            "ctaPrimary": {
+              "text": "Ask on WhatsApp",
+              "href": "https://wa.me/918600129124",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-2",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "blurb": "Bloom & Blade Unisex Salon — haircut, beard, colour, keratin, facial, waxing and bridal makeup. Plot No. 27, Shilpa Society, Beltarodi Road, Nagpur. Open every day, 8:30 AM to 9:30 PM.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Services",
+                "links": [
+                  {
+                    "text": "Haircut & Beard",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Hair Colour & Highlights",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Keratin, Botox & Nanoplastia",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Facial, Clean Up & D-Tan",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Makeup & Bridal",
+                    "href": "/services"
+                  }
+                ]
+              },
+              {
+                "title": "Shop",
+                "links": [
+                  {
+                    "text": "QOD & Wella products",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Contact & booking",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "Connect",
+                "links": [
+                  {
+                    "text": "WhatsApp · 86001 29124",
+                    "href": "https://wa.me/918600129124"
+                  },
+                  {
+                    "text": "Call · 86001 29124",
+                    "href": "tel:+918600129124"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/bloom_blade.unsex.salon/"
+                  },
+                  {
+                    "text": "Email",
+                    "href": "mailto:harshpimpalkar@gmail.com"
+                  }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Bloom & Blade Salon. All rights reserved."
+          }
+        }
+      ]
+    },
+    {
+      "id": "products",
+      "slug": "/products",
+      "title": "Products",
+      "seo": {
+        "title": "Buy QOD & Wella Hair Products | Bloom & Blade Salon",
+        "description": "QOD De Fabulous, QOD Argan and QOD Max Prime shampoo, conditioner and mask, plus Wella retail products. The same professional lines we use in the salon, available to order.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-3",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": true,
+            "showAccount": false,
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Services",
+                "href": "/services"
+              },
+              {
+                "text": "Products",
+                "href": "/products"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Book on WhatsApp",
+              "href": "https://wa.me/918600129124",
+              "style": "primary"
+            }
+          }
+        },
+        {
+          "id": "hero-3",
+          "type": "hero",
+          "visible": true,
+          "variant": "centered-bg",
+          "props": {
+            "heading": "Take the salon home",
+            "sub": "The same professional lines we use on the chair — order here or pick up in person.",
+            "image": "https://images.pexels.com/photos/6387876/pexels-photo-6387876.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "style": {
+            "overlay": 0.6
+          }
+        },
+        {
+          "id": "products-1",
+          "type": "products",
+          "visible": true,
+          "variant": "cards-2",
+          "props": {
+            "label": "Retail",
+            "heading": "QOD & Wella",
+            "sub": "Order here and we will confirm the rate and availability before dispatch, or collect from the salon. If you have had a treatment with us, ask which of these protects it.",
+            "items": [
+              {
+                "image": "https://images.pexels.com/photos/6387876/pexels-photo-6387876.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "QOD De Fabulous — Shampoo & Conditioner",
+                "desc": "Everyday cleansing and conditioning from the QOD professional range. Safe to use after chemical treatments.",
+                "meta": "Shampoo & conditioner",
+                "price": "Rate on enquiry",
+                "slug": "qod-de-fabulous",
+                "enableOrder": true,
+                "attributes": [
+                  {
+                    "name": "Buy",
+                    "options": [
+                      {
+                        "value": "Shampoo"
+                      },
+                      {
+                        "value": "Conditioner"
+                      },
+                      {
+                        "value": "Both"
+                      }
+                    ]
+                  }
+                ],
+                "body": "QOD De Fabulous shampoo and conditioner, from the QOD professional range.\n\nThis is an everyday pairing — the one to use if you want a professional shampoo without a specific problem to solve. It is safe over keratin, botox, nanoplastia and smoothing, which the supermarket shampoos generally are not.\n\nA note worth reading if you have just had a treatment with us: sulphate shampoos strip keratin quickly, and most customers who complain a treatment 'did not last' were washing it with the wrong thing. Whatever you buy, check with us that it suits the service you have had.\n\nOrder here and we will confirm the current rate and availability before anything is dispatched, or collect from the salon."
+              },
+              {
+                "image": "https://images.pexels.com/photos/4154194/pexels-photo-4154194.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "QOD Argan — Shampoo & Conditioner",
+                "desc": "Argan oil shampoo and conditioner for dry, frizzy or rough hair that needs more nourishment than a daily wash gives it.",
+                "meta": "For dry & frizzy hair",
+                "price": "Rate on enquiry",
+                "slug": "qod-argan",
+                "enableOrder": true,
+                "attributes": [
+                  {
+                    "name": "Buy",
+                    "options": [
+                      {
+                        "value": "Shampoo"
+                      },
+                      {
+                        "value": "Conditioner"
+                      },
+                      {
+                        "value": "Both"
+                      }
+                    ]
+                  }
+                ],
+                "body": "QOD Argan shampoo and conditioner — the argan oil line from QOD's professional range.\n\nThis is the one to reach for if your hair is dry, frizzy or rough to the touch, particularly through summer or after a lot of heat styling. Argan adds back some of what heat and sun take out.\n\nIf you have coloured or chemically treated hair and are not sure whether to take this or the De Fabulous line, ask us — the right answer depends on what was last done to your hair, not on which bottle looks nicer.\n\nOrder here and we will confirm the rate and availability before dispatch, or collect from the salon."
+              },
+              {
+                "image": "https://images.pexels.com/photos/10600142/pexels-photo-10600142.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "QOD Max Prime — Shampoo & Mask",
+                "desc": "The intensive pairing — shampoo with a deep treatment mask, for hair that has been through colour, bleach or repeated straightening.",
+                "meta": "Shampoo & treatment mask",
+                "price": "Rate on enquiry",
+                "slug": "qod-max-prime",
+                "enableOrder": true,
+                "attributes": [
+                  {
+                    "name": "Buy",
+                    "options": [
+                      {
+                        "value": "Shampoo"
+                      },
+                      {
+                        "value": "Mask"
+                      },
+                      {
+                        "value": "Both"
+                      }
+                    ]
+                  }
+                ],
+                "body": "QOD Max Prime shampoo and treatment mask.\n\nThis is the intensive option in the QOD range — the shampoo cleanses gently and the mask does the repairing work. It suits hair that has been through a lot: repeated colour, bleach or highlights, regular straightening, or a chemical service that did not go well elsewhere.\n\nA mask is not a conditioner and is not meant for daily use. Once or twice a week is usually right; more than that and fine hair goes limp. Ask us how often to use it for your hair rather than guessing.\n\nOrder here and we will confirm the rate and availability before dispatch, or collect from the salon."
+              },
+              {
+                "image": "https://images.pexels.com/photos/6387880/pexels-photo-6387880.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Wella Retail Products",
+                "desc": "Wella professional retail range — shampoos, conditioners, masks and styling products. Tell us your hair type and what you want it to do.",
+                "meta": "Full Wella retail range",
+                "price": "Rate on enquiry",
+                "slug": "wella-retail",
+                "enableOrder": true,
+                "attributes": [
+                  {
+                    "name": "Looking for",
+                    "options": [
+                      {
+                        "value": "Shampoo"
+                      },
+                      {
+                        "value": "Conditioner"
+                      },
+                      {
+                        "value": "Mask"
+                      },
+                      {
+                        "value": "Styling"
+                      },
+                      {
+                        "value": "Not sure"
+                      }
+                    ]
+                  }
+                ],
+                "body": "The Wella professional retail range — shampoos, conditioners, masks and styling products.\n\nWella covers most hair concerns across its lines: colour protection, repair for damaged hair, volume for fine hair and smoothing for coarse hair. Which line is right depends on your hair and on what was last done to it, which is why this listing asks what you are looking for rather than pretending one product suits everybody.\n\nIf you are unsure, pick 'Not sure' and tell us your hair type and the problem you want solved. We will suggest the right product rather than the dearest one.\n\nOrder here and we will confirm the rate and availability before dispatch, or collect from the salon."
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-3",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Just had a treatment with us?",
+            "sub": "Ask which shampoo protects it before you buy anything. The wrong one can undo a keratin treatment in a fortnight.",
+            "ctaPrimary": {
+              "text": "Ask on WhatsApp",
+              "href": "https://wa.me/918600129124",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-3",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "blurb": "Bloom & Blade Unisex Salon — haircut, beard, colour, keratin, facial, waxing and bridal makeup. Plot No. 27, Shilpa Society, Beltarodi Road, Nagpur. Open every day, 8:30 AM to 9:30 PM.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Services",
+                "links": [
+                  {
+                    "text": "Haircut & Beard",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Hair Colour & Highlights",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Keratin, Botox & Nanoplastia",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Facial, Clean Up & D-Tan",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Makeup & Bridal",
+                    "href": "/services"
+                  }
+                ]
+              },
+              {
+                "title": "Shop",
+                "links": [
+                  {
+                    "text": "QOD & Wella products",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Contact & booking",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "Connect",
+                "links": [
+                  {
+                    "text": "WhatsApp · 86001 29124",
+                    "href": "https://wa.me/918600129124"
+                  },
+                  {
+                    "text": "Call · 86001 29124",
+                    "href": "tel:+918600129124"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/bloom_blade.unsex.salon/"
+                  },
+                  {
+                    "text": "Email",
+                    "href": "mailto:harshpimpalkar@gmail.com"
+                  }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Bloom & Blade Salon. All rights reserved."
+          }
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "slug": "/contact",
+      "title": "Contact",
+      "seo": {
+        "title": "Contact & Booking | Bloom & Blade Unisex Salon",
+        "description": "Book an appointment on WhatsApp 86001 29124 or email harshpimpalkar@gmail.com. Open every day, 8:30 AM to 9:30 PM.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-4",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": true,
+            "showAccount": false,
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Services",
+                "href": "/services"
+              },
+              {
+                "text": "Products",
+                "href": "/products"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Book on WhatsApp",
+              "href": "https://wa.me/918600129124",
+              "style": "primary"
+            }
+          }
+        },
+        {
+          "id": "contact-1",
+          "type": "contact",
+          "visible": true,
+          "variant": "form-map",
+          "props": {
+            "label": "Contact",
+            "heading": "Book an appointment",
+            "sub": "Plot No. 27, Shilpa Society, Near Maharaja Tiles, in front of Londe Jewellers, Beltarodi Road, Nagpur.\n\nQuickest is WhatsApp on 86001 29124. Walk in for a haircut, beard or clean-up; please book ahead for keratin, smoothing, highlights and bridal makeup.",
+            "showPhone": true,
+            "showWhatsapp": true,
+            "showEmail": true,
+            "showAddress": true,
+            "showHours": true,
+            "submitText": "Request Appointment",
+            "showMap": true,
+            "mapUrl": "https://www.google.com/maps?q=Plot%20No.%2027%2C%20Shilpa%20Society%2C%20Near%20Maharaja%20Tiles%2C%20Beltarodi%20Road%2C%20Nagpur&output=embed"
+          }
+        },
+        {
+          "id": "hours-1",
+          "type": "hours",
+          "visible": true,
+          "props": {
+            "label": "Timings",
+            "heading": "Open 8:30 AM to 9:30 PM",
+            "sub": "Early morning and late evening are the quietest slots.",
+            "highlightToday": true,
+            "note": "Bridal and long chemical services are by appointment only."
+          }
+        },
+        {
+          "id": "cta-4",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Follow us for new work and offers",
+            "sub": "We post recent work, colour transformations and bridal makeup on Instagram.",
+            "ctaPrimary": {
+              "text": "Instagram",
+              "href": "https://www.instagram.com/bloom_blade.unsex.salon/",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-4",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "blurb": "Bloom & Blade Unisex Salon — haircut, beard, colour, keratin, facial, waxing and bridal makeup. Plot No. 27, Shilpa Society, Beltarodi Road, Nagpur. Open every day, 8:30 AM to 9:30 PM.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Services",
+                "links": [
+                  {
+                    "text": "Haircut & Beard",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Hair Colour & Highlights",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Keratin, Botox & Nanoplastia",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Facial, Clean Up & D-Tan",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Makeup & Bridal",
+                    "href": "/services"
+                  }
+                ]
+              },
+              {
+                "title": "Shop",
+                "links": [
+                  {
+                    "text": "QOD & Wella products",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Contact & booking",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "Connect",
+                "links": [
+                  {
+                    "text": "WhatsApp · 86001 29124",
+                    "href": "https://wa.me/918600129124"
+                  },
+                  {
+                    "text": "Call · 86001 29124",
+                    "href": "tel:+918600129124"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/bloom_blade.unsex.salon/"
+                  },
+                  {
+                    "text": "Email",
+                    "href": "mailto:harshpimpalkar@gmail.com"
+                  }
+                ]
+              }
+            ],
+            "copyright": "© 2026 Bloom & Blade Salon. All rights reserved."
+          }
+        }
+      ]
+    }
+  ]
+}
