@@ -66,9 +66,18 @@ try {
             if ($repo->hasReplied($review['id']))      { $skipped++; continue; }  // we already did
 
             try {
+                // reviewer and stars are not optional extras here. Without them
+                // every short review ("Good", "Nice") generated the same reply,
+                // and two reviews with identical text hashed to the same cache
+                // entry and got the identical sentence posted publicly under
+                // both — which is exactly what an automated reply must not look
+                // like. They give the model something to personalise on AND
+                // make the cache key differ per review.
                 $out = $ai->generate($userId, 'review-reply', [
                     'review'        => $review['comment'],
                     'business_name' => $data['location_title'] ?? '',
+                    'reviewer'      => $review['reviewer'] ?? '',
+                    'stars'         => (int)($review['stars'] ?? 0),
                 ]);
                 // The tool returns four tones; "friendly" is the right register
                 // for a positive review, which is all auto-reply ever handles.
