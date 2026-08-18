@@ -82,6 +82,9 @@ class GoogleHttp
 
         $raw  = curl_exec($ch);
         $code = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        // Captured so a non-JSON answer can say WHAT it was — "text/html" tells
+        // you Google's frontend never routed the request to the API at all.
+        $contentType = (string) curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
         $err  = curl_error($ch);
         curl_close($ch);
 
@@ -90,6 +93,19 @@ class GoogleHttp
         }
         $decoded = $raw === '' ? [] : json_decode($raw, true);
         if (!is_array($decoded)) {
+            // Log BEFORE throwing. This branch used to be silent because the
+            // only logging sat in the $code >= 400 block below, which a
+            // non-JSON body never reaches — so the most diagnostic failure we
+            // have (Google answering with an HTML error page instead of its
+            // usual JSON envelope) surfaced as a bare 502 with nothing in the
+            // logs to explain it. The body snippet is what identifies whether
+            // the URL is wrong, the API is disabled, or a proxy intercepted it.
+            GoogleLogger::error('api.non_json', [
+                'status' => $code,
+                'type'   => $contentType,
+                'url'    => self::redact($url),
+                'body'   => preg_replace('/\s+/', ' ', substr((string) $raw, 0, 300)),
+            ]);
             throw new GoogleException('Unexpected response from Google.', 502, 'non-JSON: ' . substr((string) $raw, 0, 300));
         }
         if ($code >= 400) {
