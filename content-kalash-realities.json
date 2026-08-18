@@ -6,21 +6,21 @@
     "locale": "en-IN"
   },
   "theme": {
-    "preset": "navy-gold",
+    "preset": "copper-ridge",
     "mode": "light",
     "color": {
-      "primary": "#1B3A6B",
-      "secondary": "#2C5AA0",
-      "accent": "#A85608",
-      "bg": "#FFFFFF",
-      "surface": "#F5F7FB",
-      "text": "#111827",
-      "muted": "#6B7280",
-      "border": "#E5E7EB"
+      "primary": "#8B6914",
+      "secondary": "#5C4A3A",
+      "accent": "#96601E",
+      "bg": "#F7F4F0",
+      "surface": "#FFFFFF",
+      "text": "#1E1B16",
+      "muted": "#736C64",
+      "border": "#E0DAD3"
     },
     "font": {
       "heading": "Poppins",
-      "body": "Poppins"
+      "body": "Inter"
     },
     "radius": "md",
     "spacing": "comfortable",
@@ -28,11 +28,26 @@
   },
   "nav": {
     "header": [
-      { "label": "Home", "pageId": "home" },
-      { "label": "Services", "pageId": "services" },
-      { "label": "Gallery", "pageId": "gallery" },
-      { "label": "About", "pageId": "about" },
-      { "label": "Contact", "pageId": "contact" }
+      {
+        "label": "Home",
+        "pageId": "home"
+      },
+      {
+        "label": "Services",
+        "pageId": "services"
+      },
+      {
+        "label": "Gallery",
+        "pageId": "gallery"
+      },
+      {
+        "label": "About",
+        "pageId": "about"
+      },
+      {
+        "label": "Contact",
+        "pageId": "contact"
+      }
     ]
   },
   "business": {
@@ -45,16 +60,43 @@
       "facebook": "https://www.facebook.com/profile.php?id=100092625754234"
     },
     "hours": [
-      { "day": "mon", "open": "10:00 AM", "close": "07:00 PM" },
-      { "day": "tue", "open": "10:00 AM", "close": "07:00 PM" },
-      { "day": "wed", "open": "10:00 AM", "close": "07:00 PM" },
-      { "day": "thu", "open": "10:00 AM", "close": "07:00 PM" },
-      { "day": "fri", "open": "10:00 AM", "close": "07:00 PM" },
-      { "day": "sat", "open": "10:00 AM", "close": "07:00 PM" },
-      { "day": "sun", "open": "10:00 AM", "close": "07:00 PM" }
+      {
+        "day": "mon",
+        "open": "10:00 AM",
+        "close": "07:00 PM"
+      },
+      {
+        "day": "tue",
+        "open": "10:00 AM",
+        "close": "07:00 PM"
+      },
+      {
+        "day": "wed",
+        "open": "10:00 AM",
+        "close": "07:00 PM"
+      },
+      {
+        "day": "thu",
+        "open": "10:00 AM",
+        "close": "07:00 PM"
+      },
+      {
+        "day": "fri",
+        "open": "10:00 AM",
+        "close": "07:00 PM"
+      },
+      {
+        "day": "sat",
+        "open": "10:00 AM",
+        "close": "07:00 PM"
+      },
+      {
+        "day": "sun",
+        "open": "10:00 AM",
+        "close": "07:00 PM"
+      }
     ]
   },
-
   "pages": [
     {
       "id": "home",
@@ -76,13 +118,32 @@
             "showAccount": false,
             "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784713839/jslhqqg6mb0r9vhbtpmp.jpg",
             "links": [
-              { "text": "Home", "href": "/" },
-              { "text": "Services", "href": "/services" },
-              { "text": "Gallery", "href": "/gallery" },
-              { "text": "About", "href": "/about" },
-              { "text": "Contact", "href": "/contact" }
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Services",
+                "href": "/services"
+              },
+              {
+                "text": "Gallery",
+                "href": "/gallery"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
             ],
-            "cta": { "text": "Call 73504 61009", "href": "tel:+917350461009", "style": "primary" }
+            "cta": {
+              "text": "Call 73504 61009",
+              "href": "tel:+917350461009",
+              "style": "primary"
+            }
           }
         },
         {
@@ -96,12 +157,22 @@
             "sub": "Residential and commercial plots, and modern flats — plus the NMRDA, RL sanction and RERA documentation that turns a purchase into a clean title.\n\nMost buyers lose time and money in the approvals, not the deal. We handle both ends.",
             "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784111904/knfchwcqpfceaikljv3p.jpg",
             "fullHeight": true,
-            "ctaPrimary": { "text": "Call 73504 61009", "href": "tel:+917350461009", "style": "primary" },
-            "ctaSecondary": { "text": "Our services", "href": "/services", "style": "ghost" },
+            "ctaPrimary": {
+              "text": "Call 73504 61009",
+              "href": "tel:+917350461009",
+              "style": "primary"
+            },
+            "ctaSecondary": {
+              "text": "Our services",
+              "href": "/services",
+              "style": "ghost"
+            },
             "showWhatsapp": true,
             "showCall": true
           },
-          "style": { "overlay": 0.55 }
+          "style": {
+            "overlay": 0.55
+          }
         },
         {
           "id": "about-1",
@@ -115,10 +186,26 @@
             "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635437/rfkv8vhrudb0smd4mkda.jpg",
             "showPillars": true,
             "pillars": [
-              { "icon": "map", "title": "Plots & flats", "text": "Residential and commercial plots, and modern flats — in and around Nagpur." },
-              { "icon": "file-text", "title": "NMRDA & RL sanction", "text": "The approvals most buyers underestimate, handled by a team that does them daily." },
-              { "icon": "shield", "title": "RERA compliance", "text": "Seamless RERA documentation, so what you buy is registered and defensible." },
-              { "icon": "check", "title": "One point of contact", "text": "Sale and paperwork under one roof — you are not sent between an agent and a consultant." }
+              {
+                "icon": "map",
+                "title": "Plots & flats",
+                "text": "Residential and commercial plots, and modern flats — in and around Nagpur."
+              },
+              {
+                "icon": "file-text",
+                "title": "NMRDA & RL sanction",
+                "text": "The approvals most buyers underestimate, handled by a team that does them daily."
+              },
+              {
+                "icon": "shield",
+                "title": "RERA compliance",
+                "text": "Seamless RERA documentation, so what you buy is registered and defensible."
+              },
+              {
+                "icon": "check",
+                "title": "One point of contact",
+                "text": "Sale and paperwork under one roof — you are not sent between an agent and a consultant."
+              }
             ]
           }
         },
@@ -182,15 +269,42 @@
             "sub": "Shop No. F-28, Jayanti Mansion-3, Beltarodi Road, Manish Nagar — come in and see the layout plans in person.",
             "lightbox": true,
             "images": [
-              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784111904/knfchwcqpfceaikljv3p.jpg", "alt": "Aerial view of a plotted layout" },
-              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638659/uj6y7xcmjpca40rfpd7n.jpg", "alt": "Kalash Realities office entrance" },
-              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638645/iyil4vsr0wnaekajwfx2.jpg", "alt": "Inside the Kalash Realities office" },
-              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638665/mv1dee9ewrr9hhct6oik.jpg", "alt": "Plot layout plan displayed in the office" },
-              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638648/xw7qmj1jybpzg9k481tg.jpg", "alt": "Office desk with area maps on the wall" },
-              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638652/g1r7qzjcbo2zjhc9zndk.jpg", "alt": "Jayanti Mansion, the building the office is in" },
-              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635430/zbqnnxnrgnwpjg0qxvuw.jpg", "alt": "Kalash Realities plot availability announcement" },
-              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638663/tffajpdcmvkcynekz2th.jpg", "alt": "Office interior" },
-              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635435/d9svbitrp77wymictomu.jpg", "alt": "Layout plan for a Kalash Realities project" }
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784111904/knfchwcqpfceaikljv3p.jpg",
+                "alt": "Aerial view of a plotted layout"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638659/uj6y7xcmjpca40rfpd7n.jpg",
+                "alt": "Kalash Realities office entrance"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638645/iyil4vsr0wnaekajwfx2.jpg",
+                "alt": "Inside the Kalash Realities office"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638665/mv1dee9ewrr9hhct6oik.jpg",
+                "alt": "Plot layout plan displayed in the office"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638648/xw7qmj1jybpzg9k481tg.jpg",
+                "alt": "Office desk with area maps on the wall"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638652/g1r7qzjcbo2zjhc9zndk.jpg",
+                "alt": "Jayanti Mansion, the building the office is in"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635430/zbqnnxnrgnwpjg0qxvuw.jpg",
+                "alt": "Kalash Realities plot availability announcement"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638663/tffajpdcmvkcynekz2th.jpg",
+                "alt": "Office interior"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635435/d9svbitrp77wymictomu.jpg",
+                "alt": "Layout plan for a Kalash Realities project"
+              }
             ]
           }
         },
@@ -202,7 +316,11 @@
           "props": {
             "heading": "Thinking about a plot or a flat?",
             "sub": "Call 73504 61009 or 86250 79494. Tell us the budget and the area you are looking at and we will tell you honestly what is available.",
-            "ctaPrimary": { "text": "Call 73504 61009", "href": "tel:+917350461009", "style": "primary" },
+            "ctaPrimary": {
+              "text": "Call 73504 61009",
+              "href": "tel:+917350461009",
+              "style": "primary"
+            },
             "showWhatsapp": true,
             "showCall": true
           }
@@ -223,29 +341,68 @@
               {
                 "title": "Services",
                 "links": [
-                  { "text": "Plot Sale", "href": "/services" },
-                  { "text": "Flat Sale", "href": "/services" },
-                  { "text": "NMRDA Documentation", "href": "/services" },
-                  { "text": "RL Sanction", "href": "/services" },
-                  { "text": "RERA Documentation", "href": "/services" }
+                  {
+                    "text": "Plot Sale",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Flat Sale",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "NMRDA Documentation",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "RL Sanction",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "RERA Documentation",
+                    "href": "/services"
+                  }
                 ]
               },
               {
                 "title": "Company",
                 "links": [
-                  { "text": "About us", "href": "/about" },
-                  { "text": "Gallery", "href": "/gallery" },
-                  { "text": "Contact & office", "href": "/contact" }
+                  {
+                    "text": "About us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Gallery",
+                    "href": "/gallery"
+                  },
+                  {
+                    "text": "Contact & office",
+                    "href": "/contact"
+                  }
                 ]
               },
               {
                 "title": "Contact",
                 "links": [
-                  { "text": "Call · 73504 61009", "href": "tel:+917350461009" },
-                  { "text": "Call · 86250 79494", "href": "tel:+918625079494" },
-                  { "text": "WhatsApp", "href": "https://wa.me/917350461009" },
-                  { "text": "kalashrealitiesnagpur@gmail.com", "href": "mailto:kalashrealitiesnagpur@gmail.com" },
-                  { "text": "Instagram", "href": "https://www.instagram.com/kalashrealitiesnagpur/" }
+                  {
+                    "text": "Call · 73504 61009",
+                    "href": "tel:+917350461009"
+                  },
+                  {
+                    "text": "Call · 86250 79494",
+                    "href": "tel:+918625079494"
+                  },
+                  {
+                    "text": "WhatsApp",
+                    "href": "https://wa.me/917350461009"
+                  },
+                  {
+                    "text": "kalashrealitiesnagpur@gmail.com",
+                    "href": "mailto:kalashrealitiesnagpur@gmail.com"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/kalashrealitiesnagpur/"
+                  }
                 ]
               }
             ],
@@ -255,7 +412,6 @@
         }
       ]
     },
-
     {
       "id": "services",
       "slug": "/services",
@@ -276,13 +432,32 @@
             "showAccount": false,
             "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784713839/jslhqqg6mb0r9vhbtpmp.jpg",
             "links": [
-              { "text": "Home", "href": "/" },
-              { "text": "Services", "href": "/services" },
-              { "text": "Gallery", "href": "/gallery" },
-              { "text": "About", "href": "/about" },
-              { "text": "Contact", "href": "/contact" }
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Services",
+                "href": "/services"
+              },
+              {
+                "text": "Gallery",
+                "href": "/gallery"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
             ],
-            "cta": { "text": "Call 73504 61009", "href": "tel:+917350461009", "style": "primary" }
+            "cta": {
+              "text": "Call 73504 61009",
+              "href": "tel:+917350461009",
+              "style": "primary"
+            }
           }
         },
         {
@@ -298,7 +473,9 @@
             "showWhatsapp": true,
             "showCall": true
           },
-          "style": { "overlay": 0.6 }
+          "style": {
+            "overlay": 0.6
+          }
         },
         {
           "id": "services-2",
@@ -310,11 +487,31 @@
             "heading": "Five services, one office",
             "sub": "Call 73504 61009 to discuss any of these. Documentation timelines depend on the authority, and we will give you a realistic one rather than an optimistic one.",
             "items": [
-              { "icon": "map", "title": "Plot Sale", "desc": "Residential and commercial plots in and around Nagpur. We show you the sanctioned layout, the plot boundaries and the approval status before anything else." },
-              { "icon": "home", "title": "Flat Sale", "desc": "Modern, high-quality flats. Carpet area, the total cost once registration and GST are added, and what stage of construction it is actually at." },
-              { "icon": "file-text", "title": "NMRDA Documentation", "desc": "Layout and building approvals through the Nagpur Metropolitan Region Development Authority — file preparation, submission and follow-up." },
-              { "icon": "check", "title": "RL Sanction Documentation", "desc": "Regular Layout sanction. This is the approval that decides whether a plot can be built on and financed, and it is the one buyers most often discover too late." },
-              { "icon": "shield", "title": "RERA Documentation", "desc": "RERA registration and ongoing compliance for projects and agents, so a sale holds up and a buyer's home loan is not delayed by missing paperwork." }
+              {
+                "icon": "map",
+                "title": "Plot Sale",
+                "desc": "Residential and commercial plots in and around Nagpur. We show you the sanctioned layout, the plot boundaries and the approval status before anything else."
+              },
+              {
+                "icon": "home",
+                "title": "Flat Sale",
+                "desc": "Modern, high-quality flats. Carpet area, the total cost once registration and GST are added, and what stage of construction it is actually at."
+              },
+              {
+                "icon": "file-text",
+                "title": "NMRDA Documentation",
+                "desc": "Layout and building approvals through the Nagpur Metropolitan Region Development Authority — file preparation, submission and follow-up."
+              },
+              {
+                "icon": "check",
+                "title": "RL Sanction Documentation",
+                "desc": "Regular Layout sanction. This is the approval that decides whether a plot can be built on and financed, and it is the one buyers most often discover too late."
+              },
+              {
+                "icon": "shield",
+                "title": "RERA Documentation",
+                "desc": "RERA registration and ongoing compliance for projects and agents, so a sale holds up and a buyer's home loan is not delayed by missing paperwork."
+              }
             ]
           }
         },
@@ -363,7 +560,11 @@
           "props": {
             "heading": "Bring the documents you have",
             "sub": "Whether it is a plot you are considering or a file that has stalled, come in and we will tell you where it stands.",
-            "ctaPrimary": { "text": "Call 73504 61009", "href": "tel:+917350461009", "style": "primary" },
+            "ctaPrimary": {
+              "text": "Call 73504 61009",
+              "href": "tel:+917350461009",
+              "style": "primary"
+            },
             "showWhatsapp": true,
             "showCall": true
           }
@@ -384,29 +585,68 @@
               {
                 "title": "Services",
                 "links": [
-                  { "text": "Plot Sale", "href": "/services" },
-                  { "text": "Flat Sale", "href": "/services" },
-                  { "text": "NMRDA Documentation", "href": "/services" },
-                  { "text": "RL Sanction", "href": "/services" },
-                  { "text": "RERA Documentation", "href": "/services" }
+                  {
+                    "text": "Plot Sale",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Flat Sale",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "NMRDA Documentation",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "RL Sanction",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "RERA Documentation",
+                    "href": "/services"
+                  }
                 ]
               },
               {
                 "title": "Company",
                 "links": [
-                  { "text": "About us", "href": "/about" },
-                  { "text": "Gallery", "href": "/gallery" },
-                  { "text": "Contact & office", "href": "/contact" }
+                  {
+                    "text": "About us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Gallery",
+                    "href": "/gallery"
+                  },
+                  {
+                    "text": "Contact & office",
+                    "href": "/contact"
+                  }
                 ]
               },
               {
                 "title": "Contact",
                 "links": [
-                  { "text": "Call · 73504 61009", "href": "tel:+917350461009" },
-                  { "text": "Call · 86250 79494", "href": "tel:+918625079494" },
-                  { "text": "WhatsApp", "href": "https://wa.me/917350461009" },
-                  { "text": "kalashrealitiesnagpur@gmail.com", "href": "mailto:kalashrealitiesnagpur@gmail.com" },
-                  { "text": "Instagram", "href": "https://www.instagram.com/kalashrealitiesnagpur/" }
+                  {
+                    "text": "Call · 73504 61009",
+                    "href": "tel:+917350461009"
+                  },
+                  {
+                    "text": "Call · 86250 79494",
+                    "href": "tel:+918625079494"
+                  },
+                  {
+                    "text": "WhatsApp",
+                    "href": "https://wa.me/917350461009"
+                  },
+                  {
+                    "text": "kalashrealitiesnagpur@gmail.com",
+                    "href": "mailto:kalashrealitiesnagpur@gmail.com"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/kalashrealitiesnagpur/"
+                  }
                 ]
               }
             ],
@@ -415,7 +655,6 @@
         }
       ]
     },
-
     {
       "id": "gallery",
       "slug": "/gallery",
@@ -436,13 +675,32 @@
             "showAccount": false,
             "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784713839/jslhqqg6mb0r9vhbtpmp.jpg",
             "links": [
-              { "text": "Home", "href": "/" },
-              { "text": "Services", "href": "/services" },
-              { "text": "Gallery", "href": "/gallery" },
-              { "text": "About", "href": "/about" },
-              { "text": "Contact", "href": "/contact" }
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Services",
+                "href": "/services"
+              },
+              {
+                "text": "Gallery",
+                "href": "/gallery"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
             ],
-            "cta": { "text": "Call 73504 61009", "href": "tel:+917350461009", "style": "primary" }
+            "cta": {
+              "text": "Call 73504 61009",
+              "href": "tel:+917350461009",
+              "style": "primary"
+            }
           }
         },
         {
@@ -458,7 +716,9 @@
             "showWhatsapp": true,
             "showCall": true
           },
-          "style": { "overlay": 0.6 }
+          "style": {
+            "overlay": 0.6
+          }
         },
         {
           "id": "gallery-2",
@@ -471,20 +731,62 @@
             "sub": "Layout plans are far easier to understand on the wall than on a phone. The office is open every day, 10 AM to 7 PM.",
             "lightbox": true,
             "images": [
-              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784111904/knfchwcqpfceaikljv3p.jpg", "alt": "Aerial view of a plotted layout" },
-              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635433/n2ivhukkcgs791bv5j3r.jpg", "alt": "Kalash Realities Nagpur plot layout plan" },
-              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635430/zbqnnxnrgnwpjg0qxvuw.jpg", "alt": "Commercial and residential plots available announcement" },
-              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635435/d9svbitrp77wymictomu.jpg", "alt": "Layout plan for a Kalash Realities project" },
-              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638659/uj6y7xcmjpca40rfpd7n.jpg", "alt": "Kalash Realities office entrance" },
-              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638652/g1r7qzjcbo2zjhc9zndk.jpg", "alt": "Jayanti Mansion, the building the office is in" },
-              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638645/iyil4vsr0wnaekajwfx2.jpg", "alt": "Inside the Kalash Realities office" },
-              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638648/xw7qmj1jybpzg9k481tg.jpg", "alt": "Office desk with area maps on the wall" },
-              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638665/mv1dee9ewrr9hhct6oik.jpg", "alt": "Plot layout plan displayed in the office" },
-              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638663/tffajpdcmvkcynekz2th.jpg", "alt": "Office interior" },
-              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638667/cnsrsuaxlgbwfatjj4b1.jpg", "alt": "Office corridor at Jayanti Mansion" },
-              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635437/rfkv8vhrudb0smd4mkda.jpg", "alt": "Kalash Realities office and team" },
-              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635442/owkhdqtg8ui2dnascdk5.jpg", "alt": "Kalash Realities office and current plot availability" },
-              { "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784787543/gjycucxs3rbwquapvpaz.jpg", "alt": "Kalash Properties services overview" }
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784111904/knfchwcqpfceaikljv3p.jpg",
+                "alt": "Aerial view of a plotted layout"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635433/n2ivhukkcgs791bv5j3r.jpg",
+                "alt": "Kalash Realities Nagpur plot layout plan"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635430/zbqnnxnrgnwpjg0qxvuw.jpg",
+                "alt": "Commercial and residential plots available announcement"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635435/d9svbitrp77wymictomu.jpg",
+                "alt": "Layout plan for a Kalash Realities project"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638659/uj6y7xcmjpca40rfpd7n.jpg",
+                "alt": "Kalash Realities office entrance"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638652/g1r7qzjcbo2zjhc9zndk.jpg",
+                "alt": "Jayanti Mansion, the building the office is in"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638645/iyil4vsr0wnaekajwfx2.jpg",
+                "alt": "Inside the Kalash Realities office"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638648/xw7qmj1jybpzg9k481tg.jpg",
+                "alt": "Office desk with area maps on the wall"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638665/mv1dee9ewrr9hhct6oik.jpg",
+                "alt": "Plot layout plan displayed in the office"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638663/tffajpdcmvkcynekz2th.jpg",
+                "alt": "Office interior"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784638667/cnsrsuaxlgbwfatjj4b1.jpg",
+                "alt": "Office corridor at Jayanti Mansion"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635437/rfkv8vhrudb0smd4mkda.jpg",
+                "alt": "Kalash Realities office and team"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784635442/owkhdqtg8ui2dnascdk5.jpg",
+                "alt": "Kalash Realities office and current plot availability"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784787543/gjycucxs3rbwquapvpaz.jpg",
+                "alt": "Kalash Properties services overview"
+              }
             ]
           }
         },
@@ -496,7 +798,11 @@
           "props": {
             "heading": "Want the layout for a specific area?",
             "sub": "Tell us which side of Nagpur you are looking at and we will send what we have on WhatsApp.",
-            "ctaPrimary": { "text": "WhatsApp us", "href": "https://wa.me/917350461009", "style": "primary" },
+            "ctaPrimary": {
+              "text": "WhatsApp us",
+              "href": "https://wa.me/917350461009",
+              "style": "primary"
+            },
             "showWhatsapp": true,
             "showCall": true
           }
@@ -517,29 +823,68 @@
               {
                 "title": "Services",
                 "links": [
-                  { "text": "Plot Sale", "href": "/services" },
-                  { "text": "Flat Sale", "href": "/services" },
-                  { "text": "NMRDA Documentation", "href": "/services" },
-                  { "text": "RL Sanction", "href": "/services" },
-                  { "text": "RERA Documentation", "href": "/services" }
+                  {
+                    "text": "Plot Sale",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Flat Sale",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "NMRDA Documentation",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "RL Sanction",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "RERA Documentation",
+                    "href": "/services"
+                  }
                 ]
               },
               {
                 "title": "Company",
                 "links": [
-                  { "text": "About us", "href": "/about" },
-                  { "text": "Gallery", "href": "/gallery" },
-                  { "text": "Contact & office", "href": "/contact" }
+                  {
+                    "text": "About us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Gallery",
+                    "href": "/gallery"
+                  },
+                  {
+                    "text": "Contact & office",
+                    "href": "/contact"
+                  }
                 ]
               },
               {
                 "title": "Contact",
                 "links": [
-                  { "text": "Call · 73504 61009", "href": "tel:+917350461009" },
-                  { "text": "Call · 86250 79494", "href": "tel:+918625079494" },
-                  { "text": "WhatsApp", "href": "https://wa.me/917350461009" },
-                  { "text": "kalashrealitiesnagpur@gmail.com", "href": "mailto:kalashrealitiesnagpur@gmail.com" },
-                  { "text": "Instagram", "href": "https://www.instagram.com/kalashrealitiesnagpur/" }
+                  {
+                    "text": "Call · 73504 61009",
+                    "href": "tel:+917350461009"
+                  },
+                  {
+                    "text": "Call · 86250 79494",
+                    "href": "tel:+918625079494"
+                  },
+                  {
+                    "text": "WhatsApp",
+                    "href": "https://wa.me/917350461009"
+                  },
+                  {
+                    "text": "kalashrealitiesnagpur@gmail.com",
+                    "href": "mailto:kalashrealitiesnagpur@gmail.com"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/kalashrealitiesnagpur/"
+                  }
                 ]
               }
             ],
@@ -548,7 +893,6 @@
         }
       ]
     },
-
     {
       "id": "about",
       "slug": "/about",
@@ -569,13 +913,32 @@
             "showAccount": false,
             "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784713839/jslhqqg6mb0r9vhbtpmp.jpg",
             "links": [
-              { "text": "Home", "href": "/" },
-              { "text": "Services", "href": "/services" },
-              { "text": "Gallery", "href": "/gallery" },
-              { "text": "About", "href": "/about" },
-              { "text": "Contact", "href": "/contact" }
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Services",
+                "href": "/services"
+              },
+              {
+                "text": "Gallery",
+                "href": "/gallery"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
             ],
-            "cta": { "text": "Call 73504 61009", "href": "tel:+917350461009", "style": "primary" }
+            "cta": {
+              "text": "Call 73504 61009",
+              "href": "tel:+917350461009",
+              "style": "primary"
+            }
           }
         },
         {
@@ -591,7 +954,9 @@
             "showWhatsapp": true,
             "showCall": true
           },
-          "style": { "overlay": 0.6 }
+          "style": {
+            "overlay": 0.6
+          }
         },
         {
           "id": "about-2",
@@ -615,11 +980,31 @@
             "label": "Why Us",
             "heading": "What makes the difference",
             "items": [
-              { "icon": "check", "title": "Sale and paperwork together", "desc": "You are not handed between an agent and a separate consultant. Both sides of the transaction sit in one office, so nothing falls through the gap." },
-              { "icon": "shield", "title": "Approvals checked first", "desc": "We look at what a plot actually has — NMRDA, RL sanction, RERA — before you commit, not after the token is paid." },
-              { "icon": "file-text", "title": "Realistic timelines", "desc": "Authority timelines are outside anyone's control. We tell you what to expect honestly rather than what you want to hear." },
-              { "icon": "map-pin", "title": "Local to Nagpur", "desc": "Manish Nagar office, Nagpur layouts, Nagpur authorities. This is the market we work in every day." },
-              { "icon": "clock", "title": "Open every day", "desc": "10:00 AM to 7:00 PM, seven days a week — including the weekends when most buyers are actually free to look." }
+              {
+                "icon": "check",
+                "title": "Sale and paperwork together",
+                "desc": "You are not handed between an agent and a separate consultant. Both sides of the transaction sit in one office, so nothing falls through the gap."
+              },
+              {
+                "icon": "shield",
+                "title": "Approvals checked first",
+                "desc": "We look at what a plot actually has — NMRDA, RL sanction, RERA — before you commit, not after the token is paid."
+              },
+              {
+                "icon": "file-text",
+                "title": "Realistic timelines",
+                "desc": "Authority timelines are outside anyone's control. We tell you what to expect honestly rather than what you want to hear."
+              },
+              {
+                "icon": "map-pin",
+                "title": "Local to Nagpur",
+                "desc": "Manish Nagar office, Nagpur layouts, Nagpur authorities. This is the market we work in every day."
+              },
+              {
+                "icon": "clock",
+                "title": "Open every day",
+                "desc": "10:00 AM to 7:00 PM, seven days a week — including the weekends when most buyers are actually free to look."
+              }
             ]
           }
         },
@@ -631,7 +1016,11 @@
           "props": {
             "heading": "Come to the office",
             "sub": "Shop No. F-28, Jayanti Mansion-3, Beltarodi Road, Manish Nagar, Nagpur. Open every day, 10 AM to 7 PM.",
-            "ctaPrimary": { "text": "Get directions", "href": "/contact", "style": "primary" },
+            "ctaPrimary": {
+              "text": "Get directions",
+              "href": "/contact",
+              "style": "primary"
+            },
             "showWhatsapp": true,
             "showCall": true
           }
@@ -652,29 +1041,68 @@
               {
                 "title": "Services",
                 "links": [
-                  { "text": "Plot Sale", "href": "/services" },
-                  { "text": "Flat Sale", "href": "/services" },
-                  { "text": "NMRDA Documentation", "href": "/services" },
-                  { "text": "RL Sanction", "href": "/services" },
-                  { "text": "RERA Documentation", "href": "/services" }
+                  {
+                    "text": "Plot Sale",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Flat Sale",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "NMRDA Documentation",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "RL Sanction",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "RERA Documentation",
+                    "href": "/services"
+                  }
                 ]
               },
               {
                 "title": "Company",
                 "links": [
-                  { "text": "About us", "href": "/about" },
-                  { "text": "Gallery", "href": "/gallery" },
-                  { "text": "Contact & office", "href": "/contact" }
+                  {
+                    "text": "About us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Gallery",
+                    "href": "/gallery"
+                  },
+                  {
+                    "text": "Contact & office",
+                    "href": "/contact"
+                  }
                 ]
               },
               {
                 "title": "Contact",
                 "links": [
-                  { "text": "Call · 73504 61009", "href": "tel:+917350461009" },
-                  { "text": "Call · 86250 79494", "href": "tel:+918625079494" },
-                  { "text": "WhatsApp", "href": "https://wa.me/917350461009" },
-                  { "text": "kalashrealitiesnagpur@gmail.com", "href": "mailto:kalashrealitiesnagpur@gmail.com" },
-                  { "text": "Instagram", "href": "https://www.instagram.com/kalashrealitiesnagpur/" }
+                  {
+                    "text": "Call · 73504 61009",
+                    "href": "tel:+917350461009"
+                  },
+                  {
+                    "text": "Call · 86250 79494",
+                    "href": "tel:+918625079494"
+                  },
+                  {
+                    "text": "WhatsApp",
+                    "href": "https://wa.me/917350461009"
+                  },
+                  {
+                    "text": "kalashrealitiesnagpur@gmail.com",
+                    "href": "mailto:kalashrealitiesnagpur@gmail.com"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/kalashrealitiesnagpur/"
+                  }
                 ]
               }
             ],
@@ -683,7 +1111,6 @@
         }
       ]
     },
-
     {
       "id": "contact",
       "slug": "/contact",
@@ -704,13 +1131,32 @@
             "showAccount": false,
             "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1784713839/jslhqqg6mb0r9vhbtpmp.jpg",
             "links": [
-              { "text": "Home", "href": "/" },
-              { "text": "Services", "href": "/services" },
-              { "text": "Gallery", "href": "/gallery" },
-              { "text": "About", "href": "/about" },
-              { "text": "Contact", "href": "/contact" }
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Services",
+                "href": "/services"
+              },
+              {
+                "text": "Gallery",
+                "href": "/gallery"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
             ],
-            "cta": { "text": "Call 73504 61009", "href": "tel:+917350461009", "style": "primary" }
+            "cta": {
+              "text": "Call 73504 61009",
+              "href": "tel:+917350461009",
+              "style": "primary"
+            }
           }
         },
         {
@@ -752,8 +1198,16 @@
           "props": {
             "heading": "Follow us for new layouts and availability",
             "sub": "New plots, projects and availability go up on Instagram and Facebook first.",
-            "ctaPrimary": { "text": "Instagram", "href": "https://www.instagram.com/kalashrealitiesnagpur/", "style": "primary" },
-            "ctaSecondary": { "text": "Facebook", "href": "https://www.facebook.com/profile.php?id=100092625754234", "style": "ghost" }
+            "ctaPrimary": {
+              "text": "Instagram",
+              "href": "https://www.instagram.com/kalashrealitiesnagpur/",
+              "style": "primary"
+            },
+            "ctaSecondary": {
+              "text": "Facebook",
+              "href": "https://www.facebook.com/profile.php?id=100092625754234",
+              "style": "ghost"
+            }
           }
         },
         {
@@ -772,29 +1226,68 @@
               {
                 "title": "Services",
                 "links": [
-                  { "text": "Plot Sale", "href": "/services" },
-                  { "text": "Flat Sale", "href": "/services" },
-                  { "text": "NMRDA Documentation", "href": "/services" },
-                  { "text": "RL Sanction", "href": "/services" },
-                  { "text": "RERA Documentation", "href": "/services" }
+                  {
+                    "text": "Plot Sale",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Flat Sale",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "NMRDA Documentation",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "RL Sanction",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "RERA Documentation",
+                    "href": "/services"
+                  }
                 ]
               },
               {
                 "title": "Company",
                 "links": [
-                  { "text": "About us", "href": "/about" },
-                  { "text": "Gallery", "href": "/gallery" },
-                  { "text": "Contact & office", "href": "/contact" }
+                  {
+                    "text": "About us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Gallery",
+                    "href": "/gallery"
+                  },
+                  {
+                    "text": "Contact & office",
+                    "href": "/contact"
+                  }
                 ]
               },
               {
                 "title": "Contact",
                 "links": [
-                  { "text": "Call · 73504 61009", "href": "tel:+917350461009" },
-                  { "text": "Call · 86250 79494", "href": "tel:+918625079494" },
-                  { "text": "WhatsApp", "href": "https://wa.me/917350461009" },
-                  { "text": "kalashrealitiesnagpur@gmail.com", "href": "mailto:kalashrealitiesnagpur@gmail.com" },
-                  { "text": "Instagram", "href": "https://www.instagram.com/kalashrealitiesnagpur/" }
+                  {
+                    "text": "Call · 73504 61009",
+                    "href": "tel:+917350461009"
+                  },
+                  {
+                    "text": "Call · 86250 79494",
+                    "href": "tel:+918625079494"
+                  },
+                  {
+                    "text": "WhatsApp",
+                    "href": "https://wa.me/917350461009"
+                  },
+                  {
+                    "text": "kalashrealitiesnagpur@gmail.com",
+                    "href": "mailto:kalashrealitiesnagpur@gmail.com"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/kalashrealitiesnagpur/"
+                  }
                 ]
               }
             ],
