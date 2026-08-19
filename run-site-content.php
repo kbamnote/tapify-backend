@@ -46,6 +46,12 @@ $SITES = [
     // Use a DIFFERENT slug so the builder site does not silently shadow it —
     // index.php resolves a published builder site before vcards.url_alias.
     'kalashrealties' => ['file' => 'content-kalash-realities.json', 'label' => 'Kalash Realities'],
+    // Existing client: 111jameen.tapify.co.in is currently a vCard, and the
+    // builder site must NOT take that URL — same reasoning as Kalash above.
+    // NOTE THE THIRD 'e': the vCard is 111jame-en, this is 111jame-e-en. Chosen
+    // by the user so the builder site reads like the brand without shadowing the
+    // vCard. One letter is all that keeps these apart — do not "fix" the spelling.
+    '111jameeen' => ['file' => 'content-111jameen.json', 'label' => '111Jameen.com'],
 ];
 
 require_once __DIR__ . '/config/database.php';

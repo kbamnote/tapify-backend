@@ -1,0 +1,35 @@
+{
+  "preset": "navy-gilt",
+  "label": "Navy & Gilt",
+  "description": "Deep midnight navy with a burnished gilt accent on a cool near-white. Built for real estate, land development and property firms whose own branding is gold-on-navy.",
+  "industries": [
+    "real-estate",
+    "architecture",
+    "land-developer",
+    "property",
+    "construction",
+    "finance",
+    "lawyer"
+  ],
+  "tokens": {
+    "mode": "light",
+    "color": {
+      "primary": "#0A2145",
+      "secondary": "#16386E",
+      "accent": "#8C6A29",
+      "bg": "#FFFFFF",
+      "surface": "#F5F7FA",
+      "text": "#111827",
+      "muted": "#5A6472",
+      "border": "#DEE3EC"
+    },
+    "font": {
+      "heading": "Playfair Display",
+      "body": "Inter"
+    },
+    "radius": "md",
+    "spacing": "comfortable",
+    "container": "normal"
+  },
+  "notes": "Sampled from the client's own logo: the navy is #04182F-#021B44 and the gold is #C49539. The gold is kept EXACTLY as-is wherever it sits on navy (5.85:1, decorative, fine) but `accent` is the darkened #8C6A29, because accent lands in 12px meta text across the renderer and the brand gold measures only 2.73:1 on white — unreadable at that size. Same hue (39.7deg) and saturation, so it still reads as the brand. Verified: every foreground/background pairing in this palette clears WCAG AA."
+}

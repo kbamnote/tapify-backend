@@ -1,0 +1,683 @@
+{
+  "schemaVersion": 1,
+  "site": {
+    "name": "111Jameen.com",
+    "industry": "real-estate",
+    "locale": "en-IN"
+  },
+  "theme": {
+    "preset": "navy-gilt",
+    "mode": "light",
+    "color": {
+      "primary": "#0A2145",
+      "secondary": "#16386E",
+      "accent": "#8C6A29",
+      "bg": "#FFFFFF",
+      "surface": "#F5F7FA",
+      "text": "#111827",
+      "muted": "#5A6472",
+      "border": "#DEE3EC"
+    },
+    "font": {
+      "heading": "Playfair Display",
+      "body": "Inter"
+    },
+    "radius": "md",
+    "spacing": "comfortable",
+    "container": "normal"
+  },
+  "nav": {
+    "header": [
+      { "label": "Home", "pageId": "home" },
+      { "label": "Projects", "pageId": "projects" },
+      { "label": "About", "pageId": "about" },
+      { "label": "Contact", "pageId": "contact" }
+    ]
+  },
+  "business": {
+    "phone": "+91 87999 78861",
+    "whatsapp": "+91 87999 78861",
+    "address": "Plot No. 40, Uday Nagar Road, opposite Vyanjan Vatika Restaurant, near Bhagyalaxmi Sabhagruh, New Subhedar Layout, Janki Nagar, Nagpur, Maharashtra 440024",
+    "social": {
+      "instagram": "https://www.instagram.com/111jameen.com_nagpur",
+      "facebook": "https://www.facebook.com/share/18C6EX2Zcn/"
+    }
+  },
+  "pages": [
+    {
+      "id": "home",
+      "slug": "/",
+      "title": "Home",
+      "sections": [
+        {
+          "id": "header-1",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782126630/hrgsmrhzguwdwdffr8ci.jpg",
+            "links": [
+              { "text": "Home", "href": "/" },
+              { "text": "Projects", "href": "/projects" },
+              { "text": "About", "href": "/about" },
+              { "text": "Contact", "href": "/contact" }
+            ],
+            "cta": {
+              "text": "Call 87999 78861",
+              "href": "tel:+918799978861",
+              "style": "primary"
+            }
+          }
+        },
+        {
+          "id": "hero-1",
+          "type": "hero",
+          "visible": true,
+          "variant": "split",
+          "props": {
+            "badge": "NMRDA & NATP approved layouts · Nagpur",
+            "heading": "आपकी अपनी ज़मीन",
+            "sub": "Approved plots, farmhouses, flats and townships in and around Nagpur — every one of them with a clear title and sanctioned paperwork behind it.\n\nMost buyers lose money on the approvals, not the price. We only sell layouts we can show you the sanction for.",
+            "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782127778/uf9dywkzmvz7exgpmnz0.png",
+            "fullHeight": false,
+            "ctaPrimary": {
+              "text": "Call 87999 78861",
+              "href": "tel:+918799978861",
+              "style": "primary"
+            },
+            "ctaSecondary": {
+              "text": "See our projects",
+              "href": "/projects",
+              "style": "ghost"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "about-1",
+          "type": "about",
+          "visible": true,
+          "variant": "image-right",
+          "props": {
+            "label": "About Us",
+            "heading": "A unique name in real estate",
+            "body": "111Jameen.com is a Nagpur-based real estate and land development firm. We deal in verified residential, commercial and investment properties — and we are straight with you about what each one is.\n\nOur work covers five formats: NMRDA-approved RL projects, NATP layouts, farmhouse plots, flat schemes and full townships. Whichever you are looking at, the same rule applies — clear title, sanctioned layout, and paperwork you can take to a bank.\n\nWe guide you through buying, selling and investing from the first site visit to registration. Our property network across the Nagpur region and our familiarity with the approval process is what makes the decision simpler, and considerably faster.",
+            "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782126630/hrgsmrhzguwdwdffr8ci.jpg",
+            "imageFit": "contain",
+            "showPillars": true,
+            "pillars": [
+              {
+                "icon": "shield",
+                "title": "Clear title, always",
+                "text": "Legally approved layouts with clean documentation. If we cannot show you the sanction, we do not sell it."
+              },
+              {
+                "icon": "map",
+                "title": "Five project formats",
+                "text": "RL projects, NATP layouts, farmhouses, flat schemes and townships — residential and commercial."
+              },
+              {
+                "icon": "trending-up",
+                "title": "Built to appreciate",
+                "text": "Prime locations on Nagpur's growth corridors, with roads, drainage and power already planned in."
+              }
+            ]
+          }
+        },
+        {
+          "id": "services-1",
+          "type": "services",
+          "visible": true,
+          "variant": "cards-3",
+          "props": {
+            "label": "Our Projects",
+            "heading": "Five ways to own land in Nagpur",
+            "sub": "Each one is a different budget, a different timeline and a different reason to buy. Tell us which of these fits and we will show you what is currently available.",
+            "imageFit": "top",
+            "items": [
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782127001/gjmosodyrqhg7epfet0v.png",
+                "title": "NMRDA RL Project",
+                "desc": "Approved residential layouts sanctioned by the Nagpur Metropolitan Region Development Authority. Clear title, legal from day one, with wide roads and good connectivity — the safest way into land if this is your first purchase.",
+                "meta": "NMRDA approved · Residential"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782127014/xdao7phs97dsmurljpey.png",
+                "title": "NATP Layout",
+                "desc": "A properly planned NATP layout — residential and commercial plots with underground drainage, water supply, street lights and open spaces already laid in. You are buying into infrastructure, not a promise of it.",
+                "meta": "NATP approved · Residential & commercial"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782127024/j84nmvrvhocsbkuk2hrr.png",
+                "title": "Farmhouse Project",
+                "desc": "Premium farmhouse plots for a weekend place outside the city — lush green surroundings, landscaped roads, water, electricity and 24x7 security, with clubhouse amenities on the larger layouts.",
+                "meta": "Weekend & lifestyle plots"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782127036/go4srqsdogwpb3hk23cq.png",
+                "title": "Flat Scheme Project",
+                "desc": "Well-designed 2 and 3 BHK flats in secure, gated buildings at prime locations. Quality construction, easy loan facility and clear titles — and we will tell you the real carpet area, not the super built-up figure.",
+                "meta": "2 & 3 BHK · Gated"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782127054/xpieqvjeg6hqyrytwwmn.png",
+                "title": "Township",
+                "desc": "A planned township — gated and secure, with parks and gardens, a clubhouse, kids' play area, sports facilities and shopping inside the community. Everything you need, right where you live.",
+                "meta": "Integrated community"
+              }
+            ]
+          }
+        },
+        {
+          "id": "embed-1",
+          "type": "embed",
+          "visible": true,
+          "variant": "grid-3",
+          "props": {
+            "label": "Instagram",
+            "heading": "Site visits, plots and updates",
+            "sub": "New layouts, site walkthroughs and what has just been released — posted first on our Instagram.",
+            "embeds": [
+              { "url": "https://www.instagram.com/reel/DbqRqs_KDpT/" },
+              { "url": "https://www.instagram.com/reel/Dbnd3aZK22p/" },
+              { "url": "https://www.instagram.com/p/Dbnfx2csI8Y/" },
+              { "url": "https://www.instagram.com/p/DbXObsnsoVe/" },
+              { "url": "https://www.instagram.com/reel/DbV6XeZMUet/" },
+              { "url": "https://www.instagram.com/p/DbVgk9UIHgA/" }
+            ]
+          }
+        },
+        {
+          "id": "cta-1",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Looking for a plot in Nagpur?",
+            "sub": "Call 87999 78861 and tell us your budget and the side of the city you want. We will tell you honestly what is available in it — and what is not.",
+            "ctaPrimary": {
+              "text": "Call 87999 78861",
+              "href": "tel:+918799978861",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-1",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782126630/hrgsmrhzguwdwdffr8ci.jpg",
+            "blurb": "111Jameen.com — आपकी अपनी ज़मीन. Real estate and land development in Nagpur. NMRDA RL projects, NATP layouts, farmhouse plots, flat schemes and townships. Plot No. 40, Uday Nagar Road, New Subhedar Layout, Janki Nagar, Nagpur 440024.",
+            "showContact": true,
+            "showHours": false,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Projects",
+                "links": [
+                  { "text": "NMRDA RL Project", "href": "/projects" },
+                  { "text": "NATP Layout", "href": "/projects" },
+                  { "text": "Farmhouse Project", "href": "/projects" },
+                  { "text": "Flat Scheme Project", "href": "/projects" },
+                  { "text": "Township", "href": "/projects" }
+                ]
+              },
+              {
+                "title": "Company",
+                "links": [
+                  { "text": "About us", "href": "/about" },
+                  { "text": "All projects", "href": "/projects" },
+                  { "text": "Contact & office", "href": "/contact" }
+                ]
+              },
+              {
+                "title": "Contact",
+                "links": [
+                  { "text": "Call — 87999 78861", "href": "tel:+918799978861" },
+                  { "text": "WhatsApp", "href": "https://wa.me/918799978861" },
+                  { "text": "Instagram", "href": "https://www.instagram.com/111jameen.com_nagpur" },
+                  { "text": "Facebook", "href": "https://www.facebook.com/share/18C6EX2Zcn/" }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "projects",
+      "slug": "/projects",
+      "title": "Projects",
+      "sections": [
+        {
+          "id": "header-2",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782126630/hrgsmrhzguwdwdffr8ci.jpg",
+            "links": [
+              { "text": "Home", "href": "/" },
+              { "text": "Projects", "href": "/projects" },
+              { "text": "About", "href": "/about" },
+              { "text": "Contact", "href": "/contact" }
+            ],
+            "cta": {
+              "text": "Call 87999 78861",
+              "href": "tel:+918799978861",
+              "style": "primary"
+            }
+          }
+        },
+        {
+          "id": "hero-2",
+          "type": "hero",
+          "visible": true,
+          "variant": "minimal",
+          "props": {
+            "badge": "Nagpur",
+            "heading": "Our projects",
+            "sub": "Five formats, all of them approved and documented. Tap any one to open it full size and read what is included.",
+            "fullHeight": false,
+            "ctaPrimary": {
+              "text": "Call 87999 78861",
+              "href": "tel:+918799978861",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "gallery-1",
+          "type": "gallery",
+          "visible": true,
+          "variant": "grid-3",
+          "props": {
+            "label": "Projects",
+            "heading": "What we are offering right now",
+            "sub": "Every layout below is approved and title-clear. Tap to open it full size — the amenities and approvals for each project are listed on the sheet.",
+            "lightbox": true,
+            "images": [
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782127001/gjmosodyrqhg7epfet0v.png",
+                "fit": "contain",
+                "alt": "NMRDA RL Project — approved residential layout with clear title, wide roads, water, electricity and drainage"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782127014/xdao7phs97dsmurljpey.png",
+                "fit": "contain",
+                "alt": "NATP Layout — planned residential and commercial plots with underground drainage, water supply and street lights"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782127024/j84nmvrvhocsbkuk2hrr.png",
+                "fit": "contain",
+                "alt": "Farmhouse Project — premium farmhouse plots with landscaping, water, electricity, 24x7 security and clubhouse amenities"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782127036/go4srqsdogwpb3hk23cq.png",
+                "fit": "contain",
+                "alt": "Flat Scheme Project — 2 and 3 BHK flats in a secure gated community with easy loan facility"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782127054/xpieqvjeg6hqyrytwwmn.png",
+                "fit": "contain",
+                "alt": "Township — gated community with parks, clubhouse, kids play area, sports facilities and shopping"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782127778/uf9dywkzmvz7exgpmnz0.png",
+                "fit": "contain",
+                "alt": "111Jameen.com — आपकी अपनी ज़मीन, a unique name in real estate"
+              }
+            ]
+          }
+        },
+        {
+          "id": "faq-1",
+          "type": "faq",
+          "visible": true,
+          "props": {
+            "label": "Before you buy",
+            "heading": "The questions worth asking",
+            "sub": "Ask these of us, and of anyone else you are considering.",
+            "openFirst": true,
+            "items": [
+              {
+                "q": "What does NMRDA approval actually mean?",
+                "a": "It means the Nagpur Metropolitan Region Development Authority has sanctioned the layout — the plot boundaries, the road widths and the open spaces are all on record with them. It is what separates a plot you can legally build on and raise a loan against from one you cannot. Ask for the sanction number and check it. We will give you ours."
+              },
+              {
+                "q": "What is the difference between an NATP layout and an RL project?",
+                "a": "Both are approved layouts. NA-TP means the land use has been converted to non-agricultural and a town planning layout has been sanctioned. RL is a Regular Layout under NMRDA. In practice the difference matters for which authority holds the file and what the plot can be used for — tell us your purpose and we will point you to the right one."
+              },
+              {
+                "q": "Can I get a home loan on these plots?",
+                "a": "On approved, title-clear layouts, yes — that is precisely why the approval matters. Banks lend against sanctioned layouts and will not touch an unapproved one. We will hand over the documents your bank asks for."
+              },
+              {
+                "q": "What costs are there beyond the plot price?",
+                "a": "Stamp duty, registration charges, and in some layouts a development or maintenance charge. We will give you the full figure before you commit, not after. If someone quotes you only the per-square-foot rate, ask them the same question."
+              },
+              {
+                "q": "Do you handle the paperwork or do I?",
+                "a": "We handle it. From agreement to registration, we prepare the file and follow it up, and we keep you informed at each stage rather than making you chase us."
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-2",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Want to see a layout in person?",
+            "sub": "Site visits are free and we will take you there. Call 87999 78861 or message us on WhatsApp.",
+            "ctaPrimary": {
+              "text": "Call 87999 78861",
+              "href": "tel:+918799978861",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-2",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782126630/hrgsmrhzguwdwdffr8ci.jpg",
+            "blurb": "111Jameen.com — आपकी अपनी ज़मीन. Real estate and land development in Nagpur. NMRDA RL projects, NATP layouts, farmhouse plots, flat schemes and townships.",
+            "showContact": true,
+            "showHours": false,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Projects",
+                "links": [
+                  { "text": "NMRDA RL Project", "href": "/projects" },
+                  { "text": "NATP Layout", "href": "/projects" },
+                  { "text": "Farmhouse Project", "href": "/projects" },
+                  { "text": "Flat Scheme Project", "href": "/projects" },
+                  { "text": "Township", "href": "/projects" }
+                ]
+              },
+              {
+                "title": "Company",
+                "links": [
+                  { "text": "About us", "href": "/about" },
+                  { "text": "Contact & office", "href": "/contact" }
+                ]
+              },
+              {
+                "title": "Contact",
+                "links": [
+                  { "text": "Call — 87999 78861", "href": "tel:+918799978861" },
+                  { "text": "WhatsApp", "href": "https://wa.me/918799978861" },
+                  { "text": "Instagram", "href": "https://www.instagram.com/111jameen.com_nagpur" }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "about",
+      "slug": "/about",
+      "title": "About",
+      "sections": [
+        {
+          "id": "header-3",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782126630/hrgsmrhzguwdwdffr8ci.jpg",
+            "links": [
+              { "text": "Home", "href": "/" },
+              { "text": "Projects", "href": "/projects" },
+              { "text": "About", "href": "/about" },
+              { "text": "Contact", "href": "/contact" }
+            ],
+            "cta": {
+              "text": "Call 87999 78861",
+              "href": "tel:+918799978861",
+              "style": "primary"
+            }
+          }
+        },
+        {
+          "id": "hero-3",
+          "type": "hero",
+          "visible": true,
+          "variant": "minimal",
+          "props": {
+            "badge": "Nagpur, Maharashtra",
+            "heading": "About 111Jameen.com",
+            "sub": "A unique name in real estate — and a straightforward one to deal with.",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "about-2",
+          "type": "about",
+          "visible": true,
+          "variant": "image-left",
+          "props": {
+            "label": "Who we are",
+            "heading": "Land, and the paperwork that makes it yours",
+            "body": "111Jameen.com is a trusted real estate platform based in Nagpur, dedicated to helping clients find the right property without the usual guesswork. We offer verified residential, commercial and investment properties across a range of budgets.\n\nOur team guides you through the entire process — buying, selling and investing — with a focus on transparency. That mostly means telling you things other people leave out: what the approval status actually is, what the total cost looks like once registration is added, and whether a particular layout suits what you are trying to do with it.\n\nWhether you are looking for your first plot, a farmhouse for the weekends, a flat for the family or a commercial investment, our property network and familiarity with the Nagpur market make the decision simpler and smarter.\n\nCome to the office on Uday Nagar Road and we will lay the plans out on the table.",
+            "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782127778/uf9dywkzmvz7exgpmnz0.png",
+            "imageFit": "contain",
+            "showPillars": true,
+            "pillars": [
+              {
+                "icon": "file-text",
+                "title": "Approvals first",
+                "text": "NMRDA and NATP sanctioned layouts. We show you the paperwork before you pay anything."
+              },
+              {
+                "icon": "home",
+                "title": "Plots to townships",
+                "text": "From a single residential plot to a gated township with a clubhouse — five formats, one office."
+              },
+              {
+                "icon": "users",
+                "title": "Start to registration",
+                "text": "Site visit, agreement, loan file, registration. We stay on it and keep you posted."
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-3",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Come and see the plans",
+            "sub": "Plot No. 40, Uday Nagar Road, opposite Vyanjan Vatika Restaurant, New Subhedar Layout, Janki Nagar, Nagpur. Call ahead on 87999 78861 and we will keep the file ready.",
+            "ctaPrimary": {
+              "text": "Call 87999 78861",
+              "href": "tel:+918799978861",
+              "style": "primary"
+            },
+            "ctaSecondary": {
+              "text": "Get directions",
+              "href": "/contact",
+              "style": "ghost"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-3",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782126630/hrgsmrhzguwdwdffr8ci.jpg",
+            "blurb": "111Jameen.com — आपकी अपनी ज़मीन. Real estate and land development in Nagpur.",
+            "showContact": true,
+            "showHours": false,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Projects",
+                "links": [
+                  { "text": "NMRDA RL Project", "href": "/projects" },
+                  { "text": "NATP Layout", "href": "/projects" },
+                  { "text": "Farmhouse Project", "href": "/projects" },
+                  { "text": "Flat Scheme Project", "href": "/projects" },
+                  { "text": "Township", "href": "/projects" }
+                ]
+              },
+              {
+                "title": "Company",
+                "links": [
+                  { "text": "About us", "href": "/about" },
+                  { "text": "Contact & office", "href": "/contact" }
+                ]
+              },
+              {
+                "title": "Contact",
+                "links": [
+                  { "text": "Call — 87999 78861", "href": "tel:+918799978861" },
+                  { "text": "WhatsApp", "href": "https://wa.me/918799978861" },
+                  { "text": "Instagram", "href": "https://www.instagram.com/111jameen.com_nagpur" }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "slug": "/contact",
+      "title": "Contact",
+      "sections": [
+        {
+          "id": "header-4",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782126630/hrgsmrhzguwdwdffr8ci.jpg",
+            "links": [
+              { "text": "Home", "href": "/" },
+              { "text": "Projects", "href": "/projects" },
+              { "text": "About", "href": "/about" },
+              { "text": "Contact", "href": "/contact" }
+            ],
+            "cta": {
+              "text": "Call 87999 78861",
+              "href": "tel:+918799978861",
+              "style": "primary"
+            }
+          }
+        },
+        {
+          "id": "contact-1",
+          "type": "contact",
+          "visible": true,
+          "variant": "form-map",
+          "props": {
+            "label": "Contact",
+            "heading": "Visit, call or message us",
+            "sub": "Plot No. 40, Uday Nagar Road, opposite Vyanjan Vatika Restaurant, near Bhagyalaxmi Sabhagruh, New Subhedar Layout, Janki Nagar, Nagpur, Maharashtra 440024.\n\nCall 87999 78861, or send us the details below and we will come back to you with what is available in your budget.",
+            "showPhone": true,
+            "showWhatsapp": true,
+            "showEmail": false,
+            "showAddress": true,
+            "showHours": false,
+            "showMap": true,
+            "mapUrl": "https://www.google.com/maps?q=111%20Jameen.Com%2C%20Uday%20Nagar%20Road%2C%20New%20Subhedar%20Layout%2C%20Janki%20Nagar%2C%20Nagpur%20440024&output=embed",
+            "submitText": "Send Enquiry"
+          }
+        },
+        {
+          "id": "cta-4",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Prefer to talk?",
+            "sub": "Call 87999 78861 or message us on WhatsApp. Tell us the budget and the area — that is enough for us to start.",
+            "ctaPrimary": {
+              "text": "Call 87999 78861",
+              "href": "tel:+918799978861",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-4",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782126630/hrgsmrhzguwdwdffr8ci.jpg",
+            "blurb": "111Jameen.com — आपकी अपनी ज़मीन. Real estate and land development in Nagpur. Plot No. 40, Uday Nagar Road, New Subhedar Layout, Janki Nagar, Nagpur 440024.",
+            "showContact": true,
+            "showHours": false,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "Projects",
+                "links": [
+                  { "text": "NMRDA RL Project", "href": "/projects" },
+                  { "text": "NATP Layout", "href": "/projects" },
+                  { "text": "Farmhouse Project", "href": "/projects" },
+                  { "text": "Flat Scheme Project", "href": "/projects" },
+                  { "text": "Township", "href": "/projects" }
+                ]
+              },
+              {
+                "title": "Company",
+                "links": [
+                  { "text": "About us", "href": "/about" },
+                  { "text": "All projects", "href": "/projects" }
+                ]
+              },
+              {
+                "title": "Contact",
+                "links": [
+                  { "text": "Call — 87999 78861", "href": "tel:+918799978861" },
+                  { "text": "WhatsApp", "href": "https://wa.me/918799978861" },
+                  { "text": "Instagram", "href": "https://www.instagram.com/111jameen.com_nagpur" },
+                  { "text": "Facebook", "href": "https://www.facebook.com/share/18C6EX2Zcn/" }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
