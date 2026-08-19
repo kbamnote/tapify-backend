@@ -250,6 +250,39 @@ class GoogleBusinessClient
         return GoogleHttp::postJson($url, $this->accessToken(), ['text' => (string)$text]);
     }
 
+    /* --------------------------------------------------------- local posts */
+
+    /**
+     * Posts on the listing, newest first.
+     *
+     * Posts only ever existed on the legacy v4 surface — there is no v1
+     * equivalent in Google's API directory — so this shares a host with reviews
+     * and media, which is fortunate: it means posts are covered by the same
+     * "Google My Business API" grant those already use.
+     */
+    public function listLocalPosts($accountName, $locationName, $pageSize = 20)
+    {
+        $url = self::REVIEWS_BASE . '/' . $accountName . '/' . $locationName
+             . '/localPosts?pageSize=' . max(1, min(100, (int)$pageSize));
+        $res = GoogleHttp::get($url, $this->accessToken());
+        return $res['localPosts'] ?? [];
+    }
+
+    /**
+     * Publish a post to the listing.
+     *
+     * topicType is the ONLY required field. name, createTime, updateTime,
+     * searchUrl and state are output-only and must not be sent.
+     *
+     * @param array $post ['summary', 'topicType', 'callToAction' => ['actionType','url'],
+     *                     'media' => [['mediaFormat'=>'PHOTO','sourceUrl'=>...]]]
+     */
+    public function createLocalPost($accountName, $locationName, array $post)
+    {
+        $url = self::REVIEWS_BASE . '/' . $accountName . '/' . $locationName . '/localPosts';
+        return GoogleHttp::postJson($url, $this->accessToken(), $post);
+    }
+
     /* ----------------------------------------------------------- attributes */
 
     /** Attribute values currently set on the listing. */

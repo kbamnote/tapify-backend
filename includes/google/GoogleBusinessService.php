@@ -555,6 +555,235 @@ class GoogleBusinessService
         return ['posted' => $posted, 'results' => $results];
     }
 
+    /* ------------------------------------------------------ marketing score */
+
+    /**
+     * The activity score.
+     *
+     * Every signal is gathered defensively: any call that fails passes null,
+     * which drops that item from the score AND from `possible`, so an API
+     * outage lowers confidence rather than inventing a penalty the customer
+     * cannot explain. Q&A in particular is expected to be unavailable until
+     * Google grants the project access to it.
+     */
+    public function getMarketingScore($userId)
+    {
+        $now = time();
+        $recentCut = $now - (MarketingScore::RECENT_DAYS * 86400);
+        $s = [];
+
+        // — listing fields (one call, several signals) —
+        try {
+            $f = $this->getFields($userId);
+            $s['description_len'] = mb_strlen(trim((string)($f['description'] ?? '')));
+            $s['has_category']    = trim((string)($f['primary_category'] ?? '')) !== '';
+            $hours = $f['hours'] ?? '';
+            $s['has_hours']  = is_array($hours) ? count($hours) > 0 : trim((string)$hours) !== '';
+            $s['services']   = is_array($f['services'] ?? null) ? count($f['services']) : null;
+            $s['site_linked'] = trim((string)($f['website'] ?? '')) !== '';
+        } catch (Exception $e) { GoogleLogger::warn('mscore.fields_failed', ['user' => $userId]); }
+
+        // — reviews: volume, rating, recency, reply rate —
+        try {
+            $rv = $this->listReviews($userId, 50);
+            $s['reviews_total'] = (int)($rv['total'] ?? count($rv['reviews']));
+            $s['rating']        = $rv['average'] !== null ? (float)$rv['average'] : null;
+            $recent = 0; $replied = 0;
+            foreach ($rv['reviews'] as $r) {
+                if (!empty($r['reply'])) $replied++;
+                $t = strtotime((string)($r['created_at'] ?? ''));
+                if ($t && $t >= $recentCut) $recent++;
+            }
+            $s['reviews_recent']  = $recent;
+            $s['reviews_replied'] = $replied;
+        } catch (Exception $e) { GoogleLogger::warn('mscore.reviews_failed', ['user' => $userId]); }
+
+        // — photos: count and recency —
+        try {
+            $ph = $this->listPhotos($userId);
+            $s['photos_total'] = (int)($ph['total'] ?? 0);
+            $fresh = 0;
+            foreach ($ph['photos'] as $p) {
+                $t = strtotime((string)($p['created'] ?? ''));
+                if ($t && $t >= $recentCut) $fresh++;
+            }
+            $s['photos_recent'] = $fresh;
+        } catch (Exception $e) { GoogleLogger::warn('mscore.photos_failed', ['user' => $userId]); }
+
+        // — attributes —
+        try {
+            $at = $this->listAttributes($userId);
+            $s['attributes'] = (int)($at['set'] ?? 0);
+        } catch (Exception $e) { }
+
+        // — posts: days since the most recent one —
+        try {
+            $po = $this->listPosts($userId, 20);
+            $newest = 0;
+            foreach ($po['posts'] as $p) {
+                $t = strtotime((string)($p['created'] ?? ''));
+                if ($t > $newest) $newest = $t;
+            }
+            // 9999 is the "never posted" sentinel the scorer words differently.
+            $s['days_since_post'] = $newest ? (int)floor(($now - $newest) / 86400) : 9999;
+        } catch (Exception $e) { GoogleLogger::warn('mscore.posts_failed', ['user' => $userId]); }
+
+        // — Q&A: expected to be unavailable until Google grants access —
+        try {
+            $qa = $this->listQuestions($userId, 10);
+            $s['questions_unanswered'] = (int)($qa['unanswered'] ?? 0);
+        } catch (Exception $e) { }
+
+        // — social posts published in the last 30 days —
+        try {
+            $st = $this->db->prepare(
+                "SELECT COUNT(*) FROM social_posts
+                  WHERE user_id = ? AND status = 'published'
+                    AND published_at >= (NOW() - INTERVAL 30 DAY)"
+            );
+            $st->execute([$userId]);
+            $s['social_posts_30d'] = (int)$st->fetchColumn();
+        } catch (Exception $e) { }
+
+        // — website: published, page count, ordering —
+        try {
+            $st = $this->db->prepare(
+                "SELECT v.doc FROM sites s
+                   JOIN site_versions v ON v.id = s.published_version_id
+                  WHERE s.user_id = ? AND s.status <> 'disabled'
+                  ORDER BY s.updated_at DESC LIMIT 1"
+            );
+            $st->execute([$userId]);
+            $doc = $st->fetchColumn();
+            if ($doc) {
+                $d = json_decode($doc, true);
+                $s['site_live']  = true;
+                $s['site_pages'] = is_array($d['pages'] ?? null) ? count($d['pages']) : 1;
+                $ordering = false;
+                foreach ($d['pages'] ?? [] as $pg) {
+                    foreach ($pg['sections'] ?? [] as $sec) {
+                        if (($sec['type'] ?? '') !== 'products') continue;
+                        foreach ($sec['props']['items'] ?? [] as $it) {
+                            if (($it['enableOrder'] ?? true) !== false && !empty($it['slug']) && !empty($it['body'])) {
+                                $ordering = true; break 3;
+                            }
+                        }
+                    }
+                }
+                $s['site_ordering'] = $ordering;
+            } else {
+                $s['site_live'] = false; $s['site_pages'] = 0; $s['site_ordering'] = false;
+            }
+        } catch (Exception $e) { }
+
+        $result = MarketingScore::compute($s);
+
+        // History. The delta is the point of the whole screen — a number on its
+        // own says "you are a 41", a number with a delta says "what you did last
+        // week worked". Recorded only on change so a customer opening the app
+        // five times a day does not bury last week's score under identical rows.
+        $conn     = $this->repo->get($userId);
+        $previous = $this->repo->lastScore($userId, 'marketing');
+
+        $result['previous'] = $previous ? (int)$previous['score'] : null;
+        $result['delta']    = $previous ? $result['score'] - (int)$previous['score'] : null;
+        $result['since']    = $previous['created_at'] ?? null;
+
+        if (!$previous || (int)$previous['score'] !== $result['score']) {
+            $this->repo->recordScore(
+                $userId, $conn['location_id'] ?? null, $result['score'], $result, 'marketing'
+            );
+        }
+        return $result;
+    }
+
+    /* --------------------------------------------------------- local posts */
+
+    /** Call-to-action buttons Google accepts on a post. CALL takes no URL. */
+    const POST_ACTIONS = ['LEARN_MORE', 'BOOK', 'ORDER', 'SHOP', 'SIGN_UP', 'CALL'];
+
+    /** Google's own limit on the post body. */
+    const POST_SUMMARY_MAX = 1500;
+
+    /** Posts on the listing, newest first, flattened for the app. */
+    public function listPosts($userId, $pageSize = 20)
+    {
+        list($conn, $client) = $this->locationClient($userId);
+        $posts = $client->listLocalPosts($conn['google_account_id'], $conn['location_id'], $pageSize);
+
+        $out = [];
+        foreach ($posts as $p) {
+            $out[] = [
+                'id'       => $p['name'] ?? '',
+                'summary'  => $p['summary'] ?? '',
+                'topic'    => $p['topicType'] ?? 'STANDARD',
+                'state'    => $p['state'] ?? '',
+                'created'  => $p['createTime'] ?? null,
+                'url'      => $p['searchUrl'] ?? null,
+                'image'    => $p['media'][0]['googleUrl'] ?? ($p['media'][0]['sourceUrl'] ?? null),
+                'action'   => $p['callToAction']['actionType'] ?? null,
+                'action_url' => $p['callToAction']['url'] ?? null,
+            ];
+        }
+        return ['posts' => $out, 'total' => count($out), 'actions' => self::POST_ACTIONS];
+    }
+
+    /**
+     * Publish a post.
+     *
+     * @param string $summary    the post body
+     * @param string $action     one of POST_ACTIONS, or '' for no button
+     * @param string $actionUrl  required for every action except CALL
+     * @param string $imageUrl   publicly reachable image; Google fetches it itself
+     */
+    public function createPost($userId, $summary, $action = '', $actionUrl = '', $imageUrl = '')
+    {
+        list($conn, $client) = $this->locationClient($userId);
+
+        $summary = trim((string)$summary);
+        if ($summary === '') {
+            throw new GoogleException('Write something for the post first.', 422, 'empty summary');
+        }
+        if (mb_strlen($summary) > self::POST_SUMMARY_MAX) {
+            $summary = mb_substr($summary, 0, self::POST_SUMMARY_MAX);
+        }
+
+        // topicType is the only required field. Everything output-only (name,
+        // createTime, searchUrl, state) must not be sent.
+        $post = [
+            'languageCode' => 'en',
+            'summary'      => $summary,
+            'topicType'    => 'STANDARD',
+        ];
+
+        $action = strtoupper(trim((string)$action));
+        if ($action !== '' && in_array($action, self::POST_ACTIONS, true)) {
+            $cta = ['actionType' => $action];
+            // CALL uses the listing's phone number and is rejected with a url.
+            if ($action !== 'CALL') {
+                $actionUrl = trim((string)$actionUrl);
+                if (!preg_match('~^https?://~i', $actionUrl)) {
+                    throw new GoogleException('That button needs a valid link starting with https://.', 422, 'bad cta url');
+                }
+                $cta['url'] = $actionUrl;
+            }
+            $post['callToAction'] = $cta;
+        }
+
+        $imageUrl = trim((string)$imageUrl);
+        if ($imageUrl !== '') {
+            if (!preg_match('~^https://~i', $imageUrl)) {
+                throw new GoogleException('The image must be uploaded before it can be posted.', 422, 'bad image url');
+            }
+            // Same pattern as photos: Google fetches the bytes from the URL, so
+            // the app uploads to Cloudinary first and passes that link.
+            $post['media'] = [['mediaFormat' => 'PHOTO', 'sourceUrl' => $imageUrl]];
+        }
+
+        $res = $client->createLocalPost($conn['google_account_id'], $conn['location_id'], $post);
+        return ['id' => $res['name'] ?? '', 'url' => $res['searchUrl'] ?? null, 'state' => $res['state'] ?? ''];
+    }
+
     /* ----------------------------------------------------------- attributes */
 
     /**

@@ -92,30 +92,60 @@ class GoogleBusinessRepo
     /* --------------------------------------------------------- score history */
 
     /** Most recent recorded score for this user, or null. */
-    public function lastScore($userId)
+    /**
+     * Most recent recorded score of one kind, or null.
+     *
+     * @param string $kind 'profile' | 'marketing'. Both live in one table, so
+     *   without this filter the delta would compare a marketing score against
+     *   yesterday's profile score and report a meaningless jump.
+     *
+     * Falls back to an unfiltered read if the `kind` column has not been
+     * migrated yet, so history keeps working on an un-migrated database rather
+     * than silently returning null forever.
+     */
+    public function lastScore($userId, $kind = 'profile')
     {
         try {
             $stmt = $this->db->prepare(
-                "SELECT score, created_at FROM google_business_scores WHERE user_id = ? ORDER BY id DESC LIMIT 1"
+                "SELECT score, created_at FROM google_business_scores
+                  WHERE user_id = ? AND kind = ? ORDER BY id DESC LIMIT 1"
             );
-            $stmt->execute([$userId]);
+            $stmt->execute([$userId, $kind]);
             return $stmt->fetch(PDO::FETCH_ASSOC) ?: null;
         } catch (Exception $e) {
-            // Table not migrated yet — a missing history must not break the score
-            // itself, which is useful on its own.
-            return null;
+            try {
+                $stmt = $this->db->prepare(
+                    "SELECT score, created_at FROM google_business_scores WHERE user_id = ? ORDER BY id DESC LIMIT 1"
+                );
+                $stmt->execute([$userId]);
+                return $stmt->fetch(PDO::FETCH_ASSOC) ?: null;
+            } catch (Exception $e2) {
+                // Table not migrated at all — a missing history must not break
+                // the score itself, which is useful on its own.
+                return null;
+            }
         }
     }
 
-    public function recordScore($userId, $locationId, $score, array $breakdown)
+    public function recordScore($userId, $locationId, $score, array $breakdown, $kind = 'profile')
     {
         try {
             $stmt = $this->db->prepare(
-                "INSERT INTO google_business_scores (user_id, location_id, score, breakdown) VALUES (?, ?, ?, ?)"
+                "INSERT INTO google_business_scores (user_id, location_id, score, breakdown, kind)
+                 VALUES (?, ?, ?, ?, ?)"
             );
-            $stmt->execute([$userId, $locationId, (int)$score, json_encode($breakdown)]);
+            $stmt->execute([$userId, $locationId, (int)$score, json_encode($breakdown), $kind]);
         } catch (Exception $e) {
-            // Same reasoning: recording is a nicety, the score is the product.
+            try {
+                // Pre-migration database: write without the discriminator rather
+                // than lose the row entirely.
+                $stmt = $this->db->prepare(
+                    "INSERT INTO google_business_scores (user_id, location_id, score, breakdown) VALUES (?, ?, ?, ?)"
+                );
+                $stmt->execute([$userId, $locationId, (int)$score, json_encode($breakdown)]);
+            } catch (Exception $e2) {
+                // Recording is a nicety, the score is the product.
+            }
         }
     }
 

@@ -13,6 +13,7 @@ require_once $__g_dir . '/GoogleBusinessRepo.php';
 require_once $__g_dir . '/GoogleBusinessClient.php';
 require_once $__g_dir . '/FieldMap.php';
 require_once $__g_dir . '/ProfileScore.php';
+require_once $__g_dir . '/MarketingScore.php';
 require_once $__g_dir . '/GoogleBusinessService.php';
 
 unset($__g_dir);
