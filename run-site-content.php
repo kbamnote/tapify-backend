@@ -52,6 +52,7 @@ $SITES = [
     // by the user so the builder site reads like the brand without shadowing the
     // vCard. One letter is all that keeps these apart — do not "fix" the spelling.
     '111jameeen' => ['file' => 'content-111jameen.json', 'label' => '111Jameen.com'],
+    'galaxycardecor' => ['file' => 'content-galaxy-car-decor.json', 'label' => 'Galaxy Car Decor'],
 ];
 
 require_once __DIR__ . '/config/database.php';
