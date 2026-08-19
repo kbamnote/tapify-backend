@@ -6,17 +6,17 @@
     "locale": "en-IN"
   },
   "theme": {
-    "preset": "midnight-chrome",
+    "preset": "graphite-chrome",
     "mode": "dark",
     "color": {
       "primary": "#38BDF8",
-      "secondary": "#1E2A3D",
+      "secondary": "#2E3440",
       "accent": "#FBBF24",
-      "bg": "#0A0E17",
-      "surface": "#141A26",
-      "text": "#E8EDF5",
-      "muted": "#94A3B8",
-      "border": "#232B3A"
+      "bg": "#1A1D23",
+      "surface": "#242830",
+      "text": "#F1F5F9",
+      "muted": "#A6B0BF",
+      "border": "#333A46"
     },
     "font": {
       "heading": "Space Grotesk",
@@ -28,10 +28,22 @@
   },
   "nav": {
     "header": [
-      { "label": "Home", "pageId": "home" },
-      { "label": "What We Fit", "pageId": "services" },
-      { "label": "Our Work", "pageId": "work" },
-      { "label": "Contact", "pageId": "contact" }
+      {
+        "label": "Home",
+        "pageId": "home"
+      },
+      {
+        "label": "What We Fit",
+        "pageId": "services"
+      },
+      {
+        "label": "Our Work",
+        "pageId": "work"
+      },
+      {
+        "label": "Contact",
+        "pageId": "contact"
+      }
     ]
   },
   "business": {
@@ -57,10 +69,22 @@
             "showCart": false,
             "showAccount": false,
             "links": [
-              { "text": "Home", "href": "/" },
-              { "text": "What We Fit", "href": "/services" },
-              { "text": "Our Work", "href": "/work" },
-              { "text": "Contact", "href": "/contact" }
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "What We Fit",
+                "href": "/services"
+              },
+              {
+                "text": "Our Work",
+                "href": "/work"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
             ],
             "cta": {
               "text": "Call 93737 20903",
@@ -73,12 +97,14 @@
           "id": "hero-1",
           "type": "hero",
           "visible": true,
-          "variant": "minimal",
+          "variant": "centered-bg",
           "props": {
             "badge": "Ring Road, Nagpur",
             "heading": "Everything for your car, fitted in one place",
             "sub": "Seat covers, 7D matting, android players, woofers, ambient and roof lighting, ceramic coating, sun film, chrome and body kits — over 40 accessories, all fitted in our own shop.\n\nWe do not just hand you the box. Whatever you buy here, we fit it, test it, and you drive out with it working.",
-            "fullHeight": false,
+            "image": "https://images.pexels.com/videos/6157904/pexels-photo-6157904.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "videoUrl": "https://videos.pexels.com/video-files/6157904/6157904-sd_640_360_30fps.mp4",
+            "fullHeight": true,
             "ctaPrimary": {
               "text": "Call 93737 20903",
               "href": "tel:+919373720903",
@@ -97,11 +123,12 @@
           "id": "about-1",
           "type": "about",
           "visible": true,
-          "variant": "text-only",
+          "variant": "image-right",
           "props": {
             "label": "About Us",
             "heading": "A car accessories shop that also fits",
             "body": "Galaxy Car Decor is a car accessories and decor shop in Nagpur. We stock the full range — interior, audio, lighting, exterior styling and detailing — and we fit all of it ourselves.\n\nThat matters more than it sounds. Most accessory problems are fitting problems, not product problems: a player that loses power, damping that rattles after a month, ambient strips that come unstuck in summer, a reverse camera aimed at the bumper. Doing our own fitting is how we stay answerable for it.\n\nBring the car in and tell us the budget. We will tell you what is worth doing on your model, what genuinely is not, and what it costs before we start.",
+            "image": "https://images.pexels.com/photos/20051458/pexels-photo-20051458.jpeg?auto=compress&cs=tinysrgb&w=1200",
             "showPillars": true,
             "pillars": [
               {
@@ -133,31 +160,37 @@
             "sub": "Over 40 accessories across these five areas. Tap through for the full list, or just call and describe what you are after.",
             "items": [
               {
+                "image": "https://images.pexels.com/photos/8723327/pexels-photo-8723327.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Interior & Comfort",
                 "desc": "Seat covers, 7D matting, arm rests, cushions, steering covers and knobs, sound damping, perfumes and dusters. The part of the car you actually sit in.",
                 "meta": "14 items"
               },
               {
+                "image": "https://images.pexels.com/photos/13811121/pexels-photo-13811121.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Audio, Screens & Safety",
                 "desc": "Android players, speakers, woofers, roof projectors, reverse cameras, parking sensors, central locking and horns. Fitted and wired properly.",
-                "meta": "11 items"
+                "meta": "13 items"
               },
               {
+                "image": "https://images.pexels.com/photos/6576597/pexels-photo-6576597.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Lighting",
-                "desc": "Ambient interior lighting, LED and white headlight upgrades, welcome lights, roof lights and reflectors. The work our Instagram gets asked about most.",
+                "desc": "Ambient interior lighting, LED and white headlight upgrades, welcome lights and reflectors. The work our Instagram gets asked about most.",
                 "meta": "Interior & exterior"
               },
               {
+                "image": "https://images.pexels.com/photos/17641807/pexels-photo-17641807.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Exterior & Styling",
                 "desc": "Chrome, vinyl wrapping, side cladding, front and back guards, roof rails, body covers, sun film and lamination. Change how the car looks without touching the paint.",
                 "meta": "Wraps, chrome & guards"
               },
               {
+                "image": "https://images.pexels.com/photos/6873174/pexels-photo-6873174.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Detailing & Care",
                 "desc": "Nano ceramic coating, paper polish, glass polish and full car cleaning. Done properly, with the car kept as long as the job actually needs.",
                 "meta": "Ceramic & polish"
               },
               {
+                "image": "https://images.pexels.com/photos/5233279/pexels-photo-5233279.jpeg?auto=compress&cs=tinysrgb&w=1200",
                 "title": "Not sure what you need?",
                 "desc": "Bring the car to Ring Road and we will look at it with you. Plenty of people walk in wanting one thing and leave having sensibly done something else.",
                 "meta": "Just call us"
@@ -175,12 +208,24 @@
             "heading": "Work going out of the shop",
             "sub": "Every one of these is a car we fitted. New arrivals, finished jobs and lighting builds go up on our Instagram first.",
             "embeds": [
-              { "url": "https://www.instagram.com/reel/DcNiOPGMXnC/" },
-              { "url": "https://www.instagram.com/reel/DcLT1OnTvRq/" },
-              { "url": "https://www.instagram.com/reel/DcIfGILThC-/" },
-              { "url": "https://www.instagram.com/reel/DcF2cIwTL8S/" },
-              { "url": "https://www.instagram.com/reel/DcArcmaTcB2/" },
-              { "url": "https://www.instagram.com/reel/Db7jchNMh1q/" }
+              {
+                "url": "https://www.instagram.com/reel/DcNiOPGMXnC/"
+              },
+              {
+                "url": "https://www.instagram.com/reel/DcLT1OnTvRq/"
+              },
+              {
+                "url": "https://www.instagram.com/reel/DcIfGILThC-/"
+              },
+              {
+                "url": "https://www.instagram.com/reel/DcF2cIwTL8S/"
+              },
+              {
+                "url": "https://www.instagram.com/reel/DcArcmaTcB2/"
+              },
+              {
+                "url": "https://www.instagram.com/reel/Db7jchNMh1q/"
+              }
             ]
           }
         },
@@ -207,7 +252,7 @@
           "visible": true,
           "variant": "columns",
           "props": {
-            "blurb": "Galaxy Car Decor — car accessories, audio, lighting, styling and detailing, all fitted in our own shop. 246, Ring Road, near Suyog Nagar, Dhadiwal Layout, Joginagar, Badil Kheda, Nagpur 440027.",
+            "blurb": "Galaxy Car Decor — car accessories, audio, lighting, styling and detailing, all fitted in our own shop. 246, Ring Road, near Suyog Nagar, Dhadiwal Layout, Joginagar, Badil Kheda, Nagpur, Maharashtra 440027.",
             "showContact": true,
             "showHours": false,
             "showSocial": true,
@@ -216,26 +261,56 @@
               {
                 "title": "What we fit",
                 "links": [
-                  { "text": "Interior & comfort", "href": "/services" },
-                  { "text": "Audio & screens", "href": "/services" },
-                  { "text": "Lighting", "href": "/services" },
-                  { "text": "Exterior & styling", "href": "/services" },
-                  { "text": "Detailing & care", "href": "/services" }
+                  {
+                    "text": "Interior & comfort",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Audio & screens",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Lighting",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Exterior & styling",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Detailing & care",
+                    "href": "/services"
+                  }
                 ]
               },
               {
                 "title": "Shop",
                 "links": [
-                  { "text": "Our work", "href": "/work" },
-                  { "text": "Contact & directions", "href": "/contact" }
+                  {
+                    "text": "Our work",
+                    "href": "/work"
+                  },
+                  {
+                    "text": "Contact & directions",
+                    "href": "/contact"
+                  }
                 ]
               },
               {
                 "title": "Contact",
                 "links": [
-                  { "text": "Call — 93737 20903", "href": "tel:+919373720903" },
-                  { "text": "WhatsApp", "href": "https://wa.me/919373720903" },
-                  { "text": "Instagram", "href": "https://www.instagram.com/galaxycardecor.ngp" }
+                  {
+                    "text": "Call — 93737 20903",
+                    "href": "tel:+919373720903"
+                  },
+                  {
+                    "text": "WhatsApp",
+                    "href": "https://wa.me/919373720903"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/galaxycardecor.ngp"
+                  }
                 ]
               }
             ]
@@ -257,10 +332,22 @@
             "showCart": false,
             "showAccount": false,
             "links": [
-              { "text": "Home", "href": "/" },
-              { "text": "What We Fit", "href": "/services" },
-              { "text": "Our Work", "href": "/work" },
-              { "text": "Contact", "href": "/contact" }
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "What We Fit",
+                "href": "/services"
+              },
+              {
+                "text": "Our Work",
+                "href": "/work"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
             ],
             "cta": {
               "text": "Call 93737 20903",
@@ -273,11 +360,12 @@
           "id": "hero-2",
           "type": "hero",
           "visible": true,
-          "variant": "minimal",
+          "variant": "centered-bg",
           "props": {
             "badge": "41 accessories, all fitted here",
             "heading": "Everything we fit",
             "sub": "The full list. If something you want is not here, call anyway — we can usually source it.",
+            "image": "https://images.pexels.com/photos/20042048/pexels-photo-20042048.jpeg?auto=compress&cs=tinysrgb&w=1600",
             "fullHeight": false,
             "ctaPrimary": {
               "text": "Call 93737 20903",
@@ -298,20 +386,90 @@
             "heading": "Inside the car",
             "sub": "The parts you touch every day. Most of these are same-day fittings.",
             "items": [
-              { "title": "Seat Covers", "desc": "Full range of materials and finishes, cut and fitted to your model — not a universal slip-on.", "meta": "Fitted same day" },
-              { "title": "Matting", "desc": "7D and standard car mats, trimmed to the floor of your car so nothing slides under the pedals.", "meta": "Cut to fit" },
-              { "title": "Arm Rest", "desc": "Centre arm rests with storage, matched to the interior trim.", "meta": "Interior" },
-              { "title": "Car Cushions", "desc": "Neck rests, back cushions and seat cushion sets.", "meta": "Comfort" },
-              { "title": "Steering Covers", "desc": "Stitched and slip-on steering covers in leather and other finishes.", "meta": "Interior" },
-              { "title": "Steering Knob", "desc": "Power steering knobs — genuinely useful if you park in tight Nagpur lanes.", "meta": "Interior" },
-              { "title": "Sound Damping", "desc": "Damping sheets on doors and floor to cut road noise and stop panel rattle. Makes the biggest difference alongside a speaker upgrade.", "meta": "Doors & floor" },
-              { "title": "Ambient Light", "desc": "Interior ambient lighting — footwell, dashboard and door strips, colour controlled from your phone.", "meta": "App controlled" },
-              { "title": "Perfumes", "desc": "Car perfumes and fresheners, dashboard and vent fitting.", "meta": "Interior" },
-              { "title": "Mobile Charger", "desc": "Fast chargers and charging sockets wired into the car, not hanging off the lighter socket.", "meta": "Wired in" },
-              { "title": "Key Covers & Chains", "desc": "Fitted key covers and key chains for most models.", "meta": "Accessory" },
-              { "title": "Duster", "desc": "Microfibre dusters and interior cleaning kit.", "meta": "Care" },
-              { "title": "Door Guard", "desc": "Edge guards that take the knock instead of your paint in a tight car park.", "meta": "Protection" },
-              { "title": "Screen Guard", "desc": "Screen protection for the infotainment display — stops the scratches that show up on every resale inspection.", "meta": "Protection" }
+              {
+                "image": "https://images.pexels.com/photos/4517053/pexels-photo-4517053.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Seat Covers",
+                "desc": "Full range of materials and finishes, cut and fitted to your model — not a universal slip-on.",
+                "meta": "Fitted same day"
+              },
+              {
+                "image": "https://images.pexels.com/photos/28055130/pexels-photo-28055130.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Matting",
+                "desc": "7D and standard car mats, trimmed to the floor of your car so nothing slides under the pedals.",
+                "meta": "Cut to fit"
+              },
+              {
+                "image": "https://images.pexels.com/photos/14165473/pexels-photo-14165473.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Arm Rest",
+                "desc": "Centre arm rests with storage, matched to the interior trim.",
+                "meta": "Interior"
+              },
+              {
+                "image": "https://images.pexels.com/photos/17339319/pexels-photo-17339319.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Car Cushions",
+                "desc": "Neck rests, back cushions and seat cushion sets.",
+                "meta": "Comfort"
+              },
+              {
+                "image": "https://images.pexels.com/photos/4465662/pexels-photo-4465662.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Steering Covers",
+                "desc": "Stitched and slip-on steering covers in leather and other finishes.",
+                "meta": "Interior"
+              },
+              {
+                "image": "https://images.pexels.com/photos/16017349/pexels-photo-16017349.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Steering Knob",
+                "desc": "Power steering knobs — genuinely useful if you park in tight Nagpur lanes.",
+                "meta": "Interior"
+              },
+              {
+                "image": "https://images.pexels.com/photos/4866529/pexels-photo-4866529.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Sound Damping",
+                "desc": "Damping sheets on doors and floor to cut road noise and stop panel rattle. Makes the biggest difference alongside a speaker upgrade.",
+                "meta": "Doors & floor"
+              },
+              {
+                "image": "https://images.pexels.com/photos/6576597/pexels-photo-6576597.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Ambient Light",
+                "desc": "Interior ambient lighting — footwell, dashboard and door strips, colour controlled from your phone.",
+                "meta": "App controlled"
+              },
+              {
+                "image": "https://images.pexels.com/photos/11115605/pexels-photo-11115605.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Perfumes",
+                "desc": "Car perfumes and fresheners, dashboard and vent fitting.",
+                "meta": "Interior"
+              },
+              {
+                "image": "https://images.pexels.com/photos/2996306/pexels-photo-2996306.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Mobile Charger",
+                "desc": "Fast chargers and charging sockets wired into the car, not hanging off the lighter socket.",
+                "meta": "Wired in"
+              },
+              {
+                "image": "https://images.pexels.com/photos/842528/pexels-photo-842528.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Key Covers & Chains",
+                "desc": "Fitted key covers and key chains for most models.",
+                "meta": "Accessory"
+              },
+              {
+                "image": "https://images.pexels.com/photos/6872572/pexels-photo-6872572.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Duster",
+                "desc": "Microfibre dusters and interior cleaning kit.",
+                "meta": "Care"
+              },
+              {
+                "image": "https://images.pexels.com/photos/30767229/pexels-photo-30767229.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Door Guard",
+                "desc": "Edge guards that take the knock instead of your paint in a tight car park.",
+                "meta": "Protection"
+              },
+              {
+                "image": "https://images.pexels.com/photos/13535542/pexels-photo-13535542.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Screen Guard",
+                "desc": "Screen protection for the infotainment display — stops the scratches that show up on every resale inspection.",
+                "meta": "Protection"
+              }
             ]
           }
         },
@@ -325,19 +483,84 @@
             "heading": "Electronics and lighting",
             "sub": "All wiring is done properly and tested before the car leaves. This is the work most worth doing at a shop that fits its own products.",
             "items": [
-              { "title": "Android Players", "desc": "Android touchscreen head units with navigation, mirroring and steering controls retained.", "meta": "Audio" },
-              { "title": "Speakers", "desc": "Component and coaxial speaker upgrades. Worth pairing with door damping.", "meta": "Audio" },
-              { "title": "Woofers", "desc": "Boot and under-seat woofers with amplifier, set up so it does not drown the rest.", "meta": "Audio" },
-              { "title": "Projector", "desc": "Roof projectors and star-effect lighting for the cabin ceiling.", "meta": "Lighting" },
-              { "title": "Mini Projector", "desc": "Compact roof projector — the same effect where there is less headroom to work with.", "meta": "Lighting" },
-              { "title": "Back Camera", "desc": "Reverse camera fitted, aimed and wired to your screen, with guide lines set for your car.", "meta": "Safety" },
-              { "title": "Parking Sensors", "desc": "Front and rear parking sensors, colour-matched to the bumper.", "meta": "Safety" },
-              { "title": "Central Locking", "desc": "Central locking systems fitted and keyed to your remote.", "meta": "Security" },
-              { "title": "Horn", "desc": "Horn upgrades and replacements.", "meta": "Electrical" },
-              { "title": "LED Light", "desc": "Interior and exterior LED lighting throughout the car.", "meta": "Lighting" },
-              { "title": "Welcome Light", "desc": "Puddle and welcome lights that throw a logo when the door opens.", "meta": "Lighting" },
-              { "title": "Headlight White", "desc": "White headlight upgrades for a cleaner beam than the standard yellow.", "meta": "Lighting" },
-              { "title": "Reflectors", "desc": "Bumper and body reflectors — the cheapest thing on this page and one of the more useful after dark.", "meta": "Safety" }
+              {
+                "image": "https://images.pexels.com/photos/7434564/pexels-photo-7434564.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Android Players",
+                "desc": "Android touchscreen head units with navigation, mirroring and steering controls retained.",
+                "meta": "Audio"
+              },
+              {
+                "image": "https://images.pexels.com/photos/12175732/pexels-photo-12175732.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Speakers",
+                "desc": "Component and coaxial speaker upgrades. Worth pairing with door damping.",
+                "meta": "Audio"
+              },
+              {
+                "image": "https://images.pexels.com/photos/13811121/pexels-photo-13811121.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Woofers",
+                "desc": "Boot and under-seat woofers with amplifier, set up so it does not drown the rest.",
+                "meta": "Audio"
+              },
+              {
+                "image": "https://images.pexels.com/photos/9661394/pexels-photo-9661394.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Projector",
+                "desc": "Roof projectors and star-effect lighting for the cabin ceiling.",
+                "meta": "Lighting"
+              },
+              {
+                "image": "https://images.pexels.com/photos/15394304/pexels-photo-15394304.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Mini Projector",
+                "desc": "Compact roof projector — the same effect where there is less headroom to work with.",
+                "meta": "Lighting"
+              },
+              {
+                "image": "https://images.pexels.com/photos/4062452/pexels-photo-4062452.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Back Camera",
+                "desc": "Reverse camera fitted, aimed and wired to your screen, with guide lines set for your car.",
+                "meta": "Safety"
+              },
+              {
+                "image": "https://images.pexels.com/photos/10135431/pexels-photo-10135431.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Parking Sensors",
+                "desc": "Front and rear parking sensors, colour-matched to the bumper.",
+                "meta": "Safety"
+              },
+              {
+                "image": "https://images.pexels.com/photos/97079/pexels-photo-97079.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Central Locking",
+                "desc": "Central locking systems fitted and keyed to your remote.",
+                "meta": "Security"
+              },
+              {
+                "image": "https://images.pexels.com/photos/16210125/pexels-photo-16210125.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Horn",
+                "desc": "Horn upgrades and replacements.",
+                "meta": "Electrical"
+              },
+              {
+                "image": "https://images.pexels.com/photos/17838862/pexels-photo-17838862.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "LED Light",
+                "desc": "Interior and exterior LED lighting throughout the car.",
+                "meta": "Lighting"
+              },
+              {
+                "image": "https://images.pexels.com/photos/20695255/pexels-photo-20695255.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Welcome Light",
+                "desc": "Puddle and welcome lights that throw a logo when the door opens.",
+                "meta": "Lighting"
+              },
+              {
+                "image": "https://images.pexels.com/photos/17716173/pexels-photo-17716173.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Headlight White",
+                "desc": "White headlight upgrades for a cleaner beam than the standard yellow.",
+                "meta": "Lighting"
+              },
+              {
+                "image": "https://images.pexels.com/photos/3007435/pexels-photo-3007435.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Reflectors",
+                "desc": "Bumper and body reflectors — the cheapest thing on this page and one of the more useful after dark.",
+                "meta": "Safety"
+              }
             ]
           }
         },
@@ -351,20 +574,90 @@
             "heading": "Outside the car",
             "sub": "Styling that changes the look without touching the original paint, plus the detailing work that keeps it worth looking at.",
             "items": [
-              { "title": "Ceramic Coating", "desc": "Nano ceramic coating. Takes the car for a full day or more — the preparation is most of the job, and rushing it is what makes coatings fail.", "meta": "Full day job" },
-              { "title": "Paper Polish", "desc": "Paper polish and rubbing to lift swirl marks and dullness out of the paint.", "meta": "Paint correction" },
-              { "title": "Glass Polish", "desc": "Glass polishing to clear wiper haze and water spotting from the windscreen.", "meta": "Detailing" },
-              { "title": "Car Cleaning", "desc": "Full interior and exterior cleaning, including seats and roof lining.", "meta": "Detailing" },
-              { "title": "Vinyl Work", "desc": "Vinyl wrapping — full body, roof, or panel accents. Reversible, and it protects the paint underneath.", "meta": "Wrapping" },
-              { "title": "Chrome", "desc": "Chrome trim and accessory kits for grille, handles, windows and lights.", "meta": "Styling" },
-              { "title": "Side Cladding", "desc": "Side body cladding to protect the lower panels and change the stance of the car.", "meta": "Styling" },
-              { "title": "Guards — Front & Back", "desc": "Front and rear bumper guards fitted flush.", "meta": "Protection" },
-              { "title": "Roof Rails", "desc": "Roof rails fitted and sealed properly, which is the part people get wrong.", "meta": "Exterior" },
-              { "title": "Sun Film", "desc": "Sun control film for heat and glare.", "meta": "Glass" },
-              { "title": "Lamination", "desc": "Paint protection lamination against stone chips and scratches.", "meta": "Protection" },
-              { "title": "Body Cover", "desc": "Fitted body covers for outdoor parking.", "meta": "Protection" },
-              { "title": "Wiper Blades", "desc": "Wiper blade replacement for all models.", "meta": "Maintenance" },
-              { "title": "Car Emoji", "desc": "Dashboard emojis, figures and the small stuff that makes the car feel like yours.", "meta": "Decor" }
+              {
+                "image": "https://images.pexels.com/photos/6872609/pexels-photo-6872609.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Ceramic Coating",
+                "desc": "Nano ceramic coating. Takes the car for a full day or more — the preparation is most of the job, and rushing it is what makes coatings fail.",
+                "meta": "Full day job"
+              },
+              {
+                "image": "https://images.pexels.com/photos/5233279/pexels-photo-5233279.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Paper Polish",
+                "desc": "Paper polish and rubbing to lift swirl marks and dullness out of the paint.",
+                "meta": "Paint correction"
+              },
+              {
+                "image": "https://images.pexels.com/photos/14615262/pexels-photo-14615262.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Glass Polish",
+                "desc": "Glass polishing to clear wiper haze and water spotting from the windscreen.",
+                "meta": "Detailing"
+              },
+              {
+                "image": "https://images.pexels.com/photos/29922284/pexels-photo-29922284.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Car Cleaning",
+                "desc": "Full interior and exterior cleaning, including seats and roof lining.",
+                "meta": "Detailing"
+              },
+              {
+                "image": "https://images.pexels.com/photos/17641807/pexels-photo-17641807.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Vinyl Work",
+                "desc": "Vinyl wrapping — full body, roof, or panel accents. Reversible, and it protects the paint underneath.",
+                "meta": "Wrapping"
+              },
+              {
+                "image": "https://images.pexels.com/photos/16210125/pexels-photo-16210125.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Chrome",
+                "desc": "Chrome trim and accessory kits for grille, handles, windows and lights.",
+                "meta": "Styling"
+              },
+              {
+                "image": "https://images.pexels.com/photos/18145770/pexels-photo-18145770.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Side Cladding",
+                "desc": "Side body cladding to protect the lower panels and change the stance of the car.",
+                "meta": "Styling"
+              },
+              {
+                "image": "https://images.pexels.com/photos/30767229/pexels-photo-30767229.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Guards — Front & Back",
+                "desc": "Front and rear bumper guards fitted flush.",
+                "meta": "Protection"
+              },
+              {
+                "image": "https://images.pexels.com/photos/19868893/pexels-photo-19868893.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Roof Rails",
+                "desc": "Roof rails fitted and sealed properly, which is the part people get wrong.",
+                "meta": "Exterior"
+              },
+              {
+                "image": "https://images.pexels.com/photos/10126663/pexels-photo-10126663.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Sun Film",
+                "desc": "Sun control film for heat and glare.",
+                "meta": "Glass"
+              },
+              {
+                "image": "https://images.pexels.com/photos/10126661/pexels-photo-10126661.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Lamination",
+                "desc": "Paint protection lamination against stone chips and scratches.",
+                "meta": "Protection"
+              },
+              {
+                "image": "https://images.pexels.com/photos/9513518/pexels-photo-9513518.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Body Cover",
+                "desc": "Fitted body covers for outdoor parking.",
+                "meta": "Protection"
+              },
+              {
+                "image": "https://images.pexels.com/photos/8586715/pexels-photo-8586715.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Wiper Blades",
+                "desc": "Wiper blade replacement for all models.",
+                "meta": "Maintenance"
+              },
+              {
+                "image": "https://images.pexels.com/photos/8281437/pexels-photo-8281437.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Car Emoji",
+                "desc": "Dashboard emojis, figures and the small stuff that makes the car feel like yours.",
+                "meta": "Decor"
+              }
             ]
           }
         },
@@ -432,26 +725,56 @@
               {
                 "title": "What we fit",
                 "links": [
-                  { "text": "Interior & comfort", "href": "/services" },
-                  { "text": "Audio & screens", "href": "/services" },
-                  { "text": "Lighting", "href": "/services" },
-                  { "text": "Exterior & styling", "href": "/services" },
-                  { "text": "Detailing & care", "href": "/services" }
+                  {
+                    "text": "Interior & comfort",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Audio & screens",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Lighting",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Exterior & styling",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Detailing & care",
+                    "href": "/services"
+                  }
                 ]
               },
               {
                 "title": "Shop",
                 "links": [
-                  { "text": "Our work", "href": "/work" },
-                  { "text": "Contact & directions", "href": "/contact" }
+                  {
+                    "text": "Our work",
+                    "href": "/work"
+                  },
+                  {
+                    "text": "Contact & directions",
+                    "href": "/contact"
+                  }
                 ]
               },
               {
                 "title": "Contact",
                 "links": [
-                  { "text": "Call — 93737 20903", "href": "tel:+919373720903" },
-                  { "text": "WhatsApp", "href": "https://wa.me/919373720903" },
-                  { "text": "Instagram", "href": "https://www.instagram.com/galaxycardecor.ngp" }
+                  {
+                    "text": "Call — 93737 20903",
+                    "href": "tel:+919373720903"
+                  },
+                  {
+                    "text": "WhatsApp",
+                    "href": "https://wa.me/919373720903"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/galaxycardecor.ngp"
+                  }
                 ]
               }
             ]
@@ -473,10 +796,22 @@
             "showCart": false,
             "showAccount": false,
             "links": [
-              { "text": "Home", "href": "/" },
-              { "text": "What We Fit", "href": "/services" },
-              { "text": "Our Work", "href": "/work" },
-              { "text": "Contact", "href": "/contact" }
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "What We Fit",
+                "href": "/services"
+              },
+              {
+                "text": "Our Work",
+                "href": "/work"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
             ],
             "cta": {
               "text": "Call 93737 20903",
@@ -519,12 +854,24 @@
             "heading": "Lighting, audio, wraps and coating",
             "sub": "Seat covers, roof lighting, matting and nano ceramic are what we are asked for most — these are a few of them.",
             "embeds": [
-              { "url": "https://www.instagram.com/reel/Db5HZFoT5YG/" },
-              { "url": "https://www.instagram.com/reel/Dbz4FnVz-wo/" },
-              { "url": "https://www.instagram.com/reel/Dbu3YEGPas1/" },
-              { "url": "https://www.instagram.com/reel/DbpjTpzP0Qe/" },
-              { "url": "https://www.instagram.com/reel/Dbm9Iuiv-a7/" },
-              { "url": "https://www.instagram.com/reel/DMKxHLzPCM4/" }
+              {
+                "url": "https://www.instagram.com/reel/Db5HZFoT5YG/"
+              },
+              {
+                "url": "https://www.instagram.com/reel/Dbz4FnVz-wo/"
+              },
+              {
+                "url": "https://www.instagram.com/reel/Dbu3YEGPas1/"
+              },
+              {
+                "url": "https://www.instagram.com/reel/DbpjTpzP0Qe/"
+              },
+              {
+                "url": "https://www.instagram.com/reel/Dbm9Iuiv-a7/"
+              },
+              {
+                "url": "https://www.instagram.com/reel/DMKxHLzPCM4/"
+              }
             ]
           }
         },
@@ -560,26 +907,56 @@
               {
                 "title": "What we fit",
                 "links": [
-                  { "text": "Interior & comfort", "href": "/services" },
-                  { "text": "Audio & screens", "href": "/services" },
-                  { "text": "Lighting", "href": "/services" },
-                  { "text": "Exterior & styling", "href": "/services" },
-                  { "text": "Detailing & care", "href": "/services" }
+                  {
+                    "text": "Interior & comfort",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Audio & screens",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Lighting",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Exterior & styling",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Detailing & care",
+                    "href": "/services"
+                  }
                 ]
               },
               {
                 "title": "Shop",
                 "links": [
-                  { "text": "Our work", "href": "/work" },
-                  { "text": "Contact & directions", "href": "/contact" }
+                  {
+                    "text": "Our work",
+                    "href": "/work"
+                  },
+                  {
+                    "text": "Contact & directions",
+                    "href": "/contact"
+                  }
                 ]
               },
               {
                 "title": "Contact",
                 "links": [
-                  { "text": "Call — 93737 20903", "href": "tel:+919373720903" },
-                  { "text": "WhatsApp", "href": "https://wa.me/919373720903" },
-                  { "text": "Instagram", "href": "https://www.instagram.com/galaxycardecor.ngp" }
+                  {
+                    "text": "Call — 93737 20903",
+                    "href": "tel:+919373720903"
+                  },
+                  {
+                    "text": "WhatsApp",
+                    "href": "https://wa.me/919373720903"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/galaxycardecor.ngp"
+                  }
                 ]
               }
             ]
@@ -601,10 +978,22 @@
             "showCart": false,
             "showAccount": false,
             "links": [
-              { "text": "Home", "href": "/" },
-              { "text": "What We Fit", "href": "/services" },
-              { "text": "Our Work", "href": "/work" },
-              { "text": "Contact", "href": "/contact" }
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "What We Fit",
+                "href": "/services"
+              },
+              {
+                "text": "Our Work",
+                "href": "/work"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
             ],
             "cta": {
               "text": "Call 93737 20903",
@@ -655,7 +1044,7 @@
           "visible": true,
           "variant": "columns",
           "props": {
-            "blurb": "Galaxy Car Decor — car accessories, audio, lighting, styling and detailing, all fitted in our own shop. 246, Ring Road, near Suyog Nagar, Dhadiwal Layout, Joginagar, Badil Kheda, Nagpur 440027.",
+            "blurb": "Galaxy Car Decor — car accessories, audio, lighting, styling and detailing, all fitted in our own shop. 246, Ring Road, near Suyog Nagar, Dhadiwal Layout, Joginagar, Badil Kheda, Nagpur, Maharashtra 440027.",
             "showContact": true,
             "showHours": false,
             "showSocial": true,
@@ -664,26 +1053,56 @@
               {
                 "title": "What we fit",
                 "links": [
-                  { "text": "Interior & comfort", "href": "/services" },
-                  { "text": "Audio & screens", "href": "/services" },
-                  { "text": "Lighting", "href": "/services" },
-                  { "text": "Exterior & styling", "href": "/services" },
-                  { "text": "Detailing & care", "href": "/services" }
+                  {
+                    "text": "Interior & comfort",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Audio & screens",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Lighting",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Exterior & styling",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Detailing & care",
+                    "href": "/services"
+                  }
                 ]
               },
               {
                 "title": "Shop",
                 "links": [
-                  { "text": "Our work", "href": "/work" },
-                  { "text": "Contact & directions", "href": "/contact" }
+                  {
+                    "text": "Our work",
+                    "href": "/work"
+                  },
+                  {
+                    "text": "Contact & directions",
+                    "href": "/contact"
+                  }
                 ]
               },
               {
                 "title": "Contact",
                 "links": [
-                  { "text": "Call — 93737 20903", "href": "tel:+919373720903" },
-                  { "text": "WhatsApp", "href": "https://wa.me/919373720903" },
-                  { "text": "Instagram", "href": "https://www.instagram.com/galaxycardecor.ngp" }
+                  {
+                    "text": "Call — 93737 20903",
+                    "href": "tel:+919373720903"
+                  },
+                  {
+                    "text": "WhatsApp",
+                    "href": "https://wa.me/919373720903"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/galaxycardecor.ngp"
+                  }
                 ]
               }
             ]
