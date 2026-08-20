@@ -53,6 +53,17 @@ try {
     $stmt->execute([$name, $email, $hashedPassword, $phone]);
     $userId = $pdo->lastInsertId();
 
+    // If the WhatsApp bot scored this phone's Google listing, that lead just
+    // converted. Matched on the last 10 digits because the two sides format the
+    // number differently. Wrapped: a missing table on a host where the bot has
+    // never run must not stop somebody signing up.
+    try {
+        require_once __DIR__ . '/../includes/google/VisibilityLeads.php';
+        VisibilityLeads::attribute($pdo, $phone, $userId);
+    } catch (Exception $e) {
+        error_log('[VIS-LEAD] attribution at register failed: ' . $e->getMessage());
+    }
+
     // Create default subscription (Free Plan, 30 days trial)
     $stmt = $pdo->prepare("INSERT INTO subscriptions (user_id, plan_name, vcards_limit, stores_limit, price, subscribed_date, expiry_date, status) VALUES (?, 'Free Trial', 1, 0, 0, CURDATE(), DATE_ADD(CURDATE(), INTERVAL 30 DAY), 'active')");
     $stmt->execute([$userId]);

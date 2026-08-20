@@ -42,8 +42,20 @@ if ($code === '' || $state === '') {
 }
 
 try {
-    $service = new GoogleBusinessService(getDB());
-    $service->completeOAuth($code, $state);
+    $db = getDB();
+    $service = new GoogleBusinessService($db);
+    $connectedUserId = $service->completeOAuth($code, $state);
+
+    // The deep conversion for a WhatsApp lead: they did not just install, they
+    // connected Google. Best-effort — the OAuth connection already succeeded
+    // and nothing here may be allowed to turn that into an error screen.
+    try {
+        require_once __DIR__ . '/../../../includes/google/VisibilityLeads.php';
+        VisibilityLeads::markConnected($db, $connectedUserId);
+    } catch (Exception $e) {
+        GoogleLogger::warn('lead.connect_mark_failed', ['error' => $e->getMessage()]);
+    }
+
     gbp_handoff($deepLink, ['status' => 'success']);
 } catch (GoogleException $e) {
     GoogleLogger::warn('callback.failed', ['status' => $e->getHttpStatus()]);
