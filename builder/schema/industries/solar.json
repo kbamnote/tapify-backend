@@ -1037,25 +1037,25 @@
         "items": [
           {
             "icon": "home",
-            "value": "1250",
+            "value": 1250,
             "suffix": "+",
             "label": "Rooftops fitted"
           },
           {
             "icon": "zap",
-            "value": "6.4",
+            "value": 6.4,
             "suffix": " MW",
             "label": "Commissioned"
           },
           {
             "icon": "trending-up",
-            "value": "92",
+            "value": 92,
             "suffix": "%",
             "label": "Average bill cut"
           },
           {
             "icon": "award",
-            "value": "9",
+            "value": 9,
             "suffix": " yrs",
             "label": "Fitting in Nagpur"
           }
@@ -1072,19 +1072,19 @@
             "name": "Rajesh Deshmukh",
             "role": "Manish Nagar",
             "rating": 5,
-            "text": "Bill was ₹4,200 a month before, now it is between ₹90 and ₹200. They told me 3 kW when another company had quoted 5 kW, and they were right — the bigger system would have been exporting power I get very little for."
+            "quote": "Bill was ₹4,200 a month before, now it is between ₹90 and ₹200. They told me 3 kW when another company had quoted 5 kW, and they were right — the bigger system would have been exporting power I get very little for."
           },
           {
             "name": "Anita Kulkarni",
             "role": "Housing society, Trimurti Nagar",
             "rating": 5,
-            "text": "Thirty-two flats, one common meter. What sold it was that they did the entire net-metering file themselves. Our previous vendor handed us a folder and wished us luck."
+            "quote": "Thirty-two flats, one common meter. What sold it was that they did the entire net-metering file themselves. Our previous vendor handed us a folder and wished us luck."
           },
           {
             "name": "Imran Shaikh",
             "role": "Fabrication unit, Hingna MIDC",
             "rating": 5,
-            "text": "20 kW on the workshop roof. Two years in, one inverter fault, replaced under warranty in four days without me chasing anybody."
+            "quote": "20 kW on the workshop roof. Two years in, one inverter fault, replaced under warranty in four days without me chasing anybody."
           }
         ]
       }
