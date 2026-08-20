@@ -1,0 +1,34 @@
+{
+  "preset": "solar-dawn",
+  "label": "Solar Dawn",
+  "description": "Deep petrol blue and burnt amber on warm cream. The blue is the panel and the sky, the amber is the sun — a calm, trustworthy palette for solar, energy and electrical trades that avoids the eco-cliché of bright green.",
+  "industries": [
+    "solar",
+    "renewable-energy",
+    "electrical",
+    "energy",
+    "engineering",
+    "construction"
+  ],
+  "tokens": {
+    "mode": "light",
+    "color": {
+      "primary": "#0F4C5C",
+      "secondary": "#14657A",
+      "accent": "#A26107",
+      "bg": "#FBF8F2",
+      "surface": "#FFFFFF",
+      "text": "#16211F",
+      "muted": "#5A6764",
+      "border": "#E7E0D5"
+    },
+    "font": {
+      "heading": "Plus Jakarta Sans",
+      "body": "Inter"
+    },
+    "radius": "md",
+    "spacing": "comfortable",
+    "container": "normal"
+  },
+  "notes": "The warm cream background is the point: solar sites default to white-and-blue and end up looking like a utility bill. Cream plus white cards gives depth without a second brand colour. ACCENT WAS THE HARD PART — a true sun-amber (#F5930A) measures 2.32:1 on white, and accent is what the renderer paints 12px meta text with in ~15 places, so it had to be darkened along its own hue to #A26107 before it cleared AA on BOTH the cream background and the white cards. Everything measured: text 15.58/16.52, muted 5.57/5.90, accent 4.66/4.94, primary 8.97/9.51, secondary 6.25/6.62. All three brand colours are dark enough that SiteRenderer::readableOn() picks white for button text, which keeps buttons consistent."
+}

@@ -1,0 +1,1364 @@
+{
+  "id": "solar",
+  "label": "Solar / Renewable Energy",
+  "aliases": [
+    "solar",
+    "solar-panel",
+    "solar-energy",
+    "rooftop-solar",
+    "solar-installer",
+    "renewable-energy",
+    "green-energy",
+    "solar-epc",
+    "solar-water-heater",
+    "photovoltaic",
+    "pv",
+    "energy",
+    "inverter-battery",
+    "electrical-contractor"
+  ],
+  "icon": "zap",
+  "theme": {
+    "preset": "solar-dawn"
+  },
+  "description": "Rooftop solar installers and renewable-energy companies — a shoppable panel catalogue with system sizes and panel types, subsidy and net-metering help, a savings-led home page and a free site survey booking.",
+  "sections": [
+    "header",
+    "hero",
+    "about",
+    "products",
+    "services",
+    "gallery",
+    "stats",
+    "testimonials",
+    "blog",
+    "faq",
+    "hours",
+    "cta",
+    "contact",
+    "footer"
+  ],
+  "recommended": [
+    {
+      "type": "header",
+      "reason": "Sticky nav with the panel catalogue, services and a 'Free Site Survey' CTA"
+    },
+    {
+      "type": "hero",
+      "reason": "Full-height video of an installer fitting panels on a roof — the job, not a power station"
+    },
+    {
+      "type": "about",
+      "reason": "Who fits it, how long they have done it, and what is included in the price"
+    },
+    {
+      "type": "products",
+      "reason": "The panel catalogue: types by wattage, and complete systems by size and panel"
+    },
+    {
+      "type": "services",
+      "reason": "Survey, installation, net metering, subsidy paperwork, cleaning and repairs"
+    },
+    {
+      "type": "stats",
+      "reason": "Installations done, kW commissioned, units generated — the credibility numbers"
+    },
+    {
+      "type": "gallery",
+      "reason": "Real rooftops you have finished; nothing sells solar like a neighbour's roof"
+    },
+    {
+      "type": "testimonials",
+      "reason": "Bill-before-and-after quotes from actual customers"
+    },
+    {
+      "type": "faq",
+      "reason": "Subsidy, net metering, monsoon output, roof damage — the questions that block a sale"
+    },
+    {
+      "type": "blog",
+      "reason": "Subsidy changes and tariff news, which is what people search for"
+    },
+    {
+      "type": "hours",
+      "reason": "Office hours for walk-ins and survey bookings"
+    },
+    {
+      "type": "cta",
+      "reason": "'Send us your last electricity bill' — the lowest-friction ask in this trade"
+    },
+    {
+      "type": "contact",
+      "reason": "Enquiry form plus a map to the office"
+    },
+    {
+      "type": "footer",
+      "reason": "Panel types, services, service areas and contact"
+    }
+  ],
+  "business": {
+    "phone": "+91 90280 33445",
+    "whatsapp": "+91 90280 33445",
+    "email": "hello@suryodayasolar.in",
+    "address": "Plot 14, Wardha Road, Somalwada, Nagpur, Maharashtra 440025",
+    "social": {
+      "instagram": "https://instagram.com/",
+      "facebook": "https://facebook.com/",
+      "youtube": "https://youtube.com/"
+    },
+    "hours": [
+      {
+        "day": "mon",
+        "open": "9:30 AM",
+        "close": "7:00 PM"
+      },
+      {
+        "day": "tue",
+        "open": "9:30 AM",
+        "close": "7:00 PM"
+      },
+      {
+        "day": "wed",
+        "open": "9:30 AM",
+        "close": "7:00 PM"
+      },
+      {
+        "day": "thu",
+        "open": "9:30 AM",
+        "close": "7:00 PM"
+      },
+      {
+        "day": "fri",
+        "open": "9:30 AM",
+        "close": "7:00 PM"
+      },
+      {
+        "day": "sat",
+        "open": "9:30 AM",
+        "close": "7:00 PM"
+      },
+      {
+        "day": "sun",
+        "open": "",
+        "close": "",
+        "closed": true
+      }
+    ]
+  },
+  "content": {
+    "header": {
+      "variant": "split",
+      "props": {
+        "sticky": true,
+        "showCart": true,
+        "showAccount": false,
+        "links": [
+          {
+            "text": "Home",
+            "href": "/"
+          },
+          {
+            "text": "Solar Panels",
+            "href": "/solar-panels"
+          },
+          {
+            "text": "Services",
+            "href": "/services"
+          },
+          {
+            "text": "Contact",
+            "href": "/contact"
+          }
+        ],
+        "cta": {
+          "text": "Free Site Survey",
+          "href": "/contact",
+          "style": "primary"
+        }
+      }
+    },
+    "hero": {
+      "variant": "centered-bg",
+      "props": {
+        "badge": "Free site survey · PM Surya Ghar subsidy handled",
+        "heading": "Your roof is already paying for itself.",
+        "sub": "Rooftop solar for homes and businesses in Nagpur — sized against your actual bill, fitted by our own team, and with the subsidy and net-metering paperwork done for you.",
+        "image": "https://images.pexels.com/videos/8853531/adult-alternative-energy-appoint-building-8853531.jpeg?auto=compress&cs=tinysrgb&w=2000",
+        "videoUrl": "https://videos.pexels.com/video-files/8853531/8853531-sd_640_360_24fps.mp4",
+        "fullHeight": true,
+        "ctaPrimary": {
+          "text": "See Panel Types",
+          "href": "/solar-panels",
+          "style": "primary"
+        },
+        "ctaSecondary": {
+          "text": "Book a Free Survey",
+          "href": "/contact",
+          "style": "ghost"
+        },
+        "showWhatsapp": true,
+        "showCall": true
+      },
+      "style": {
+        "overlay": 0.55
+      }
+    },
+    "about": {
+      "variant": "image-right",
+      "props": {
+        "label": "About Us",
+        "heading": "We size it against your bill, not our stock",
+        "body": "Suryodaya Solar has been fitting rooftop systems around Nagpur since 2016 — houses, housing societies, schools and small factories.\n\nThe one thing we do differently is the sizing. Plenty of companies quote the system they want to sell. We read your last six bills, measure the shade-free area on your roof, and tell you the size that matches what you actually use. Sometimes that is smaller than you were expecting, and we would rather say so than sell you panels that export power you get little back for.\n\nOur own team does the installation. No subcontractors, which means when something needs attention in year four you are calling the people who fitted it.\n\nAnd we do the paperwork — net metering with MSEDCL and the PM Surya Ghar subsidy claim, followed up until the money is in your account. It is the part most people give up on, and it is included.",
+        "image": "https://images.pexels.com/photos/12243093/pexels-photo-12243093.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "showPillars": true,
+        "pillars": [
+          {
+            "icon": "zap",
+            "title": "Sized to your bill",
+            "text": "Six months of readings and a roof measurement before any number is quoted."
+          },
+          {
+            "icon": "tool",
+            "title": "Our own installers",
+            "text": "The team that fits it is the team that comes back. No subcontractors."
+          },
+          {
+            "icon": "file-text",
+            "title": "Paperwork included",
+            "text": "Net metering and the subsidy claim, filed and chased until it is credited."
+          },
+          {
+            "icon": "shield",
+            "title": "25-year panels",
+            "text": "Performance warranties on every panel, and we handle any claim ourselves."
+          }
+        ]
+      }
+    },
+    "products": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Solar Panels & Systems",
+        "heading": "Panel types, and complete systems",
+        "sub": "Four panel technologies and four system types. If you are not sure which you need, start with the Mono PERC or just send us your bill.",
+        "items": [
+          {
+            "image": "https://images.pexels.com/photos/8853509/pexels-photo-8853509.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Mono PERC Half-Cut",
+            "desc": "The default choice for a rooftop in India. High output, and the half-cut design keeps producing when one part of the panel is shaded by a tank or a parapet.",
+            "meta": "Most homes start here",
+            "price": "₹14,500",
+            "mrp": "₹17,900",
+            "slug": "mono-perc-half-cut",
+            "enableOrder": true,
+            "body": "If you are not sure which panel to pick, this is the one to start with.\n\nA half-cut panel splits each cell in two and wires the halves separately. It sounds like a detail, and on an open field it barely matters — but on an Indian rooftop, where a water tank, a parapet wall or a neighbour's building shades part of the array for an hour or two a day, it is the difference between losing a little output and losing a lot.\n\nMono PERC cells sit around 20-21% efficiency, so you need fewer panels for the same output — which matters when the roof is only so big.\n\nCarries a 12-year product warranty and a 25-year performance warranty from the manufacturer. We handle the claim if one ever fails.",
+            "productInfoTitle": "Panel specification",
+            "productInfo": [
+              {
+                "label": "Cell type",
+                "value": "Monocrystalline PERC, half-cut"
+              },
+              {
+                "label": "Efficiency",
+                "value": "20-21%"
+              },
+              {
+                "label": "Product warranty",
+                "value": "12 years"
+              },
+              {
+                "label": "Performance warranty",
+                "value": "25 years, 80% output"
+              },
+              {
+                "label": "Best for",
+                "value": "Rooftops with partial shade"
+              }
+            ],
+            "attributes": [
+              {
+                "name": "Wattage",
+                "options": [
+                  {
+                    "value": "440 W"
+                  },
+                  {
+                    "value": "545 W"
+                  },
+                  {
+                    "value": "585 W"
+                  }
+                ]
+              }
+            ],
+            "variants": [
+              {
+                "option1": "440 W",
+                "sku": "MONO-P-440",
+                "price": "₹14,500",
+                "mrp": "₹17,900",
+                "stock": 40
+              },
+              {
+                "option1": "545 W",
+                "sku": "MONO-P-545",
+                "price": "₹17,200",
+                "mrp": "₹21,000",
+                "stock": 32
+              },
+              {
+                "option1": "585 W",
+                "sku": "MONO-P-585",
+                "price": "₹18,900",
+                "mrp": "₹23,400",
+                "stock": 18
+              }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/27637329/pexels-photo-27637329.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "TOPCon N-Type",
+            "desc": "The newest cell technology we stock. Highest efficiency, best performance in Nagpur summers, and it degrades more slowly than anything else on this page.",
+            "meta": "Highest output per sq ft",
+            "price": "₹19,400",
+            "mrp": "₹24,000",
+            "slug": "topcon-n-type",
+            "enableOrder": true,
+            "body": "If your roof is small and you want the most units out of it, this is the panel.\n\nTOPCon cells run at 22-23% efficiency, a genuine step above Mono PERC. More usefully for this part of the country, they lose less output as the panel heats up — and a rooftop panel in Nagpur in May is very hot indeed. On paper the gap is a few percent; across an afternoon in peak summer it is larger than that.\n\nThey also degrade more slowly. Most panels lose about 0.55% of their output per year; TOPCon is nearer 0.4%. Over 25 years that compounds into a meaningful difference.\n\nIt costs more per panel. Worth it when roof space is the constraint, not the budget.",
+            "productInfoTitle": "Panel specification",
+            "productInfo": [
+              {
+                "label": "Cell type",
+                "value": "N-Type TOPCon, bifacial-ready"
+              },
+              {
+                "label": "Efficiency",
+                "value": "22-23%"
+              },
+              {
+                "label": "Annual degradation",
+                "value": "About 0.4%"
+              },
+              {
+                "label": "Product warranty",
+                "value": "15 years"
+              },
+              {
+                "label": "Best for",
+                "value": "Small roofs, hot sites"
+              }
+            ],
+            "attributes": [
+              {
+                "name": "Wattage",
+                "options": [
+                  {
+                    "value": "555 W"
+                  },
+                  {
+                    "value": "580 W"
+                  },
+                  {
+                    "value": "620 W"
+                  }
+                ]
+              }
+            ],
+            "variants": [
+              {
+                "option1": "555 W",
+                "sku": "TOPCON-555",
+                "price": "₹19,400",
+                "mrp": "₹24,000",
+                "stock": 22
+              },
+              {
+                "option1": "580 W",
+                "sku": "TOPCON-580",
+                "price": "₹20,800",
+                "mrp": "₹25,600",
+                "stock": 16
+              },
+              {
+                "option1": "620 W",
+                "sku": "TOPCON-620",
+                "price": "₹22,500",
+                "mrp": "₹27,900",
+                "stock": 9
+              }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/12606669/pexels-photo-12606669.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Bifacial Glass-to-Glass",
+            "desc": "Glass on both faces, so it also collects the light bouncing off your roof. Worth doing on a light-coloured terrace or an elevated structure — not on a dark tiled roof.",
+            "meta": "Generates from both sides",
+            "price": "₹21,000",
+            "mrp": "₹26,500",
+            "slug": "bifacial-glass-to-glass",
+            "enableOrder": true,
+            "body": "A bifacial panel has glass on the back as well as the front, so it generates from light reflected off whatever is underneath it.\n\nBe careful with this one, because the extra output depends entirely on what it is mounted over. On a white-painted terrace or an elevated structure with open ground below, you can gain 5-15%. Lying flat against a dark tiled roof with no gap, you gain almost nothing and have paid extra for glass.\n\nWe will tell you honestly which of those your roof is before you order. If it is the second, buy the Mono PERC and put the difference towards a bigger system.\n\nThe double-glass build is also more durable — no backsheet to yellow or crack, and better resistance to hail and humidity.",
+            "productInfoTitle": "Panel specification",
+            "productInfo": [
+              {
+                "label": "Cell type",
+                "value": "Bifacial, glass-to-glass"
+              },
+              {
+                "label": "Rear gain",
+                "value": "5-15%, depends on the surface below"
+              },
+              {
+                "label": "Product warranty",
+                "value": "15 years"
+              },
+              {
+                "label": "Performance warranty",
+                "value": "30 years"
+              },
+              {
+                "label": "Best for",
+                "value": "Elevated mounts, light-coloured terraces"
+              }
+            ],
+            "attributes": [
+              {
+                "name": "Wattage",
+                "options": [
+                  {
+                    "value": "550 W"
+                  },
+                  {
+                    "value": "600 W"
+                  },
+                  {
+                    "value": "660 W"
+                  }
+                ]
+              }
+            ],
+            "variants": [
+              {
+                "option1": "550 W",
+                "sku": "BIFACI-550",
+                "price": "₹21,000",
+                "mrp": "₹26,500",
+                "stock": 14
+              },
+              {
+                "option1": "600 W",
+                "sku": "BIFACI-600",
+                "price": "₹23,200",
+                "mrp": "₹28,900",
+                "stock": 11
+              },
+              {
+                "option1": "660 W",
+                "sku": "BIFACI-660",
+                "price": "₹25,600",
+                "mrp": "₹31,500",
+                "stock": 6
+              }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/27873610/pexels-photo-27873610.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Polycrystalline",
+            "desc": "Lower efficiency, lower price. Only makes sense when you have plenty of roof and a tight budget — we will say so if that is not you.",
+            "meta": "The budget option",
+            "price": "₹9,800",
+            "mrp": "₹12,400",
+            "slug": "polycrystalline",
+            "enableOrder": true,
+            "body": "Polycrystalline is the older technology, and we are straightforward about that.\n\nIt runs at 16-17% efficiency against 20-21% for Mono PERC, which means more panels and more roof for the same output. If your roof is generous and the budget is tight, that is a perfectly sensible trade and the panels will last just as long.\n\nIf your roof is small, this is a false economy — you will fill the space and still not reach the system size you wanted. In that case spend the extra on Mono PERC.\n\nMost of our customers end up on Mono PERC. We stock these because for some roofs and some budgets they are genuinely the right answer.",
+            "productInfoTitle": "Panel specification",
+            "productInfo": [
+              {
+                "label": "Cell type",
+                "value": "Polycrystalline"
+              },
+              {
+                "label": "Efficiency",
+                "value": "16-17%"
+              },
+              {
+                "label": "Product warranty",
+                "value": "10 years"
+              },
+              {
+                "label": "Performance warranty",
+                "value": "25 years, 80% output"
+              },
+              {
+                "label": "Best for",
+                "value": "Large roofs, tight budgets"
+              }
+            ],
+            "attributes": [
+              {
+                "name": "Wattage",
+                "options": [
+                  {
+                    "value": "335 W"
+                  },
+                  {
+                    "value": "390 W"
+                  }
+                ]
+              }
+            ],
+            "variants": [
+              {
+                "option1": "335 W",
+                "sku": "POLYCR-335",
+                "price": "₹9,800",
+                "mrp": "₹12,400",
+                "stock": 46
+              },
+              {
+                "option1": "390 W",
+                "sku": "POLYCR-390",
+                "price": "₹11,300",
+                "mrp": "₹14,200",
+                "stock": 28
+              }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/12243093/pexels-photo-12243093.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "On-Grid Rooftop System",
+            "desc": "The complete job — panels, inverter, mounting, wiring, net metering and the subsidy paperwork. What most homes actually buy.",
+            "meta": "Complete system · Subsidy eligible",
+            "price": "₹62,000",
+            "mrp": "₹74,000",
+            "slug": "on-grid-rooftop-system",
+            "enableOrder": true,
+            "body": "This is what most people mean when they say they want solar.\n\nAn on-grid system runs alongside your existing MSEDCL connection. During the day the panels supply the house and anything spare is exported to the grid, spinning your meter backwards. At night you draw from the grid as normal. At the end of the billing cycle you pay only for the difference, which for a correctly sized system is close to nothing.\n\nThere is no battery, which is why it is the cheapest way to cut a bill — and also why it does not work during a power cut. If you want backup, look at the hybrid system instead.\n\nWHAT IS INCLUDED: panels, a grid-tied inverter, galvanised mounting structure, DC and AC cabling, earthing, lightning arrestor, and the full net-metering application with MSEDCL. We also file your subsidy claim under the PM Surya Ghar scheme and follow it up until it lands in your account.\n\nSIZING, ROUGHLY: 1 kW generates about 4 units a day averaged across the year in Nagpur, and needs about 80 sq ft of shade-free roof. A house using 300 units a month usually wants 2-3 kW. Send us a recent bill and we will size it properly.",
+            "productInfoTitle": "What you get",
+            "productInfo": [
+              {
+                "label": "Inverter",
+                "value": "Grid-tied string inverter, 10-year warranty"
+              },
+              {
+                "label": "Mounting",
+                "value": "Hot-dip galvanised, wind rated"
+              },
+              {
+                "label": "Net metering",
+                "value": "Application filed by us"
+              },
+              {
+                "label": "Subsidy",
+                "value": "PM Surya Ghar claim filed and followed up"
+              },
+              {
+                "label": "Installation",
+                "value": "2-4 days on site"
+              },
+              {
+                "label": "Generation",
+                "value": "About 4 units per kW per day, Nagpur average"
+              }
+            ],
+            "attributes": [
+              {
+                "name": "System Size",
+                "options": [
+                  {
+                    "value": "1 kW"
+                  },
+                  {
+                    "value": "2 kW"
+                  },
+                  {
+                    "value": "3 kW"
+                  },
+                  {
+                    "value": "5 kW"
+                  },
+                  {
+                    "value": "10 kW"
+                  }
+                ]
+              },
+              {
+                "name": "Panel Type",
+                "options": [
+                  {
+                    "value": "Mono PERC"
+                  },
+                  {
+                    "value": "Bifacial"
+                  }
+                ]
+              }
+            ],
+            "variants": [
+              {
+                "option1": "1 kW",
+                "option2": "Mono PERC",
+                "sku": "ONG-1-MP",
+                "price": "₹62,000",
+                "mrp": "₹74,000",
+                "stock": 5
+              },
+              {
+                "option1": "1 kW",
+                "option2": "Bifacial",
+                "sku": "ONG-1-BF",
+                "price": "₹71,000",
+                "mrp": "₹84,000",
+                "stock": 5
+              },
+              {
+                "option1": "2 kW",
+                "option2": "Mono PERC",
+                "sku": "ONG-2-MP",
+                "price": "₹1,18,000",
+                "mrp": "₹1,38,000",
+                "stock": 5
+              },
+              {
+                "option1": "2 kW",
+                "option2": "Bifacial",
+                "sku": "ONG-2-BF",
+                "price": "₹1,34,000",
+                "mrp": "₹1,56,000",
+                "stock": 5
+              },
+              {
+                "option1": "3 kW",
+                "option2": "Mono PERC",
+                "sku": "ONG-3-MP",
+                "price": "₹1,68,000",
+                "mrp": "₹1,96,000",
+                "stock": 5
+              },
+              {
+                "option1": "3 kW",
+                "option2": "Bifacial",
+                "sku": "ONG-3-BF",
+                "price": "₹1,92,000",
+                "mrp": "₹2,24,000",
+                "stock": 5
+              },
+              {
+                "option1": "5 kW",
+                "option2": "Mono PERC",
+                "sku": "ONG-5-MP",
+                "price": "₹2,72,000",
+                "mrp": "₹3,15,000",
+                "stock": 5
+              },
+              {
+                "option1": "5 kW",
+                "option2": "Bifacial",
+                "sku": "ONG-5-BF",
+                "price": "₹3,10,000",
+                "mrp": "₹3,58,000",
+                "stock": 5
+              },
+              {
+                "option1": "10 kW",
+                "option2": "Mono PERC",
+                "sku": "ONG-10-MP",
+                "price": "₹5,20,000",
+                "mrp": "₹5,95,000",
+                "stock": 5
+              },
+              {
+                "option1": "10 kW",
+                "option2": "Bifacial",
+                "sku": "ONG-10-BF",
+                "price": "₹5,90,000",
+                "mrp": "₹6,75,000",
+                "stock": 5
+              }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/29206491/pexels-photo-29206491.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Hybrid System with Battery",
+            "desc": "On-grid savings plus backup that keeps running through a power cut. Costs more, and for most homes it is worth it only if cuts are frequent.",
+            "meta": "Backup included · Subsidy eligible",
+            "price": "₹2,15,000",
+            "mrp": "₹2,48,000",
+            "slug": "hybrid-solar-system",
+            "enableOrder": true,
+            "body": "A hybrid system does everything an on-grid system does, and adds a battery so the house keeps running when the grid goes down.\n\nBe clear-eyed about the cost. The battery is the expensive part and it is the part that wears out — lithium packs are warranted for around ten years, lead-acid for far less. If your area gets a handful of short cuts a year, an on-grid system and an inverter you already own is better value.\n\nIf cuts are frequent, or you run something that genuinely cannot stop, the maths changes and this is the right system.\n\nWe size the battery to your essential load — lights, fans, router, one fridge — not the whole house. Backing up an air conditioner is possible and expensive, and we would rather tell you the number before you order than after.",
+            "productInfoTitle": "What you get",
+            "productInfo": [
+              {
+                "label": "Inverter",
+                "value": "Hybrid inverter with battery management"
+              },
+              {
+                "label": "Battery",
+                "value": "Lithium LFP, 10-year warranty"
+              },
+              {
+                "label": "Backup",
+                "value": "Sized to your essential load"
+              },
+              {
+                "label": "Switchover",
+                "value": "Automatic, under 20 ms"
+              },
+              {
+                "label": "Net metering",
+                "value": "Yes, exports when the battery is full"
+              }
+            ],
+            "attributes": [
+              {
+                "name": "System Size",
+                "options": [
+                  {
+                    "value": "3 kW"
+                  },
+                  {
+                    "value": "5 kW"
+                  },
+                  {
+                    "value": "10 kW"
+                  }
+                ]
+              },
+              {
+                "name": "Battery",
+                "options": [
+                  {
+                    "value": "5 kWh"
+                  },
+                  {
+                    "value": "10 kWh"
+                  }
+                ]
+              }
+            ],
+            "variants": [
+              {
+                "option1": "3 kW",
+                "option2": "5 kWh",
+                "sku": "HYB-3-5",
+                "price": "₹2,15,000",
+                "mrp": "₹2,48,000",
+                "stock": 4
+              },
+              {
+                "option1": "3 kW",
+                "option2": "10 kWh",
+                "sku": "HYB-3-10",
+                "price": "₹2,74,000",
+                "mrp": "₹3,12,000",
+                "stock": 3
+              },
+              {
+                "option1": "5 kW",
+                "option2": "5 kWh",
+                "sku": "HYB-5-5",
+                "price": "₹3,26,000",
+                "mrp": "₹3,72,000",
+                "stock": 4
+              },
+              {
+                "option1": "5 kW",
+                "option2": "10 kWh",
+                "sku": "HYB-5-10",
+                "price": "₹3,85,000",
+                "mrp": "₹4,38,000",
+                "stock": 2
+              },
+              {
+                "option1": "10 kW",
+                "option2": "5 kWh",
+                "sku": "HYB-10-5",
+                "price": "₹5,80,000",
+                "mrp": "₹6,55,000",
+                "stock": 2
+              },
+              {
+                "option1": "10 kW",
+                "option2": "10 kWh",
+                "sku": "HYB-10-10",
+                "price": "₹6,40,000",
+                "mrp": "₹7,20,000",
+                "stock": 2
+              }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/15751131/pexels-photo-15751131.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Off-Grid System",
+            "desc": "No grid connection at all — battery and panels only. For farms, borewells and sites where the line has never reached.",
+            "meta": "No grid needed",
+            "price": "₹1,85,000",
+            "mrp": "₹2,14,000",
+            "slug": "off-grid-solar-system",
+            "enableOrder": true,
+            "body": "An off-grid system carries the whole load on its own. There is no grid to fall back on, so the battery and the panel array both have to be sized for the worst week of the year, not the average one.\n\nThat makes it the most expensive way to buy solar per unit generated, and it is the right answer only when there genuinely is no connection — a farm pump, a borewell, a site office, a house where the line has never reached.\n\nIf you have a connection and it is simply unreliable, you want the hybrid system, not this one.",
+            "productInfoTitle": "What you get",
+            "productInfo": [
+              {
+                "label": "Inverter",
+                "value": "Off-grid inverter with MPPT charge controller"
+              },
+              {
+                "label": "Battery",
+                "value": "Sized for two days of autonomy"
+              },
+              {
+                "label": "Grid connection",
+                "value": "Not required"
+              },
+              {
+                "label": "Typical use",
+                "value": "Farm pump, borewell, remote site"
+              }
+            ],
+            "attributes": [
+              {
+                "name": "System Size",
+                "options": [
+                  {
+                    "value": "2 kW"
+                  },
+                  {
+                    "value": "3 kW"
+                  },
+                  {
+                    "value": "5 kW"
+                  }
+                ]
+              }
+            ],
+            "variants": [
+              {
+                "option1": "2 kW",
+                "sku": "OFF-2",
+                "price": "₹1,85,000",
+                "mrp": "₹2,14,000",
+                "stock": 3
+              },
+              {
+                "option1": "3 kW",
+                "sku": "OFF-3",
+                "price": "₹2,48,000",
+                "mrp": "₹2,86,000",
+                "stock": 3
+              },
+              {
+                "option1": "5 kW",
+                "sku": "OFF-5",
+                "price": "₹3,90,000",
+                "mrp": "₹4,45,000",
+                "stock": 2
+              }
+            ]
+          },
+          {
+            "image": "https://images.pexels.com/photos/34593293/pexels-photo-34593293.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Solar Water Heater",
+            "desc": "The cheapest solar you can buy, and it pays back fastest. Nothing to do with your electricity meter — it just stops the geyser running.",
+            "meta": "Fastest payback",
+            "price": "₹24,000",
+            "mrp": "₹29,500",
+            "slug": "solar-water-heater",
+            "enableOrder": true,
+            "body": "A geyser is one of the hungriest things in an Indian home, and a solar water heater removes most of that load for a fraction of what a panel system costs.\n\nIt is a completely separate thing from rooftop panels — no inverter, no meter, no paperwork. Water runs through evacuated tubes on the roof, heats up, and sits in an insulated tank. On a clear Nagpur day it is hot by mid-morning and still warm the next dawn.\n\nOn a cloudy stretch in monsoon you will still need the backup element, and every tank we fit has one. Anyone who tells you otherwise has not lived through a Nagpur July.\n\nFor a family of four, 200 litres is the usual size and it typically pays for itself in two to three years.",
+            "productInfoTitle": "Specification",
+            "productInfo": [
+              {
+                "label": "Type",
+                "value": "Evacuated tube collector"
+              },
+              {
+                "label": "Tank",
+                "value": "Insulated stainless steel"
+              },
+              {
+                "label": "Backup",
+                "value": "Electric element included"
+              },
+              {
+                "label": "Warranty",
+                "value": "5 years on the system"
+              },
+              {
+                "label": "Typical payback",
+                "value": "2-3 years"
+              }
+            ],
+            "attributes": [
+              {
+                "name": "Tank Size",
+                "options": [
+                  {
+                    "value": "100 L"
+                  },
+                  {
+                    "value": "200 L"
+                  },
+                  {
+                    "value": "300 L"
+                  }
+                ]
+              }
+            ],
+            "variants": [
+              {
+                "option1": "100 L",
+                "sku": "SWH-100",
+                "price": "₹24,000",
+                "mrp": "₹29,500",
+                "stock": 12
+              },
+              {
+                "option1": "200 L",
+                "sku": "SWH-200",
+                "price": "₹36,500",
+                "mrp": "₹44,000",
+                "stock": 9
+              },
+              {
+                "option1": "300 L",
+                "sku": "SWH-300",
+                "price": "₹49,000",
+                "mrp": "₹58,000",
+                "stock": 5
+              }
+            ]
+          }
+        ],
+        "showRelated": true,
+        "relatedHeading": "Also worth looking at"
+      }
+    },
+    "services": {
+      "variant": "cards-3",
+      "props": {
+        "label": "What We Do",
+        "heading": "From the first survey to the twentieth year",
+        "sub": "Everything between deciding you want solar and the system still working a decade later.",
+        "items": [
+          {
+            "image": "https://images.pexels.com/photos/31763541/pexels-photo-31763541.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Site Survey & Sizing",
+            "meta": "Free · 45 minutes",
+            "desc": "We measure the shade-free area, check the roof structure and read your last six bills, then tell you the system size that actually fits. Free, and with no obligation to buy from us."
+          },
+          {
+            "image": "https://images.pexels.com/photos/38171130/pexels-photo-38171130.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Installation & Commissioning",
+            "meta": "2-4 days on site",
+            "desc": "Mounting structure, panels, inverter, DC and AC runs, earthing and lightning arrestor — installed by our own team, not a subcontractor, and commissioned in front of you."
+          },
+          {
+            "image": "https://images.pexels.com/photos/9893731/pexels-photo-9893731.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Net Metering & Approvals",
+            "meta": "We file everything",
+            "desc": "The MSEDCL net-metering application, the feasibility approval and the final inspection. This is the part people abandon halfway; it is included here."
+          },
+          {
+            "image": "https://images.pexels.com/photos/12606669/pexels-photo-12606669.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Subsidy Paperwork",
+            "meta": "PM Surya Ghar",
+            "desc": "National Portal registration, the DISCOM steps, bank details and the follow-up until the subsidy is actually credited. We do not charge for this and we do not take a cut of it."
+          },
+          {
+            "image": "https://images.pexels.com/photos/27873610/pexels-photo-27873610.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Cleaning & AMC",
+            "meta": "Quarterly or on call",
+            "desc": "Dust costs you real output in this part of the country — a dirty array can lose 15-25% in the dry months. Quarterly cleaning and an annual electrical check."
+          },
+          {
+            "image": "https://images.pexels.com/photos/8853509/pexels-photo-8853509.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Repairs & Warranty Claims",
+            "meta": "Any brand",
+            "desc": "Inverter faults, dead strings, water ingress, panels that stopped producing. We service systems we did not install, and we handle the manufacturer claim for you."
+          }
+        ]
+      }
+    },
+    "gallery": {
+      "variant": "grid-3",
+      "props": {
+        "label": "Recent Work",
+        "heading": "Roofs around Nagpur",
+        "sub": "Nothing sells solar like seeing it on a roof like yours.",
+        "lightbox": true,
+        "images": [
+          {
+            "image": "https://images.pexels.com/photos/12243093/pexels-photo-12243093.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "alt": "Rooftop solar array on a family home"
+          },
+          {
+            "image": "https://images.pexels.com/photos/29114658/pexels-photo-29114658.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "alt": "Panels fitted on a tiled pitched roof"
+          },
+          {
+            "image": "https://images.pexels.com/photos/27873610/pexels-photo-27873610.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "alt": "Rows of panels on a commercial terrace"
+          },
+          {
+            "image": "https://images.pexels.com/photos/29206491/pexels-photo-29206491.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "alt": "Installer carrying a panel onto the roof"
+          },
+          {
+            "image": "https://images.pexels.com/photos/38171130/pexels-photo-38171130.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "alt": "Wall-mounted inverter being wired in"
+          },
+          {
+            "image": "https://images.pexels.com/photos/12606669/pexels-photo-12606669.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "alt": "Close view of a finished array"
+          },
+          {
+            "image": "https://images.pexels.com/photos/27637329/pexels-photo-27637329.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "alt": "Rooftop array beside the incoming supply line"
+          },
+          {
+            "image": "https://images.pexels.com/photos/8853509/pexels-photo-8853509.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "alt": "Half-cut monocrystalline cells at close range"
+          },
+          {
+            "image": "https://images.pexels.com/photos/9893731/pexels-photo-9893731.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "alt": "Cell surface texture on an N-type panel"
+          }
+        ]
+      }
+    },
+    "stats": {
+      "variant": "bar",
+      "props": {
+        "label": "Since 2016",
+        "heading": "What we have put on roofs",
+        "countUp": true,
+        "items": [
+          {
+            "icon": "home",
+            "value": "1250",
+            "suffix": "+",
+            "label": "Rooftops fitted"
+          },
+          {
+            "icon": "zap",
+            "value": "6.4",
+            "suffix": " MW",
+            "label": "Commissioned"
+          },
+          {
+            "icon": "trending-up",
+            "value": "92",
+            "suffix": "%",
+            "label": "Average bill cut"
+          },
+          {
+            "icon": "award",
+            "value": "9",
+            "suffix": " yrs",
+            "label": "Fitting in Nagpur"
+          }
+        ]
+      }
+    },
+    "testimonials": {
+      "variant": "cards-3",
+      "props": {
+        "label": "Customers",
+        "heading": "What the bill looked like afterwards",
+        "items": [
+          {
+            "name": "Rajesh Deshmukh",
+            "role": "Manish Nagar",
+            "rating": 5,
+            "text": "Bill was ₹4,200 a month before, now it is between ₹90 and ₹200. They told me 3 kW when another company had quoted 5 kW, and they were right — the bigger system would have been exporting power I get very little for."
+          },
+          {
+            "name": "Anita Kulkarni",
+            "role": "Housing society, Trimurti Nagar",
+            "rating": 5,
+            "text": "Thirty-two flats, one common meter. What sold it was that they did the entire net-metering file themselves. Our previous vendor handed us a folder and wished us luck."
+          },
+          {
+            "name": "Imran Shaikh",
+            "role": "Fabrication unit, Hingna MIDC",
+            "rating": 5,
+            "text": "20 kW on the workshop roof. Two years in, one inverter fault, replaced under warranty in four days without me chasing anybody."
+          }
+        ]
+      }
+    },
+    "blog": {
+      "variant": "grid-3",
+      "props": {
+        "label": "Worth Knowing",
+        "heading": "Before you buy",
+        "posts": [
+          {
+            "image": "https://images.pexels.com/photos/29114658/pexels-photo-29114658.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "How the PM Surya Ghar subsidy actually works",
+            "excerpt": "Who qualifies, what the DISCOM has to approve first, and roughly how long the money takes to arrive.",
+            "date": "2026-07-14"
+          },
+          {
+            "image": "https://images.pexels.com/photos/12606669/pexels-photo-12606669.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "Mono PERC, bifacial or TOPCon — which is right for your roof",
+            "excerpt": "The honest version: which of these earns back its extra cost, and which is a waste of money on a typical Nagpur terrace.",
+            "date": "2026-06-28"
+          },
+          {
+            "image": "https://images.pexels.com/photos/27873610/pexels-photo-27873610.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "title": "What solar really does during monsoon",
+            "excerpt": "Output does drop. Here is by how much, what a July bill actually looks like, and why annual figures matter more than any single month.",
+            "date": "2026-06-02"
+          }
+        ]
+      }
+    },
+    "faq": {
+      "variant": "accordion",
+      "props": {
+        "label": "Questions",
+        "heading": "The things people ask before they commit",
+        "openFirst": true,
+        "items": [
+          {
+            "q": "How much will this actually cut my bill?",
+            "a": "For a correctly sized on-grid system, most of our residential customers end up paying only the fixed charges — usually between ₹90 and ₹300 a month against ₹3,000-₹5,000 before. It depends on how well the system size matches your usage, which is exactly what the free survey is for. We would rather show you the number from your own bills than quote you an average."
+          },
+          {
+            "q": "What subsidy can I get, and do you handle it?",
+            "a": "Residential rooftop systems are eligible under the PM Surya Ghar scheme, which pays a fixed amount per kW up to a cap for systems of 3 kW and above. We register you on the National Portal, get the DISCOM approvals, submit the claim and follow it up until it is credited. We charge nothing for this and we do not take a share of it. Rates are set by the government and do change, so we will confirm the current figure at your survey."
+          },
+          {
+            "q": "What happens during a power cut?",
+            "a": "An on-grid system shuts down. That is a safety rule, not a fault — it stops your panels feeding a line that a lineman may be working on. If you want power through a cut you need the hybrid system with a battery, which costs more. We will tell you plainly whether your area has enough cuts to justify it."
+          },
+          {
+            "q": "Will the panels damage my roof, and what about leaks?",
+            "a": "On an RCC roof the structure is ballasted or chemically anchored and the roof is not penetrated at all. On a tiled or sheet roof we use proper flashing at every fixing. We have not caused a leak yet, and if we did it would be ours to fix."
+          },
+          {
+            "q": "How much roof do I need?",
+            "a": "Roughly 80 square feet of shade-free roof per kW with Mono PERC panels, a little less with TOPCon. Shade matters more than area — a water tank or a neighbouring wall that shades the array for two hours a day changes the design and sometimes the panel choice."
+          },
+          {
+            "q": "What does it need in the way of maintenance?",
+            "a": "Cleaning, mainly. Dust in this region can cost you 15-25% of your output in the dry months, and rinsing the array every few weeks recovers most of it. Beyond that it is an annual electrical check. There are no moving parts."
+          },
+          {
+            "q": "How long until it pays for itself?",
+            "a": "For a residential on-grid system after subsidy, typically three to five years, then twenty more years of near-zero bills. Commercial systems are usually faster because the tariff is higher and the depreciation benefit applies."
+          }
+        ]
+      }
+    },
+    "hours": {
+      "variant": "list",
+      "props": {
+        "label": "Office",
+        "heading": "When you can reach us",
+        "sub": "Site surveys run through the day, including Sundays by appointment — the roof is easier to assess when you are home."
+      }
+    },
+    "cta": {
+      "variant": "banner",
+      "props": {
+        "heading": "Send us your last electricity bill",
+        "sub": "It is the fastest way to a real number. WhatsApp a photo of your latest MSEDCL bill and we will come back with the system size, the price after subsidy and roughly what your new bill would look like.",
+        "ctaPrimary": {
+          "text": "WhatsApp 90280 33445",
+          "href": "https://wa.me/919028033445",
+          "style": "primary"
+        },
+        "ctaSecondary": {
+          "text": "Book a Free Survey",
+          "href": "/contact",
+          "style": "ghost"
+        },
+        "showWhatsapp": true,
+        "showCall": true
+      }
+    },
+    "contact": {
+      "variant": "form-map",
+      "props": {
+        "label": "Contact",
+        "heading": "Book a free site survey",
+        "sub": "Plot 14, Wardha Road, Somalwada, Nagpur 440025.\n\nTell us your area and roughly what your monthly bill is, and we will bring the right figures with us.",
+        "showPhone": true,
+        "showWhatsapp": true,
+        "showEmail": true,
+        "showAddress": true,
+        "showHours": true,
+        "showMap": true,
+        "mapUrl": "https://www.google.com/maps?q=Somalwada%2C%20Wardha%20Road%2C%20Nagpur&output=embed",
+        "submitText": "Book My Free Survey"
+      }
+    },
+    "footer": {
+      "variant": "columns",
+      "props": {
+        "blurb": "Suryodaya Solar — rooftop solar for homes and businesses across Nagpur. Panels, inverters, net metering and the PM Surya Ghar subsidy, handled end to end. Fitting since 2016.",
+        "showContact": true,
+        "showHours": true,
+        "showSocial": true,
+        "showLegal": true,
+        "columns": [
+          {
+            "title": "Panels",
+            "links": [
+              {
+                "text": "Mono PERC Half-Cut",
+                "href": "/solar-panels"
+              },
+              {
+                "text": "TOPCon N-Type",
+                "href": "/solar-panels"
+              },
+              {
+                "text": "Bifacial",
+                "href": "/solar-panels"
+              },
+              {
+                "text": "Polycrystalline",
+                "href": "/solar-panels"
+              }
+            ]
+          },
+          {
+            "title": "Systems",
+            "links": [
+              {
+                "text": "On-Grid Rooftop",
+                "href": "/solar-panels"
+              },
+              {
+                "text": "Hybrid with Battery",
+                "href": "/solar-panels"
+              },
+              {
+                "text": "Off-Grid",
+                "href": "/solar-panels"
+              },
+              {
+                "text": "Solar Water Heater",
+                "href": "/solar-panels"
+              }
+            ]
+          },
+          {
+            "title": "Company",
+            "links": [
+              {
+                "text": "Services",
+                "href": "/services"
+              },
+              {
+                "text": "Contact & survey",
+                "href": "/contact"
+              },
+              {
+                "text": "Call — 90280 33445",
+                "href": "tel:+919028033445"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "pages": [
+    {
+      "id": "home",
+      "slug": "/",
+      "title": "Home",
+      "seo": {
+        "title": "Suryodaya Solar | Rooftop Solar Panels & Installation in Nagpur",
+        "description": "Rooftop solar for homes and businesses in Nagpur. Mono PERC, bifacial and TOPCon panels, on-grid and hybrid systems, net metering and PM Surya Ghar subsidy handled. Free site survey.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        "header",
+        "hero",
+        "about",
+        "products",
+        "services",
+        "stats",
+        "testimonials",
+        "faq",
+        "cta",
+        "contact",
+        "footer"
+      ]
+    },
+    {
+      "id": "solar-panels",
+      "slug": "/solar-panels",
+      "title": "Solar Panels",
+      "seo": {
+        "title": "Solar Panel Types & Prices — Mono PERC, Bifacial, TOPCon | Suryodaya Solar",
+        "description": "Compare monocrystalline, bifacial, TOPCon and polycrystalline solar panels by wattage, and complete on-grid, hybrid and off-grid systems from 1 kW to 10 kW with prices.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        "products",
+        "gallery",
+        "faq"
+      ],
+      "content": {
+        "products": {
+          "props": {
+            "label": "The Full Catalogue",
+            "heading": "Every panel type, and what it is actually for",
+            "sub": "Pick the panel or the complete system. Prices update as you choose the size and the panel type — and the figures shown are before subsidy."
+          }
+        }
+      }
+    },
+    {
+      "id": "services",
+      "slug": "/services",
+      "title": "Services",
+      "seo": {
+        "title": "Solar Installation, Net Metering & Subsidy Help in Nagpur | Suryodaya Solar",
+        "description": "Free site survey and sizing, installation by our own team, MSEDCL net metering, PM Surya Ghar subsidy paperwork, quarterly cleaning and AMC, and repairs on any brand.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        "services",
+        "about",
+        "stats",
+        "faq",
+        "cta"
+      ],
+      "content": {
+        "services": {
+          "props": {
+            "label": "Our Services",
+            "heading": "The work either side of the panels",
+            "sub": "Buying the hardware is the easy part. Sizing it correctly, getting it approved and keeping it producing is the job."
+          }
+        }
+      }
+    },
+    {
+      "id": "contact",
+      "slug": "/contact",
+      "title": "Contact",
+      "seo": {
+        "title": "Book a Free Solar Site Survey in Nagpur | Suryodaya Solar",
+        "description": "Plot 14, Wardha Road, Somalwada, Nagpur. Call or WhatsApp your last electricity bill and get a system size, a price after subsidy and an estimated new bill.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        "contact",
+        "hours",
+        "faq",
+        "cta"
+      ]
+    }
+  ],
+  "notes": "CONTENT MODEL: Built as a Nagpur rooftop-solar installer (Suryodaya Solar). The panel CATALOGUE is the centre of the site, which is what the category was asked for — four panel technologies sold by wattage, plus four complete systems. The On-Grid system carries the full variant matrix (System Size 1/2/3/5/10 kW x Panel Type Mono PERC/Bifacial = 10 priced combinations); Hybrid uses Size x Battery. FOUR pages via the recipe-level 'pages' array: Home (/), Solar Panels (/solar-panels), Services (/services), Contact (/contact), with per-page content overrides retitling the shared products/services sections.\n\nVIDEO: the hero plays a muted looping clip of an installer in hi-vis fitting panels on a roof (Pexels 8853531), chosen over the aerial solar-farm shots on purpose — a utility-scale farm says 'power station', a person on a roof says 'we will come and fit yours'. Overlay 0.55 keeps the headline readable against the bright sky.\n\nCOPY ANGLE worth preserving: the decisive objection in residential solar is 'am I being oversold?', so the site leans the other way throughout — sizing from six months of real bills, a testimonial about being talked DOWN from 5 kW to 3 kW, an honest warning that bifacial gains almost nothing on a dark tiled roof, polycrystalline described as a false economy on a small roof, and a plain statement that on-grid systems do NOT work during a power cut.\n\nSUBSIDY FIGURES: the PM Surya Ghar scheme is named but NO rupee amount is quoted anywhere, deliberately. Government rates change, and a stale number copied into every customer site built from this recipe would be worse than no number. The FAQ says the amount is confirmed at the survey. Keep it that way.\n\nPRICES are indicative demo figures for a template and will be edited per customer.\n\nBRANDING: image 38171130 (services / Installation & Commissioning) has another company's name legible on the installer's shirt. It is the only genuine commissioning shot in the set, so it stays — but it is the FIRST image to replace with the customer's own photo, and it must never move onto a product card.\n\nIMAGES: every id was viewed on a contact sheet first. REJECTED from the 'solar panel' searches, which are unusually bad: 12498725 (a planet and the sun, i.e. astronomy), 18829033 (wind turbines), 15970027 (an oil refinery), 29278365 (a sunflower field), 31091544 (a textile factory), 38603325 (a solar-powered garden ornament), 6296911 (a hand holding a phone), 7578882 (a model house). Do not trust this search without looking."
+}
