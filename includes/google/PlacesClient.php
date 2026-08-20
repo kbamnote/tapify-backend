@@ -51,11 +51,18 @@ class PlacesClient
      * Returns AT MOST $limit candidates, each {place_id, name, address}. The bot
      * shows these for the owner to confirm — scoring the wrong shop loses the
      * lead outright, so we never auto-pick even when there is only one result.
+     *
+     * RETURNS NULL WHEN THE CALL ITSELF FAILED, and an empty array only when
+     * Google genuinely had no match. Collapsing those two into one empty array
+     * made the bot tell customers "I could not find your business on Google"
+     * while the real problem was our own API key — blaming the customer for our
+     * outage, and hiding the outage from us.
      */
-    public function searchText(string $query, int $limit = 3): array
+    public function searchText(string $query, int $limit = 3): ?array
     {
         $query = trim($query);
-        if ($query === '' || !$this->isConfigured()) return [];
+        if ($query === '') return [];
+        if (!$this->isConfigured()) return null;
 
         $body = [
             'textQuery'     => $query,
@@ -67,6 +74,7 @@ class PlacesClient
         ];
 
         $res = $this->post(self::SEARCH_URL, $body, self::SEARCH_FIELDS);
+        if ($res === null) return null;          // the call failed, not "no match"
         $out = [];
         foreach (($res['places'] ?? []) as $p) {
             if (empty($p['id'])) continue;
@@ -123,6 +131,65 @@ class PlacesClient
             'category'        => $res['primaryTypeDisplayName']['text'] ?? '',
             'website'         => $res['websiteUri'] ?? '',
         ];
+    }
+
+    /**
+     * Turn a pasted Google Maps link into something searchable.
+     *
+     * The bot invites this ("you can also paste your Google Maps link"), and a
+     * shortened maps.app.goo.gl URL handed straight to Places as a text query
+     * matches nothing — which is what customers were seeing. Following the
+     * redirect gives a full /maps/place/<Name>/@lat,lng URL, and the name out
+     * of that is a far better query than anything they would have typed.
+     *
+     * Costs no Places quota: it is a plain redirect fetch, not an API call.
+     *
+     * @return string|null the business name, or null if this was not a Maps link
+     */
+    public function resolveMapsLink(string $text): ?string
+    {
+        $text = trim($text);
+        if (!preg_match('~https?://\S+~i', $text, $m)) return null;
+        $url = $m[0];
+        if (!preg_match('~(google\.[a-z.]+/maps|maps\.app\.goo\.gl|goo\.gl/maps)~i', $url)) return null;
+
+        $final = $url;
+        // Follow up to 5 hops by hand: CURLOPT_FOLLOWLOCATION is disabled on
+        // some hosts with open_basedir set, and silently not following would
+        // look exactly like a bad link.
+        for ($i = 0; $i < 5; $i++) {
+            $ch = curl_init($final);
+            curl_setopt_array($ch, [
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_HEADER         => true,
+                CURLOPT_NOBODY         => true,
+                CURLOPT_FOLLOWLOCATION => false,
+                CURLOPT_TIMEOUT        => 10,
+                CURLOPT_USERAGENT      => 'Mozilla/5.0',
+            ]);
+            $head = curl_exec($ch);
+            $code = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            curl_close($ch);
+            if ($head === false) break;
+            if ($code >= 300 && $code < 400 && preg_match('~^Location:\s*(\S+)~mi', $head, $lm)) {
+                $final = trim($lm[1]);
+                continue;
+            }
+            break;
+        }
+
+        // .../maps/place/The+Business+Name/@21.1,79.1,17z/...
+        if (preg_match('~/maps/place/([^/@?]+)~', $final, $pm)) {
+            $name = urldecode(str_replace('+', ' ', $pm[1]));
+            $name = trim(preg_replace('/\s+/', ' ', $name));
+            if ($name !== '') return $name;
+        }
+        // ...?q=Business+Name  /  ...&query=Business+Name
+        if (preg_match('~[?&](?:q|query)=([^&]+)~', $final, $qm)) {
+            $name = trim(urldecode(str_replace('+', ' ', $qm[1])));
+            if ($name !== '' && !preg_match('~^-?\d+\.\d+,~', $name)) return $name;
+        }
+        return null;
     }
 
     /* --------------------------------------------------------- spend guard */

@@ -66,16 +66,24 @@ if ($placeId === '') {
     if (mb_strlen($query) < 3) {
         sendError('Send a business name and city, at least 3 characters.', 422);
     }
+    // A pasted Maps link is not a searchable phrase. Resolve it to the business
+    // name first — the bot explicitly invites people to paste one.
+    $resolved = $places->resolveMapsLink($query);
+    if ($resolved !== null) $query = $resolved;
+
     if (!PlacesClient::spendAllowed($db)) {
         sendError('Busy right now — try again in a little while.', 429);
     }
     PlacesClient::countCall($db);
 
     $candidates = $places->searchText($query, 3);
-    if (!$candidates) {
-        sendSuccess('No matches', ['candidates' => []]);
+    if ($candidates === null) {
+        // The lookup itself failed. Saying "no match" here would blame the
+        // customer's business for our outage, and bury the outage.
+        sendError('Could not reach Google just now. Please try again shortly.', 502);
     }
-    sendSuccess('Matches', ['candidates' => $candidates]);
+    sendSuccess($candidates ? 'Matches' : 'No matches',
+                ['candidates' => $candidates, 'query' => $query]);
 }
 
 /* -------------------------------------------------- mode 2: score a place */
