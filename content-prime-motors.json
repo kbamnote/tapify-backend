@@ -1,0 +1,759 @@
+{
+  "schemaVersion": 1,
+  "site": {
+    "name": "Prime Motors",
+    "industry": "automotive",
+    "locale": "en-IN"
+  },
+  "theme": {
+    "preset": "onyx-gilt",
+    "mode": "light",
+    "color": {
+      "primary": "#1A1A1D",
+      "secondary": "#3A3A3F",
+      "accent": "#8F6B18",
+      "bg": "#FBF9F4",
+      "surface": "#FFFFFF",
+      "text": "#1F1D1A",
+      "muted": "#6B655C",
+      "border": "#E8E2D6"
+    },
+    "font": {
+      "heading": "Jost",
+      "body": "Karla"
+    },
+    "radius": "md",
+    "spacing": "comfortable",
+    "container": "normal"
+  },
+  "nav": {
+    "header": [
+      {
+        "label": "Home",
+        "pageId": "home"
+      },
+      {
+        "label": "What We Do",
+        "pageId": "services"
+      },
+      {
+        "label": "Contact",
+        "pageId": "contact"
+      }
+    ]
+  },
+  "business": {
+    "phone": "+91 88305 49446",
+    "whatsapp": "+91 79722 81001",
+    "email": "naseemkhan1376@gmail.com",
+    "address": "Jafar Nagar, New Mankapur, Nagpur, Maharashtra 440013",
+    "social": {
+      "instagram": "https://www.instagram.com/prime_motors._"
+    },
+    "hours": [
+      {
+        "day": "mon",
+        "open": "10:00 AM",
+        "close": "06:00 PM"
+      },
+      {
+        "day": "tue",
+        "open": "10:00 AM",
+        "close": "06:00 PM"
+      },
+      {
+        "day": "wed",
+        "open": "10:00 AM",
+        "close": "06:00 PM"
+      },
+      {
+        "day": "thu",
+        "open": "10:00 AM",
+        "close": "06:00 PM"
+      },
+      {
+        "day": "fri",
+        "open": "10:00 AM",
+        "close": "06:00 PM"
+      },
+      {
+        "day": "sat",
+        "open": "10:00 AM",
+        "close": "06:00 PM"
+      },
+      {
+        "day": "sun",
+        "open": "",
+        "close": "",
+        "closed": true
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "home",
+      "slug": "/",
+      "title": "Home",
+      "sections": [
+        {
+          "id": "header-1",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782128117/rf4wlstegi4cqdt0prrm.jpg",
+            "logoSize": "extra-large",
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "What We Do",
+                "href": "/services"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Call 88305 49446",
+              "href": "tel:+918830549446",
+              "style": "primary"
+            }
+          }
+        },
+        {
+          "id": "hero-1",
+          "type": "hero",
+          "visible": true,
+          "variant": "centered-bg",
+          "props": {
+            "badge": "Jafar Nagar, New Mankapur · Nagpur",
+            "heading": "Drive your dream.",
+            "sub": "Buying, selling, exchanging and financing new and pre-owned cars — Maruti Suzuki, Mahindra, Ford and more.\n\nThousands of cars sold, and a valuation done in front of you so you can see how we got to the number.",
+            "image": "https://images.pexels.com/videos/14228180/automobile-carriage-cars-luxury-14228180.jpeg?auto=compress&cs=tinysrgb&w=2000",
+            "videoUrl": "https://videos.pexels.com/video-files/14228180/14228180-sd_640_360_30fps.mp4",
+            "fullHeight": true,
+            "ctaPrimary": {
+              "text": "Call 88305 49446",
+              "href": "tel:+918830549446",
+              "style": "primary"
+            },
+            "ctaSecondary": {
+              "text": "What we do",
+              "href": "/services",
+              "style": "ghost"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "style": {
+            "overlay": 0.6
+          }
+        },
+        {
+          "id": "about-1",
+          "type": "about",
+          "visible": true,
+          "variant": "image-right",
+          "props": {
+            "label": "About Us",
+            "heading": "A dealer that shows its working",
+            "body": "Prime Motors is a customer-focused car dealership in Nagpur dealing in the sale, purchase and exchange of both new and pre-owned vehicles. Thousands of customers later, the thing we are known for is being straightforward.\n\nThat mostly shows up in the valuation. We do it in front of you and tell you what moved the number — the kilometres, the service history, a repaint on one panel — instead of handing you a figure and expecting you to take it. If you disagree, you are free to walk out with your car.\n\nOur stock covers Maruti Suzuki, Mahindra, Ford and others across a wide range of budgets. Every pre-owned car is inspected before it goes on the floor, and you are welcome to take any of them to your own mechanic before deciding.\n\nCome to Jafar Nagar and have a look.",
+            "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782128113/bepyv1omdvgmykoje4w7.png",
+            "imageFit": "contain",
+            "showPillars": true,
+            "pillars": [
+              {
+                "icon": "badge-check",
+                "title": "Valued in front of you",
+                "text": "You see how the number was reached, and what would raise it."
+              },
+              {
+                "icon": "car",
+                "title": "Inspected before it is listed",
+                "text": "And you can still take it to your own mechanic before you buy."
+              },
+              {
+                "icon": "file-text",
+                "title": "Paperwork handled",
+                "text": "RC transfer, NOC and loan closure — filed by us, not left to you."
+              },
+              {
+                "icon": "tag",
+                "title": "Real EMI, up front",
+                "text": "The monthly figure including interest, before anything is signed."
+              }
+            ]
+          }
+        },
+        {
+          "id": "services-1",
+          "type": "services",
+          "visible": true,
+          "variant": "cards-2",
+          "props": {
+            "label": "What We Do",
+            "heading": "Four ways people use us",
+            "sub": "Most customers come in for one of these and leave having done two — selling and buying usually happen in the same visit.",
+            "items": [
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782128504/pztlrcaatae9w60ottx2.webp",
+                "title": "Sell Your Car",
+                "meta": "Payment the same day",
+                "desc": "Bring the car in, we value it in front of you, and if you accept you are paid the same day. We handle the RC transfer and the paperwork so the car stops being your responsibility the moment you hand over the keys."
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782128521/ajtv5zo9y2vb1tpfqpc0.webp",
+                "title": "Buy a Car",
+                "meta": "New & pre-owned",
+                "desc": "Maruti Suzuki, Mahindra, Ford and more, across a range of budgets. Every pre-owned car is inspected before it reaches the floor, and you are welcome to take it to your own mechanic before you decide."
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782128458/iarubznfm6gpek7dmrof.webp",
+                "title": "Exchange",
+                "meta": "Old for new, one visit",
+                "desc": "Put your current car against the one you want. We value yours, adjust it against the price, and you settle only the difference — both transfers done together in a single visit."
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782128556/eatznmqs7kwyrgwhzfoj.png",
+                "title": "Finance",
+                "meta": "EMI arranged here",
+                "desc": "Loan assistance for both new and pre-owned cars. We tell you what the monthly EMI actually works out to, including interest, before you sign anything."
+              }
+            ]
+          }
+        },
+        {
+          "id": "embed-1",
+          "type": "embed",
+          "visible": true,
+          "variant": "grid-2",
+          "props": {
+            "label": "Instagram",
+            "heading": "Cars going out of the showroom",
+            "sub": "New arrivals and handovers go up on our Instagram first.",
+            "embeds": [
+              {
+                "url": "https://www.instagram.com/reel/DZuYTmBOHiK/"
+              },
+              {
+                "url": "https://www.instagram.com/reel/DZsQIyqsboE/"
+              }
+            ]
+          }
+        },
+        {
+          "id": "faq-1",
+          "type": "faq",
+          "visible": true,
+          "props": {
+            "label": "Before you come in",
+            "heading": "What people usually ask",
+            "openFirst": true,
+            "items": [
+              {
+                "q": "How do you decide what my car is worth?",
+                "a": "We check the model, year, kilometres, service history, accident history and the condition of the body and tyres, then value it against what that car is actually selling for in Nagpur right now. We do the valuation in front of you and explain what moved the number up or down. No obligation to accept it."
+              },
+              {
+                "q": "Can I get my mechanic to inspect a car before I buy it?",
+                "a": "Yes, and we would rather you did. Take it to whoever you trust. A dealer who says no to that question is telling you something."
+              },
+              {
+                "q": "What paperwork do I need to sell my car?",
+                "a": "The RC, insurance, PUC, and the original invoice if you still have it. Bring your ID and address proof too. If a loan is still running on the car, bring the NOC or tell us and we will help you get it — that is a common hold-up and it is fixable."
+              },
+              {
+                "q": "How long does the RC transfer take?",
+                "a": "We file it for you and it usually completes in a few weeks depending on the RTO. You do not have to chase it, and we will tell you when it is done."
+              },
+              {
+                "q": "Do you arrange finance for pre-owned cars as well?",
+                "a": "Yes. Rates and tenure differ from a new-car loan, and we will show you the real monthly figure including interest before you commit rather than quoting a headline rate."
+              },
+              {
+                "q": "Is there a warranty on a used car?",
+                "a": "It depends on the car — age, kilometres and what came with it. Ask about the specific car you are looking at and we will tell you straight what is and is not covered."
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-1",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Thinking of selling or exchanging?",
+            "sub": "Call 88305 49446 or WhatsApp 79722 81001. Send the model, year and kilometres and we will give you a rough range before you even drive over.",
+            "ctaPrimary": {
+              "text": "Call 88305 49446",
+              "href": "tel:+918830549446",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "contact-1",
+          "type": "contact",
+          "visible": true,
+          "variant": "form-map",
+          "props": {
+            "label": "Visit Us",
+            "heading": "Come and see the cars",
+            "sub": "Jafar Nagar, New Mankapur, Nagpur, Maharashtra 440013.\n\nOpen Monday to Saturday, 10:00 AM to 6:00 PM. Closed Sunday.",
+            "showPhone": true,
+            "showWhatsapp": true,
+            "showEmail": true,
+            "showAddress": true,
+            "showHours": true,
+            "showMap": true,
+            "mapUrl": "https://www.google.com/maps?q=Jafar%20Nagar%2C%20New%20Mankapur%2C%20Nagpur%20440013&output=embed",
+            "submitText": "Send Enquiry"
+          }
+        },
+        {
+          "id": "footer-1",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782128117/rf4wlstegi4cqdt0prrm.jpg",
+            "blurb": "Prime Motors — buying, selling, exchanging and financing new and pre-owned cars in Nagpur. Jafar Nagar, New Mankapur. Drive your dream.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "What we do",
+                "links": [
+                  {
+                    "text": "Sell your car",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Buy a car",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Exchange",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Finance",
+                    "href": "/services"
+                  }
+                ]
+              },
+              {
+                "title": "Prime Motors",
+                "links": [
+                  {
+                    "text": "Contact & directions",
+                    "href": "/contact"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/prime_motors._"
+                  }
+                ]
+              },
+              {
+                "title": "Contact",
+                "links": [
+                  {
+                    "text": "Call — 88305 49446",
+                    "href": "tel:+918830549446"
+                  },
+                  {
+                    "text": "WhatsApp — 79722 81001",
+                    "href": "https://wa.me/917972281001"
+                  },
+                  {
+                    "text": "naseemkhan1376@gmail.com",
+                    "href": "mailto:naseemkhan1376@gmail.com"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "services",
+      "slug": "/services",
+      "title": "What We Do",
+      "sections": [
+        {
+          "id": "header-2",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782128117/rf4wlstegi4cqdt0prrm.jpg",
+            "logoSize": "extra-large",
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "What We Do",
+                "href": "/services"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Call 88305 49446",
+              "href": "tel:+918830549446",
+              "style": "primary"
+            }
+          }
+        },
+        {
+          "id": "hero-2",
+          "type": "hero",
+          "visible": true,
+          "variant": "minimal",
+          "props": {
+            "badge": "Sell · Buy · Exchange · Finance",
+            "heading": "What we do",
+            "sub": "Four things, and they fit together — most people sell and buy in the same visit.",
+            "fullHeight": false,
+            "ctaPrimary": {
+              "text": "Call 88305 49446",
+              "href": "tel:+918830549446",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "services-2",
+          "type": "services",
+          "visible": true,
+          "variant": "cards-2",
+          "props": {
+            "label": "Our Services",
+            "heading": "In detail",
+            "sub": "If you are not sure which of these you need, call and describe the situation — it is usually obvious in a minute.",
+            "items": [
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782128504/pztlrcaatae9w60ottx2.webp",
+                "title": "Sell Your Car",
+                "meta": "Payment the same day",
+                "desc": "Bring the car in, we value it in front of you, and if you accept you are paid the same day. We handle the RC transfer and the paperwork so the car stops being your responsibility the moment you hand over the keys."
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782128521/ajtv5zo9y2vb1tpfqpc0.webp",
+                "title": "Buy a Car",
+                "meta": "New & pre-owned",
+                "desc": "Maruti Suzuki, Mahindra, Ford and more, across a range of budgets. Every pre-owned car is inspected before it reaches the floor, and you are welcome to take it to your own mechanic before you decide."
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782128458/iarubznfm6gpek7dmrof.webp",
+                "title": "Exchange",
+                "meta": "Old for new, one visit",
+                "desc": "Put your current car against the one you want. We value yours, adjust it against the price, and you settle only the difference — both transfers done together in a single visit."
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782128556/eatznmqs7kwyrgwhzfoj.png",
+                "title": "Finance",
+                "meta": "EMI arranged here",
+                "desc": "Loan assistance for both new and pre-owned cars. We tell you what the monthly EMI actually works out to, including interest, before you sign anything."
+              }
+            ]
+          }
+        },
+        {
+          "id": "faq-2",
+          "type": "faq",
+          "visible": true,
+          "props": {
+            "label": "Questions",
+            "heading": "The practical ones",
+            "openFirst": true,
+            "items": [
+              {
+                "q": "How do you decide what my car is worth?",
+                "a": "We check the model, year, kilometres, service history, accident history and the condition of the body and tyres, then value it against what that car is actually selling for in Nagpur right now. We do the valuation in front of you and explain what moved the number up or down. No obligation to accept it."
+              },
+              {
+                "q": "Can I get my mechanic to inspect a car before I buy it?",
+                "a": "Yes, and we would rather you did. Take it to whoever you trust. A dealer who says no to that question is telling you something."
+              },
+              {
+                "q": "What paperwork do I need to sell my car?",
+                "a": "The RC, insurance, PUC, and the original invoice if you still have it. Bring your ID and address proof too. If a loan is still running on the car, bring the NOC or tell us and we will help you get it — that is a common hold-up and it is fixable."
+              },
+              {
+                "q": "How long does the RC transfer take?",
+                "a": "We file it for you and it usually completes in a few weeks depending on the RTO. You do not have to chase it, and we will tell you when it is done."
+              },
+              {
+                "q": "Do you arrange finance for pre-owned cars as well?",
+                "a": "Yes. Rates and tenure differ from a new-car loan, and we will show you the real monthly figure including interest before you commit rather than quoting a headline rate."
+              },
+              {
+                "q": "Is there a warranty on a used car?",
+                "a": "It depends on the car — age, kilometres and what came with it. Ask about the specific car you are looking at and we will tell you straight what is and is not covered."
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-2",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Bring the car in",
+            "sub": "No appointment needed. Jafar Nagar, New Mankapur — Monday to Saturday, 10 to 6. Or call 88305 49446 first if you would rather.",
+            "ctaPrimary": {
+              "text": "Call 88305 49446",
+              "href": "tel:+918830549446",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-2",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782128117/rf4wlstegi4cqdt0prrm.jpg",
+            "blurb": "Prime Motors — buying, selling, exchanging and financing new and pre-owned cars in Nagpur. Jafar Nagar, New Mankapur. Drive your dream.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "What we do",
+                "links": [
+                  {
+                    "text": "Sell your car",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Buy a car",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Exchange",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Finance",
+                    "href": "/services"
+                  }
+                ]
+              },
+              {
+                "title": "Prime Motors",
+                "links": [
+                  {
+                    "text": "Contact & directions",
+                    "href": "/contact"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/prime_motors._"
+                  }
+                ]
+              },
+              {
+                "title": "Contact",
+                "links": [
+                  {
+                    "text": "Call — 88305 49446",
+                    "href": "tel:+918830549446"
+                  },
+                  {
+                    "text": "WhatsApp — 79722 81001",
+                    "href": "https://wa.me/917972281001"
+                  },
+                  {
+                    "text": "naseemkhan1376@gmail.com",
+                    "href": "mailto:naseemkhan1376@gmail.com"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "slug": "/contact",
+      "title": "Contact",
+      "sections": [
+        {
+          "id": "header-3",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782128117/rf4wlstegi4cqdt0prrm.jpg",
+            "logoSize": "extra-large",
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "What We Do",
+                "href": "/services"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Call 88305 49446",
+              "href": "tel:+918830549446",
+              "style": "primary"
+            }
+          }
+        },
+        {
+          "id": "contact-2",
+          "type": "contact",
+          "visible": true,
+          "variant": "form-map",
+          "props": {
+            "label": "Contact",
+            "heading": "Visit, call or message us",
+            "sub": "Jafar Nagar, New Mankapur, Nagpur, Maharashtra 440013.\n\nCalls on 88305 49446, WhatsApp on 79722 81001. Send us the model, year and kilometres and we will come back with a range.",
+            "showPhone": true,
+            "showWhatsapp": true,
+            "showEmail": true,
+            "showAddress": true,
+            "showHours": true,
+            "showMap": true,
+            "mapUrl": "https://www.google.com/maps?q=Jafar%20Nagar%2C%20New%20Mankapur%2C%20Nagpur%20440013&output=embed",
+            "submitText": "Send Enquiry"
+          }
+        },
+        {
+          "id": "hours-1",
+          "type": "hours",
+          "visible": true,
+          "variant": "list",
+          "props": {
+            "label": "Opening Hours",
+            "heading": "When we are open",
+            "sub": "Closed Sunday. If you are coming a long way, call ahead and we will make sure the car you want to see is on the floor.",
+            "highlightToday": true
+          }
+        },
+        {
+          "id": "cta-3",
+          "type": "cta",
+          "visible": true,
+          "variant": "banner",
+          "props": {
+            "heading": "Quicker on WhatsApp",
+            "sub": "Message 79722 81001 with your car model, year and kilometres — that is usually enough for us to give you a range before you visit.",
+            "ctaPrimary": {
+              "text": "Call 88305 49446",
+              "href": "tel:+918830549446",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          }
+        },
+        {
+          "id": "footer-3",
+          "type": "footer",
+          "visible": true,
+          "variant": "columns",
+          "props": {
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1782128117/rf4wlstegi4cqdt0prrm.jpg",
+            "blurb": "Prime Motors — buying, selling, exchanging and financing new and pre-owned cars in Nagpur. Jafar Nagar, New Mankapur. Drive your dream.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "columns": [
+              {
+                "title": "What we do",
+                "links": [
+                  {
+                    "text": "Sell your car",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Buy a car",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Exchange",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Finance",
+                    "href": "/services"
+                  }
+                ]
+              },
+              {
+                "title": "Prime Motors",
+                "links": [
+                  {
+                    "text": "Contact & directions",
+                    "href": "/contact"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/prime_motors._"
+                  }
+                ]
+              },
+              {
+                "title": "Contact",
+                "links": [
+                  {
+                    "text": "Call — 88305 49446",
+                    "href": "tel:+918830549446"
+                  },
+                  {
+                    "text": "WhatsApp — 79722 81001",
+                    "href": "https://wa.me/917972281001"
+                  },
+                  {
+                    "text": "naseemkhan1376@gmail.com",
+                    "href": "mailto:naseemkhan1376@gmail.com"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

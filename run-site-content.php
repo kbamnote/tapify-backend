@@ -53,6 +53,10 @@ $SITES = [
     // vCard. One letter is all that keeps these apart — do not "fix" the spelling.
     '111jameeen' => ['file' => 'content-111jameen.json', 'label' => '111Jameen.com'],
     'galaxycardecor' => ['file' => 'content-galaxy-car-decor.json', 'label' => 'Galaxy Car Decor'],
+    // Existing client: prime-motor.tapify.co.in is a live vCard, so the builder
+    // site takes a DIFFERENT slug — index.php resolves a published builder site
+    // before vcards.url_alias and would otherwise swallow the card.
+    'primemotors' => ['file' => 'content-prime-motors.json', 'label' => 'Prime Motors'],
 ];
 
 require_once __DIR__ . '/config/database.php';
