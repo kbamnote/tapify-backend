@@ -22,6 +22,44 @@ class SiteRenderer
     /** @var string current site slug (for the contact form's hidden field) */
     private static $slug = '';
 
+    /**
+     * @var string The customer's own domain for this site, if they have one and
+     *   this request genuinely arrived through it. Empty otherwise.
+     */
+    private static $customDomain = '';
+
+    /**
+     * The hostname to put in canonical tags, OG urls, share links and the QR.
+     *
+     * Custom domains do NOT go on Railway — its per-service domain cap is full
+     * (app.tapify.co.in plus the *.tapify.co.in wildcard). Cloudflare sits in
+     * front instead and fetches the page from the site's ordinary subdomain:
+     *
+     *   www.galaxycardecor.com -> Cloudflare -> galaxycardecor.tapify.co.in
+     *
+     * That rewrite is invisible to PHP, so without this helper every canonical
+     * tag, share link and QR code would point at the tapify subdomain — Google
+     * would index that, and the custom domain would be decorative.
+     *
+     * Cloudflare passes the real hostname in X-Forwarded-Host. That header is
+     * attacker-controlled on the public subdomain, so it is honoured ONLY when
+     * it matches the domain recorded against this site; anything else falls
+     * back to the real Host.
+     */
+    private static function publicHost(): string
+    {
+        if (self::$customDomain !== '') return self::$customDomain;
+        return $_SERVER['HTTP_HOST'] ?? (self::$slug . '.' . PUBLIC_BASE_DOMAIN);
+    }
+
+    /** Normalise a hostname for comparison: lowercase, no port, no leading www. */
+    private static function normHost(string $h): string
+    {
+        $h = strtolower(trim($h));
+        if (($p = strpos($h, ':')) !== false) $h = substr($h, 0, $p);
+        return preg_replace('/^www\./', '', $h);
+    }
+
     /* ------------------------------------------------------------- entry */
 
     /** Fast check used by the router: is this subdomain a PUBLISHED builder site? */
@@ -57,6 +95,38 @@ class SiteRenderer
 
         $site = SiteRepo::findBySlug(self::$slug);
         if (!$site || ($site['status'] ?? '') === 'disabled') { self::notFound(); return true; }
+
+        // Did this request come in through the customer's own domain? Only
+        // believe X-Forwarded-Host when it matches what is recorded for THIS
+        // site — the header is forgeable by anyone hitting the public subdomain,
+        // and an unchecked value would let a stranger rewrite our canonical tags.
+        self::$customDomain = '';
+        $claimed = self::normHost((string)($_SERVER['HTTP_X_FORWARDED_HOST'] ?? ''));
+        $owned   = self::normHost((string)($site['domain'] ?? ''));
+        if ($claimed !== '' && $owned !== '' && $claimed === $owned) {
+            // Keep whatever form the visitor actually used (with or without www)
+            // so the canonical matches the address in their address bar.
+            $seen = strtolower(trim((string)$_SERVER['HTTP_X_FORWARDED_HOST']));
+            if (($p = strpos($seen, ':')) !== false) $seen = substr($seen, 0, $p);
+            self::$customDomain = $seen;
+        }
+
+        // Once a custom domain is VERIFIED, the tapify subdomain becomes a
+        // duplicate of it, which splits the site's search ranking across two
+        // addresses. Send direct visitors to the real one.
+        //
+        // THE TRAP: Cloudflare reaches us BY requesting the subdomain, so an
+        // unconditional redirect here would bounce Cloudflare straight back to
+        // the customer's domain and loop forever. A request that arrived through
+        // the proxy is exactly the one that set $customDomain — so only redirect
+        // when it is EMPTY, i.e. somebody typed the subdomain directly.
+        if (self::$customDomain === ''
+            && !empty($site['domain'])
+            && !empty($site['domain_verified_at'])) {
+            $target = 'https://' . $site['domain'] . ($path === '' ? '/' : $path);
+            header('Location: ' . $target, true, 301);
+            return true;
+        }
 
         $published = SiteRepo::getPublished($site);
         $doc = is_array($published) ? ($published['doc'] ?? null) : null;
@@ -232,7 +302,7 @@ class SiteRenderer
             ? $seo['title']
             : ($page['title'] ?? $name) . ' | ' . $name;
 
-        $host = $_SERVER['HTTP_HOST'] ?? (self::$slug . '.tapify.co.in');
+        $host = self::publicHost();
         $canonical = $seo['canonical'] ?? ('https://' . $host . ($page['slug'] === '/' ? '' : $page['slug']));
         $og = self::media($seo['ogImage'] ?? null);
         // Fallback: use the favicon as a social share image when no specific
@@ -246,6 +316,11 @@ class SiteRenderer
         if (!empty($seo['description'])) $h .= '<meta name="description" content="' . self::esc($seo['description']) . '">';
         if (!empty($seo['keywords']) && is_array($seo['keywords'])) $h .= '<meta name="keywords" content="' . self::esc(implode(', ', $seo['keywords'])) . '">';
         $h .= '<meta name="robots" content="' . self::esc($seo['robots'] ?? 'index,follow') . '">';
+        // Which site this page belongs to. set-domain.php reads this when
+        // verifying a custom domain: fetching the customer's domain and finding
+        // THIS slug is the only proof the DNS and the Cloudflare route really
+        // reach us, rather than a parked page or somebody else's server.
+        $h .= '<meta name="tapify-site" content="' . self::esc(self::$slug) . '">';
         $h .= '<link rel="canonical" href="' . self::esc($canonical) . '">';
         if ($favicon) $h .= '<link rel="icon" href="' . self::esc($favicon) . '">';
         $h .= '<link rel="manifest" href="/manifest.json">';
@@ -2786,7 +2861,7 @@ JS;
     private static function secShare(array $s, array $doc): string
     {
         $p = $s['props'] ?? [];
-        $host = $_SERVER['HTTP_HOST'] ?? (self::$slug . '.tapify.co.in');
+        $host = self::publicHost();
         $url = trim((string)($p['url'] ?? '')) ?: ('https://' . $host);
         $enc = rawurlencode($url);
         $title = rawurlencode($doc['site']['name'] ?? 'Check this out');
@@ -2945,7 +3020,7 @@ JS;
         $phone   = preg_replace('/\D+/', '', $biz['phone'] ?? '');
         $address = trim((string)($biz['address'] ?? ''));
         $name    = self::esc($doc['site']['name'] ?? 'Website');
-        $url     = self::esc('https://' . ($_SERVER['HTTP_HOST'] ?? (self::$slug . '.tapify.co.in')));
+        $url     = self::esc('https://' . self::publicHost());
         $email   = self::esc($biz['email'] ?? '');
         $waPhone = preg_replace('/\D+/', '', $biz['whatsapp'] ?? '');
 
