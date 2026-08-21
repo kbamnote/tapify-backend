@@ -2,28 +2,31 @@
   "preset": "copper-ridge",
   "label": "Copper Ridge",
   "description": "Warm limestone, bronze and burnished copper — a sophisticated palette inspired by natural stone and warm metal. Modern, clean and premium — suits architects, interior designers, space planners and home renovation studios.",
-  "industries": ["architecture", "interior-design", "architect", "interior"],
-
+  "industries": [
+    "architecture",
+    "interior-design",
+    "architect",
+    "interior"
+  ],
   "tokens": {
     "mode": "light",
     "color": {
-      "primary":   "#8B6914",
+      "primary": "#8B6914",
       "secondary": "#5C4A3A",
-      "accent":    "#C88A3D",
-      "bg":        "#F7F4F0",
-      "surface":   "#FFFFFF",
-      "text":      "#1E1B16",
-      "muted":     "#8A827A",
-      "border":    "#E0DAD3"
+      "accent": "#96601E",
+      "bg": "#F7F4F0",
+      "surface": "#FFFFFF",
+      "text": "#1E1B16",
+      "muted": "#736C64",
+      "border": "#E0DAD3"
     },
     "font": {
       "heading": "Poppins",
-      "body":    "Inter"
+      "body": "Inter"
     },
-    "radius":    "md",
-    "spacing":   "comfortable",
+    "radius": "md",
+    "spacing": "comfortable",
     "container": "normal"
   },
-
-  "notes": "Tokens only — sections never hardcode colours, they read these as CSS variables. The warm limestone bg and bronze primary give this theme its architectural, earthy feel. Poppins is a clean geometric sans-serif that reads as modern and architectural. The copper accent is warm enough for WCAG AA. Changing `primary` here restyles every section, every page, instantly."
+  "notes": "Tokens only — sections never hardcode colours, they read these as CSS variables. The warm limestone bg and bronze primary give this theme its architectural, earthy feel. Poppins is a clean geometric sans-serif that reads as modern and architectural. The copper accent is warm enough for WCAG AA. Changing `primary` here restyles every section, every page, instantly. CONTRAST FIX: the original accent #C88A3D measured 2.68:1 on the bg and muted #8A827A 3.45:1 — both unreadable, and `accent` is what the renderer paints 12px meta text with in ~15 places. Darkened to #96601E and #736C64, the values already proven on the live Kalash Realities site, which had to correct them inline because this file was never fixed. Any site built from the architecture recipe inherits these, so do not lighten them back."
 }

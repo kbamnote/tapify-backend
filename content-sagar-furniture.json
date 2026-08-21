@@ -1,0 +1,2448 @@
+{
+  "schemaVersion": 1,
+  "site": {
+    "name": "Sagar Furniture & Enterprises",
+    "industry": "architecture",
+    "locale": "en-IN"
+  },
+  "theme": {
+    "preset": "copper-ridge",
+    "mode": "light",
+    "color": {
+      "primary": "#8B6914",
+      "secondary": "#5C4A3A",
+      "accent": "#96601E",
+      "bg": "#F7F4F0",
+      "surface": "#FFFFFF",
+      "text": "#1E1B16",
+      "muted": "#736C64",
+      "border": "#E0DAD3"
+    }
+  },
+  "nav": {
+    "header": [
+      {
+        "label": "Home",
+        "pageId": "home"
+      },
+      {
+        "label": "Products",
+        "pageId": "products"
+      },
+      {
+        "label": "About",
+        "pageId": "about"
+      },
+      {
+        "label": "Blog",
+        "pageId": "blog"
+      },
+      {
+        "label": "Contact",
+        "pageId": "contact"
+      }
+    ]
+  },
+  "business": {
+    "phone": "+91 97306 32249",
+    "whatsapp": "+91 97306 32249",
+    "email": "sagarfurniture02@gmail.com",
+    "address": "Plot No. 43, Shiv Nagar, Godhani Road, opp. Zingabai Takli, Nagpur, Maharashtra 440030",
+    "social": {
+      "facebook": "https://www.facebook.com/share/1Jdh5RyFvc/?mibextid=wwXIfr",
+      "instagram": "https://www.instagram.com/sagarfurniture_nagpur?igsh=aTU1NzV2dGoyZDB4"
+    },
+    "hours": [
+      {
+        "day": "mon",
+        "open": "10:30 AM",
+        "close": "9:00 PM"
+      },
+      {
+        "day": "tue",
+        "open": "10:30 AM",
+        "close": "9:00 PM"
+      },
+      {
+        "day": "wed",
+        "open": "10:30 AM",
+        "close": "9:00 PM"
+      },
+      {
+        "day": "thu",
+        "open": "10:30 AM",
+        "close": "9:00 PM"
+      },
+      {
+        "day": "fri",
+        "open": "10:30 AM",
+        "close": "9:00 PM"
+      },
+      {
+        "day": "sat",
+        "open": "10:30 AM",
+        "close": "9:00 PM"
+      },
+      {
+        "day": "sun",
+        "open": "10:30 AM",
+        "close": "9:00 PM"
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "home",
+      "slug": "/",
+      "title": "Home",
+      "sections": [
+        {
+          "id": "header-1",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logoSize": "medium",
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Products",
+                "href": "/products"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Blog",
+                "href": "/blog"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Get a Quote",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "hero-1",
+          "type": "hero",
+          "visible": true,
+          "props": {
+            "badge": "Furniture Manufacturers · Nagpur",
+            "heading": "Furniture built to your home, not to a catalogue",
+            "sub": "Modular kitchens, wardrobes, sofas, beds, dining sets, mandirs and complete office furniture — designed, manufactured and installed by our own team in Nagpur.",
+            "fullHeight": true,
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Explore Our Products",
+              "href": "/products"
+            },
+            "ctaSecondary": {
+              "text": "Get a Free Quote",
+              "href": "/contact"
+            },
+            "videoUrl": "https://videos.pexels.com/video-files/5823583/5823583-hd_1280_720_24fps.mp4",
+            "image": "https://images.pexels.com/videos/5823583/pexels-photo-5823583.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          }
+        },
+        {
+          "id": "about-1",
+          "type": "about",
+          "visible": true,
+          "props": {
+            "label": "About Us",
+            "heading": "A workshop, not a reselling showroom",
+            "body": "Sagar Furniture & Enterprises is a furniture manufacturing unit and showroom on Godhani Road, Nagpur, run by Sagar Ravindra Lande. We make furniture rather than resell it — boards are cut, edge-banded, assembled and finished in our own workshop, which is what lets us build to a size that does not exist in any catalogue.\n\nThat covers the whole home and office: modular kitchens and wardrobes, sofas and L-corner sets, beds including hydraulic storage beds, dining sets, TV units, CNC and Sagwan mandirs, office workstations and tables, and storage built into whatever space you have. We survey the site, draw the piece, put the actual material samples in front of you, and only start manufacturing once you have approved it.\n\nBecause the workshop is ours, a change of size, shutter or internal layout is a conversation rather than a refusal, and the quality of the work is ours to answer for. Delivery and installation across Nagpur are handled by our own team.",
+            "image": "https://images.pexels.com/photos/5059649/pexels-photo-5059649.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "imageFit": "cover",
+            "showPillars": true,
+            "pillars": [
+              {
+                "icon": "hammer",
+                "title": "We manufacture it ourselves",
+                "text": "Cut, assembled and finished in our own workshop on Godhani Road, so the workmanship is ours to answer for."
+              },
+              {
+                "icon": "ruler",
+                "title": "Measured to your space",
+                "text": "We survey the site and build to it — including the awkward corner that no ready-made piece fits."
+              },
+              {
+                "icon": "pencil-ruler",
+                "title": "Approved before it is built",
+                "text": "Drawings and real material samples go in front of you before a single board is cut."
+              },
+              {
+                "icon": "truck",
+                "title": "Delivered and fitted by us",
+                "text": "Our own team handles delivery, installation and the adjustments afterwards, across Nagpur."
+              }
+            ]
+          }
+        },
+        {
+          "id": "stats-1",
+          "type": "stats",
+          "visible": true,
+          "props": {
+            "label": "Why Sagar Furniture",
+            "heading": "Manufactured here, not bought in",
+            "countUp": true,
+            "items": [
+              {
+                "icon": "hammer",
+                "value": 15,
+                "suffix": "+",
+                "label": "Furniture services"
+              },
+              {
+                "icon": "package",
+                "value": 20,
+                "suffix": "+",
+                "label": "Product categories"
+              },
+              {
+                "icon": "clock",
+                "value": 7,
+                "suffix": " days",
+                "label": "Open every week"
+              },
+              {
+                "icon": "ruler",
+                "value": 100,
+                "suffix": "%",
+                "label": "Made to measure"
+              }
+            ]
+          }
+        },
+        {
+          "id": "services-1",
+          "type": "services",
+          "visible": true,
+          "props": {
+            "label": "Our Services",
+            "heading": "What we make and do",
+            "sub": "Fifteen services covering the whole home and office — from a single mandir to a complete interior fit-out.",
+            "items": [
+              {
+                "image": "https://images.pexels.com/photos/13005858/pexels-photo-13005858.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Customised Furniture",
+                "desc": "Furniture made to your exact measurements, timber and finish. We survey the space, draw the piece, confirm it with you and only then start cutting.",
+                "meta": "Built to your room, not to a catalogue",
+                "body": "Every home has a corner no ready-made piece fits. We measure the space on site, draw the piece around it and build it in our own workshop, so the finished furniture uses the full width, the full height and the awkward angle as well. You choose the board, the laminate or veneer, the hardware and the finish. Nothing is ordered in and resold — it is manufactured here in Nagpur, which is why changes mid-way are possible and why the fit is exact.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2ACustomised%20Furniture%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/7166645/pexels-photo-7166645.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Modular Kitchen",
+                "desc": "Complete modular kitchens — layout planning, carcass, shutters, hardware, counter coordination and on-site installation.",
+                "meta": "Design, manufacture, install and finish",
+                "body": "A modular kitchen is judged after five years, not on the day it is installed. We plan the work triangle around how your family actually cooks, use moisture-resistant board where water reaches, and fit hinges and channels that carry a written warranty. Shutter options run from budget laminate through acrylic and high-gloss to matte PU. Tall units, corner solutions, pull-out baskets, chimney and hob coordination and lighting are all planned before manufacturing begins.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2AModular%20Kitchen%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/7060824/pexels-photo-7060824.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Modular Wardrobes",
+                "desc": "Hinged and sliding wardrobes with internal organisers, drawers, mirror units and loft storage, built to the wall.",
+                "meta": "Floor-to-ceiling storage that fits",
+                "body": "A built-to-wall wardrobe recovers the dead space a loose almirah wastes — above it, behind it and beside it. We plan the internals around what you own: hanging heights for sarees and for shirts, drawer banks for folded clothes, a locker section, and loft storage for luggage and bedding. Hinged shutters for a tight room, sliding shutters where a swinging door would block the walkway.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2AModular%20Wardrobes%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/7601374/pexels-photo-7601374.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Home Furniture",
+                "desc": "Complete home furnishing under one roof, matched in timber and finish across every room so the house reads as one piece of work.",
+                "meta": "Sofas, beds, dining, TV units and storage",
+                "body": "Buying room by room from different shops is what leaves a house looking assembled rather than designed. We supply the whole home — living, bedrooms, dining, kitchen and storage — matched in timber tone, finish and hardware. It also means one point of contact, one delivery schedule and one team installing.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2AHome%20Furniture%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/9300768/pexels-photo-9300768.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Office Furniture",
+                "desc": "Office interiors and furniture for new offices, clinics, showrooms and commercial spaces, planned around headcount and layout.",
+                "meta": "Workstations, cabins, tables and chairs",
+                "body": "Office furniture has to survive eight hours a day of use and still look presentable to a visitor. We build linear and cluster workstations, manager tables, conference tables, reception counters, storage and file units, and supply seating to match. Cable routing, partition heights and circulation are planned before manufacture.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2AOffice%20Furniture%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/4740529/pexels-photo-4740529.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "TV Units",
+                "desc": "Wall-mounted and floor-standing TV units with concealed storage, back panelling, profile lighting and cable management.",
+                "meta": "Designer, panelled and resin-finish units",
+                "body": "A TV unit is the first thing a guest looks at in a living room. We build the full wall as one composition — panelling, open display shelving, closed storage below, profile lighting behind — and route every cable inside so nothing hangs down the wall. Finishes range from veneer and laminate through to resin and high-gloss.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2ATV%20Units%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/30386991/pexels-photo-30386991.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Sofa Sets & L-Corner Sofas",
+                "desc": "Sofa sets in 3+2, 3+1+1 and L-corner layouts, in fabric or leatherette, with a seat firmness you actually pick.",
+                "meta": "Frames, foam and fabric to your choice",
+                "body": "A sofa is a frame, a foam and a fabric, and shops usually only let you choose the fabric. We build the frame in seasoned timber to the length your room takes, set the seat depth and firmness to your preference, and let you choose fabric or leatherette from the sample books. L-corner layouts can be built handed either way, so the chaise sits on the side that suits the room.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2ASofa%20Sets%20%26%20L-Corner%20Sofas%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/6876834/pexels-photo-6876834.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Beds & Hydraulic Beds",
+                "desc": "King, queen and single beds — plain, box-storage or hydraulic-lift — with matching side tables and headboard panelling.",
+                "meta": "Storage where a bedroom needs it most",
+                "body": "The area under a bed is the largest unused storage volume in most Indian homes. A hydraulic bed lifts the whole mattress platform on gas pistons so the entire space is reachable in one motion, which is what makes it usable for bedding and luggage. We build plain, box-storage and hydraulic versions with upholstered or panelled headboards to match the wardrobe.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2ABeds%20%26%20Hydraulic%20Beds%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/2995012/pexels-photo-2995012.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Dining Tables & Dining Sets",
+                "desc": "Dining tables and complete sets in solid timber, veneer or glass-top, sized so chairs still pull out comfortably.",
+                "meta": "4, 6 and 8 seaters to suit the room",
+                "body": "Most dining sets are bought too large for the room and the chairs end up against the wall. We size the table to the clearance actually available, then build it — 4, 6 or 8 seater, round or rectangular, solid timber, veneer or glass-top. Chairs can be cushioned or plain and are finished to match.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2ADining%20Tables%20%26%20Dining%20Sets%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/36795124/pexels-photo-36795124.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "CNC Mandir / Pooja Mandir",
+                "desc": "Home temples in Sagwan and other timbers, with CNC-cut jaali panels, storage drawers and integrated lighting.",
+                "meta": "CNC-cut jaali work and Sagwan mandirs",
+                "body": "A mandir is the one piece in the house that is looked at every single day, so the detail matters more than the size. We cut jaali and pillar detailing on CNC for a clean, repeatable pattern, then hand-finish it. Wall-mounted and floor-standing units, with drawers for pooja items, a shelf for the samai and concealed lighting. Sagwan (teak) is the usual choice for its grain and its life.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2ACNC%20Mandir%20/%20Pooja%20Mandir%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/7745933/pexels-photo-7745933.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Custom Storage Solutions",
+                "desc": "Storage built into the space you have — crockery units, shoe racks, loft storage, utility and study units.",
+                "meta": "Crockery, shoe, loft and utility units",
+                "body": "Storage is what a house runs out of first. We build into the spaces already there: under the stairs, above the door, the passage wall, the utility balcony. Crockery units, shoe racks, loft boxes, study tables with overhead storage and pantry units, all finished to match the surrounding work.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2ACustom%20Storage%20Solutions%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/6580377/pexels-photo-6580377.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Interior Furniture Work",
+                "desc": "Complete interior furniture work for homes and offices — panelling, partitions, false ceiling coordination and built-ins.",
+                "meta": "Full interior fit-outs, not just pieces",
+                "body": "When a whole flat or office is being done, the furniture, the panelling and the services have to be sequenced together. We take on complete interior furniture work: wall panelling, partitions, built-in storage, wardrobe and kitchen, coordinated with your electrical and false ceiling contractors so nothing is cut open afterwards.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2AInterior%20Furniture%20Work%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/313776/pexels-photo-313776.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Furniture Manufacturing",
+                "desc": "We manufacture rather than resell — which is why customisation is possible and why the quality is ours to answer for.",
+                "meta": "Made in our own Nagpur workshop",
+                "body": "We are a manufacturing unit, not a reselling showroom. Boards are cut, edge-banded, assembled and finished in our own workshop at Godhani Road. That is what makes a non-standard size, a changed shutter or a different internal layout possible at all, and it is why we can stand behind the workmanship instead of forwarding a complaint to a supplier. Bulk and repeat orders for builders and offices are welcome.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2AFurniture%20Manufacturing%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/32579238/pexels-photo-32579238.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Custom Furniture Design",
+                "desc": "Design consultation with layout drawings, material samples and finish options, so you approve the piece before it is built.",
+                "meta": "Drawings and samples before you commit",
+                "body": "You should not have to imagine what you are paying for. We prepare layout drawings and elevations for the piece, put the actual laminate, veneer and hardware samples in front of you, and confirm the finish in writing before the board is cut. Changes at the drawing stage cost nothing; changes after manufacture cost a great deal.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2ACustom%20Furniture%20Design%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/4246086/pexels-photo-4246086.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Delivery & Installation",
+                "desc": "Delivery and on-site installation across Nagpur by our own fitters, with the site cleaned up before they leave.",
+                "meta": "Delivered and fitted by our own team",
+                "body": "Furniture is easy to damage between the workshop and the wall. Our own team handles delivery and installation — levelling, wall fixing, shutter and hinge adjustment, hardware fitting and a final clean-up. Availability and charges depend on the site and the location; both are confirmed in writing with your quotation.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2ADelivery%20%26%20Installation%2A."
+                }
+              }
+            ],
+            "orderVia": "page",
+            "imageFit": "cover",
+            "showRelated": true,
+            "relatedHeading": "Other services"
+          }
+        },
+        {
+          "id": "gallery-1",
+          "type": "gallery",
+          "visible": true,
+          "props": {
+            "label": "Our Work",
+            "heading": "A look at what we build",
+            "sub": "Representative of our range of work, materials and finishes.",
+            "images": [
+              {
+                "image": "https://images.pexels.com/photos/18285887/pexels-photo-18285887.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Modular kitchen with a solid timber finish"
+              },
+              {
+                "image": "https://images.pexels.com/photos/35203563/pexels-photo-35203563.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Premium bedroom with carved detailing"
+              },
+              {
+                "image": "https://images.pexels.com/photos/8092431/pexels-photo-8092431.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Interior fit-out with panelling and staircase"
+              },
+              {
+                "image": "https://images.pexels.com/photos/34574606/pexels-photo-34574606.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Bedroom furniture with matching side units"
+              },
+              {
+                "image": "https://images.pexels.com/photos/8045884/pexels-photo-8045884.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Custom shelving and storage wall"
+              },
+              {
+                "image": "https://images.pexels.com/photos/28873307/pexels-photo-28873307.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Ornate mandir detailing"
+              },
+              {
+                "image": "https://images.pexels.com/photos/7587776/pexels-photo-7587776.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Wardrobe internals with drawers and hanging sections"
+              },
+              {
+                "image": "https://images.pexels.com/photos/12273851/pexels-photo-12273851.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Living room furniture in a matched finish"
+              }
+            ],
+            "lightbox": true
+          }
+        },
+        {
+          "id": "testimonials-1",
+          "type": "testimonials",
+          "visible": true,
+          "props": {
+            "label": "Testimonials",
+            "heading": "What our customers say",
+            "items": [
+              {
+                "quote": "Sagar Furniture provided amazing custom wardrobes for my home. The quality of wood and finish is top-notch!",
+                "name": "Rajesh Sharma",
+                "role": "Nagpur",
+                "rating": 5
+              },
+              {
+                "quote": "Very professional service and great collection of sofa sets. Delivered right on time in Nagpur.",
+                "name": "Priya Deshmukh",
+                "role": "Nagpur",
+                "rating": 5
+              },
+              {
+                "quote": "Best place for modular kitchen work. They understood our exact needs and budget.",
+                "name": "Amit Verma",
+                "role": "Nagpur",
+                "rating": 5
+              },
+              {
+                "quote": "Durable furniture and polite staff. Highly recommend Sagar Furniture to everyone.",
+                "name": "Sneha Patil",
+                "role": "Nagpur",
+                "rating": 5
+              },
+              {
+                "quote": "Got our office desks made from here. Excellent sturdiness and clean finishing.",
+                "name": "Vikas Raut",
+                "role": "Nagpur",
+                "rating": 5
+              },
+              {
+                "quote": "Great pricing and superb after-sales support. Very happy with my new dining table!",
+                "name": "Pooja Kulkarni",
+                "role": "Nagpur",
+                "rating": 5
+              }
+            ],
+            "autoplay": true
+          }
+        },
+        {
+          "id": "cta-1",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "Planning furniture for a new home or office?",
+            "sub": "Send us your room sizes on WhatsApp and we will come back with a quotation.",
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Get a Free Quote",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "contact-1",
+          "type": "contact",
+          "visible": true,
+          "props": {
+            "label": "Contact",
+            "heading": "Tell us what you need built",
+            "sub": "Send us your room size and what you have in mind, and we will come back with a quotation. Visiting the showroom is welcome any day, 10:30 AM to 9:00 PM.",
+            "showPhone": true,
+            "showWhatsapp": true,
+            "showEmail": true,
+            "showAddress": true,
+            "showHours": true,
+            "showMap": true,
+            "mapUrl": "https://maps.google.com/maps/search/Sagar%20furniture/@21.2041,79.0669,17z?hl=en",
+            "submitText": "Send enquiry"
+          }
+        },
+        {
+          "id": "footer-1",
+          "type": "footer",
+          "visible": true,
+          "props": {
+            "blurb": "Sagar Furniture & Enterprises — furniture manufacturers in Nagpur. Modular kitchens, wardrobes, sofas, beds, dining, mandirs, TV units and complete home and office furniture, made to order in our own workshop.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "copyright": "© 2026 Sagar Furniture & Enterprises. All rights reserved.",
+            "privacyBody": "Sagar Furniture & Enterprises (\"we\", \"us\") operates this website. This policy explains what personal information we collect through this website and how we use it.\n\nINFORMATION WE COLLECT. When you submit an enquiry form, message us on WhatsApp or call us, we collect the details you choose to provide — typically your name, phone number, email address, location or site address, and the details of the furniture you are enquiring about. We do not ask for and do not require financial account details, card numbers or identity document numbers through this website.\n\nHOW WE USE IT. We use your information only to respond to your enquiry, prepare and send a quotation, arrange a site measurement, schedule manufacturing, delivery and installation, provide after-sales service, and keep our own records of the order. We may contact you about your enquiry by phone, WhatsApp, SMS or email.\n\nWHATSAPP ENQUIRIES. Messages you send us on WhatsApp are delivered through WhatsApp’s own service and are subject to WhatsApp’s privacy policy in addition to this one. We retain the conversation so we can service your enquiry and your order.\n\nSHARING. We do not sell, rent or trade your personal information. We share it only with people who need it to complete your order — for example our delivery and installation team, or a hardware or material supplier where an item must be ordered specifically for you — and only to the extent needed. We may disclose information where required by law.\n\nRETENTION. We keep enquiry and order records for as long as needed to service the order and to meet our legal, accounting and warranty obligations, after which they are deleted or anonymised.\n\nCOOKIES AND ANALYTICS. This website may use basic cookies and analytics to understand how visitors use the site. These do not identify you personally. You can block cookies in your browser settings; the site will continue to work.\n\nYOUR CHOICES. You may ask us what information we hold about you, ask us to correct it, or ask us to delete it, by writing to sagarfurniture02@gmail.com. You may ask us at any time to stop sending you promotional messages.\n\nSECURITY. We take reasonable steps to protect the information we hold. No method of transmission over the internet is completely secure, and we cannot guarantee absolute security.\n\nCHANGES. We may update this policy from time to time. The current version is always the one published on this page.\n\nCONTACT. Sagar Furniture & Enterprises, Plot No. 43, Shiv Nagar, Godhani Road, opp. Zingabai Takli, Nagpur, Maharashtra 440030. Email sagarfurniture02@gmail.com. Phone +91 97306 32249.",
+            "termsBody": "These terms apply to enquiries, quotations and orders placed with Sagar Furniture & Enterprises (\"we\", \"us\"). Please read them before confirming an order.\n\n1. PRODUCT ENQUIRIES. Product listings, images and descriptions on this website are indicative and are provided to help you describe what you need. They do not constitute an offer for sale. An order exists only once we have issued a written quotation and you have confirmed it.\n\n2. CUSTOMISED FURNITURE. Most of our work is manufactured specifically to your measurements, material and finish. Once manufacturing has begun, a customised item cannot be resold to another customer, and the cancellation terms below apply accordingly.\n\n3. QUOTATIONS. Quotations are valid for the period stated on them. Where no period is stated, a quotation is valid for 15 days. Prices are subject to change if material or hardware costs change, if the specification is changed after approval, or if site conditions differ from those measured. Anything not expressly listed in the quotation — for example counter material, electrical work, plumbing, civil work, chimney or appliances — is excluded.\n\n4. MEASUREMENTS. Final measurements are taken by us at your site before manufacturing. Where you supply measurements yourself and ask us to proceed without a site visit, we manufacture to the measurements you provide and cannot accept responsibility for a resulting fit issue. Site readiness — completed flooring, plaster, and electrical points in agreed positions — is your responsibility.\n\n5. MANUFACTURING. Manufacturing begins only after you approve the design, materials and finish, and after the agreed advance is received. Timelines quoted are estimates in working days and may be affected by material availability, site readiness, changes requested by you, and circumstances beyond our reasonable control.\n\n6. DELIVERY. Delivery is available across Nagpur and, by arrangement, outside it. Delivery charges depend on location and access and are confirmed with the quotation. You are responsible for ensuring safe and adequate access — lift, staircase and doorway — for the items ordered. Where an item cannot be moved in because of access, any re-work or return cost is chargeable.\n\n7. INSTALLATION. Installation is carried out by our team on a scheduled date. Electrical, plumbing, civil and false-ceiling work are not included unless expressly stated. If our team attends and cannot work because the site is not ready, a revisit charge may apply.\n\n8. ADVANCE AND PAYMENT. Orders are confirmed against the advance stated in the quotation. The balance is payable as set out in the quotation, and in any case before or at delivery unless agreed otherwise in writing. Goods remain our property until payment is received in full.\n\n9. CANCELLATION. An order may be cancelled without charge before manufacturing begins, less any material already purchased specifically for it. Once manufacturing has begun, the advance is not refundable, as customised work cannot be resold. Cancellation after completion is not accepted.\n\n10. WARRANTY AND SERVICE. We warrant our workmanship for the period stated on your invoice. Hardware, appliances and fittings carry the warranty of their own manufacturer, which we will pass through to you. The warranty does not cover normal wear and tear, water damage, damage from misuse, overloading or accident, damage caused by pests, or work altered or repaired by anyone else. Polishing and finishes may age naturally with use and exposure.\n\n11. PRODUCT IMAGES AND DESIGN VARIATIONS. Images on this website and in our catalogues are representative. Natural timber and veneer vary in grain and shade from piece to piece, and screen colours vary between devices; such variation is normal and is not a defect. Minor variation in dimensions and finish within accepted manufacturing tolerance is not a defect. Where a specified material or hardware becomes unavailable, we will inform you and offer an equivalent alternative.\n\n12. GOVERNING LAW. These terms are governed by the laws of India, and disputes are subject to the jurisdiction of the courts at Nagpur, Maharashtra.\n\nCONTACT. Sagar Furniture & Enterprises, Plot No. 43, Shiv Nagar, Godhani Road, opp. Zingabai Takli, Nagpur, Maharashtra 440030. Email sagarfurniture02@gmail.com. Phone +91 97306 32249.",
+            "columns": [
+              {
+                "title": "Explore",
+                "links": [
+                  {
+                    "text": "Home",
+                    "href": "/"
+                  },
+                  {
+                    "text": "Products",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "About Us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Blog",
+                    "href": "/blog"
+                  },
+                  {
+                    "text": "Contact",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "What We Make",
+                "links": [
+                  {
+                    "text": "Modular Kitchen",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Modular & Sliding Wardrobes",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Sofas & L-Corner Sofas",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Beds & Hydraulic Beds",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "CNC & Sagwan Mandirs",
+                    "href": "/products"
+                  }
+                ]
+              },
+              {
+                "title": "Get in Touch",
+                "links": [
+                  {
+                    "text": "WhatsApp +91 97306 32249",
+                    "href": "https://wa.me/919730632249"
+                  },
+                  {
+                    "text": "Call +91 97306 32249",
+                    "href": "tel:+919730632249"
+                  },
+                  {
+                    "text": "Alt. +91 79722 20676",
+                    "href": "tel:+917972220676"
+                  },
+                  {
+                    "text": "sagarfurniture02@gmail.com",
+                    "href": "mailto:sagarfurniture02@gmail.com"
+                  },
+                  {
+                    "text": "Find us on the map",
+                    "href": "https://maps.google.com/maps/search/Sagar%20furniture/@21.2041,79.0669,17z?hl=en"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "products",
+      "slug": "/products",
+      "title": "Products",
+      "sections": [
+        {
+          "id": "header-2",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logoSize": "medium",
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Products",
+                "href": "/products"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Blog",
+                "href": "/blog"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Get a Quote",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "hero-2",
+          "type": "hero",
+          "visible": true,
+          "props": {
+            "badge": "Our Products",
+            "heading": "Twenty things we build most often",
+            "sub": "Every item here is made to order in our own workshop. Tap any product for sizes, materials and finishes, then send us a WhatsApp enquiry for a quotation.",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Explore Our Products",
+              "href": "/products"
+            },
+            "ctaSecondary": {
+              "text": "Get a Free Quote",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "products-1",
+          "type": "products",
+          "visible": true,
+          "props": {
+            "label": "Our Products",
+            "heading": "Made to order in Nagpur",
+            "sub": "Prices depend on size, material and finish, so every item is quoted individually. Send us your room size for an exact figure.",
+            "items": [
+              {
+                "image": "https://images.pexels.com/photos/7148841/pexels-photo-7148841.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Modular Kitchen",
+                "desc": "Complete modular kitchen with tall units, corner solutions and soft-close hardware.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Custom Quote",
+                "body": "A full modular kitchen planned around how you cook. Moisture-resistant carcass where water reaches, soft-close hinges and channels, and a shutter finish chosen from laminate, acrylic, high-gloss or matte PU. Tall units, pull-out baskets, corner carousels, chimney and hob coordination and under-cabinet lighting are planned in before manufacture. Counter material is coordinated with your mason.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Planned to your kitchen layout — L-shape, U-shape, parallel or island"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Moisture-resistant ply or HDHMR carcass; laminate, acrylic, high-gloss or PU shutters"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2AModular%20Kitchen%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/7535012/pexels-photo-7535012.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Modular Wardrobe",
+                "desc": "Hinged modular wardrobe with drawers, hanging sections, locker and loft storage.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Custom Quote",
+                "body": "Built to the wall so nothing is wasted above or beside it. Internals are planned around what you own — long hanging for sarees and coats, short hanging for shirts, drawer banks, a locker section and loft storage for luggage. Mirror units, tie and belt organisers and internal lighting can be added.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Built floor-to-ceiling to your wall — 4ft, 6ft, 8ft and above"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Ply or HDHMR carcass with laminate, veneer, acrylic or PU shutters"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2AModular%20Wardrobe%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/7587809/pexels-photo-7587809.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Sliding Wardrobe",
+                "desc": "Sliding-shutter wardrobe for rooms where a hinged door would block the walkway.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Custom Quote",
+                "body": "Where a hinged shutter would foul the bed or the walkway, sliding shutters recover the swing space entirely. Built on quality aluminium or wooden track rated for the shutter weight, so it keeps running smoothly. Shutter faces in laminate, mirror, lacquered glass or acrylic, with the same internal planning as our hinged wardrobes.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Two, three and four-shutter sliding units, built to wall width"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Aluminium or wooden sliding track; laminate, mirror, lacquered-glass or acrylic shutters"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2ASliding%20Wardrobe%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/16951262/pexels-photo-16951262.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Hydraulic Storage Bed",
+                "desc": "Gas-lift bed that opens the whole under-mattress area in one motion.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Quote",
+                "body": "The single largest piece of unused storage in a bedroom is under the bed. Gas pistons lift the entire mattress platform so the whole area is reachable at once — usable for bedding, luggage and off-season clothes, unlike a box bed with small side flaps. Pistons are rated to the mattress weight. Headboard upholstered or panelled to match your wardrobe.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "King, queen and single — 6x6.5, 5x6.5 and 3x6.5 ft"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Seasoned timber and ply frame; gas-piston hydraulic lift; upholstered or panelled headboard"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2AHydraulic%20Storage%20Bed%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/34496701/pexels-photo-34496701.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "King Size Bed",
+                "desc": "King bed with a panelled or upholstered headboard, with or without storage.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Quote",
+                "body": "A king bed built to a size that actually leaves walking space around it — we measure the room before confirming. Plain, box-storage or hydraulic versions. Headboard in panelled timber, veneer or upholstery, with optional side tables and back panelling built as one composition with the bed.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "6x6.5 ft standard; other sizes made to order"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Seasoned timber and ply; veneer, laminate or PU finish; upholstered headboard optional"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2AKing%20Size%20Bed%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/6758245/pexels-photo-6758245.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Premium Sofa Set",
+                "desc": "Premium sofa set with a seasoned frame, high-density foam and your choice of fabric.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Quote",
+                "body": "Built on a seasoned timber frame that will not creak in a year, with high-density foam and a seat firmness you choose rather than accept. Length is made to the wall you have. Fabric or leatherette selected from sample books, with contrast piping and cushion options. Removable covers can be specified.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "3+1+1 and 3+2 layouts; length made to your room"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Seasoned timber frame, high-density foam, fabric or leatherette"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2APremium%20Sofa%20Set%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/36681535/pexels-photo-36681535.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "L-Corner Sofa",
+                "desc": "L-shaped corner sofa built to your room, with the chaise on whichever side suits.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Quote",
+                "body": "An L-corner uses the room corner that a straight sofa leaves empty, and seats more people in the same floor area. Built to your exact corner dimensions with the chaise handed left or right, so the layout works with your TV wall and doorway rather than against it. Storage can be built into the chaise base.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Made to your corner; chaise handed left or right"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Seasoned timber frame, high-density foam, fabric or leatherette"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2AL-Corner%20Sofa%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/276746/pexels-photo-276746.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "3+2 Sofa Set",
+                "desc": "Classic three-plus-two seating for a standard living room.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Quote",
+                "body": "The most practical layout for a standard Indian living room — a three-seater on the long wall and a two-seater facing or at right angles. Both pieces are built to lengths that suit your room rather than to a fixed catalogue size, in a matching frame, foam and fabric. Centre table can be built to match.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Three-seater plus two-seater; lengths made to order"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Seasoned timber frame, high-density foam, fabric or leatherette"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2A3%2B2%20Sofa%20Set%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/14715769/pexels-photo-14715769.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "6-Seater Dining Set",
+                "desc": "Six-seater dining table with matching chairs, sized to your dining area.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Quote",
+                "body": "A six-seater sized so that every chair can still be pulled out fully — we check the clearance to the wall before confirming the top size. Solid timber, veneered or glass-top, with six chairs finished to match, cushioned or plain. Rectangular or oval.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Table approx. 6ft x 3ft with six chairs; made to order"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Solid timber or veneered top; cushioned or plain chairs"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2A6-Seater%20Dining%20Set%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/7180275/pexels-photo-7180275.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "4-Seater Dining Set",
+                "desc": "Compact four-seater set for flats and smaller dining areas.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Quote",
+                "body": "Sized for flats and compact dining areas where a six-seater would block the walkway. Round or rectangular, solid timber or veneered, with four matching chairs. A wall-side or corner layout can be built to save further space.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Table approx. 3ft x 3ft or 4ft x 2.5ft with four chairs"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Solid timber or veneered top; cushioned or plain chairs"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2A4-Seater%20Dining%20Set%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/4119832/pexels-photo-4119832.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Premium Dining Table",
+                "desc": "Statement dining table in solid timber, veneer or toughened glass.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Custom Quote",
+                "body": "For a dining room that is meant to be looked at. Solid timber with the grain matched across the top, veneered with a mitred edge, or toughened glass on a timber or metal base. Made to your room size, with chairs built or sourced to match the finish.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "6 and 8 seater; made to your room size"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Solid timber, veneer or toughened glass top with a timber or metal base"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2APremium%20Dining%20Table%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/15299943/pexels-photo-15299943.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "CNC Wooden Mandir",
+                "desc": "Home mandir with CNC-cut jaali detailing, drawers and concealed lighting.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Custom Quote",
+                "body": "The jaali and pillar detailing is cut on CNC, which keeps the pattern clean and exactly repeated on both sides, then hand-finished. Available wall-mounted for a compact home or floor-standing with a drawer unit below for pooja items. Concealed LED lighting, a shelf for the samai and a bell mount can be included. Pattern and size made to your wall.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Wall-mounted and floor-standing; 2ft to 4ft widths typical"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "MDF or timber with CNC-cut jaali panels; PU, duco or natural polish"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2ACNC%20Wooden%20Mandir%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/15902853/pexels-photo-15902853.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Premium Sagwan Mandir",
+                "desc": "Solid Sagwan teak mandir with carved detailing, drawers and lighting.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Custom Quote",
+                "body": "Sagwan (teak) is chosen for a mandir because of its grain, its weight and its life — it is the piece a family keeps longest. Carved and CNC detailing on the pillars, arch and jaali, finished in natural or melamine polish so the grain stays visible. Drawers below for pooja items, a shelf for the samai, and concealed lighting. Built to your size.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Floor-standing; 2.5ft to 5ft widths typical"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Sagwan (teak) with hand-carved and CNC detailing; natural or melamine polish"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2APremium%20Sagwan%20Mandir%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/6782368/pexels-photo-6782368.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Designer TV Unit",
+                "desc": "Full TV wall with panelling, display shelving, storage and profile lighting.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Quote",
+                "body": "Built as one composition across the wall rather than a single cabinet — back panelling behind the screen, open display shelving, closed storage below and profile lighting to wash the panelling. Every cable is routed inside so nothing hangs down the wall. Set-top box, console and soundbar positions are planned in.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Wall width; typically 6ft to 10ft compositions"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Ply and MDF with laminate or veneer; profile lighting; concealed cable routing"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2ADesigner%20TV%20Unit%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/9646749/pexels-photo-9646749.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Resin Finish TV Unit",
+                "desc": "TV unit in a poured resin or high-gloss finish for a seamless, reflective face.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Quote",
+                "body": "A resin or high-gloss face gives a seamless, reflective surface with no visible joint lines, which suits a modern living room and makes a small room read larger. Built with the same concealed cable routing, storage and profile lighting as our designer units. Colour matched to your wall or furniture.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Wall width; typically 6ft to 10ft compositions"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Ply and MDF with resin / high-gloss finish; profile lighting"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2AResin%20Finish%20TV%20Unit%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/9300770/pexels-photo-9300770.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Office Workstation",
+                "desc": "Linear and cluster workstations with cable management and storage.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Custom Quote",
+                "body": "Workstations planned around your headcount and floor plate, in linear rows or clusters of four, six and eight. Cable trays and raceways are built in so power and data run inside the furniture. Screen partitions to the height you want, with a pedestal or mobile drawer unit per seat.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "2, 4, 6 and 8-seater clusters; linear and L-shaped"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Ply or HDHMR with laminate; MS or modesty-panel legs; cable trays"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2AOffice%20Workstation%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/5918384/pexels-photo-5918384.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Office Table",
+                "desc": "Manager, executive and conference tables with storage and cable ports.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Quote",
+                "body": "Manager and executive tables with a side or back storage return, drawer unit and cable ports, and conference tables built to the seating count and the room. Laminate for hard use, veneer where it is on show. Modesty panels and MS bases available.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Manager, executive and conference sizes; made to order"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Ply or HDHMR with laminate or veneer; optional MS base"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2AOffice%20Table%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/31726674/pexels-photo-31726674.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Office Chair",
+                "desc": "Executive, task and visitor seating supplied to match your workstations.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Quote",
+                "body": "Seating supplied alongside the furniture so the whole office matches. Executive high-back, mid-back task and visitor variants, in mesh or cushioned upholstery, with gas-lift height, tilt-lock and adjustable arms depending on the model. Chairs can be trialled before a bulk order is confirmed.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Executive, mid-back and visitor variants"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Mesh or cushioned upholstery; nylon or metal base; gas-lift and tilt mechanisms"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2AOffice%20Chair%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/37030080/pexels-photo-37030080.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Custom Storage Cabinet",
+                "desc": "Crockery, shoe, utility, loft and study units built into the space you have.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Custom Quote",
+                "body": "Built into the space already there — under the stairs, along the passage, above the door, on the utility balcony. Crockery units with glass shutters and internal lighting, ventilated shoe racks, loft boxes, study tables with overhead storage and pantry units, all finished to match the surrounding work.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Made to your space — crockery, shoe, utility, loft and study units"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Ply or HDHMR with laminate, veneer or PU finish"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2ACustom%20Storage%20Cabinet%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/6830012/pexels-photo-6830012.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Customised Home & Office Furniture",
+                "desc": "Anything not on this list — measured, drawn, approved and manufactured for you.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Custom Quote",
+                "body": "This list covers what we are asked for most often, not the limit of what we build. If you need something that is not here, or a combination of several things, we will measure the space, draw it, put the material samples in front of you and manufacture it in our own workshop. Homes, offices, clinics, showrooms and commercial spaces. Bulk and repeat orders for builders and offices are welcome.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Any size, any layout — measured and made to order"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Your choice of board, laminate, veneer, acrylic, PU or polish"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2ACustomised%20Home%20%26%20Office%20Furniture%2A."
+                }
+              }
+            ],
+            "orderVia": "page",
+            "imageFit": "cover",
+            "showRelated": true,
+            "relatedHeading": "You may also like"
+          }
+        },
+        {
+          "id": "faq-1",
+          "type": "faq",
+          "visible": true,
+          "props": {
+            "label": "FAQ",
+            "heading": "Common questions",
+            "openFirst": true,
+            "items": [
+              {
+                "q": "Do you provide customised furniture?",
+                "a": "Yes. We provide customised furniture designed according to the customer’s space, requirements and preferred style."
+              },
+              {
+                "q": "Do you provide modular kitchen solutions?",
+                "a": "Yes. We provide customised modular kitchen solutions with design, manufacturing, installation and finishing options."
+              },
+              {
+                "q": "Do you provide delivery and installation?",
+                "a": "Yes, delivery and installation are available as per project/location and applicable terms."
+              },
+              {
+                "q": "Can I get furniture according to my room size?",
+                "a": "Yes. We specialise in customised furniture based on available space and customer requirements."
+              },
+              {
+                "q": "Do you manufacture furniture?",
+                "a": "Yes. We manufacture customised furniture and provide furniture solutions for homes, offices and commercial spaces."
+              },
+              {
+                "q": "Can I contact you on WhatsApp for a quotation?",
+                "a": "Yes. Customers can contact us directly through WhatsApp for product enquiries and customised quotations."
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-2",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "Not sure which option suits your room?",
+            "sub": "Send us the measurements and a photo on WhatsApp — we will tell you what fits.",
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Get a Free Quote",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "footer-2",
+          "type": "footer",
+          "visible": true,
+          "props": {
+            "blurb": "Sagar Furniture & Enterprises — furniture manufacturers in Nagpur. Modular kitchens, wardrobes, sofas, beds, dining, mandirs, TV units and complete home and office furniture, made to order in our own workshop.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "copyright": "© 2026 Sagar Furniture & Enterprises. All rights reserved.",
+            "privacyBody": "Sagar Furniture & Enterprises (\"we\", \"us\") operates this website. This policy explains what personal information we collect through this website and how we use it.\n\nINFORMATION WE COLLECT. When you submit an enquiry form, message us on WhatsApp or call us, we collect the details you choose to provide — typically your name, phone number, email address, location or site address, and the details of the furniture you are enquiring about. We do not ask for and do not require financial account details, card numbers or identity document numbers through this website.\n\nHOW WE USE IT. We use your information only to respond to your enquiry, prepare and send a quotation, arrange a site measurement, schedule manufacturing, delivery and installation, provide after-sales service, and keep our own records of the order. We may contact you about your enquiry by phone, WhatsApp, SMS or email.\n\nWHATSAPP ENQUIRIES. Messages you send us on WhatsApp are delivered through WhatsApp’s own service and are subject to WhatsApp’s privacy policy in addition to this one. We retain the conversation so we can service your enquiry and your order.\n\nSHARING. We do not sell, rent or trade your personal information. We share it only with people who need it to complete your order — for example our delivery and installation team, or a hardware or material supplier where an item must be ordered specifically for you — and only to the extent needed. We may disclose information where required by law.\n\nRETENTION. We keep enquiry and order records for as long as needed to service the order and to meet our legal, accounting and warranty obligations, after which they are deleted or anonymised.\n\nCOOKIES AND ANALYTICS. This website may use basic cookies and analytics to understand how visitors use the site. These do not identify you personally. You can block cookies in your browser settings; the site will continue to work.\n\nYOUR CHOICES. You may ask us what information we hold about you, ask us to correct it, or ask us to delete it, by writing to sagarfurniture02@gmail.com. You may ask us at any time to stop sending you promotional messages.\n\nSECURITY. We take reasonable steps to protect the information we hold. No method of transmission over the internet is completely secure, and we cannot guarantee absolute security.\n\nCHANGES. We may update this policy from time to time. The current version is always the one published on this page.\n\nCONTACT. Sagar Furniture & Enterprises, Plot No. 43, Shiv Nagar, Godhani Road, opp. Zingabai Takli, Nagpur, Maharashtra 440030. Email sagarfurniture02@gmail.com. Phone +91 97306 32249.",
+            "termsBody": "These terms apply to enquiries, quotations and orders placed with Sagar Furniture & Enterprises (\"we\", \"us\"). Please read them before confirming an order.\n\n1. PRODUCT ENQUIRIES. Product listings, images and descriptions on this website are indicative and are provided to help you describe what you need. They do not constitute an offer for sale. An order exists only once we have issued a written quotation and you have confirmed it.\n\n2. CUSTOMISED FURNITURE. Most of our work is manufactured specifically to your measurements, material and finish. Once manufacturing has begun, a customised item cannot be resold to another customer, and the cancellation terms below apply accordingly.\n\n3. QUOTATIONS. Quotations are valid for the period stated on them. Where no period is stated, a quotation is valid for 15 days. Prices are subject to change if material or hardware costs change, if the specification is changed after approval, or if site conditions differ from those measured. Anything not expressly listed in the quotation — for example counter material, electrical work, plumbing, civil work, chimney or appliances — is excluded.\n\n4. MEASUREMENTS. Final measurements are taken by us at your site before manufacturing. Where you supply measurements yourself and ask us to proceed without a site visit, we manufacture to the measurements you provide and cannot accept responsibility for a resulting fit issue. Site readiness — completed flooring, plaster, and electrical points in agreed positions — is your responsibility.\n\n5. MANUFACTURING. Manufacturing begins only after you approve the design, materials and finish, and after the agreed advance is received. Timelines quoted are estimates in working days and may be affected by material availability, site readiness, changes requested by you, and circumstances beyond our reasonable control.\n\n6. DELIVERY. Delivery is available across Nagpur and, by arrangement, outside it. Delivery charges depend on location and access and are confirmed with the quotation. You are responsible for ensuring safe and adequate access — lift, staircase and doorway — for the items ordered. Where an item cannot be moved in because of access, any re-work or return cost is chargeable.\n\n7. INSTALLATION. Installation is carried out by our team on a scheduled date. Electrical, plumbing, civil and false-ceiling work are not included unless expressly stated. If our team attends and cannot work because the site is not ready, a revisit charge may apply.\n\n8. ADVANCE AND PAYMENT. Orders are confirmed against the advance stated in the quotation. The balance is payable as set out in the quotation, and in any case before or at delivery unless agreed otherwise in writing. Goods remain our property until payment is received in full.\n\n9. CANCELLATION. An order may be cancelled without charge before manufacturing begins, less any material already purchased specifically for it. Once manufacturing has begun, the advance is not refundable, as customised work cannot be resold. Cancellation after completion is not accepted.\n\n10. WARRANTY AND SERVICE. We warrant our workmanship for the period stated on your invoice. Hardware, appliances and fittings carry the warranty of their own manufacturer, which we will pass through to you. The warranty does not cover normal wear and tear, water damage, damage from misuse, overloading or accident, damage caused by pests, or work altered or repaired by anyone else. Polishing and finishes may age naturally with use and exposure.\n\n11. PRODUCT IMAGES AND DESIGN VARIATIONS. Images on this website and in our catalogues are representative. Natural timber and veneer vary in grain and shade from piece to piece, and screen colours vary between devices; such variation is normal and is not a defect. Minor variation in dimensions and finish within accepted manufacturing tolerance is not a defect. Where a specified material or hardware becomes unavailable, we will inform you and offer an equivalent alternative.\n\n12. GOVERNING LAW. These terms are governed by the laws of India, and disputes are subject to the jurisdiction of the courts at Nagpur, Maharashtra.\n\nCONTACT. Sagar Furniture & Enterprises, Plot No. 43, Shiv Nagar, Godhani Road, opp. Zingabai Takli, Nagpur, Maharashtra 440030. Email sagarfurniture02@gmail.com. Phone +91 97306 32249.",
+            "columns": [
+              {
+                "title": "Explore",
+                "links": [
+                  {
+                    "text": "Home",
+                    "href": "/"
+                  },
+                  {
+                    "text": "Products",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "About Us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Blog",
+                    "href": "/blog"
+                  },
+                  {
+                    "text": "Contact",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "What We Make",
+                "links": [
+                  {
+                    "text": "Modular Kitchen",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Modular & Sliding Wardrobes",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Sofas & L-Corner Sofas",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Beds & Hydraulic Beds",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "CNC & Sagwan Mandirs",
+                    "href": "/products"
+                  }
+                ]
+              },
+              {
+                "title": "Get in Touch",
+                "links": [
+                  {
+                    "text": "WhatsApp +91 97306 32249",
+                    "href": "https://wa.me/919730632249"
+                  },
+                  {
+                    "text": "Call +91 97306 32249",
+                    "href": "tel:+919730632249"
+                  },
+                  {
+                    "text": "Alt. +91 79722 20676",
+                    "href": "tel:+917972220676"
+                  },
+                  {
+                    "text": "sagarfurniture02@gmail.com",
+                    "href": "mailto:sagarfurniture02@gmail.com"
+                  },
+                  {
+                    "text": "Find us on the map",
+                    "href": "https://maps.google.com/maps/search/Sagar%20furniture/@21.2041,79.0669,17z?hl=en"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "about",
+      "slug": "/about",
+      "title": "About Us",
+      "sections": [
+        {
+          "id": "header-3",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logoSize": "medium",
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Products",
+                "href": "/products"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Blog",
+                "href": "/blog"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Get a Quote",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "hero-3",
+          "type": "hero",
+          "visible": true,
+          "props": {
+            "badge": "About Us",
+            "heading": "Furniture manufacturers in Nagpur",
+            "sub": "Run by Sagar Ravindra Lande on Godhani Road, making furniture for homes, offices and commercial spaces across Nagpur.",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Explore Our Products",
+              "href": "/products"
+            },
+            "ctaSecondary": {
+              "text": "Get a Free Quote",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "about-2",
+          "type": "about",
+          "visible": true,
+          "props": {
+            "label": "Who We Are",
+            "heading": "Sagar Furniture & Enterprises",
+            "body": "Sagar Furniture & Enterprises is a furniture manufacturing unit and showroom on Godhani Road, Nagpur, run by Sagar Ravindra Lande. We make furniture rather than resell it — boards are cut, edge-banded, assembled and finished in our own workshop, which is what lets us build to a size that does not exist in any catalogue.\n\nThat covers the whole home and office: modular kitchens and wardrobes, sofas and L-corner sets, beds including hydraulic storage beds, dining sets, TV units, CNC and Sagwan mandirs, office workstations and tables, and storage built into whatever space you have. We survey the site, draw the piece, put the actual material samples in front of you, and only start manufacturing once you have approved it.\n\nBecause the workshop is ours, a change of size, shutter or internal layout is a conversation rather than a refusal, and the quality of the work is ours to answer for. Delivery and installation across Nagpur are handled by our own team.",
+            "image": "https://images.pexels.com/photos/6830012/pexels-photo-6830012.jpeg?auto=compress&cs=tinysrgb&w=1200",
+            "imageFit": "cover",
+            "showPillars": false
+          }
+        },
+        {
+          "id": "team-1",
+          "type": "team",
+          "visible": true,
+          "props": {
+            "label": "Our Team",
+            "heading": "The people behind the work",
+            "imageFit": "cover",
+            "items": [
+              {
+                "name": "Sagar Ravindra Lande",
+                "role": "Founder & Owner",
+                "meta": "Sagar Furniture & Enterprises",
+                "bio": "Founder of Sagar Furniture & Enterprises, Nagpur. Personally involved in site measurement, design approval and manufacturing quality for every order that leaves the workshop."
+              },
+              {
+                "name": "Sales & Support Team",
+                "role": "Showroom & Customer Support",
+                "meta": "Godhani Road showroom",
+                "bio": "An experienced sales and support team to help you choose materials and finishes, prepare your quotation, and coordinate delivery, installation and after-sales service."
+              }
+            ]
+          }
+        },
+        {
+          "id": "stats-2",
+          "type": "stats",
+          "visible": true,
+          "props": {
+            "label": "Why Sagar Furniture",
+            "heading": "Manufactured here, not bought in",
+            "countUp": true,
+            "items": [
+              {
+                "icon": "hammer",
+                "value": 15,
+                "suffix": "+",
+                "label": "Furniture services"
+              },
+              {
+                "icon": "package",
+                "value": 20,
+                "suffix": "+",
+                "label": "Product categories"
+              },
+              {
+                "icon": "clock",
+                "value": 7,
+                "suffix": " days",
+                "label": "Open every week"
+              },
+              {
+                "icon": "ruler",
+                "value": 100,
+                "suffix": "%",
+                "label": "Made to measure"
+              }
+            ]
+          }
+        },
+        {
+          "id": "gallery-2",
+          "type": "gallery",
+          "visible": true,
+          "props": {
+            "label": "Our Work",
+            "heading": "Recent furniture and interiors",
+            "images": [
+              {
+                "image": "https://images.pexels.com/photos/18285887/pexels-photo-18285887.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Modular kitchen with a solid timber finish"
+              },
+              {
+                "image": "https://images.pexels.com/photos/35203563/pexels-photo-35203563.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Premium bedroom with carved detailing"
+              },
+              {
+                "image": "https://images.pexels.com/photos/8092431/pexels-photo-8092431.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Interior fit-out with panelling and staircase"
+              },
+              {
+                "image": "https://images.pexels.com/photos/34574606/pexels-photo-34574606.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Bedroom furniture with matching side units"
+              },
+              {
+                "image": "https://images.pexels.com/photos/8045884/pexels-photo-8045884.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Custom shelving and storage wall"
+              },
+              {
+                "image": "https://images.pexels.com/photos/28873307/pexels-photo-28873307.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Ornate mandir detailing"
+              },
+              {
+                "image": "https://images.pexels.com/photos/7587776/pexels-photo-7587776.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Wardrobe internals with drawers and hanging sections"
+              },
+              {
+                "image": "https://images.pexels.com/photos/12273851/pexels-photo-12273851.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "alt": "Living room furniture in a matched finish"
+              }
+            ],
+            "lightbox": true
+          }
+        },
+        {
+          "id": "testimonials-2",
+          "type": "testimonials",
+          "visible": true,
+          "props": {
+            "label": "Testimonials",
+            "heading": "What our customers say",
+            "items": [
+              {
+                "quote": "Sagar Furniture provided amazing custom wardrobes for my home. The quality of wood and finish is top-notch!",
+                "name": "Rajesh Sharma",
+                "role": "Nagpur",
+                "rating": 5
+              },
+              {
+                "quote": "Very professional service and great collection of sofa sets. Delivered right on time in Nagpur.",
+                "name": "Priya Deshmukh",
+                "role": "Nagpur",
+                "rating": 5
+              },
+              {
+                "quote": "Best place for modular kitchen work. They understood our exact needs and budget.",
+                "name": "Amit Verma",
+                "role": "Nagpur",
+                "rating": 5
+              },
+              {
+                "quote": "Durable furniture and polite staff. Highly recommend Sagar Furniture to everyone.",
+                "name": "Sneha Patil",
+                "role": "Nagpur",
+                "rating": 5
+              },
+              {
+                "quote": "Got our office desks made from here. Excellent sturdiness and clean finishing.",
+                "name": "Vikas Raut",
+                "role": "Nagpur",
+                "rating": 5
+              },
+              {
+                "quote": "Great pricing and superb after-sales support. Very happy with my new dining table!",
+                "name": "Pooja Kulkarni",
+                "role": "Nagpur",
+                "rating": 5
+              }
+            ],
+            "autoplay": true
+          }
+        },
+        {
+          "id": "cta-3",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "Come and see the work in person",
+            "sub": "The showroom on Godhani Road is open every day, 10:30 AM to 9:00 PM.",
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Get a Free Quote",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "footer-3",
+          "type": "footer",
+          "visible": true,
+          "props": {
+            "blurb": "Sagar Furniture & Enterprises — furniture manufacturers in Nagpur. Modular kitchens, wardrobes, sofas, beds, dining, mandirs, TV units and complete home and office furniture, made to order in our own workshop.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "copyright": "© 2026 Sagar Furniture & Enterprises. All rights reserved.",
+            "privacyBody": "Sagar Furniture & Enterprises (\"we\", \"us\") operates this website. This policy explains what personal information we collect through this website and how we use it.\n\nINFORMATION WE COLLECT. When you submit an enquiry form, message us on WhatsApp or call us, we collect the details you choose to provide — typically your name, phone number, email address, location or site address, and the details of the furniture you are enquiring about. We do not ask for and do not require financial account details, card numbers or identity document numbers through this website.\n\nHOW WE USE IT. We use your information only to respond to your enquiry, prepare and send a quotation, arrange a site measurement, schedule manufacturing, delivery and installation, provide after-sales service, and keep our own records of the order. We may contact you about your enquiry by phone, WhatsApp, SMS or email.\n\nWHATSAPP ENQUIRIES. Messages you send us on WhatsApp are delivered through WhatsApp’s own service and are subject to WhatsApp’s privacy policy in addition to this one. We retain the conversation so we can service your enquiry and your order.\n\nSHARING. We do not sell, rent or trade your personal information. We share it only with people who need it to complete your order — for example our delivery and installation team, or a hardware or material supplier where an item must be ordered specifically for you — and only to the extent needed. We may disclose information where required by law.\n\nRETENTION. We keep enquiry and order records for as long as needed to service the order and to meet our legal, accounting and warranty obligations, after which they are deleted or anonymised.\n\nCOOKIES AND ANALYTICS. This website may use basic cookies and analytics to understand how visitors use the site. These do not identify you personally. You can block cookies in your browser settings; the site will continue to work.\n\nYOUR CHOICES. You may ask us what information we hold about you, ask us to correct it, or ask us to delete it, by writing to sagarfurniture02@gmail.com. You may ask us at any time to stop sending you promotional messages.\n\nSECURITY. We take reasonable steps to protect the information we hold. No method of transmission over the internet is completely secure, and we cannot guarantee absolute security.\n\nCHANGES. We may update this policy from time to time. The current version is always the one published on this page.\n\nCONTACT. Sagar Furniture & Enterprises, Plot No. 43, Shiv Nagar, Godhani Road, opp. Zingabai Takli, Nagpur, Maharashtra 440030. Email sagarfurniture02@gmail.com. Phone +91 97306 32249.",
+            "termsBody": "These terms apply to enquiries, quotations and orders placed with Sagar Furniture & Enterprises (\"we\", \"us\"). Please read them before confirming an order.\n\n1. PRODUCT ENQUIRIES. Product listings, images and descriptions on this website are indicative and are provided to help you describe what you need. They do not constitute an offer for sale. An order exists only once we have issued a written quotation and you have confirmed it.\n\n2. CUSTOMISED FURNITURE. Most of our work is manufactured specifically to your measurements, material and finish. Once manufacturing has begun, a customised item cannot be resold to another customer, and the cancellation terms below apply accordingly.\n\n3. QUOTATIONS. Quotations are valid for the period stated on them. Where no period is stated, a quotation is valid for 15 days. Prices are subject to change if material or hardware costs change, if the specification is changed after approval, or if site conditions differ from those measured. Anything not expressly listed in the quotation — for example counter material, electrical work, plumbing, civil work, chimney or appliances — is excluded.\n\n4. MEASUREMENTS. Final measurements are taken by us at your site before manufacturing. Where you supply measurements yourself and ask us to proceed without a site visit, we manufacture to the measurements you provide and cannot accept responsibility for a resulting fit issue. Site readiness — completed flooring, plaster, and electrical points in agreed positions — is your responsibility.\n\n5. MANUFACTURING. Manufacturing begins only after you approve the design, materials and finish, and after the agreed advance is received. Timelines quoted are estimates in working days and may be affected by material availability, site readiness, changes requested by you, and circumstances beyond our reasonable control.\n\n6. DELIVERY. Delivery is available across Nagpur and, by arrangement, outside it. Delivery charges depend on location and access and are confirmed with the quotation. You are responsible for ensuring safe and adequate access — lift, staircase and doorway — for the items ordered. Where an item cannot be moved in because of access, any re-work or return cost is chargeable.\n\n7. INSTALLATION. Installation is carried out by our team on a scheduled date. Electrical, plumbing, civil and false-ceiling work are not included unless expressly stated. If our team attends and cannot work because the site is not ready, a revisit charge may apply.\n\n8. ADVANCE AND PAYMENT. Orders are confirmed against the advance stated in the quotation. The balance is payable as set out in the quotation, and in any case before or at delivery unless agreed otherwise in writing. Goods remain our property until payment is received in full.\n\n9. CANCELLATION. An order may be cancelled without charge before manufacturing begins, less any material already purchased specifically for it. Once manufacturing has begun, the advance is not refundable, as customised work cannot be resold. Cancellation after completion is not accepted.\n\n10. WARRANTY AND SERVICE. We warrant our workmanship for the period stated on your invoice. Hardware, appliances and fittings carry the warranty of their own manufacturer, which we will pass through to you. The warranty does not cover normal wear and tear, water damage, damage from misuse, overloading or accident, damage caused by pests, or work altered or repaired by anyone else. Polishing and finishes may age naturally with use and exposure.\n\n11. PRODUCT IMAGES AND DESIGN VARIATIONS. Images on this website and in our catalogues are representative. Natural timber and veneer vary in grain and shade from piece to piece, and screen colours vary between devices; such variation is normal and is not a defect. Minor variation in dimensions and finish within accepted manufacturing tolerance is not a defect. Where a specified material or hardware becomes unavailable, we will inform you and offer an equivalent alternative.\n\n12. GOVERNING LAW. These terms are governed by the laws of India, and disputes are subject to the jurisdiction of the courts at Nagpur, Maharashtra.\n\nCONTACT. Sagar Furniture & Enterprises, Plot No. 43, Shiv Nagar, Godhani Road, opp. Zingabai Takli, Nagpur, Maharashtra 440030. Email sagarfurniture02@gmail.com. Phone +91 97306 32249.",
+            "columns": [
+              {
+                "title": "Explore",
+                "links": [
+                  {
+                    "text": "Home",
+                    "href": "/"
+                  },
+                  {
+                    "text": "Products",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "About Us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Blog",
+                    "href": "/blog"
+                  },
+                  {
+                    "text": "Contact",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "What We Make",
+                "links": [
+                  {
+                    "text": "Modular Kitchen",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Modular & Sliding Wardrobes",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Sofas & L-Corner Sofas",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Beds & Hydraulic Beds",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "CNC & Sagwan Mandirs",
+                    "href": "/products"
+                  }
+                ]
+              },
+              {
+                "title": "Get in Touch",
+                "links": [
+                  {
+                    "text": "WhatsApp +91 97306 32249",
+                    "href": "https://wa.me/919730632249"
+                  },
+                  {
+                    "text": "Call +91 97306 32249",
+                    "href": "tel:+919730632249"
+                  },
+                  {
+                    "text": "Alt. +91 79722 20676",
+                    "href": "tel:+917972220676"
+                  },
+                  {
+                    "text": "sagarfurniture02@gmail.com",
+                    "href": "mailto:sagarfurniture02@gmail.com"
+                  },
+                  {
+                    "text": "Find us on the map",
+                    "href": "https://maps.google.com/maps/search/Sagar%20furniture/@21.2041,79.0669,17z?hl=en"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "blog",
+      "slug": "/blog",
+      "title": "Blog",
+      "sections": [
+        {
+          "id": "header-4",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logoSize": "medium",
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Products",
+                "href": "/products"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Blog",
+                "href": "/blog"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Get a Quote",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "hero-4",
+          "type": "hero",
+          "visible": true,
+          "props": {
+            "badge": "Blog",
+            "heading": "Guides to buying furniture well",
+            "sub": "Practical advice on choosing kitchens, wardrobes, sofas, beds and dining sets — written from what we are actually asked in the showroom.",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Explore Our Products",
+              "href": "/products"
+            },
+            "ctaSecondary": {
+              "text": "Get a Free Quote",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "blog-1",
+          "type": "blog",
+          "visible": true,
+          "props": {
+            "label": "Blog",
+            "heading": "Furniture guides & buying advice",
+            "sub": "Nine guides covering the decisions that matter before you order.",
+            "posts": [
+              {
+                "image": "https://images.pexels.com/photos/18285887/pexels-photo-18285887.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "How to Choose the Right Modular Kitchen for Your Home",
+                "excerpt": "Layout, carcass material, shutter finish and hardware — what actually decides whether a modular kitchen lasts.",
+                "body": "Start with the layout, not the finish. An L-shape suits most Indian kitchens; a U-shape works where three walls are free; a parallel layout suits a narrow room; an island needs at least a metre of clearance on every side, which most flats do not have.\n\nThen the carcass. This is the part nobody sees and the part that fails first. Anywhere water reaches — under the sink, beside the hob — use moisture-resistant ply or HDHMR rather than ordinary MDF. Ask what the carcass is, not just what the shutter is.\n\nShutters are the visible choice: laminate is the most economical and the most durable against daily wear; acrylic and high-gloss give a reflective, seamless face; matte PU hides fingerprints best. Consider who cleans the kitchen and how often before choosing a high-gloss dark shade.\n\nHardware decides the daily experience. Soft-close hinges and channels from a brand that gives a written warranty are worth the difference, because a failed channel on a loaded drawer is a repair, not an inconvenience.\n\nFinally, plan the services before manufacture: chimney duct route, hob gas point, water inlet and outlet, and at least two spare power points on the counter.",
+                "linkText": "Read more"
+              },
+              {
+                "image": "https://images.pexels.com/photos/7060824/pexels-photo-7060824.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Modular Wardrobe vs Traditional Wardrobe — Which Is Better?",
+                "excerpt": "A loose almirah can be moved; a modular wardrobe uses every inch. Which one is right depends on whether you own the house.",
+                "body": "A traditional loose almirah is a piece of furniture; a modular wardrobe is part of the room. That single difference drives everything else.\n\nSpace is the clearest argument for modular. A loose almirah wastes the gap above it, the gap behind it and the gap beside it — often a third of the wall. A built-to-wall wardrobe takes the full floor-to-ceiling height, with loft storage above for luggage and bedding.\n\nInternals are the second. A modular wardrobe is planned around what you actually own: long hanging for sarees and coats, short hanging for shirts, drawer banks for folded clothes, a locker section for valuables. An almirah gives you one rod and one shelf.\n\nThe case for traditional: it moves with you. If you are in a rented flat or expect to shift within a few years, a loose almirah is the sensible choice, and it needs no installation.\n\nCost is closer than people expect. A modular wardrobe costs more up front but is priced per square foot of the wall it covers, and it replaces the almirah, the loft boxes and the dressing unit at once.\n\nIf you own the home, build it in. If you may move, buy loose.",
+                "linkText": "Read more"
+              },
+              {
+                "image": "https://images.pexels.com/photos/6758245/pexels-photo-6758245.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "How to Choose the Perfect Sofa Size for Your Living Room",
+                "excerpt": "Measure the walkway before the wall. The commonest mistake is a sofa that fits the wall but blocks the room.",
+                "body": "Measure the walkway first. You need about 75–90 cm of clear passage in front of the sofa, and about 40–45 cm between the sofa and the centre table. Fit those first, and whatever length is left over is your sofa — not the other way round.\n\nAs a rough guide, a three-seater runs about 6 to 7 feet, a two-seater about 4 to 5 feet, and a single about 3 feet. An L-corner will seat more people in the same floor area than a 3+2, because it uses the corner a straight sofa leaves empty.\n\nCheck the door before you order. A sofa that fits the living room but not the staircase turn is a common and expensive discovery. Built-to-order frames can be made in sections and assembled inside — say so at the drawing stage.\n\nSeat depth matters more than length for comfort. A deeper seat suits lounging; a shallower one suits sitting upright and is easier for elders to rise from. Decide which the room is for.\n\nFinally, sit on the foam before confirming. Firmness is a choice, and it is the one thing you cannot change later without re-upholstering.",
+                "linkText": "Read more"
+              },
+              {
+                "image": "https://images.pexels.com/photos/16951262/pexels-photo-16951262.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Things to Consider Before Buying a New Bed",
+                "excerpt": "Storage type, mattress size, headboard and piston rating — the four decisions that matter, in order.",
+                "body": "Decide the storage type first, because it changes the whole build. A plain bed is the cheapest and lightest. A box bed gives storage through small side or top flaps, usable for things you rarely need. A hydraulic bed lifts the entire mattress platform on gas pistons, opening the whole area in one motion — this is the only version where the space is genuinely usable week to week.\n\nFix the mattress size before the frame. 6x6.5 ft for a king, 5x6.5 ft for a queen, 3x6.5 ft for a single. Build the frame to the mattress, not the other way round, or you will be hunting for a non-standard mattress for years.\n\nCheck the piston rating on a hydraulic bed. The pistons must be rated for the weight of your mattress; an under-rated piston will not hold the platform up, which is both a nuisance and a hazard. Ask for the rating in writing.\n\nMeasure the room, not just the bed. You want walking space on at least one long side, and enough clearance for the wardrobe shutters to open fully.\n\nLastly, plan the headboard with the wall. A headboard, back panelling and side tables built as one composition costs little more than the bed alone and finishes the room.",
+                "linkText": "Read more"
+              },
+              {
+                "image": "https://images.pexels.com/photos/14715769/pexels-photo-14715769.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "How to Choose the Right Dining Table for Your Family",
+                "excerpt": "Size it to the clearance, not to the seat count you wish you had.",
+                "body": "Size the table to the clearance, not to the number of guests you occasionally host. You need about 90 cm between the table edge and the nearest wall so a chair can be pulled out and someone can walk behind it. Measure that first.\n\nPer seat, allow about 60 cm of table edge. A six-seater therefore runs roughly 6ft x 3ft; a four-seater about 3ft x 3ft or 4ft x 2.5ft. Round tables seat people more sociably and have no sharp corners, which matters with small children; rectangular tables fit narrow rooms better.\n\nChoose the top for how the family eats. Solid timber is the most durable and can be re-polished after years of use. Veneer gives the same look for less, but cannot be sanded back as often. Toughened glass is the easiest to clean and suits a modern room, but shows every fingerprint.\n\nChairs decide comfort. Cushioned seats suit long meals; plain timber is easier to clean with children. Check that the chair slides under the table when pushed in — if it does not, the room will feel crowded.\n\nIf the dining area is tight, a wall-side or corner layout recovers a surprising amount of floor.",
+                "linkText": "Read more"
+              },
+              {
+                "image": "https://images.pexels.com/photos/13005858/pexels-photo-13005858.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Customised Furniture vs Ready-Made Furniture — Which Should You Choose?",
+                "excerpt": "Ready-made wins on time and price. Customised wins on fit, material honesty and anything non-standard.",
+                "body": "Ready-made furniture wins on two things: it is available today, and it is cheaper, because it is made in volume to one size. If your room is a standard shape and you need it this week, buy ready-made.\n\nCustomised wins everywhere else. It fits the space exactly, including the awkward corner, the low beam and the wall that is not quite square. You choose the carcass material rather than accepting whatever is inside — which matters most in kitchens and wardrobes, where the hidden board decides the life of the piece. And you can have internals planned around what you actually own.\n\nThe usual objection is time. A customised piece takes longer, because it is drawn, approved and then manufactured. Plan for that in your schedule rather than being surprised by it.\n\nThe usual misconception is cost. Customised is not automatically more expensive: you are not paying for a showroom markup, and one built-in wardrobe often replaces an almirah, loft boxes and a dressing unit.\n\nA practical middle path: customise the built-ins — kitchen, wardrobes, TV unit, mandir — and buy loose pieces like chairs ready-made.",
+                "linkText": "Read more"
+              },
+              {
+                "image": "https://images.pexels.com/photos/6830012/pexels-photo-6830012.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Best Furniture for Modern Homes in Nagpur",
+                "excerpt": "What actually suits Nagpur flats: the climate, the room sizes and the storage problem.",
+                "body": "Nagpur homes have three constants worth designing around: a long, hot, dry summer, a concentrated monsoon, and flats where storage runs out before floor space does.\n\nThe climate argues for moisture-resistant board in kitchens, utility areas and any wardrobe on an external wall, and for finishes that tolerate heat without lifting — good-quality laminate and PU rather than the cheapest available. Solid timber pieces should be properly seasoned before use, or joints open up when the dry season arrives.\n\nRoom sizes argue for built-ins. Floor-to-ceiling wardrobes, a TV unit built as a wall composition, a hydraulic bed and storage built under the stairs and along passages will recover more usable space than any amount of rearranging loose furniture.\n\nFor the living room, an L-corner sofa built to the actual corner seats more people in the same area than a 3+2. For the kitchen, an L-shape suits most flats here.\n\nAnd for the one piece almost every home here wants — a mandir — plan its wall early, with a power point for lighting, rather than fitting it in at the end.",
+                "linkText": "Read more"
+              },
+              {
+                "image": "https://images.pexels.com/photos/32579238/pexels-photo-32579238.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "How to Plan Custom Furniture for a New Home",
+                "excerpt": "Sequence matters. Plan the furniture before the electrical, not after.",
+                "body": "Plan the furniture before the electrical work, not after. Where the TV unit, bed, wardrobe, kitchen appliances and mandir sit decides where power, data and light points must go. Deciding afterwards means chasing walls that have just been finished.\n\nStart with a measured plan of every room, including window heights, beam positions, door swings and the existing electrical points. Mark the fixed things you cannot move.\n\nThen work room by room in priority order: kitchen and wardrobes first, since they take the longest and affect the services most; then beds and the TV wall; then dining and loose furniture; then the mandir wall, which needs its own light point.\n\nChoose materials once, across the whole house. A single laminate and hardware family used everywhere costs less than choosing per room and makes the home read as one piece of work.\n\nApprove drawings and physical samples before manufacture. A change on a drawing is free; a change after cutting is not.\n\nFinally, sequence delivery against your civil work. Furniture delivered before the flooring and painting are finished will be damaged.",
+                "linkText": "Read more"
+              },
+              {
+                "image": "https://images.pexels.com/photos/7745933/pexels-photo-7745933.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Things to Check Before Buying Modular Furniture",
+                "excerpt": "Nine questions that separate furniture that lasts from furniture that looks good on delivery day.",
+                "body": "Ask what the carcass is made of. This is the board you never see and the part that fails first. Moisture-resistant ply or HDHMR in wet areas; ordinary MDF is not acceptable under a sink.\n\nAsk about edge banding. Unbanded or thinly banded edges swell the moment they meet water. 2mm banding on exposed edges is worth asking for by name.\n\nAsk which hardware brand, and what warranty is written on the quotation. Hinges and channels are what you operate every day.\n\nAsk whether it is manufactured or bought in. A unit that makes its own furniture can change a size or a layout mid-way and has to answer for the quality itself.\n\nAsk to see the finish sample in daylight, not under showroom lighting.\n\nAsk what the quotation excludes — counter material, electrical, chimney, transport and installation are the usual omissions that appear later.\n\nAsk how the site is measured, and whether you approve a drawing before cutting.\n\nAsk about the delivery and installation timeline in writing.\n\nAnd ask what happens after installation: who comes back to adjust a shutter that has settled, and for how long.",
+                "linkText": "Read more"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-4",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "Still deciding?",
+            "sub": "Message us on WhatsApp with your room size — we will tell you what actually fits.",
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Get a Free Quote",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "footer-4",
+          "type": "footer",
+          "visible": true,
+          "props": {
+            "blurb": "Sagar Furniture & Enterprises — furniture manufacturers in Nagpur. Modular kitchens, wardrobes, sofas, beds, dining, mandirs, TV units and complete home and office furniture, made to order in our own workshop.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "copyright": "© 2026 Sagar Furniture & Enterprises. All rights reserved.",
+            "privacyBody": "Sagar Furniture & Enterprises (\"we\", \"us\") operates this website. This policy explains what personal information we collect through this website and how we use it.\n\nINFORMATION WE COLLECT. When you submit an enquiry form, message us on WhatsApp or call us, we collect the details you choose to provide — typically your name, phone number, email address, location or site address, and the details of the furniture you are enquiring about. We do not ask for and do not require financial account details, card numbers or identity document numbers through this website.\n\nHOW WE USE IT. We use your information only to respond to your enquiry, prepare and send a quotation, arrange a site measurement, schedule manufacturing, delivery and installation, provide after-sales service, and keep our own records of the order. We may contact you about your enquiry by phone, WhatsApp, SMS or email.\n\nWHATSAPP ENQUIRIES. Messages you send us on WhatsApp are delivered through WhatsApp’s own service and are subject to WhatsApp’s privacy policy in addition to this one. We retain the conversation so we can service your enquiry and your order.\n\nSHARING. We do not sell, rent or trade your personal information. We share it only with people who need it to complete your order — for example our delivery and installation team, or a hardware or material supplier where an item must be ordered specifically for you — and only to the extent needed. We may disclose information where required by law.\n\nRETENTION. We keep enquiry and order records for as long as needed to service the order and to meet our legal, accounting and warranty obligations, after which they are deleted or anonymised.\n\nCOOKIES AND ANALYTICS. This website may use basic cookies and analytics to understand how visitors use the site. These do not identify you personally. You can block cookies in your browser settings; the site will continue to work.\n\nYOUR CHOICES. You may ask us what information we hold about you, ask us to correct it, or ask us to delete it, by writing to sagarfurniture02@gmail.com. You may ask us at any time to stop sending you promotional messages.\n\nSECURITY. We take reasonable steps to protect the information we hold. No method of transmission over the internet is completely secure, and we cannot guarantee absolute security.\n\nCHANGES. We may update this policy from time to time. The current version is always the one published on this page.\n\nCONTACT. Sagar Furniture & Enterprises, Plot No. 43, Shiv Nagar, Godhani Road, opp. Zingabai Takli, Nagpur, Maharashtra 440030. Email sagarfurniture02@gmail.com. Phone +91 97306 32249.",
+            "termsBody": "These terms apply to enquiries, quotations and orders placed with Sagar Furniture & Enterprises (\"we\", \"us\"). Please read them before confirming an order.\n\n1. PRODUCT ENQUIRIES. Product listings, images and descriptions on this website are indicative and are provided to help you describe what you need. They do not constitute an offer for sale. An order exists only once we have issued a written quotation and you have confirmed it.\n\n2. CUSTOMISED FURNITURE. Most of our work is manufactured specifically to your measurements, material and finish. Once manufacturing has begun, a customised item cannot be resold to another customer, and the cancellation terms below apply accordingly.\n\n3. QUOTATIONS. Quotations are valid for the period stated on them. Where no period is stated, a quotation is valid for 15 days. Prices are subject to change if material or hardware costs change, if the specification is changed after approval, or if site conditions differ from those measured. Anything not expressly listed in the quotation — for example counter material, electrical work, plumbing, civil work, chimney or appliances — is excluded.\n\n4. MEASUREMENTS. Final measurements are taken by us at your site before manufacturing. Where you supply measurements yourself and ask us to proceed without a site visit, we manufacture to the measurements you provide and cannot accept responsibility for a resulting fit issue. Site readiness — completed flooring, plaster, and electrical points in agreed positions — is your responsibility.\n\n5. MANUFACTURING. Manufacturing begins only after you approve the design, materials and finish, and after the agreed advance is received. Timelines quoted are estimates in working days and may be affected by material availability, site readiness, changes requested by you, and circumstances beyond our reasonable control.\n\n6. DELIVERY. Delivery is available across Nagpur and, by arrangement, outside it. Delivery charges depend on location and access and are confirmed with the quotation. You are responsible for ensuring safe and adequate access — lift, staircase and doorway — for the items ordered. Where an item cannot be moved in because of access, any re-work or return cost is chargeable.\n\n7. INSTALLATION. Installation is carried out by our team on a scheduled date. Electrical, plumbing, civil and false-ceiling work are not included unless expressly stated. If our team attends and cannot work because the site is not ready, a revisit charge may apply.\n\n8. ADVANCE AND PAYMENT. Orders are confirmed against the advance stated in the quotation. The balance is payable as set out in the quotation, and in any case before or at delivery unless agreed otherwise in writing. Goods remain our property until payment is received in full.\n\n9. CANCELLATION. An order may be cancelled without charge before manufacturing begins, less any material already purchased specifically for it. Once manufacturing has begun, the advance is not refundable, as customised work cannot be resold. Cancellation after completion is not accepted.\n\n10. WARRANTY AND SERVICE. We warrant our workmanship for the period stated on your invoice. Hardware, appliances and fittings carry the warranty of their own manufacturer, which we will pass through to you. The warranty does not cover normal wear and tear, water damage, damage from misuse, overloading or accident, damage caused by pests, or work altered or repaired by anyone else. Polishing and finishes may age naturally with use and exposure.\n\n11. PRODUCT IMAGES AND DESIGN VARIATIONS. Images on this website and in our catalogues are representative. Natural timber and veneer vary in grain and shade from piece to piece, and screen colours vary between devices; such variation is normal and is not a defect. Minor variation in dimensions and finish within accepted manufacturing tolerance is not a defect. Where a specified material or hardware becomes unavailable, we will inform you and offer an equivalent alternative.\n\n12. GOVERNING LAW. These terms are governed by the laws of India, and disputes are subject to the jurisdiction of the courts at Nagpur, Maharashtra.\n\nCONTACT. Sagar Furniture & Enterprises, Plot No. 43, Shiv Nagar, Godhani Road, opp. Zingabai Takli, Nagpur, Maharashtra 440030. Email sagarfurniture02@gmail.com. Phone +91 97306 32249.",
+            "columns": [
+              {
+                "title": "Explore",
+                "links": [
+                  {
+                    "text": "Home",
+                    "href": "/"
+                  },
+                  {
+                    "text": "Products",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "About Us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Blog",
+                    "href": "/blog"
+                  },
+                  {
+                    "text": "Contact",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "What We Make",
+                "links": [
+                  {
+                    "text": "Modular Kitchen",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Modular & Sliding Wardrobes",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Sofas & L-Corner Sofas",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Beds & Hydraulic Beds",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "CNC & Sagwan Mandirs",
+                    "href": "/products"
+                  }
+                ]
+              },
+              {
+                "title": "Get in Touch",
+                "links": [
+                  {
+                    "text": "WhatsApp +91 97306 32249",
+                    "href": "https://wa.me/919730632249"
+                  },
+                  {
+                    "text": "Call +91 97306 32249",
+                    "href": "tel:+919730632249"
+                  },
+                  {
+                    "text": "Alt. +91 79722 20676",
+                    "href": "tel:+917972220676"
+                  },
+                  {
+                    "text": "sagarfurniture02@gmail.com",
+                    "href": "mailto:sagarfurniture02@gmail.com"
+                  },
+                  {
+                    "text": "Find us on the map",
+                    "href": "https://maps.google.com/maps/search/Sagar%20furniture/@21.2041,79.0669,17z?hl=en"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "slug": "/contact",
+      "title": "Contact",
+      "sections": [
+        {
+          "id": "header-5",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logoSize": "medium",
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Products",
+                "href": "/products"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Blog",
+                "href": "/blog"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Get a Quote",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "hero-5",
+          "type": "hero",
+          "visible": true,
+          "props": {
+            "badge": "Contact Us",
+            "heading": "Let us build it for you",
+            "sub": "Visit the showroom on Godhani Road, or send your requirement on WhatsApp for a quotation.",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Explore Our Products",
+              "href": "/products"
+            },
+            "ctaSecondary": {
+              "text": "Get a Free Quote",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "contact-2",
+          "type": "contact",
+          "visible": true,
+          "props": {
+            "label": "Contact",
+            "heading": "Tell us what you need built",
+            "sub": "Send us your room size and what you have in mind, and we will come back with a quotation. Visiting the showroom is welcome any day, 10:30 AM to 9:00 PM.",
+            "showPhone": true,
+            "showWhatsapp": true,
+            "showEmail": true,
+            "showAddress": true,
+            "showHours": true,
+            "showMap": true,
+            "mapUrl": "https://maps.google.com/maps/search/Sagar%20furniture/@21.2041,79.0669,17z?hl=en",
+            "submitText": "Send enquiry"
+          }
+        },
+        {
+          "id": "hours-1",
+          "type": "hours",
+          "visible": true,
+          "props": {
+            "label": "Visit Us",
+            "heading": "Opening hours",
+            "sub": "Open all seven days.",
+            "highlightToday": true,
+            "note": "Alternate contact: +91 79722 20676. For a site visit outside these hours, please call ahead."
+          }
+        },
+        {
+          "id": "faq-2",
+          "type": "faq",
+          "visible": true,
+          "props": {
+            "label": "FAQ",
+            "heading": "Common questions",
+            "openFirst": true,
+            "items": [
+              {
+                "q": "Do you provide customised furniture?",
+                "a": "Yes. We provide customised furniture designed according to the customer’s space, requirements and preferred style."
+              },
+              {
+                "q": "Do you provide modular kitchen solutions?",
+                "a": "Yes. We provide customised modular kitchen solutions with design, manufacturing, installation and finishing options."
+              },
+              {
+                "q": "Do you provide delivery and installation?",
+                "a": "Yes, delivery and installation are available as per project/location and applicable terms."
+              },
+              {
+                "q": "Can I get furniture according to my room size?",
+                "a": "Yes. We specialise in customised furniture based on available space and customer requirements."
+              },
+              {
+                "q": "Do you manufacture furniture?",
+                "a": "Yes. We manufacture customised furniture and provide furniture solutions for homes, offices and commercial spaces."
+              },
+              {
+                "q": "Can I contact you on WhatsApp for a quotation?",
+                "a": "Yes. Customers can contact us directly through WhatsApp for product enquiries and customised quotations."
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-5",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "Send us your requirement",
+            "sub": "Room size, a photo of the space and what you have in mind is enough to start.",
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Get a Free Quote",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "footer-5",
+          "type": "footer",
+          "visible": true,
+          "props": {
+            "blurb": "Sagar Furniture & Enterprises — furniture manufacturers in Nagpur. Modular kitchens, wardrobes, sofas, beds, dining, mandirs, TV units and complete home and office furniture, made to order in our own workshop.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "copyright": "© 2026 Sagar Furniture & Enterprises. All rights reserved.",
+            "privacyBody": "Sagar Furniture & Enterprises (\"we\", \"us\") operates this website. This policy explains what personal information we collect through this website and how we use it.\n\nINFORMATION WE COLLECT. When you submit an enquiry form, message us on WhatsApp or call us, we collect the details you choose to provide — typically your name, phone number, email address, location or site address, and the details of the furniture you are enquiring about. We do not ask for and do not require financial account details, card numbers or identity document numbers through this website.\n\nHOW WE USE IT. We use your information only to respond to your enquiry, prepare and send a quotation, arrange a site measurement, schedule manufacturing, delivery and installation, provide after-sales service, and keep our own records of the order. We may contact you about your enquiry by phone, WhatsApp, SMS or email.\n\nWHATSAPP ENQUIRIES. Messages you send us on WhatsApp are delivered through WhatsApp’s own service and are subject to WhatsApp’s privacy policy in addition to this one. We retain the conversation so we can service your enquiry and your order.\n\nSHARING. We do not sell, rent or trade your personal information. We share it only with people who need it to complete your order — for example our delivery and installation team, or a hardware or material supplier where an item must be ordered specifically for you — and only to the extent needed. We may disclose information where required by law.\n\nRETENTION. We keep enquiry and order records for as long as needed to service the order and to meet our legal, accounting and warranty obligations, after which they are deleted or anonymised.\n\nCOOKIES AND ANALYTICS. This website may use basic cookies and analytics to understand how visitors use the site. These do not identify you personally. You can block cookies in your browser settings; the site will continue to work.\n\nYOUR CHOICES. You may ask us what information we hold about you, ask us to correct it, or ask us to delete it, by writing to sagarfurniture02@gmail.com. You may ask us at any time to stop sending you promotional messages.\n\nSECURITY. We take reasonable steps to protect the information we hold. No method of transmission over the internet is completely secure, and we cannot guarantee absolute security.\n\nCHANGES. We may update this policy from time to time. The current version is always the one published on this page.\n\nCONTACT. Sagar Furniture & Enterprises, Plot No. 43, Shiv Nagar, Godhani Road, opp. Zingabai Takli, Nagpur, Maharashtra 440030. Email sagarfurniture02@gmail.com. Phone +91 97306 32249.",
+            "termsBody": "These terms apply to enquiries, quotations and orders placed with Sagar Furniture & Enterprises (\"we\", \"us\"). Please read them before confirming an order.\n\n1. PRODUCT ENQUIRIES. Product listings, images and descriptions on this website are indicative and are provided to help you describe what you need. They do not constitute an offer for sale. An order exists only once we have issued a written quotation and you have confirmed it.\n\n2. CUSTOMISED FURNITURE. Most of our work is manufactured specifically to your measurements, material and finish. Once manufacturing has begun, a customised item cannot be resold to another customer, and the cancellation terms below apply accordingly.\n\n3. QUOTATIONS. Quotations are valid for the period stated on them. Where no period is stated, a quotation is valid for 15 days. Prices are subject to change if material or hardware costs change, if the specification is changed after approval, or if site conditions differ from those measured. Anything not expressly listed in the quotation — for example counter material, electrical work, plumbing, civil work, chimney or appliances — is excluded.\n\n4. MEASUREMENTS. Final measurements are taken by us at your site before manufacturing. Where you supply measurements yourself and ask us to proceed without a site visit, we manufacture to the measurements you provide and cannot accept responsibility for a resulting fit issue. Site readiness — completed flooring, plaster, and electrical points in agreed positions — is your responsibility.\n\n5. MANUFACTURING. Manufacturing begins only after you approve the design, materials and finish, and after the agreed advance is received. Timelines quoted are estimates in working days and may be affected by material availability, site readiness, changes requested by you, and circumstances beyond our reasonable control.\n\n6. DELIVERY. Delivery is available across Nagpur and, by arrangement, outside it. Delivery charges depend on location and access and are confirmed with the quotation. You are responsible for ensuring safe and adequate access — lift, staircase and doorway — for the items ordered. Where an item cannot be moved in because of access, any re-work or return cost is chargeable.\n\n7. INSTALLATION. Installation is carried out by our team on a scheduled date. Electrical, plumbing, civil and false-ceiling work are not included unless expressly stated. If our team attends and cannot work because the site is not ready, a revisit charge may apply.\n\n8. ADVANCE AND PAYMENT. Orders are confirmed against the advance stated in the quotation. The balance is payable as set out in the quotation, and in any case before or at delivery unless agreed otherwise in writing. Goods remain our property until payment is received in full.\n\n9. CANCELLATION. An order may be cancelled without charge before manufacturing begins, less any material already purchased specifically for it. Once manufacturing has begun, the advance is not refundable, as customised work cannot be resold. Cancellation after completion is not accepted.\n\n10. WARRANTY AND SERVICE. We warrant our workmanship for the period stated on your invoice. Hardware, appliances and fittings carry the warranty of their own manufacturer, which we will pass through to you. The warranty does not cover normal wear and tear, water damage, damage from misuse, overloading or accident, damage caused by pests, or work altered or repaired by anyone else. Polishing and finishes may age naturally with use and exposure.\n\n11. PRODUCT IMAGES AND DESIGN VARIATIONS. Images on this website and in our catalogues are representative. Natural timber and veneer vary in grain and shade from piece to piece, and screen colours vary between devices; such variation is normal and is not a defect. Minor variation in dimensions and finish within accepted manufacturing tolerance is not a defect. Where a specified material or hardware becomes unavailable, we will inform you and offer an equivalent alternative.\n\n12. GOVERNING LAW. These terms are governed by the laws of India, and disputes are subject to the jurisdiction of the courts at Nagpur, Maharashtra.\n\nCONTACT. Sagar Furniture & Enterprises, Plot No. 43, Shiv Nagar, Godhani Road, opp. Zingabai Takli, Nagpur, Maharashtra 440030. Email sagarfurniture02@gmail.com. Phone +91 97306 32249.",
+            "columns": [
+              {
+                "title": "Explore",
+                "links": [
+                  {
+                    "text": "Home",
+                    "href": "/"
+                  },
+                  {
+                    "text": "Products",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "About Us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Blog",
+                    "href": "/blog"
+                  },
+                  {
+                    "text": "Contact",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "What We Make",
+                "links": [
+                  {
+                    "text": "Modular Kitchen",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Modular & Sliding Wardrobes",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Sofas & L-Corner Sofas",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Beds & Hydraulic Beds",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "CNC & Sagwan Mandirs",
+                    "href": "/products"
+                  }
+                ]
+              },
+              {
+                "title": "Get in Touch",
+                "links": [
+                  {
+                    "text": "WhatsApp +91 97306 32249",
+                    "href": "https://wa.me/919730632249"
+                  },
+                  {
+                    "text": "Call +91 97306 32249",
+                    "href": "tel:+919730632249"
+                  },
+                  {
+                    "text": "Alt. +91 79722 20676",
+                    "href": "tel:+917972220676"
+                  },
+                  {
+                    "text": "sagarfurniture02@gmail.com",
+                    "href": "mailto:sagarfurniture02@gmail.com"
+                  },
+                  {
+                    "text": "Find us on the map",
+                    "href": "https://maps.google.com/maps/search/Sagar%20furniture/@21.2041,79.0669,17z?hl=en"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

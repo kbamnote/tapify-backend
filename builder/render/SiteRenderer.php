@@ -913,6 +913,10 @@ class SiteRenderer
         $p = $s['props'] ?? [];
         $items = $p['items'] ?? [];
         if (!$items) return '';
+        // WhatsApp-order mode: no detail pages, the card links straight to a chat.
+        $waOrder = self::isWhatsappOrder($p);
+        $biz     = $doc['business'] ?? [];
+        $onDark  = self::isDarkBg($s);
         $variant = $s['variant'] ?? 'cards-3';
         $showImages = $variant !== 'list';
 
@@ -922,7 +926,7 @@ class SiteRenderer
             // An item with a full description has its own product page. The photo
             // and the title link straight to it — a separate "View details" button
             // is one extra thing to notice for something the card already implies.
-            $href = trim((string)($it['body'] ?? '')) !== ''
+            $href = (!$waOrder && self::hasDetailPage($it))
                 ? '/service/' . self::itemSlug($it, 'service')
                 : '';
             $open = $href !== '' ? '<a href="' . self::esc($href) . '" style="color:inherit;text-decoration:none;display:block">' : '';
@@ -939,7 +943,10 @@ class SiteRenderer
             if (!empty($it['desc'])) $c .= '<p style="margin-top:8px;font-size:14px;color:var(--tf-text,var(--color-muted))">' . self::esc($it['desc']) . '</p>';
             // Items without a description have no page to open, so they keep
             // whatever custom button the customer configured.
-            if ($href === '' && !empty($it['cta']['text'])) {
+            if ($waOrder) {
+                $c .= self::waOrderButton($it, $biz, $p, $onDark);
+            }
+            if (!$waOrder && $href === '' && !empty($it['cta']['text'])) {
                 $l = $it['cta']; $l['style'] = $l['style'] ?? 'link'; $c .= '<div style="margin-top:16px">' . self::btn($l) . '</div>';
             }
             $c .= '</div></div>';
@@ -962,13 +969,17 @@ class SiteRenderer
         $p = $s['props'] ?? [];
         $items = $p['items'] ?? [];
         if (!$items) return '';
+        // WhatsApp-order mode: no detail pages, the card links straight to a chat.
+        $waOrder = self::isWhatsappOrder($p);
+        $biz     = $doc['business'] ?? [];
+        $onDark  = self::isDarkBg($s);
         $variant = $s['variant'] ?? 'cards-3';
         $showImages = $variant !== 'list';
 
         $cards = [];
         foreach ($items as $it) {
             $img = self::media($it['image'] ?? null);
-            $href = trim((string)($it['body'] ?? '')) !== ''
+            $href = (!$waOrder && self::hasDetailPage($it))
                 ? '/product/' . self::itemSlug($it, 'product')
                 : '';
             $open = $href !== '' ? '<a href="' . self::esc($href) . '" style="color:inherit;text-decoration:none;display:block">' : '';
@@ -990,7 +1001,10 @@ class SiteRenderer
                     . '</p>';
             }
             if (!empty($it['desc'])) $c .= '<p style="margin-top:8px;font-size:14px;color:var(--tf-text,var(--color-muted))">' . self::esc($it['desc']) . '</p>';
-            if ($href === '' && !empty($it['cta']['text'])) {
+            if ($waOrder) {
+                $c .= self::waOrderButton($it, $biz, $p, $onDark);
+            }
+            if (!$waOrder && $href === '' && !empty($it['cta']['text'])) {
                 $l = $it['cta']; $l['style'] = $l['style'] ?? 'link'; $c .= '<div style="margin-top:16px">' . self::btn($l) . '</div>';
             }
             $c .= '</div></div>';
@@ -1660,14 +1674,80 @@ class SiteRenderer
     }
 
     /** Every service/product with a full description, keyed by slug. */
+    /**
+     * Does this product/service warrant a page of its own?
+     *
+     * It used to be "only if it has a full description", which quietly threw
+     * away the extra photos: a customer could add ten images to a product, save,
+     * publish — and see nothing at all, because with no description the card
+     * never linked anywhere and /product/<slug> 404'd. The photos were stored
+     * and the detail page would have rendered them perfectly; there was simply
+     * no way to reach it.
+     *
+     * Photos are a reason to have a page in their own right. A gallery of a sofa
+     * from six angles needs no paragraph to be worth showing.
+     */
+    /**
+     * Is this section selling straight through WhatsApp instead of a page?
+     *
+     * The default flow — card, detail page, order form, stored order — is the
+     * right one for a real shop. For a small business with twenty items and a
+     * phone, it is three screens of friction before anyone can ask "is this in
+     * stock?". In that mode the card carries a WhatsApp button, the items get no
+     * detail page at all, and the order lands as a message.
+     */
+    private static function isWhatsappOrder(array $props): bool
+    {
+        return ($props['orderVia'] ?? 'page') === 'whatsapp';
+    }
+
+    /**
+     * "Order on WhatsApp" for one card, pre-filled with what they tapped.
+     *
+     * The item name matters: a bare wa.me link produces an empty chat and the
+     * shop owner has to ask what the customer was looking at, which loses most
+     * of the point.
+     */
+    private static function waOrderButton(array $item, array $biz, array $props, bool $onDark): string
+    {
+        $num = preg_replace('/\D/', '', (string)($biz['whatsapp'] ?? $biz['phone'] ?? ''));
+        if ($num === '') return '';       // nothing to link to; show no button
+
+        $title = trim((string)($item['title'] ?? ''));
+        $price = trim((string)($item['price'] ?? ''));
+        $msg = 'Hi, I am interested in *' . ($title !== '' ? $title : 'this item') . '*'
+             . ($price !== '' ? ' (' . $price . ')' : '') . '. Is it available?';
+
+        $label = trim((string)($props['orderLabel'] ?? '')) ?: 'Order on WhatsApp';
+        return '<div style="margin-top:16px">' . self::btn([
+            'text'    => $label,
+            'href'    => 'https://wa.me/' . $num . '?text=' . rawurlencode($msg),
+            'newTab'  => true,
+            'style'   => 'primary',
+        ], $onDark) . '</div>';
+    }
+
+    private static function hasDetailPage(array $item): bool
+    {
+        if (trim((string)($item['body'] ?? '')) !== '') return true;
+        foreach ((array)($item['gallery'] ?? []) as $g) {
+            if (!empty($g['image'])) return true;
+        }
+        return false;
+    }
+
     private static function allServices(array $doc): array
     {
         $out = [];
         foreach (($doc['pages'] ?? []) as $pg) {
             foreach (($pg['sections'] ?? []) as $s) {
                 if (($s['type'] ?? '') !== 'services') continue;
+                // A WhatsApp-order section has no detail pages by design; indexing
+                // them would leave the URL reachable with nothing linking to it,
+                // and Google would still find and rank it.
+                if (self::isWhatsappOrder($s['props'] ?? [])) continue;
                 foreach (($s['props']['items'] ?? []) as $item) {
-                    if (trim((string)($item['body'] ?? '')) === '') continue;
+                    if (!self::hasDetailPage($item)) continue;
                     $slug = self::itemSlug($item, 'service');
                     if (!isset($out[$slug])) $out[$slug] = $item;
                 }
@@ -1683,8 +1763,12 @@ class SiteRenderer
         foreach (($doc['pages'] ?? []) as $pg) {
             foreach (($pg['sections'] ?? []) as $s) {
                 if (($s['type'] ?? '') !== 'products') continue;
+                // A WhatsApp-order section has no detail pages by design; indexing
+                // them would leave the URL reachable with nothing linking to it,
+                // and Google would still find and rank it.
+                if (self::isWhatsappOrder($s['props'] ?? [])) continue;
                 foreach (($s['props']['items'] ?? []) as $item) {
-                    if (trim((string)($item['body'] ?? '')) === '') continue;
+                    if (!self::hasDetailPage($item)) continue;
                     $slug = self::itemSlug($item, 'product');
                     if (!isset($out[$slug])) $out[$slug] = $item;
                 }
@@ -2133,7 +2217,13 @@ class SiteRenderer
             . $orderHtml
             . ($ctaHtml ? '<div style="margin-top:20px">' . $ctaHtml . '</div>' : '')
             . self::productInfoTable($item)
-            . '<div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--color-border);font-size:16px;line-height:1.75">' . self::articleBody($item['body'] ?? '') . '</div>'
+            // Only when there IS a description. An item can now reach this page on
+            // the strength of its photos alone, and an empty block would draw a
+            // stray rule across the page under the gallery.
+            . (trim((string)($item['body'] ?? '')) !== ''
+                ? '<div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--color-border);font-size:16px;line-height:1.75">'
+                  . self::articleBody($item['body']) . '</div>'
+                : '')
             . '</div></div>'
             . $reviewsHtml
             . self::relatedProducts($doc, $item, $backPath)
@@ -2376,7 +2466,13 @@ class SiteRenderer
             . $orderHtml
             . ($ctaHtml ? '<div style="margin-top:20px">' . $ctaHtml . '</div>' : '')
             . self::productInfoTable($item)
-            . '<div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--color-border);font-size:16px;line-height:1.75">' . self::articleBody($item['body'] ?? '') . '</div>'
+            // Only when there IS a description. An item can now reach this page on
+            // the strength of its photos alone, and an empty block would draw a
+            // stray rule across the page under the gallery.
+            . (trim((string)($item['body'] ?? '')) !== ''
+                ? '<div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--color-border);font-size:16px;line-height:1.75">'
+                  . self::articleBody($item['body']) . '</div>'
+                : '')
             . '</div></div>'
             . $reviewsHtml
             . self::relatedProducts($doc, $item, $backPath, 'product')
