@@ -354,7 +354,7 @@
                 }
               },
               {
-                "image": "https://images.pexels.com/photos/36795124/pexels-photo-36795124.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298250/sagar-furniture/sagar-12.jpg",
                 "title": "CNC Mandir / Pooja Mandir",
                 "desc": "Home temples in Sagwan and other timbers, with CNC-cut jaali panels, storage drawers and integrated lighting.",
                 "meta": "CNC-cut jaali work and Sagwan mandirs",
@@ -439,6 +439,813 @@
           }
         },
         {
+          "id": "products-home",
+          "type": "products",
+          "visible": true,
+          "props": {
+            "label": "Our Products",
+            "heading": "What we build",
+            "sub": "Tap any product to send us a WhatsApp enquiry straight away. For sizes, materials and finishes, see the full product pages.",
+            "items": [
+              {
+                "image": "https://images.pexels.com/photos/7148841/pexels-photo-7148841.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Modular Kitchen",
+                "desc": "Complete modular kitchen with tall units, corner solutions and soft-close hardware.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Custom Quote",
+                "body": "A full modular kitchen planned around how you cook. Moisture-resistant carcass where water reaches, soft-close hinges and channels, and a shutter finish chosen from laminate, acrylic, high-gloss or matte PU. Tall units, pull-out baskets, corner carousels, chimney and hob coordination and under-cabinet lighting are planned in before manufacture. Counter material is coordinated with your mason.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Planned to your kitchen layout — L-shape, U-shape, parallel or island"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Moisture-resistant ply or HDHMR carcass; laminate, acrylic, high-gloss or PU shutters"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2AModular%20Kitchen%2A."
+                }
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298223/sagar-furniture/sagar-02.jpg",
+                "title": "Modular Wardrobe",
+                "desc": "Hinged modular wardrobe with drawers, hanging sections, locker and loft storage.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Custom Quote",
+                "body": "Built to the wall so nothing is wasted above or beside it. Internals are planned around what you own — long hanging for sarees and coats, short hanging for shirts, drawer banks, a locker section and loft storage for luggage. Mirror units, tie and belt organisers and internal lighting can be added.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Built floor-to-ceiling to your wall — 4ft, 6ft, 8ft and above"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Ply or HDHMR carcass with laminate, veneer, acrylic or PU shutters"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2AModular%20Wardrobe%2A."
+                }
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298219/sagar-furniture/sagar-01.jpg",
+                "title": "Sliding Wardrobe",
+                "desc": "Sliding-shutter wardrobe for rooms where a hinged door would block the walkway.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Custom Quote",
+                "body": "Where a hinged shutter would foul the bed or the walkway, sliding shutters recover the swing space entirely. Built on quality aluminium or wooden track rated for the shutter weight, so it keeps running smoothly. Shutter faces in laminate, mirror, lacquered glass or acrylic, with the same internal planning as our hinged wardrobes.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Two, three and four-shutter sliding units, built to wall width"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Aluminium or wooden sliding track; laminate, mirror, lacquered-glass or acrylic shutters"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2ASliding%20Wardrobe%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/16951262/pexels-photo-16951262.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Hydraulic Storage Bed",
+                "desc": "Gas-lift bed that opens the whole under-mattress area in one motion.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Quote",
+                "body": "The single largest piece of unused storage in a bedroom is under the bed. Gas pistons lift the entire mattress platform so the whole area is reachable at once — usable for bedding, luggage and off-season clothes, unlike a box bed with small side flaps. Pistons are rated to the mattress weight. Headboard upholstered or panelled to match your wardrobe.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "King, queen and single — 6x6.5, 5x6.5 and 3x6.5 ft"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Seasoned timber and ply frame; gas-piston hydraulic lift; upholstered or panelled headboard"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2AHydraulic%20Storage%20Bed%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/34496701/pexels-photo-34496701.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "King Size Bed",
+                "desc": "King bed with a panelled or upholstered headboard, with or without storage.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Quote",
+                "body": "A king bed built to a size that actually leaves walking space around it — we measure the room before confirming. Plain, box-storage or hydraulic versions. Headboard in panelled timber, veneer or upholstery, with optional side tables and back panelling built as one composition with the bed.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "6x6.5 ft standard; other sizes made to order"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Seasoned timber and ply; veneer, laminate or PU finish; upholstered headboard optional"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2AKing%20Size%20Bed%2A."
+                }
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298257/sagar-furniture/sagar-15.jpg",
+                "title": "Premium Sofa Set",
+                "desc": "Premium sofa set with a seasoned frame, high-density foam and your choice of fabric.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Quote",
+                "body": "Built on a seasoned timber frame that will not creak in a year, with high-density foam and a seat firmness you choose rather than accept. Length is made to the wall you have. Fabric or leatherette selected from sample books, with contrast piping and cushion options. Removable covers can be specified.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "3+1+1 and 3+2 layouts; length made to your room"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Seasoned timber frame, high-density foam, fabric or leatherette"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2APremium%20Sofa%20Set%2A."
+                }
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298252/sagar-furniture/sagar-13.jpg",
+                "title": "L-Corner Sofa",
+                "desc": "L-shaped corner sofa built to your room, with the chaise on whichever side suits.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Quote",
+                "body": "An L-corner uses the room corner that a straight sofa leaves empty, and seats more people in the same floor area. Built to your exact corner dimensions with the chaise handed left or right, so the layout works with your TV wall and doorway rather than against it. Storage can be built into the chaise base.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Made to your corner; chaise handed left or right"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Seasoned timber frame, high-density foam, fabric or leatherette"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2AL-Corner%20Sofa%2A."
+                }
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298254/sagar-furniture/sagar-14.jpg",
+                "title": "3+2 Sofa Set",
+                "desc": "Classic three-plus-two seating for a standard living room.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Quote",
+                "body": "The most practical layout for a standard Indian living room — a three-seater on the long wall and a two-seater facing or at right angles. Both pieces are built to lengths that suit your room rather than to a fixed catalogue size, in a matching frame, foam and fabric. Centre table can be built to match.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Three-seater plus two-seater; lengths made to order"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Seasoned timber frame, high-density foam, fabric or leatherette"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2A3%2B2%20Sofa%20Set%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/14715769/pexels-photo-14715769.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "6-Seater Dining Set",
+                "desc": "Six-seater dining table with matching chairs, sized to your dining area.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Quote",
+                "body": "A six-seater sized so that every chair can still be pulled out fully — we check the clearance to the wall before confirming the top size. Solid timber, veneered or glass-top, with six chairs finished to match, cushioned or plain. Rectangular or oval.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Table approx. 6ft x 3ft with six chairs; made to order"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Solid timber or veneered top; cushioned or plain chairs"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2A6-Seater%20Dining%20Set%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/7180275/pexels-photo-7180275.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "4-Seater Dining Set",
+                "desc": "Compact four-seater set for flats and smaller dining areas.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Quote",
+                "body": "Sized for flats and compact dining areas where a six-seater would block the walkway. Round or rectangular, solid timber or veneered, with four matching chairs. A wall-side or corner layout can be built to save further space.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Table approx. 3ft x 3ft or 4ft x 2.5ft with four chairs"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Solid timber or veneered top; cushioned or plain chairs"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2A4-Seater%20Dining%20Set%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/4119832/pexels-photo-4119832.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Premium Dining Table",
+                "desc": "Statement dining table in solid timber, veneer or toughened glass.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Custom Quote",
+                "body": "For a dining room that is meant to be looked at. Solid timber with the grain matched across the top, veneered with a mitred edge, or toughened glass on a timber or metal base. Made to your room size, with chairs built or sourced to match the finish.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "6 and 8 seater; made to your room size"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Solid timber, veneer or toughened glass top with a timber or metal base"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2APremium%20Dining%20Table%2A."
+                }
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298228/sagar-furniture/sagar-04.jpg",
+                "title": "CNC Wooden Mandir",
+                "desc": "Home mandir with CNC-cut jaali detailing, drawers and concealed lighting.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Custom Quote",
+                "body": "The jaali and pillar detailing is cut on CNC, which keeps the pattern clean and exactly repeated on both sides, then hand-finished. Available wall-mounted for a compact home or floor-standing with a drawer unit below for pooja items. Concealed LED lighting, a shelf for the samai and a bell mount can be included. Pattern and size made to your wall.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Wall-mounted and floor-standing; 2ft to 4ft widths typical"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "MDF or timber with CNC-cut jaali panels; PU, duco or natural polish"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2ACNC%20Wooden%20Mandir%2A."
+                },
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298231/sagar-furniture/sagar-05.jpg",
+                    "alt": "White CNC mandir with swastik jaali and storage cabinet"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298234/sagar-furniture/sagar-06.jpg",
+                    "alt": "White CNC mandir with swastik panel and drawer"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298247/sagar-furniture/sagar-11.jpg",
+                    "alt": "Backlit Om panel with sun motif"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298226/sagar-furniture/sagar-03.jpg",
+                    "alt": "CNC-cut Shubh Labh Ganesh panel, backlit"
+                  }
+                ]
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298241/sagar-furniture/sagar-09.jpg",
+                "title": "Premium Sagwan Mandir",
+                "desc": "Solid Sagwan teak mandir with carved detailing, drawers and lighting.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Custom Quote",
+                "body": "Sagwan (teak) is chosen for a mandir because of its grain, its weight and its life — it is the piece a family keeps longest. Carved and CNC detailing on the pillars, arch and jaali, finished in natural or melamine polish so the grain stays visible. Drawers below for pooja items, a shelf for the samai, and concealed lighting. Built to your size.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Floor-standing; 2.5ft to 5ft widths typical"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Sagwan (teak) with hand-carved and CNC detailing; natural or melamine polish"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2APremium%20Sagwan%20Mandir%2A."
+                },
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298236/sagar-furniture/sagar-07.jpg",
+                    "alt": "Dark teak mandir with carved white arch, backlit"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298239/sagar-furniture/sagar-08.jpg",
+                    "alt": "Wooden mandir with Om mandala panel"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298244/sagar-furniture/sagar-10.jpg",
+                    "alt": "Teak mandir with Om panel, drawers and cabinets"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298250/sagar-furniture/sagar-12.jpg",
+                    "alt": "Dark wood mandir with tree-of-life CNC jaali"
+                  }
+                ]
+              },
+              {
+                "image": "https://images.pexels.com/photos/6782368/pexels-photo-6782368.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Designer TV Unit",
+                "desc": "Full TV wall with panelling, display shelving, storage and profile lighting.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Quote",
+                "body": "Built as one composition across the wall rather than a single cabinet — back panelling behind the screen, open display shelving, closed storage below and profile lighting to wash the panelling. Every cable is routed inside so nothing hangs down the wall. Set-top box, console and soundbar positions are planned in.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Wall width; typically 6ft to 10ft compositions"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Ply and MDF with laminate or veneer; profile lighting; concealed cable routing"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2ADesigner%20TV%20Unit%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/9646749/pexels-photo-9646749.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Resin Finish TV Unit",
+                "desc": "TV unit in a poured resin or high-gloss finish for a seamless, reflective face.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Quote",
+                "body": "A resin or high-gloss face gives a seamless, reflective surface with no visible joint lines, which suits a modern living room and makes a small room read larger. Built with the same concealed cable routing, storage and profile lighting as our designer units. Colour matched to your wall or furniture.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Wall width; typically 6ft to 10ft compositions"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Ply and MDF with resin / high-gloss finish; profile lighting"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2AResin%20Finish%20TV%20Unit%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/9300770/pexels-photo-9300770.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Office Workstation",
+                "desc": "Linear and cluster workstations with cable management and storage.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Custom Quote",
+                "body": "Workstations planned around your headcount and floor plate, in linear rows or clusters of four, six and eight. Cable trays and raceways are built in so power and data run inside the furniture. Screen partitions to the height you want, with a pedestal or mobile drawer unit per seat.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "2, 4, 6 and 8-seater clusters; linear and L-shaped"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Ply or HDHMR with laminate; MS or modesty-panel legs; cable trays"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2AOffice%20Workstation%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/5918384/pexels-photo-5918384.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Office Table",
+                "desc": "Manager, executive and conference tables with storage and cable ports.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Quote",
+                "body": "Manager and executive tables with a side or back storage return, drawer unit and cable ports, and conference tables built to the seating count and the room. Laminate for hard use, veneer where it is on show. Modesty panels and MS bases available.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Manager, executive and conference sizes; made to order"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Ply or HDHMR with laminate or veneer; optional MS base"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2AOffice%20Table%2A."
+                }
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298262/sagar-furniture/sagar-17.jpg",
+                "title": "Office Chair",
+                "desc": "Executive, task and visitor seating supplied to match your workstations.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Quote",
+                "body": "Seating supplied alongside the furniture so the whole office matches. Executive high-back, mid-back task and visitor variants, in mesh or cushioned upholstery, with gas-lift height, tilt-lock and adjustable arms depending on the model. Chairs can be trialled before a bulk order is confirmed.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Executive, mid-back and visitor variants"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Mesh or cushioned upholstery; nylon or metal base; gas-lift and tilt mechanisms"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2AOffice%20Chair%2A."
+                },
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298266/sagar-furniture/sagar-19.jpg",
+                    "alt": "White and grey ergonomic office chair"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298269/sagar-furniture/sagar-20.jpg",
+                    "alt": "POLO MB office chairs in black and white-grey"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298264/sagar-furniture/sagar-18.jpg",
+                    "alt": "FT-021 executive leather chair"
+                  }
+                ]
+              },
+              {
+                "image": "https://images.pexels.com/photos/37030080/pexels-photo-37030080.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Custom Storage Cabinet",
+                "desc": "Crockery, shoe, utility, loft and study units built into the space you have.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Custom Quote",
+                "body": "Built into the space already there — under the stairs, along the passage, above the door, on the utility balcony. Crockery units with glass shutters and internal lighting, ventilated shoe racks, loft boxes, study tables with overhead storage and pantry units, all finished to match the surrounding work.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Made to your space — crockery, shoe, utility, loft and study units"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Ply or HDHMR with laminate, veneer or PU finish"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2ACustom%20Storage%20Cabinet%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/6830012/pexels-photo-6830012.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Customised Home & Office Furniture",
+                "desc": "Anything not on this list — measured, drawn, approved and manufactured for you.",
+                "meta": "Made to order in Nagpur",
+                "price": "Get Custom Quote",
+                "body": "This list covers what we are asked for most often, not the limit of what we build. If you need something that is not here, or a combination of several things, we will measure the space, draw it, put the material samples in front of you and manufacture it in our own workshop. Homes, offices, clinics, showrooms and commercial spaces. Bulk and repeat orders for builders and offices are welcome.",
+                "productInfoTitle": "Product details",
+                "productInfo": [
+                  {
+                    "label": "Available sizes",
+                    "value": "Any size, any layout — measured and made to order"
+                  },
+                  {
+                    "label": "Material / finish",
+                    "value": "Your choice of board, laminate, veneer, acrylic, PU or polish"
+                  },
+                  {
+                    "label": "Customisation",
+                    "value": "Size, timber, laminate/veneer, finish and internal layout to your requirement"
+                  },
+                  {
+                    "label": "Delivery & installation",
+                    "value": "Available across Nagpur; charges confirmed with your quotation"
+                  },
+                  {
+                    "label": "Enquiries",
+                    "value": "WhatsApp +91 97306 32249 or call +91 97306 32249"
+                  }
+                ],
+                "enableOrder": false,
+                "cta": {
+                  "text": "Get Quote on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2ACustomised%20Home%20%26%20Office%20Furniture%2A."
+                }
+              }
+            ],
+            "orderVia": "whatsapp",
+            "imageFit": "cover",
+            "showRelated": false,
+            "relatedHeading": "You may also like",
+            "orderLabel": "Enquire on WhatsApp"
+          }
+        },
+        {
           "id": "gallery-1",
           "type": "gallery",
           "visible": true,
@@ -448,36 +1255,36 @@
             "sub": "Representative of our range of work, materials and finishes.",
             "images": [
               {
-                "image": "https://images.pexels.com/photos/18285887/pexels-photo-18285887.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                "alt": "Modular kitchen with a solid timber finish"
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298226/sagar-furniture/sagar-03.jpg",
+                "alt": "CNC-cut Shubh Labh Ganesh panel, backlit"
               },
               {
-                "image": "https://images.pexels.com/photos/35203563/pexels-photo-35203563.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                "alt": "Premium bedroom with carved detailing"
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298231/sagar-furniture/sagar-05.jpg",
+                "alt": "White CNC mandir with swastik jaali and storage"
               },
               {
-                "image": "https://images.pexels.com/photos/8092431/pexels-photo-8092431.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                "alt": "Interior fit-out with panelling and staircase"
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298234/sagar-furniture/sagar-06.jpg",
+                "alt": "White CNC mandir with swastik panel and drawer"
               },
               {
-                "image": "https://images.pexels.com/photos/34574606/pexels-photo-34574606.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                "alt": "Bedroom furniture with matching side units"
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298236/sagar-furniture/sagar-07.jpg",
+                "alt": "Dark teak mandir with carved white arch"
               },
               {
-                "image": "https://images.pexels.com/photos/8045884/pexels-photo-8045884.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                "alt": "Custom shelving and storage wall"
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298239/sagar-furniture/sagar-08.jpg",
+                "alt": "Wooden mandir with Om mandala panel"
               },
               {
-                "image": "https://images.pexels.com/photos/28873307/pexels-photo-28873307.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                "alt": "Ornate mandir detailing"
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298244/sagar-furniture/sagar-10.jpg",
+                "alt": "Teak mandir with Om panel, drawers and cabinets"
               },
               {
-                "image": "https://images.pexels.com/photos/7587776/pexels-photo-7587776.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                "alt": "Wardrobe internals with drawers and hanging sections"
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298247/sagar-furniture/sagar-11.jpg",
+                "alt": "Backlit Om panel with sun motif"
               },
               {
-                "image": "https://images.pexels.com/photos/12273851/pexels-photo-12273851.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                "alt": "Living room furniture in a matched finish"
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298250/sagar-furniture/sagar-12.jpg",
+                "alt": "Dark wood mandir with tree-of-life CNC jaali"
               }
             ],
             "lightbox": true
@@ -768,7 +1575,7 @@
                 }
               },
               {
-                "image": "https://images.pexels.com/photos/7535012/pexels-photo-7535012.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298223/sagar-furniture/sagar-02.jpg",
                 "title": "Modular Wardrobe",
                 "desc": "Hinged modular wardrobe with drawers, hanging sections, locker and loft storage.",
                 "meta": "Made to order in Nagpur",
@@ -805,7 +1612,7 @@
                 }
               },
               {
-                "image": "https://images.pexels.com/photos/7587809/pexels-photo-7587809.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298219/sagar-furniture/sagar-01.jpg",
                 "title": "Sliding Wardrobe",
                 "desc": "Sliding-shutter wardrobe for rooms where a hinged door would block the walkway.",
                 "meta": "Made to order in Nagpur",
@@ -916,7 +1723,7 @@
                 }
               },
               {
-                "image": "https://images.pexels.com/photos/6758245/pexels-photo-6758245.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298257/sagar-furniture/sagar-15.jpg",
                 "title": "Premium Sofa Set",
                 "desc": "Premium sofa set with a seasoned frame, high-density foam and your choice of fabric.",
                 "meta": "Made to order in Nagpur",
@@ -953,7 +1760,7 @@
                 }
               },
               {
-                "image": "https://images.pexels.com/photos/36681535/pexels-photo-36681535.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298252/sagar-furniture/sagar-13.jpg",
                 "title": "L-Corner Sofa",
                 "desc": "L-shaped corner sofa built to your room, with the chaise on whichever side suits.",
                 "meta": "Made to order in Nagpur",
@@ -990,7 +1797,7 @@
                 }
               },
               {
-                "image": "https://images.pexels.com/photos/276746/pexels-photo-276746.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298254/sagar-furniture/sagar-14.jpg",
                 "title": "3+2 Sofa Set",
                 "desc": "Classic three-plus-two seating for a standard living room.",
                 "meta": "Made to order in Nagpur",
@@ -1138,7 +1945,7 @@
                 }
               },
               {
-                "image": "https://images.pexels.com/photos/15299943/pexels-photo-15299943.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298228/sagar-furniture/sagar-04.jpg",
                 "title": "CNC Wooden Mandir",
                 "desc": "Home mandir with CNC-cut jaali detailing, drawers and concealed lighting.",
                 "meta": "Made to order in Nagpur",
@@ -1172,10 +1979,28 @@
                   "text": "Get Quote on WhatsApp",
                   "newTab": true,
                   "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2ACNC%20Wooden%20Mandir%2A."
-                }
+                },
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298231/sagar-furniture/sagar-05.jpg",
+                    "alt": "White CNC mandir with swastik jaali and storage cabinet"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298234/sagar-furniture/sagar-06.jpg",
+                    "alt": "White CNC mandir with swastik panel and drawer"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298247/sagar-furniture/sagar-11.jpg",
+                    "alt": "Backlit Om panel with sun motif"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298226/sagar-furniture/sagar-03.jpg",
+                    "alt": "CNC-cut Shubh Labh Ganesh panel, backlit"
+                  }
+                ]
               },
               {
-                "image": "https://images.pexels.com/photos/15902853/pexels-photo-15902853.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298241/sagar-furniture/sagar-09.jpg",
                 "title": "Premium Sagwan Mandir",
                 "desc": "Solid Sagwan teak mandir with carved detailing, drawers and lighting.",
                 "meta": "Made to order in Nagpur",
@@ -1209,7 +2034,25 @@
                   "text": "Get Quote on WhatsApp",
                   "newTab": true,
                   "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2APremium%20Sagwan%20Mandir%2A."
-                }
+                },
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298236/sagar-furniture/sagar-07.jpg",
+                    "alt": "Dark teak mandir with carved white arch, backlit"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298239/sagar-furniture/sagar-08.jpg",
+                    "alt": "Wooden mandir with Om mandala panel"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298244/sagar-furniture/sagar-10.jpg",
+                    "alt": "Teak mandir with Om panel, drawers and cabinets"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298250/sagar-furniture/sagar-12.jpg",
+                    "alt": "Dark wood mandir with tree-of-life CNC jaali"
+                  }
+                ]
               },
               {
                 "image": "https://images.pexels.com/photos/6782368/pexels-photo-6782368.jpeg?auto=compress&cs=tinysrgb&w=1200",
@@ -1360,7 +2203,7 @@
                 }
               },
               {
-                "image": "https://images.pexels.com/photos/31726674/pexels-photo-31726674.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298262/sagar-furniture/sagar-17.jpg",
                 "title": "Office Chair",
                 "desc": "Executive, task and visitor seating supplied to match your workstations.",
                 "meta": "Made to order in Nagpur",
@@ -1394,7 +2237,21 @@
                   "text": "Get Quote on WhatsApp",
                   "newTab": true,
                   "href": "https://wa.me/919730632249?text=Hi%20Sagar%20Furniture%2C%20I%20would%20like%20a%20quote%20for%20%2AOffice%20Chair%2A."
-                }
+                },
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298266/sagar-furniture/sagar-19.jpg",
+                    "alt": "White and grey ergonomic office chair"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298269/sagar-furniture/sagar-20.jpg",
+                    "alt": "POLO MB office chairs in black and white-grey"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298264/sagar-furniture/sagar-18.jpg",
+                    "alt": "FT-021 executive leather chair"
+                  }
+                ]
               },
               {
                 "image": "https://images.pexels.com/photos/37030080/pexels-photo-37030080.jpeg?auto=compress&cs=tinysrgb&w=1200",
@@ -1767,36 +2624,36 @@
             "heading": "Recent furniture and interiors",
             "images": [
               {
-                "image": "https://images.pexels.com/photos/18285887/pexels-photo-18285887.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                "alt": "Modular kitchen with a solid timber finish"
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298226/sagar-furniture/sagar-03.jpg",
+                "alt": "CNC-cut Shubh Labh Ganesh panel, backlit"
               },
               {
-                "image": "https://images.pexels.com/photos/35203563/pexels-photo-35203563.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                "alt": "Premium bedroom with carved detailing"
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298231/sagar-furniture/sagar-05.jpg",
+                "alt": "White CNC mandir with swastik jaali and storage"
               },
               {
-                "image": "https://images.pexels.com/photos/8092431/pexels-photo-8092431.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                "alt": "Interior fit-out with panelling and staircase"
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298234/sagar-furniture/sagar-06.jpg",
+                "alt": "White CNC mandir with swastik panel and drawer"
               },
               {
-                "image": "https://images.pexels.com/photos/34574606/pexels-photo-34574606.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                "alt": "Bedroom furniture with matching side units"
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298236/sagar-furniture/sagar-07.jpg",
+                "alt": "Dark teak mandir with carved white arch"
               },
               {
-                "image": "https://images.pexels.com/photos/8045884/pexels-photo-8045884.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                "alt": "Custom shelving and storage wall"
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298239/sagar-furniture/sagar-08.jpg",
+                "alt": "Wooden mandir with Om mandala panel"
               },
               {
-                "image": "https://images.pexels.com/photos/28873307/pexels-photo-28873307.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                "alt": "Ornate mandir detailing"
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298244/sagar-furniture/sagar-10.jpg",
+                "alt": "Teak mandir with Om panel, drawers and cabinets"
               },
               {
-                "image": "https://images.pexels.com/photos/7587776/pexels-photo-7587776.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                "alt": "Wardrobe internals with drawers and hanging sections"
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298247/sagar-furniture/sagar-11.jpg",
+                "alt": "Backlit Om panel with sun motif"
               },
               {
-                "image": "https://images.pexels.com/photos/12273851/pexels-photo-12273851.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                "alt": "Living room furniture in a matched finish"
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787298250/sagar-furniture/sagar-12.jpg",
+                "alt": "Dark wood mandir with tree-of-life CNC jaali"
               }
             ],
             "lightbox": true
