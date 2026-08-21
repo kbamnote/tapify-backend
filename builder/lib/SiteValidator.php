@@ -310,7 +310,17 @@ class SiteValidator
                 break;
 
             case 'select':
-                $opts = $f['options'] ?? [];
+                // Options come in two shapes: a plain list of strings, or a list of
+                // ['value' => ..., 'label' => ...] where the option needs a longer
+                // human description than its stored value. Both are legitimate, so
+                // reduce to the values before comparing — comparing against the raw
+                // entries silently rejected EVERY value of an object-style select,
+                // and printed "must be one of: Array, Array" while doing it.
+                $opts = [];
+                foreach (($f['options'] ?? []) as $o) {
+                    $opts[] = is_array($o) ? ($o['value'] ?? null) : $o;
+                }
+                $opts = array_values(array_filter($opts, fn($o) => $o !== null));
                 if ($opts && !in_array($val, $opts, true)) {
                     $this->err($path, 'must be one of: ' . implode(', ', $opts));
                 }
