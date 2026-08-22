@@ -130,7 +130,7 @@
               "accept": [
                 "image"
               ],
-              "required": true
+              "help": "Deliberately NOT required. Every renderer already skips a row whose image is empty (secGallery array_filters them; the product/service photo strips guard with if($src)), so a blank row is harmless. Marking it required only meant that clicking '+ Add' and not choosing a photo blocked PUBLISHING with a raw path like '...props.images[2].image is required', which a customer cannot decode."
             },
             {
               "key": "alt",

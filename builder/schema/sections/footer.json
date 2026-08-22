@@ -4,38 +4,110 @@
   "category": "footer",
   "icon": "panel-bottom",
   "description": "Closing block — logo, short blurb, quick links, social icons, copyright.",
-  "industries": ["*"],
+  "industries": [
+    "*"
+  ],
   "singleton": true,
   "maxPerPage": 1,
-
   "variants": [
-    { "id": "columns",  "label": "Multi-column",  "preview": "/builder/previews/footer-columns.png" },
-    { "id": "simple",   "label": "Simple centered", "preview": "/builder/previews/footer-simple.png" }
+    {
+      "id": "columns",
+      "label": "Multi-column",
+      "preview": "/builder/previews/footer-columns.png"
+    },
+    {
+      "id": "simple",
+      "label": "Simple centered",
+      "preview": "/builder/previews/footer-simple.png"
+    }
   ],
-
   "props": [
-    { "key": "logo",    "type": "media",    "label": "Logo", "accept": ["image"], "group": "Brand",
-      "help": "Leave blank to show the site name as text." },
-    { "key": "blurb",   "type": "textarea", "label": "Short description", "maxLength": 400, "group": "Brand" },
-
-    { "key": "showSocial",  "type": "toggle", "label": "Show social text links", "default": true, "group": "Links",
-      "help": "Uses the social links from Business Info (shown as text)." },
-
-    { "key": "socialIcons", "type": "repeater", "label": "Custom social icons (upload)", "group": "Links",
-      "max": 12, "itemLabel": "{{label}}", "addLabel": "Add social icon",
-      "help": "Upload your own icon image for each social profile — rendered as icon buttons.",
+    {
+      "key": "logo",
+      "type": "media",
+      "label": "Logo",
+      "accept": [
+        "image"
+      ],
+      "group": "Brand",
+      "help": "Leave blank to show the site name as text."
+    },
+    {
+      "key": "blurb",
+      "type": "textarea",
+      "label": "Short description",
+      "maxLength": 400,
+      "group": "Brand"
+    },
+    {
+      "key": "showSocial",
+      "type": "toggle",
+      "label": "Show social text links",
+      "default": true,
+      "group": "Links",
+      "help": "Uses the social links from Business Info (shown as text)."
+    },
+    {
+      "key": "socialIcons",
+      "type": "repeater",
+      "label": "Custom social icons (upload)",
+      "group": "Links",
+      "max": 12,
+      "itemLabel": "{{label}}",
+      "addLabel": "Add social icon",
+      "help": "A row needs BOTH an icon and a link to appear; the renderer skips any row missing either, so a half-filled row is harmless and must not block publishing.",
       "fields": [
-        { "key": "icon",  "type": "media", "label": "Icon image", "accept": ["image"], "required": true },
-        { "key": "href",  "type": "text",  "label": "Link URL", "required": true, "maxLength": 600, "placeholder": "https://instagram.com/yourbrand" },
-        { "key": "label", "type": "text",  "label": "Label (accessibility)", "maxLength": 60 }
-      ] },
-
-    { "key": "socialIconSize", "type": "select", "label": "Social icon size", "group": "Links",
-      "default": "medium", "options": ["small", "medium", "large", "extra-large"],
-      "help": "Size of the uploaded social icons above." },
-    { "key": "showContact", "type": "toggle", "label": "Show contact details", "default": true, "group": "Links" },
-    { "key": "showHours",   "type": "toggle", "label": "Show opening hours", "default": false, "group": "Links" },
-
+        {
+          "key": "icon",
+          "type": "media",
+          "label": "Icon image",
+          "accept": [
+            "image"
+          ]
+        },
+        {
+          "key": "href",
+          "type": "text",
+          "label": "Link URL",
+          "maxLength": 600,
+          "placeholder": "https://instagram.com/yourbrand"
+        },
+        {
+          "key": "label",
+          "type": "text",
+          "label": "Label (accessibility)",
+          "maxLength": 60
+        }
+      ]
+    },
+    {
+      "key": "socialIconSize",
+      "type": "select",
+      "label": "Social icon size",
+      "group": "Links",
+      "default": "medium",
+      "options": [
+        "small",
+        "medium",
+        "large",
+        "extra-large"
+      ],
+      "help": "Size of the uploaded social icons above."
+    },
+    {
+      "key": "showContact",
+      "type": "toggle",
+      "label": "Show contact details",
+      "default": true,
+      "group": "Links"
+    },
+    {
+      "key": "showHours",
+      "type": "toggle",
+      "label": "Show opening hours",
+      "default": false,
+      "group": "Links"
+    },
     {
       "key": "columns",
       "type": "repeater",
@@ -44,9 +116,19 @@
       "max": 4,
       "itemLabel": "{{title}}",
       "addLabel": "Add column",
-      "showIf": { "variant": ["columns"] },
+      "showIf": {
+        "variant": [
+          "columns"
+        ]
+      },
       "fields": [
-        { "key": "title", "type": "text", "label": "Column title", "required": true, "maxLength": 60 },
+        {
+          "key": "title",
+          "type": "text",
+          "label": "Column title",
+          "required": true,
+          "maxLength": 60
+        },
         {
           "key": "links",
           "type": "repeater",
@@ -55,30 +137,80 @@
           "itemLabel": "{{text}}",
           "addLabel": "Add link",
           "fields": [
-            { "key": "text", "type": "text", "label": "Text", "required": true, "maxLength": 60 },
-            { "key": "href", "type": "text", "label": "Link", "required": true, "maxLength": 600 }
+            {
+              "key": "text",
+              "type": "text",
+              "label": "Text",
+              "required": true,
+              "maxLength": 60
+            },
+            {
+              "key": "href",
+              "type": "text",
+              "label": "Link",
+              "required": true,
+              "maxLength": 600
+            }
           ]
         }
       ]
     },
-
-    { "key": "copyright", "type": "text", "label": "Copyright line", "maxLength": 200, "group": "Legal",
-      "help": "Leave blank to auto-generate from the site name and current year." },
-    { "key": "showBranding", "type": "toggle", "label": "Show \"Powered by Tapify\"", "default": true, "group": "Legal" },
-
-    { "key": "showLegal", "type": "toggle", "label": "Show Privacy Policy & Terms links", "default": true, "group": "Legal",
-      "help": "Adds Privacy Policy and Terms & Conditions links to the footer, each opening its own page." },
-    { "key": "privacyBody", "type": "textarea", "label": "Privacy Policy text", "maxLength": 20000, "group": "Legal",
-      "help": "Shown on /privacy. Leave blank to hide the Privacy Policy link." },
-    { "key": "termsBody", "type": "textarea", "label": "Terms & Conditions text", "maxLength": 20000, "group": "Legal",
-      "help": "Shown on /terms. Leave blank to hide the Terms link." }
+    {
+      "key": "copyright",
+      "type": "text",
+      "label": "Copyright line",
+      "maxLength": 200,
+      "group": "Legal",
+      "help": "Leave blank to auto-generate from the site name and current year."
+    },
+    {
+      "key": "showBranding",
+      "type": "toggle",
+      "label": "Show \"Powered by Tapify\"",
+      "default": true,
+      "group": "Legal"
+    },
+    {
+      "key": "showLegal",
+      "type": "toggle",
+      "label": "Show Privacy Policy & Terms links",
+      "default": true,
+      "group": "Legal",
+      "help": "Adds Privacy Policy and Terms & Conditions links to the footer, each opening its own page."
+    },
+    {
+      "key": "privacyBody",
+      "type": "textarea",
+      "label": "Privacy Policy text",
+      "maxLength": 20000,
+      "group": "Legal",
+      "help": "Shown on /privacy. Leave blank to hide the Privacy Policy link."
+    },
+    {
+      "key": "termsBody",
+      "type": "textarea",
+      "label": "Terms & Conditions text",
+      "maxLength": 20000,
+      "group": "Legal",
+      "help": "Shown on /terms. Leave blank to hide the Terms link."
+    }
   ],
-
   "style": {
-    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "headingColor", "textColor"],
-    "defaults": { "paddingY": "lg", "align": "left", "bg": "dark" }
+    "supports": [
+      "paddingY",
+      "align",
+      "bg",
+      "bgMedia",
+      "overlay",
+      "headingColor",
+      "textColor"
+    ],
+    "defaults": {
+      "paddingY": "lg",
+      "align": "left",
+      "bg": "dark"
+    }
   },
-
   "defaults": {
     "variant": "columns",
     "props": {
