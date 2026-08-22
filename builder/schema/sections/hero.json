@@ -4,49 +4,175 @@
   "category": "header",
   "icon": "layout-template",
   "description": "Big opening banner with headline, subtext and call-to-action buttons.",
-  "industries": ["*"],
+  "industries": [
+    "*"
+  ],
   "singleton": false,
   "maxPerPage": 2,
-
   "variants": [
-    { "id": "centered-bg", "label": "Centered on background image", "preview": "/builder/previews/hero-centered-bg.png" },
-    { "id": "split",       "label": "Text left, image right",       "preview": "/builder/previews/hero-split.png" },
-    { "id": "minimal",     "label": "Minimal, no image",            "preview": "/builder/previews/hero-minimal.png" }
+    {
+      "id": "centered-bg",
+      "label": "Centered on background image",
+      "preview": "/builder/previews/hero-centered-bg.png"
+    },
+    {
+      "id": "split",
+      "label": "Text left, image right",
+      "preview": "/builder/previews/hero-split.png"
+    },
+    {
+      "id": "minimal",
+      "label": "Minimal, no image",
+      "preview": "/builder/previews/hero-minimal.png"
+    }
   ],
-
   "props": [
-    { "key": "badge",    "type": "text",     "label": "Badge",      "placeholder": "Admissions Open 2025-26", "maxLength": 60, "group": "Content" },
-    { "key": "heading",  "type": "text",     "label": "Headline",   "maxLength": 120, "group": "Content" },
-    { "key": "sub",      "type": "textarea", "label": "Sub-heading", "maxLength": 400, "group": "Content" },
-    { "key": "image",    "type": "media",    "label": "Image",      "accept": ["image", "video"], "group": "Media",
-      "showIf": { "variant": ["centered-bg", "split"] } },
-    { "key": "video",    "type": "media",    "label": "Video",      "accept": ["video"], "group": "Media",
-      "showIf": { "variant": ["centered-bg", "split"] },
-      "help": "Upload an MP4 to play instead of the image. Plays muted and loops." },
-    { "key": "videoUrl", "type": "text",     "label": "or Video link", "maxLength": 600, "group": "Media",
-      "showIf": { "variant": ["centered-bg", "split"] },
-      "help": "A direct .mp4 link, or a YouTube / Vimeo link." },
-    { "key": "fullHeight", "type": "toggle", "label": "Full screen height", "default": true, "group": "Layout",
-      "help": "Make the hero fill the visitor's screen, like a landing page." },
-    { "key": "ctaPrimary",   "type": "link", "label": "Primary button",   "group": "Buttons" },
-    { "key": "ctaSecondary", "type": "link", "label": "Secondary button", "group": "Buttons" },
-    { "key": "showWhatsapp", "type": "toggle", "label": "Show WhatsApp button", "default": false, "group": "Buttons",
-      "help": "Turn on to show a WhatsApp button (uses the WhatsApp number from Business Info)." },
-    { "key": "showCall",     "type": "toggle", "label": "Show Call button", "default": false, "group": "Buttons",
-      "help": "Turn on to show a Call button (uses the phone from Business Info)." }
+    {
+      "key": "badge",
+      "type": "text",
+      "label": "Badge",
+      "placeholder": "Admissions Open 2025-26",
+      "maxLength": 60,
+      "group": "Content"
+    },
+    {
+      "key": "heading",
+      "type": "text",
+      "label": "Headline",
+      "maxLength": 120,
+      "group": "Content"
+    },
+    {
+      "key": "sub",
+      "type": "textarea",
+      "label": "Sub-heading",
+      "maxLength": 400,
+      "group": "Content"
+    },
+    {
+      "key": "image",
+      "type": "media",
+      "label": "Image",
+      "accept": [
+        "image",
+        "video"
+      ],
+      "group": "Media",
+      "showIf": {
+        "variant": [
+          "centered-bg",
+          "split"
+        ]
+      }
+    },
+    {
+      "key": "imageFit",
+      "type": "crop",
+      "label": "Crop / position",
+      "group": "Media",
+      "showIf": {
+        "variant": [
+          "centered-bg",
+          "split"
+        ]
+      },
+      "help": "Drag the photo to choose what stays in frame, and zoom in to crop closer. A 16:9 video fills the hero exactly, but a phone photo is taller than the hero and its top and bottom get cut off — use this to pick which part shows."
+    },
+    {
+      "key": "video",
+      "type": "media",
+      "label": "Video",
+      "accept": [
+        "video"
+      ],
+      "group": "Media",
+      "showIf": {
+        "variant": [
+          "centered-bg",
+          "split"
+        ]
+      },
+      "help": "Upload an MP4 to play instead of the image. Plays muted and loops."
+    },
+    {
+      "key": "videoUrl",
+      "type": "text",
+      "label": "or Video link",
+      "maxLength": 600,
+      "group": "Media",
+      "showIf": {
+        "variant": [
+          "centered-bg",
+          "split"
+        ]
+      },
+      "help": "A direct .mp4 link, or a YouTube / Vimeo link."
+    },
+    {
+      "key": "fullHeight",
+      "type": "toggle",
+      "label": "Full screen height",
+      "default": true,
+      "group": "Layout",
+      "help": "Make the hero fill the visitor's screen, like a landing page."
+    },
+    {
+      "key": "ctaPrimary",
+      "type": "link",
+      "label": "Primary button",
+      "group": "Buttons"
+    },
+    {
+      "key": "ctaSecondary",
+      "type": "link",
+      "label": "Secondary button",
+      "group": "Buttons"
+    },
+    {
+      "key": "showWhatsapp",
+      "type": "toggle",
+      "label": "Show WhatsApp button",
+      "default": false,
+      "group": "Buttons",
+      "help": "Turn on to show a WhatsApp button (uses the WhatsApp number from Business Info)."
+    },
+    {
+      "key": "showCall",
+      "type": "toggle",
+      "label": "Show Call button",
+      "default": false,
+      "group": "Buttons",
+      "help": "Turn on to show a Call button (uses the phone from Business Info)."
+    }
   ],
-
   "style": {
-    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "animation", "headingColor", "textColor"],
-    "defaults": { "paddingY": "xl", "align": "center", "bg": "image", "overlay": 0.55 }
+    "supports": [
+      "paddingY",
+      "align",
+      "bg",
+      "bgMedia",
+      "overlay",
+      "animation",
+      "headingColor",
+      "textColor"
+    ],
+    "defaults": {
+      "paddingY": "xl",
+      "align": "center",
+      "bg": "image",
+      "overlay": 0.55
+    }
   },
-
   "defaults": {
     "variant": "centered-bg",
     "props": {
       "heading": "Your headline goes here",
       "sub": "One clear sentence about what you do and who it is for.",
-      "ctaPrimary": { "text": "Get in touch", "href": "#contact", "style": "primary" },
+      "ctaPrimary": {
+        "text": "Get in touch",
+        "href": "#contact",
+        "style": "primary"
+      },
       "fullHeight": true,
       "showWhatsapp": false,
       "showCall": false

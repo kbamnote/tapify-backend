@@ -531,6 +531,41 @@ class SiteRenderer
         return $css;
     }
 
+    /**
+     * The same visual crop as imgFit(), for a photo painted as a CSS background.
+     *
+     * The hero is the one section that paints its picture as a background layer
+     * rather than an <img>, so it never got the cropper the others have — its
+     * photo was permanently `cover` + centred. That is invisible with a 16:9
+     * video (which matches the hero box, so `cover` crops nothing) but obvious
+     * with a phone photo: a 4:3 shot loses 25% of its height and a portrait one
+     * over half, always off the top and bottom, so whatever was at the top of
+     * the frame disappears under the header.
+     *
+     * background-size has no "cover, then zoom", so zoom is applied as a
+     * transform on the layer instead. The section is overflow:hidden, so the
+     * scaled paint is clipped back to the section box.
+     */
+    private static function bgFit($fit): string
+    {
+        if (!is_array($fit)) {
+            if ($fit === 'contain') return 'background-size:contain;background-repeat:no-repeat;background-position:center;';
+            if ($fit === 'top')     return 'background-size:cover;background-position:center top;';
+            return '';                       // the .tf-bgimg default: cover + centre
+        }
+        if (($fit['fit'] ?? 'cover') === 'contain') {
+            return 'background-size:contain;background-repeat:no-repeat;background-position:center;';
+        }
+        $x = round(min(100, max(0, (float)($fit['x'] ?? 50))), 2);
+        $y = round(min(100, max(0, (float)($fit['y'] ?? 50))), 2);
+        $z = round(min(4, max(1, (float)($fit['zoom'] ?? 1))), 3);
+        $css = 'background-size:cover;background-position:' . $x . '% ' . $y . '%;';
+        if ($z > 1.001) {
+            $css .= 'transform:scale(' . $z . ');transform-origin:' . $x . '% ' . $y . '%;';
+        }
+        return $css;
+    }
+
     /** A colour we are willing to drop straight into a style attribute. */
     private static function isColor($v): bool
     {
@@ -574,7 +609,8 @@ class SiteRenderer
 
         $bgLayer = '';
         if ($bgImg) {
-            $bgLayer = '<div aria-hidden="true" class="tf-bgimg" style="background-image:url(' . self::esc($bgImg) . ')"></div>'
+            $bgLayer = '<div aria-hidden="true" class="tf-bgimg" style="background-image:url(' . self::esc($bgImg) . ');'
+                     . self::bgFit($style['bgFit'] ?? null) . '"></div>'
                      . '<div aria-hidden="true" class="tf-overlay" style="background:rgba(2,6,23,' . $overlay . ')"></div>';
         }
 
@@ -839,7 +875,7 @@ class SiteRenderer
                           : '<iframe src="' . self::esc($embed) . '" allow="autoplay; encrypted-media; picture-in-picture" style="width:100%;height:100%;border:0"></iframe>')
                        . '</div>';
             } else {
-                $media = '<img src="' . self::esc($img) . '" alt="' . self::esc($p['heading'] ?? '') . '" style="width:100%;object-fit:cover;border-radius:var(--radius);max-height:460px">';
+                $media = '<img src="' . self::esc($img) . '" alt="' . self::esc($p['heading'] ?? '') . '" style="width:100%;border-radius:var(--radius);max-height:460px;' . self::imgFit($p['imageFit'] ?? null, 'var(--radius)') . '">';
             }
             $inner = '<div class="tf-two" style="text-align:left"><div>' . $body . '</div>' . $media . '</div>';
             return self::shell($s, $inner, $fh);
@@ -876,6 +912,7 @@ class SiteRenderer
             $s['style'] = array_merge($s['style'] ?? [], [
                 'bg'      => 'image',
                 'bgMedia' => $p['image'],
+                'bgFit'   => $p['imageFit'] ?? null,
                 'overlay' => $s['style']['overlay'] ?? 0.55,
             ]);
         }
