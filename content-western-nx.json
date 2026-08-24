@@ -220,7 +220,7 @@
             "label": "Our Story",
             "heading": "Started in 2008. Still family-run.",
             "body": "Rahul Khaturia founded our women's clothing business on 9th October 2008 with a simple vision — to make stylish, quality clothing accessible to every woman.\n\nWhat started as a small shop with big dreams was soon joined by his two brothers, Krishna Khaturia and Piyush Khaturia. Together, the three brothers built the brand on trust, quality and hard work.\n\nFrom those humble beginnings in 2008, we have grown into a trusted name in both online and offline wholesale and retail. Today we serve retailers and customers across India with the latest trends in women's fashion.\n\nWe are still family-run, and that is what makes us different. Every design, every order, every customer is handled with the same care we started with 18+ years ago.",
-            "image": "https://images.pexels.com/photos/35717265/pexels-photo-35717265.jpeg?auto=compress&cs=tinysrgb&w=1400",
+            "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554782/western-nx/wnx-45.jpg",
             "showPillars": true,
             "pillars": [
               {
@@ -257,7 +257,7 @@
             "sub": "New designs arrive constantly. WhatsApp 93720 33659 for the current collection, sizes and rates — wholesale and retail both.",
             "items": [
               {
-                "image": "https://images.pexels.com/photos/9558711/pexels-photo-9558711.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554703/western-nx/wnx-12.jpg",
                 "title": "Tops",
                 "desc": "Casual and formal tops across the current season's cuts and prints, in regular sizes through to plus size.",
                 "meta": "Regular & plus size",
@@ -265,7 +265,7 @@
                 "enableOrder": false
               },
               {
-                "image": "https://images.pexels.com/photos/8306375/pexels-photo-8306375.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554679/western-nx/wnx-02.jpg",
                 "title": "One-Piece Dresses",
                 "desc": "Everyday and occasion one-pieces in the latest cuts — short, midi and long.",
                 "meta": "Short · Midi · Long",
@@ -273,7 +273,7 @@
                 "enableOrder": false
               },
               {
-                "image": "https://images.pexels.com/photos/18699670/pexels-photo-18699670.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554767/western-nx/wnx-39.jpg",
                 "title": "Co-ord Sets & Pant Sets",
                 "desc": "Matched two-piece sets and pant sets — one of our fastest-moving lines with retailers.",
                 "meta": "2PC · 3PC · Cord sets",
@@ -281,7 +281,7 @@
                 "enableOrder": false
               },
               {
-                "image": "https://images.pexels.com/photos/36730407/pexels-photo-36730407.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554691/western-nx/wnx-07.jpg",
                 "title": "Jeans & Korean Pants",
                 "desc": "Denim in the current fits, plus Korean pants and palazzo sets. Waist sizes through to plus.",
                 "meta": "Denim · Korean pants · Plazo",
@@ -289,7 +289,7 @@
                 "enableOrder": false
               },
               {
-                "image": "https://images.pexels.com/photos/4427652/pexels-photo-4427652.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554759/western-nx/wnx-36.jpg",
                 "title": "Ethnic Wear & Kurtis",
                 "desc": "Kurtis, 2PC and 3PC ethnic sets for daily wear and for festivals and functions.",
                 "meta": "Kurti · 2PC · 3PC",
@@ -297,7 +297,7 @@
                 "enableOrder": false
               },
               {
-                "image": "https://images.pexels.com/photos/8433431/pexels-photo-8433431.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554732/western-nx/wnx-25.jpg",
                 "title": "Plus Size — up to 10XL",
                 "desc": "Our specialty. Trendy, well-fitted plus size clothing across every category we carry, right up to 10XL.",
                 "meta": "Our specialty · Up to 10XL",
@@ -319,40 +319,40 @@
             "lightbox": true,
             "images": [
               {
-                "image": "https://images.pexels.com/photos/5531709/pexels-photo-5531709.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                "alt": "Bright clothing store interior with racks along both walls"
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554782/western-nx/wnx-45.jpg",
+                "alt": "Inside the Western NX showroom"
               },
               {
-                "image": "https://images.pexels.com/photos/35717265/pexels-photo-35717265.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                "alt": "Racks of clothing in a retail shop"
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554780/western-nx/wnx-44.jpg",
+                "alt": "Customers browsing the collection"
               },
               {
-                "image": "https://images.pexels.com/photos/20052448/pexels-photo-20052448.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                "alt": "Clothing boutique entrance with garments on display"
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554748/western-nx/wnx-31.jpg",
+                "alt": "Co-ord set with the shop rails behind"
               },
               {
-                "image": "https://images.pexels.com/photos/18699670/pexels-photo-18699670.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                "alt": "Rail of coordinated garments in neutral shades"
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554743/western-nx/wnx-29.jpg",
+                "alt": "Polka-dot pant sets from the current range"
               },
               {
-                "image": "https://images.pexels.com/photos/4427652/pexels-photo-4427652.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                "alt": "Shop display of Indian ethnic wear on mannequins"
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554687/western-nx/wnx-05.jpg",
+                "alt": "Co-ord sets in three colourways"
               },
               {
-                "image": "https://images.pexels.com/photos/1846014/pexels-photo-1846014.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                "alt": "Busy Indian cloth market with stacks of fabric"
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554786/western-nx/wnx-47.jpg",
+                "alt": "Printed skirt and top set"
               },
               {
-                "image": "https://images.pexels.com/photos/8886948/pexels-photo-8886948.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                "alt": "Customer examining an embroidered dupatta in a shop"
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554677/western-nx/wnx-01.jpg",
+                "alt": "Formal shirts and trousers"
               },
               {
-                "image": "https://images.pexels.com/photos/26292716/pexels-photo-26292716.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                "alt": "Long rail of clothing in a warmly lit store"
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554757/western-nx/wnx-35.jpg",
+                "alt": "Embroidered kurta set with dupatta"
               },
               {
-                "image": "https://images.pexels.com/photos/9558711/pexels-photo-9558711.jpeg?auto=compress&cs=tinysrgb&w=1200",
-                "alt": "Pink knitted top hanging on a rail"
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554775/western-nx/wnx-42.jpg",
+                "alt": "Embroidered sharara set"
               }
             ]
           }
@@ -525,7 +525,7 @@
           "props": {
             "heading": "The collection",
             "sub": "Nine categories, regular sizes through to 10XL. New designs every week.",
-            "image": "https://images.pexels.com/photos/26292716/pexels-photo-26292716.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554767/western-nx/wnx-39.jpg",
             "fullHeight": false,
             "showWhatsapp": true,
             "showCall": true
@@ -545,7 +545,7 @@
             "sub": "Designs change with the season, so we do not print fixed rates. WhatsApp 93720 33659 with the category you want and we will send the current collection and rates — wholesale or retail.",
             "items": [
               {
-                "image": "https://images.pexels.com/photos/9558711/pexels-photo-9558711.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554708/western-nx/wnx-14.jpg",
                 "title": "Tops",
                 "desc": "Casual and formal tops in the current season's cuts, prints and fabrics. Regular sizes through to plus size.",
                 "meta": "Regular & plus size",
@@ -553,7 +553,7 @@
                 "enableOrder": false
               },
               {
-                "image": "https://images.pexels.com/photos/8306375/pexels-photo-8306375.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554679/western-nx/wnx-02.jpg",
                 "title": "One-Piece Dresses",
                 "desc": "Everyday and occasion one-pieces — short, midi and long, in both western and fusion styling.",
                 "meta": "Short · Midi · Long",
@@ -561,7 +561,7 @@
                 "enableOrder": false
               },
               {
-                "image": "https://images.pexels.com/photos/18699670/pexels-photo-18699670.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554770/western-nx/wnx-40.jpg",
                 "title": "Co-ord Sets",
                 "desc": "Matched two-piece sets — one of the fastest-moving lines we carry, and a reliable seller for retailers.",
                 "meta": "2PC · 3PC · Cord sets",
@@ -569,7 +569,7 @@
                 "enableOrder": false
               },
               {
-                "image": "https://images.pexels.com/photos/8484039/pexels-photo-8484039.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554743/western-nx/wnx-29.jpg",
                 "title": "Pant Sets & Plazo Sets",
                 "desc": "Top-and-pant sets and plazo sets, in western and fusion cuts for daily wear and for occasions.",
                 "meta": "Pant set · Plazo set",
@@ -577,7 +577,7 @@
                 "enableOrder": false
               },
               {
-                "image": "https://images.pexels.com/photos/36730407/pexels-photo-36730407.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554682/western-nx/wnx-03.jpg",
                 "title": "Jeans",
                 "desc": "Denim in the fits that are selling — straight, wide leg, mom and skinny. Waist sizes through to plus.",
                 "meta": "Regular to plus waist",
@@ -585,7 +585,7 @@
                 "enableOrder": false
               },
               {
-                "image": "https://images.pexels.com/photos/8386664/pexels-photo-8386664.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554772/western-nx/wnx-41.jpg",
                 "title": "Korean Pants",
                 "desc": "Korean-style pants and trousers — a trend line that moves quickly, so stock changes often.",
                 "meta": "Trend line · Stock changes fast",
@@ -593,7 +593,7 @@
                 "enableOrder": false
               },
               {
-                "image": "https://images.pexels.com/photos/4427652/pexels-photo-4427652.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554755/western-nx/wnx-34.jpg",
                 "title": "Ethnic Wear & Kurtis",
                 "desc": "Kurtis and 2PC and 3PC ethnic sets, for daily wear and for festivals, weddings and functions.",
                 "meta": "Kurti · 2PC · 3PC",
@@ -601,7 +601,7 @@
                 "enableOrder": false
               },
               {
-                "image": "https://images.pexels.com/photos/7679757/pexels-photo-7679757.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554777/western-nx/wnx-43.jpg",
                 "title": "Gowns",
                 "desc": "Party and occasion gowns in a range of lengths and finishes, including plus sizes.",
                 "meta": "Party & occasion",
@@ -609,7 +609,7 @@
                 "enableOrder": false
               },
               {
-                "image": "https://images.pexels.com/photos/20052448/pexels-photo-20052448.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554728/western-nx/wnx-23.jpg",
                 "title": "Nightwear",
                 "desc": "Comfortable nightwear and loungewear sets in cotton and soft blends, regular and plus sizes.",
                 "meta": "Comfort fits · Plus available",
@@ -617,7 +617,7 @@
                 "enableOrder": false
               },
               {
-                "image": "https://images.pexels.com/photos/8388303/pexels-photo-8388303.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554694/western-nx/wnx-08.jpg",
                 "title": "Formal Shirts",
                 "desc": "Office and formal shirts for women, in solids and subtle prints. Regular through to plus size.",
                 "meta": "Office & formal",
@@ -625,7 +625,7 @@
                 "enableOrder": false
               },
               {
-                "image": "https://images.pexels.com/photos/8433431/pexels-photo-8433431.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554736/western-nx/wnx-27.jpg",
                 "title": "Plus Size — up to 10XL",
                 "desc": "Our specialty, and the reason a lot of customers find us. Trendy, well-fitted plus size clothing across every category above, right up to 10XL.",
                 "meta": "Our specialty · Up to 10XL",
@@ -797,7 +797,7 @@
           "props": {
             "heading": "Wholesale",
             "sub": "Supplying retailers and boutiques across India since 2008.",
-            "image": "https://images.pexels.com/photos/1846014/pexels-photo-1846014.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554745/western-nx/wnx-30.jpg",
             "fullHeight": false,
             "showWhatsapp": true,
             "showCall": true
@@ -817,31 +817,31 @@
             "sub": "We have been supplying retailers for eighteen years. Here is how it works.",
             "items": [
               {
-                "image": "https://images.pexels.com/photos/1846014/pexels-photo-1846014.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554745/western-nx/wnx-30.jpg",
                 "title": "Bulk Rates",
                 "desc": "Wholesale rates apply above the minimum quantity, which depends on the category. Tell us what you sell and roughly how much you move and we will quote properly.",
                 "meta": "Minimums vary by category"
               },
               {
-                "image": "https://images.pexels.com/photos/8886948/pexels-photo-8886948.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554679/western-nx/wnx-02.jpg",
                 "title": "Current Catalogue on WhatsApp",
                 "desc": "New designs land constantly, so the catalogue lives on WhatsApp rather than on a page that goes stale. Save 93720 33659 and you will get the updates as they go up.",
                 "meta": "Save the number for daily updates"
               },
               {
-                "image": "https://images.pexels.com/photos/8433431/pexels-photo-8433431.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554734/western-nx/wnx-26.jpg",
                 "title": "Plus Size Range",
                 "desc": "Sizes up to 10XL across categories. If your shop turns customers away for want of larger sizes, this is the gap we can fill for you.",
                 "meta": "Up to 10XL"
               },
               {
-                "image": "https://images.pexels.com/photos/5531709/pexels-photo-5531709.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554782/western-nx/wnx-45.jpg",
                 "title": "Shop Visits Welcome",
                 "desc": "See and feel the stock before you commit. We are at Shop No. 442, Jaripatka Main Market, open every day 12 noon to 10 PM.",
                 "meta": "Jaripatka Main Market, Nagpur"
               },
               {
-                "image": "https://images.pexels.com/photos/18699670/pexels-photo-18699670.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554780/western-nx/wnx-44.jpg",
                 "title": "Dispatch Across India",
                 "desc": "We ship to retailers across the country. Confirm the design, size and colour, send the payment screenshot and full address, and a tracking ID follows once it is dispatched.",
                 "meta": "Tracking ID on dispatch"
@@ -1058,7 +1058,7 @@
           "props": {
             "heading": "Three brothers, eighteen years",
             "sub": "Founded 9th October 2008. Still family-run.",
-            "image": "https://images.pexels.com/photos/20052448/pexels-photo-20052448.jpeg?auto=compress&cs=tinysrgb&w=1600",
+            "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554782/western-nx/wnx-45.jpg",
             "fullHeight": false,
             "showWhatsapp": true,
             "showCall": true
@@ -1076,7 +1076,7 @@
             "label": "Our Story",
             "heading": "A small shop with big dreams",
             "body": "Rahul Khaturia founded our women's clothing business on 9th October 2008 with a simple vision — to make stylish, quality clothing accessible to every woman.\n\nWhat started as a small shop with big dreams was soon joined by his two brothers, Krishna Khaturia and Piyush Khaturia. Together, the three brothers built the brand on trust, quality and hard work.\n\nFrom those humble beginnings in 2008, we have grown into a trusted name in both online and offline wholesale and retail. Today we serve retailers and customers across India with the latest trends in women's fashion.\n\nWe are still family-run, and that is what makes us different. Every design, every order, every customer is handled with the same care we started with 18+ years ago.\n\nFor the last eighteen years we have been serving customers with quality women's clothing through both wholesale and retail channels. We specialise in one-piece dresses, co-ord sets, pant sets, jeans, tops and ethnic wear — and our specialty is plus size, where we carry sizes up to 10XL so that every woman finds her perfect fit.",
-            "image": "https://images.pexels.com/photos/1846014/pexels-photo-1846014.jpeg?auto=compress&cs=tinysrgb&w=1400",
+            "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1787554780/western-nx/wnx-44.jpg",
             "showPillars": false
           }
         },
