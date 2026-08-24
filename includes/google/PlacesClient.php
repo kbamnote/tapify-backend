@@ -99,15 +99,26 @@ class PlacesClient
      */
     public function details(string $placeId): ?array
     {
+        $res = $this->fetchRaw($placeId);
+        if (!$res || empty($res['id'])) return null;
+        return $this->normalizeDetails($res);
+    }
+
+    /** One raw Places Details response, shared by every reader below. */
+    private function fetchRaw(string $placeId): ?array
+    {
         $placeId = trim($placeId);
         if ($placeId === '' || !$this->isConfigured()) return null;
 
         // The id already carries its own prefix in the New API ("places/ChIJ..."),
         // but callers hand us the bare id, so normalise either shape.
         $path = strpos($placeId, 'places/') === 0 ? substr($placeId, 7) : $placeId;
-        $res = $this->get(self::DETAILS_URL . rawurlencode($path), self::DETAILS_FIELDS);
-        if (!$res || empty($res['id'])) return null;
+        return $this->get(self::DETAILS_URL . rawurlencode($path), self::DETAILS_FIELDS);
+    }
 
+    /** The score-shaped projection VisibilityScore reads. Kept byte-identical. */
+    private function normalizeDetails(array $res): array
+    {
         $photos = is_array($res['photos'] ?? null) ? count($res['photos']) : 0;
         $desc   = $res['editorialSummary']['text'] ?? '';
 
@@ -131,6 +142,43 @@ class PlacesClient
             'category'        => $res['primaryTypeDisplayName']['text'] ?? '',
             'website'         => $res['websiteUri'] ?? '',
         ];
+    }
+
+    /**
+     * details() PLUS everything a website generator needs: photo media URLs,
+     * the weekly hours lines, Google's editorial description and the listing's
+     * own phone number. Still ONE Places call — the exact same request
+     * details() makes; this simply refuses to throw the answer away.
+     *
+     * @return array{gmb_photos:array[],gmb_hours_lines:string[],gmb_description:string,gmb_phone:string,...} normalized details + gmb_* extras
+     */
+    public function detailsFull(string $placeId): ?array
+    {
+        $res = $this->fetchRaw($placeId);
+        if (!$res || empty($res['id'])) return null;
+
+        $out = $this->normalizeDetails($res);
+
+        // Public <img> tags cannot send an API-key header, so the key rides in
+        // the URL — the documented way to serve Places media on a website.
+        $out['gmb_photos'] = [];
+        foreach (array_slice(is_array($res['photos'] ?? null) ? $res['photos'] : [], 0, 10) as $p) {
+            if (empty($p['name'])) continue;
+            $alt = trim((string)($p['authorAttributions'][0]['displayName'] ?? ''));
+            $out['gmb_photos'][] = [
+                'url' => 'https://places.googleapis.com/v1/' . $p['name']
+                       . '/media?maxHeightPx=1200&maxWidthPx=1200&key=' . urlencode($this->key),
+                'alt' => $alt !== '' ? $alt : null,
+            ];
+        }
+
+        $out['gmb_hours_lines'] = is_array($res['regularOpeningHours']['weekdayDescriptions'] ?? null)
+            ? $res['regularOpeningHours']['weekdayDescriptions']
+            : [];
+        $out['gmb_description'] = trim((string)($res['editorialSummary']['text'] ?? ''));
+        $out['gmb_phone']       = trim((string)($res['nationalPhoneNumber'] ?? ''));
+
+        return $out;
     }
 
     /**

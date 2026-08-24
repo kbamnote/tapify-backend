@@ -18,6 +18,7 @@
  */
 require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../includes/functions.php';
+require_once __DIR__ . '/../../includes/google/PlacesClient.php';
 require_once __DIR__ . '/../../builder/lib/SiteRepo.php';
 require_once __DIR__ . '/../../builder/lib/SiteValidator.php';
 require_once __DIR__ . '/../../builder/lib/SchemaRegistry.php';
@@ -50,9 +51,25 @@ if ($type === '' || $services === '' || $audience === '') {
     sendError('type, services and audience are required.', 422);
 }
 $name = $business !== '' ? $business : ucfirst($type);
+$placeId = trim((string)($input['place_id'] ?? ''));
 
 try {
     $pdo = getDB();
+
+    /* ── 0. His real Google listing — the source of truth for content. ──── */
+    // One paid Details call per WEBSITE BUILD (never per message; score
+    // checks stay cheap behind place_score_cache). A website is built once,
+    // and building it out of placeholder copy would defeat the point.
+    $places = new PlacesClient();
+    $gmb = null;
+    if ($placeId !== '' && $places->isConfigured() && PlacesClient::spendAllowed($pdo)) {
+        PlacesClient::countCall($pdo);
+        $gmb = $places->detailsFull($placeId);
+    }
+    if ($gmb) {
+        if (!empty($gmb['name']))    $name = $gmb['name'];
+        if (!empty($gmb['category']) && $type === '') $type = $gmb['category'];
+    }
 
     /* ── 1. Owner: the account the bot already created and quoted back. ──── */
     $ownerId = null;
@@ -106,20 +123,114 @@ try {
         }
     }
 
-    /* ── 4. Starter document — same assembly as api/sites/create.php. ────── */
+    /* ── 4. Document — generated from HIS Google listing, not a demo. ────── */
     $recipe  = SchemaRegistry::industries()[$industry] ?? null;
-    $types   = $recipe['sections'] ?? ['hero', 'about', 'services', 'gallery', 'contact'];
     $content = $recipe['content'] ?? [];
 
-    $buildSection = function (string $t) use ($content) {
+    // Sections that would render demo PEOPLE / PRODUCTS / REVIEWS we did not
+    // earn from his listing are dropped outright. Structural and contact
+    // sections stay; real Google numbers replace testimonials via stats.
+    $strip = array_flip(['testimonials','team','blog','faq','products',
+                         'appointment','embed','feedback','account','share']);
+    $typesIn = $recipe['sections'] ?? ['header','hero','about','services','gallery','contact'];
+    $types = [];
+    foreach ($typesIn as $t) { if (!isset($strip[$t])) $types[] = $t; }
+    if ($gmb && ($gmb['reviews_total'] ?? 0) > 0 && !in_array('stats', $types, true)) {
+        $at = array_search('services', $types, true);
+        array_splice($types, $at === false ? max(0, count($types) - 2) : $at + 1, 0, ['stats']);
+    }
+
+    $photoOf = fn(int $i) => $gmb['gmb_photos'][$i] ?? null;
+
+    /**
+     * Three content layers, lowest priority first:
+     *   manifest defaults -> industry recipe copy -> HIS Google/chat data.
+     * Whatever Google answered wins; recipe copy only fills what Google left
+     * blank, so the page never shows another business's story.
+     */
+    $buildSection = function (string $t) use ($content, $gmb, $name, $services, $audience, $photoOf) {
         $instance = SchemaRegistry::newSectionInstance($t);
-        if (!$instance) return null;              // silently skip unbuilt types
+        if (!$instance) return null;
+
         $seed = (array)($content[$t] ?? null);
         if ($seed) {
             if (!empty($seed['variant'])) $instance['variant'] = $seed['variant'];
             if (isset($seed['props']))  $instance['props'] = array_merge((array)($instance['props'] ?? []), (array)$seed['props']);
             if (isset($seed['style']))  $instance['style'] = array_merge((array)($instance['style'] ?? []), (array)$seed['style']);
         }
+
+        $p =& $instance['props'];
+        switch ($t) {
+            case 'hero':
+                $p['heading'] = mb_substr($name, 0, 120);
+                $sub = $gmb ? ($gmb['gmb_description'] ?: $services) : $services;
+                if ($sub !== '') { $p['sub'] = mb_substr($sub, 0, 400); }
+                if ($gmb && $gmb['category'] !== '') { $p['badge'] = mb_substr($gmb['category'], 0, 60); }
+                if ($img = $photoOf(0)) { $p['image'] = $img['url']; $p['fullHeight'] = true; }
+                $p['showCall'] = true;
+                break;
+
+            case 'about':
+                $body = $gmb ? $gmb['gmb_description'] : '';
+                if ($body === '') {
+                    $line = $name;
+                    if ($gmb && $gmb['category'] !== '') { $line .= ' is a ' . strtolower($gmb['category']); }
+                    if ($audience !== '')                { $line .= " serving {$audience}"; }
+                    $body = $line . '. ' . ($services !== '' ? $services : '');
+                }
+                $p['body'] = mb_substr($body, 0, 5000);
+                if ($img = $photoOf(1)) { $p['image'] = $img['url']; }
+                break;
+
+            case 'services':
+                // His typed list REPLACES the demo menu items outright.
+                $items = [];
+                foreach (preg_split('/\s*(?:,|and|\/|\||\n)\s*/i', $services) as $s) {
+                    $s = trim((string)$s);
+                    if ($s === '') continue;
+                    $items[] = ['title' => mb_substr($s, 0, 80)];
+                    if (count($items) >= 6) break;
+                }
+                if (!$items && $gmb && $gmb['category'] !== '') {
+                    $items[] = ['title' => mb_substr($gmb['category'], 0, 80)];
+                }
+                foreach ($items as $k => &$it) {
+                    if ($img = $photoOf($k + 2)) { $it['image'] = $img['url']; }
+                }
+                unset($it);
+                if ($items) { $p['items'] = $items; }
+                break;
+
+            case 'gallery':
+                $imgs = [];
+                foreach (($gmb['gmb_photos'] ?? []) as $k => $im) {
+                    if ($k < 3 || $k >= 8) continue;   // 0-2 already used above
+                    $imgs[] = ['image' => $im['url'],
+                               'alt'   => mb_substr($name . ' — photo ' . ($k + 1), 0, 120)];
+                }
+                if ($imgs) { $p['images'] = $imgs; }
+                break;
+
+            case 'stats':
+                $rev = (int)($gmb['reviews_total'] ?? 0);
+                $rat = (float)($gmb['rating'] ?? 0);
+                if ($rev > 0) {
+                    $items = [['value' => $rev, 'suffix' => '+', 'label' => 'Google reviews']];
+                    if ($rat > 0) {
+                        $items[] = ['value' => (int)round($rat * 10), 'suffix' => '/10', 'label' => 'Google rating'];
+                    }
+                    $p['items'] = $items;
+                }
+                break;
+
+            case 'hours':
+                if (!empty($gmb['gmb_hours_lines'])) {
+                    $note = implode(' · ', array_slice($gmb['gmb_hours_lines'], 0, 2));
+                    $p['note'] = mb_substr('From Google: ' . $note . ' …', 0, 160);
+                }
+                break;
+        }
+        unset($p);
         return $instance;
     };
 
@@ -158,8 +269,12 @@ try {
     );
     $theme['preset'] = $presetName;
 
-    // The chat answers become real copy: what they do and who they serve go
-    // into the business block that contact/hours sections read.
+    // Business Info — every contact/hours/footer section reads this. His
+    // Google listing wins where it answered; the number he typed in chat is
+    // the fallback, formatted the way humans read it.
+    $digits   = preg_replace('/\D/', '', ($gmb['gmb_phone'] ?? '') ?: $phone);
+    $bizPhone = $digits !== '' ? '+91 ' . substr($digits, -10, 5) . ' ' . substr($digits, -5) : null;
+
     $doc = [
         'schemaVersion' => 1,
         'site'  => array_filter([
@@ -174,9 +289,15 @@ try {
             (array)($recipe['business'] ?? []),
             array_filter([
                 'name'        => $name,
-                'description' => $services,
-                'audience'    => $audience,
-                'phone'       => preg_replace('/\D/', '', $phone) ?: null,
+                'category'    => $gmb['category'] ?? null,
+                'description' => $services !== '' ? $services : ($gmb['gmb_description'] ?? null),
+                'audience'    => $audience !== '' ? $audience : null,
+                'phone'       => $bizPhone,
+                'whatsapp'    => $bizPhone,
+                'email'       => $email !== '' ? $email : null,
+                'address'     => $gmb['address'] ?? null,
+                'website'     => !empty($gmb['website']) ? $gmb['website'] : null,
+                'mapUrl'      => $gmb['maps_url'] ?? null,
             ])
         ),
     ];
