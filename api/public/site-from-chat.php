@@ -38,6 +38,21 @@ if (!hash_equals($expected, (string)$given)) {
     sendError('Not authorised.', 401);
 }
 
+// GET ?list=industries — the menu the WhatsApp bot shows so the owner can TAP
+// their category instead of typing it. Same bot key; read-only.
+if ($_SERVER['REQUEST_METHOD'] === 'GET' && ($_GET['list'] ?? '') === 'industries') {
+    $out = [];
+    foreach (SchemaRegistry::industries() as $id => $meta) {
+        $out[] = [
+            'id'    => (string)$id,
+            'label' => (string)($meta['label'] ?? $id),
+            'desc'  => mb_substr((string)($meta['description'] ?? ''), 0, 72),
+        ];
+    }
+    usort($out, fn($a, $b) => strcasecmp($a['label'], $b['label']));
+    sendSuccess('Industries', ['industries' => $out]);
+}
+
 $input    = getInput();
 $email    = strtolower(trim((string)($input['email'] ?? '')));
 $phone    = trim((string)($input['phone'] ?? ''));
@@ -45,6 +60,25 @@ $business = trim((string)($input['business'] ?? ''));
 $type     = trim((string)($input['type'] ?? ''));
 $services = trim((string)($input['services'] ?? ''));
 $audience = trim((string)($input['audience'] ?? ''));
+
+// What Google does NOT know about him — collected in chat, used verbatim.
+$industrySel = strtolower(trim((string)($input['industry'] ?? '')));  // tapped from the list
+$story       = trim((string)($input['story'] ?? ''));                // his own words for About
+$yearsIn     = (int)($input['years'] ?? 0);                          // "12 years" → stats card
+$instaRaw    = trim((string)($input['instagram'] ?? ''));
+$logoUrl     = trim((string)($input['logo_url'] ?? ''));             // Cloudinary URL of his uploaded logo
+
+// Normalise the Instagram answer into a followable link.
+$instagramUrl = null;
+if ($instaRaw !== '' && $instaRaw !== '-') {
+    if (preg_match('~instagram\.com/([A-Za-z0-9_.]+)~i', $instaRaw, $m)) {
+        $instagramUrl = 'https://instagram.com/' . $m[1];
+    } elseif ($instaRaw[0] === '@') {
+        $instagramUrl = 'https://instagram.com/' . ltrim(substr($instaRaw, 1), '@');
+    } elseif (preg_match('~^[A-Za-z0-9_.]{1,30}$~', $instaRaw)) {
+        $instagramUrl = 'https://instagram.com/' . $instaRaw;
+    }
+}
 
 // The three chat answers are the payload; without them there is nothing to build.
 if ($type === '' || $services === '' || $audience === '') {
@@ -113,13 +147,20 @@ try {
         }
     }
 
-    /* ── 3. Industry: match their words to a recipe when one fits. ───────── */
+    /* ── 3. Industry: his tapped choice first, then a word-match fallback. ── */
+    $allInd   = SchemaRegistry::industries();
     $industry = null;
-    foreach (SchemaRegistry::industries() as $id => $meta) {
-        $hay = strtolower($id . ' ' . (is_array($meta) ? ($meta['label'] ?? '') : $meta));
-        if ($type !== '' && (stripos($hay, $type) !== false || stripos($type, $id) !== false)) {
-            $industry = $id;
-            break;
+    if ($industrySel !== '' && isset($allInd[$industrySel])) {
+        $industry = $industrySel;                       // tapped from our list
+    } elseif ($type !== '') {
+        foreach ($allInd as $id => $meta) {
+            $aliases = is_array($meta) ? implode(' ', (array)($meta['aliases'] ?? [])) : '';
+            $hay = strtolower($id . ' ' . (is_array($meta) ? ($meta['label'] ?? '') : $meta) . ' ' . $aliases
+                . ' ' . ($gmb['category'] ?? ''));
+            if (stripos($hay, $type) !== false || stripos($type, $id) !== false) {
+                $industry = $id;
+                break;
+            }
         }
     }
 
@@ -128,8 +169,8 @@ try {
     $content = $recipe['content'] ?? [];
 
     // Sections that would render demo PEOPLE / PRODUCTS / REVIEWS we did not
-    // earn from his listing are dropped outright. Structural and contact
-    // sections stay; real Google numbers replace testimonials via stats.
+    // earn from his listing are dropped outright; his real Google numbers
+    // become a stats strip instead of fake testimonials.
     $strip = array_flip(['testimonials','team','blog','faq','products',
                          'appointment','embed','feedback','account','share']);
     $typesIn = $recipe['sections'] ?? ['header','hero','about','services','gallery','contact'];
@@ -143,16 +184,19 @@ try {
     $photoOf = fn(int $i) => $gmb['gmb_photos'][$i] ?? null;
 
     /**
-     * Three content layers, lowest priority first:
-     *   manifest defaults -> industry recipe copy -> HIS Google/chat data.
-     * Whatever Google answered wins; recipe copy only fills what Google left
-     * blank, so the page never shows another business's story.
+     * Content layers, lowest priority first:
+     *   manifest defaults -> industry recipe -> HIS Google data -> HIS chat words.
+     * Whatever he typed or Google answered wins; recipe copy only fills what
+     * both left blank, so no page ever tells another business's story.
      */
-    $buildSection = function (string $t) use ($content, $gmb, $name, $services, $audience, $photoOf) {
+    $buildSection = function (string $t, array $pageSeed = []) use (
+        $content, $gmb, $name, $services, $audience,
+        $photoOf, $story, $yearsIn, $instagramUrl, $logoUrl
+    ) {
         $instance = SchemaRegistry::newSectionInstance($t);
         if (!$instance) return null;
 
-        $seed = (array)($content[$t] ?? null);
+        $seed = array_replace_recursive((array)($content[$t] ?? null), (array)($pageSeed[$t] ?? null));
         if ($seed) {
             if (!empty($seed['variant'])) $instance['variant'] = $seed['variant'];
             if (isset($seed['props']))  $instance['props'] = array_merge((array)($instance['props'] ?? []), (array)$seed['props']);
@@ -163,7 +207,7 @@ try {
         switch ($t) {
             case 'hero':
                 $p['heading'] = mb_substr($name, 0, 120);
-                $sub = $gmb ? ($gmb['gmb_description'] ?: $services) : $services;
+                $sub = $story ?: ($gmb ? ($gmb['gmb_description'] ?: $services) : $services);
                 if ($sub !== '') { $p['sub'] = mb_substr($sub, 0, 400); }
                 if ($gmb && $gmb['category'] !== '') { $p['badge'] = mb_substr($gmb['category'], 0, 60); }
                 if ($img = $photoOf(0)) { $p['image'] = $img['url']; $p['fullHeight'] = true; }
@@ -171,13 +215,15 @@ try {
                 break;
 
             case 'about':
-                $body = $gmb ? $gmb['gmb_description'] : '';
+                // HIS story beats Google's summary beats a composed line.
+                $body = $story ?: ($gmb ? $gmb['gmb_description'] : '');
                 if ($body === '') {
                     $line = $name;
                     if ($gmb && $gmb['category'] !== '') { $line .= ' is a ' . strtolower($gmb['category']); }
                     if ($audience !== '')                { $line .= " serving {$audience}"; }
                     $body = $line . '. ' . ($services !== '' ? $services : '');
                 }
+                if ($instagramUrl) { $body .= "\n\nFollow us on Instagram: {$instagramUrl}"; }
                 $p['body'] = mb_substr($body, 0, 5000);
                 if ($img = $photoOf(1)) { $p['image'] = $img['url']; }
                 break;
@@ -204,7 +250,7 @@ try {
             case 'gallery':
                 $imgs = [];
                 foreach (($gmb['gmb_photos'] ?? []) as $k => $im) {
-                    if ($k < 3 || $k >= 8) continue;   // 0-2 already used above
+                    if ($k < 3 || $k >= 9) continue;   // 0-2 already used above
                     $imgs[] = ['image' => $im['url'],
                                'alt'   => mb_substr($name . ' — photo ' . ($k + 1), 0, 120)];
                 }
@@ -212,15 +258,15 @@ try {
                 break;
 
             case 'stats':
+                $items = [];
+                if ($yearsIn > 0) {
+                    $items[] = ['value' => min(99, $yearsIn), 'suffix' => '+', 'label' => 'Years in business'];
+                }
                 $rev = (int)($gmb['reviews_total'] ?? 0);
                 $rat = (float)($gmb['rating'] ?? 0);
-                if ($rev > 0) {
-                    $items = [['value' => $rev, 'suffix' => '+', 'label' => 'Google reviews']];
-                    if ($rat > 0) {
-                        $items[] = ['value' => (int)round($rat * 10), 'suffix' => '/10', 'label' => 'Google rating'];
-                    }
-                    $p['items'] = $items;
-                }
+                if ($rev > 0) { $items[] = ['value' => $rev, 'suffix' => '+', 'label' => 'Google reviews']; }
+                if ($rat > 0) { $items[] = ['value' => (int)round($rat * 10), 'suffix' => '/10', 'label' => 'Google rating']; }
+                if (count($items) >= 2) { $p['items'] = $items; }   // manifest min is 2
                 break;
 
             case 'hours':
@@ -229,28 +275,92 @@ try {
                     $p['note'] = mb_substr('From Google: ' . $note . ' …', 0, 160);
                 }
                 break;
+
+            case 'header':
+            case 'footer':
+                // His uploaded logo — only where the manifest has a logo prop.
+                if ($logoUrl !== '' && array_key_exists('logo', $p)) { $p['logo'] = $logoUrl; }
+                break;
         }
         unset($p);
         return $instance;
     };
 
-    $sections = [];
-    foreach ($types as $t) {
-        $i = $buildSection($t);
-        if ($i) $sections[] = $i;
+    /* ── 5. PAGES. Recipes with real pages get them; every other business
+       still gets a proper four-page site instead of one long scroll. */
+    $recipePages = $recipe['pages'] ?? null;
+    $pages = [];
+    if (is_array($recipePages) && count($recipePages)) {
+        foreach ($recipePages as $i => $pd) {
+            $pageSections = [];
+            foreach ((array)($pd['sections'] ?? []) as $t) {
+                if (isset($strip[$t])) continue;         // demo sections never ship
+                $i2 = $buildSection($t, (array)($pd['content'] ?? []));
+                if ($i2) $pageSections[] = $i2;
+            }
+            if (!$pageSections) continue;
+            $pid     = $pd['id'] ?? ('page-' . ($i + 1));
+            $title   = $pd['title'] ?? ucfirst(str_replace('-', ' ', $pid));
+            $pages[] = [
+                'id'       => $pid,
+                'slug'     => $pd['slug'] ?? ($i === 0 ? '/' : '/' . $pid),
+                'title'    => $title,
+                'seo'      => array_merge(['title' => ($i === 0 ? $name : $name . ' — ' . $title), 'robots' => 'index,follow'], (array)($pd['seo'] ?? [])),
+                'sections' => $pageSections,
+            ];
+        }
     }
-    if (!$sections) {
-        $hero = SchemaRegistry::newSectionInstance('hero');
-        if ($hero) $sections[] = $hero;
+    if (!count($pages)) {
+        // Synthesised four-pager: Home / About Us / Gallery / Contact.
+        $groups = [
+            ['id' => 'home',    'slug' => '/',       'title' => 'Home',     'secs' => ['hero', 'stats', 'services', 'cta']],
+            ['id' => 'about',   'slug' => 'about',   'title' => 'About Us', 'secs' => ['about']],
+            ['id' => 'gallery', 'slug' => 'gallery', 'title' => 'Gallery',  'secs' => ['gallery']],
+            ['id' => 'contact', 'slug' => 'contact', 'title' => 'Contact',  'secs' => ['hours', 'contact']],
+        ];
+        foreach ($groups as $g) {
+            $secs = [];
+            foreach ($g['secs'] as $t) {
+                if (!in_array($t, $types, true)) continue;   // respect strip list & availability
+                $i3 = $buildSection($t);
+                if ($i3) $secs[] = $i3;
+            }
+            // A page needs body; an empty gallery page is simply skipped.
+            if (!$secs || ($g['id'] === 'gallery' && count($secs) < 1)) continue;
+            $pages[] = [
+                'id'       => $g['id'],
+                'slug'     => $g['slug'],
+                'title'    => $g['title'],
+                'seo'      => ['title' => $g['id'] === 'home' ? $name : $name . ' — ' . $g['title'], 'robots' => 'index,follow'],
+                'sections' => $secs,
+            ];
+        }
+        if (!count($pages)) {
+            $h = $buildSection('hero');
+            $pages = [[ 'id' => 'home', 'slug' => '/', 'title' => 'Home',
+                        'seo' => ['title' => $name, 'robots' => 'index,follow'],
+                        'sections' => $h ? [$h] : [] ]];
+        }
     }
-    $pages = [[
-        'id'    => 'home',
-        'slug'  => '/',
-        'title' => 'Home',
-        'seo'   => ['title' => $name, 'robots' => 'index,follow'],
-        'sections' => $sections,
-    ]];
-    $headerNav = [['label' => 'Home', 'pageId' => 'home']];
+
+    // Header nav from REAL pages — and the header section's own links must
+    // point at those pages, because anchors like #services die the moment
+    // services moves to its own page.
+    $headerNav = array_map(fn($pg) => ['label' => $pg['title'], 'pageId' => $pg['id']], $pages);
+    if (count($pages) > 1) {
+        foreach ($pages as &$pg) {
+            foreach (($pg['sections'] ?? []) as &$sec) {
+                if (($sec['type'] ?? '') === 'header') {
+                    $sec['props']['links'] = array_map(
+                        fn($x) => ['text' => $x['label'], 'href' => $x['id'] === 'home' ? '/' : '/' . $x['id']],
+                        $headerNav
+                    );
+                }
+            }
+            unset($sec);
+        }
+        unset($pg);
+    }
 
     $themeRef     = $recipe['theme'] ?? null;
     $presetName   = is_array($themeRef) ? ($themeRef['preset'] ?? 'default') : (is_string($themeRef) ? $themeRef : 'default');
@@ -317,6 +427,7 @@ try {
         'site_id' => (int)$site['id'],
         'slug'    => $slug,
         'url'     => 'https://' . $slug . '.tapify.co.in',
+        'pages'   => count($pages),
     ]);
 
 } catch (Exception $e) {
