@@ -1,0 +1,34 @@
+{
+  "preset": "pearl-mint",
+  "label": "Pearl & Mint",
+  "description": "Deep teal-blue with a fresh mint accent on a cool pearl page. Clean and reassuring without the cold, corporate feel of a hospital palette — suits dental clinics, orthodontics and aesthetic practices.",
+  "industries": [
+    "dental",
+    "clinic",
+    "hospital",
+    "doctor",
+    "orthodontics",
+    "physiotherapy"
+  ],
+  "tokens": {
+    "mode": "light",
+    "color": {
+      "primary": "#0E7C8C",
+      "secondary": "#1E5F6B",
+      "accent": "#117C67",
+      "bg": "#F5FAFA",
+      "surface": "#FFFFFF",
+      "text": "#0E2429",
+      "muted": "#62757C",
+      "border": "#DAE8EA"
+    },
+    "font": {
+      "heading": "Plus Jakarta Sans",
+      "body": "Inter"
+    },
+    "radius": "lg",
+    "spacing": "comfortable",
+    "container": "normal"
+  },
+  "notes": "Tokens only — sections read these as CSS variables and never hardcode a colour. EVERY value here was derived by darkening along its own hue until it cleared 4.5:1 on BOTH the page and the cards, because `accent` is what the renderer paints 12px meta text with in ~15 places. A true mint (#16A085) measures 2.9:1 on white and is unreadable there, which is exactly the fault clinical-teal shipped with (accent 3.12:1 on bg). Do not lighten these back toward the original hues without re-measuring."
+}

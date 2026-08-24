@@ -1,0 +1,1568 @@
+{
+  "schemaVersion": 1,
+  "site": {
+    "name": "True Smile Dental Clinic",
+    "industry": "hospital",
+    "locale": "en-IN"
+  },
+  "theme": {
+    "preset": "pearl-mint",
+    "mode": "light",
+    "color": {
+      "primary": "#0E7C8C",
+      "secondary": "#1E5F6B",
+      "accent": "#117C67",
+      "bg": "#F5FAFA",
+      "surface": "#FFFFFF",
+      "text": "#0E2429",
+      "muted": "#62757C",
+      "border": "#DAE8EA"
+    }
+  },
+  "nav": {
+    "header": [
+      {
+        "label": "Home",
+        "pageId": "home"
+      },
+      {
+        "label": "Treatments",
+        "pageId": "services"
+      },
+      {
+        "label": "About",
+        "pageId": "about"
+      },
+      {
+        "label": "Blog",
+        "pageId": "blog"
+      },
+      {
+        "label": "Contact",
+        "pageId": "contact"
+      }
+    ]
+  },
+  "business": {
+    "phone": "+91 91308 40839",
+    "whatsapp": "+91 91308 40839",
+    "email": "rishikac30@gmail.com",
+    "address": "True Smile Dental Clinic, Hudkeshwar Road, opp. Bharat Petrol Pump, near Pipla Phata, Nagpur, Maharashtra",
+    "social": {
+      "facebook": "https://www.facebook.com/people/True-Smile-Dental-Clinic-and-Implant-Centre/100068063391992/",
+      "instagram": "https://www.instagram.com/truesmile_dentalclinic"
+    },
+    "hours": [
+      {
+        "day": "mon",
+        "open": "11:00 AM",
+        "close": "9:00 PM"
+      },
+      {
+        "day": "tue",
+        "open": "11:00 AM",
+        "close": "9:00 PM"
+      },
+      {
+        "day": "wed",
+        "open": "11:00 AM",
+        "close": "9:00 PM"
+      },
+      {
+        "day": "thu",
+        "open": "11:00 AM",
+        "close": "9:00 PM"
+      },
+      {
+        "day": "fri",
+        "open": "11:00 AM",
+        "close": "9:00 PM"
+      },
+      {
+        "day": "sat",
+        "open": "11:00 AM",
+        "close": "9:00 PM"
+      },
+      {
+        "day": "sun",
+        "closed": true
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "home",
+      "slug": "/",
+      "title": "Home",
+      "sections": [
+        {
+          "id": "header-1",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logoSize": "medium",
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Treatments",
+                "href": "/services"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Blog",
+                "href": "/blog"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Book Appointment",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "hero-1",
+          "type": "hero",
+          "visible": true,
+          "props": {
+            "badge": "Dental Clinic · Hudkeshwar Road, Nagpur",
+            "heading": "Dental care that keeps your own teeth where possible",
+            "sub": "Implants, root canal treatment, crowns, whitening, fillings and dentures — with modern equipment and a straight answer about what you actually need.",
+            "fullHeight": true,
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Book an Appointment",
+              "newTab": true,
+              "href": "https://wa.me/919130840839?text=Hi%20True%20Smile%20Dental%20Clinic%2C%20I%20would%20like%20to%20book%20an%20appointment."
+            },
+            "ctaSecondary": {
+              "text": "See Treatments",
+              "href": "/services"
+            },
+            "videoUrl": "https://videos.pexels.com/video-files/4489274/4489274-hd_1920_1080_25fps.mp4",
+            "image": "https://images.pexels.com/videos/4489274/pexels-photo-4489274.jpeg?auto=compress&cs=tinysrgb&w=1600"
+          }
+        },
+        {
+          "id": "about-1",
+          "type": "about",
+          "visible": true,
+          "props": {
+            "label": "About Us",
+            "heading": "A patient-first dental practice in Nagpur",
+            "body": "True Smile Dental Clinic is a dental practice on Hudkeshwar Road in Nagpur, opposite the Bharat petrol pump near Pipla Phata. We provide high-quality dental care using modern technology, with a patient-first approach.\n\nThat covers the range most families need: routine check-ups and cleaning, fillings, root canal treatment, crowns and bridges, dental implants, dentures, and whitening and veneers. Keeping it under one roof means your history, your X-rays and your treatment plan stay in one place instead of being repeated at each new clinic.\n\nWe also consult online. If you are not sure whether something needs treating, message us on WhatsApp and describe it — we will tell you honestly whether it needs a visit and how urgent it is, rather than asking you to come in to find out.\n\nThe clinic is open Monday to Saturday, 11:00 AM to 9:00 PM, and closed on Sunday.",
+            "image": "https://images.pexels.com/photos/5622235/pexels-photo-5622235.jpeg?auto=compress&cs=tinysrgb&w=1400",
+            "imageFit": "cover",
+            "showPillars": true,
+            "pillars": [
+              {
+                "icon": "stethoscope",
+                "title": "Every treatment in one place",
+                "text": "Check-ups through to implants, so your records and treatment plan stay together."
+              },
+              {
+                "icon": "sparkles",
+                "title": "Modern equipment",
+                "text": "Digital imaging and current materials, so diagnosis is accurate and repairs last."
+              },
+              {
+                "icon": "badge-check",
+                "title": "Told the cost before we start",
+                "text": "We examine first, explain the options, then quote. Nothing begins until you have agreed."
+              },
+              {
+                "icon": "phone",
+                "title": "Ask before you come in",
+                "text": "Online consultation on WhatsApp — we will tell you honestly whether a visit is needed."
+              }
+            ]
+          }
+        },
+        {
+          "id": "stats-1",
+          "type": "stats",
+          "visible": true,
+          "props": {
+            "label": "The Clinic",
+            "heading": "What to expect",
+            "countUp": true,
+            "items": [
+              {
+                "icon": "stethoscope",
+                "value": 7,
+                "suffix": "",
+                "label": "Treatments offered"
+              },
+              {
+                "icon": "calendar",
+                "value": 6,
+                "suffix": " days",
+                "label": "Open Monday to Saturday"
+              },
+              {
+                "icon": "clock",
+                "value": 10,
+                "suffix": " hrs",
+                "label": "Daily, 11 AM to 9 PM"
+              },
+              {
+                "icon": "phone",
+                "value": 1,
+                "suffix": " msg",
+                "label": "Online consult on WhatsApp"
+              }
+            ]
+          }
+        },
+        {
+          "id": "services-1",
+          "type": "services",
+          "visible": true,
+          "props": {
+            "label": "Our Treatments",
+            "heading": "Dental care under one roof",
+            "sub": "Seven treatments covering routine care through to implants. Tap any one for what it involves.",
+            "items": [
+              {
+                "image": "https://images.pexels.com/photos/7578797/pexels-photo-7578797.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "title": "All Kind Of Dental Treatments And Online Consultations",
+                "desc": "General and specialist dental care for the whole family, plus online consultation if you would rather ask first before coming in.",
+                "meta": "Every treatment under one roof",
+                "body": "You should not need a different clinic for every problem. We handle routine check-ups and cleaning, fillings, root canals, crowns and bridges, implants, dentures, whitening and veneers in one place, which keeps your records and your treatment plan together.\n\nIf you are not sure whether something needs treating, send us a message first. An online consultation costs you nothing but a WhatsApp message: describe the problem, send a photo if you can, and we will tell you honestly whether it needs a visit, how urgent it is, and roughly what is involved. Anything requiring an examination, an X-ray or treatment has to be done at the clinic.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Ask about this",
+                  "newTab": true,
+                  "href": "https://wa.me/919130840839?text=Hi%20True%20Smile%20Dental%20Clinic%2C%20I%20would%20like%20to%20know%20more%20about%20%2AAll%20Kind%20Of%20Dental%20Treatments%20And%20Online%20Consultations%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/19879741/pexels-photo-19879741.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "title": "Root Canal Treatment",
+                "desc": "Root canal therapy to treat infection deep inside a tooth, so it can be kept rather than extracted.",
+                "meta": "Saves the tooth, and stops the pain",
+                "body": "When decay or an injury reaches the pulp inside a tooth, the nerve becomes infected. That is the pain that keeps people awake and does not settle on painkillers. A root canal removes the infected tissue, cleans and seals the canal, and lets you keep the tooth instead of losing it.\n\nThe reputation of the procedure is worse than the experience. It is done under local anaesthetic, and most people find the appointment itself no worse than a filling — the pain they remember is the infection beforehand, not the treatment. Depending on the tooth it takes one or two visits, and a crown is usually fitted afterwards to protect it.\n\nIf you have swelling, throbbing pain, or pain that wakes you at night, do not wait for it to pass. Call us.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Ask about this",
+                  "newTab": true,
+                  "href": "https://wa.me/919130840839?text=Hi%20True%20Smile%20Dental%20Clinic%2C%20I%20would%20like%20to%20know%20more%20about%20%2ARoot%20Canal%20Treatment%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/6627284/pexels-photo-6627284.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "title": "Teeth Whitening And Veneers",
+                "desc": "Professional whitening for stained teeth, and veneers to reshape teeth that are chipped, uneven or gapped.",
+                "meta": "For staining, chips and gaps",
+                "body": "Tea, coffee, tobacco and time all stain teeth, and no toothpaste reverses it. Professional whitening lifts the shade several steps in a single supervised appointment, using a stronger agent than anything sold over the counter, with your gums protected throughout.\n\nWhitening changes colour but not shape. Where a tooth is chipped, worn, uneven or has a gap beside it, veneers are the answer — thin custom shells bonded to the front of the tooth. We match the shade to the teeth beside them so the result looks like your own teeth, not like dental work.\n\nResults vary with the starting shade and the cause of the staining, and we will tell you what is realistic for your teeth before you commit to anything.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Ask about this",
+                  "newTab": true,
+                  "href": "https://wa.me/919130840839?text=Hi%20True%20Smile%20Dental%20Clinic%2C%20I%20would%20like%20to%20know%20more%20about%20%2ATeeth%20Whitening%20And%20Veneers%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/19976568/pexels-photo-19976568.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "title": "Fillings",
+                "desc": "Composite fillings that repair decay and match the natural colour of the tooth.",
+                "meta": "Tooth-coloured, done in one visit",
+                "body": "A cavity does not heal on its own, and treating it early is the difference between a simple filling and a root canal later. We use tooth-coloured composite that is bonded and set in place, so the repair is not visible when you smile or laugh.\n\nMost fillings are completed in a single visit. If the decay is close to the nerve we will tell you before starting, and explain what the options are rather than pressing on and hoping.\n\nOld metal fillings can also be replaced with composite if you would prefer them not to show.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Ask about this",
+                  "newTab": true,
+                  "href": "https://wa.me/919130840839?text=Hi%20True%20Smile%20Dental%20Clinic%2C%20I%20would%20like%20to%20know%20more%20about%20%2AFillings%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/6502341/pexels-photo-6502341.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "title": "Crowns And Bridges",
+                "desc": "Crowns to cap a damaged or root-treated tooth, and bridges to fill the space where a tooth is missing.",
+                "meta": "Rebuilding and replacing teeth",
+                "body": "A crown is a cap that covers a tooth completely. It is what protects a tooth after a root canal, and it rebuilds one that is too broken or worn for a filling to hold. A bridge fills a gap where a tooth is already gone, by anchoring the replacement to the teeth on either side.\n\nBoth are made to your bite and shade. Options range from metal-ceramic to full ceramic and zirconia, which differ in strength, appearance and cost — we will explain the trade-off for your particular tooth rather than quoting one option.\n\nLeaving a gap unfilled is not neutral: the teeth beside it drift and the bite changes, which is harder to correct later.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Ask about this",
+                  "newTab": true,
+                  "href": "https://wa.me/919130840839?text=Hi%20True%20Smile%20Dental%20Clinic%2C%20I%20would%20like%20to%20know%20more%20about%20%2ACrowns%20And%20Bridges%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/6502305/pexels-photo-6502305.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "title": "Implant",
+                "desc": "Dental implants that replace a missing tooth root with a titanium post, holding a crown that functions like a natural tooth.",
+                "meta": "A replacement tooth with its own root",
+                "body": "An implant is the closest thing to getting the tooth back. A titanium post is placed into the jawbone to act as the root, the bone fuses to it over the following months, and a crown is fitted on top. Unlike a bridge, it does not require cutting down the healthy teeth on either side, and unlike a denture it does not move.\n\nIt is a staged treatment rather than a single appointment, and the healing period is the part people underestimate — typically a few months between placement and the final crown.\n\nNot everyone is a candidate straight away: it depends on bone level, gum health and general health. We assess that with an X-ray first and tell you plainly if an implant is not the right choice for you.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Ask about this",
+                  "newTab": true,
+                  "href": "https://wa.me/919130840839?text=Hi%20True%20Smile%20Dental%20Clinic%2C%20I%20would%20like%20to%20know%20more%20about%20%2AImplant%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/13207278/pexels-photo-13207278.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "title": "Dentures",
+                "desc": "Complete and partial dentures made to your mouth, with adjustments until they sit comfortably.",
+                "meta": "Full and partial, fitted to you",
+                "body": "Where several teeth or a full arch are missing, dentures restore chewing and the shape of the face. We make both complete dentures and partial ones that fit around the teeth you still have.\n\nThe fit is what decides whether a denture is worn or left in a drawer, so it is taken in stages — impressions, a trial fitting, then the finished set — and we expect to adjust it afterwards. Come back if it rubs; that is a normal part of the process, not a complaint.\n\nIf you would prefer something fixed rather than removable, implant-supported options are available and we can talk through the difference.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Ask about this",
+                  "newTab": true,
+                  "href": "https://wa.me/919130840839?text=Hi%20True%20Smile%20Dental%20Clinic%2C%20I%20would%20like%20to%20know%20more%20about%20%2ADentures%2A."
+                }
+              }
+            ],
+            "orderVia": "page",
+            "imageFit": "cover",
+            "showRelated": true,
+            "relatedHeading": "Other treatments"
+          }
+        },
+        {
+          "id": "gallery-1",
+          "type": "gallery",
+          "visible": true,
+          "props": {
+            "label": "The Clinic",
+            "heading": "Inside True Smile",
+            "sub": "Modern equipment and a clean, calm treatment room.",
+            "images": [
+              {
+                "image": "https://images.pexels.com/photos/9062527/pexels-photo-9062527.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "alt": "Modern dental treatment unit"
+              },
+              {
+                "image": "https://images.pexels.com/photos/4269265/pexels-photo-4269265.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "alt": "Treatment chair and instruments"
+              },
+              {
+                "image": "https://images.pexels.com/photos/6501867/pexels-photo-6501867.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "alt": "Digital dental imaging equipment"
+              },
+              {
+                "image": "https://images.pexels.com/photos/6502019/pexels-photo-6502019.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "alt": "Panoramic dental X-ray"
+              },
+              {
+                "image": "https://images.pexels.com/photos/28407748/pexels-photo-28407748.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "alt": "Clear aligner trays"
+              },
+              {
+                "image": "https://images.pexels.com/photos/8413334/pexels-photo-8413334.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "alt": "Dental examination in progress"
+              },
+              {
+                "image": "https://images.pexels.com/photos/3762453/pexels-photo-3762453.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "alt": "A healthy, natural smile"
+              },
+              {
+                "image": "https://images.pexels.com/photos/8727447/pexels-photo-8727447.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "alt": "Patient after treatment"
+              }
+            ],
+            "lightbox": true
+          }
+        },
+        {
+          "id": "faq-1",
+          "type": "faq",
+          "visible": true,
+          "props": {
+            "label": "FAQ",
+            "heading": "Questions patients ask",
+            "openFirst": true,
+            "items": [
+              {
+                "q": "Do I need an appointment, or can I walk in?",
+                "a": "Both work. The clinic is open Monday to Saturday, 11:00 AM to 9:00 PM. Booking ahead on WhatsApp or by phone means you are seen at a fixed time rather than waiting, which matters most in the evenings."
+              },
+              {
+                "q": "Can I ask about a problem before coming in?",
+                "a": "Yes. We offer online consultation — message us on WhatsApp describing the problem and send a photo if you can, and we will tell you whether it needs a visit and how urgent it is. Anything needing an examination, an X-ray or treatment has to be done at the clinic."
+              },
+              {
+                "q": "Is a root canal painful?",
+                "a": "The treatment is done under local anaesthetic, and most patients find it no worse than having a filling. The pain people associate with root canals is usually the infection beforehand, which is exactly what the treatment removes."
+              },
+              {
+                "q": "How much will my treatment cost?",
+                "a": "It depends on the tooth and what is actually needed, so we examine first and then give you the cost before starting. You will not be committed to anything until you have been told the price."
+              },
+              {
+                "q": "Do you treat children?",
+                "a": "Yes. We see children for check-ups, cleaning, fillings and preventive care."
+              },
+              {
+                "q": "What should I do in a dental emergency?",
+                "a": "Call us on +91 91308 40839 during clinic hours. Severe pain, swelling, bleeding that will not stop, or a tooth knocked out should be treated the same day — do not wait for it to settle. If a permanent tooth has come out, keep it in milk and bring it with you."
+              },
+              {
+                "q": "Are you open on Sunday?",
+                "a": "No, the clinic is closed on Sunday. We are open Monday to Saturday, 11:00 AM to 9:00 PM."
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-1",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "Tooth troubling you?",
+            "sub": "Message us on WhatsApp and we will tell you whether it needs a visit.",
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Book an Appointment",
+              "newTab": true,
+              "href": "https://wa.me/919130840839?text=Hi%20True%20Smile%20Dental%20Clinic%2C%20I%20would%20like%20to%20book%20an%20appointment."
+            }
+          }
+        },
+        {
+          "id": "contact-1",
+          "type": "contact",
+          "visible": true,
+          "props": {
+            "label": "Contact",
+            "heading": "Book a visit",
+            "sub": "Open Monday to Saturday, 11:00 AM to 9:00 PM. Message us on WhatsApp with your problem and we will tell you whether you need to come in.",
+            "showPhone": true,
+            "showWhatsapp": true,
+            "showEmail": true,
+            "showAddress": true,
+            "showHours": true,
+            "showMap": true,
+            "mapUrl": "https://www.google.com/maps/search/?api=1&query=21.085118,79.122426",
+            "submitText": "Request appointment"
+          }
+        },
+        {
+          "id": "footer-1",
+          "type": "footer",
+          "visible": true,
+          "props": {
+            "blurb": "True Smile Dental Clinic — dental care on Hudkeshwar Road, Nagpur. Implants, root canal treatment, crowns and bridges, whitening, fillings and dentures, with online consultation available on WhatsApp.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "copyright": "© 2026 True Smile Dental Clinic. All rights reserved.",
+            "columns": [
+              {
+                "title": "Clinic",
+                "links": [
+                  {
+                    "text": "Home",
+                    "href": "/"
+                  },
+                  {
+                    "text": "Treatments",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "About Us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Blog",
+                    "href": "/blog"
+                  },
+                  {
+                    "text": "Contact",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "Treatments",
+                "links": [
+                  {
+                    "text": "Root Canal Treatment",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Dental Implants",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Crowns & Bridges",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Whitening & Veneers",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Dentures",
+                    "href": "/services"
+                  }
+                ]
+              },
+              {
+                "title": "Reach Us",
+                "links": [
+                  {
+                    "text": "WhatsApp +91 91308 40839",
+                    "href": "https://wa.me/919130840839"
+                  },
+                  {
+                    "text": "Call +91 91308 40839",
+                    "href": "tel:+919130840839"
+                  },
+                  {
+                    "text": "rishikac30@gmail.com",
+                    "href": "mailto:rishikac30@gmail.com"
+                  },
+                  {
+                    "text": "Find us on the map",
+                    "href": "https://www.google.com/maps/search/?api=1&query=21.085118,79.122426"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "services",
+      "slug": "/services",
+      "title": "Treatments",
+      "sections": [
+        {
+          "id": "header-2",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logoSize": "medium",
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Treatments",
+                "href": "/services"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Blog",
+                "href": "/blog"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Book Appointment",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "hero-2",
+          "type": "hero",
+          "visible": true,
+          "props": {
+            "badge": "Our Treatments",
+            "heading": "What we treat",
+            "sub": "From a routine filling to a full implant. Tap any treatment to read what it involves, what to expect, and when it is the right choice.",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Book an Appointment",
+              "newTab": true,
+              "href": "https://wa.me/919130840839?text=Hi%20True%20Smile%20Dental%20Clinic%2C%20I%20would%20like%20to%20book%20an%20appointment."
+            },
+            "ctaSecondary": {
+              "text": "See Treatments",
+              "href": "/services"
+            }
+          }
+        },
+        {
+          "id": "services-2",
+          "type": "services",
+          "visible": true,
+          "props": {
+            "label": "Our Treatments",
+            "heading": "Dental care under one roof",
+            "sub": "Costs depend on the tooth and what is actually needed, so we examine first and tell you the price before anything starts.",
+            "items": [
+              {
+                "image": "https://images.pexels.com/photos/7578797/pexels-photo-7578797.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "title": "All Kind Of Dental Treatments And Online Consultations",
+                "desc": "General and specialist dental care for the whole family, plus online consultation if you would rather ask first before coming in.",
+                "meta": "Every treatment under one roof",
+                "body": "You should not need a different clinic for every problem. We handle routine check-ups and cleaning, fillings, root canals, crowns and bridges, implants, dentures, whitening and veneers in one place, which keeps your records and your treatment plan together.\n\nIf you are not sure whether something needs treating, send us a message first. An online consultation costs you nothing but a WhatsApp message: describe the problem, send a photo if you can, and we will tell you honestly whether it needs a visit, how urgent it is, and roughly what is involved. Anything requiring an examination, an X-ray or treatment has to be done at the clinic.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Ask about this",
+                  "newTab": true,
+                  "href": "https://wa.me/919130840839?text=Hi%20True%20Smile%20Dental%20Clinic%2C%20I%20would%20like%20to%20know%20more%20about%20%2AAll%20Kind%20Of%20Dental%20Treatments%20And%20Online%20Consultations%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/19879741/pexels-photo-19879741.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "title": "Root Canal Treatment",
+                "desc": "Root canal therapy to treat infection deep inside a tooth, so it can be kept rather than extracted.",
+                "meta": "Saves the tooth, and stops the pain",
+                "body": "When decay or an injury reaches the pulp inside a tooth, the nerve becomes infected. That is the pain that keeps people awake and does not settle on painkillers. A root canal removes the infected tissue, cleans and seals the canal, and lets you keep the tooth instead of losing it.\n\nThe reputation of the procedure is worse than the experience. It is done under local anaesthetic, and most people find the appointment itself no worse than a filling — the pain they remember is the infection beforehand, not the treatment. Depending on the tooth it takes one or two visits, and a crown is usually fitted afterwards to protect it.\n\nIf you have swelling, throbbing pain, or pain that wakes you at night, do not wait for it to pass. Call us.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Ask about this",
+                  "newTab": true,
+                  "href": "https://wa.me/919130840839?text=Hi%20True%20Smile%20Dental%20Clinic%2C%20I%20would%20like%20to%20know%20more%20about%20%2ARoot%20Canal%20Treatment%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/6627284/pexels-photo-6627284.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "title": "Teeth Whitening And Veneers",
+                "desc": "Professional whitening for stained teeth, and veneers to reshape teeth that are chipped, uneven or gapped.",
+                "meta": "For staining, chips and gaps",
+                "body": "Tea, coffee, tobacco and time all stain teeth, and no toothpaste reverses it. Professional whitening lifts the shade several steps in a single supervised appointment, using a stronger agent than anything sold over the counter, with your gums protected throughout.\n\nWhitening changes colour but not shape. Where a tooth is chipped, worn, uneven or has a gap beside it, veneers are the answer — thin custom shells bonded to the front of the tooth. We match the shade to the teeth beside them so the result looks like your own teeth, not like dental work.\n\nResults vary with the starting shade and the cause of the staining, and we will tell you what is realistic for your teeth before you commit to anything.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Ask about this",
+                  "newTab": true,
+                  "href": "https://wa.me/919130840839?text=Hi%20True%20Smile%20Dental%20Clinic%2C%20I%20would%20like%20to%20know%20more%20about%20%2ATeeth%20Whitening%20And%20Veneers%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/19976568/pexels-photo-19976568.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "title": "Fillings",
+                "desc": "Composite fillings that repair decay and match the natural colour of the tooth.",
+                "meta": "Tooth-coloured, done in one visit",
+                "body": "A cavity does not heal on its own, and treating it early is the difference between a simple filling and a root canal later. We use tooth-coloured composite that is bonded and set in place, so the repair is not visible when you smile or laugh.\n\nMost fillings are completed in a single visit. If the decay is close to the nerve we will tell you before starting, and explain what the options are rather than pressing on and hoping.\n\nOld metal fillings can also be replaced with composite if you would prefer them not to show.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Ask about this",
+                  "newTab": true,
+                  "href": "https://wa.me/919130840839?text=Hi%20True%20Smile%20Dental%20Clinic%2C%20I%20would%20like%20to%20know%20more%20about%20%2AFillings%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/6502341/pexels-photo-6502341.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "title": "Crowns And Bridges",
+                "desc": "Crowns to cap a damaged or root-treated tooth, and bridges to fill the space where a tooth is missing.",
+                "meta": "Rebuilding and replacing teeth",
+                "body": "A crown is a cap that covers a tooth completely. It is what protects a tooth after a root canal, and it rebuilds one that is too broken or worn for a filling to hold. A bridge fills a gap where a tooth is already gone, by anchoring the replacement to the teeth on either side.\n\nBoth are made to your bite and shade. Options range from metal-ceramic to full ceramic and zirconia, which differ in strength, appearance and cost — we will explain the trade-off for your particular tooth rather than quoting one option.\n\nLeaving a gap unfilled is not neutral: the teeth beside it drift and the bite changes, which is harder to correct later.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Ask about this",
+                  "newTab": true,
+                  "href": "https://wa.me/919130840839?text=Hi%20True%20Smile%20Dental%20Clinic%2C%20I%20would%20like%20to%20know%20more%20about%20%2ACrowns%20And%20Bridges%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/6502305/pexels-photo-6502305.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "title": "Implant",
+                "desc": "Dental implants that replace a missing tooth root with a titanium post, holding a crown that functions like a natural tooth.",
+                "meta": "A replacement tooth with its own root",
+                "body": "An implant is the closest thing to getting the tooth back. A titanium post is placed into the jawbone to act as the root, the bone fuses to it over the following months, and a crown is fitted on top. Unlike a bridge, it does not require cutting down the healthy teeth on either side, and unlike a denture it does not move.\n\nIt is a staged treatment rather than a single appointment, and the healing period is the part people underestimate — typically a few months between placement and the final crown.\n\nNot everyone is a candidate straight away: it depends on bone level, gum health and general health. We assess that with an X-ray first and tell you plainly if an implant is not the right choice for you.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Ask about this",
+                  "newTab": true,
+                  "href": "https://wa.me/919130840839?text=Hi%20True%20Smile%20Dental%20Clinic%2C%20I%20would%20like%20to%20know%20more%20about%20%2AImplant%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/13207278/pexels-photo-13207278.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "title": "Dentures",
+                "desc": "Complete and partial dentures made to your mouth, with adjustments until they sit comfortably.",
+                "meta": "Full and partial, fitted to you",
+                "body": "Where several teeth or a full arch are missing, dentures restore chewing and the shape of the face. We make both complete dentures and partial ones that fit around the teeth you still have.\n\nThe fit is what decides whether a denture is worn or left in a drawer, so it is taken in stages — impressions, a trial fitting, then the finished set — and we expect to adjust it afterwards. Come back if it rubs; that is a normal part of the process, not a complaint.\n\nIf you would prefer something fixed rather than removable, implant-supported options are available and we can talk through the difference.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Ask about this",
+                  "newTab": true,
+                  "href": "https://wa.me/919130840839?text=Hi%20True%20Smile%20Dental%20Clinic%2C%20I%20would%20like%20to%20know%20more%20about%20%2ADentures%2A."
+                }
+              }
+            ],
+            "orderVia": "page",
+            "imageFit": "cover",
+            "showRelated": true,
+            "relatedHeading": "Other treatments"
+          }
+        },
+        {
+          "id": "faq-2",
+          "type": "faq",
+          "visible": true,
+          "props": {
+            "label": "FAQ",
+            "heading": "Questions patients ask",
+            "openFirst": true,
+            "items": [
+              {
+                "q": "Do I need an appointment, or can I walk in?",
+                "a": "Both work. The clinic is open Monday to Saturday, 11:00 AM to 9:00 PM. Booking ahead on WhatsApp or by phone means you are seen at a fixed time rather than waiting, which matters most in the evenings."
+              },
+              {
+                "q": "Can I ask about a problem before coming in?",
+                "a": "Yes. We offer online consultation — message us on WhatsApp describing the problem and send a photo if you can, and we will tell you whether it needs a visit and how urgent it is. Anything needing an examination, an X-ray or treatment has to be done at the clinic."
+              },
+              {
+                "q": "Is a root canal painful?",
+                "a": "The treatment is done under local anaesthetic, and most patients find it no worse than having a filling. The pain people associate with root canals is usually the infection beforehand, which is exactly what the treatment removes."
+              },
+              {
+                "q": "How much will my treatment cost?",
+                "a": "It depends on the tooth and what is actually needed, so we examine first and then give you the cost before starting. You will not be committed to anything until you have been told the price."
+              },
+              {
+                "q": "Do you treat children?",
+                "a": "Yes. We see children for check-ups, cleaning, fillings and preventive care."
+              },
+              {
+                "q": "What should I do in a dental emergency?",
+                "a": "Call us on +91 91308 40839 during clinic hours. Severe pain, swelling, bleeding that will not stop, or a tooth knocked out should be treated the same day — do not wait for it to settle. If a permanent tooth has come out, keep it in milk and bring it with you."
+              },
+              {
+                "q": "Are you open on Sunday?",
+                "a": "No, the clinic is closed on Sunday. We are open Monday to Saturday, 11:00 AM to 9:00 PM."
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-2",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "Not sure which treatment you need?",
+            "sub": "Send us a message describing the problem — that is what the online consult is for.",
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Book an Appointment",
+              "newTab": true,
+              "href": "https://wa.me/919130840839?text=Hi%20True%20Smile%20Dental%20Clinic%2C%20I%20would%20like%20to%20book%20an%20appointment."
+            }
+          }
+        },
+        {
+          "id": "footer-2",
+          "type": "footer",
+          "visible": true,
+          "props": {
+            "blurb": "True Smile Dental Clinic — dental care on Hudkeshwar Road, Nagpur. Implants, root canal treatment, crowns and bridges, whitening, fillings and dentures, with online consultation available on WhatsApp.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "copyright": "© 2026 True Smile Dental Clinic. All rights reserved.",
+            "columns": [
+              {
+                "title": "Clinic",
+                "links": [
+                  {
+                    "text": "Home",
+                    "href": "/"
+                  },
+                  {
+                    "text": "Treatments",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "About Us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Blog",
+                    "href": "/blog"
+                  },
+                  {
+                    "text": "Contact",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "Treatments",
+                "links": [
+                  {
+                    "text": "Root Canal Treatment",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Dental Implants",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Crowns & Bridges",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Whitening & Veneers",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Dentures",
+                    "href": "/services"
+                  }
+                ]
+              },
+              {
+                "title": "Reach Us",
+                "links": [
+                  {
+                    "text": "WhatsApp +91 91308 40839",
+                    "href": "https://wa.me/919130840839"
+                  },
+                  {
+                    "text": "Call +91 91308 40839",
+                    "href": "tel:+919130840839"
+                  },
+                  {
+                    "text": "rishikac30@gmail.com",
+                    "href": "mailto:rishikac30@gmail.com"
+                  },
+                  {
+                    "text": "Find us on the map",
+                    "href": "https://www.google.com/maps/search/?api=1&query=21.085118,79.122426"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "about",
+      "slug": "/about",
+      "title": "About Us",
+      "sections": [
+        {
+          "id": "header-3",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logoSize": "medium",
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Treatments",
+                "href": "/services"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Blog",
+                "href": "/blog"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Book Appointment",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "hero-3",
+          "type": "hero",
+          "visible": true,
+          "props": {
+            "badge": "About Us",
+            "heading": "True Smile Dental Clinic",
+            "sub": "A dental practice on Hudkeshwar Road, Nagpur, offering complete oral care with modern technology and a patient-first approach.",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Book an Appointment",
+              "newTab": true,
+              "href": "https://wa.me/919130840839?text=Hi%20True%20Smile%20Dental%20Clinic%2C%20I%20would%20like%20to%20book%20an%20appointment."
+            },
+            "ctaSecondary": {
+              "text": "See Treatments",
+              "href": "/services"
+            }
+          }
+        },
+        {
+          "id": "about-2",
+          "type": "about",
+          "visible": true,
+          "props": {
+            "label": "Who We Are",
+            "heading": "Complete dental care in one clinic",
+            "body": "True Smile Dental Clinic is a dental practice on Hudkeshwar Road in Nagpur, opposite the Bharat petrol pump near Pipla Phata. We provide high-quality dental care using modern technology, with a patient-first approach.\n\nThat covers the range most families need: routine check-ups and cleaning, fillings, root canal treatment, crowns and bridges, dental implants, dentures, and whitening and veneers. Keeping it under one roof means your history, your X-rays and your treatment plan stay in one place instead of being repeated at each new clinic.\n\nWe also consult online. If you are not sure whether something needs treating, message us on WhatsApp and describe it — we will tell you honestly whether it needs a visit and how urgent it is, rather than asking you to come in to find out.\n\nThe clinic is open Monday to Saturday, 11:00 AM to 9:00 PM, and closed on Sunday.",
+            "image": "https://images.pexels.com/photos/9062527/pexels-photo-9062527.jpeg?auto=compress&cs=tinysrgb&w=1400",
+            "imageFit": "cover",
+            "showPillars": false
+          }
+        },
+        {
+          "id": "stats-2",
+          "type": "stats",
+          "visible": true,
+          "props": {
+            "label": "The Clinic",
+            "heading": "What to expect",
+            "countUp": true,
+            "items": [
+              {
+                "icon": "stethoscope",
+                "value": 7,
+                "suffix": "",
+                "label": "Treatments offered"
+              },
+              {
+                "icon": "calendar",
+                "value": 6,
+                "suffix": " days",
+                "label": "Open Monday to Saturday"
+              },
+              {
+                "icon": "clock",
+                "value": 10,
+                "suffix": " hrs",
+                "label": "Daily, 11 AM to 9 PM"
+              },
+              {
+                "icon": "phone",
+                "value": 1,
+                "suffix": " msg",
+                "label": "Online consult on WhatsApp"
+              }
+            ]
+          }
+        },
+        {
+          "id": "gallery-2",
+          "type": "gallery",
+          "visible": true,
+          "props": {
+            "label": "The Clinic",
+            "heading": "Inside True Smile",
+            "sub": "Modern equipment and a clean, calm treatment room.",
+            "images": [
+              {
+                "image": "https://images.pexels.com/photos/9062527/pexels-photo-9062527.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "alt": "Modern dental treatment unit"
+              },
+              {
+                "image": "https://images.pexels.com/photos/4269265/pexels-photo-4269265.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "alt": "Treatment chair and instruments"
+              },
+              {
+                "image": "https://images.pexels.com/photos/6501867/pexels-photo-6501867.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "alt": "Digital dental imaging equipment"
+              },
+              {
+                "image": "https://images.pexels.com/photos/6502019/pexels-photo-6502019.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "alt": "Panoramic dental X-ray"
+              },
+              {
+                "image": "https://images.pexels.com/photos/28407748/pexels-photo-28407748.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "alt": "Clear aligner trays"
+              },
+              {
+                "image": "https://images.pexels.com/photos/8413334/pexels-photo-8413334.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "alt": "Dental examination in progress"
+              },
+              {
+                "image": "https://images.pexels.com/photos/3762453/pexels-photo-3762453.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "alt": "A healthy, natural smile"
+              },
+              {
+                "image": "https://images.pexels.com/photos/8727447/pexels-photo-8727447.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "alt": "Patient after treatment"
+              }
+            ],
+            "lightbox": true
+          }
+        },
+        {
+          "id": "cta-3",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "Come and see us",
+            "sub": "Open Monday to Saturday, 11:00 AM to 9:00 PM, on Hudkeshwar Road.",
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Book an Appointment",
+              "newTab": true,
+              "href": "https://wa.me/919130840839?text=Hi%20True%20Smile%20Dental%20Clinic%2C%20I%20would%20like%20to%20book%20an%20appointment."
+            }
+          }
+        },
+        {
+          "id": "footer-3",
+          "type": "footer",
+          "visible": true,
+          "props": {
+            "blurb": "True Smile Dental Clinic — dental care on Hudkeshwar Road, Nagpur. Implants, root canal treatment, crowns and bridges, whitening, fillings and dentures, with online consultation available on WhatsApp.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "copyright": "© 2026 True Smile Dental Clinic. All rights reserved.",
+            "columns": [
+              {
+                "title": "Clinic",
+                "links": [
+                  {
+                    "text": "Home",
+                    "href": "/"
+                  },
+                  {
+                    "text": "Treatments",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "About Us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Blog",
+                    "href": "/blog"
+                  },
+                  {
+                    "text": "Contact",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "Treatments",
+                "links": [
+                  {
+                    "text": "Root Canal Treatment",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Dental Implants",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Crowns & Bridges",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Whitening & Veneers",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Dentures",
+                    "href": "/services"
+                  }
+                ]
+              },
+              {
+                "title": "Reach Us",
+                "links": [
+                  {
+                    "text": "WhatsApp +91 91308 40839",
+                    "href": "https://wa.me/919130840839"
+                  },
+                  {
+                    "text": "Call +91 91308 40839",
+                    "href": "tel:+919130840839"
+                  },
+                  {
+                    "text": "rishikac30@gmail.com",
+                    "href": "mailto:rishikac30@gmail.com"
+                  },
+                  {
+                    "text": "Find us on the map",
+                    "href": "https://www.google.com/maps/search/?api=1&query=21.085118,79.122426"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "blog",
+      "slug": "/blog",
+      "title": "Blog",
+      "sections": [
+        {
+          "id": "header-4",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logoSize": "medium",
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Treatments",
+                "href": "/services"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Blog",
+                "href": "/blog"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Book Appointment",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "hero-4",
+          "type": "hero",
+          "visible": true,
+          "props": {
+            "badge": "Blog",
+            "heading": "Straight answers about your teeth",
+            "sub": "Practical dental guidance written for patients — what problems actually mean, and when they need treating.",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Book an Appointment",
+              "newTab": true,
+              "href": "https://wa.me/919130840839?text=Hi%20True%20Smile%20Dental%20Clinic%2C%20I%20would%20like%20to%20book%20an%20appointment."
+            },
+            "ctaSecondary": {
+              "text": "See Treatments",
+              "href": "/services"
+            }
+          }
+        },
+        {
+          "id": "blog-1",
+          "type": "blog",
+          "visible": true,
+          "props": {
+            "label": "Blog",
+            "heading": "Dental guides",
+            "sub": "General information, not a substitute for an examination.",
+            "posts": [
+              {
+                "image": "https://images.pexels.com/photos/8413334/pexels-photo-8413334.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "title": "How Often Should You Really Visit the Dentist?",
+                "excerpt": "Six months is the usual advice, but the right interval depends on your own mouth.",
+                "body": "The standard advice is a check-up every six months, and for most people with healthy gums and no history of decay that is about right. It is not a universal rule though.\n\nYou may need to come more often if you smoke, if you have gum disease, if you get cavities easily, if you are diabetic, or if you are wearing braces or aligners. Some people with consistently healthy mouths can safely stretch to a year. Your dentist should tell you which group you are in rather than defaulting everyone to six months.\n\nWhat a check-up is actually for is catching things while they are small. Decay does not hurt until it is deep; gum disease does not hurt at all until it is advanced. By the time a tooth is painful, the cheap and simple treatment window has usually passed. That is the whole economic argument for regular visits — a filling now instead of a root canal and a crown later.\n\nDo not wait for the reminder if something changes: a tooth sensitive to cold or sweet, bleeding gums when you brush, a bad taste that will not clear, or a tooth that feels different when you bite.",
+                "linkText": "Read more"
+              },
+              {
+                "image": "https://images.pexels.com/photos/5622235/pexels-photo-5622235.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "title": "Bleeding Gums Are Not Normal — Here Is What They Mean",
+                "excerpt": "If your gums bleed when you brush, that is inflammation, not vigorous brushing.",
+                "body": "Most people who see blood in the sink assume they brushed too hard. Occasionally that is true, but far more often bleeding gums mean gingivitis — inflammation caused by plaque sitting along the gum line.\n\nHealthy gums do not bleed. They are firm and pale pink. Gums that are red, puffy, tender or bleeding are reacting to bacteria, and the instinct to brush that area more gently makes it worse, because the plaque stays.\n\nThe good news is that gingivitis is reversible. Thorough brushing twice a day, cleaning between the teeth daily, and a professional cleaning to remove hardened tartar will usually settle it within a couple of weeks.\n\nWhat you should not do is ignore it for months. Untreated gingivitis can progress to periodontitis, where the bone supporting the teeth is lost. That is not reversible — it can be halted, but the bone does not come back, and it is the most common reason adults lose teeth that were never decayed.\n\nIf your gums have been bleeding for more than two weeks, have them looked at.",
+                "linkText": "Read more"
+              },
+              {
+                "image": "https://images.pexels.com/photos/6502305/pexels-photo-6502305.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "title": "Implant, Bridge or Denture: Replacing a Missing Tooth",
+                "excerpt": "Three ways to fill a gap, and the honest trade-offs between them.",
+                "body": "Losing a tooth is not only about appearance. The teeth beside a gap drift into it and the tooth above or below drifts down, which changes the bite and makes later treatment harder. So the question is usually which replacement, not whether.\n\nAn **implant** replaces the root itself with a titanium post, topped by a crown. It does not involve touching the neighbouring teeth, it does not move, and it stimulates the bone the way a natural root does. It costs the most and takes the longest, because the bone needs months to fuse to the post. It also depends on having enough bone and healthy gums.\n\nA **bridge** anchors a replacement tooth to the teeth on either side. It is faster and cheaper than an implant and it is fixed in place, but it requires cutting down two healthy teeth to take the anchors — which is a real cost if those teeth are sound.\n\nA **denture** is removable, the least expensive, and the most flexible when several teeth are missing. The trade-off is stability: it needs adjusting over time and it will never feel quite like a fixed tooth.\n\nThere is no single right answer. It depends on how many teeth are missing, the condition of the ones remaining, your bone level, your general health and your budget. An X-ray and an examination will narrow it down quickly.",
+                "linkText": "Read more"
+              },
+              {
+                "image": "https://images.pexels.com/photos/6627284/pexels-photo-6627284.jpeg?auto=compress&cs=tinysrgb&w=1400",
+                "title": "What Teeth Whitening Can and Cannot Do",
+                "excerpt": "It lifts staining. It does not change shape, and it does not work on everything.",
+                "body": "Professional whitening works, and it works considerably better than whitening toothpaste, which mostly polishes surface stains and cannot change the colour of the tooth itself.\n\nWhat it treats well is staining built up from tea, coffee, tobacco and time. What it does not treat is discolouration from inside the tooth — a tooth darkened after an injury or a root canal will not respond the same way, and may need a veneer or an internal treatment instead.\n\nIt also does nothing to crowns, veneers, bridges or fillings. Those keep their original shade, so if you whiten the teeth around them the mismatch becomes more obvious, not less. That is worth planning for before starting.\n\nSensitivity during and shortly after whitening is common and usually settles within a few days. Having it done professionally means the strength is controlled and your gums are protected, which is the main safety difference from a shop-bought kit.\n\nHow many shades you gain depends on where you start. Anyone promising a specific result before looking at your teeth is guessing.",
+                "linkText": "Read more"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-4",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "Still not sure?",
+            "sub": "Ask us on WhatsApp — an online consultation costs you nothing.",
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Book an Appointment",
+              "newTab": true,
+              "href": "https://wa.me/919130840839?text=Hi%20True%20Smile%20Dental%20Clinic%2C%20I%20would%20like%20to%20book%20an%20appointment."
+            }
+          }
+        },
+        {
+          "id": "footer-4",
+          "type": "footer",
+          "visible": true,
+          "props": {
+            "blurb": "True Smile Dental Clinic — dental care on Hudkeshwar Road, Nagpur. Implants, root canal treatment, crowns and bridges, whitening, fillings and dentures, with online consultation available on WhatsApp.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "copyright": "© 2026 True Smile Dental Clinic. All rights reserved.",
+            "columns": [
+              {
+                "title": "Clinic",
+                "links": [
+                  {
+                    "text": "Home",
+                    "href": "/"
+                  },
+                  {
+                    "text": "Treatments",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "About Us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Blog",
+                    "href": "/blog"
+                  },
+                  {
+                    "text": "Contact",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "Treatments",
+                "links": [
+                  {
+                    "text": "Root Canal Treatment",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Dental Implants",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Crowns & Bridges",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Whitening & Veneers",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Dentures",
+                    "href": "/services"
+                  }
+                ]
+              },
+              {
+                "title": "Reach Us",
+                "links": [
+                  {
+                    "text": "WhatsApp +91 91308 40839",
+                    "href": "https://wa.me/919130840839"
+                  },
+                  {
+                    "text": "Call +91 91308 40839",
+                    "href": "tel:+919130840839"
+                  },
+                  {
+                    "text": "rishikac30@gmail.com",
+                    "href": "mailto:rishikac30@gmail.com"
+                  },
+                  {
+                    "text": "Find us on the map",
+                    "href": "https://www.google.com/maps/search/?api=1&query=21.085118,79.122426"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "slug": "/contact",
+      "title": "Contact",
+      "sections": [
+        {
+          "id": "header-5",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logoSize": "medium",
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Treatments",
+                "href": "/services"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Blog",
+                "href": "/blog"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Book Appointment",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "hero-5",
+          "type": "hero",
+          "visible": true,
+          "props": {
+            "badge": "Contact Us",
+            "heading": "Book an appointment",
+            "sub": "Hudkeshwar Road, opposite Bharat petrol pump, near Pipla Phata, Nagpur. Open Monday to Saturday, 11:00 AM to 9:00 PM.",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Book an Appointment",
+              "newTab": true,
+              "href": "https://wa.me/919130840839?text=Hi%20True%20Smile%20Dental%20Clinic%2C%20I%20would%20like%20to%20book%20an%20appointment."
+            },
+            "ctaSecondary": {
+              "text": "See Treatments",
+              "href": "/services"
+            }
+          }
+        },
+        {
+          "id": "contact-2",
+          "type": "contact",
+          "visible": true,
+          "props": {
+            "label": "Contact",
+            "heading": "Book a visit",
+            "sub": "Open Monday to Saturday, 11:00 AM to 9:00 PM. Message us on WhatsApp with your problem and we will tell you whether you need to come in.",
+            "showPhone": true,
+            "showWhatsapp": true,
+            "showEmail": true,
+            "showAddress": true,
+            "showHours": true,
+            "showMap": true,
+            "mapUrl": "https://www.google.com/maps/search/?api=1&query=21.085118,79.122426",
+            "submitText": "Request appointment"
+          }
+        },
+        {
+          "id": "hours-1",
+          "type": "hours",
+          "visible": true,
+          "props": {
+            "label": "Visit Us",
+            "heading": "Clinic hours",
+            "sub": "Closed on Sunday.",
+            "highlightToday": true,
+            "note": "For a dental emergency during clinic hours, call +91 91308 40839 rather than messaging — we will fit you in."
+          }
+        },
+        {
+          "id": "faq-3",
+          "type": "faq",
+          "visible": true,
+          "props": {
+            "label": "FAQ",
+            "heading": "Questions patients ask",
+            "openFirst": true,
+            "items": [
+              {
+                "q": "Do I need an appointment, or can I walk in?",
+                "a": "Both work. The clinic is open Monday to Saturday, 11:00 AM to 9:00 PM. Booking ahead on WhatsApp or by phone means you are seen at a fixed time rather than waiting, which matters most in the evenings."
+              },
+              {
+                "q": "Can I ask about a problem before coming in?",
+                "a": "Yes. We offer online consultation — message us on WhatsApp describing the problem and send a photo if you can, and we will tell you whether it needs a visit and how urgent it is. Anything needing an examination, an X-ray or treatment has to be done at the clinic."
+              },
+              {
+                "q": "Is a root canal painful?",
+                "a": "The treatment is done under local anaesthetic, and most patients find it no worse than having a filling. The pain people associate with root canals is usually the infection beforehand, which is exactly what the treatment removes."
+              },
+              {
+                "q": "How much will my treatment cost?",
+                "a": "It depends on the tooth and what is actually needed, so we examine first and then give you the cost before starting. You will not be committed to anything until you have been told the price."
+              },
+              {
+                "q": "Do you treat children?",
+                "a": "Yes. We see children for check-ups, cleaning, fillings and preventive care."
+              },
+              {
+                "q": "What should I do in a dental emergency?",
+                "a": "Call us on +91 91308 40839 during clinic hours. Severe pain, swelling, bleeding that will not stop, or a tooth knocked out should be treated the same day — do not wait for it to settle. If a permanent tooth has come out, keep it in milk and bring it with you."
+              },
+              {
+                "q": "Are you open on Sunday?",
+                "a": "No, the clinic is closed on Sunday. We are open Monday to Saturday, 11:00 AM to 9:00 PM."
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-5",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "Send us your problem",
+            "sub": "A short description and a photo is enough for us to tell you what is needed.",
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Book an Appointment",
+              "newTab": true,
+              "href": "https://wa.me/919130840839?text=Hi%20True%20Smile%20Dental%20Clinic%2C%20I%20would%20like%20to%20book%20an%20appointment."
+            }
+          }
+        },
+        {
+          "id": "footer-5",
+          "type": "footer",
+          "visible": true,
+          "props": {
+            "blurb": "True Smile Dental Clinic — dental care on Hudkeshwar Road, Nagpur. Implants, root canal treatment, crowns and bridges, whitening, fillings and dentures, with online consultation available on WhatsApp.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": true,
+            "copyright": "© 2026 True Smile Dental Clinic. All rights reserved.",
+            "columns": [
+              {
+                "title": "Clinic",
+                "links": [
+                  {
+                    "text": "Home",
+                    "href": "/"
+                  },
+                  {
+                    "text": "Treatments",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "About Us",
+                    "href": "/about"
+                  },
+                  {
+                    "text": "Blog",
+                    "href": "/blog"
+                  },
+                  {
+                    "text": "Contact",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "Treatments",
+                "links": [
+                  {
+                    "text": "Root Canal Treatment",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Dental Implants",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Crowns & Bridges",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Whitening & Veneers",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Dentures",
+                    "href": "/services"
+                  }
+                ]
+              },
+              {
+                "title": "Reach Us",
+                "links": [
+                  {
+                    "text": "WhatsApp +91 91308 40839",
+                    "href": "https://wa.me/919130840839"
+                  },
+                  {
+                    "text": "Call +91 91308 40839",
+                    "href": "tel:+919130840839"
+                  },
+                  {
+                    "text": "rishikac30@gmail.com",
+                    "href": "mailto:rishikac30@gmail.com"
+                  },
+                  {
+                    "text": "Find us on the map",
+                    "href": "https://www.google.com/maps/search/?api=1&query=21.085118,79.122426"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
