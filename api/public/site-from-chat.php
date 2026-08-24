@@ -1,26 +1,26 @@
 <?php
 /**
- * TAPIFY — website brief from the WhatsApp bot.
+ * TAPIFY — website from the WhatsApp chat, built AND published.
  *
  *   POST /api/public/site-from-chat.php
  *   Header: X-Tapify-Bot-Key: <VISIBILITY_BOT_KEY>
  *
- *   { phone, email?, business?, type, services, audience }
- *      → { brief_id, url? }
+ *   { phone, email?, business?, type?, services, audience }
+ *      → { site_id, slug, url }     // url = https://<slug>.tapify.co.in
  *
- * WHY A BRIEF AND NOT A FINISHED SITE ROW.
- * The site itself is built by the website-builder pipeline, not here and not
- * by the vCard templates. This endpoint is the single, authenticated front
- * door for chat-originated briefs: validate, persist, then call
- * dispatch_to_builder() below — that one function is where generation hooks
- * in when the builder side consumes these rows. Everything before it must not
- * know how a site gets built; everything after it never learns WhatsApp.
- *
- * AUTH. Same server-to-server key as visibility-score.php: without it anyone
- * could stuff briefs into the pipeline from a browser tab.
+ * WHAT THIS DOES. Exactly what an admin does from the app's Website Builder
+ * "New Website" screen (api/sites/create.php), driven by the three answers
+ * the customer typed in chat: resolve (or create) the client login the bot
+ * already promised, pick the closest industry recipe, assemble + validate a
+ * starter document, SiteRepo::create() so it shows under THEIR account, then
+ * SiteRepo::publish() so <slug>.tapify.co.in serves it immediately.
+ * No vCards anywhere; only builder tables are touched.
  */
 require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../includes/functions.php';
+require_once __DIR__ . '/../../builder/lib/SiteRepo.php';
+require_once __DIR__ . '/../../builder/lib/SiteValidator.php';
+require_once __DIR__ . '/../../builder/lib/SchemaRegistry.php';
 
 ini_set('display_errors', '0');
 header('Content-Type: application/json');
@@ -37,103 +37,168 @@ if (!hash_equals($expected, (string)$given)) {
     sendError('Not authorised.', 401);
 }
 
-$input     = getInput();
-$email     = strtolower(trim((string)($input['email'] ?? '')));
-$phone     = trim((string)($input['phone'] ?? ''));
-$business  = trim((string)($input['business'] ?? ''));
-$type      = trim((string)($input['type'] ?? ''));
-$services  = trim((string)($input['services'] ?? ''));
-$audience  = trim((string)($input['audience'] ?? ''));
+$input    = getInput();
+$email    = strtolower(trim((string)($input['email'] ?? '')));
+$phone    = trim((string)($input['phone'] ?? ''));
+$business = trim((string)($input['business'] ?? ''));
+$type     = trim((string)($input['type'] ?? ''));
+$services = trim((string)($input['services'] ?? ''));
+$audience = trim((string)($input['audience'] ?? ''));
 
 // The three chat answers are the payload; without them there is nothing to build.
 if ($type === '' || $services === '' || $audience === '') {
     sendError('type, services and audience are required.', 422);
 }
+$name = $business !== '' ? $business : ucfirst($type);
 
 try {
-    $db = getDB();
-    ensureTable($db);
+    $pdo = getDB();
 
-    // Attach the brief to an account when we can — the bot collects the email
-    // earlier in the very same conversation, so most briefs will match.
-    $userId = null;
+    /* ── 1. Owner: the account the bot already created and quoted back. ──── */
+    $ownerId = null;
     if ($email !== '') {
-        $st = $db->prepare('SELECT id FROM users WHERE email = ? LIMIT 1');
+        $st = $pdo->prepare('SELECT id FROM users WHERE email = ? LIMIT 1');
         $st->execute([$email]);
-        $userId = $st->fetchColumn() ?: null;
+        $ownerId = $st->fetchColumn() ?: null;
+    }
+    if (!$ownerId) {
+        // Belt-and-braces: register should have made this login already. If
+        // not, create it here with the SAME password rule the bot quoted
+        // (their 10-digit number), plus the starter subscription every other
+        // client gets — otherwise limit checks elsewhere find no row.
+        if ($email === '') sendError('email is required so the website has an owner.', 422);
+        $pass = substr(preg_replace('/\D/', '', $phone), -10);
+        if (strlen($pass) < 6) sendError('A valid 10-digit contact number is required.', 422);
+
+        $st = $pdo->prepare("INSERT INTO users (name, email, password, role, status) VALUES (?, ?, ?, 'user', 1)");
+        $st->execute([$name, $email, hashPassword($pass)]);
+        $ownerId = (int)$pdo->lastInsertId();
+
+        $st = $pdo->prepare(
+            "INSERT INTO subscriptions (user_id, plan_name, vcards_limit, stores_limit, price, subscribed_date, expiry_date, status)
+             VALUES (?, 'Free Plan', 5, 1, 0, ?, ?, 'active')"
+        );
+        $st->execute([$ownerId, date('Y-m-d'), date('Y-m-d', strtotime('+1 year'))]);
     }
 
-    $st = $db->prepare(
-        'INSERT INTO site_chat_briefs
-            (user_id, phone, email, business, business_type, services, audience, status)
-         VALUES (?, ?, ?, ?, ?, ?, ?, ?)'
+    /* ── 2. Address: their business name, made unique. ───────────────────── */
+    $slug = SiteRepo::normaliseSlug('', $name);
+    if ($slug === '') sendError(SiteRepo::SLUG_RULE);
+    if (!SiteRepo::slugAvailable($slug)) {
+        // First choice taken — do NOT fail the chat over it. -2 … -9, then a
+        // random suffix; the customer is told the exact address either way.
+        $base = $slug;
+        for ($i = 2; $i <= 9 && !SiteRepo::slugAvailable($slug); $i++) {
+            $slug = $base . '-' . $i;
+        }
+        while (!SiteRepo::slugAvailable($slug)) {
+            $slug = $base . '-' . substr(bin2hex(random_bytes(2)), 0, 4);
+        }
+    }
+
+    /* ── 3. Industry: match their words to a recipe when one fits. ───────── */
+    $industry = null;
+    foreach (SchemaRegistry::industries() as $id => $meta) {
+        $hay = strtolower($id . ' ' . (is_array($meta) ? ($meta['label'] ?? '') : $meta));
+        if ($type !== '' && (stripos($hay, $type) !== false || stripos($type, $id) !== false)) {
+            $industry = $id;
+            break;
+        }
+    }
+
+    /* ── 4. Starter document — same assembly as api/sites/create.php. ────── */
+    $recipe  = SchemaRegistry::industries()[$industry] ?? null;
+    $types   = $recipe['sections'] ?? ['hero', 'about', 'services', 'gallery', 'contact'];
+    $content = $recipe['content'] ?? [];
+
+    $buildSection = function (string $t) use ($content) {
+        $instance = SchemaRegistry::newSectionInstance($t);
+        if (!$instance) return null;              // silently skip unbuilt types
+        $seed = (array)($content[$t] ?? null);
+        if ($seed) {
+            if (!empty($seed['variant'])) $instance['variant'] = $seed['variant'];
+            if (isset($seed['props']))  $instance['props'] = array_merge((array)($instance['props'] ?? []), (array)$seed['props']);
+            if (isset($seed['style']))  $instance['style'] = array_merge((array)($instance['style'] ?? []), (array)$seed['style']);
+        }
+        return $instance;
+    };
+
+    $sections = [];
+    foreach ($types as $t) {
+        $i = $buildSection($t);
+        if ($i) $sections[] = $i;
+    }
+    if (!$sections) {
+        $hero = SchemaRegistry::newSectionInstance('hero');
+        if ($hero) $sections[] = $hero;
+    }
+    $pages = [[
+        'id'    => 'home',
+        'slug'  => '/',
+        'title' => 'Home',
+        'seo'   => ['title' => $name, 'robots' => 'index,follow'],
+        'sections' => $sections,
+    ]];
+    $headerNav = [['label' => 'Home', 'pageId' => 'home']];
+
+    $themeRef     = $recipe['theme'] ?? null;
+    $presetName   = is_array($themeRef) ? ($themeRef['preset'] ?? 'default') : (is_string($themeRef) ? $themeRef : 'default');
+    $presetTokens = SchemaRegistry::themes()[$presetName]['tokens'] ?? [];
+
+    $theme = array_replace_recursive(
+        [
+            'mode'      => 'light',
+            'color'     => ['primary' => '#2563EB', 'accent' => '#F7941D', 'bg' => '#FFFFFF', 'text' => '#111827'],
+            'font'      => ['heading' => 'Poppins', 'body' => 'Poppins'],
+            'radius'    => 'md',
+            'spacing'   => 'comfortable',
+            'container' => 'normal',
+        ],
+        is_array($presetTokens) ? $presetTokens : []
     );
-    $st->execute([
-        $userId,
-        $phone !== '' ? $phone : null,
-        $email !== '' ? $email : null,
-        $business !== '' ? $business : null,
-        $type,
-        $services,
-        $audience,
-        'new',
-    ]);
-    $briefId = (int)$db->lastInsertId();
+    $theme['preset'] = $presetName;
 
-    $brief = [
-        'id' => $briefId, 'user_id' => $userId, 'phone' => $phone, 'email' => $email,
-        'business' => $business, 'type' => $type, 'services' => $services, 'audience' => $audience,
+    // The chat answers become real copy: what they do and who they serve go
+    // into the business block that contact/hours sections read.
+    $doc = [
+        'schemaVersion' => 1,
+        'site'  => array_filter([
+            'name'     => $name,
+            'industry' => $industry,
+            'locale'   => 'en-IN',
+        ]),
+        'theme' => $theme,
+        'nav'   => ['header' => $headerNav],
+        'pages' => $pages,
+        'business' => array_merge(
+            (array)($recipe['business'] ?? []),
+            array_filter([
+                'name'        => $name,
+                'description' => $services,
+                'audience'    => $audience,
+                'phone'       => preg_replace('/\D/', '', $phone) ?: null,
+            ])
+        ),
     ];
-    dispatch_to_builder($db, $brief);
 
-    sendSuccess('Brief received', ['brief_id' => $briefId]);
+    // The starter doc must itself be valid — catches a broken manifest early.
+    $errors = (new SiteValidator())->validate(json_decode(json_encode($doc), true));
+    if ($errors) {
+        sendError('Could not build a valid starter site: ' . implode('; ', array_slice($errors, 0, 5)), 500);
+    }
+
+    /* ── 5. Create + PUBLISH — live immediately, like any other client. ──── */
+    $site = SiteRepo::create($ownerId, $name, $slug, $industry, json_decode(json_encode($doc), true));
+    $full = SiteRepo::findById($site['id']);
+    SiteRepo::publish($full, $ownerId, 'Built from WhatsApp chat', 'whatsapp-bot');
+
+    sendSuccess('Website built and published', [
+        'site_id' => (int)$site['id'],
+        'slug'    => $slug,
+        'url'     => 'https://' . $slug . '.tapify.co.in',
+    ]);
 
 } catch (Exception $e) {
     error_log('[SITE-CHAT] intake failed: ' . $e->getMessage());
-    sendError('Could not store the brief right now.', 500);
-}
-
-/* ------------------------------------------------------------- helpers */
-
-function ensureTable(PDO $db): void
-{
-    try {
-        $db->exec(
-            "CREATE TABLE IF NOT EXISTS site_chat_briefs (
-                id            BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                user_id       INT UNSIGNED NULL,
-                phone         VARCHAR(32)  NULL,
-                email         VARCHAR(190) NULL,
-                business      VARCHAR(190) NULL,
-                business_type VARCHAR(120) NOT NULL,
-                services      VARCHAR(500) NOT NULL,
-                audience      VARCHAR(250) NOT NULL,
-                status        VARCHAR(24)  NOT NULL DEFAULT 'new',
-                created_at    TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
-                INDEX idx_status (status),
-                INDEX idx_user (user_id)
-             ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4"
-        );
-    } catch (Exception $e) {
-        // Same rule as every table setup in this codebase: log and carry on.
-        error_log('[SITE-CHAT] table setup failed: ' . $e->getMessage());
-    }
-}
-
-/**
- * THE HOOKUP POINT into the website builder.
- *
- * Today it only marks the row queued — nothing pretends a site was generated
- * when it was not. The builder side takes over by replacing this body (or
- * consuming rows WHERE status = 'new'), at which point the WhatsApp customer
- * gets real generation with zero changes on the bot side.
- */
-function dispatch_to_builder(PDO $db, array $brief): void
-{
-    try {
-        $st = $db->prepare("UPDATE site_chat_briefs SET status = 'queued' WHERE id = ?");
-        $st->execute([$brief['id']]);
-    } catch (Exception $e) {
-        error_log('[SITE-CHAT] dispatch mark failed: ' . $e->getMessage());
-    }
+    sendError('Could not build the website right now.', 500);
 }
