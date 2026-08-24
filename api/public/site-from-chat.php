@@ -99,7 +99,6 @@ try {
     if ($placeId !== '' && $places->isConfigured() && PlacesClient::spendAllowed($pdo)) {
         PlacesClient::countCall($pdo);
         $gmb = $places->detailsFull($placeId);
-    }
         error_log('[SITE-CHAT] gmb fetch: ' . ($gmb === null ? 'NULL' : ('ok, photos=' . count($gmb['gmb_photos']))));
     } else {
         error_log('[SITE-CHAT] gmb skipped (no place_id / key / daily cap)');
