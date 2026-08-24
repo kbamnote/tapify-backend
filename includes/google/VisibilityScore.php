@@ -136,6 +136,107 @@ class VisibilityScore
         ];
     }
 
+    /**
+     * MARKETING PREVIEW — what the bot quotes as the "Marketing Score".
+     *
+     * Same seven outside-visible signals as compute(), deliberately harsher
+     * tiers. This is the number the owner compares against the app's
+     * MarketingScore after connecting Google, so it sits BELOW what the app
+     * will show them, never above: the preview must feel like headroom, not a
+     * downgrade. Deterministic like everything else here — same listing,
+     * same number, every time. No extra Places calls; runs off the details
+     * array compute() already consumed.
+     */
+    public static function marketingPreview(array $s): array
+    {
+        $g = function ($k) use ($s) {
+            return array_key_exists($k, $s) && $s[$k] !== null ? $s[$k] : null;
+        };
+        $items = [];
+        $add = function ($group, $key, $label, $points, $earned, $hint) use (&$items) {
+            $items[] = [
+                'group'  => $group,
+                'key'    => $key,
+                'label'  => $label,
+                'points' => $points,
+                'earned' => $earned,
+                'status' => $earned >= $points ? 'good' : ($earned > 0 ? 'partial' : 'missing'),
+                'hint'   => $hint,
+            ];
+        };
+
+        /* ── Reputation: 42 ─────────────────────────────────────────────── */
+        $n = $g('reviews_total');
+        if ($n !== null) {
+            $e = $n >= 100 ? 24 : ($n >= 50 ? 16 : ($n >= 20 ? 10 : ($n >= 10 ? 5 : ($n >= 1 ? 2 : 0))));
+            $add('Reputation', 'review_volume', 'Number of reviews', 24, $e,
+                $n == 0
+                    ? 'No reviews yet. This is the first thing anyone looks at before choosing you.'
+                    : "{$n} reviews. Businesses that own their local market usually carry 100 or more.");
+        }
+        $r = $g('rating');
+        if ($r !== null) {
+            $e = $r >= 4.7 ? 18 : ($r >= 4.5 ? 14 : ($r >= 4.0 ? 8 : ($r >= 3.5 ? 3 : 0)));
+            $add('Reputation', 'rating', 'Star rating', 18, $e,
+                $r > 0
+                    ? sprintf('%.1f stars. Top-ranked competitors sit at 4.7 or higher.', $r)
+                    : 'No rating yet — nobody has reviewed you.');
+        }
+
+        /* ── Photos: 18 ─────────────────────────────────────────────────── */
+        $p = $g('photos_total');
+        if ($p !== null) {
+            $e = $p >= 20 ? 18 : ($p >= 10 ? 12 : ($p >= 5 ? 6 : ($p >= 1 ? 2 : 0)));
+            $add('Photos', 'photos', 'Photos on the listing', 18, $e,
+                $p == 0
+                    ? 'No photos. Customers skip listings that look empty.'
+                    : "{$p} photo reference" . ($p === 1 ? '' : 's') . '. Listings that convert carry twenty or more.');
+        }
+
+        /* ── Contact: hours + website ───────────────────────────────────── */
+        $h = $g('has_hours');
+        if ($h !== null) {
+            $add('Contact', 'hours', 'Opening hours', 8, $h ? 8 : 0,
+                $h ? 'Opening hours are set.' : 'No opening hours. Customers will not visit a shop they cannot plan around.');
+        }
+        $w = $g('has_website');
+        if ($w !== null) {
+            $add('Contact', 'website', 'Website link', 10, $w ? 10 : 0,
+                $w ? 'Your website is linked.' : 'No website linked. Every search that finds you dies on the listing.');
+        }
+
+        /* ── Listing: description + category ────────────────────────────── */
+        $d = $g('description_len');
+        if ($d !== null) {
+            $e = $d >= 300 ? 10 : ($d >= 150 ? 5 : ($d > 0 ? 2 : 0));
+            $add('Listing', 'description', 'Business description', 10, $e,
+                $d == 0
+                    ? 'No description. This is where you say what you actually do, in your own words.'
+                    : "Description is {$d} characters. Three hundred plus gives Google real substance to rank.");
+        }
+        $c = $g('has_category');
+        if ($c !== null) {
+            $add('Listing', 'category', 'Business category', 4, $c ? 4 : 0,
+                $c ? 'Your category is set.' : 'No category set. Google needs it to know which searches to show you in.');
+        }
+
+        $earned   = array_sum(array_column($items, 'earned'));
+        $possible = array_sum(array_column($items, 'points'));
+        $score    = $possible > 0 ? (int)round($earned / $possible * 100) : 0;
+
+        return [
+            'kind'     => 'marketing_preview',
+            'score'    => $score,
+            'max'      => 100,
+            'earned'   => $earned,
+            'possible' => $possible,
+            'band'     => self::band($score),
+            'summary'  => self::summary($score, $items),
+            'items'    => $items,
+            'hidden'   => self::hidden(),
+        ];
+    }
+
     /** Same thresholds and words as MarketingScore, so the two never contradict. */
     private static function band($score): string
     {

@@ -98,6 +98,22 @@ if ($cached !== null) {
     if ($leadPhone !== '' && !empty($cached['place']) && !empty($cached['score'])) {
         VisibilityLeads::record($db, $leadPhone, $cached['place'], $cached['score']);
     }
+    // Rows cached before the Marketing Score existed carry no `marketing`
+    // block. Rebuild it from the facts already stored instead of paying
+    // Google again. description_len was never cached, so that item drops and
+    // `possible` shrinks — the same rule as every other absent signal.
+    if (empty($cached['marketing']) && !empty($cached['place']['facts'])) {
+        $f = $cached['place']['facts'];
+        $cached['marketing'] = VisibilityScore::marketingPreview([
+            'reviews_total' => $f['reviews'] ?? null,
+            'rating'        => $f['rating'] ?? null,
+            'photos_total'  => $f['photos'] ?? null,
+            'photos_capped' => $f['photos_capped'] ?? null,
+            'has_hours'     => $f['has_hours'] ?? null,
+            'has_website'   => $f['has_website'] ?? null,
+            'has_category'  => ($f['category'] ?? null) ? 1 : 0,
+        ]);
+    }
     $cached['cached'] = true;
     sendSuccess('Visibility score', $cached);
 }
@@ -134,6 +150,9 @@ $place = [
 ];
 
 $payload = ['place' => $place, 'score' => $score];
+// The bot quotes THIS number as the Marketing Score. Computed off the same
+// $details compute() already consumed — zero extra Places calls.
+$payload['marketing'] = VisibilityScore::marketingPreview($details);
 writeCache($db, $placeId, $payload);
 if ($leadPhone !== '') {
     VisibilityLeads::record($db, $leadPhone, $place, $score);
