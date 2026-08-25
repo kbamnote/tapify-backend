@@ -27,8 +27,10 @@ ini_set('display_errors', '0');
 header('Content-Type: application/json');
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') { http_response_code(204); exit; }
-if ($_SERVER['REQUEST_METHOD'] !== 'POST')    { sendError('POST only', 405); }
 
+// Authenticate FIRST, then route by method. The "POST only" guard used to sit
+// above this and rejected every GET with 405 — which made the industries menu
+// below unreachable dead code, so the bot could never fetch the category list.
 $expected = getenv('VISIBILITY_BOT_KEY') ?: '';
 $given    = $_SERVER['HTTP_X_TAPIFY_BOT_KEY'] ?? '';
 if ($expected === '') {
@@ -52,6 +54,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && ($_GET['list'] ?? '') === 'industrie
     usort($out, fn($a, $b) => strcasecmp($a['label'], $b['label']));
     sendSuccess('Industries', ['industries' => $out]);
 }
+
+// Anything that is not the industries GET has to be the POST that builds a site.
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') { sendError('POST only', 405); }
 
 $input    = getInput();
 $email    = strtolower(trim((string)($input['email'] ?? '')));
@@ -99,7 +104,10 @@ try {
     if ($placeId !== '' && $places->isConfigured() && PlacesClient::spendAllowed($pdo)) {
         PlacesClient::countCall($pdo);
         $gmb = $places->detailsFull($placeId);
-        error_log('[SITE-CHAT] gmb fetch: ' . ($gmb === null ? 'NULL' : ('ok, photos=' . count($gmb['gmb_photos']))));
+        // ?? [] matters: every other read of gmb_photos guards, and count(null)
+        // is a TypeError in PHP 8 — which is an Error, not an Exception, so it
+        // would escape the catch below as an uncaught fatal with no JSON body.
+        error_log('[SITE-CHAT] gmb fetch: ' . ($gmb === null ? 'NULL' : ('ok, photos=' . count($gmb['gmb_photos'] ?? []))));
     } else {
         error_log('[SITE-CHAT] gmb skipped (no place_id / key / daily cap)');
     }
@@ -204,8 +212,12 @@ try {
      * Whatever he typed or Google answered wins; recipe copy only fills what
      * both left blank, so no page ever tells another business's story.
      */
+    // $gcat MUST be imported: the hero, about and services cases all read it,
+    // and a closure inherits nothing automatically. Without it $gcat was null
+    // inside here, so `$gcat !== ''` was always TRUE — the hero badge was set to
+    // an empty string and the About fallback read "<name> is a  serving <x>".
     $buildSection = function (string $t, array $pageSeed = []) use (
-        $content, $gmb, $name, $services, $audience,
+        $content, $gmb, $gcat, $name, $services, $audience,
         $photoOf, $story, $yearsIn, $instagramUrl, $logoUrl
     ) {
         $instance = SchemaRegistry::newSectionInstance($t);
@@ -366,8 +378,12 @@ try {
         foreach ($pages as &$pg) {
             foreach (($pg['sections'] ?? []) as &$sec) {
                 if (($sec['type'] ?? '') === 'header') {
+                    // $headerNav rows are ['label','pageId'] — there is no 'id'
+                    // key. Reading $x['id'] gave null for every row, so EVERY
+                    // nav link resolved to '/' and the whole menu pointed home.
                     $sec['props']['links'] = array_map(
-                        fn($x) => ['text' => $x['label'], 'href' => $x['id'] === 'home' ? '/' : '/' . $x['id']],
+                        fn($x) => ['text' => $x['label'],
+                                   'href' => $x['pageId'] === 'home' ? '/' : '/' . $x['pageId']],
                         $headerNav
                     );
                 }
@@ -439,7 +455,7 @@ try {
     $site = SiteRepo::create($ownerId, $name, $slug, $industry, json_decode(json_encode($doc), true));
     $full = SiteRepo::findById($site['id']);
     SiteRepo::publish($full, $ownerId, 'Built from WhatsApp chat', 'whatsapp-bot');
-    error_log('[SITE-CHAT] PUBLISHED https://$slug.tapify.co.in');
+    error_log('[SITE-CHAT] PUBLISHED https://' . $slug . '.tapify.co.in');
 
     sendSuccess('Website built and published', [
         'site_id' => (int)$site['id'],
@@ -448,9 +464,12 @@ try {
         'pages'   => count($pages),
     ]);
 
-} catch (Exception $e) {
-    error_log('[SITE-CHAT] intake failed: ' . $e->getMessage());
-error_log('[SITE-CHAT] intake failed at ' . $e->getFile() . ':' . $e->getLine() . ': ' . $e->getMessage());
+} catch (Throwable $e) {
+    // Throwable, not Exception: a TypeError or ArgumentCountError is an Error,
+    // and `catch (Exception)` lets those through as an uncaught fatal — the
+    // caller then gets a bare 500 with no JSON body and no clue what broke.
+    error_log('[SITE-CHAT] intake failed at ' . $e->getFile() . ':' . $e->getLine()
+              . ' — ' . get_class($e) . ': ' . $e->getMessage());
     sendError('Could not build the website right now.', 500);
 }
 
