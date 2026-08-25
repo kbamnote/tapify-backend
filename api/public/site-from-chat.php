@@ -73,13 +73,38 @@ $yearsIn     = (int)($input['years'] ?? 0);                          // "12 year
 $instaRaw    = trim((string)($input['instagram'] ?? ''));
 $logoUrl     = trim((string)($input['logo_url'] ?? ''));             // Cloudinary URL of his uploaded logo
 
-// Normalise the Instagram answer into a followable link.
+/**
+ * The Instagram answer, which may be a handle OR one or more post/reel links.
+ *
+ * A handle alone cannot be turned into a post: Instagram serves no public feed
+ * for scraping, and the oEmbed/Graph route needs the owner to authorise our app.
+ * So a handle becomes a follow link, and any /p/, /reel/ or /tv/ permalink he
+ * pastes becomes a real embed.
+ *
+ * The old regex here matched `instagram.com/(word)` against a pasted reel URL
+ * and produced "https://instagram.com/reel" — a dead link presented as his
+ * profile. Permalinks are now matched FIRST, before the handle fallback.
+ */
 $instagramUrl = null;
+$embedUrls    = [];
 if ($instaRaw !== '' && $instaRaw !== '-') {
-    if (preg_match('~instagram\.com/([A-Za-z0-9_.]+)~i', $instaRaw, $m)) {
+    // 1. Post / reel / IGTV permalinks — these are embeddable as-is.
+    if (preg_match_all('~https?://(?:www\.)?instagram\.com/(?:p|reel|reels|tv)/([A-Za-z0-9_-]+)~i',
+                       $instaRaw, $mm)) {
+        foreach ($mm[1] as $code) {
+            $u = 'https://www.instagram.com/p/' . $code . '/';
+            if (!in_array($u, $embedUrls, true)) $embedUrls[] = $u;
+            if (count($embedUrls) >= 6) break;          // manifest allows 9
+        }
+    }
+    // 2. A profile link or bare handle — the follow link, never an embed.
+    if (preg_match('~instagram\.com/(?!p/|reel/|reels/|tv/)([A-Za-z0-9_.]{1,30})~i', $instaRaw, $m)) {
         $instagramUrl = 'https://instagram.com/' . $m[1];
     } elseif ($instaRaw[0] === '@') {
-        $instagramUrl = 'https://instagram.com/' . ltrim(substr($instaRaw, 1), '@');
+        $handle = ltrim(substr($instaRaw, 1), '@');
+        if (preg_match('~^[A-Za-z0-9_.]{1,30}$~', $handle)) {
+            $instagramUrl = 'https://instagram.com/' . $handle;
+        }
     } elseif (preg_match('~^[A-Za-z0-9_.]{1,30}$~', $instaRaw)) {
         $instagramUrl = 'https://instagram.com/' . $instaRaw;
     }
@@ -190,8 +215,19 @@ try {
     // Sections that would render demo PEOPLE / PRODUCTS / REVIEWS we did not
     // earn from his listing are dropped outright; his real Google numbers
     // become a stats strip instead of fake testimonials.
-    $strip = array_flip(['testimonials','team','blog','faq','products',
-                         'appointment','embed','feedback','account','share']);
+    //
+    // Two of them are no longer always demo, so they are kept when — and only
+    // when — we hold his own content for them: real Google review text, and a
+    // real Instagram post/reel URL he pasted in chat.
+    $gmbReviews = array_values(array_filter((array)($gmb['gmb_reviews'] ?? []),
+        fn($r) => trim((string)($r['quote'] ?? '')) !== ''));
+    $hasReviews = count($gmbReviews) > 0;
+    $hasEmbed   = $embedUrls !== [];
+
+    $stripList = ['team','blog','faq','products','appointment','feedback','account','share'];
+    if (!$hasReviews) $stripList[] = 'testimonials';
+    if (!$hasEmbed)   $stripList[] = 'embed';
+    $strip = array_flip($stripList);
     $typesIn = $recipe['sections'] ?? ['header','hero','about','services','gallery','contact'];
     $types = [];
     foreach ($typesIn as $t) {
@@ -202,6 +238,14 @@ try {
     if ($hasStatsData && !in_array('stats', $types, true)) {
         $at = array_search('services', $types, true);
         array_splice($types, $at === false ? max(0, count($types) - 2) : $at + 1, 0, ['stats']);
+    }
+    // A recipe's own section list rarely mentions testimonials or embed, so
+    // without this they would be built and then dropped by the availability
+    // guard below — silently, exactly like header and footer were.
+    if ($hasReviews && !in_array('testimonials', $types, true)) $types[] = 'testimonials';
+    if ($hasEmbed   && !in_array('embed', $types, true))        $types[] = 'embed';
+    foreach (['header', 'footer'] as $t) {
+        if (!in_array($t, $types, true)) $types[] = $t;
     }
 
     $photoOf = fn(int $i) => $gmb['gmb_photos'][$i] ?? null;
@@ -218,7 +262,8 @@ try {
     // an empty string and the About fallback read "<name> is a  serving <x>".
     $buildSection = function (string $t, array $pageSeed = []) use (
         $content, $gmb, $gcat, $name, $services, $audience,
-        $photoOf, $story, $yearsIn, $instagramUrl, $logoUrl
+        $photoOf, $story, $yearsIn, $instagramUrl, $logoUrl,
+        $gmbReviews, $embedUrls
     ) {
         $instance = SchemaRegistry::newSectionInstance($t);
         if (!$instance) return null;
@@ -256,13 +301,15 @@ try {
                 break;
 
             case 'services':
-                // His typed list REPLACES the demo menu items outright.
+                // His typed list REPLACES the demo menu items outright, and ALL
+                // of it ships — the old cap of 6 quietly dropped everything he
+                // listed after the sixth. The manifest allows 24.
                 $items = [];
                 foreach (preg_split('/\s*(?:,|and|\/|\||\n)\s*/i', $services) as $s) {
                     $s = trim((string)$s);
                     if ($s === '') continue;
                     $items[] = ['title' => mb_substr($s, 0, 80)];
-                    if (count($items) >= 6) break;
+                    if (count($items) >= 24) break;
                 }
                 if (!$items && $gcat !== '') {
                     $items[] = ['title' => mb_substr($gcat, 0, 80)];
@@ -272,16 +319,46 @@ try {
                 }
                 unset($it);
                 if ($items) { $p['items'] = $items; }
+                $instance['variant'] = 'carousel';       // swipeable by default
                 break;
 
             case 'gallery':
+                // EVERY remaining photo. Indices 0 and 1 are the hero and about
+                // images; from 2 onward they double as service card art, but a
+                // photo used on a card is still worth showing full-size here.
                 $imgs = [];
                 foreach (($gmb['gmb_photos'] ?? []) as $k => $im) {
-                    if ($k < 3 || $k >= 9) continue;   // 0-2 already used above
+                    if ($k < 2) continue;               // hero + about already
                     $imgs[] = ['image' => $im['url'],
                                'alt'   => mb_substr($name . ' — photo ' . ($k + 1), 0, 120)];
+                    if (count($imgs) >= 60) break;      // manifest ceiling
                 }
                 if ($imgs) { $p['images'] = $imgs; }
+                $instance['variant'] = 'slider';
+                break;
+
+            case 'testimonials':
+                // Real Google reviews only — never invented, and only the ones
+                // that actually carry words.
+                $items = [];
+                foreach ($gmbReviews as $r) {
+                    $row = ['quote' => $r['quote'], 'name' => $r['name'], 'role' => 'Google review'];
+                    if (!empty($r['rating'])) $row['rating'] = max(1, min(5, (int)$r['rating']));
+                    if (!empty($r['photo']))  $row['photo']  = $r['photo'];
+                    $items[] = $row;
+                    if (count($items) >= 30) break;
+                }
+                if ($items) { $p['items'] = $items; }
+                $p['heading'] = 'What our customers say on Google';
+                $instance['variant'] = 'slider';
+                break;
+
+            case 'embed':
+                // The post/reel links he pasted in chat.
+                if ($embedUrls) {
+                    $p['embeds']  = array_map(fn($u) => ['url' => $u], $embedUrls);
+                    $p['heading'] = 'From our Instagram';
+                }
                 break;
 
             case 'stats':
@@ -294,6 +371,20 @@ try {
                 if ($rev > 0) { $items[] = ['value' => $rev, 'suffix' => '+', 'label' => 'Google reviews']; }
                 if ($rat > 0) { $items[] = ['value' => (int)round($rat * 10), 'suffix' => '/10', 'label' => 'Google rating']; }
                 if (count($items) >= 2) { $p['items'] = $items; }   // manifest min is 2
+                break;
+
+            case 'contact':
+                // His real Google Maps listing, not a generic address lookup.
+                // showMap/mapUrl only exist on the map-bearing variants, so the
+                // variant has to be set too or the props are ignored.
+                if (!empty($gmb['maps_url'])) {
+                    $instance['variant'] = 'form-map';
+                    $p['showMap'] = true;
+                    $p['mapUrl']  = $gmb['maps_url'];
+                }
+                $p['showPhone'] = true;
+                $p['showWhatsapp'] = true;
+                if (!empty($gmb['address'])) $p['showAddress'] = true;
                 break;
 
             case 'hours':
@@ -362,7 +453,7 @@ try {
         // because it happened to be "/", which is why the failure looked like
         // three separate errors rather than one mistake.
         $groups = [
-            ['id' => 'home',    'slug' => '/',        'title' => 'Home',     'secs' => ['hero', 'stats', 'services', 'cta']],
+            ['id' => 'home',    'slug' => '/',        'title' => 'Home',     'secs' => ['hero', 'stats', 'services', 'testimonials', 'embed', 'cta']],
             ['id' => 'about',   'slug' => '/about',   'title' => 'About Us', 'secs' => ['about']],
             ['id' => 'gallery', 'slug' => '/gallery', 'title' => 'Gallery',  'secs' => ['gallery']],
             ['id' => 'contact', 'slug' => '/contact', 'title' => 'Contact',  'secs' => ['hours', 'contact']],
@@ -391,6 +482,28 @@ try {
                         'sections' => $h ? [$h] : [] ]];
         }
     }
+
+    /**
+     * Every page gets a header and a footer.
+     *
+     * THIS IS WHY THEY WERE MISSING: the synthesised page groups list only body
+     * sections ('hero','stats','services','cta' …) and the availability guard
+     * `in_array($t, $types)` would have dropped 'footer' anyway, since the
+     * fallback $types has no footer in it. Wrapping here fixes the recipe path
+     * too, and is idempotent — a recipe that already lists them is left alone.
+     */
+    foreach ($pages as &$pgW) {
+        $have = array_column($pgW['sections'] ?? [], 'type');
+        if (!in_array('header', $have, true)) {
+            $h = $buildSection('header');
+            if ($h) array_unshift($pgW['sections'], $h);
+        }
+        if (!in_array('footer', $have, true)) {
+            $f = $buildSection('footer');
+            if ($f) $pgW['sections'][] = $f;
+        }
+    }
+    unset($pgW);
 
     // Header nav from REAL pages — and the header section's own links must
     // point at those pages, because anchors like #services die the moment

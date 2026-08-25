@@ -32,6 +32,18 @@ class PlacesClient
                          . 'regularOpeningHours,websiteUri,editorialSummary,primaryTypeDisplayName,'
                          . 'nationalPhoneNumber,businessStatus,googleMapsUri';
 
+    /**
+     * Everything above PLUS the review bodies, for building a website.
+     *
+     * Deliberately a SEPARATE mask. The field mask is what Google bills on, and
+     * details() runs on every score check while detailsFull() runs once per site
+     * build — asking for review text on the cheap path would put the cost on the
+     * request we make most often. `rating` and `userRatingCount` are already in
+     * the mask above, so `reviews` does not move this to a dearer tier; it is
+     * the same class of Places data we are already paying for.
+     */
+    const SITE_FIELDS = self::DETAILS_FIELDS . ',reviews';
+
     /** @var string */
     private $key;
 
@@ -104,8 +116,13 @@ class PlacesClient
         return $this->normalizeDetails($res);
     }
 
-    /** One raw Places Details response, shared by every reader below. */
-    private function fetchRaw(string $placeId): ?array
+    /**
+     * One raw Places Details response, shared by every reader below.
+     *
+     * $fields lets the caller choose how much to pay for: the default lean mask
+     * for score checks, the wider SITE_FIELDS when a website is being built.
+     */
+    private function fetchRaw(string $placeId, ?string $fields = null): ?array
     {
         $placeId = trim($placeId);
         if ($placeId === '' || !$this->isConfigured()) return null;
@@ -113,7 +130,7 @@ class PlacesClient
         // The id already carries its own prefix in the New API ("places/ChIJ..."),
         // but callers hand us the bare id, so normalise either shape.
         $path = strpos($placeId, 'places/') === 0 ? substr($placeId, 7) : $placeId;
-        return $this->get(self::DETAILS_URL . rawurlencode($path), self::DETAILS_FIELDS);
+        return $this->get(self::DETAILS_URL . rawurlencode($path), $fields ?: self::DETAILS_FIELDS);
     }
 
     /** The score-shaped projection VisibilityScore reads. Kept byte-identical. */
@@ -154,10 +171,25 @@ class PlacesClient
      */
     public function detailsFull(string $placeId): ?array
     {
-        $res = $this->fetchRaw($placeId);
+        $res = $this->fetchRaw($placeId, self::SITE_FIELDS);
         if (!$res || empty($res['id'])) return null;
 
         $out = $this->normalizeDetails($res);
+
+        // Real Google reviews, for the site's testimonials. Only reviews with
+        // actual text are useful — a bare 5-star rating with no words renders as
+        // an empty quote card. Anonymised names are left as Google returns them.
+        $out['gmb_reviews'] = [];
+        foreach (array_slice(is_array($res['reviews'] ?? null) ? $res['reviews'] : [], 0, 12) as $rv) {
+            $text = trim((string)($rv['originalText']['text'] ?? $rv['text']['text'] ?? ''));
+            if ($text === '') continue;
+            $out['gmb_reviews'][] = [
+                'quote'  => mb_substr($text, 0, 600),
+                'name'   => trim((string)($rv['authorAttribution']['displayName'] ?? '')) ?: 'Google review',
+                'photo'  => trim((string)($rv['authorAttribution']['photoUri'] ?? '')),
+                'rating' => isset($rv['rating']) ? (int)round((float)$rv['rating']) : 0,
+            ];
+        }
 
         // Public <img> tags cannot send an API-key header, so the key rides in
         // the URL — the documented way to serve Places media on a website.
