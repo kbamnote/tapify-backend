@@ -45,10 +45,24 @@ if (!hash_equals($expected, (string)$given)) {
 if ($_SERVER['REQUEST_METHOD'] === 'GET' && ($_GET['list'] ?? '') === 'industries') {
     $out = [];
     foreach (SchemaRegistry::industries() as $id => $meta) {
+        // Typical services for the category, so the bot can OFFER a list to
+        // accept instead of making every owner type one from scratch.
+        //
+        // These are a SUGGESTION he confirms or replaces — not a claim about his
+        // business. They have to be offered rather than assumed because Places
+        // does not expose a listing's own services or products at all (see the
+        // note on $services in the POST handler below).
+        $sugg = [];
+        foreach ((array)(($meta['content']['services']['props']['items'] ?? [])) as $it) {
+            $t = trim((string)($it['title'] ?? ''));
+            if ($t !== '') $sugg[] = $t;
+            if (count($sugg) >= 6) break;
+        }
         $out[] = [
-            'id'    => (string)$id,
-            'label' => (string)($meta['label'] ?? $id),
-            'desc'  => mb_substr((string)($meta['description'] ?? ''), 0, 72),
+            'id'       => (string)$id,
+            'label'    => (string)($meta['label'] ?? $id),
+            'desc'     => mb_substr((string)($meta['description'] ?? ''), 0, 72),
+            'services' => $sugg,
         ];
     }
     usort($out, fn($a, $b) => strcasecmp($a['label'], $b['label']));
