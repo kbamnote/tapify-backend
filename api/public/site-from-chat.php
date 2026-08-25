@@ -396,8 +396,26 @@ try {
 
             case 'header':
             case 'footer':
-                // His uploaded logo — only where the manifest has a logo prop.
-                if ($logoUrl !== '' && array_key_exists('logo', $p)) { $p['logo'] = $logoUrl; }
+                /**
+                 * His uploaded logo — only where the manifest declares a logo prop.
+                 *
+                 * The guard used to be array_key_exists('logo', $p), which asked
+                 * the wrong object. $p starts as the manifest's `defaults.props`
+                 * — {sticky} for header, {showBranding,showContact,showSocial}
+                 * for footer — and NEITHER lists a logo, because a logo has no
+                 * sensible default. So the condition was false every single time
+                 * and the uploaded logo was silently dropped.
+                 *
+                 * Ask the manifest's declared props, which is what was meant.
+                 */
+                if ($logoUrl !== '') {
+                    foreach ((array)(SchemaRegistry::section($t)['props'] ?? []) as $pr) {
+                        if (is_array($pr) && ($pr['key'] ?? '') === 'logo') {
+                            $p['logo'] = $logoUrl;
+                            break;
+                        }
+                    }
+                }
                 break;
         }
         unset($p);
