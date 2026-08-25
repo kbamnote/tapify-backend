@@ -19,6 +19,7 @@
 require_once __DIR__ . '/../../config/database.php';
 require_once __DIR__ . '/../../includes/functions.php';
 require_once __DIR__ . '/../../includes/google/PlacesClient.php';
+require_once __DIR__ . '/../../includes/StockImage.php';
 require_once __DIR__ . '/../../builder/lib/SiteRepo.php';
 require_once __DIR__ . '/../../builder/lib/SiteValidator.php';
 require_once __DIR__ . '/../../builder/lib/SchemaRegistry.php';
@@ -274,10 +275,15 @@ try {
     // and a closure inherits nothing automatically. Without it $gcat was null
     // inside here, so `$gcat !== ''` was always TRUE — the hero badge was set to
     // an empty string and the About fallback read "<name> is a  serving <x>".
+    // Passed into the closure explicitly: a closure inherits nothing, and
+    // $gcat being missing from this list is exactly how the hero badge broke.
+    $pdoRef  = $pdo;
+    $typeCtx = $type;
+
     $buildSection = function (string $t, array $pageSeed = []) use (
         $content, $gmb, $gcat, $name, $services, $audience,
         $photoOf, $story, $yearsIn, $instagramUrl, $logoUrl,
-        $gmbReviews, $embedUrls
+        $gmbReviews, $embedUrls, $pdoRef, $typeCtx
     ) {
         $instance = SchemaRegistry::newSectionInstance($t);
         if (!$instance) return null;
@@ -328,8 +334,51 @@ try {
                 if (!$items && $gcat !== '') {
                     $items[] = ['title' => mb_substr($gcat, 0, 80)];
                 }
+                /**
+                 * Art for each service card, best source first:
+                 *   1. HIS OWN Google photo — always preferred, it is really him.
+                 *   2. A stock photo OF THE SERVICE HE TYPED, searched live, so
+                 *      "keratin treatment" gets a keratin picture rather than a
+                 *      generic salon shot. Needs PEXELS_API_KEY.
+                 *   3. The recipe's curated image for the closest matching
+                 *      service, matched on shared words in the title.
+                 *   4. The next unused recipe image, so no card ships blank.
+                 *
+                 * 3 and 4 are the safety net, not the plan: the live search is
+                 * unreviewed and is occasionally wrong, and without an API key it
+                 * returns nothing at all. Owners can swap any picture in the app.
+                 */
+                $recipeItems = array_values(array_filter(
+                    (array)($content['services']['props']['items'] ?? []),
+                    fn($r) => !empty($r['image'])
+                ));
+                $usedArt = [];
                 foreach ($items as $k => &$it) {
-                    if ($img = $photoOf($k + 2)) { $it['image'] = $img['url']; }
+                    if ($img = $photoOf($k + 2)) { $it['image'] = $img['url']; continue; }
+                    // A picture of THIS service. The category rides along as
+                    // context because short service words are ambiguous on their
+                    // own — "Fillings" alone returns cake.
+                    $shot = StockImage::forService($pdoRef, (string)$it['title'], $gcat ?: $typeCtx);
+                    if ($shot) { $it['image'] = $shot; continue; }
+                    $words = preg_split('/[^\p{L}\p{N}]+/u', mb_strtolower((string)$it['title']),
+                                        -1, PREG_SPLIT_NO_EMPTY) ?: [];
+                    $best = null; $bestScore = 0;
+                    foreach ($recipeItems as $ri => $r) {
+                        if (isset($usedArt[$ri])) continue;
+                        $rw = preg_split('/[^\p{L}\p{N}]+/u', mb_strtolower((string)($r['title'] ?? '')),
+                                         -1, PREG_SPLIT_NO_EMPTY) ?: [];
+                        $score = count(array_intersect($words, $rw));
+                        if ($score > $bestScore) { $bestScore = $score; $best = $ri; }
+                    }
+                    if ($best === null) {
+                        foreach ($recipeItems as $ri => $r) {
+                            if (!isset($usedArt[$ri])) { $best = $ri; break; }
+                        }
+                    }
+                    if ($best !== null) {
+                        $it['image'] = $recipeItems[$best]['image'];
+                        $usedArt[$best] = true;
+                    }
                 }
                 unset($it);
                 if ($items) { $p['items'] = $items; }
@@ -589,23 +638,33 @@ try {
     // point at those pages, because anchors like #services die the moment
     // services moves to its own page.
     $headerNav = array_map(fn($pg) => ['label' => $pg['title'], 'pageId' => $pg['id']], $pages);
-    if (count($pages) > 1) {
-        foreach ($pages as &$pg) {
-            foreach (($pg['sections'] ?? []) as &$sec) {
+
+    /**
+     * Replace the recipe's menu with the pages that actually exist.
+     *
+     * WHY THIS USED TO DO NOTHING: the inner loop was
+     *     foreach (($pg['sections'] ?? []) as &$sec)
+     * and `$pg['sections'] ?? []` is an EXPRESSION producing a temporary. PHP
+     * cannot bind a reference into a temporary, so every write to $sec landed
+     * in a throwaway copy and was discarded — leaving the recipe's own
+     * "Services / Packages / Journal" anchors in the header, and no About Us.
+     * Index assignment writes to the real array.
+     *
+     * The href is each page's REAL slug, not '/' . id — a recipe is free to give
+     * a page an id and a slug that differ, and guessing produced a dead link.
+     */
+    $navLinks = [];
+    foreach ($pages as $pg) {
+        $navLinks[] = ['text' => (string)$pg['title'], 'href' => (string)$pg['slug']];
+    }
+    if (count($navLinks) > 1) {
+        foreach ($pages as $pi => $pg) {
+            foreach (($pg['sections'] ?? []) as $si => $sec) {
                 if (($sec['type'] ?? '') === 'header') {
-                    // $headerNav rows are ['label','pageId'] — there is no 'id'
-                    // key. Reading $x['id'] gave null for every row, so EVERY
-                    // nav link resolved to '/' and the whole menu pointed home.
-                    $sec['props']['links'] = array_map(
-                        fn($x) => ['text' => $x['label'],
-                                   'href' => $x['pageId'] === 'home' ? '/' : '/' . $x['pageId']],
-                        $headerNav
-                    );
+                    $pages[$pi]['sections'][$si]['props']['links'] = $navLinks;
                 }
             }
-            unset($sec);
         }
-        unset($pg);
     }
 
     $themeRef     = $recipe['theme'] ?? null;
