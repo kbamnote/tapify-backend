@@ -553,6 +553,22 @@ try {
     foreach ($pages as $pg) {
         $byName[strtolower((string)$pg['id'])] = $pg['slug'];
         $byName[strtolower(ltrim((string)$pg['slug'], '/'))] = $pg['slug'];
+        // ALSO map by the SECTION TYPES the page carries. "#services" and
+        // "#packages" name a section, not a page, so matching on page id alone
+        // sent every one of them to '/' — which is what "clicking Packages goes
+        // to the home page" was. Now the link lands on whichever page actually
+        // holds that section. First page wins, so home keeps precedence.
+        foreach (($pg['sections'] ?? []) as $sc) {
+            $t = strtolower((string)($sc['type'] ?? ''));
+            if ($t !== '' && !isset($byName[$t])) $byName[$t] = $pg['slug'];
+        }
+    }
+    // Words a recipe uses for a section that is not its type name.
+    foreach (['packages' => 'services', 'menu' => 'services', 'pricing' => 'services',
+              'work' => 'gallery', 'portfolio' => 'gallery', 'photos' => 'gallery',
+              'reviews' => 'testimonials', 'enquiry' => 'contact', 'book' => 'contact',
+              'story' => 'about'] as $alias => $type) {
+        if (!isset($byName[$alias]) && isset($byName[$type])) $byName[$alias] = $byName[$type];
     }
     $fixAnchors = function (&$node) use (&$fixAnchors, $byName) {
         if (is_array($node)) {
