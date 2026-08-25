@@ -1,0 +1,33 @@
+{
+  "preset": "carbon-ice",
+  "label": "Carbon & Ice",
+  "description": "Carbon-black studio darkness with an ice-blue accent. Built for premium car detailing, ceramic coating and PPF, where the work is gloss and reflection and a dark page makes the cars the brightest thing on screen.",
+  "industries": [
+    "automotive",
+    "car detailing",
+    "ceramic coating",
+    "ppf",
+    "car care"
+  ],
+  "tokens": {
+    "mode": "dark",
+    "color": {
+      "primary": "#42B9ED",
+      "secondary": "#1C2530",
+      "accent": "#4BB6E5",
+      "bg": "#0B0F14",
+      "surface": "#141A22",
+      "text": "#F2F6FA",
+      "muted": "#828F9B",
+      "border": "#243040"
+    },
+    "font": {
+      "heading": "Chakra Petch",
+      "body": "Inter"
+    },
+    "radius": "md",
+    "spacing": "comfortable",
+    "container": "normal"
+  },
+  "notes": "Tokens only. On a DARK theme the text colours are LIGHTENED until they clear 4.5:1 on the background — the opposite of the light-theme fix. `secondary` and `border` sit deliberately close to `bg` because they are elevation, not text; do not \"fix\" their contrast. `accent` is what the renderer paints 12px meta text with in ~15 places, so it is the one that must never be darkened back toward the original hue. Shipped octane fails this test (primary 3.74:1 on bg), which is why this exists."
+}

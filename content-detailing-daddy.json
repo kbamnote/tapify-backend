@@ -1,0 +1,1999 @@
+{
+  "schemaVersion": 1,
+  "site": {
+    "name": "Detailing Daddy",
+    "industry": "automotive",
+    "locale": "en-IN"
+  },
+  "settings": {
+    "showMobileActionBar": true
+  },
+  "theme": {
+    "preset": "carbon-ice",
+    "mode": "dark",
+    "color": {
+      "primary": "#42B9ED",
+      "secondary": "#1C2530",
+      "accent": "#4BB6E5",
+      "bg": "#0B0F14",
+      "surface": "#141A22",
+      "text": "#F2F6FA",
+      "muted": "#828F9B",
+      "border": "#243040"
+    }
+  },
+  "nav": {
+    "header": [
+      {
+        "label": "Home",
+        "pageId": "home"
+      },
+      {
+        "label": "Services",
+        "pageId": "services"
+      },
+      {
+        "label": "Products",
+        "pageId": "products"
+      },
+      {
+        "label": "Gallery",
+        "pageId": "gallery"
+      },
+      {
+        "label": "Blog",
+        "pageId": "blog"
+      },
+      {
+        "label": "Contact",
+        "pageId": "contact"
+      }
+    ]
+  },
+  "business": {
+    "phone": "+91 70660 77667",
+    "whatsapp": "+91 70660 77667",
+    "email": "smdetailing1995@gmail.com",
+    "address": "60, Mahajan Building, Beside SBI ATM, Gangabai Ghat Road, Telephone Exchange Square, Nagpur 440008",
+    "social": {
+      "facebook": "https://www.facebook.com/share/1DmdmV5atb/",
+      "instagram": "https://www.instagram.com/detailingdaddy_nagpur"
+    },
+    "hours": [
+      {
+        "day": "mon",
+        "open": "11:00 AM",
+        "close": "8:00 PM"
+      },
+      {
+        "day": "tue",
+        "open": "11:00 AM",
+        "close": "8:00 PM"
+      },
+      {
+        "day": "wed",
+        "open": "11:00 AM",
+        "close": "8:00 PM"
+      },
+      {
+        "day": "thu",
+        "open": "11:00 AM",
+        "close": "8:00 PM"
+      },
+      {
+        "day": "fri",
+        "open": "11:00 AM",
+        "close": "8:00 PM"
+      },
+      {
+        "day": "sat",
+        "open": "11:00 AM",
+        "close": "8:00 PM"
+      },
+      {
+        "day": "sun",
+        "open": "8:00 AM",
+        "close": "2:00 PM"
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "home",
+      "slug": "/",
+      "title": "Home",
+      "sections": [
+        {
+          "id": "header-1",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logoSize": "medium",
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Services",
+                "href": "/services"
+              },
+              {
+                "text": "Products",
+                "href": "/products"
+              },
+              {
+                "text": "Gallery",
+                "href": "/gallery"
+              },
+              {
+                "text": "Blog",
+                "href": "/blog"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Book Now",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "hero-1",
+          "type": "hero",
+          "visible": true,
+          "props": {
+            "badge": "Car Detailing Studio · Nagpur",
+            "heading": "Precision. Protection. Perfection.",
+            "sub": "Ceramic coating, paint protection film, paint correction and full detailing — done properly, with the preparation that actually decides the result.",
+            "fullHeight": true,
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Book Your Car In",
+              "newTab": true,
+              "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20would%20like%20to%20book%20my%20car%20in."
+            },
+            "ctaSecondary": {
+              "text": "See Our Work",
+              "href": "/gallery"
+            },
+            "videoUrl": "https://videos.pexels.com/video-files/6157968/6157968-hd_1280_720_30fps.mp4",
+            "image": "https://images.pexels.com/videos/6157968/auto-brush-car-car-care-6157968.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=630&w=1200"
+          }
+        },
+        {
+          "id": "about-1",
+          "type": "about",
+          "visible": true,
+          "props": {
+            "label": "About Us",
+            "heading": "Premium car detailing in Nagpur",
+            "body": "Detailing Daddy is a professional car detailing studio in Nagpur, specialising in ceramic coating, paint protection film, paint correction, and exterior and interior detailing.\n\nWe combine professional techniques, quality products and attention to detail to enhance your car’s appearance and provide long-lasting protection.\n\nThat means the preparation gets the time it deserves. Paint is washed, decontaminated and corrected before anything is applied, because a coating locks in whatever is underneath it. We will tell you what the paint actually needs, what each level of work will and will not fix, and the price — before anything starts.\n\nDetailing Daddy — Precision. Protection. Perfection.",
+            "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661186/detailing-daddy/dd-06.webp",
+            "imageFit": "cover",
+            "showPillars": true,
+            "pillars": [
+              {
+                "icon": "sparkles",
+                "title": "Preparation first",
+                "text": "Paint is corrected before it is coated — a coating locks in whatever is underneath it."
+              },
+              {
+                "icon": "shield",
+                "title": "Protection that lasts",
+                "text": "Ceramic coating and PPF chosen for what the car is actually used for, not sold as one package."
+              },
+              {
+                "icon": "badge-check",
+                "title": "Quoted before we start",
+                "text": "We look at the paint, explain what each level of work will fix, then give you the price."
+              },
+              {
+                "icon": "car",
+                "title": "Cars and bikes",
+                "text": "Detailing, foam washing and accessory fitting for both."
+              }
+            ]
+          }
+        },
+        {
+          "id": "stats-1",
+          "type": "stats",
+          "visible": true,
+          "props": {
+            "label": "The Studio",
+            "heading": "What we offer",
+            "countUp": true,
+            "items": [
+              {
+                "icon": "sparkles",
+                "value": 7,
+                "suffix": "",
+                "label": "Detailing services"
+              },
+              {
+                "icon": "package",
+                "value": 14,
+                "suffix": "",
+                "label": "Accessories fitted"
+              },
+              {
+                "icon": "calendar",
+                "value": 7,
+                "suffix": " days",
+                "label": "Open every week"
+              },
+              {
+                "icon": "shield",
+                "value": 100,
+                "suffix": "%",
+                "label": "Work quoted before we start"
+              }
+            ]
+          }
+        },
+        {
+          "id": "services-1",
+          "type": "services",
+          "visible": true,
+          "props": {
+            "label": "Our Services",
+            "heading": "What we do",
+            "sub": "Seven services, from a safe foam wash through to full paint correction and ceramic coating.",
+            "items": [
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661176/detailing-daddy/dd-02.jpg",
+                "title": "Ceramic Coating",
+                "desc": "A hard, hydrophobic layer bonded to your paint — deeper gloss, easier washing, and real protection against UV, dirt and water spotting.",
+                "meta": "Gloss and protection that lasts years",
+                "body": "Ceramic coating is a liquid polymer that bonds chemically with the factory clear coat and cures into a hard, glass-like layer. It is not a wax and it does not wash off after a few weeks.\n\nWhat it changes day to day: water beads and rolls off instead of sitting on the panel, so the car dries with fewer marks. Dust and road grime do not key into the surface the same way, so washing takes less effort and less scrubbing — which is itself what causes most swirl marks. The gloss is deeper because the coating levels the surface optically.\n\nThe result depends almost entirely on what goes underneath. Paint is washed, decontaminated and corrected first, because a coating locks in whatever is there — including swirls. That preparation is most of the work and most of the time.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2ACeramic%20Coating%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/10126657/pexels-photo-10126657.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Paint Protection Film (PPF)",
+                "desc": "A clear urethane film applied over the panels, taking stone chips and scratches so the paint underneath does not.",
+                "meta": "A physical shield over the paint",
+                "body": "PPF is a thick, self-healing urethane film laid over the paint. Where a coating changes how the surface behaves, film puts a physical barrier in the way — it is the difference between water beading off and a stone chip not reaching your paint at all.\n\nMost owners start with the high-impact areas: bonnet, front bumper, front sections of the wings, wing mirrors and the headlights. Full-body is available where the car justifies it. Light swirls in the film itself heal with heat.\n\nFitting is slow and precise work — the film is wrapped around panel edges rather than cut on the paint. Done properly it is close to invisible, and it comes off years later without taking the paint with it.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2APaint%20Protection%20Film%20%28PPF%29%2A."
+                }
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661211/detailing-daddy/dd-12.jpg",
+                "title": "Interior & Exterior Detailing",
+                "desc": "Full interior deep clean and exterior decontamination, polish and protection — the reset a car needs once or twice a year.",
+                "meta": "Cleaned properly, inside and out",
+                "body": "Detailing is not a wash. Outside, the car is decontaminated — iron fallout, tar and bonded contaminants that a normal wash leaves behind — then machine polished to remove swirls and hazing, then protected.\n\nInside, seats, carpets and mats are extracted rather than wiped, vents and crevices are cleaned out, leather is cleaned and conditioned, plastics and trim are dressed without leaving them greasy, and the glass is finished last so it stays clear.\n\nIt is the single most noticeable thing you can do to a car you already own, and it makes a real difference to resale.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2AInterior%20%26%20Exterior%20Detailing%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/20036216/pexels-photo-20036216.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Window Films",
+                "desc": "Quality window film that cuts heat and glare inside the cabin, with the shade and finish you choose.",
+                "meta": "Heat, glare and privacy",
+                "body": "A good window film is about heat rejection, not just how dark it looks. Nagpur summers put a lot of load on the cabin and on the air conditioning; the right film cuts the infrared coming through the glass, so the car cools faster and stays cooler.\n\nIt also cuts glare on the drive, protects the dashboard and upholstery from fading, and adds privacy. Films differ widely — we will explain what a given film actually rejects rather than only how dark it is.\n\nPlease note that shade limits are set by law and we fit within them.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2AWindow%20Films%2A."
+                }
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661186/detailing-daddy/dd-06.webp",
+                "title": "Car Detailing Services",
+                "desc": "A range of detailing packages — pick by what the car needs, not by a fixed menu.",
+                "meta": "From a maintenance wash to full correction",
+                "body": "Cars arrive in different states, so the work is scoped to the car rather than sold as one package. A well-kept car may need a maintenance detail; a car that has been through years of automatic washes may need multi-stage paint correction before any protection goes on.\n\nWe will look at the paint, tell you what is actually wrong with it, and explain what each level of work will and will not fix. You get the price before anything starts.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2ACar%20Detailing%20Services%2A."
+                }
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661223/detailing-daddy/dd-15.jpg",
+                "title": "Car Accessories",
+                "desc": "Seat covers, mats, lighting, audio, visors and more — supplied and fitted in the studio.",
+                "meta": "Fitted, not just sold",
+                "body": "We stock and fit the accessories owners actually ask for: seat covers, floor mats and lamination, steering covers, armrests, door visors, LED and projector headlights, audio systems and speakers, car covers, wiper blades and cabin fragrances.\n\nFitting matters as much as the part. An accessory fitted badly rattles, marks the trim, or works loose — so it is done here rather than handed over in a box.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2ACar%20Accessories%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/6872591/pexels-photo-6872591.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Car & Bike Foam Washing",
+                "desc": "Snow-foam pre-wash and a two-bucket method that lifts dirt off instead of dragging it across the paint.",
+                "meta": "The safe way to wash",
+                "body": "Most swirl marks in Indian cars come from washing, not from driving. Dry dust dragged across a panel by a cloth behaves like sandpaper.\n\nA foam wash starts by covering the car in thick snow foam and letting it dwell, so the grit is lifted and rinsed away before anything touches the paint. Only then is the car washed by hand, with clean mitts and separate rinse water, and dried with proper drying towels rather than whatever is nearby.\n\nBikes are welcome too.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2ACar%20%26%20Bike%20Foam%20Washing%2A."
+                }
+              }
+            ],
+            "orderVia": "page",
+            "imageFit": "cover",
+            "showRelated": true,
+            "relatedHeading": "Other services"
+          }
+        },
+        {
+          "id": "gallery-1",
+          "type": "gallery",
+          "visible": true,
+          "props": {
+            "label": "Our Work",
+            "heading": "Cars out of our studio",
+            "sub": "Every car on this page was finished by us in Nagpur.",
+            "images": [
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661186/detailing-daddy/dd-06.webp",
+                "alt": "Detailing studio, finished car under the lights"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661173/detailing-daddy/dd-01.jpg",
+                "alt": "Gloss finish on a white BMW"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661178/detailing-daddy/dd-03.jpg",
+                "alt": "Deep gloss on blue paint"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661183/detailing-daddy/dd-05.jpg",
+                "alt": "Finished Hyundai Creta"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661188/detailing-daddy/dd-07.webp",
+                "alt": "Jeep Compass after detailing"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661191/detailing-daddy/dd-08.jpg",
+                "alt": "BMW GT, corrected and protected"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661194/detailing-daddy/dd-09.jpg",
+                "alt": "Kia Seltos, finished"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661196/detailing-daddy/dd-10.jpg",
+                "alt": "Kia Seltos under studio lighting"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661211/detailing-daddy/dd-12.jpg",
+                "alt": "Toyota Fortuner in the studio"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661215/detailing-daddy/dd-13.jpg",
+                "alt": "Mahindra Scorpio, finished"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661219/detailing-daddy/dd-14.jpg",
+                "alt": "Scorpio-N after detailing"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661226/detailing-daddy/dd-16.jpg",
+                "alt": "Mahindra BE6 at the studio"
+              }
+            ],
+            "lightbox": true
+          }
+        },
+        {
+          "id": "faq-1",
+          "type": "faq",
+          "visible": true,
+          "props": {
+            "label": "FAQ",
+            "heading": "Questions we get asked",
+            "openFirst": true,
+            "items": [
+              {
+                "q": "How long does a ceramic coating last?",
+                "a": "It depends on the coating and, more importantly, on how the car is washed afterwards. Washed correctly and kept out of automatic brush washes, a quality coating stays effective for years. We will tell you what to expect from the specific coating before you commit."
+              },
+              {
+                "q": "Is coating the same as PPF?",
+                "a": "No. A coating changes how the surface behaves — gloss, beading, easier cleaning. PPF is a physical film that stops stone chips reaching the paint. They solve different problems and are often used together, film on the front end and coating over the rest."
+              },
+              {
+                "q": "How long will my car be with you?",
+                "a": "It depends on the work. A foam wash is the same day; detailing and correction usually need a full day or more, because preparation is most of the job. We will give you a realistic time when we look at the car, not an optimistic one."
+              },
+              {
+                "q": "Do you work on bikes as well?",
+                "a": "Yes. Foam washing and detailing are available for bikes."
+              },
+              {
+                "q": "Can you remove every scratch?",
+                "a": "Not every one. Swirl marks and light scratches sit in the clear coat and can be polished out. Anything that has gone through the clear coat needs paint. We will show you which is which rather than polishing at something that will not come out."
+              },
+              {
+                "q": "How do I get a price?",
+                "a": "Send us a WhatsApp on +91 70660 77667 with a couple of photos of the car, or bring it in. Price depends on the size of the car and the condition of the paint, so we quote after seeing it — and always before starting."
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-1",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "Want to know what your car needs?",
+            "sub": "Send us a couple of photos on WhatsApp — we will tell you honestly.",
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Book Your Car In",
+              "newTab": true,
+              "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20would%20like%20to%20book%20my%20car%20in."
+            }
+          }
+        },
+        {
+          "id": "contact-1",
+          "type": "contact",
+          "visible": true,
+          "props": {
+            "label": "Contact",
+            "heading": "Book your car in",
+            "sub": "Send a couple of photos of the car on WhatsApp and we will tell you what it needs and what it costs. Studio visits welcome.",
+            "showPhone": true,
+            "showWhatsapp": true,
+            "showEmail": true,
+            "showAddress": true,
+            "showHours": true,
+            "showMap": true,
+            "mapUrl": "60, Mahajan Building, Beside SBI ATM, Gangabai Ghat Road, Telephone Exchange Square, Nagpur 440008",
+            "submitText": "Request a quote"
+          }
+        },
+        {
+          "id": "footer-1",
+          "type": "footer",
+          "visible": true,
+          "props": {
+            "blurb": "Detailing Daddy — professional car detailing studio in Nagpur. Ceramic coating, paint protection film, paint correction, interior and exterior detailing, window films, accessories and foam washing.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": false,
+            "copyright": "© 2026 Detailing Daddy, Nagpur. All rights reserved.  ·  Some photos via Pexels",
+            "columns": [
+              {
+                "title": "Studio",
+                "links": [
+                  {
+                    "text": "Home",
+                    "href": "/"
+                  },
+                  {
+                    "text": "Services",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Products",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Gallery",
+                    "href": "/gallery"
+                  },
+                  {
+                    "text": "Blog",
+                    "href": "/blog"
+                  },
+                  {
+                    "text": "Contact",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "What We Do",
+                "links": [
+                  {
+                    "text": "Ceramic Coating",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Paint Protection Film",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Interior & Exterior Detailing",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Window Films",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Foam Washing",
+                    "href": "/services"
+                  }
+                ]
+              },
+              {
+                "title": "Reach Us",
+                "links": [
+                  {
+                    "text": "WhatsApp +91 70660 77667",
+                    "href": "https://wa.me/917066077667"
+                  },
+                  {
+                    "text": "Call +91 70660 77667",
+                    "href": "tel:+917066077667"
+                  },
+                  {
+                    "text": "smdetailing1995@gmail.com",
+                    "href": "mailto:smdetailing1995@gmail.com"
+                  },
+                  {
+                    "text": "Facebook",
+                    "href": "https://www.facebook.com/share/1DmdmV5atb/"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/detailingdaddy_nagpur"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "services",
+      "slug": "/services",
+      "title": "Services",
+      "sections": [
+        {
+          "id": "header-2",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logoSize": "medium",
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Services",
+                "href": "/services"
+              },
+              {
+                "text": "Products",
+                "href": "/products"
+              },
+              {
+                "text": "Gallery",
+                "href": "/gallery"
+              },
+              {
+                "text": "Blog",
+                "href": "/blog"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Book Now",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "hero-2",
+          "type": "hero",
+          "visible": true,
+          "props": {
+            "badge": "Our Services",
+            "heading": "Detailing, coating and protection",
+            "sub": "Tap any service to read what it involves, what it fixes, and when it is the right choice for your car.",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Book Your Car In",
+              "newTab": true,
+              "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20would%20like%20to%20book%20my%20car%20in."
+            },
+            "ctaSecondary": {
+              "text": "See Our Work",
+              "href": "/gallery"
+            }
+          }
+        },
+        {
+          "id": "services-2",
+          "type": "services",
+          "visible": true,
+          "props": {
+            "label": "Our Services",
+            "heading": "What we do",
+            "sub": "Work is scoped to the car, not sold as a fixed menu. You get the price before anything starts.",
+            "items": [
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661176/detailing-daddy/dd-02.jpg",
+                "title": "Ceramic Coating",
+                "desc": "A hard, hydrophobic layer bonded to your paint — deeper gloss, easier washing, and real protection against UV, dirt and water spotting.",
+                "meta": "Gloss and protection that lasts years",
+                "body": "Ceramic coating is a liquid polymer that bonds chemically with the factory clear coat and cures into a hard, glass-like layer. It is not a wax and it does not wash off after a few weeks.\n\nWhat it changes day to day: water beads and rolls off instead of sitting on the panel, so the car dries with fewer marks. Dust and road grime do not key into the surface the same way, so washing takes less effort and less scrubbing — which is itself what causes most swirl marks. The gloss is deeper because the coating levels the surface optically.\n\nThe result depends almost entirely on what goes underneath. Paint is washed, decontaminated and corrected first, because a coating locks in whatever is there — including swirls. That preparation is most of the work and most of the time.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2ACeramic%20Coating%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/10126657/pexels-photo-10126657.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Paint Protection Film (PPF)",
+                "desc": "A clear urethane film applied over the panels, taking stone chips and scratches so the paint underneath does not.",
+                "meta": "A physical shield over the paint",
+                "body": "PPF is a thick, self-healing urethane film laid over the paint. Where a coating changes how the surface behaves, film puts a physical barrier in the way — it is the difference between water beading off and a stone chip not reaching your paint at all.\n\nMost owners start with the high-impact areas: bonnet, front bumper, front sections of the wings, wing mirrors and the headlights. Full-body is available where the car justifies it. Light swirls in the film itself heal with heat.\n\nFitting is slow and precise work — the film is wrapped around panel edges rather than cut on the paint. Done properly it is close to invisible, and it comes off years later without taking the paint with it.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2APaint%20Protection%20Film%20%28PPF%29%2A."
+                }
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661211/detailing-daddy/dd-12.jpg",
+                "title": "Interior & Exterior Detailing",
+                "desc": "Full interior deep clean and exterior decontamination, polish and protection — the reset a car needs once or twice a year.",
+                "meta": "Cleaned properly, inside and out",
+                "body": "Detailing is not a wash. Outside, the car is decontaminated — iron fallout, tar and bonded contaminants that a normal wash leaves behind — then machine polished to remove swirls and hazing, then protected.\n\nInside, seats, carpets and mats are extracted rather than wiped, vents and crevices are cleaned out, leather is cleaned and conditioned, plastics and trim are dressed without leaving them greasy, and the glass is finished last so it stays clear.\n\nIt is the single most noticeable thing you can do to a car you already own, and it makes a real difference to resale.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2AInterior%20%26%20Exterior%20Detailing%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/20036216/pexels-photo-20036216.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Window Films",
+                "desc": "Quality window film that cuts heat and glare inside the cabin, with the shade and finish you choose.",
+                "meta": "Heat, glare and privacy",
+                "body": "A good window film is about heat rejection, not just how dark it looks. Nagpur summers put a lot of load on the cabin and on the air conditioning; the right film cuts the infrared coming through the glass, so the car cools faster and stays cooler.\n\nIt also cuts glare on the drive, protects the dashboard and upholstery from fading, and adds privacy. Films differ widely — we will explain what a given film actually rejects rather than only how dark it is.\n\nPlease note that shade limits are set by law and we fit within them.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2AWindow%20Films%2A."
+                }
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661186/detailing-daddy/dd-06.webp",
+                "title": "Car Detailing Services",
+                "desc": "A range of detailing packages — pick by what the car needs, not by a fixed menu.",
+                "meta": "From a maintenance wash to full correction",
+                "body": "Cars arrive in different states, so the work is scoped to the car rather than sold as one package. A well-kept car may need a maintenance detail; a car that has been through years of automatic washes may need multi-stage paint correction before any protection goes on.\n\nWe will look at the paint, tell you what is actually wrong with it, and explain what each level of work will and will not fix. You get the price before anything starts.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2ACar%20Detailing%20Services%2A."
+                }
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661223/detailing-daddy/dd-15.jpg",
+                "title": "Car Accessories",
+                "desc": "Seat covers, mats, lighting, audio, visors and more — supplied and fitted in the studio.",
+                "meta": "Fitted, not just sold",
+                "body": "We stock and fit the accessories owners actually ask for: seat covers, floor mats and lamination, steering covers, armrests, door visors, LED and projector headlights, audio systems and speakers, car covers, wiper blades and cabin fragrances.\n\nFitting matters as much as the part. An accessory fitted badly rattles, marks the trim, or works loose — so it is done here rather than handed over in a box.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2ACar%20Accessories%2A."
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/6872591/pexels-photo-6872591.jpeg?auto=compress&cs=tinysrgb&w=1200",
+                "title": "Car & Bike Foam Washing",
+                "desc": "Snow-foam pre-wash and a two-bucket method that lifts dirt off instead of dragging it across the paint.",
+                "meta": "The safe way to wash",
+                "body": "Most swirl marks in Indian cars come from washing, not from driving. Dry dust dragged across a panel by a cloth behaves like sandpaper.\n\nA foam wash starts by covering the car in thick snow foam and letting it dwell, so the grit is lifted and rinsed away before anything touches the paint. Only then is the car washed by hand, with clean mitts and separate rinse water, and dried with proper drying towels rather than whatever is nearby.\n\nBikes are welcome too.",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2ACar%20%26%20Bike%20Foam%20Washing%2A."
+                }
+              }
+            ],
+            "orderVia": "page",
+            "imageFit": "cover",
+            "showRelated": true,
+            "relatedHeading": "Other services"
+          }
+        },
+        {
+          "id": "faq-2",
+          "type": "faq",
+          "visible": true,
+          "props": {
+            "label": "FAQ",
+            "heading": "Questions we get asked",
+            "openFirst": true,
+            "items": [
+              {
+                "q": "How long does a ceramic coating last?",
+                "a": "It depends on the coating and, more importantly, on how the car is washed afterwards. Washed correctly and kept out of automatic brush washes, a quality coating stays effective for years. We will tell you what to expect from the specific coating before you commit."
+              },
+              {
+                "q": "Is coating the same as PPF?",
+                "a": "No. A coating changes how the surface behaves — gloss, beading, easier cleaning. PPF is a physical film that stops stone chips reaching the paint. They solve different problems and are often used together, film on the front end and coating over the rest."
+              },
+              {
+                "q": "How long will my car be with you?",
+                "a": "It depends on the work. A foam wash is the same day; detailing and correction usually need a full day or more, because preparation is most of the job. We will give you a realistic time when we look at the car, not an optimistic one."
+              },
+              {
+                "q": "Do you work on bikes as well?",
+                "a": "Yes. Foam washing and detailing are available for bikes."
+              },
+              {
+                "q": "Can you remove every scratch?",
+                "a": "Not every one. Swirl marks and light scratches sit in the clear coat and can be polished out. Anything that has gone through the clear coat needs paint. We will show you which is which rather than polishing at something that will not come out."
+              },
+              {
+                "q": "How do I get a price?",
+                "a": "Send us a WhatsApp on +91 70660 77667 with a couple of photos of the car, or bring it in. Price depends on the size of the car and the condition of the paint, so we quote after seeing it — and always before starting."
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-2",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "Not sure which one you need?",
+            "sub": "Send photos of the paint and we will tell you what it actually needs.",
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Book Your Car In",
+              "newTab": true,
+              "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20would%20like%20to%20book%20my%20car%20in."
+            }
+          }
+        },
+        {
+          "id": "footer-2",
+          "type": "footer",
+          "visible": true,
+          "props": {
+            "blurb": "Detailing Daddy — professional car detailing studio in Nagpur. Ceramic coating, paint protection film, paint correction, interior and exterior detailing, window films, accessories and foam washing.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": false,
+            "copyright": "© 2026 Detailing Daddy, Nagpur. All rights reserved.  ·  Some photos via Pexels",
+            "columns": [
+              {
+                "title": "Studio",
+                "links": [
+                  {
+                    "text": "Home",
+                    "href": "/"
+                  },
+                  {
+                    "text": "Services",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Products",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Gallery",
+                    "href": "/gallery"
+                  },
+                  {
+                    "text": "Blog",
+                    "href": "/blog"
+                  },
+                  {
+                    "text": "Contact",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "What We Do",
+                "links": [
+                  {
+                    "text": "Ceramic Coating",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Paint Protection Film",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Interior & Exterior Detailing",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Window Films",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Foam Washing",
+                    "href": "/services"
+                  }
+                ]
+              },
+              {
+                "title": "Reach Us",
+                "links": [
+                  {
+                    "text": "WhatsApp +91 70660 77667",
+                    "href": "https://wa.me/917066077667"
+                  },
+                  {
+                    "text": "Call +91 70660 77667",
+                    "href": "tel:+917066077667"
+                  },
+                  {
+                    "text": "smdetailing1995@gmail.com",
+                    "href": "mailto:smdetailing1995@gmail.com"
+                  },
+                  {
+                    "text": "Facebook",
+                    "href": "https://www.facebook.com/share/1DmdmV5atb/"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/detailingdaddy_nagpur"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "products",
+      "slug": "/products",
+      "title": "Products",
+      "sections": [
+        {
+          "id": "header-3",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logoSize": "medium",
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Services",
+                "href": "/services"
+              },
+              {
+                "text": "Products",
+                "href": "/products"
+              },
+              {
+                "text": "Gallery",
+                "href": "/gallery"
+              },
+              {
+                "text": "Blog",
+                "href": "/blog"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Book Now",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "hero-3",
+          "type": "hero",
+          "visible": true,
+          "props": {
+            "badge": "Accessories",
+            "heading": "Supplied and fitted in the studio",
+            "sub": "Seat covers, mats, lighting, audio, visors and more — fitted properly rather than handed over in a box.",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Book Your Car In",
+              "newTab": true,
+              "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20would%20like%20to%20book%20my%20car%20in."
+            },
+            "ctaSecondary": {
+              "text": "See Our Work",
+              "href": "/gallery"
+            }
+          }
+        },
+        {
+          "id": "products-1",
+          "type": "products",
+          "visible": true,
+          "props": {
+            "label": "Accessories",
+            "heading": "Supplied and fitted",
+            "sub": "Everything here is fitted in the studio. Prices depend on the car and the brand you choose, so message us for a figure.",
+            "items": [
+              {
+                "title": "Seat Covers",
+                "desc": "Custom-fit, in your choice of material",
+                "meta": "Supplied & fitted",
+                "price": "Get Price on WhatsApp",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2ASeat%20Covers%2A."
+                },
+                "image": "https://images.pexels.com/photos/18198200/pexels-photo-18198200.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              },
+              {
+                "title": "Floor Lamination",
+                "desc": "Full-floor lamination, wall to wall",
+                "meta": "Supplied & fitted",
+                "price": "Get Price on WhatsApp",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2AFloor%20Lamination%2A."
+                },
+                "image": "https://images.pexels.com/photos/20475067/pexels-photo-20475067.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              },
+              {
+                "title": "Headlight LED",
+                "desc": "Brighter, whiter light output",
+                "meta": "Supplied & fitted",
+                "price": "Get Price on WhatsApp",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2AHeadlight%20LED%2A."
+                },
+                "image": "https://images.pexels.com/photos/16352272/pexels-photo-16352272.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              },
+              {
+                "title": "Car Audio System",
+                "desc": "Head units and full system upgrades",
+                "meta": "Supplied & fitted",
+                "price": "Get Price on WhatsApp",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2ACar%20Audio%20System%2A."
+                },
+                "image": "https://images.pexels.com/photos/8266749/pexels-photo-8266749.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              },
+              {
+                "title": "Steering Covers",
+                "desc": "Leather and stitched finishes",
+                "meta": "Supplied & fitted",
+                "price": "Get Price on WhatsApp",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2ASteering%20Covers%2A."
+                },
+                "image": "https://images.pexels.com/photos/17882727/pexels-photo-17882727.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              },
+              {
+                "title": "Door Visors",
+                "desc": "Rain guards, fitted flush",
+                "meta": "Supplied & fitted",
+                "price": "Get Price on WhatsApp",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2ADoor%20Visors%2A."
+                },
+                "image": "https://images.pexels.com/photos/29036734/pexels-photo-29036734.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              },
+              {
+                "title": "Speakers",
+                "desc": "Component and coaxial upgrades",
+                "meta": "Supplied & fitted",
+                "price": "Get Price on WhatsApp",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2ASpeakers%2A."
+                },
+                "image": "https://images.pexels.com/photos/9604953/pexels-photo-9604953.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              },
+              {
+                "title": "Perfumes",
+                "desc": "Cabin fragrances and diffusers",
+                "meta": "Supplied & fitted",
+                "price": "Get Price on WhatsApp",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2APerfumes%2A."
+                },
+                "image": "https://images.pexels.com/photos/7540410/pexels-photo-7540410.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              },
+              {
+                "title": "Car Covers",
+                "desc": "Weatherproof covers, sized to the car",
+                "meta": "Supplied & fitted",
+                "price": "Get Price on WhatsApp",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2ACar%20Covers%2A."
+                },
+                "image": "https://images.pexels.com/photos/32490904/pexels-photo-32490904.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              },
+              {
+                "title": "Windshield Wiper Blades",
+                "desc": "Clean, judder-free wipe",
+                "meta": "Supplied & fitted",
+                "price": "Get Price on WhatsApp",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2AWindshield%20Wiper%20Blades%2A."
+                },
+                "image": "https://images.pexels.com/photos/3796234/pexels-photo-3796234.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              },
+              {
+                "title": "Window Tints",
+                "desc": "Heat and glare rejection",
+                "meta": "Supplied & fitted",
+                "price": "Get Price on WhatsApp",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2AWindow%20Tints%2A."
+                },
+                "image": "https://images.pexels.com/photos/20036216/pexels-photo-20036216.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              },
+              {
+                "title": "Floor Mats",
+                "desc": "Moulded and universal mats",
+                "meta": "Supplied & fitted",
+                "price": "Get Price on WhatsApp",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2AFloor%20Mats%2A."
+                },
+                "image": "https://images.pexels.com/photos/8886311/pexels-photo-8886311.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              },
+              {
+                "title": "Headlight Projectors",
+                "desc": "Sharper beam pattern and cut-off",
+                "meta": "Supplied & fitted",
+                "price": "Get Price on WhatsApp",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2AHeadlight%20Projectors%2A."
+                },
+                "image": "https://images.pexels.com/photos/6166026/pexels-photo-6166026.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              },
+              {
+                "title": "Arm Rest",
+                "desc": "Console armrests with storage",
+                "meta": "Supplied & fitted",
+                "price": "Get Price on WhatsApp",
+                "enableOrder": false,
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "newTab": true,
+                  "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20want%20to%20know%20more%20about%20%2AArm%20Rest%2A."
+                },
+                "image": "https://images.pexels.com/photos/17791133/pexels-photo-17791133.jpeg?auto=compress&cs=tinysrgb&w=1200"
+              }
+            ],
+            "orderVia": "page",
+            "imageFit": "cover",
+            "showRelated": true,
+            "relatedHeading": "You may also like"
+          }
+        },
+        {
+          "id": "cta-3",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "Looking for something not listed?",
+            "sub": "Message us — if we can source it, we will fit it.",
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Book Your Car In",
+              "newTab": true,
+              "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20would%20like%20to%20book%20my%20car%20in."
+            }
+          }
+        },
+        {
+          "id": "footer-3",
+          "type": "footer",
+          "visible": true,
+          "props": {
+            "blurb": "Detailing Daddy — professional car detailing studio in Nagpur. Ceramic coating, paint protection film, paint correction, interior and exterior detailing, window films, accessories and foam washing.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": false,
+            "copyright": "© 2026 Detailing Daddy, Nagpur. All rights reserved.  ·  Some photos via Pexels",
+            "columns": [
+              {
+                "title": "Studio",
+                "links": [
+                  {
+                    "text": "Home",
+                    "href": "/"
+                  },
+                  {
+                    "text": "Services",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Products",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Gallery",
+                    "href": "/gallery"
+                  },
+                  {
+                    "text": "Blog",
+                    "href": "/blog"
+                  },
+                  {
+                    "text": "Contact",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "What We Do",
+                "links": [
+                  {
+                    "text": "Ceramic Coating",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Paint Protection Film",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Interior & Exterior Detailing",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Window Films",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Foam Washing",
+                    "href": "/services"
+                  }
+                ]
+              },
+              {
+                "title": "Reach Us",
+                "links": [
+                  {
+                    "text": "WhatsApp +91 70660 77667",
+                    "href": "https://wa.me/917066077667"
+                  },
+                  {
+                    "text": "Call +91 70660 77667",
+                    "href": "tel:+917066077667"
+                  },
+                  {
+                    "text": "smdetailing1995@gmail.com",
+                    "href": "mailto:smdetailing1995@gmail.com"
+                  },
+                  {
+                    "text": "Facebook",
+                    "href": "https://www.facebook.com/share/1DmdmV5atb/"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/detailingdaddy_nagpur"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "gallery",
+      "slug": "/gallery",
+      "title": "Gallery",
+      "sections": [
+        {
+          "id": "header-4",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logoSize": "medium",
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Services",
+                "href": "/services"
+              },
+              {
+                "text": "Products",
+                "href": "/products"
+              },
+              {
+                "text": "Gallery",
+                "href": "/gallery"
+              },
+              {
+                "text": "Blog",
+                "href": "/blog"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Book Now",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "hero-4",
+          "type": "hero",
+          "visible": true,
+          "props": {
+            "badge": "Our Work",
+            "heading": "Cars finished in our studio",
+            "sub": "Ceramic coating, correction and detailing on cars from across Nagpur.",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Book Your Car In",
+              "newTab": true,
+              "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20would%20like%20to%20book%20my%20car%20in."
+            },
+            "ctaSecondary": {
+              "text": "See Our Work",
+              "href": "/gallery"
+            }
+          }
+        },
+        {
+          "id": "gallery-2",
+          "type": "gallery",
+          "visible": true,
+          "props": {
+            "label": "Our Work",
+            "heading": "Cars out of our studio",
+            "sub": "Every car on this page was finished by us in Nagpur.",
+            "images": [
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661186/detailing-daddy/dd-06.webp",
+                "alt": "Detailing studio, finished car under the lights"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661173/detailing-daddy/dd-01.jpg",
+                "alt": "Gloss finish on a white BMW"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661178/detailing-daddy/dd-03.jpg",
+                "alt": "Deep gloss on blue paint"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661183/detailing-daddy/dd-05.jpg",
+                "alt": "Finished Hyundai Creta"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661188/detailing-daddy/dd-07.webp",
+                "alt": "Jeep Compass after detailing"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661191/detailing-daddy/dd-08.jpg",
+                "alt": "BMW GT, corrected and protected"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661194/detailing-daddy/dd-09.jpg",
+                "alt": "Kia Seltos, finished"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661196/detailing-daddy/dd-10.jpg",
+                "alt": "Kia Seltos under studio lighting"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661211/detailing-daddy/dd-12.jpg",
+                "alt": "Toyota Fortuner in the studio"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661215/detailing-daddy/dd-13.jpg",
+                "alt": "Mahindra Scorpio, finished"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661219/detailing-daddy/dd-14.jpg",
+                "alt": "Scorpio-N after detailing"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661226/detailing-daddy/dd-16.jpg",
+                "alt": "Mahindra BE6 at the studio"
+              }
+            ],
+            "lightbox": true
+          }
+        },
+        {
+          "id": "cta-4",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "Want your car to look like this?",
+            "sub": "Book it in on WhatsApp — we will tell you what it needs first.",
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Book Your Car In",
+              "newTab": true,
+              "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20would%20like%20to%20book%20my%20car%20in."
+            }
+          }
+        },
+        {
+          "id": "footer-4",
+          "type": "footer",
+          "visible": true,
+          "props": {
+            "blurb": "Detailing Daddy — professional car detailing studio in Nagpur. Ceramic coating, paint protection film, paint correction, interior and exterior detailing, window films, accessories and foam washing.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": false,
+            "copyright": "© 2026 Detailing Daddy, Nagpur. All rights reserved.  ·  Some photos via Pexels",
+            "columns": [
+              {
+                "title": "Studio",
+                "links": [
+                  {
+                    "text": "Home",
+                    "href": "/"
+                  },
+                  {
+                    "text": "Services",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Products",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Gallery",
+                    "href": "/gallery"
+                  },
+                  {
+                    "text": "Blog",
+                    "href": "/blog"
+                  },
+                  {
+                    "text": "Contact",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "What We Do",
+                "links": [
+                  {
+                    "text": "Ceramic Coating",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Paint Protection Film",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Interior & Exterior Detailing",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Window Films",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Foam Washing",
+                    "href": "/services"
+                  }
+                ]
+              },
+              {
+                "title": "Reach Us",
+                "links": [
+                  {
+                    "text": "WhatsApp +91 70660 77667",
+                    "href": "https://wa.me/917066077667"
+                  },
+                  {
+                    "text": "Call +91 70660 77667",
+                    "href": "tel:+917066077667"
+                  },
+                  {
+                    "text": "smdetailing1995@gmail.com",
+                    "href": "mailto:smdetailing1995@gmail.com"
+                  },
+                  {
+                    "text": "Facebook",
+                    "href": "https://www.facebook.com/share/1DmdmV5atb/"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/detailingdaddy_nagpur"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "blog",
+      "slug": "/blog",
+      "title": "Blog",
+      "sections": [
+        {
+          "id": "header-5",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logoSize": "medium",
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Services",
+                "href": "/services"
+              },
+              {
+                "text": "Products",
+                "href": "/products"
+              },
+              {
+                "text": "Gallery",
+                "href": "/gallery"
+              },
+              {
+                "text": "Blog",
+                "href": "/blog"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Book Now",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "hero-5",
+          "type": "hero",
+          "visible": true,
+          "props": {
+            "badge": "Blog",
+            "heading": "Straight answers about car care",
+            "sub": "What detailing actually does, what protects paint, and what is worth paying for — written for owners, not for the trade.",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Book Your Car In",
+              "newTab": true,
+              "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20would%20like%20to%20book%20my%20car%20in."
+            },
+            "ctaSecondary": {
+              "text": "See Our Work",
+              "href": "/gallery"
+            }
+          }
+        },
+        {
+          "id": "blog-1",
+          "type": "blog",
+          "visible": true,
+          "props": {
+            "label": "Blog",
+            "heading": "Car care guides",
+            "sub": "Six guides on protecting and maintaining your car’s finish.",
+            "posts": [
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661181/detailing-daddy/dd-04.jpg",
+                "title": "Why Regular Car Detailing Matters",
+                "excerpt": "Detailing is maintenance, not decoration — and it shows up in what the car is worth.",
+                "body": "Most owners think of detailing as something you do before selling a car. It is closer to servicing: something that protects value continuously rather than rescuing it at the end.\n\nPaint is a consumable. UV, bird droppings, tree sap, industrial fallout and road salt all attack the clear coat, and once it fails there is no polishing it back — it has to be resprayed. Regular decontamination and protection is the difference between a clear coat that lasts the life of the car and one that clouds in five years.\n\nInside, the damage is slower but just as real: sunlight fades and cracks dashboards, grit ground into carpets wears the fibres, and spills that sit become permanent.\n\nThe practical rhythm for most cars is a proper detail once or twice a year, with correct washing in between. That is enough to keep a car looking close to new.",
+                "linkText": "Read more"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661176/detailing-daddy/dd-02.jpg",
+                "title": "Ceramic Coating — Benefits, Protection & Maintenance",
+                "excerpt": "What a coating does, what it does not, and how to look after one.",
+                "body": "A ceramic coating bonds to the clear coat and cures into a hard, hydrophobic layer. The visible benefits are gloss and beading; the real one is that dirt keys into the surface less, so washing is gentler and washing is where most damage happens.\n\nWhat it does not do is make the car scratch-proof. A coating resists light marring and chemical etching; it will not stop a stone chip or a key. For that you need film.\n\nMaintenance is simple but not optional. Wash with a pH-neutral shampoo, avoid automatic brush washes entirely, do not let bird droppings sit, and dry with a clean towel. Done that way a good coating stays effective for years.\n\nPreparation decides the outcome. A coating applied over swirled paint locks the swirls in, so correction comes first — and that is most of the work.",
+                "linkText": "Read more"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661191/detailing-daddy/dd-08.jpg",
+                "title": "Paint Correction — Restore Your Car’s Original Shine",
+                "excerpt": "What those swirl marks actually are, and what it takes to remove them.",
+                "body": "Hold a torch to a dark car and you will see fine circular scratches across the panel. Those are swirl marks, and they are not in the paint — they are in the clear coat on top of it. They scatter light, which is why the car looks dull even when clean.\n\nPaint correction removes them by levelling a few microns of clear coat with a machine polisher and abrasive compounds. Done in stages: a cutting stage to remove the defects, then a refining stage to remove the haze the cutting leaves.\n\nIt is not something to repeat endlessly. Clear coat is finite, and every correction takes a little. That is exactly why protecting the finish afterwards, and washing correctly, matters — so the car never needs heavy correction again.\n\nNot every defect is correctable. Anything through the clear coat needs paint, and we will tell you that rather than polishing at it.",
+                "linkText": "Read more"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661194/detailing-daddy/dd-09.jpg",
+                "title": "Interior Detailing — Deep Cleaning & Cabin Care",
+                "excerpt": "Where the dirt actually is, and why wiping it does not work.",
+                "body": "A cabin looks clean long after it stops being clean. Most of what is in a car is in the carpet pile, the seat foam and the vents, and a wipe over the plastics does not touch any of it.\n\nA proper interior detail extracts rather than wipes: hot water and solution injected into fabric and pulled back out with the soil in it. Vents and switch surrounds are cleaned out, leather is cleaned then conditioned so it does not dry and crack, plastics are dressed to a matte finish rather than left shiny and greasy, and the glass is done last so it ends up genuinely clear.\n\nIt makes the biggest difference in cars that carry children, pets or food — and it is the part owners notice most, because it is where they sit.",
+                "linkText": "Read more"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661196/detailing-daddy/dd-10.jpg",
+                "title": "How to Protect Your Car’s Paint & Maintain Its Gloss",
+                "excerpt": "Six habits that matter more than any product you can buy.",
+                "body": "Wash correctly. Two buckets, one for soap and one to rinse the mitt, a pH-neutral shampoo, and never a circular motion — straight lines, front to back.\n\nNever use an automatic brush wash. The brushes carry grit from every car before yours, and they are the single fastest way to swirl a finish.\n\nDeal with contamination immediately. Bird droppings and tree sap are acidic and will etch through clear coat in days in Nagpur heat. Keep a detail spray and a clean cloth in the car.\n\nDry properly. Letting a car air-dry leaves mineral spots that then need polishing off. Use a large plush drying towel.\n\nPark in shade where you can. UV is what dulls paint and fades trim.\n\nProtect the surface — wax, sealant or a coating. What matters is that something sits between the clear coat and the world.",
+                "linkText": "Read more"
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/f_auto,q_auto,w_1400/v1787661199/detailing-daddy/dd-11.jpg",
+                "title": "Paint Protection Film (PPF) — Ultimate Paint Protection",
+                "excerpt": "When film is worth it, and where to put it.",
+                "body": "A ceramic coating changes how the surface behaves. PPF puts a physical barrier in the way. They solve different problems, and on a car that is driven hard they work well together — film on the impact zones, coating over the top.\n\nFilm earns its cost on highway miles. Stone chips on the bonnet and front bumper are the most common paint damage on any car in regular use, and they are the one thing no coating prevents.\n\nMost owners fit a front kit: bonnet, front bumper, leading edges of the wings, mirrors and headlights. Full-body makes sense on a car worth protecting completely.\n\nQuality varies enormously. Good film is self-healing, does not yellow, and comes off cleanly years later. Cheap film yellows, cracks and takes paint with it — which costs far more than the film saved.",
+                "linkText": "Read more"
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-5",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "Still not sure?",
+            "sub": "Ask us on WhatsApp — happy to talk it through before you book.",
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Book Your Car In",
+              "newTab": true,
+              "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20would%20like%20to%20book%20my%20car%20in."
+            }
+          }
+        },
+        {
+          "id": "footer-5",
+          "type": "footer",
+          "visible": true,
+          "props": {
+            "blurb": "Detailing Daddy — professional car detailing studio in Nagpur. Ceramic coating, paint protection film, paint correction, interior and exterior detailing, window films, accessories and foam washing.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": false,
+            "copyright": "© 2026 Detailing Daddy, Nagpur. All rights reserved.  ·  Some photos via Pexels",
+            "columns": [
+              {
+                "title": "Studio",
+                "links": [
+                  {
+                    "text": "Home",
+                    "href": "/"
+                  },
+                  {
+                    "text": "Services",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Products",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Gallery",
+                    "href": "/gallery"
+                  },
+                  {
+                    "text": "Blog",
+                    "href": "/blog"
+                  },
+                  {
+                    "text": "Contact",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "What We Do",
+                "links": [
+                  {
+                    "text": "Ceramic Coating",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Paint Protection Film",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Interior & Exterior Detailing",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Window Films",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Foam Washing",
+                    "href": "/services"
+                  }
+                ]
+              },
+              {
+                "title": "Reach Us",
+                "links": [
+                  {
+                    "text": "WhatsApp +91 70660 77667",
+                    "href": "https://wa.me/917066077667"
+                  },
+                  {
+                    "text": "Call +91 70660 77667",
+                    "href": "tel:+917066077667"
+                  },
+                  {
+                    "text": "smdetailing1995@gmail.com",
+                    "href": "mailto:smdetailing1995@gmail.com"
+                  },
+                  {
+                    "text": "Facebook",
+                    "href": "https://www.facebook.com/share/1DmdmV5atb/"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/detailingdaddy_nagpur"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "slug": "/contact",
+      "title": "Contact",
+      "sections": [
+        {
+          "id": "header-6",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "logoSize": "medium",
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Services",
+                "href": "/services"
+              },
+              {
+                "text": "Products",
+                "href": "/products"
+              },
+              {
+                "text": "Gallery",
+                "href": "/gallery"
+              },
+              {
+                "text": "Blog",
+                "href": "/blog"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Book Now",
+              "href": "/contact"
+            }
+          }
+        },
+        {
+          "id": "hero-6",
+          "type": "hero",
+          "visible": true,
+          "props": {
+            "badge": "Contact Us",
+            "heading": "Book your car in",
+            "sub": "60, Mahajan Building, beside SBI ATM, Gangabai Ghat Road, Telephone Exchange Square, Nagpur.",
+            "fullHeight": false,
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Book Your Car In",
+              "newTab": true,
+              "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20would%20like%20to%20book%20my%20car%20in."
+            },
+            "ctaSecondary": {
+              "text": "See Our Work",
+              "href": "/gallery"
+            }
+          }
+        },
+        {
+          "id": "contact-2",
+          "type": "contact",
+          "visible": true,
+          "props": {
+            "label": "Contact",
+            "heading": "Book your car in",
+            "sub": "Send a couple of photos of the car on WhatsApp and we will tell you what it needs and what it costs. Studio visits welcome.",
+            "showPhone": true,
+            "showWhatsapp": true,
+            "showEmail": true,
+            "showAddress": true,
+            "showHours": true,
+            "showMap": true,
+            "mapUrl": "60, Mahajan Building, Beside SBI ATM, Gangabai Ghat Road, Telephone Exchange Square, Nagpur 440008",
+            "submitText": "Request a quote"
+          }
+        },
+        {
+          "id": "hours-1",
+          "type": "hours",
+          "visible": true,
+          "props": {
+            "label": "Visit Us",
+            "heading": "Studio hours",
+            "sub": "Open every day, with shorter hours on Sunday.",
+            "highlightToday": true,
+            "note": "Monday to Saturday 11:00 AM – 8:00 PM · Sunday 8:00 AM – 2:00 PM. Please message ahead for larger jobs so we can reserve a bay."
+          }
+        },
+        {
+          "id": "faq-3",
+          "type": "faq",
+          "visible": true,
+          "props": {
+            "label": "FAQ",
+            "heading": "Questions we get asked",
+            "openFirst": true,
+            "items": [
+              {
+                "q": "How long does a ceramic coating last?",
+                "a": "It depends on the coating and, more importantly, on how the car is washed afterwards. Washed correctly and kept out of automatic brush washes, a quality coating stays effective for years. We will tell you what to expect from the specific coating before you commit."
+              },
+              {
+                "q": "Is coating the same as PPF?",
+                "a": "No. A coating changes how the surface behaves — gloss, beading, easier cleaning. PPF is a physical film that stops stone chips reaching the paint. They solve different problems and are often used together, film on the front end and coating over the rest."
+              },
+              {
+                "q": "How long will my car be with you?",
+                "a": "It depends on the work. A foam wash is the same day; detailing and correction usually need a full day or more, because preparation is most of the job. We will give you a realistic time when we look at the car, not an optimistic one."
+              },
+              {
+                "q": "Do you work on bikes as well?",
+                "a": "Yes. Foam washing and detailing are available for bikes."
+              },
+              {
+                "q": "Can you remove every scratch?",
+                "a": "Not every one. Swirl marks and light scratches sit in the clear coat and can be polished out. Anything that has gone through the clear coat needs paint. We will show you which is which rather than polishing at something that will not come out."
+              },
+              {
+                "q": "How do I get a price?",
+                "a": "Send us a WhatsApp on +91 70660 77667 with a couple of photos of the car, or bring it in. Price depends on the size of the car and the condition of the paint, so we quote after seeing it — and always before starting."
+              }
+            ]
+          }
+        },
+        {
+          "id": "cta-6",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "Send us your car",
+            "sub": "A couple of photos on WhatsApp is enough to start.",
+            "showWhatsapp": true,
+            "showCall": true,
+            "ctaPrimary": {
+              "text": "Book Your Car In",
+              "newTab": true,
+              "href": "https://wa.me/917066077667?text=Hi%20Detailing%20Daddy%2C%20I%20would%20like%20to%20book%20my%20car%20in."
+            }
+          }
+        },
+        {
+          "id": "footer-6",
+          "type": "footer",
+          "visible": true,
+          "props": {
+            "blurb": "Detailing Daddy — professional car detailing studio in Nagpur. Ceramic coating, paint protection film, paint correction, interior and exterior detailing, window films, accessories and foam washing.",
+            "showContact": true,
+            "showHours": true,
+            "showSocial": true,
+            "showLegal": false,
+            "copyright": "© 2026 Detailing Daddy, Nagpur. All rights reserved.  ·  Some photos via Pexels",
+            "columns": [
+              {
+                "title": "Studio",
+                "links": [
+                  {
+                    "text": "Home",
+                    "href": "/"
+                  },
+                  {
+                    "text": "Services",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Products",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Gallery",
+                    "href": "/gallery"
+                  },
+                  {
+                    "text": "Blog",
+                    "href": "/blog"
+                  },
+                  {
+                    "text": "Contact",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "What We Do",
+                "links": [
+                  {
+                    "text": "Ceramic Coating",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Paint Protection Film",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Interior & Exterior Detailing",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Window Films",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "Foam Washing",
+                    "href": "/services"
+                  }
+                ]
+              },
+              {
+                "title": "Reach Us",
+                "links": [
+                  {
+                    "text": "WhatsApp +91 70660 77667",
+                    "href": "https://wa.me/917066077667"
+                  },
+                  {
+                    "text": "Call +91 70660 77667",
+                    "href": "tel:+917066077667"
+                  },
+                  {
+                    "text": "smdetailing1995@gmail.com",
+                    "href": "mailto:smdetailing1995@gmail.com"
+                  },
+                  {
+                    "text": "Facebook",
+                    "href": "https://www.facebook.com/share/1DmdmV5atb/"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/detailingdaddy_nagpur"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -64,6 +64,9 @@ $SITES = [
     // site takes a DIFFERENT slug — index.php resolves a published builder site
     // before vcards.url_alias and would otherwise swallow the card. Probed live: 404.
     'truesmiledental' => ['file' => 'content-true-smile-dental.json', 'label' => 'True Smile Dental Clinic'],
+    // detailingdaddy.tapify.co.in probed live before adding: 404, no vCard to
+    // shadow, so the natural slug is safe.
+    'detailingdaddy' => ['file' => 'content-detailing-daddy.json', 'label' => 'Detailing Daddy'],
 ];
 
 require_once __DIR__ . '/config/database.php';
