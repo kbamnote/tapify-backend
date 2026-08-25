@@ -1562,8 +1562,39 @@ class SiteRenderer
         // Map.
         $mapSrc = null;
         if (($p['showMap'] ?? true) !== false && in_array($variant, ['form-map', 'details-map'], true)) {
-            $q = trim((string)($p['mapUrl'] ?? $biz['mapUrl'] ?? $biz['address'] ?? ''));
-            if ($q !== '') $mapSrc = preg_match('#/maps/embed|output=embed#', $q) ? $q : ('https://www.google.com/maps?q=' . rawurlencode($q) . '&output=embed');
+            $q    = trim((string)($p['mapUrl'] ?? $biz['mapUrl'] ?? ''));
+            $addr = trim((string)($biz['address'] ?? ''));
+
+            if ($q !== '' && preg_match('#/maps/embed|output=embed#', $q)) {
+                $mapSrc = $q;                     // already an embeddable URL
+            } else {
+                /**
+                 * A PLAIN Maps link cannot be put in an iframe — Google refuses
+                 * to frame maps.google.com/?cid=…, /maps/place/… and
+                 * maps.app.goo.gl/… . The old code fed the whole URL to
+                 * ?q=<urlencoded>, so Maps searched for the literal URL text and
+                 * the panel came up empty or on the wrong place. That is exactly
+                 * what a listing's googleMapsUri looks like.
+                 *
+                 * So: search by something Maps can actually resolve — the street
+                 * address, else coordinates lifted out of the link, else the
+                 * place name in a /maps/place/<Name>/ URL. A link we cannot turn
+                 * into a query renders no map rather than a wrong one.
+                 */
+                $needle = '';
+                if ($addr !== '') {
+                    $needle = $addr;
+                } elseif ($q !== '' && preg_match('#@(-?\d+\.\d+),(-?\d+\.\d+)#', $q, $m)) {
+                    $needle = $m[1] . ',' . $m[2];
+                } elseif ($q !== '' && preg_match('#/maps/place/([^/@?]+)#', $q, $m)) {
+                    $needle = str_replace('+', ' ', rawurldecode($m[1]));
+                } elseif ($q !== '' && !preg_match('#^https?://#i', $q)) {
+                    $needle = $q;                 // it was plain text all along
+                }
+                if ($needle !== '') {
+                    $mapSrc = 'https://www.google.com/maps?q=' . rawurlencode($needle) . '&output=embed';
+                }
+            }
         }
 
         $header = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null);
@@ -3145,7 +3176,12 @@ JS;
      */
     private static function mobileBar(array $doc): string
     {
-        $show = $doc['settings']['showMobileActionBar'] ?? false;
+        // ON by default. Every site here is a small business whose visitors are
+        // overwhelmingly on a phone, and the bar is the only always-reachable
+        // route to WhatsApp/call/directions. A site that has explicitly stored
+        // false still gets no bar — this only changes the unset case, which is
+        // every document that never had a settings block at all.
+        $show = $doc['settings']['showMobileActionBar'] ?? true;
         if (!$show) return '';
 
         $biz     = $doc['business'] ?? [];

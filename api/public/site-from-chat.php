@@ -319,7 +319,7 @@ try {
                 }
                 unset($it);
                 if ($items) { $p['items'] = $items; }
-                $instance['variant'] = 'carousel';       // swipeable by default
+                $instance['variant'] = 'marquee';        // auto-scrolling ticker
                 break;
 
             case 'gallery':
@@ -334,7 +334,7 @@ try {
                     if (count($imgs) >= 60) break;      // manifest ceiling
                 }
                 if ($imgs) { $p['images'] = $imgs; }
-                $instance['variant'] = 'slider';
+                $instance['variant'] = 'marquee';
                 break;
 
             case 'testimonials':
@@ -350,7 +350,7 @@ try {
                 }
                 if ($items) { $p['items'] = $items; }
                 $p['heading'] = 'What our customers say on Google';
-                $instance['variant'] = 'slider';
+                $instance['variant'] = 'marquee';
                 break;
 
             case 'embed':
@@ -453,7 +453,7 @@ try {
         // because it happened to be "/", which is why the failure looked like
         // three separate errors rather than one mistake.
         $groups = [
-            ['id' => 'home',    'slug' => '/',        'title' => 'Home',     'secs' => ['hero', 'stats', 'services', 'testimonials', 'embed', 'cta']],
+            ['id' => 'home',    'slug' => '/',        'title' => 'Home',     'secs' => ['hero', 'stats', 'services', 'testimonials', 'embed', 'cta', 'contact']],
             ['id' => 'about',   'slug' => '/about',   'title' => 'About Us', 'secs' => ['about']],
             ['id' => 'gallery', 'slug' => '/gallery', 'title' => 'Gallery',  'secs' => ['gallery']],
             ['id' => 'contact', 'slug' => '/contact', 'title' => 'Contact',  'secs' => ['hours', 'contact']],
@@ -504,6 +504,38 @@ try {
         }
     }
     unset($pgW);
+
+    /**
+     * Kill "#anchor" hrefs — the reason Portfolio and Contact did not open.
+     *
+     * Recipe copy is written for a ONE-PAGE layout, so its buttons point at
+     * "#contact", "#portfolio" and friends. Once those sections live on separate
+     * pages the anchor matches no element on the current page, so the browser
+     * stays put and the link looks broken. Section ids are generated
+     * ("sec-a1b2c3"), never "contact", so these could never have resolved.
+     *
+     * Rewrite each one to the real page when a page of that name exists, and
+     * send the rest home rather than leaving a link that visibly does nothing.
+     */
+    $byName = [];
+    foreach ($pages as $pg) {
+        $byName[strtolower((string)$pg['id'])] = $pg['slug'];
+        $byName[strtolower(ltrim((string)$pg['slug'], '/'))] = $pg['slug'];
+    }
+    $fixAnchors = function (&$node) use (&$fixAnchors, $byName) {
+        if (is_array($node)) {
+            foreach ($node as $k => &$v) {
+                if ($k === 'href' && is_string($v) && $v !== '' && $v[0] === '#') {
+                    $key = strtolower(trim(substr($v, 1)));
+                    $v = $byName[$key] ?? '/';
+                } else {
+                    $fixAnchors($v);
+                }
+            }
+            unset($v);
+        }
+    };
+    $fixAnchors($pages);
 
     // Header nav from REAL pages — and the header section's own links must
     // point at those pages, because anchors like #services die the moment
@@ -559,6 +591,10 @@ try {
             'locale'   => 'en-IN',
         ]),
         'theme' => $theme,
+        // Sticky WhatsApp / call / directions bar on phones. Set explicitly
+        // rather than relying on the renderer default, so the value is visible
+        // in the document and in the editor's toggle.
+        'settings' => ['showMobileActionBar' => true],
         'nav'   => ['header' => $headerNav],
         'pages' => $pages,
         'business' => array_merge(

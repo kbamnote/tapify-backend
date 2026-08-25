@@ -132,7 +132,7 @@
         "showMobileActionBar": {
           "description": "Show a sticky bottom action bar on mobile with WhatsApp, Save Contact, Bookmark and Location buttons.",
           "type": "boolean",
-          "default": false
+          "default": true
         }
       }
     }
