@@ -315,6 +315,23 @@ try {
 
     /* â”€â”€ 5. PAGES. Recipes with real pages get them; every other business
        still gets a proper four-page site instead of one long scroll. */
+    /**
+     * Force a page slug into the shape SiteValidator accepts (^/[a-z0-9/-]*$).
+     * The literals above are only half the problem — a recipe is free to define
+     * 'slug' => 'services' and would fail the document exactly the same way,
+     * with an error naming the page index rather than the recipe. Normalising
+     * here means neither source can produce an invalid slug again.
+     */
+    $pageSlug = function ($raw, string $fallbackId, int $i): string {
+        $s = strtolower(trim((string)$raw));
+        if ($s === '') $s = ($i === 0 ? '/' : $fallbackId);
+        $s = '/' . ltrim($s, '/');
+        $s = preg_replace('~[^a-z0-9/-]+~', '-', $s);
+        $s = preg_replace('~-{2,}~', '-', $s);
+        if ($s !== '/') $s = rtrim($s, '/-');
+        return $s === '' ? '/' : $s;
+    };
+
     $recipePages = $recipe['pages'] ?? null;
     $pages = [];
     if (is_array($recipePages) && count($recipePages)) {
@@ -330,7 +347,7 @@ try {
             $title   = $pd['title'] ?? ucfirst(str_replace('-', ' ', $pid));
             $pages[] = [
                 'id'       => $pid,
-                'slug'     => $pd['slug'] ?? ($i === 0 ? '/' : '/' . $pid),
+                'slug'     => $pageSlug($pd['slug'] ?? null, $pid, $i),
                 'title'    => $title,
                 'seo'      => array_merge(['title' => ($i === 0 ? $name : $name . ' — ' . $title), 'robots' => 'index,follow'], (array)($pd['seo'] ?? [])),
                 'sections' => $pageSections,
@@ -339,11 +356,16 @@ try {
     }
     if (!count($pages)) {
         // Synthesised four-pager: Home / About Us / Gallery / Contact.
+        // Every slug MUST start with "/" — SiteValidator enforces
+        // ^/[a-z0-9/-]*$ and rejected the whole document over the three that
+        // were written bare ("about", "gallery", "contact"). Home passed only
+        // because it happened to be "/", which is why the failure looked like
+        // three separate errors rather than one mistake.
         $groups = [
-            ['id' => 'home',    'slug' => '/',       'title' => 'Home',     'secs' => ['hero', 'stats', 'services', 'cta']],
-            ['id' => 'about',   'slug' => 'about',   'title' => 'About Us', 'secs' => ['about']],
-            ['id' => 'gallery', 'slug' => 'gallery', 'title' => 'Gallery',  'secs' => ['gallery']],
-            ['id' => 'contact', 'slug' => 'contact', 'title' => 'Contact',  'secs' => ['hours', 'contact']],
+            ['id' => 'home',    'slug' => '/',        'title' => 'Home',     'secs' => ['hero', 'stats', 'services', 'cta']],
+            ['id' => 'about',   'slug' => '/about',   'title' => 'About Us', 'secs' => ['about']],
+            ['id' => 'gallery', 'slug' => '/gallery', 'title' => 'Gallery',  'secs' => ['gallery']],
+            ['id' => 'contact', 'slug' => '/contact', 'title' => 'Contact',  'secs' => ['hours', 'contact']],
         ];
         foreach ($groups as $g) {
             if ($g['id'] === 'gallery' && !$hasGalleryImg) continue;   // no real photos, no page
@@ -356,7 +378,7 @@ try {
             if (!$secs) continue;                            // a page needs body
             $pages[] = [
                 'id'       => $g['id'],
-                'slug'     => $g['slug'],
+                'slug'     => $pageSlug($g['slug'], $g['id'], $g['id'] === 'home' ? 0 : 1),
                 'title'    => $g['title'],
                 'seo'      => ['title' => $g['id'] === 'home' ? $name : $name . ' — ' . $g['title'], 'robots' => 'index,follow'],
                 'sections' => $secs,
