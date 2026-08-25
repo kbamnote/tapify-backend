@@ -28,6 +28,14 @@ class StockImage
 
     private static $tableReady = false;
 
+    /** Who took the photo we last returned — for the required Pexels credit. */
+    private static $lastCredit = null;
+
+    public static function lastCredit(): ?array { return self::$lastCredit; }
+
+    /** True once any photo has come from Pexels during this request. */
+    public static function used(): bool { return self::$lastCredit !== null; }
+
     private static function key(): string
     {
         return trim((string)(getenv('PEXELS_API_KEY') ?: ''));
@@ -128,8 +136,16 @@ class StockImage
             return null;
         }
         $j = json_decode((string)$body, true);
-        $p = $j['photos'][0]['src'] ?? null;
+        $photo = $j['photos'][0] ?? null;
+        $p = $photo['src'] ?? null;
         if (!is_array($p)) return null;
+        // Pexels' API guidelines require crediting the photographer. Remember who
+        // took it so the page can say so; the caller reads lastCredit().
+        self::$lastCredit = [
+            'photographer' => trim((string)($photo['photographer'] ?? '')),
+            'url'          => trim((string)($photo['photographer_url'] ?? '')),
+            'alt'          => trim((string)($photo['alt'] ?? '')),
+        ];
         // `large` is ~940px wide — enough for a 176px card and a detail page,
         // without shipping a 4000px original to a phone.
         $out = $p['large'] ?? $p['landscape'] ?? $p['medium'] ?? $p['original'] ?? null;

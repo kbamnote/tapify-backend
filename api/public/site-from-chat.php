@@ -225,7 +225,7 @@ try {
     // Real-data gates: a section we cannot fill with HIS truth ships empty-
     // handed rather than with placeholder numbers or photos.
     $hasStatsData  = $yearsIn > 0 || ($gmb && ((int)($gmb['reviews_total'] ?? 0) > 0 || (float)($gmb['rating'] ?? 0) > 0));
-    $hasGalleryImg = $gmb && count($gmb['gmb_photos'] ?? []) >= 4;
+    $hasGalleryImg = $gmb && count($gmb['gmb_photos'] ?? []) >= 2;   // uses every photo now
 
     // Sections that would render demo PEOPLE / PRODUCTS / REVIEWS we did not
     // earn from his listing are dropped outright; his real Google numbers
@@ -354,10 +354,15 @@ try {
                 ));
                 $usedArt = [];
                 foreach ($items as $k => &$it) {
-                    if ($img = $photoOf($k + 2)) { $it['image'] = $img['url']; continue; }
-                    // A picture of THIS service. The category rides along as
-                    // context because short service words are ambiguous on their
-                    // own — "Fillings" alone returns cake.
+                    // A picture of THIS service, FIRST. The category rides along
+                    // as context because short service words are ambiguous on
+                    // their own — "Fillings" alone returns cake.
+                    //
+                    // His Google photos are deliberately NOT used here any more.
+                    // They are shop and premises shots, not pictures of "keratin
+                    // treatment", and because a listing usually has ~10 of them
+                    // they filled every card and the service search never ran at
+                    // all. They belong in the gallery, which is where they go.
                     $shot = StockImage::forService($pdoRef, (string)$it['title'], $gcat ?: $typeCtx);
                     if ($shot) { $it['image'] = $shot; continue; }
                     $words = preg_split('/[^\p{L}\p{N}]+/u', mb_strtolower((string)$it['title']),
@@ -391,7 +396,9 @@ try {
                 // photo used on a card is still worth showing full-size here.
                 $imgs = [];
                 foreach (($gmb['gmb_photos'] ?? []) as $k => $im) {
-                    if ($k < 2) continue;               // hero + about already
+                    // EVERY Google photo. The hero and About reuse 0 and 1, but
+                    // this section exists precisely to show his real premises, so
+                    // skipping them left a thin gallery for no benefit.
                     $imgs[] = ['image' => $im['url'],
                                'alt'   => mb_substr($name . ' — photo ' . ($k + 1), 0, 120)];
                     if (count($imgs) >= 60) break;      // manifest ceiling
@@ -457,8 +464,16 @@ try {
                 }
                 break;
 
-            case 'header':
             case 'footer':
+                // Pexels' API guidelines require a visible credit when their
+                // photos are shown. Only added when one was actually used, so a
+                // site built entirely from his own photos does not carry it.
+                if (StockImage::used()) {
+                    $p['copyright'] = trim((string)($p['copyright'] ?? ''))
+                        . (empty($p['copyright']) ? '' : '  ·  ') . 'Some photos via Pexels';
+                }
+                // fall through — the logo applies to header and footer alike
+            case 'header':
                 /**
                  * His uploaded logo — only where the manifest declares a logo prop.
                  *
@@ -534,7 +549,7 @@ try {
         // because it happened to be "/", which is why the failure looked like
         // three separate errors rather than one mistake.
         $groups = [
-            ['id' => 'home',    'slug' => '/',        'title' => 'Home',     'secs' => ['hero', 'stats', 'services', 'testimonials', 'embed', 'cta', 'contact']],
+            ['id' => 'home',    'slug' => '/',        'title' => 'Home',     'secs' => ['hero', 'stats', 'services', 'gallery', 'testimonials', 'embed', 'cta', 'contact']],
             ['id' => 'about',   'slug' => '/about',   'title' => 'About Us', 'secs' => ['about']],
             ['id' => 'gallery', 'slug' => '/gallery', 'title' => 'Gallery',  'secs' => ['gallery']],
             ['id' => 'contact', 'slug' => '/contact', 'title' => 'Contact',  'secs' => ['hours', 'contact']],
@@ -544,6 +559,7 @@ try {
             $secs = [];
             foreach ($g['secs'] as $t) {
                 if (!in_array($t, $types, true)) continue;   // respect strip list & availability
+                if ($t === 'gallery' && !$hasGalleryImg) continue;   // never an empty gallery
                 $i3 = $buildSection($t);
                 if ($i3) $secs[] = $i3;
             }
