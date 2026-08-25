@@ -1,0 +1,33 @@
+{
+  "preset": "carbon-ember",
+  "label": "Carbon & Ember",
+  "description": "Carbon-black studio darkness with a vivid orange accent. Built for premium car detailing, ceramic coating and PPF — a dark page makes glossy paint the brightest thing on screen, and the orange carries a workshop brand without shouting.",
+  "industries": [
+    "automotive",
+    "car detailing",
+    "ceramic coating",
+    "ppf",
+    "car care"
+  ],
+  "tokens": {
+    "mode": "dark",
+    "color": {
+      "primary": "#F58634",
+      "secondary": "#212125",
+      "accent": "#F58634",
+      "bg": "#0D0D0F",
+      "surface": "#17171A",
+      "text": "#F5F5F6",
+      "muted": "#8B8B8E",
+      "border": "#2E2E33"
+    },
+    "font": {
+      "heading": "Chakra Petch",
+      "body": "Inter"
+    },
+    "radius": "md",
+    "spacing": "comfortable",
+    "container": "normal"
+  },
+  "notes": "Tokens only. On a DARK theme the text colours are LIGHTENED until they clear 4.5:1 on the background — the opposite of the light-theme fix. `secondary` and `border` sit deliberately close to `bg` because they are elevation, not text; do not \"fix\" their contrast. `accent` is what the renderer paints 12px meta text with in ~15 places, so it is the one that must never be darkened back toward the original hue. Shipped octane fails this test (primary 3.74:1 on bg), which is why this exists."
+}
