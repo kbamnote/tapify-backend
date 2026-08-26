@@ -125,10 +125,11 @@ if ($instaRaw !== '' && $instaRaw !== '-') {
     }
 }
 
-// The three chat answers are the payload; without them there is nothing to build.
-if ($type === '' || $services === '' || $audience === '') {
-    sendError('type, services and audience are required.', 422);
-}
+// The three chat answers SHAPE the site, but none of them is worth refusing to
+// build over. A missing answer is filled from the Google listing further down
+// (category becomes the type, the category name becomes the service) and the
+// page copy simply carries less detail. Refusing here used to throw away a
+// customer who had already answered five other questions.
 $name = $business !== '' ? $business : ucfirst($type);
 $placeId = trim((string)($input['place_id'] ?? ''));
 
@@ -168,10 +169,26 @@ try {
         // not, create it here with the SAME password rule the bot quoted
         // (their 10-digit number), plus the starter subscription every other
         // client gets — otherwise limit checks elsewhere find no row.
-        if ($email === '') sendError('email is required so the website has an owner.', 422);
+        // No email on the payload — the bot normally collects it, but a site
+        // must not be lost to a missing field. The register step used the same
+        // phone, so look the owner up by that before considering it hopeless.
+        if ($email === '') {
+            $d10 = substr(preg_replace('/\D/', '', $phone), -10);
+            if ($d10 !== '') {
+                $st = $pdo->prepare(
+                    "SELECT id FROM users WHERE REPLACE(REPLACE(phone,' ',''),'+','') LIKE ?
+                      ORDER BY id DESC LIMIT 1");
+                $st->execute(['%' . $d10]);
+                $ownerId = $st->fetchColumn() ?: null;
+            }
+            if (!$ownerId) sendError('email is required so the website has an owner.', 422);
+        }
         $pass = substr(preg_replace('/\D/', '', $phone), -10);
-        if (strlen($pass) < 6) sendError('A valid 10-digit contact number is required.', 422);
+        // A short or missing number gets a generated password rather than a
+        // dead end; the owner can reset it, and the bot quotes what it set.
+        if (strlen($pass) < 6) $pass = 'tp' . bin2hex(random_bytes(3));
 
+        if (!$ownerId) {
         $st = $pdo->prepare("INSERT INTO users (name, email, password, role, status) VALUES (?, ?, ?, 'user', 1)");
         $st->execute([$name, $email, hashPassword($pass)]);
         $ownerId = (int)$pdo->lastInsertId();
@@ -181,12 +198,19 @@ try {
              VALUES (?, 'Free Plan', 5, 1, 0, ?, ?, 'active')"
         );
         $st->execute([$ownerId, date('Y-m-d'), date('Y-m-d', strtotime('+1 year'))]);
+        }
     }
     error_log('[SITE-CHAT] owner resolved: ' . var_export($ownerId, true));
 
     /* â”€â”€ 2. Address: their business name, made unique. â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
     $slug = SiteRepo::normaliseSlug('', $name);
-    if ($slug === '') sendError(SiteRepo::SLUG_RULE);
+    if ($slug === '') {
+        // A name with no Latin characters normalises to nothing. That is a
+        // reason to generate an address, not to refuse the customer one.
+        $slug = SiteRepo::normaliseSlug('', $type ?: 'business');
+        if ($slug === '') $slug = 'site-' . bin2hex(random_bytes(3));
+        error_log('[SITE-CHAT] name did not normalise; generated slug ' . $slug);
+    }
     if (!SiteRepo::slugAvailable($slug)) {
         // First choice taken — do NOT fail the chat over it. -2 … -9, then a
         // random suffix; the customer is told the exact address either way.
@@ -603,6 +627,80 @@ try {
     unset($pgW);
 
     /**
+     * Give every page a real body, and put his photos on the home page.
+     *
+     * Pages arrive from one of two paths — the recipe's own pages[], or the
+     * synthesised four-pager — and they disagree about what a page contains. A
+     * recipe page can be a single `about` section, which renders as a hero and
+     * two lines of text. So composition is settled HERE, once, for both paths.
+     *
+     * Only sections we can fill with HIS data are used as filler: his Google
+     * photos, his Google numbers, his reviews, his Instagram. Nothing is added
+     * that would render a demo.
+     */
+    $already = function (array $pg, string $t): bool {
+        foreach (($pg['sections'] ?? []) as $sc) {
+            if (($sc['type'] ?? '') === $t) return true;
+        }
+        return false;
+    };
+    // Ordered by how much they earn their place on a small business page.
+    $filler = [];
+    if ($hasGalleryImg)              $filler[] = 'gallery';
+    if ($hasReviews)                 $filler[] = 'testimonials';
+    if ($hasStatsData)               $filler[] = 'stats';
+    if ($hasEmbed)                   $filler[] = 'embed';
+    $filler[] = 'cta';               // always available, needs no data
+    $filler[] = 'contact';           // ditto — business info is already known
+
+    foreach ($pages as $pi => $pg) {
+        $isHome = ($pg['id'] ?? '') === 'home';
+
+        // His premises belong on the page most people will ever see.
+        if ($isHome && $hasGalleryImg && !$already($pg, 'gallery')) {
+            $g = $buildSection('gallery');
+            if ($g) {
+                $at = count($pg['sections']);
+                foreach ($pg['sections'] as $k => $sc) {
+                    if (in_array($sc['type'] ?? '', ['cta', 'contact', 'footer'], true)) {
+                        $at = $k;
+                        break;
+                    }
+                }
+                array_splice($pages[$pi]['sections'], $at, 0, [$g]);
+                $pg = $pages[$pi];
+            }
+        }
+
+        // A page with one section is a page nobody scrolls. Top up to three.
+        $body = 0;
+        foreach (($pg['sections'] ?? []) as $sc) {
+            if (!in_array($sc['type'] ?? '', ['header', 'footer'], true)) $body++;
+        }
+        // Rotate the order per page. Without this every page takes the first
+        // filler and the whole site reads as the same page four times — a
+        // gallery under Contact, a gallery under Products, and so on.
+        $rot = $filler;
+        if ($rot && $pi > 0) {
+            $shift = $pi % count($rot);
+            $rot = array_merge(array_slice($rot, $shift), array_slice($rot, 0, $shift));
+        }
+        foreach ($rot as $t) {
+            if ($body >= 3) break;
+            if ($already($pages[$pi], $t)) continue;
+            $sec = $buildSection($t);
+            if (!$sec) continue;
+            // before the footer, so the footer stays last
+            $at = count($pages[$pi]['sections']);
+            foreach ($pages[$pi]['sections'] as $k => $sc) {
+                if (($sc['type'] ?? '') === 'footer') { $at = $k; break; }
+            }
+            array_splice($pages[$pi]['sections'], $at, 0, [$sec]);
+            $body++;
+        }
+    }
+
+    /**
      * Kill "#anchor" hrefs — the reason Portfolio and Contact did not open.
      *
      * Recipe copy is written for a ONE-PAGE layout, so its buttons point at
@@ -673,12 +771,14 @@ try {
     foreach ($pages as $pg) {
         $navLinks[] = ['text' => (string)$pg['title'], 'href' => (string)$pg['slug']];
     }
-    if (count($navLinks) > 1) {
-        foreach ($pages as $pi => $pg) {
-            foreach (($pg['sections'] ?? []) as $si => $sec) {
-                if (($sec['type'] ?? '') === 'header') {
-                    $pages[$pi]['sections'][$si]['props']['links'] = $navLinks;
-                }
+    // UNCONDITIONAL. This used to be skipped when the site had only one page,
+    // which left the recipe's own invented menu — "Services", "Packages",
+    // "Journal" — pointing at pages that do not exist. The header must never
+    // advertise anything the site does not actually have.
+    foreach ($pages as $pi => $pg) {
+        foreach (($pg['sections'] ?? []) as $si => $sec) {
+            if (($sec['type'] ?? '') === 'header') {
+                $pages[$pi]['sections'][$si]['props']['links'] = $navLinks;
             }
         }
     }
@@ -737,12 +837,88 @@ try {
         ),
     ];
 
-    // The starter doc must itself be valid — catches a broken manifest early.
-    $errors = (new SiteValidator())->validate(json_decode(json_encode($doc), true));
+    /**
+     * Validate — and if it fails, REPAIR rather than refuse.
+     *
+     * A validation error here used to end the conversation with "could not
+     * build a valid starter site", after the customer had answered six
+     * questions. Almost every such error is one bad section in one page, so:
+     *
+     *   1. drop the exact sections the validator named, and try again
+     *   2. failing that, ship a minimal site built only from business info,
+     *      whose shape is fixed and therefore cannot be invalid
+     *
+     * The full error is always logged, because degrading quietly forever would
+     * hide a real manifest bug.
+     */
+    $flat  = fn($d) => json_decode(json_encode($d), true);
+    $errors = (new SiteValidator())->validate($flat($doc));
     error_log('[SITE-CHAT] doc built. pages=' . count($pages) . ' home_secs=' . count($pages[0]['sections'] ?? []));
+
     if ($errors) {
         error_log('[SITE-CHAT] VALIDATION FAILED: ' . implode(' | ', $errors));
-        sendError('Could not build a valid starter site: ' . implode('; ', array_slice($errors, 0, 5)), 500);
+
+        // (1) Errors name their path: pages[2].sections[4](gallery).props...
+        $dropped = [];
+        foreach ($errors as $e) {
+            if (preg_match('~pages\[(\d+)\]\.sections\[(\d+)\]~', $e, $m)) {
+                $dropped[(int)$m[1]][(int)$m[2]] = true;
+            }
+        }
+        foreach ($dropped as $pi => $sis) {
+            krsort($sis);                       // remove from the end, keep indexes valid
+            foreach (array_keys($sis) as $si) {
+                if (isset($doc['pages'][$pi]['sections'][$si])) {
+                    array_splice($doc['pages'][$pi]['sections'], $si, 1);
+                }
+            }
+        }
+        // a page emptied by that is no longer a page
+        $doc['pages'] = array_values(array_filter($doc['pages'], function ($pg) {
+            foreach (($pg['sections'] ?? []) as $sc) {
+                if (!in_array($sc['type'] ?? '', ['header', 'footer'], true)) return true;
+            }
+            return false;
+        }));
+
+        $errors = $doc['pages'] ? (new SiteValidator())->validate($flat($doc)) : ['no pages left'];
+        if (!$errors) {
+            error_log('[SITE-CHAT] recovered by dropping ' . count($dropped, COUNT_RECURSIVE) . ' section(s)');
+        } else {
+            // (2) Last resort. Fixed shape, business info only, no repeaters,
+            //     no media, nothing a manifest change can invalidate.
+            error_log('[SITE-CHAT] STILL INVALID, falling back to a minimal site: '
+                      . implode(' | ', $errors));
+            $mk = function (string $t) {
+                $i = SchemaRegistry::newSectionInstance($t);
+                if ($i && !isset($i['props'])) $i['props'] = new stdClass();
+                return $i;
+            };
+            $minSecs = [];
+            foreach (['header', 'hero', 'contact', 'footer'] as $t) {
+                $i = $mk($t);
+                if (!$i) continue;
+                if ($t === 'hero') {
+                    $i['props'] = ['heading' => mb_substr($name, 0, 120),
+                                   'sub'     => mb_substr($services ?: ($gcat ?: ''), 0, 300),
+                                   'showCall' => true];
+                }
+                $minSecs[] = $i;
+            }
+            $doc['pages'] = [[
+                'id' => 'home', 'slug' => '/', 'title' => 'Home',
+                'seo' => ['title' => $name, 'robots' => 'index,follow'],
+                'sections' => $minSecs,
+            ]];
+            $doc['nav'] = ['header' => [['label' => 'Home', 'pageId' => 'home']]];
+            $errors = (new SiteValidator())->validate($flat($doc));
+            if ($errors) {
+                // Nothing left to try; this is a broken deployment, not bad input.
+                error_log('[SITE-CHAT] MINIMAL DOC ALSO INVALID: ' . implode(' | ', $errors));
+                sendError('Could not build the website right now.', 500);
+            }
+            error_log('[SITE-CHAT] shipped the minimal fallback');
+        }
     }
 
     /* â”€â”€ 5. Create + PUBLISH — live immediately, like any other client. â”€â”€â”€â”€ */

@@ -22,6 +22,22 @@
  */
 class VisibilityScore
 {
+
+    /**
+     * How much of the full marketing picture Places can actually see.
+     *
+     * The public listing shows reviews, rating, photos, hours, website,
+     * description and category. It cannot show reply rate, Google Posts,
+     * unanswered questions, photo RECENCY, services or attributes — roughly
+     * two fifths of what decides local ranking, and all of it only visible once
+     * the owner connects the account in the app.
+     *
+     * So a business that is perfect on everything public tops out at 58 here.
+     * That is the honest ceiling, not a penalty: the remaining 42 points are
+     * real work that genuinely has not been measured yet.
+     */
+    const VISIBLE_SHARE = 0.58;
+
     /**
      * @param array $s Signals from PlacesClient::details().
      *   reviews_total, rating, photos_total, photos_capped,
@@ -222,10 +238,31 @@ class VisibilityScore
 
         $earned   = array_sum(array_column($items, 'earned'));
         $possible = array_sum(array_column($items, 'points'));
-        $score    = $possible > 0 ? (int)round($earned / $possible * 100) : 0;
+
+        /**
+         * The seven public signals are NOT the whole marketing score, so they
+         * must not be normalised to 100 as if they were.
+         *
+         * Dividing by the visible points alone made a business look complete
+         * when it had only done the part Google shows publicly — and it scored
+         * HIGHER here than the app would, so connecting the app made the number
+         * DROP. That reads as a bait-and-switch, and it is the fastest way to
+         * lose someone who has just installed.
+         *
+         * Scoring them as their real SHARE of the full picture fixes both ends:
+         * the number starts lower, there is genuine headroom, and once the app
+         * can see reply rate, posts, Q&A, photo recency and the rest, the score
+         * can only go UP. The message must SAY the remainder is measured in the
+         * app — a low number the customer cannot explain is just discouraging.
+         */
+        $score = $possible > 0
+            ? (int)round($earned / $possible * 100 * self::VISIBLE_SHARE)
+            : 0;
 
         return [
             'kind'     => 'marketing_preview',
+            'visible_share' => self::VISIBLE_SHARE,
+            'locked'   => (int)round(100 * (1 - self::VISIBLE_SHARE)),
             'score'    => $score,
             'max'      => 100,
             'earned'   => $earned,
