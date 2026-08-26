@@ -52,7 +52,10 @@ class VisibilityScore
             return array_key_exists($k, $s) && $s[$k] !== null ? $s[$k] : null;
         };
         $items = [];
-        $add = function ($group, $key, $label, $points, $earned, $hint) use (&$items) {
+        // $hintKey/$hintVars exist so the BOT can translate. The English $hint
+        // stays as the fallback and as what non-chat callers read.
+        $add = function ($group, $key, $label, $points, $earned, $hint,
+                         $hintKey = '', $hintVars = []) use (&$items) {
             $items[] = [
                 'group'  => $group,
                 'key'    => $key,
@@ -61,6 +64,8 @@ class VisibilityScore
                 'earned' => $earned,
                 'status' => $earned >= $points ? 'good' : ($earned > 0 ? 'partial' : 'missing'),
                 'hint'   => $hint,
+                'hint_key'  => $hintKey,
+                'hint_vars' => (object)$hintVars,
             ];
         };
 
@@ -188,7 +193,8 @@ class VisibilityScore
             $add('Reputation', 'review_volume', 'Number of reviews', 24, $e,
                 $n == 0
                     ? 'No reviews yet. This is the first thing anyone looks at before choosing you.'
-                    : "{$n} reviews. Businesses that own their local market usually carry 100 or more.");
+                    : "{$n} reviews. Businesses that own their local market usually carry 100 or more.",
+                $n == 0 ? 'gap.reviews.none' : 'gap.reviews.few', ['n' => $n]);
         }
         $r = $g('rating');
         if ($r !== null) {
@@ -196,7 +202,9 @@ class VisibilityScore
             $add('Reputation', 'rating', 'Star rating', 18, $e,
                 $r > 0
                     ? sprintf('%.1f stars. Top-ranked competitors sit at 4.7 or higher.', $r)
-                    : 'No rating yet — nobody has reviewed you.');
+                    : 'No rating yet — nobody has reviewed you.',
+                $r > 0 ? 'gap.rating.low' : 'gap.rating.none',
+                ['r' => number_format((float)$r, 1)]);
         }
 
         /* ── Photos: 18 ─────────────────────────────────────────────────── */
@@ -206,19 +214,22 @@ class VisibilityScore
             $add('Photos', 'photos', 'Photos on the listing', 18, $e,
                 $p == 0
                     ? 'No photos. Customers skip listings that look empty.'
-                    : "{$p} photo reference" . ($p === 1 ? '' : 's') . '. Listings that convert carry twenty or more.');
+                    : "{$p} photo reference" . ($p === 1 ? '' : 's') . '. Listings that convert carry twenty or more.',
+                $p == 0 ? 'gap.photos.none' : 'gap.photos.few', ['n' => $p]);
         }
 
         /* ── Contact: hours + website ───────────────────────────────────── */
         $h = $g('has_hours');
         if ($h !== null) {
             $add('Contact', 'hours', 'Opening hours', 8, $h ? 8 : 0,
-                $h ? 'Opening hours are set.' : 'No opening hours. Customers will not visit a shop they cannot plan around.');
+                $h ? 'Opening hours are set.' : 'No opening hours. Customers will not visit a shop they cannot plan around.',
+                $h ? 'gap.hours.ok' : 'gap.hours.none');
         }
         $w = $g('has_website');
         if ($w !== null) {
             $add('Contact', 'website', 'Website link', 10, $w ? 10 : 0,
-                $w ? 'Your website is linked.' : 'No website linked. Every search that finds you dies on the listing.');
+                $w ? 'Your website is linked.' : 'No website linked. Every search that finds you dies on the listing.',
+                $w ? 'gap.website.ok' : 'gap.website.none');
         }
 
         /* ── Listing: description + category ────────────────────────────── */
@@ -228,12 +239,14 @@ class VisibilityScore
             $add('Listing', 'description', 'Business description', 10, $e,
                 $d == 0
                     ? 'No description. This is where you say what you actually do, in your own words.'
-                    : "Description is {$d} characters. Three hundred plus gives Google real substance to rank.");
+                    : "Description is {$d} characters. Three hundred plus gives Google real substance to rank.",
+                $d == 0 ? 'gap.desc.none' : 'gap.desc.short', ['n' => $d]);
         }
         $c = $g('has_category');
         if ($c !== null) {
             $add('Listing', 'category', 'Business category', 4, $c ? 4 : 0,
-                $c ? 'Your category is set.' : 'No category set. Google needs it to know which searches to show you in.');
+                $c ? 'Your category is set.' : 'No category set. Google needs it to know which searches to show you in.',
+                $c ? 'gap.category.ok' : 'gap.category.none');
         }
 
         $earned   = array_sum(array_column($items, 'earned'));
@@ -290,6 +303,9 @@ class VisibilityScore
      */
     private static function hidden(): array
     {
+        // Plain strings. These were briefly {key, text} so the WhatsApp bot
+        // could translate them, but that message is gone and no other caller
+        // wants the object shape.
         return [
             'Whether you reply to your reviews',
             'Google Posts — whether you have posted in the last week',
