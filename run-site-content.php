@@ -67,6 +67,12 @@ $SITES = [
     // detailingdaddy.tapify.co.in probed live before adding: 404, no vCard to
     // shadow, so the natural slug is safe.
     'detailingdaddy' => ['file' => 'content-detailing-daddy.json', 'label' => 'Detailing Daddy'],
+    // Tapify's OWN sales people, not clients — these sites sell the Tapify range
+    // rather than a customer's business. Both slugs probed live before adding:
+    // utsavmeshram.tapify.co.in and harshaagare.tapify.co.in each returned 404,
+    // so there is no vCard for the builder site to shadow.
+    'utsavmeshram' => ['file' => 'content-utsav-meshram.json', 'label' => 'Utsav Meshram — Tapify'],
+    'harshaagare'  => ['file' => 'content-harsha-agare.json',  'label' => 'Harsha Agare — Tapify'],
 ];
 
 require_once __DIR__ . '/config/database.php';

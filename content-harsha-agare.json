@@ -1,0 +1,936 @@
+{
+  "schemaVersion": 1,
+  "site": {
+    "name": "Harsha Agare — Tapify",
+    "industry": "services",
+    "locale": "en-IN"
+  },
+  "theme": {
+    "preset": "volt-grove",
+    "mode": "light",
+    "color": {
+      "primary": "#0F6B4F",
+      "secondary": "#123B33",
+      "accent": "#8A6114",
+      "bg": "#F7FAF8",
+      "surface": "#FFFFFF",
+      "text": "#10201B",
+      "muted": "#5F7269",
+      "border": "#DDE7E1"
+    },
+    "font": {
+      "heading": "Poppins",
+      "body": "Mukta"
+    },
+    "radius": "lg",
+    "spacing": "comfortable",
+    "container": "normal"
+  },
+  "nav": {
+    "header": [
+      {
+        "label": "Home",
+        "pageId": "home"
+      },
+      {
+        "label": "Products",
+        "pageId": "products"
+      },
+      {
+        "label": "Why Tapify",
+        "pageId": "why-tapify"
+      },
+      {
+        "label": "Contact",
+        "pageId": "contact"
+      }
+    ]
+  },
+  "business": {
+    "phone": "+91 78418 40840",
+    "whatsapp": "+91 78418 40840",
+    "address": "Nagpur, Maharashtra, India",
+    "social": {}
+  },
+  "pages": [
+    {
+      "id": "home",
+      "slug": "/",
+      "title": "Home",
+      "seo": {
+        "title": "Harsha Agare — Tapify Smart Business Cards, Nagpur",
+        "description": "Harsha Agare, Sales Executive at Tapify. NFC smart business cards, digital vCard profiles and Google review stands for Nagpur businesses. Free demo at your shop.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-1",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "logo": "https://www.tapify.co.in/images/tapify-logo-green.png",
+            "logoSize": "medium",
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Products",
+                "href": "/products"
+              },
+              {
+                "text": "Why Tapify",
+                "href": "/why-tapify"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "Book a free demo",
+              "href": "/contact",
+              "style": "primary"
+            }
+          },
+          "variant": "left"
+        },
+        {
+          "id": "hero-3",
+          "type": "hero",
+          "visible": true,
+          "props": {
+            "badge": "Harsha Agare · Sales Executive · Nagpur",
+            "heading": "One tap. Your whole business, on their phone.",
+            "sub": "Tapify turns your business card into something people actually keep. Tap it on any phone and your number, WhatsApp, Instagram, website and location land in about 300 milliseconds — no app on either side. I will come to your shop and show you on your own phone, free.",
+            "videoUrl": "https://www.tapify.co.in/images/tapify_for%20website.mp4",
+            "image": "https://www.tapify.co.in/images/tapify_card.jpeg",
+            "fullHeight": true,
+            "ctaPrimary": {
+              "text": "Book a free demo",
+              "href": "/contact",
+              "style": "primary"
+            },
+            "ctaSecondary": {
+              "text": "See the products",
+              "href": "/products",
+              "style": "ghost"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "variant": "centered-bg",
+          "style": {
+            "overlay": 0.55
+          }
+        },
+        {
+          "id": "about-4",
+          "type": "about",
+          "visible": true,
+          "props": {
+            "label": "Who you are dealing with",
+            "heading": "Hello, I am Harsha Agare",
+            "body": "I am a Sales Executive at Tapify, working with businesses across Nagpur.\n\nMost people I meet are still carrying paper cards that get thrown away, or they have reprinted a whole box because one number changed. Tapify fixes both: one card that never goes out of date, and a profile you can change any time from your phone.\n\nThe fastest way to understand it is to hold one. Message me and I will come to your shop, tap a card on your own phone, and you can decide from there. There is no charge for the demo and no obligation after it.\n\nAfter you buy, you keep messaging me directly — not a call centre.",
+            "image": "https://www.tapify.co.in/images/perfect%20for%20every%20business.jpeg",
+            "showPillars": true,
+            "pillars": [
+              {
+                "title": "Free demo at your shop",
+                "text": "I come to you, anywhere in Nagpur. Ten minutes."
+              },
+              {
+                "title": "Profile built for you",
+                "text": "Send details on WhatsApp; it comes back ready."
+              },
+              {
+                "title": "One person, always",
+                "text": "The same number before and after you buy."
+              }
+            ]
+          },
+          "variant": "image-right"
+        },
+        {
+          "id": "products-5",
+          "type": "products",
+          "visible": true,
+          "props": {
+            "label": "What I sell",
+            "heading": "The Tapify range",
+            "sub": "Cards, kits and the digital profile behind them. Message me for current pricing and what suits your business.",
+            "items": [
+              {
+                "image": "https://www.tapify.co.in/images/tapify_card.jpeg",
+                "title": "Tapify NFC Smart Business Card",
+                "desc": "One tap shares your whole profile — phone, WhatsApp, Instagram, LinkedIn, website and location — to any phone in about 300 milliseconds. No app needed on either side. A printed QR code on the back covers phones without NFC.",
+                "meta": "PVC Standard · Glossy White · Matt Black · Premium Metal",
+                "cta": {
+                  "text": "Ask about this",
+                  "href": "https://wa.me/917841840840",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://www.tapify.co.in/images/TAPIFY%20KIT.jpeg",
+                "title": "The Complete Tapify Kit",
+                "desc": "Everything set up and ready to hand out: your custom-branded NFC card, a QR code stand for the counter, a Google Review stand that turns walk-ins into five-star reviews, a premium carry case, and full digital profile setup done for you.",
+                "meta": "Card + QR stand + Review stand + case + setup",
+                "cta": {
+                  "text": "Ask about this",
+                  "href": "https://wa.me/917841840840",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://www.tapify.co.in/images/Ai%20technology%20for%20google%20review.jpeg",
+                "title": "Google Review Stand",
+                "desc": "Sits on your counter. A customer taps it and lands straight on your Google review page — no searching, no typing. More reviews is the single biggest lever on where you rank in local search.",
+                "meta": "Included in the Complete Kit",
+                "cta": {
+                  "text": "Ask about this",
+                  "href": "https://wa.me/917841840840",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://www.tapify.co.in/images/perfect%20for%20every%20business.jpeg",
+                "title": "Digital vCard Profile",
+                "desc": "Your card points at a profile you control. Change your number, add a photo, swap your offer — it updates instantly for every card already in circulation. Reprinting is never needed again.",
+                "meta": "Lifetime updates, no reprinting",
+                "cta": {
+                  "text": "Ask about this",
+                  "href": "https://wa.me/917841840840",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://www.tapify.co.in/images/switch%20to%20tapify%20today.jpeg",
+                "title": "WhatsApp Store",
+                "desc": "List your products or services on your profile so a customer can browse and order straight through WhatsApp — no separate app, no checkout to build.",
+                "meta": "Orders arrive on your WhatsApp",
+                "cta": {
+                  "text": "Ask about this",
+                  "href": "https://wa.me/917841840840",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://www.tapify.co.in/images/comparison%20between%20old%20card%20and%20tapify%20new%20card.jpeg",
+                "title": "Replacement Card",
+                "desc": "Lost or damaged your card? A replacement is issued against your existing profile, so your links, photos and contact details all carry over unchanged.",
+                "meta": "₹1,499",
+                "cta": {
+                  "text": "Ask about this",
+                  "href": "https://wa.me/917841840840",
+                  "style": "link"
+                }
+              }
+            ],
+            "orderVia": "whatsapp",
+            "orderLabel": "Ask on WhatsApp"
+          },
+          "variant": "carousel"
+        },
+        {
+          "id": "stats-6",
+          "type": "stats",
+          "visible": true,
+          "props": {
+            "label": "The card itself",
+            "heading": "Built to be carried every day",
+            "items": [
+              {
+                "value": 300,
+                "suffix": "ms",
+                "label": "To share your full profile"
+              },
+              {
+                "value": 256,
+                "suffix": "-bit",
+                "label": "AES encryption on your data"
+              },
+              {
+                "value": 4,
+                "suffix": "",
+                "label": "Card finishes to choose from"
+              },
+              {
+                "value": 100,
+                "suffix": "%",
+                "label": "Waterproof and durable"
+              }
+            ],
+            "countUp": true
+          },
+          "variant": "bar"
+        },
+        {
+          "id": "gallery-7",
+          "type": "gallery",
+          "visible": true,
+          "props": {
+            "label": "Customer reviews",
+            "heading": "Businesses in Nagpur already using Tapify",
+            "sub": "Real reviews from Tapify customers — clinics, opticians, builders, electricians and event venues across the city.",
+            "images": [
+              {
+                "image": "https://www.tapify.co.in/images/AK%20PROPERTIES%20testimonial.jpeg",
+                "alt": "Ak properties — Tapify customer review",
+                "fit": "contain"
+              },
+              {
+                "image": "https://www.tapify.co.in/images/DEEPAK%20ELECTRIC%20JHOOMAR%20PALACE%20testimonial.jpeg",
+                "alt": "Deepak electric jhoomar palace — Tapify customer review",
+                "fit": "contain"
+              },
+              {
+                "image": "https://www.tapify.co.in/images/DENTAL%20DELIGHT%20SUPERSPECIALITY%20DENTAL%20CLINIC%20testimonial.jpeg",
+                "alt": "Dental delight superspeciality dental clinic — Tapify customer review",
+                "fit": "contain"
+              },
+              {
+                "image": "https://www.tapify.co.in/images/DR.%20ADITI'%20DENTISTA%20testimonial.jpeg",
+                "alt": "Dr. aditi' dentista — Tapify customer review",
+                "fit": "contain"
+              },
+              {
+                "image": "https://www.tapify.co.in/images/DR.%20EV%20(PRASHANT%20UKEY)%20testimonial.jpeg",
+                "alt": "Dr. ev (prashant ukey) — Tapify customer review",
+                "fit": "contain"
+              },
+              {
+                "image": "https://www.tapify.co.in/images/ELECTRO%20POWER%20testimonial.jpeg",
+                "alt": "Electro power — Tapify customer review",
+                "fit": "contain"
+              },
+              {
+                "image": "https://www.tapify.co.in/images/GIRMULE%20DENTAL%20CLINIC%20testimonial.jpeg",
+                "alt": "Girmule dental clinic — Tapify customer review",
+                "fit": "contain"
+              },
+              {
+                "image": "https://www.tapify.co.in/images/MAULI%20DENTAL%20CLINIC%20%26%20IMPLANT%20CENTRE%20testimonial.jpeg",
+                "alt": "Mauli dental clinic & implant centre — Tapify customer review",
+                "fit": "contain"
+              },
+              {
+                "image": "https://www.tapify.co.in/images/PANACHE-MAHAL%20testimonial.jpeg",
+                "alt": "Panache-mahal — Tapify customer review",
+                "fit": "contain"
+              },
+              {
+                "image": "https://www.tapify.co.in/images/PRAKASH%20OPTICALS%20testimonial.jpeg",
+                "alt": "Prakash opticals — Tapify customer review",
+                "fit": "contain"
+              },
+              {
+                "image": "https://www.tapify.co.in/images/SAMRAT%20INFRASTRUCTURE%20testimonial.jpeg",
+                "alt": "Samrat infrastructure — Tapify customer review",
+                "fit": "contain"
+              },
+              {
+                "image": "https://www.tapify.co.in/images/TRUE%20SMILE%20DENTAL%20CLINIC%20testimonial.jpeg",
+                "alt": "True smile dental clinic — Tapify customer review",
+                "fit": "contain"
+              }
+            ],
+            "lightbox": true
+          },
+          "variant": "marquee"
+        },
+        {
+          "id": "cta-8",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "See it working on your own phone",
+            "sub": "Message Harsha and pick a time. The demo is free and takes about ten minutes.",
+            "ctaPrimary": {
+              "text": "Book a free demo",
+              "href": "/contact",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "variant": "banner"
+        },
+        {
+          "id": "contact-9",
+          "type": "contact",
+          "visible": true,
+          "props": {
+            "label": "Get in touch",
+            "heading": "Talk to Harsha",
+            "sub": "Call or WhatsApp any day. Tell me your business and I will suggest what fits.",
+            "showPhone": true,
+            "showWhatsapp": true,
+            "showEmail": false,
+            "showAddress": true,
+            "showHours": false,
+            "showMap": false,
+            "submitText": "Send"
+          },
+          "variant": "form-only"
+        },
+        {
+          "id": "footer-2",
+          "type": "footer",
+          "visible": true,
+          "props": {
+            "logo": "https://www.tapify.co.in/images/tapify-logo-green.png",
+            "blurb": "Harsha Agare — Sales Executive at Tapify. Smart NFC business cards, digital profiles and Google review tools for businesses in Nagpur. Call or message any day for a free demo.",
+            "showSocial": false,
+            "showContact": true,
+            "showHours": false,
+            "columns": [
+              {
+                "title": "Tapify",
+                "links": [
+                  {
+                    "text": "Products",
+                    "href": "/products"
+                  },
+                  {
+                    "text": "Why Tapify",
+                    "href": "/why-tapify"
+                  },
+                  {
+                    "text": "Contact",
+                    "href": "/contact"
+                  }
+                ]
+              },
+              {
+                "title": "Get in touch",
+                "links": [
+                  {
+                    "text": "WhatsApp",
+                    "href": "https://wa.me/917841840840"
+                  },
+                  {
+                    "text": "Call +91 78418 40840",
+                    "href": "tel:+917841840840"
+                  },
+                  {
+                    "text": "tapify.co.in",
+                    "href": "https://www.tapify.co.in"
+                  }
+                ]
+              }
+            ],
+            "copyright": "© Tapify · MRPRINT WORLD PRIVATE LIMITED, Nagpur",
+            "showBranding": true,
+            "showLegal": false
+          },
+          "variant": "columns"
+        }
+      ]
+    },
+    {
+      "id": "products",
+      "slug": "/products",
+      "title": "Products",
+      "seo": {
+        "title": "Tapify Products & Pricing | Harsha Agare, Nagpur",
+        "description": "Tapify NFC smart business cards in four finishes, the Complete Tapify Kit, Google Review stands, digital vCard profiles and WhatsApp Store. Bulk discounts from 10 cards. Nagpur.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "products-10",
+          "type": "products",
+          "visible": true,
+          "props": {
+            "label": "The full range",
+            "heading": "Everything Tapify makes",
+            "sub": "Message me for current pricing — it depends on finish, quantity and whether you want custom branding.",
+            "items": [
+              {
+                "image": "https://www.tapify.co.in/images/tapify_card.jpeg",
+                "title": "Tapify NFC Smart Business Card",
+                "desc": "One tap shares your whole profile — phone, WhatsApp, Instagram, LinkedIn, website and location — to any phone in about 300 milliseconds. No app needed on either side. A printed QR code on the back covers phones without NFC.",
+                "meta": "PVC Standard · Glossy White · Matt Black · Premium Metal",
+                "cta": {
+                  "text": "Ask about this",
+                  "href": "https://wa.me/917841840840",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://www.tapify.co.in/images/TAPIFY%20KIT.jpeg",
+                "title": "The Complete Tapify Kit",
+                "desc": "Everything set up and ready to hand out: your custom-branded NFC card, a QR code stand for the counter, a Google Review stand that turns walk-ins into five-star reviews, a premium carry case, and full digital profile setup done for you.",
+                "meta": "Card + QR stand + Review stand + case + setup",
+                "cta": {
+                  "text": "Ask about this",
+                  "href": "https://wa.me/917841840840",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://www.tapify.co.in/images/Ai%20technology%20for%20google%20review.jpeg",
+                "title": "Google Review Stand",
+                "desc": "Sits on your counter. A customer taps it and lands straight on your Google review page — no searching, no typing. More reviews is the single biggest lever on where you rank in local search.",
+                "meta": "Included in the Complete Kit",
+                "cta": {
+                  "text": "Ask about this",
+                  "href": "https://wa.me/917841840840",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://www.tapify.co.in/images/perfect%20for%20every%20business.jpeg",
+                "title": "Digital vCard Profile",
+                "desc": "Your card points at a profile you control. Change your number, add a photo, swap your offer — it updates instantly for every card already in circulation. Reprinting is never needed again.",
+                "meta": "Lifetime updates, no reprinting",
+                "cta": {
+                  "text": "Ask about this",
+                  "href": "https://wa.me/917841840840",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://www.tapify.co.in/images/switch%20to%20tapify%20today.jpeg",
+                "title": "WhatsApp Store",
+                "desc": "List your products or services on your profile so a customer can browse and order straight through WhatsApp — no separate app, no checkout to build.",
+                "meta": "Orders arrive on your WhatsApp",
+                "cta": {
+                  "text": "Ask about this",
+                  "href": "https://wa.me/917841840840",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://www.tapify.co.in/images/comparison%20between%20old%20card%20and%20tapify%20new%20card.jpeg",
+                "title": "Replacement Card",
+                "desc": "Lost or damaged your card? A replacement is issued against your existing profile, so your links, photos and contact details all carry over unchanged.",
+                "meta": "₹1,499",
+                "cta": {
+                  "text": "Ask about this",
+                  "href": "https://wa.me/917841840840",
+                  "style": "link"
+                }
+              }
+            ],
+            "orderVia": "whatsapp",
+            "orderLabel": "Ask on WhatsApp"
+          },
+          "variant": "cards-2"
+        },
+        {
+          "id": "services-11",
+          "type": "services",
+          "visible": true,
+          "props": {
+            "label": "What comes with it",
+            "heading": "Not just a card in an envelope",
+            "sub": "The parts people do not expect — setup, branding and someone to message afterwards.",
+            "items": [
+              {
+                "title": "Free demo, at your shop",
+                "desc": "Harsha will bring a card to you, tap it on your own phone and show you exactly what your customer would see. Takes about ten minutes and costs nothing.",
+                "meta": "Nagpur and nearby",
+                "cta": {
+                  "text": "Book a demo",
+                  "href": "https://wa.me/917841840840",
+                  "style": "link"
+                }
+              },
+              {
+                "title": "Your profile built for you",
+                "desc": "You send your details, photos and logo on WhatsApp. Your profile comes back built, checked and ready — you do not have to figure out any software.",
+                "meta": "Included, no extra charge",
+                "cta": {
+                  "text": "Get started",
+                  "href": "https://wa.me/917841840840",
+                  "style": "link"
+                }
+              },
+              {
+                "title": "Custom branding",
+                "desc": "Cards printed with your logo and your brand colours, so what you hand over looks like your business rather than a generic card.",
+                "meta": "Logo and brand colours",
+                "cta": {
+                  "text": "Ask about branding",
+                  "href": "https://wa.me/917841840840",
+                  "style": "link"
+                }
+              },
+              {
+                "title": "Bulk orders for your team",
+                "desc": "Kitting out a whole team gets cheaper per card: 10 percent off from ten cards, 15 percent from fifty, 20 percent from a hundred. Enterprise pricing beyond that.",
+                "meta": "10–49: 10% · 50–99: 15% · 100+: 20%",
+                "cta": {
+                  "text": "Get a quote",
+                  "href": "https://wa.me/917841840840",
+                  "style": "link"
+                }
+              },
+              {
+                "title": "Corporate gifting",
+                "desc": "Branded Tapify kits as client or staff gifts — something people actually keep and use, with your brand on it every time they hand it over.",
+                "meta": "Packages available",
+                "cta": {
+                  "text": "Discuss gifting",
+                  "href": "https://wa.me/917841840840",
+                  "style": "link"
+                }
+              },
+              {
+                "title": "Support that stays",
+                "desc": "After you buy, you still message the same person. Changes to your profile, help with a card, questions about reviews — you get an answer, not a ticket.",
+                "meta": "Lifetime support",
+                "cta": {
+                  "text": "Message now",
+                  "href": "https://wa.me/917841840840",
+                  "style": "link"
+                }
+              }
+            ],
+            "orderVia": "whatsapp",
+            "orderLabel": "Ask on WhatsApp"
+          },
+          "variant": "cards-3"
+        },
+        {
+          "id": "faq-12",
+          "type": "faq",
+          "visible": true,
+          "props": {
+            "label": "Before you ask",
+            "heading": "The questions I get every week",
+            "items": [
+              {
+                "q": "Does the person I tap need the app?",
+                "a": "No. Nothing is installed on either phone. The card opens your profile in their normal browser, and a QR code on the back covers any phone without NFC."
+              },
+              {
+                "q": "What if I change my phone number later?",
+                "a": "You update it once on your profile and every card you have already handed out shows the new number. Nothing needs reprinting."
+              },
+              {
+                "q": "Will it survive my pocket and the rain?",
+                "a": "The card is 100 percent waterproof and built to be carried daily. There is no battery and nothing to charge."
+              },
+              {
+                "q": "Can I get my logo and brand colours on it?",
+                "a": "Yes. Cards are custom printed with your logo and colours, and your digital profile is styled to match."
+              },
+              {
+                "q": "What does it cost for a whole team?",
+                "a": "Bulk pricing starts at ten cards: 10 percent off for 10–49, 15 percent for 50–99, and 20 percent for 100 or more. Message for an exact quote for your team size."
+              },
+              {
+                "q": "I lost my card. What now?",
+                "a": "A replacement is ₹1,499 and is issued against your existing profile, so all your links and details carry over."
+              },
+              {
+                "q": "How does the Google Review stand help me?",
+                "a": "It sits on your counter and takes a customer straight to your review page in one tap. Review count and rating are among the strongest signals for where you appear in local search results."
+              }
+            ],
+            "openFirst": true
+          },
+          "variant": "accordion"
+        },
+        {
+          "id": "cta-13",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "Not sure which one fits your business?",
+            "sub": "Tell me what you do and how many people need cards. I will tell you what I would order.",
+            "ctaPrimary": {
+              "text": "Ask Harsha",
+              "href": "/contact",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "variant": "card"
+        }
+      ]
+    },
+    {
+      "id": "why-tapify",
+      "slug": "/why-tapify",
+      "title": "Why Tapify",
+      "seo": {
+        "title": "Why Tapify Instead of Paper Cards | Harsha Agare",
+        "description": "Why businesses in Nagpur are switching from printed visiting cards to Tapify NFC smart cards — no reprinting, instant sharing, more Google reviews.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "about-14",
+          "type": "about",
+          "visible": true,
+          "props": {
+            "label": "The problem",
+            "heading": "Paper cards are thrown away. Yours should not be.",
+            "body": "A printed card has two problems. Most of them end up in a bin within a day, and the moment one detail changes — a number, an address, a new Instagram — the whole box is wasted.\n\nA Tapify card is handed over, tapped, and your details are saved on their phone before you have finished the sentence. Nothing to install, nothing to scan if the phone supports NFC, and a QR code on the back for the ones that do not.\n\nAnd because your details live on a profile rather than on the card, you change them once and every card already in circulation updates itself.",
+            "image": "https://www.tapify.co.in/images/comparison%20between%20old%20card%20and%20tapify%20new%20card.jpeg"
+          },
+          "variant": "image-left"
+        },
+        {
+          "id": "services-15",
+          "type": "services",
+          "visible": true,
+          "props": {
+            "label": "How I work",
+            "heading": "What you get from me",
+            "items": [
+              {
+                "title": "Free demo, at your shop",
+                "desc": "Harsha will bring a card to you, tap it on your own phone and show you exactly what your customer would see. Takes about ten minutes and costs nothing.",
+                "meta": "Nagpur and nearby",
+                "cta": {
+                  "text": "Book a demo",
+                  "href": "https://wa.me/917841840840",
+                  "style": "link"
+                }
+              },
+              {
+                "title": "Your profile built for you",
+                "desc": "You send your details, photos and logo on WhatsApp. Your profile comes back built, checked and ready — you do not have to figure out any software.",
+                "meta": "Included, no extra charge",
+                "cta": {
+                  "text": "Get started",
+                  "href": "https://wa.me/917841840840",
+                  "style": "link"
+                }
+              },
+              {
+                "title": "Custom branding",
+                "desc": "Cards printed with your logo and your brand colours, so what you hand over looks like your business rather than a generic card.",
+                "meta": "Logo and brand colours",
+                "cta": {
+                  "text": "Ask about branding",
+                  "href": "https://wa.me/917841840840",
+                  "style": "link"
+                }
+              },
+              {
+                "title": "Bulk orders for your team",
+                "desc": "Kitting out a whole team gets cheaper per card: 10 percent off from ten cards, 15 percent from fifty, 20 percent from a hundred. Enterprise pricing beyond that.",
+                "meta": "10–49: 10% · 50–99: 15% · 100+: 20%",
+                "cta": {
+                  "text": "Get a quote",
+                  "href": "https://wa.me/917841840840",
+                  "style": "link"
+                }
+              },
+              {
+                "title": "Corporate gifting",
+                "desc": "Branded Tapify kits as client or staff gifts — something people actually keep and use, with your brand on it every time they hand it over.",
+                "meta": "Packages available",
+                "cta": {
+                  "text": "Discuss gifting",
+                  "href": "https://wa.me/917841840840",
+                  "style": "link"
+                }
+              },
+              {
+                "title": "Support that stays",
+                "desc": "After you buy, you still message the same person. Changes to your profile, help with a card, questions about reviews — you get an answer, not a ticket.",
+                "meta": "Lifetime support",
+                "cta": {
+                  "text": "Message now",
+                  "href": "https://wa.me/917841840840",
+                  "style": "link"
+                }
+              }
+            ],
+            "orderVia": "whatsapp",
+            "orderLabel": "Ask on WhatsApp"
+          },
+          "variant": "cards-3"
+        },
+        {
+          "id": "gallery-16",
+          "type": "gallery",
+          "visible": true,
+          "props": {
+            "label": "Customer reviews",
+            "heading": "What Tapify customers say",
+            "sub": "Reviews from businesses across Nagpur.",
+            "images": [
+              {
+                "image": "https://www.tapify.co.in/images/AK%20PROPERTIES%20testimonial.jpeg",
+                "alt": "Ak properties — Tapify customer review",
+                "fit": "contain"
+              },
+              {
+                "image": "https://www.tapify.co.in/images/DEEPAK%20ELECTRIC%20JHOOMAR%20PALACE%20testimonial.jpeg",
+                "alt": "Deepak electric jhoomar palace — Tapify customer review",
+                "fit": "contain"
+              },
+              {
+                "image": "https://www.tapify.co.in/images/DENTAL%20DELIGHT%20SUPERSPECIALITY%20DENTAL%20CLINIC%20testimonial.jpeg",
+                "alt": "Dental delight superspeciality dental clinic — Tapify customer review",
+                "fit": "contain"
+              },
+              {
+                "image": "https://www.tapify.co.in/images/DR.%20ADITI'%20DENTISTA%20testimonial.jpeg",
+                "alt": "Dr. aditi' dentista — Tapify customer review",
+                "fit": "contain"
+              },
+              {
+                "image": "https://www.tapify.co.in/images/DR.%20EV%20(PRASHANT%20UKEY)%20testimonial.jpeg",
+                "alt": "Dr. ev (prashant ukey) — Tapify customer review",
+                "fit": "contain"
+              },
+              {
+                "image": "https://www.tapify.co.in/images/ELECTRO%20POWER%20testimonial.jpeg",
+                "alt": "Electro power — Tapify customer review",
+                "fit": "contain"
+              },
+              {
+                "image": "https://www.tapify.co.in/images/GIRMULE%20DENTAL%20CLINIC%20testimonial.jpeg",
+                "alt": "Girmule dental clinic — Tapify customer review",
+                "fit": "contain"
+              },
+              {
+                "image": "https://www.tapify.co.in/images/MAULI%20DENTAL%20CLINIC%20%26%20IMPLANT%20CENTRE%20testimonial.jpeg",
+                "alt": "Mauli dental clinic & implant centre — Tapify customer review",
+                "fit": "contain"
+              },
+              {
+                "image": "https://www.tapify.co.in/images/PANACHE-MAHAL%20testimonial.jpeg",
+                "alt": "Panache-mahal — Tapify customer review",
+                "fit": "contain"
+              },
+              {
+                "image": "https://www.tapify.co.in/images/PRAKASH%20OPTICALS%20testimonial.jpeg",
+                "alt": "Prakash opticals — Tapify customer review",
+                "fit": "contain"
+              },
+              {
+                "image": "https://www.tapify.co.in/images/SAMRAT%20INFRASTRUCTURE%20testimonial.jpeg",
+                "alt": "Samrat infrastructure — Tapify customer review",
+                "fit": "contain"
+              },
+              {
+                "image": "https://www.tapify.co.in/images/TRUE%20SMILE%20DENTAL%20CLINIC%20testimonial.jpeg",
+                "alt": "True smile dental clinic — Tapify customer review",
+                "fit": "contain"
+              }
+            ],
+            "lightbox": true
+          },
+          "variant": "grid-3"
+        },
+        {
+          "id": "cta-17",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "Switch to Tapify",
+            "sub": "Message Harsha for a free demo at your shop.",
+            "ctaPrimary": {
+              "text": "Book a demo",
+              "href": "/contact",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "variant": "banner"
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "slug": "/contact",
+      "title": "Contact",
+      "seo": {
+        "title": "Contact Harsha Agare — Tapify Nagpur",
+        "description": "Call or WhatsApp Harsha Agare, Sales Executive at Tapify Nagpur, for a free demo of NFC smart business cards. Available every day.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "contact-18",
+          "type": "contact",
+          "visible": true,
+          "props": {
+            "label": "Get in touch",
+            "heading": "Message Harsha directly",
+            "sub": "Call or WhatsApp any day. Tell me what your business does and roughly how many cards you need, and I will come to you with one to try.",
+            "showPhone": true,
+            "showWhatsapp": true,
+            "showEmail": false,
+            "showAddress": true,
+            "showHours": false,
+            "showMap": false,
+            "submitText": "Send"
+          },
+          "variant": "form-only"
+        },
+        {
+          "id": "faq-19",
+          "type": "faq",
+          "visible": true,
+          "props": {
+            "label": "Quick answers",
+            "heading": "While you are here",
+            "items": [
+              {
+                "q": "Does the person I tap need the app?",
+                "a": "No. Nothing is installed on either phone. The card opens your profile in their normal browser, and a QR code on the back covers any phone without NFC."
+              },
+              {
+                "q": "What if I change my phone number later?",
+                "a": "You update it once on your profile and every card you have already handed out shows the new number. Nothing needs reprinting."
+              },
+              {
+                "q": "Will it survive my pocket and the rain?",
+                "a": "The card is 100 percent waterproof and built to be carried daily. There is no battery and nothing to charge."
+              },
+              {
+                "q": "Can I get my logo and brand colours on it?",
+                "a": "Yes. Cards are custom printed with your logo and colours, and your digital profile is styled to match."
+              },
+              {
+                "q": "What does it cost for a whole team?",
+                "a": "Bulk pricing starts at ten cards: 10 percent off for 10–49, 15 percent for 50–99, and 20 percent for 100 or more. Message for an exact quote for your team size."
+              }
+            ],
+            "openFirst": false
+          },
+          "variant": "two-column"
+        },
+        {
+          "id": "cta-20",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "Prefer to just call?",
+            "sub": "+91 78418 40840 — any day.",
+            "ctaPrimary": {
+              "text": "Call now",
+              "href": "tel:+917841840840",
+              "style": "primary"
+            },
+            "ctaSecondary": {
+              "text": "WhatsApp",
+              "href": "https://wa.me/917841840840",
+              "style": "ghost"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "variant": "card"
+        }
+      ]
+    }
+  ]
+}
