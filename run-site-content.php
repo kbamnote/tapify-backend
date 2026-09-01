@@ -73,6 +73,9 @@ $SITES = [
     // so there is no vCard for the builder site to shadow.
     'utsavmeshram' => ['file' => 'content-utsav-meshram.json', 'label' => 'Utsav Meshram — Tapify'],
     'harshaagare'  => ['file' => 'content-harsha-agare.json',  'label' => 'Harsha Agare — Tapify'],
+    // karandejewellers.tapify.co.in probed live before adding: 404, no vCard to
+    // shadow, so the natural slug is safe.
+    'karandejewellers' => ['file' => 'content-karande-jewellers.json', 'label' => 'Karande Jewellers'],
 ];
 
 require_once __DIR__ . '/config/database.php';

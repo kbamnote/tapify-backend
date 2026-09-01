@@ -1,0 +1,1235 @@
+{
+  "schemaVersion": 1,
+  "site": {
+    "name": "Karande Jewellers",
+    "industry": "jewellery",
+    "locale": "en-IN"
+  },
+  "theme": {
+    "preset": "royal-maroon",
+    "mode": "light",
+    "color": {
+      "primary": "#7A1F2B",
+      "secondary": "#9A3B45",
+      "accent": "#8A6114",
+      "bg": "#FDF8F1",
+      "surface": "#F7EFE1",
+      "text": "#2B1D12",
+      "muted": "#75604A",
+      "border": "#E8DBC2"
+    },
+    "font": {
+      "heading": "Playfair Display",
+      "body": "Lato"
+    },
+    "radius": "md",
+    "spacing": "comfortable",
+    "container": "normal"
+  },
+  "nav": {
+    "header": [
+      {
+        "label": "Home",
+        "pageId": "home"
+      },
+      {
+        "label": "Collections",
+        "pageId": "collections"
+      },
+      {
+        "label": "Services",
+        "pageId": "services"
+      },
+      {
+        "label": "About",
+        "pageId": "about"
+      },
+      {
+        "label": "Contact",
+        "pageId": "contact"
+      }
+    ]
+  },
+  "business": {
+    "phone": "+91 98224 61048",
+    "whatsapp": "+91 98224 61048",
+    "address": "Jaitala Rd, Parsodi, Subhash Nagar, Trimurti Nagar, Nagpur, Maharashtra 440016",
+    "social": {
+      "instagram": "https://www.instagram.com/karandejewellers2025"
+    },
+    "hours": [
+      {
+        "day": "mon",
+        "open": "11:00 AM",
+        "close": "9:00 PM"
+      },
+      {
+        "day": "tue",
+        "open": "11:00 AM",
+        "close": "9:00 PM"
+      },
+      {
+        "day": "wed",
+        "open": "11:00 AM",
+        "close": "9:00 PM"
+      },
+      {
+        "day": "thu",
+        "open": "11:00 AM",
+        "close": "9:00 PM"
+      },
+      {
+        "day": "fri",
+        "open": "11:00 AM",
+        "close": "9:00 PM"
+      },
+      {
+        "day": "sat",
+        "open": "11:00 AM",
+        "close": "9:00 PM"
+      },
+      {
+        "day": "sun",
+        "open": "11:00 AM",
+        "close": "9:00 PM"
+      }
+    ]
+  },
+  "pages": [
+    {
+      "id": "home",
+      "slug": "/",
+      "title": "Home",
+      "seo": {
+        "title": "Karande Jewellers — Gold, Silver & Diamond Jewellers in Nagpur",
+        "description": "Gold, silver, diamond and gemstone jewellery on Jaitala Road, Trimurti Nagar, Nagpur. Sale, purchase and exchange, plus astrology consultation. Open all days, 11 AM to 9 PM.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-1",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1788263178/karande-jewellers/karande-logo.png",
+            "logoSize": "large",
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Collections",
+                "href": "/collections"
+              },
+              {
+                "text": "Services",
+                "href": "/services"
+              },
+              {
+                "text": "About",
+                "href": "/about"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "WhatsApp Us",
+              "href": "https://wa.me/919822461048",
+              "style": "primary"
+            }
+          },
+          "variant": "left"
+        },
+        {
+          "id": "hero-3",
+          "type": "hero",
+          "visible": true,
+          "props": {
+            "badge": "Jaitala Road, Nagpur · Open all days, 11 AM – 9 PM",
+            "heading": "Gold that stays in the family",
+            "sub": "Gold, silver, diamonds and certified gemstones — bought, sold and exchanged with the weighing done in front of you. With astrology consultation by Vijay Karande before you choose a stone.",
+            "image": "https://images.pexels.com/photos/2498430/pexels-photo-2498430.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+            "fullHeight": true,
+            "ctaPrimary": {
+              "text": "See Our Collections",
+              "href": "/collections",
+              "style": "primary"
+            },
+            "ctaSecondary": {
+              "text": "Talk to Us",
+              "href": "/contact",
+              "style": "ghost"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "variant": "centered-bg",
+          "style": {
+            "overlay": 0.55
+          }
+        },
+        {
+          "id": "about-4",
+          "type": "about",
+          "visible": true,
+          "props": {
+            "label": "About Us",
+            "heading": "A jeweller Nagpur families keep coming back to",
+            "body": "Karande Jewellers is a family jewellery house on Jaitala Road in Nagpur, dealing in gold, silver, diamonds and certified gemstones.\n\nWe do three things: we sell jewellery, we buy and exchange what you already own, and we advise on gemstones. All of it is done the same way — the piece is weighed in front of you, the rate is the day's rate, and making charges are stated separately so you can see how the figure was reached.\n\nVijay Karande also consults on astrological gemstones: which stone suits you, at what weight, in which metal and on which finger. That conversation happens before you buy anything, because it often changes what you should be buying.\n\nWe are open every day of the week, including Sundays.",
+            "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1788263181/karande-jewellers/vijay-karande.jpg",
+            "imageFit": "cover",
+            "showPillars": true,
+            "pillars": [
+              {
+                "title": "Weighed in front of you",
+                "text": "Nothing is weighed out of sight, and the rate is the day's rate."
+              },
+              {
+                "title": "Hallmarked & certified",
+                "text": "BIS hallmarked gold; diamonds and gemstones with their certificates."
+              },
+              {
+                "title": "Open every day",
+                "text": "11 AM to 9 PM, Sundays included."
+              }
+            ]
+          },
+          "variant": "image-right"
+        },
+        {
+          "id": "services-5",
+          "type": "services",
+          "visible": true,
+          "props": {
+            "label": "What We Do",
+            "heading": "Sale, purchase and consultation",
+            "sub": "Gold, silver, diamonds and gemstones — and advice on which stone is right for you.",
+            "items": [
+              {
+                "image": "https://images.pexels.com/photos/8442352/pexels-photo-8442352.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Gold Buying & Selling",
+                "desc": "Buy new gold, or sell and exchange what you already own. Rates are quoted openly against the day's market price and weighed in front of you.",
+                "meta": "Ask us",
+                "cta": {
+                  "text": "Enquire",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/19820885/pexels-photo-19820885.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Silver Buying & Selling",
+                "desc": "Silver jewellery, coins, idols and pooja articles — bought, sold and exchanged on the same open basis.",
+                "meta": "Ask us",
+                "cta": {
+                  "text": "Enquire",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/32988651/pexels-photo-32988651.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Diamond Jewellery",
+                "desc": "Certified diamond jewellery, with the certificate handed over with the piece so you know exactly what you have bought.",
+                "meta": "Ask us",
+                "cta": {
+                  "text": "Enquire",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/13307186/pexels-photo-13307186.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Gemstone Sale & Purchase",
+                "desc": "Certified natural gemstones, sold loose by carat or set into a ring or pendant in our own workshop.",
+                "meta": "Ask us",
+                "cta": {
+                  "text": "Enquire",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/35697086/pexels-photo-35697086.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Astrology Consulting",
+                "desc": "Consultation with Vijay Karande on which stone suits you, at what weight, in which metal and on which finger — before you buy anything.",
+                "meta": "Ask us",
+                "cta": {
+                  "text": "Enquire",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              }
+            ],
+            "orderVia": "whatsapp",
+            "orderLabel": "Ask on WhatsApp"
+          },
+          "variant": "cards-3"
+        },
+        {
+          "id": "products-6",
+          "type": "products",
+          "visible": true,
+          "props": {
+            "label": "Collections",
+            "heading": "What you will find in the shop",
+            "sub": "A selection of our range. Message us for current designs, weights and rates — or come in and see them.",
+            "items": [
+              {
+                "image": "https://images.pexels.com/photos/32934707/pexels-photo-32934707.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Gold Necklaces",
+                "desc": "Traditional and contemporary gold necklaces in 22K and 18K, from everyday chains to full bridal pieces.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/7679654/pexels-photo-7679654.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Gold Chains",
+                "desc": "Machine and handmade chains in a range of weights and lengths, for men and women.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/37485307/pexels-photo-37485307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Gold Bangles & Kada",
+                "desc": "Plain, carved and stone-set bangles, and heavier kada, sized to fit.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/32610505/pexels-photo-32610505.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Gold Rings",
+                "desc": "Everyday rings, engagement bands and stone-set designs in 22K and 18K gold.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/2498430/pexels-photo-2498430.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Bridal Jewellery Sets",
+                "desc": "Complete wedding sets — necklace, earrings, maang tikka and bangles, matched as one.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/13595436/pexels-photo-13595436.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Gold Earrings",
+                "desc": "Studs, jhumkas, kundan drops and daily-wear tops in a wide range of designs.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/9772651/pexels-photo-9772651.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Mangalsutra",
+                "desc": "Traditional black-bead mangalsutra with gold pendants, short and long styles.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/3871582/pexels-photo-3871582.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Diamond Rings",
+                "desc": "Certified diamond rings — solitaires and cluster settings, in gold or white gold.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/32988651/pexels-photo-32988651.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Diamond Necklaces",
+                "desc": "Certified diamond necklaces and pendant sets for weddings and occasions.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/5370644/pexels-photo-5370644.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Diamond Earrings",
+                "desc": "Solitaire studs, halo settings and drop designs in certified diamonds.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              }
+            ],
+            "orderVia": "whatsapp",
+            "orderLabel": "Enquire on WhatsApp"
+          },
+          "variant": "carousel"
+        },
+        {
+          "id": "gallery-7",
+          "type": "gallery",
+          "visible": true,
+          "props": {
+            "label": "Gallery",
+            "heading": "A look at what we make",
+            "sub": "Bridal sets, temple designs, everyday gold and silver.",
+            "images": [
+              {
+                "image": "https://images.pexels.com/photos/2498430/pexels-photo-2498430.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "fit": "cover"
+              },
+              {
+                "image": "https://images.pexels.com/photos/27155550/pexels-photo-27155550.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "fit": "cover"
+              },
+              {
+                "image": "https://images.pexels.com/photos/37485307/pexels-photo-37485307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "fit": "cover"
+              },
+              {
+                "image": "https://images.pexels.com/photos/13595436/pexels-photo-13595436.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "fit": "cover"
+              },
+              {
+                "image": "https://images.pexels.com/photos/17901720/pexels-photo-17901720.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "fit": "cover"
+              },
+              {
+                "image": "https://images.pexels.com/photos/9772651/pexels-photo-9772651.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "fit": "cover"
+              },
+              {
+                "image": "https://images.pexels.com/photos/33287642/pexels-photo-33287642.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "fit": "cover"
+              },
+              {
+                "image": "https://images.pexels.com/photos/32988651/pexels-photo-32988651.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "fit": "cover"
+              },
+              {
+                "image": "https://images.pexels.com/photos/32934707/pexels-photo-32934707.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "fit": "cover"
+              }
+            ],
+            "lightbox": true
+          },
+          "variant": "marquee"
+        },
+        {
+          "id": "hours-8",
+          "type": "hours",
+          "visible": true,
+          "props": {
+            "label": "Timings",
+            "heading": "Open every day",
+            "hours": [
+              {
+                "day": "mon",
+                "open": "11:00 AM",
+                "close": "9:00 PM"
+              },
+              {
+                "day": "tue",
+                "open": "11:00 AM",
+                "close": "9:00 PM"
+              },
+              {
+                "day": "wed",
+                "open": "11:00 AM",
+                "close": "9:00 PM"
+              },
+              {
+                "day": "thu",
+                "open": "11:00 AM",
+                "close": "9:00 PM"
+              },
+              {
+                "day": "fri",
+                "open": "11:00 AM",
+                "close": "9:00 PM"
+              },
+              {
+                "day": "sat",
+                "open": "11:00 AM",
+                "close": "9:00 PM"
+              },
+              {
+                "day": "sun",
+                "open": "11:00 AM",
+                "close": "9:00 PM"
+              }
+            ],
+            "highlightToday": true,
+            "note": "Including Sundays and most public holidays."
+          },
+          "variant": "list"
+        },
+        {
+          "id": "cta-9",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "Come and see it in person",
+            "sub": "Jaitala Road, Trimurti Nagar. Or message us on WhatsApp and we will send photographs.",
+            "ctaPrimary": {
+              "text": "Get Directions",
+              "href": "/contact",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "variant": "banner"
+        },
+        {
+          "id": "contact-10",
+          "type": "contact",
+          "visible": true,
+          "props": {
+            "label": "Visit Us",
+            "heading": "Visit the shop",
+            "sub": "Jaitala Road, Nagpur. Call or WhatsApp any day between 11 AM and 9 PM.",
+            "showPhone": true,
+            "showWhatsapp": true,
+            "showEmail": false,
+            "showAddress": true,
+            "showHours": true,
+            "showMap": true,
+            "mapUrl": "https://www.google.com/maps?q=Karande%20Jewellers%2C%20Jaitala%20Rd%2C%20Parsodi%2C%20Subhash%20Nagar%2C%20Trimurti%20Nagar%2C%20Nagpur%2C%20Maharashtra%20440016&output=embed",
+            "submitText": "Send Enquiry"
+          },
+          "variant": "form-map"
+        },
+        {
+          "id": "footer-2",
+          "type": "footer",
+          "visible": true,
+          "props": {
+            "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1788263178/karande-jewellers/karande-logo.png",
+            "blurb": "Karande Jewellers — gold, silver, diamonds and certified gemstones on Jaitala Road, Nagpur. Sale, purchase and exchange, with astrology consultation by Vijay Karande. Open every day, 11 AM to 9 PM.",
+            "showSocial": true,
+            "socialIcons": [
+              {
+                "href": "https://www.instagram.com/karandejewellers2025",
+                "label": "Instagram"
+              }
+            ],
+            "showContact": true,
+            "showHours": true,
+            "columns": [
+              {
+                "title": "Shop",
+                "links": [
+                  {
+                    "text": "Collections",
+                    "href": "/collections"
+                  },
+                  {
+                    "text": "Services",
+                    "href": "/services"
+                  },
+                  {
+                    "text": "About Us",
+                    "href": "/about"
+                  }
+                ]
+              },
+              {
+                "title": "Reach Us",
+                "links": [
+                  {
+                    "text": "+91 98224 61048",
+                    "href": "tel:+919822461048"
+                  },
+                  {
+                    "text": "WhatsApp",
+                    "href": "https://wa.me/919822461048"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/karandejewellers2025"
+                  }
+                ]
+              }
+            ],
+            "copyright": "© Karande Jewellers, Nagpur",
+            "showBranding": true,
+            "showLegal": false
+          },
+          "variant": "columns"
+        }
+      ]
+    },
+    {
+      "id": "collections",
+      "slug": "/collections",
+      "title": "Collections",
+      "seo": {
+        "title": "Gold, Diamond & Silver Collections | Karande Jewellers Nagpur",
+        "description": "Gold necklaces, bangles, bridal sets, mangalsutra, diamond jewellery, silver articles, gold coins and certified gemstones at Karande Jewellers, Jaitala Road, Nagpur.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "products-11",
+          "type": "products",
+          "visible": true,
+          "props": {
+            "label": "Gold & Bridal",
+            "heading": "Gold jewellery",
+            "sub": "In 22K and 18K. Designs, weights and rates on enquiry — most bridal pieces are made to order.",
+            "items": [
+              {
+                "image": "https://images.pexels.com/photos/32934707/pexels-photo-32934707.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Gold Necklaces",
+                "desc": "Traditional and contemporary gold necklaces in 22K and 18K, from everyday chains to full bridal pieces.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/7679654/pexels-photo-7679654.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Gold Chains",
+                "desc": "Machine and handmade chains in a range of weights and lengths, for men and women.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/37485307/pexels-photo-37485307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Gold Bangles & Kada",
+                "desc": "Plain, carved and stone-set bangles, and heavier kada, sized to fit.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/32610505/pexels-photo-32610505.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Gold Rings",
+                "desc": "Everyday rings, engagement bands and stone-set designs in 22K and 18K gold.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/2498430/pexels-photo-2498430.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Bridal Jewellery Sets",
+                "desc": "Complete wedding sets — necklace, earrings, maang tikka and bangles, matched as one.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/13595436/pexels-photo-13595436.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Gold Earrings",
+                "desc": "Studs, jhumkas, kundan drops and daily-wear tops in a wide range of designs.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/9772651/pexels-photo-9772651.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Mangalsutra",
+                "desc": "Traditional black-bead mangalsutra with gold pendants, short and long styles.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              }
+            ],
+            "orderVia": "whatsapp",
+            "orderLabel": "Enquire on WhatsApp"
+          },
+          "variant": "cards-3"
+        },
+        {
+          "id": "products-12",
+          "type": "products",
+          "visible": true,
+          "props": {
+            "label": "Diamonds & Silver",
+            "heading": "Diamond and silver",
+            "sub": "Certified diamond jewellery, and silver for wearing, gifting and pooja.",
+            "items": [
+              {
+                "image": "https://images.pexels.com/photos/3871582/pexels-photo-3871582.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Diamond Rings",
+                "desc": "Certified diamond rings — solitaires and cluster settings, in gold or white gold.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/32988651/pexels-photo-32988651.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Diamond Necklaces",
+                "desc": "Certified diamond necklaces and pendant sets for weddings and occasions.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/5370644/pexels-photo-5370644.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Diamond Earrings",
+                "desc": "Solitaire studs, halo settings and drop designs in certified diamonds.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/19820885/pexels-photo-19820885.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Silver Jewellery",
+                "desc": "Silver necklaces, earrings and rings — for daily wear and for gifting.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/33287642/pexels-photo-33287642.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Silver Anklets & Toe Rings",
+                "desc": "Payal, kada-style anklets and toe rings in a range of weights.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/15902853/pexels-photo-15902853.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Silver Pooja Articles",
+                "desc": "Silver idols, diyas, thali sets and pooja items, also made to order for gifting.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              }
+            ],
+            "orderVia": "whatsapp",
+            "orderLabel": "Enquire on WhatsApp"
+          },
+          "variant": "cards-3"
+        },
+        {
+          "id": "products-13",
+          "type": "products",
+          "visible": true,
+          "props": {
+            "label": "Gemstones, Coins & More",
+            "heading": "Gemstones, coins and traditional pieces",
+            "sub": "Certified stones, hallmarked coins, and the traditional designs people ask for by name.",
+            "items": [
+              {
+                "image": "https://images.pexels.com/photos/13307186/pexels-photo-13307186.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Astrological Gemstones",
+                "desc": "Ruby, blue sapphire, yellow sapphire, emerald, coral and more — set in rings or pendants as advised.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/8442352/pexels-photo-8442352.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Gold Coins & Bars",
+                "desc": "Hallmarked gold coins and bars in standard weights, for investment and for gifting.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/17901720/pexels-photo-17901720.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Nose Pins & Nath",
+                "desc": "From small daily-wear pins to full traditional Maharashtrian nath.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/27916985/pexels-photo-27916985.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Gold Pendants",
+                "desc": "Religious, name and design pendants, with or without a matching chain.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/25227838/pexels-photo-25227838.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Bracelets",
+                "desc": "Gold and diamond bracelets for men and women, in several link styles.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/27155550/pexels-photo-27155550.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Temple Jewellery",
+                "desc": "South Indian temple designs — antique-finish sets with traditional motifs.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/13412779/pexels-photo-13412779.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Loose Gemstones",
+                "desc": "Certified loose stones, sold by carat, to be set into a design of your choosing.",
+                "meta": "Designs & rates on enquiry",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              }
+            ],
+            "orderVia": "whatsapp",
+            "orderLabel": "Enquire on WhatsApp"
+          },
+          "variant": "cards-3"
+        },
+        {
+          "id": "cta-14",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "Looking for something specific?",
+            "sub": "Send us a photograph on WhatsApp and we will tell you whether we have it or can make it.",
+            "ctaPrimary": {
+              "text": "Message Us",
+              "href": "https://wa.me/919822461048",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "variant": "card"
+        }
+      ]
+    },
+    {
+      "id": "services",
+      "slug": "/services",
+      "title": "Services",
+      "seo": {
+        "title": "Gold & Silver Sale, Purchase and Astrology Consulting | Karande Jewellers",
+        "description": "Buy, sell and exchange gold and silver in Nagpur. Certified diamonds and gemstones, plus astrology consultation with Vijay Karande on which stone suits you.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "services-15",
+          "type": "services",
+          "visible": true,
+          "props": {
+            "label": "Our Services",
+            "heading": "What we can do for you",
+            "sub": "Everything below happens with the weighing in front of you and the day's rate quoted openly.",
+            "items": [
+              {
+                "image": "https://images.pexels.com/photos/8442352/pexels-photo-8442352.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Gold Buying & Selling",
+                "desc": "Buy new gold, or sell and exchange what you already own. Rates are quoted openly against the day's market price and weighed in front of you.",
+                "meta": "Ask us",
+                "cta": {
+                  "text": "Enquire",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/19820885/pexels-photo-19820885.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Silver Buying & Selling",
+                "desc": "Silver jewellery, coins, idols and pooja articles — bought, sold and exchanged on the same open basis.",
+                "meta": "Ask us",
+                "cta": {
+                  "text": "Enquire",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/32988651/pexels-photo-32988651.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Diamond Jewellery",
+                "desc": "Certified diamond jewellery, with the certificate handed over with the piece so you know exactly what you have bought.",
+                "meta": "Ask us",
+                "cta": {
+                  "text": "Enquire",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/13307186/pexels-photo-13307186.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Gemstone Sale & Purchase",
+                "desc": "Certified natural gemstones, sold loose by carat or set into a ring or pendant in our own workshop.",
+                "meta": "Ask us",
+                "cta": {
+                  "text": "Enquire",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://images.pexels.com/photos/35697086/pexels-photo-35697086.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Astrology Consulting",
+                "desc": "Consultation with Vijay Karande on which stone suits you, at what weight, in which metal and on which finger — before you buy anything.",
+                "meta": "Ask us",
+                "cta": {
+                  "text": "Enquire",
+                  "href": "https://wa.me/919822461048",
+                  "style": "link"
+                }
+              }
+            ],
+            "orderVia": "whatsapp",
+            "orderLabel": "Ask on WhatsApp"
+          },
+          "variant": "cards-2"
+        },
+        {
+          "id": "about-16",
+          "type": "about",
+          "visible": true,
+          "props": {
+            "label": "Astrology Consulting",
+            "heading": "The stone first, the purchase after",
+            "body": "People often buy a gemstone and then ask whether it was the right one. It is worth doing in the other order.\n\nA consultation with Vijay Karande covers which stone suits you, the weight it should be, the metal it should be set in, and which finger it should be worn on. Those four answers change what you should buy — and sometimes the answer is a smaller stone than you were about to purchase.\n\nWe hold the consultation before the sale for exactly that reason. It is a better conversation when nobody has paid for anything yet.",
+            "image": "https://images.pexels.com/photos/35697086/pexels-photo-35697086.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+          },
+          "variant": "image-left"
+        },
+        {
+          "id": "faq-17",
+          "type": "faq",
+          "visible": true,
+          "props": {
+            "label": "Questions",
+            "heading": "What customers usually ask",
+            "items": [
+              {
+                "q": "Do you buy back old gold?",
+                "a": "Yes. We buy and exchange old gold and silver. The piece is weighed in front of you and the rate is quoted against the day's market price, so you can see exactly how the figure was arrived at."
+              },
+              {
+                "q": "Is your jewellery hallmarked?",
+                "a": "Yes. Gold jewellery carries the BIS hallmark for its stated purity, and diamond pieces come with their certificate."
+              },
+              {
+                "q": "Can I get a design made to order?",
+                "a": "Yes. Bring a photograph or describe what you want and we will make it. Bridal sets in particular are usually made to order, so allow time before the wedding date."
+              },
+              {
+                "q": "Which gemstone should I wear?",
+                "a": "That is what the astrology consultation is for. Vijay Karande will advise which stone suits you, the weight, the metal and the finger — before you spend anything on a stone."
+              },
+              {
+                "q": "Do you sell gold coins for investment?",
+                "a": "Yes, hallmarked coins and bars in standard weights. Many customers buy them at Dhanteras and Akshaya Tritiya, and for gifting."
+              },
+              {
+                "q": "What are your timings?",
+                "a": "We are open every day of the week, 11:00 AM to 9:00 PM, including Sundays."
+              },
+              {
+                "q": "Where exactly are you located?",
+                "a": "On Jaitala Road at Parsodi, Subhash Nagar, near Trimurti Nagar, Nagpur 440016. Message us on WhatsApp and we will send the location pin."
+              }
+            ],
+            "openFirst": true
+          },
+          "variant": "accordion"
+        },
+        {
+          "id": "cta-18",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "Book a gemstone consultation",
+            "sub": "Call or WhatsApp to fix a time with Vijay Karande.",
+            "ctaPrimary": {
+              "text": "Talk to Us",
+              "href": "/contact",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "variant": "banner"
+        }
+      ]
+    },
+    {
+      "id": "about",
+      "slug": "/about",
+      "title": "About",
+      "seo": {
+        "title": "About Karande Jewellers & Vijay Karande | Nagpur",
+        "description": "Karande Jewellers on Jaitala Road, Nagpur — a family jewellery house dealing in gold, silver, diamonds and gemstones, with astrology consultation by Vijay Karande.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "about-19",
+          "type": "about",
+          "visible": true,
+          "props": {
+            "label": "Our Story",
+            "heading": "A legacy of trust",
+            "body": "A jeweller is not chosen the way an ordinary shop is chosen. Families come back over decades, and they come back for reasons that have very little to do with the window display.\n\nIt comes down to whether the weighing is done in front of you, whether the rate you are quoted is the rate everyone gets that day, and whether the answer to \"what will you give me for this old chain\" is the same on the day you sell as it sounded on the day you bought.\n\nThat is what Karande Jewellers is built on, and it is why most of our customers came here because somebody in their family sent them.",
+            "image": "https://images.pexels.com/photos/37485307/pexels-photo-37485307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+          },
+          "variant": "image-right"
+        },
+        {
+          "id": "team-20",
+          "type": "team",
+          "visible": true,
+          "props": {
+            "label": "Who You Will Meet",
+            "heading": "Vijay Karande",
+            "sub": "Proprietor, and the person who does the gemstone consultations.",
+            "items": [
+              {
+                "photo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1788263181/karande-jewellers/vijay-karande.jpg",
+                "name": "Vijay Karande",
+                "role": "Proprietor & Astrology Consultant",
+                "meta": "Karande Jewellers, Nagpur",
+                "bio": "Vijay Karande runs Karande Jewellers on Jaitala Road and personally handles the gemstone consultations — which stone, what weight, which metal, which finger. He is usually in the shop, so ask for him by name."
+              }
+            ],
+            "imageFit": "cover"
+          },
+          "variant": "cards-2"
+        },
+        {
+          "id": "blog-21",
+          "type": "blog",
+          "visible": true,
+          "props": {
+            "label": "Journal",
+            "heading": "Worth reading before you buy",
+            "sub": "Short pieces on gold, hallmarking and choosing a stone.",
+            "posts": [
+              {
+                "image": "https://images.pexels.com/photos/32934707/pexels-photo-32934707.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "A Legacy of Trust",
+                "excerpt": "Why families come back to the same jeweller across generations — and what \"trust\" actually means when you are buying gold by weight.",
+                "body": "A jeweller is not chosen the way a shop is chosen. Families come back over decades, and they come back for reasons that have very little to do with the window display.\n\nIt comes down to whether the weighing is done in front of you, whether the rate you are quoted is the rate everyone gets that day, and whether the answer to \"what will you give me for this old chain\" is the same on the day you sell as it sounded on the day you bought.\n\nThat is the whole of it. There is no secret to it and no substitute for having done it the same way for a long time.",
+                "slug": "a-legacy-of-trust",
+                "linkText": "Read"
+              },
+              {
+                "image": "https://images.pexels.com/photos/8442352/pexels-photo-8442352.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "A Legacy of Gold Jewellery",
+                "excerpt": "How gold moves through an Indian family — as a wedding gift, as savings, and as something remade for the next generation.",
+                "body": "Gold in an Indian household is rarely bought once and worn forever. It is given at a wedding, kept for years, and then at some point brought back to be melted and made into something the next person will actually wear.\n\nThat is why weight and purity matter more than the design of the moment. A design goes out of fashion; the gold does not. When a piece comes back to be remade, what carries forward is the metal.\n\nIt is worth thinking about that when buying. Ask what the piece weighs, ask its purity, and keep the bill.",
+                "slug": "a-legacy-of-gold-jewellery",
+                "linkText": "Read"
+              },
+              {
+                "image": "https://images.pexels.com/photos/32610505/pexels-photo-32610505.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Reading a Hallmark Before You Buy",
+                "excerpt": "What the BIS mark actually tells you, and the two things worth checking on any gold purchase.",
+                "body": "A BIS hallmark on gold jewellery records its purity — 22K, 18K, and so on — verified by an assaying centre rather than by the shop selling it.\n\nTwo things are worth doing on any purchase. Look for the mark on the piece itself, and keep the bill, which should state the weight, the purity and the making charges separately. Making charges are where two quotes for \"the same\" piece most often differ.\n\nAsk. Any jeweller worth buying from will explain their figure without being pushed.",
+                "slug": "reading-a-hallmark-before-you-buy",
+                "linkText": "Read"
+              },
+              {
+                "image": "https://images.pexels.com/photos/13307186/pexels-photo-13307186.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+                "title": "Choosing a Gemstone the Sensible Way",
+                "excerpt": "Why the consultation should come before the purchase, not after.",
+                "body": "People often buy a stone first and ask about it afterwards. It is worth doing in the other order.\n\nA proper consultation covers which stone suits you, the weight it should be, the metal it should be set in and which finger it should be worn on. Those four answers change what you should buy — and sometimes the answer is a smaller stone than you were about to purchase.\n\nWe do the consultation before the sale for that reason. It is a better conversation when nobody has already paid for anything.",
+                "slug": "choosing-a-gemstone-the-sensible-way",
+                "linkText": "Read"
+              }
+            ]
+          },
+          "variant": "grid-2"
+        },
+        {
+          "id": "cta-22",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "Come in and say hello",
+            "sub": "Jaitala Road, Trimurti Nagar, Nagpur. Open all days, 11 AM to 9 PM.",
+            "ctaPrimary": {
+              "text": "Get Directions",
+              "href": "/contact",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "variant": "banner"
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "slug": "/contact",
+      "title": "Contact",
+      "seo": {
+        "title": "Contact Karande Jewellers — Jaitala Road, Nagpur",
+        "description": "Karande Jewellers, Jaitala Rd, Parsodi, Subhash Nagar, Trimurti Nagar, Nagpur 440016. Call or WhatsApp 98224 61048. Open all days, 11 AM to 9 PM.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "contact-23",
+          "type": "contact",
+          "visible": true,
+          "props": {
+            "label": "Visit Us",
+            "heading": "Find us on Jaitala Road",
+            "sub": "Call or WhatsApp on +91 98224 61048. We are open every day between 11 AM and 9 PM, Sundays included.",
+            "showPhone": true,
+            "showWhatsapp": true,
+            "showEmail": false,
+            "showAddress": true,
+            "showHours": true,
+            "showMap": true,
+            "mapUrl": "https://www.google.com/maps?q=Karande%20Jewellers%2C%20Jaitala%20Rd%2C%20Parsodi%2C%20Subhash%20Nagar%2C%20Trimurti%20Nagar%2C%20Nagpur%2C%20Maharashtra%20440016&output=embed",
+            "submitText": "Send Enquiry"
+          },
+          "variant": "form-map"
+        },
+        {
+          "id": "faq-24",
+          "type": "faq",
+          "visible": true,
+          "props": {
+            "label": "Before You Visit",
+            "heading": "Quick answers",
+            "items": [
+              {
+                "q": "Do you buy back old gold?",
+                "a": "Yes. We buy and exchange old gold and silver. The piece is weighed in front of you and the rate is quoted against the day's market price, so you can see exactly how the figure was arrived at."
+              },
+              {
+                "q": "Is your jewellery hallmarked?",
+                "a": "Yes. Gold jewellery carries the BIS hallmark for its stated purity, and diamond pieces come with their certificate."
+              },
+              {
+                "q": "Can I get a design made to order?",
+                "a": "Yes. Bring a photograph or describe what you want and we will make it. Bridal sets in particular are usually made to order, so allow time before the wedding date."
+              },
+              {
+                "q": "Which gemstone should I wear?",
+                "a": "That is what the astrology consultation is for. Vijay Karande will advise which stone suits you, the weight, the metal and the finger — before you spend anything on a stone."
+              },
+              {
+                "q": "Do you sell gold coins for investment?",
+                "a": "Yes, hallmarked coins and bars in standard weights. Many customers buy them at Dhanteras and Akshaya Tritiya, and for gifting."
+              }
+            ],
+            "openFirst": false
+          },
+          "variant": "two-column"
+        },
+        {
+          "id": "cta-25",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "Prefer to message?",
+            "sub": "Send a photograph on WhatsApp and we will tell you what it would cost.",
+            "ctaPrimary": {
+              "text": "WhatsApp Us",
+              "href": "https://wa.me/919822461048",
+              "style": "primary"
+            },
+            "ctaSecondary": {
+              "text": "Call +91 98224 61048",
+              "href": "tel:+919822461048",
+              "style": "ghost"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "variant": "card"
+        }
+      ]
+    }
+  ]
+}
