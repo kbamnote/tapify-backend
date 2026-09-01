@@ -454,43 +454,6 @@
           "props": {
             "label": "Timings",
             "heading": "Open every day",
-            "hours": [
-              {
-                "day": "mon",
-                "open": "11:00 AM",
-                "close": "9:00 PM"
-              },
-              {
-                "day": "tue",
-                "open": "11:00 AM",
-                "close": "9:00 PM"
-              },
-              {
-                "day": "wed",
-                "open": "11:00 AM",
-                "close": "9:00 PM"
-              },
-              {
-                "day": "thu",
-                "open": "11:00 AM",
-                "close": "9:00 PM"
-              },
-              {
-                "day": "fri",
-                "open": "11:00 AM",
-                "close": "9:00 PM"
-              },
-              {
-                "day": "sat",
-                "open": "11:00 AM",
-                "close": "9:00 PM"
-              },
-              {
-                "day": "sun",
-                "open": "11:00 AM",
-                "close": "9:00 PM"
-              }
-            ],
             "highlightToday": true,
             "note": "Including Sundays and most public holidays."
           },
