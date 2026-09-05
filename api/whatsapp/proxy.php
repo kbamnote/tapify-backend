@@ -41,6 +41,11 @@ const ACTIONS = [
     'send'          => ['POST', '/api/partner/whatsapp/send',           []],
     'bot'           => ['GET',  '/api/partner/whatsapp/bot',            []],
     'bot-save'      => ['POST', '/api/partner/whatsapp/bot',            []],
+    // Broadcast returns 202 immediately and runs in the background — it must
+    // not be made synchronous, or the 15s timeout below would abandon the
+    // caller mid-send with no way to tell what actually went out.
+    'broadcast'     => ['POST', '/api/partner/whatsapp/broadcast',      []],
+    'broadcasts'    => ['GET',  '/api/partner/whatsapp/broadcasts',     []],
 ];
 
 $action = trim((string)($_GET['action'] ?? ''));
