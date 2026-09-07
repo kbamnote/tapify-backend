@@ -199,8 +199,46 @@
           }
         },
         {
-          "id": "services-3",
-          "type": "services",
+          "id": "ticker-3",
+          "type": "ticker",
+          "visible": true,
+          "props": {
+            "items": [
+              {
+                "icon": "🚚",
+                "text": "Free shipping on all cord sets"
+              },
+              {
+                "icon": "✨",
+                "text": "New designs land every week"
+              },
+              {
+                "icon": "📏",
+                "text": "Sizes M to 3XL across most ranges"
+              },
+              {
+                "icon": "🏬",
+                "text": "Jaripatka Main Market, Nagpur — open all days, 12 PM to 9 PM"
+              },
+              {
+                "icon": "📦",
+                "text": "Retail & wholesale — we ship across India"
+              },
+              {
+                "icon": "💬",
+                "text": "Order on WhatsApp +91 93720 33659"
+              }
+            ],
+            "speed": "normal",
+            "direction": "left",
+            "pauseOnHover": true,
+            "separator": "•"
+          },
+          "variant": "dark"
+        },
+        {
+          "id": "products-4",
+          "type": "products",
           "visible": true,
           "props": {
             "label": "Shop by Category",
@@ -210,10 +248,57 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767281/western-nx/wnx-001.jpg",
                 "title": "Cord Set Western Look",
+                "slug": "shop-cord-set-western",
                 "desc": "Imported Korean fabric cord sets — matching top and bottom, ready to wear. Shipping free on cord sets.",
                 "meta": "Size L to 3XL · 13 designs",
+                "price": "₹1299",
+                "body": "Imported Korean fabric cord sets — matching top and bottom, ready to wear. Shipping free on cord sets.\n\nThere are 13 designs in this range right now, in sizes L to 3XL. Priced from ₹1299.\n\nSee every design in this range on the Cord Set Western Look page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767281/western-nx/wnx-001.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767284/western-nx/wnx-002.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767286/western-nx/wnx-003.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767289/western-nx/wnx-004.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767291/western-nx/wnx-005.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767422/western-nx/wnx-059.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "13"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "L to 3XL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "₹1299"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Free shipping on cord sets"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Cord Set Western Look",
+                  "text": "See all 13 designs",
                   "href": "/cord-set-western",
                   "style": "link"
                 }
@@ -221,10 +306,51 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767298/western-nx/wnx-008.jpg",
                 "title": "Cord Set Indian Look",
+                "slug": "shop-cord-set-indian",
                 "desc": "Three-piece Farshi salwar sets and Indian-cut co-ords — printed kurta with matching bottom and dupatta.",
                 "meta": "Size M to XXL · 4 designs",
+                "price": "On request",
+                "body": "Three-piece Farshi salwar sets and Indian-cut co-ords — printed kurta with matching bottom and dupatta.\n\nThere are 4 designs in this range right now, in sizes M to XXL. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Cord Set Indian Look page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767298/western-nx/wnx-008.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767300/western-nx/wnx-009.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767303/western-nx/wnx-010.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767305/western-nx/wnx-011.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "4"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "M to XXL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Cord Set Indian Look",
+                  "text": "See all 4 designs",
                   "href": "/cord-set-indian",
                   "style": "link"
                 }
@@ -232,10 +358,48 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767556/western-nx/wnx-124.jpg",
                 "title": "Kurti Pant Dupatta Sets",
+                "slug": "shop-kurti-sets",
                 "desc": "Complete three-piece sets — kurti, pant and dupatta, matched and ready.",
                 "meta": "Size M to XXL · 3 designs",
+                "price": "On request",
+                "body": "Complete three-piece sets — kurti, pant and dupatta, matched and ready.\n\nThere are 3 designs in this range right now, in sizes M to XXL. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Kurti Pant Dupatta Sets page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767556/western-nx/wnx-124.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767561/western-nx/wnx-125.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767562/western-nx/wnx-126.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "3"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "M to XXL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Kurti Pant Dupatta Sets",
+                  "text": "See all 3 designs",
                   "href": "/kurti-sets",
                   "style": "link"
                 }
@@ -243,10 +407,48 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767564/western-nx/wnx-127.jpg",
                 "title": "Anarkali Sets",
+                "slug": "shop-anarkali",
                 "desc": "Full-flare Anarkali and kaftan styles with dupatta, in jewel colours.",
                 "meta": "Size M to 3XL · 3 designs",
+                "price": "On request",
+                "body": "Full-flare Anarkali and kaftan styles with dupatta, in jewel colours.\n\nThere are 3 designs in this range right now, in sizes M to 3XL. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Anarkali Sets page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767564/western-nx/wnx-127.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767566/western-nx/wnx-128.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767568/western-nx/wnx-129.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "3"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "M to 3XL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Anarkali Sets",
+                  "text": "See all 3 designs",
                   "href": "/anarkali",
                   "style": "link"
                 }
@@ -254,10 +456,57 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767296/western-nx/wnx-007.jpg",
                 "title": "One-Piece Dresses",
+                "slug": "shop-one-piece-dresses",
                 "desc": "Polka midis, colour-block dresses and denim daisy pinafores — one piece, whole outfit.",
                 "meta": "Size M to XXL · 9 designs",
+                "price": "On request",
+                "body": "Polka midis, colour-block dresses and denim daisy pinafores — one piece, whole outfit.\n\nThere are 9 designs in this range right now, in sizes M to XXL. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the One-Piece Dresses page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767296/western-nx/wnx-007.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767416/western-nx/wnx-056.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767418/western-nx/wnx-057.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767420/western-nx/wnx-058.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767425/western-nx/wnx-061.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767427/western-nx/wnx-062.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "9"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "M to XXL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View One-Piece Dresses",
+                  "text": "See all 9 designs",
                   "href": "/one-piece-dresses",
                   "style": "link"
                 }
@@ -265,10 +514,54 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767430/western-nx/wnx-063.jpg",
                 "title": "Long Dresses / Maxi Dresses",
+                "slug": "shop-maxi-dresses",
                 "desc": "Full-length maxis and fringed party dresses, cut to fall properly.",
                 "meta": "Size M to 3XL · 5 designs",
+                "price": "On request",
+                "body": "Full-length maxis and fringed party dresses, cut to fall properly.\n\nThere are 5 designs in this range right now, in sizes M to 3XL. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Long Dresses / Maxi Dresses page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767430/western-nx/wnx-063.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767432/western-nx/wnx-064.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767436/western-nx/wnx-066.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767438/western-nx/wnx-067.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767440/western-nx/wnx-068.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "5"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "M to 3XL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Long Dresses / Maxi Dresses",
+                  "text": "See all 5 designs",
                   "href": "/maxi-dresses",
                   "style": "link"
                 }
@@ -276,10 +569,57 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767443/western-nx/wnx-069.jpg",
                 "title": "Korean Nighty",
+                "slug": "shop-korean-nighty",
                 "desc": "Imported 3-piece night suits — shirt, pant and shorts in one set. Soft cotton in cherry, heart, bow and gingham prints.",
                 "meta": "Size M to XXL · 20 designs",
+                "price": "₹750",
+                "body": "Imported 3-piece night suits — shirt, pant and shorts in one set. Soft cotton in cherry, heart, bow and gingham prints.\n\nThere are 20 designs in this range right now, in sizes M to XXL. Priced from ₹750.\n\nSee every design in this range on the Korean Nighty page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767443/western-nx/wnx-069.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767445/western-nx/wnx-070.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767447/western-nx/wnx-071.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767450/western-nx/wnx-072.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767452/western-nx/wnx-073.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767454/western-nx/wnx-074.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "20"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "M to XXL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "₹750"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Korean Nighty",
+                  "text": "See all 20 designs",
                   "href": "/korean-nighty",
                   "style": "link"
                 }
@@ -287,23 +627,71 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767575/western-nx/wnx-133.jpg",
                 "title": "Korean Trousers & Pants",
+                "slug": "shop-korean-trousers",
                 "desc": "Pleated wide-leg trousers with a proper fall, in neutrals that go with everything already in your wardrobe.",
                 "meta": "Size M to XXL · 8 designs",
+                "price": "On request",
+                "body": "Pleated wide-leg trousers with a proper fall, in neutrals that go with everything already in your wardrobe.\n\nThere are 8 designs in this range right now, in sizes M to XXL. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Korean Trousers & Pants page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767575/western-nx/wnx-133.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767577/western-nx/wnx-134.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767578/western-nx/wnx-135.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767580/western-nx/wnx-136.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767582/western-nx/wnx-137.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767583/western-nx/wnx-138.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "8"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "M to XXL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Korean Trousers & Pants",
+                  "text": "See all 8 designs",
                   "href": "/korean-trousers",
                   "style": "link"
                 }
               }
             ],
             "orderVia": "page",
-            "orderLabel": "View"
+            "orderLabel": "View range",
+            "showRelated": false
           },
           "variant": "cards-3"
         },
         {
-          "id": "services-4",
-          "type": "services",
+          "id": "products-5",
+          "type": "products",
           "visible": true,
           "props": {
             "label": "Shop by Category",
@@ -313,10 +701,57 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767281/western-nx/wnx-001.jpg",
                 "title": "Cord Set Western Look",
+                "slug": "shop-cord-set-western",
                 "desc": "Imported Korean fabric cord sets — matching top and bottom, ready to wear. Shipping free on cord sets.",
                 "meta": "Size L to 3XL · 13 designs",
+                "price": "₹1299",
+                "body": "Imported Korean fabric cord sets — matching top and bottom, ready to wear. Shipping free on cord sets.\n\nThere are 13 designs in this range right now, in sizes L to 3XL. Priced from ₹1299.\n\nSee every design in this range on the Cord Set Western Look page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767281/western-nx/wnx-001.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767284/western-nx/wnx-002.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767286/western-nx/wnx-003.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767289/western-nx/wnx-004.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767291/western-nx/wnx-005.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767422/western-nx/wnx-059.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "13"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "L to 3XL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "₹1299"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Free shipping on cord sets"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Cord Set Western Look",
+                  "text": "See all 13 designs",
                   "href": "/cord-set-western",
                   "style": "link"
                 }
@@ -324,10 +759,51 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767298/western-nx/wnx-008.jpg",
                 "title": "Cord Set Indian Look",
+                "slug": "shop-cord-set-indian",
                 "desc": "Three-piece Farshi salwar sets and Indian-cut co-ords — printed kurta with matching bottom and dupatta.",
                 "meta": "Size M to XXL · 4 designs",
+                "price": "On request",
+                "body": "Three-piece Farshi salwar sets and Indian-cut co-ords — printed kurta with matching bottom and dupatta.\n\nThere are 4 designs in this range right now, in sizes M to XXL. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Cord Set Indian Look page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767298/western-nx/wnx-008.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767300/western-nx/wnx-009.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767303/western-nx/wnx-010.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767305/western-nx/wnx-011.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "4"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "M to XXL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Cord Set Indian Look",
+                  "text": "See all 4 designs",
                   "href": "/cord-set-indian",
                   "style": "link"
                 }
@@ -335,10 +811,57 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767308/western-nx/wnx-012.jpg",
                 "title": "Indo-Western Design",
+                "slug": "shop-indowestern",
                 "desc": "Draped gowns, corset jumpsuits, shararas and hand-beaded blouses — the pieces for weddings and receptions.",
                 "meta": "Size M to XXL · 6 designs",
+                "price": "On request",
+                "body": "Draped gowns, corset jumpsuits, shararas and hand-beaded blouses — the pieces for weddings and receptions.\n\nThere are 6 designs in this range right now, in sizes M to XXL. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Indo-Western Design page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767308/western-nx/wnx-012.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767311/western-nx/wnx-013.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767313/western-nx/wnx-014.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767315/western-nx/wnx-015.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767317/western-nx/wnx-016.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767320/western-nx/wnx-017.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "6"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "M to XXL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Indo-Western Design",
+                  "text": "See all 6 designs",
                   "href": "/indowestern",
                   "style": "link"
                 }
@@ -346,10 +869,48 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767556/western-nx/wnx-124.jpg",
                 "title": "Kurti Pant Dupatta Sets",
+                "slug": "shop-kurti-sets",
                 "desc": "Complete three-piece sets — kurti, pant and dupatta, matched and ready.",
                 "meta": "Size M to XXL · 3 designs",
+                "price": "On request",
+                "body": "Complete three-piece sets — kurti, pant and dupatta, matched and ready.\n\nThere are 3 designs in this range right now, in sizes M to XXL. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Kurti Pant Dupatta Sets page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767556/western-nx/wnx-124.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767561/western-nx/wnx-125.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767562/western-nx/wnx-126.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "3"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "M to XXL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Kurti Pant Dupatta Sets",
+                  "text": "See all 3 designs",
                   "href": "/kurti-sets",
                   "style": "link"
                 }
@@ -357,10 +918,48 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767564/western-nx/wnx-127.jpg",
                 "title": "Anarkali Sets",
+                "slug": "shop-anarkali",
                 "desc": "Full-flare Anarkali and kaftan styles with dupatta, in jewel colours.",
                 "meta": "Size M to 3XL · 3 designs",
+                "price": "On request",
+                "body": "Full-flare Anarkali and kaftan styles with dupatta, in jewel colours.\n\nThere are 3 designs in this range right now, in sizes M to 3XL. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Anarkali Sets page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767564/western-nx/wnx-127.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767566/western-nx/wnx-128.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767568/western-nx/wnx-129.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "3"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "M to 3XL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Anarkali Sets",
+                  "text": "See all 3 designs",
                   "href": "/anarkali",
                   "style": "link"
                 }
@@ -368,10 +967,57 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767373/western-nx/wnx-037.jpg",
                 "title": "Printed Tees",
+                "slug": "shop-printed-tees",
                 "desc": "Embroidered and printed cotton tees — cats, butterflies, bears and florals. Everyday pieces that go with jeans or a skirt.",
                 "meta": "Size M to XXL · 26 designs",
+                "price": "On request",
+                "body": "Embroidered and printed cotton tees — cats, butterflies, bears and florals. Everyday pieces that go with jeans or a skirt.\n\nThere are 26 designs in this range right now, in sizes M to XXL. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Printed Tees page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767373/western-nx/wnx-037.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767374/western-nx/wnx-038.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767377/western-nx/wnx-039.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767379/western-nx/wnx-040.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767381/western-nx/wnx-041.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767384/western-nx/wnx-042.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "26"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "M to XXL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Printed Tees",
+                  "text": "See all 26 designs",
                   "href": "/printed-tees",
                   "style": "link"
                 }
@@ -379,10 +1025,57 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767322/western-nx/wnx-018.jpg",
                 "title": "Knit & Crochet Shirts",
+                "slug": "shop-knit-shirts",
                 "desc": "Short-sleeve knit and crochet shirts with a camp collar. Light enough for Nagpur summers, smart enough for work.",
                 "meta": "Size M to XXL · 19 designs",
+                "price": "On request",
+                "body": "Short-sleeve knit and crochet shirts with a camp collar. Light enough for Nagpur summers, smart enough for work.\n\nThere are 19 designs in this range right now, in sizes M to XXL. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Knit & Crochet Shirts page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767322/western-nx/wnx-018.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767325/western-nx/wnx-019.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767327/western-nx/wnx-020.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767329/western-nx/wnx-021.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767332/western-nx/wnx-022.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767334/western-nx/wnx-023.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "19"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "M to XXL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Knit & Crochet Shirts",
+                  "text": "See all 19 designs",
                   "href": "/knit-shirts",
                   "style": "link"
                 }
@@ -390,10 +1083,57 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767525/western-nx/wnx-109.jpg",
                 "title": "Embroidered Shirts",
+                "slug": "shop-embroidered-shirts",
                 "desc": "Linen-blend shirts with embroidery across the back — the detail people notice when you walk away.",
                 "meta": "Size M to XXL · 8 designs",
+                "price": "On request",
+                "body": "Linen-blend shirts with embroidery across the back — the detail people notice when you walk away.\n\nThere are 8 designs in this range right now, in sizes M to XXL. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Embroidered Shirts page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767525/western-nx/wnx-109.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767527/western-nx/wnx-110.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767529/western-nx/wnx-111.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767531/western-nx/wnx-112.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767533/western-nx/wnx-113.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767535/western-nx/wnx-114.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "8"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "M to XXL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Embroidered Shirts",
+                  "text": "See all 8 designs",
                   "href": "/embroidered-shirts",
                   "style": "link"
                 }
@@ -401,10 +1141,57 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767403/western-nx/wnx-050.jpg",
                 "title": "Designer Peplum Tops",
+                "slug": "shop-peplum-tops",
                 "desc": "Statement peplum tops with denim-effect panels, pearl and bead work. One top, a whole outfit.",
                 "meta": "Size M to XXL · 6 designs",
+                "price": "On request",
+                "body": "Statement peplum tops with denim-effect panels, pearl and bead work. One top, a whole outfit.\n\nThere are 6 designs in this range right now, in sizes M to XXL. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Designer Peplum Tops page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767403/western-nx/wnx-050.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767405/western-nx/wnx-051.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767407/western-nx/wnx-052.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767409/western-nx/wnx-053.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767412/western-nx/wnx-054.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767414/western-nx/wnx-055.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "6"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "M to XXL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Designer Peplum Tops",
+                  "text": "See all 6 designs",
                   "href": "/peplum-tops",
                   "style": "link"
                 }
@@ -412,10 +1199,57 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767296/western-nx/wnx-007.jpg",
                 "title": "One-Piece Dresses",
+                "slug": "shop-one-piece-dresses",
                 "desc": "Polka midis, colour-block dresses and denim daisy pinafores — one piece, whole outfit.",
                 "meta": "Size M to XXL · 9 designs",
+                "price": "On request",
+                "body": "Polka midis, colour-block dresses and denim daisy pinafores — one piece, whole outfit.\n\nThere are 9 designs in this range right now, in sizes M to XXL. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the One-Piece Dresses page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767296/western-nx/wnx-007.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767416/western-nx/wnx-056.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767418/western-nx/wnx-057.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767420/western-nx/wnx-058.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767425/western-nx/wnx-061.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767427/western-nx/wnx-062.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "9"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "M to XXL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View One-Piece Dresses",
+                  "text": "See all 9 designs",
                   "href": "/one-piece-dresses",
                   "style": "link"
                 }
@@ -423,10 +1257,54 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767430/western-nx/wnx-063.jpg",
                 "title": "Long Dresses / Maxi Dresses",
+                "slug": "shop-maxi-dresses",
                 "desc": "Full-length maxis and fringed party dresses, cut to fall properly.",
                 "meta": "Size M to 3XL · 5 designs",
+                "price": "On request",
+                "body": "Full-length maxis and fringed party dresses, cut to fall properly.\n\nThere are 5 designs in this range right now, in sizes M to 3XL. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Long Dresses / Maxi Dresses page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767430/western-nx/wnx-063.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767432/western-nx/wnx-064.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767436/western-nx/wnx-066.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767438/western-nx/wnx-067.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767440/western-nx/wnx-068.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "5"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "M to 3XL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Long Dresses / Maxi Dresses",
+                  "text": "See all 5 designs",
                   "href": "/maxi-dresses",
                   "style": "link"
                 }
@@ -434,10 +1312,57 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767443/western-nx/wnx-069.jpg",
                 "title": "Korean Nighty",
+                "slug": "shop-korean-nighty",
                 "desc": "Imported 3-piece night suits — shirt, pant and shorts in one set. Soft cotton in cherry, heart, bow and gingham prints.",
                 "meta": "Size M to XXL · 20 designs",
+                "price": "₹750",
+                "body": "Imported 3-piece night suits — shirt, pant and shorts in one set. Soft cotton in cherry, heart, bow and gingham prints.\n\nThere are 20 designs in this range right now, in sizes M to XXL. Priced from ₹750.\n\nSee every design in this range on the Korean Nighty page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767443/western-nx/wnx-069.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767445/western-nx/wnx-070.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767447/western-nx/wnx-071.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767450/western-nx/wnx-072.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767452/western-nx/wnx-073.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767454/western-nx/wnx-074.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "20"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "M to XXL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "₹750"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Korean Nighty",
+                  "text": "See all 20 designs",
                   "href": "/korean-nighty",
                   "style": "link"
                 }
@@ -445,10 +1370,48 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767481/western-nx/wnx-087.jpg",
                 "title": "Straight Fit Jeans",
+                "slug": "shop-straight-fit-jeans",
                 "desc": "Clean straight-leg denim in dark and black washes — the pair that works with everything.",
                 "meta": "Size 28 to 38 · 3 designs",
+                "price": "On request",
+                "body": "Clean straight-leg denim in dark and black washes — the pair that works with everything.\n\nThere are 3 designs in this range right now, in sizes 28 to 38. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Straight Fit Jeans page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767481/western-nx/wnx-087.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767482/western-nx/wnx-088.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767498/western-nx/wnx-095.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "3"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "28 to 38"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Straight Fit Jeans",
+                  "text": "See all 3 designs",
                   "href": "/straight-fit-jeans",
                   "style": "link"
                 }
@@ -456,10 +1419,57 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767478/western-nx/wnx-086.jpg",
                 "title": "Wide Leg Jeans",
+                "slug": "shop-wide-leg-jeans",
                 "desc": "Wide-leg denim with cutwork and embroidery down the leg — statement jeans you will not see on everyone else.",
                 "meta": "Size 28 to 38 · 7 designs",
+                "price": "On request",
+                "body": "Wide-leg denim with cutwork and embroidery down the leg — statement jeans you will not see on everyone else.\n\nThere are 7 designs in this range right now, in sizes 28 to 38. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Wide Leg Jeans page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767478/western-nx/wnx-086.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767484/western-nx/wnx-089.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767486/western-nx/wnx-090.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767489/western-nx/wnx-091.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767491/western-nx/wnx-092.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767494/western-nx/wnx-093.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "7"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "28 to 38"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Wide Leg Jeans",
+                  "text": "See all 7 designs",
                   "href": "/wide-leg-jeans",
                   "style": "link"
                 }
@@ -467,10 +1477,48 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767293/western-nx/wnx-006.jpg",
                 "title": "Jeggings",
+                "slug": "shop-jeggings",
                 "desc": "Stretch jeggings and flared denim that pull on and hold their shape all day.",
                 "meta": "Size 28 to 38 · 3 designs",
+                "price": "On request",
+                "body": "Stretch jeggings and flared denim that pull on and hold their shape all day.\n\nThere are 3 designs in this range right now, in sizes 28 to 38. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Jeggings page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767293/western-nx/wnx-006.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767500/western-nx/wnx-096.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767502/western-nx/wnx-097.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "3"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "28 to 38"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Jeggings",
+                  "text": "See all 3 designs",
                   "href": "/jeggings",
                   "style": "link"
                 }
@@ -478,23 +1526,71 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767575/western-nx/wnx-133.jpg",
                 "title": "Korean Trousers & Pants",
+                "slug": "shop-korean-trousers",
                 "desc": "Pleated wide-leg trousers with a proper fall, in neutrals that go with everything already in your wardrobe.",
                 "meta": "Size M to XXL · 8 designs",
+                "price": "On request",
+                "body": "Pleated wide-leg trousers with a proper fall, in neutrals that go with everything already in your wardrobe.\n\nThere are 8 designs in this range right now, in sizes M to XXL. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Korean Trousers & Pants page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767575/western-nx/wnx-133.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767577/western-nx/wnx-134.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767578/western-nx/wnx-135.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767580/western-nx/wnx-136.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767582/western-nx/wnx-137.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767583/western-nx/wnx-138.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "8"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "M to XXL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Korean Trousers & Pants",
+                  "text": "See all 8 designs",
                   "href": "/korean-trousers",
                   "style": "link"
                 }
               }
             ],
             "orderVia": "page",
-            "orderLabel": "View"
+            "orderLabel": "View range",
+            "showRelated": false
           },
-          "variant": "cards-3"
+          "variant": "carousel"
         },
         {
-          "id": "services-5",
-          "type": "services",
+          "id": "products-6",
+          "type": "products",
           "visible": true,
           "props": {
             "label": "Shop by Category",
@@ -504,10 +1600,57 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767281/western-nx/wnx-001.jpg",
                 "title": "Cord Set Western Look",
+                "slug": "shop-cord-set-western",
                 "desc": "Imported Korean fabric cord sets — matching top and bottom, ready to wear. Shipping free on cord sets.",
                 "meta": "Size L to 3XL · 13 designs",
+                "price": "₹1299",
+                "body": "Imported Korean fabric cord sets — matching top and bottom, ready to wear. Shipping free on cord sets.\n\nThere are 13 designs in this range right now, in sizes L to 3XL. Priced from ₹1299.\n\nSee every design in this range on the Cord Set Western Look page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767281/western-nx/wnx-001.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767284/western-nx/wnx-002.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767286/western-nx/wnx-003.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767289/western-nx/wnx-004.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767291/western-nx/wnx-005.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767422/western-nx/wnx-059.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "13"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "L to 3XL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "₹1299"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Free shipping on cord sets"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Cord Set Western Look",
+                  "text": "See all 13 designs",
                   "href": "/cord-set-western",
                   "style": "link"
                 }
@@ -515,10 +1658,57 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767373/western-nx/wnx-037.jpg",
                 "title": "Printed Tees",
+                "slug": "shop-printed-tees",
                 "desc": "Embroidered and printed cotton tees — cats, butterflies, bears and florals. Everyday pieces that go with jeans or a skirt.",
                 "meta": "Size M to XXL · 26 designs",
+                "price": "On request",
+                "body": "Embroidered and printed cotton tees — cats, butterflies, bears and florals. Everyday pieces that go with jeans or a skirt.\n\nThere are 26 designs in this range right now, in sizes M to XXL. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Printed Tees page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767373/western-nx/wnx-037.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767374/western-nx/wnx-038.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767377/western-nx/wnx-039.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767379/western-nx/wnx-040.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767381/western-nx/wnx-041.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767384/western-nx/wnx-042.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "26"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "M to XXL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Printed Tees",
+                  "text": "See all 26 designs",
                   "href": "/printed-tees",
                   "style": "link"
                 }
@@ -526,10 +1716,57 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767322/western-nx/wnx-018.jpg",
                 "title": "Knit & Crochet Shirts",
+                "slug": "shop-knit-shirts",
                 "desc": "Short-sleeve knit and crochet shirts with a camp collar. Light enough for Nagpur summers, smart enough for work.",
                 "meta": "Size M to XXL · 19 designs",
+                "price": "On request",
+                "body": "Short-sleeve knit and crochet shirts with a camp collar. Light enough for Nagpur summers, smart enough for work.\n\nThere are 19 designs in this range right now, in sizes M to XXL. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Knit & Crochet Shirts page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767322/western-nx/wnx-018.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767325/western-nx/wnx-019.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767327/western-nx/wnx-020.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767329/western-nx/wnx-021.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767332/western-nx/wnx-022.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767334/western-nx/wnx-023.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "19"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "M to XXL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Knit & Crochet Shirts",
+                  "text": "See all 19 designs",
                   "href": "/knit-shirts",
                   "style": "link"
                 }
@@ -537,10 +1774,57 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767525/western-nx/wnx-109.jpg",
                 "title": "Embroidered Shirts",
+                "slug": "shop-embroidered-shirts",
                 "desc": "Linen-blend shirts with embroidery across the back — the detail people notice when you walk away.",
                 "meta": "Size M to XXL · 8 designs",
+                "price": "On request",
+                "body": "Linen-blend shirts with embroidery across the back — the detail people notice when you walk away.\n\nThere are 8 designs in this range right now, in sizes M to XXL. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Embroidered Shirts page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767525/western-nx/wnx-109.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767527/western-nx/wnx-110.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767529/western-nx/wnx-111.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767531/western-nx/wnx-112.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767533/western-nx/wnx-113.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767535/western-nx/wnx-114.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "8"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "M to XXL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Embroidered Shirts",
+                  "text": "See all 8 designs",
                   "href": "/embroidered-shirts",
                   "style": "link"
                 }
@@ -548,10 +1832,57 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767403/western-nx/wnx-050.jpg",
                 "title": "Designer Peplum Tops",
+                "slug": "shop-peplum-tops",
                 "desc": "Statement peplum tops with denim-effect panels, pearl and bead work. One top, a whole outfit.",
                 "meta": "Size M to XXL · 6 designs",
+                "price": "On request",
+                "body": "Statement peplum tops with denim-effect panels, pearl and bead work. One top, a whole outfit.\n\nThere are 6 designs in this range right now, in sizes M to XXL. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Designer Peplum Tops page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767403/western-nx/wnx-050.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767405/western-nx/wnx-051.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767407/western-nx/wnx-052.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767409/western-nx/wnx-053.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767412/western-nx/wnx-054.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767414/western-nx/wnx-055.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "6"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "M to XXL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Designer Peplum Tops",
+                  "text": "See all 6 designs",
                   "href": "/peplum-tops",
                   "style": "link"
                 }
@@ -559,10 +1890,57 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767296/western-nx/wnx-007.jpg",
                 "title": "One-Piece Dresses",
+                "slug": "shop-one-piece-dresses",
                 "desc": "Polka midis, colour-block dresses and denim daisy pinafores — one piece, whole outfit.",
                 "meta": "Size M to XXL · 9 designs",
+                "price": "On request",
+                "body": "Polka midis, colour-block dresses and denim daisy pinafores — one piece, whole outfit.\n\nThere are 9 designs in this range right now, in sizes M to XXL. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the One-Piece Dresses page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767296/western-nx/wnx-007.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767416/western-nx/wnx-056.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767418/western-nx/wnx-057.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767420/western-nx/wnx-058.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767425/western-nx/wnx-061.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767427/western-nx/wnx-062.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "9"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "M to XXL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View One-Piece Dresses",
+                  "text": "See all 9 designs",
                   "href": "/one-piece-dresses",
                   "style": "link"
                 }
@@ -570,10 +1948,48 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767481/western-nx/wnx-087.jpg",
                 "title": "Straight Fit Jeans",
+                "slug": "shop-straight-fit-jeans",
                 "desc": "Clean straight-leg denim in dark and black washes — the pair that works with everything.",
                 "meta": "Size 28 to 38 · 3 designs",
+                "price": "On request",
+                "body": "Clean straight-leg denim in dark and black washes — the pair that works with everything.\n\nThere are 3 designs in this range right now, in sizes 28 to 38. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Straight Fit Jeans page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767481/western-nx/wnx-087.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767482/western-nx/wnx-088.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767498/western-nx/wnx-095.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "3"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "28 to 38"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Straight Fit Jeans",
+                  "text": "See all 3 designs",
                   "href": "/straight-fit-jeans",
                   "style": "link"
                 }
@@ -581,10 +1997,57 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767478/western-nx/wnx-086.jpg",
                 "title": "Wide Leg Jeans",
+                "slug": "shop-wide-leg-jeans",
                 "desc": "Wide-leg denim with cutwork and embroidery down the leg — statement jeans you will not see on everyone else.",
                 "meta": "Size 28 to 38 · 7 designs",
+                "price": "On request",
+                "body": "Wide-leg denim with cutwork and embroidery down the leg — statement jeans you will not see on everyone else.\n\nThere are 7 designs in this range right now, in sizes 28 to 38. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Wide Leg Jeans page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767478/western-nx/wnx-086.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767484/western-nx/wnx-089.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767486/western-nx/wnx-090.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767489/western-nx/wnx-091.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767491/western-nx/wnx-092.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767494/western-nx/wnx-093.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "7"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "28 to 38"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Wide Leg Jeans",
+                  "text": "See all 7 designs",
                   "href": "/wide-leg-jeans",
                   "style": "link"
                 }
@@ -592,10 +2055,48 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767293/western-nx/wnx-006.jpg",
                 "title": "Jeggings",
+                "slug": "shop-jeggings",
                 "desc": "Stretch jeggings and flared denim that pull on and hold their shape all day.",
                 "meta": "Size 28 to 38 · 3 designs",
+                "price": "On request",
+                "body": "Stretch jeggings and flared denim that pull on and hold their shape all day.\n\nThere are 3 designs in this range right now, in sizes 28 to 38. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Jeggings page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767293/western-nx/wnx-006.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767500/western-nx/wnx-096.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767502/western-nx/wnx-097.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "3"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "28 to 38"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Jeggings",
+                  "text": "See all 3 designs",
                   "href": "/jeggings",
                   "style": "link"
                 }
@@ -603,22 +2104,70 @@
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_500,c_limit/v1788767575/western-nx/wnx-133.jpg",
                 "title": "Korean Trousers & Pants",
+                "slug": "shop-korean-trousers",
                 "desc": "Pleated wide-leg trousers with a proper fall, in neutrals that go with everything already in your wardrobe.",
                 "meta": "Size M to XXL · 8 designs",
+                "price": "On request",
+                "body": "Pleated wide-leg trousers with a proper fall, in neutrals that go with everything already in your wardrobe.\n\nThere are 8 designs in this range right now, in sizes M to XXL. Rates depend on the fabric and the quantity — message us on WhatsApp for today’s price.\n\nSee every design in this range on the Korean Trousers & Pants page, or message us on WhatsApp and we will send photographs of what is in stock today. We ship across India and supply wholesale to boutiques and resellers.",
+                "gallery": [
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767575/western-nx/wnx-133.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767577/western-nx/wnx-134.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767578/western-nx/wnx-135.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767580/western-nx/wnx-136.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767582/western-nx/wnx-137.jpg"
+                  },
+                  {
+                    "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1200,c_limit/v1788767583/western-nx/wnx-138.jpg"
+                  }
+                ],
+                "productInfoTitle": "About this range",
+                "productInfo": [
+                  {
+                    "label": "Designs in stock",
+                    "value": "8"
+                  },
+                  {
+                    "label": "Sizes",
+                    "value": "M to XXL"
+                  },
+                  {
+                    "label": "Price",
+                    "value": "On request"
+                  },
+                  {
+                    "label": "Shipping",
+                    "value": "Shipped across India"
+                  },
+                  {
+                    "label": "Order",
+                    "value": "On WhatsApp — +91 93720 33659"
+                  }
+                ],
+                "enableOrder": true,
                 "cta": {
-                  "text": "View Korean Trousers & Pants",
+                  "text": "See all 8 designs",
                   "href": "/korean-trousers",
                   "style": "link"
                 }
               }
             ],
             "orderVia": "page",
-            "orderLabel": "View"
+            "orderLabel": "View range",
+            "showRelated": false
           },
           "variant": "cards-3"
         },
         {
-          "id": "products-6",
+          "id": "products-7",
           "type": "products",
           "visible": true,
           "props": {
@@ -1151,7 +2700,7 @@
           "variant": "carousel"
         },
         {
-          "id": "products-7",
+          "id": "products-8",
           "type": "products",
           "visible": true,
           "props": {
@@ -1684,7 +3233,7 @@
           "variant": "marquee"
         },
         {
-          "id": "products-8",
+          "id": "products-9",
           "type": "products",
           "visible": true,
           "props": {
@@ -2088,7 +3637,7 @@
           "variant": "cards-3"
         },
         {
-          "id": "embed-9",
+          "id": "embed-10",
           "type": "embed",
           "visible": true,
           "props": {
@@ -2107,7 +3656,7 @@
           "variant": "grid-2"
         },
         {
-          "id": "gallery-10",
+          "id": "gallery-11",
           "type": "gallery",
           "visible": true,
           "props": {
@@ -2168,7 +3717,7 @@
           "variant": "marquee"
         },
         {
-          "id": "cta-11",
+          "id": "cta-12",
           "type": "cta",
           "visible": true,
           "props": {
@@ -2185,7 +3734,7 @@
           "variant": "banner"
         },
         {
-          "id": "contact-12",
+          "id": "contact-13",
           "type": "contact",
           "visible": true,
           "props": {
@@ -2204,7 +3753,7 @@
           "variant": "form-map"
         },
         {
-          "id": "footer-13",
+          "id": "footer-14",
           "type": "footer",
           "visible": true,
           "props": {
@@ -2293,7 +3842,7 @@
       },
       "sections": [
         {
-          "id": "header-14",
+          "id": "header-15",
           "type": "header",
           "visible": true,
           "props": {
@@ -2344,7 +3893,7 @@
           "variant": "left"
         },
         {
-          "id": "hero-15",
+          "id": "hero-16",
           "type": "hero",
           "visible": true,
           "props": {
@@ -2366,7 +3915,7 @@
           }
         },
         {
-          "id": "products-16",
+          "id": "products-17",
           "type": "products",
           "visible": true,
           "props": {
@@ -2942,7 +4491,7 @@
           "variant": "carousel"
         },
         {
-          "id": "cta-17",
+          "id": "cta-18",
           "type": "cta",
           "visible": true,
           "props": {
@@ -2959,7 +4508,7 @@
           "variant": "banner"
         },
         {
-          "id": "footer-18",
+          "id": "footer-19",
           "type": "footer",
           "visible": true,
           "props": {
@@ -3048,7 +4597,7 @@
       },
       "sections": [
         {
-          "id": "header-19",
+          "id": "header-20",
           "type": "header",
           "visible": true,
           "props": {
@@ -3099,7 +4648,7 @@
           "variant": "left"
         },
         {
-          "id": "hero-20",
+          "id": "hero-21",
           "type": "hero",
           "visible": true,
           "props": {
@@ -3121,7 +4670,7 @@
           }
         },
         {
-          "id": "products-21",
+          "id": "products-22",
           "type": "products",
           "visible": true,
           "props": {
@@ -3310,7 +4859,7 @@
           "variant": "carousel"
         },
         {
-          "id": "cta-22",
+          "id": "cta-23",
           "type": "cta",
           "visible": true,
           "props": {
@@ -3327,7 +4876,7 @@
           "variant": "banner"
         },
         {
-          "id": "footer-23",
+          "id": "footer-24",
           "type": "footer",
           "visible": true,
           "props": {
@@ -3416,7 +4965,7 @@
       },
       "sections": [
         {
-          "id": "header-24",
+          "id": "header-25",
           "type": "header",
           "visible": true,
           "props": {
@@ -3467,7 +5016,7 @@
           "variant": "left"
         },
         {
-          "id": "hero-25",
+          "id": "hero-26",
           "type": "hero",
           "visible": true,
           "props": {
@@ -3489,7 +5038,7 @@
           }
         },
         {
-          "id": "products-26",
+          "id": "products-27",
           "type": "products",
           "visible": true,
           "props": {
@@ -3764,7 +5313,7 @@
           "variant": "carousel"
         },
         {
-          "id": "cta-27",
+          "id": "cta-28",
           "type": "cta",
           "visible": true,
           "props": {
@@ -3781,7 +5330,7 @@
           "variant": "banner"
         },
         {
-          "id": "footer-28",
+          "id": "footer-29",
           "type": "footer",
           "visible": true,
           "props": {
@@ -3870,7 +5419,7 @@
       },
       "sections": [
         {
-          "id": "header-29",
+          "id": "header-30",
           "type": "header",
           "visible": true,
           "props": {
@@ -3921,7 +5470,7 @@
           "variant": "left"
         },
         {
-          "id": "hero-30",
+          "id": "hero-31",
           "type": "hero",
           "visible": true,
           "props": {
@@ -3943,7 +5492,7 @@
           }
         },
         {
-          "id": "products-31",
+          "id": "products-32",
           "type": "products",
           "visible": true,
           "props": {
@@ -4089,7 +5638,7 @@
           "variant": "carousel"
         },
         {
-          "id": "cta-32",
+          "id": "cta-33",
           "type": "cta",
           "visible": true,
           "props": {
@@ -4106,7 +5655,7 @@
           "variant": "banner"
         },
         {
-          "id": "footer-33",
+          "id": "footer-34",
           "type": "footer",
           "visible": true,
           "props": {
@@ -4195,7 +5744,7 @@
       },
       "sections": [
         {
-          "id": "header-34",
+          "id": "header-35",
           "type": "header",
           "visible": true,
           "props": {
@@ -4246,7 +5795,7 @@
           "variant": "left"
         },
         {
-          "id": "hero-35",
+          "id": "hero-36",
           "type": "hero",
           "visible": true,
           "props": {
@@ -4268,7 +5817,7 @@
           }
         },
         {
-          "id": "products-36",
+          "id": "products-37",
           "type": "products",
           "visible": true,
           "props": {
@@ -4414,7 +5963,7 @@
           "variant": "carousel"
         },
         {
-          "id": "cta-37",
+          "id": "cta-38",
           "type": "cta",
           "visible": true,
           "props": {
@@ -4431,7 +5980,7 @@
           "variant": "banner"
         },
         {
-          "id": "footer-38",
+          "id": "footer-39",
           "type": "footer",
           "visible": true,
           "props": {
@@ -4520,7 +6069,7 @@
       },
       "sections": [
         {
-          "id": "header-39",
+          "id": "header-40",
           "type": "header",
           "visible": true,
           "props": {
@@ -4571,7 +6120,7 @@
           "variant": "left"
         },
         {
-          "id": "hero-40",
+          "id": "hero-41",
           "type": "hero",
           "visible": true,
           "props": {
@@ -4593,7 +6142,7 @@
           }
         },
         {
-          "id": "products-41",
+          "id": "products-42",
           "type": "products",
           "visible": true,
           "props": {
@@ -5642,7 +7191,7 @@
           "variant": "carousel"
         },
         {
-          "id": "products-42",
+          "id": "products-43",
           "type": "products",
           "visible": true,
           "props": {
@@ -5745,7 +7294,7 @@
           "variant": "cards-3"
         },
         {
-          "id": "cta-43",
+          "id": "cta-44",
           "type": "cta",
           "visible": true,
           "props": {
@@ -5762,7 +7311,7 @@
           "variant": "banner"
         },
         {
-          "id": "footer-44",
+          "id": "footer-45",
           "type": "footer",
           "visible": true,
           "props": {
@@ -5851,7 +7400,7 @@
       },
       "sections": [
         {
-          "id": "header-45",
+          "id": "header-46",
           "type": "header",
           "visible": true,
           "props": {
@@ -5902,7 +7451,7 @@
           "variant": "left"
         },
         {
-          "id": "hero-46",
+          "id": "hero-47",
           "type": "hero",
           "visible": true,
           "props": {
@@ -5924,7 +7473,7 @@
           }
         },
         {
-          "id": "products-47",
+          "id": "products-48",
           "type": "products",
           "visible": true,
           "props": {
@@ -6758,7 +8307,7 @@
           "variant": "carousel"
         },
         {
-          "id": "cta-48",
+          "id": "cta-49",
           "type": "cta",
           "visible": true,
           "props": {
@@ -6775,7 +8324,7 @@
           "variant": "banner"
         },
         {
-          "id": "footer-49",
+          "id": "footer-50",
           "type": "footer",
           "visible": true,
           "props": {
@@ -6864,7 +8413,7 @@
       },
       "sections": [
         {
-          "id": "header-50",
+          "id": "header-51",
           "type": "header",
           "visible": true,
           "props": {
@@ -6915,7 +8464,7 @@
           "variant": "left"
         },
         {
-          "id": "hero-51",
+          "id": "hero-52",
           "type": "hero",
           "visible": true,
           "props": {
@@ -6937,7 +8486,7 @@
           }
         },
         {
-          "id": "products-52",
+          "id": "products-53",
           "type": "products",
           "visible": true,
           "props": {
@@ -7298,7 +8847,7 @@
           "variant": "carousel"
         },
         {
-          "id": "cta-53",
+          "id": "cta-54",
           "type": "cta",
           "visible": true,
           "props": {
@@ -7315,7 +8864,7 @@
           "variant": "banner"
         },
         {
-          "id": "footer-54",
+          "id": "footer-55",
           "type": "footer",
           "visible": true,
           "props": {
@@ -7404,7 +8953,7 @@
       },
       "sections": [
         {
-          "id": "header-55",
+          "id": "header-56",
           "type": "header",
           "visible": true,
           "props": {
@@ -7455,7 +9004,7 @@
           "variant": "left"
         },
         {
-          "id": "hero-56",
+          "id": "hero-57",
           "type": "hero",
           "visible": true,
           "props": {
@@ -7477,7 +9026,7 @@
           }
         },
         {
-          "id": "products-57",
+          "id": "products-58",
           "type": "products",
           "visible": true,
           "props": {
@@ -7752,7 +9301,7 @@
           "variant": "carousel"
         },
         {
-          "id": "cta-58",
+          "id": "cta-59",
           "type": "cta",
           "visible": true,
           "props": {
@@ -7769,7 +9318,7 @@
           "variant": "banner"
         },
         {
-          "id": "footer-59",
+          "id": "footer-60",
           "type": "footer",
           "visible": true,
           "props": {
@@ -7858,7 +9407,7 @@
       },
       "sections": [
         {
-          "id": "header-60",
+          "id": "header-61",
           "type": "header",
           "visible": true,
           "props": {
@@ -7909,7 +9458,7 @@
           "variant": "left"
         },
         {
-          "id": "hero-61",
+          "id": "hero-62",
           "type": "hero",
           "visible": true,
           "props": {
@@ -7931,7 +9480,7 @@
           }
         },
         {
-          "id": "products-62",
+          "id": "products-63",
           "type": "products",
           "visible": true,
           "props": {
@@ -8335,7 +9884,7 @@
           "variant": "carousel"
         },
         {
-          "id": "cta-63",
+          "id": "cta-64",
           "type": "cta",
           "visible": true,
           "props": {
@@ -8352,7 +9901,7 @@
           "variant": "banner"
         },
         {
-          "id": "footer-64",
+          "id": "footer-65",
           "type": "footer",
           "visible": true,
           "props": {
@@ -8441,7 +9990,7 @@
       },
       "sections": [
         {
-          "id": "header-65",
+          "id": "header-66",
           "type": "header",
           "visible": true,
           "props": {
@@ -8492,7 +10041,7 @@
           "variant": "left"
         },
         {
-          "id": "hero-66",
+          "id": "hero-67",
           "type": "hero",
           "visible": true,
           "props": {
@@ -8514,7 +10063,7 @@
           }
         },
         {
-          "id": "products-67",
+          "id": "products-68",
           "type": "products",
           "visible": true,
           "props": {
@@ -8746,7 +10295,7 @@
           "variant": "carousel"
         },
         {
-          "id": "cta-68",
+          "id": "cta-69",
           "type": "cta",
           "visible": true,
           "props": {
@@ -8763,7 +10312,7 @@
           "variant": "banner"
         },
         {
-          "id": "footer-69",
+          "id": "footer-70",
           "type": "footer",
           "visible": true,
           "props": {
@@ -8852,7 +10401,7 @@
       },
       "sections": [
         {
-          "id": "header-70",
+          "id": "header-71",
           "type": "header",
           "visible": true,
           "props": {
@@ -8903,7 +10452,7 @@
           "variant": "left"
         },
         {
-          "id": "hero-71",
+          "id": "hero-72",
           "type": "hero",
           "visible": true,
           "props": {
@@ -8925,7 +10474,7 @@
           }
         },
         {
-          "id": "products-72",
+          "id": "products-73",
           "type": "products",
           "visible": true,
           "props": {
@@ -9802,7 +11351,7 @@
           "variant": "carousel"
         },
         {
-          "id": "cta-73",
+          "id": "cta-74",
           "type": "cta",
           "visible": true,
           "props": {
@@ -9819,7 +11368,7 @@
           "variant": "banner"
         },
         {
-          "id": "footer-74",
+          "id": "footer-75",
           "type": "footer",
           "visible": true,
           "props": {
@@ -9908,7 +11457,7 @@
       },
       "sections": [
         {
-          "id": "header-75",
+          "id": "header-76",
           "type": "header",
           "visible": true,
           "props": {
@@ -9959,7 +11508,7 @@
           "variant": "left"
         },
         {
-          "id": "hero-76",
+          "id": "hero-77",
           "type": "hero",
           "visible": true,
           "props": {
@@ -9981,7 +11530,7 @@
           }
         },
         {
-          "id": "products-77",
+          "id": "products-78",
           "type": "products",
           "visible": true,
           "props": {
@@ -10127,7 +11676,7 @@
           "variant": "carousel"
         },
         {
-          "id": "cta-78",
+          "id": "cta-79",
           "type": "cta",
           "visible": true,
           "props": {
@@ -10144,7 +11693,7 @@
           "variant": "banner"
         },
         {
-          "id": "footer-79",
+          "id": "footer-80",
           "type": "footer",
           "visible": true,
           "props": {
@@ -10233,7 +11782,7 @@
       },
       "sections": [
         {
-          "id": "header-80",
+          "id": "header-81",
           "type": "header",
           "visible": true,
           "props": {
@@ -10284,7 +11833,7 @@
           "variant": "left"
         },
         {
-          "id": "hero-81",
+          "id": "hero-82",
           "type": "hero",
           "visible": true,
           "props": {
@@ -10306,7 +11855,7 @@
           }
         },
         {
-          "id": "products-82",
+          "id": "products-83",
           "type": "products",
           "visible": true,
           "props": {
@@ -10624,7 +12173,7 @@
           "variant": "carousel"
         },
         {
-          "id": "cta-83",
+          "id": "cta-84",
           "type": "cta",
           "visible": true,
           "props": {
@@ -10641,7 +12190,7 @@
           "variant": "banner"
         },
         {
-          "id": "footer-84",
+          "id": "footer-85",
           "type": "footer",
           "visible": true,
           "props": {
@@ -10730,7 +12279,7 @@
       },
       "sections": [
         {
-          "id": "header-85",
+          "id": "header-86",
           "type": "header",
           "visible": true,
           "props": {
@@ -10781,7 +12330,7 @@
           "variant": "left"
         },
         {
-          "id": "hero-86",
+          "id": "hero-87",
           "type": "hero",
           "visible": true,
           "props": {
@@ -10803,7 +12352,7 @@
           }
         },
         {
-          "id": "products-87",
+          "id": "products-88",
           "type": "products",
           "visible": true,
           "props": {
@@ -10949,7 +12498,7 @@
           "variant": "carousel"
         },
         {
-          "id": "cta-88",
+          "id": "cta-89",
           "type": "cta",
           "visible": true,
           "props": {
@@ -10966,7 +12515,7 @@
           "variant": "banner"
         },
         {
-          "id": "footer-89",
+          "id": "footer-90",
           "type": "footer",
           "visible": true,
           "props": {
@@ -11055,7 +12604,7 @@
       },
       "sections": [
         {
-          "id": "header-90",
+          "id": "header-91",
           "type": "header",
           "visible": true,
           "props": {
@@ -11106,7 +12655,7 @@
           "variant": "left"
         },
         {
-          "id": "hero-91",
+          "id": "hero-92",
           "type": "hero",
           "visible": true,
           "props": {
@@ -11128,7 +12677,7 @@
           }
         },
         {
-          "id": "products-92",
+          "id": "products-93",
           "type": "products",
           "visible": true,
           "props": {
@@ -11489,7 +13038,7 @@
           "variant": "carousel"
         },
         {
-          "id": "cta-93",
+          "id": "cta-94",
           "type": "cta",
           "visible": true,
           "props": {
@@ -11506,7 +13055,7 @@
           "variant": "banner"
         },
         {
-          "id": "footer-94",
+          "id": "footer-95",
           "type": "footer",
           "visible": true,
           "props": {
@@ -11595,7 +13144,7 @@
       },
       "sections": [
         {
-          "id": "header-95",
+          "id": "header-96",
           "type": "header",
           "visible": true,
           "props": {
@@ -11646,7 +13195,7 @@
           "variant": "left"
         },
         {
-          "id": "hero-96",
+          "id": "hero-97",
           "type": "hero",
           "visible": true,
           "props": {
@@ -11668,7 +13217,7 @@
           }
         },
         {
-          "id": "products-97",
+          "id": "products-98",
           "type": "products",
           "visible": true,
           "props": {
@@ -11814,7 +13363,7 @@
           "variant": "carousel"
         },
         {
-          "id": "products-98",
+          "id": "products-99",
           "type": "products",
           "visible": true,
           "props": {
@@ -11960,7 +13509,7 @@
           "variant": "cards-3"
         },
         {
-          "id": "products-99",
+          "id": "products-100",
           "type": "products",
           "visible": true,
           "props": {
@@ -12149,7 +13698,7 @@
           "variant": "cards-3"
         },
         {
-          "id": "cta-100",
+          "id": "cta-101",
           "type": "cta",
           "visible": true,
           "props": {
@@ -12166,7 +13715,7 @@
           "variant": "banner"
         },
         {
-          "id": "footer-101",
+          "id": "footer-102",
           "type": "footer",
           "visible": true,
           "props": {
@@ -12255,7 +13804,7 @@
       },
       "sections": [
         {
-          "id": "header-102",
+          "id": "header-103",
           "type": "header",
           "visible": true,
           "props": {
@@ -12306,7 +13855,7 @@
           "variant": "left"
         },
         {
-          "id": "hero-103",
+          "id": "hero-104",
           "type": "hero",
           "visible": true,
           "props": {
@@ -12328,7 +13877,7 @@
           }
         },
         {
-          "id": "services-104",
+          "id": "services-105",
           "type": "services",
           "visible": true,
           "props": {
@@ -12362,7 +13911,7 @@
           "variant": "cards-2"
         },
         {
-          "id": "faq-105",
+          "id": "faq-106",
           "type": "faq",
           "visible": true,
           "props": {
@@ -12395,7 +13944,7 @@
           "variant": "accordion"
         },
         {
-          "id": "cta-106",
+          "id": "cta-107",
           "type": "cta",
           "visible": true,
           "props": {
@@ -12412,7 +13961,7 @@
           "variant": "banner"
         },
         {
-          "id": "footer-107",
+          "id": "footer-108",
           "type": "footer",
           "visible": true,
           "props": {
@@ -12501,7 +14050,7 @@
       },
       "sections": [
         {
-          "id": "header-108",
+          "id": "header-109",
           "type": "header",
           "visible": true,
           "props": {
@@ -12552,7 +14101,7 @@
           "variant": "left"
         },
         {
-          "id": "contact-109",
+          "id": "contact-110",
           "type": "contact",
           "visible": true,
           "props": {
@@ -12571,7 +14120,7 @@
           "variant": "form-map"
         },
         {
-          "id": "hours-110",
+          "id": "hours-111",
           "type": "hours",
           "visible": true,
           "props": {
@@ -12583,7 +14132,7 @@
           "variant": "list"
         },
         {
-          "id": "cta-111",
+          "id": "cta-112",
           "type": "cta",
           "visible": true,
           "props": {
@@ -12605,7 +14154,7 @@
           "variant": "card"
         },
         {
-          "id": "footer-112",
+          "id": "footer-113",
           "type": "footer",
           "visible": true,
           "props": {

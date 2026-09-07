@@ -692,11 +692,68 @@ class SiteRenderer
              . '</div>';
     }
 
+    /**
+     * A thin strip of text scrolling sideways — offers, delivery notices, a
+     * safety warning. Reads well directly under the hero.
+     *
+     * Same technique as marquee() above: the message set is duplicated so
+     * translateX(-50%) loops with no visible seam. No JavaScript, and it stops
+     * moving entirely for anyone who has asked for reduced motion — a strip of
+     * text sliding past forever is exactly what that setting is for.
+     */
+    private static function secTicker(array $s, array $doc): string
+    {
+        $p = $s['props'] ?? [];
+        $items = array_values(array_filter(
+            (array)($p['items'] ?? []),
+            fn($it) => trim((string)($it['text'] ?? '')) !== ''
+        ));
+        if (!$items) return '';
+
+        $variant = $s['variant'] ?? 'dark';
+        $sep = trim((string)($p['separator'] ?? '')) ?: '•';
+        // Duration scales with how much text there is, so a long strip does not
+        // race past and a short one does not crawl.
+        $chars = 0;
+        foreach ($items as $it) $chars += mb_strlen((string)$it['text']) + 6;
+        $perChar = ['slow' => 0.28, 'normal' => 0.18, 'fast' => 0.11];
+        $rate = $perChar[$p['speed'] ?? 'normal'] ?? 0.18;
+        $dur = max(14, (int)round($chars * $rate));
+
+        $one = '';
+        foreach ($items as $it) {
+            $ico = trim((string)($it['icon'] ?? ''));
+            $one .= '<span class="tf-tkitem">'
+                  . ($ico !== '' ? '<span class="tf-tkicon">' . self::esc($ico) . '</span>' : '')
+                  . self::esc($it['text'])
+                  . '<span class="tf-tksep" aria-hidden="true">' . self::esc($sep) . '</span>'
+                  . '</span>';
+        }
+
+        $bg = $variant === 'accent' ? 'var(--color-accent)'
+            : ($variant === 'light' ? 'var(--color-surface)' : 'var(--color-primary)');
+        $fg = $variant === 'light' ? 'var(--color-text)' : self::readableOn(
+            $variant === 'accent' ? ($doc['theme']['color']['accent'] ?? '#000000')
+                                  : ($doc['theme']['color']['primary'] ?? '#000000')
+        );
+        $rev = ($p['direction'] ?? 'left') === 'right' ? ' tf-tkrev' : '';
+        $hov = ($p['pauseOnHover'] ?? true) !== false ? ' tf-tkpause' : '';
+
+        // aria-hidden on the duplicate: a screen reader should hear the notices
+        // once, not twice.
+        return '<section class="tf-ticker' . $hov . '" style="background:' . $bg . ';color:' . $fg . '">'
+             . '<div class="tf-tktrack' . $rev . '" style="animation-duration:' . $dur . 's">'
+             . '<div class="tf-tkset">' . $one . '</div>'
+             . '<div class="tf-tkset" aria-hidden="true">' . $one . '</div>'
+             . '</div></section>';
+    }
+
     /* --------------------------------------------------------- sections */
 
     private static function section(array $s, array $doc): string
     {
         switch ($s['type'] ?? '') {
+            case 'ticker':       return self::secTicker($s, $doc);
             case 'header':       return self::secHeader($s, $doc);
             case 'hero':         return self::secHero($s, $doc);
             case 'about':        return self::secAbout($s, $doc);
@@ -3450,6 +3507,18 @@ iframe{max-width:100%}
 @media(min-width:768px){.tf-mqslide{flex:0 0 320px}}
 @keyframes tf-mqscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @media(prefers-reduced-motion:reduce){.tf-mqtrack{animation:none;overflow-x:auto;max-width:100%}}
+.tf-ticker{overflow:hidden;position:relative;padding:11px 0;font-size:.86rem;font-weight:600;letter-spacing:.01em}
+.tf-tktrack{display:flex;width:max-content;animation-name:tf-tkscroll;animation-timing-function:linear;animation-iteration-count:infinite}
+.tf-tktrack.tf-tkrev{animation-direction:reverse}
+.tf-tkpause:hover .tf-tktrack,.tf-tkpause:focus-within .tf-tktrack{animation-play-state:paused}
+.tf-tkset{display:flex;flex:0 0 auto;align-items:center;white-space:nowrap}
+.tf-tkitem{display:inline-flex;align-items:center;gap:8px;padding:0 4px}
+.tf-tkicon{font-size:1.02em;line-height:1}
+.tf-tksep{opacity:.45;padding:0 18px 0 22px}
+@keyframes tf-tkscroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+/* A strip of text sliding past forever is exactly what this setting is for:
+   stop it, and let the notices be scrolled by hand instead. */
+@media(prefers-reduced-motion:reduce){.tf-tktrack{animation:none}.tf-ticker{overflow-x:auto}.tf-tkset+.tf-tkset{display:none}}
 .tf-pgal{display:flex;gap:14px;align-items:flex-start}
 .tf-pthumbs{display:flex;flex-direction:column;gap:10px;width:78px;flex-shrink:0;max-height:520px;overflow-y:auto;scrollbar-width:thin}
 .tf-pthumb{padding:0;width:78px;height:78px;border:2px solid var(--color-border);border-radius:8px;background:var(--color-surface);cursor:pointer;overflow:hidden;flex-shrink:0}

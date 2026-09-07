@@ -1,0 +1,79 @@
+{
+  "type": "ticker",
+  "label": "Scrolling Notice",
+  "category": "content",
+  "icon": "megaphone",
+  "description": "A thin strip of text that scrolls sideways — for offers, delivery notices or a safety warning. Sits well directly under the hero.",
+  "industries": ["*"],
+  "singleton": false,
+  "variants": [
+    { "id": "dark", "label": "Dark strip", "preview": "/builder/previews/ticker-dark.png" },
+    { "id": "accent", "label": "Accent strip", "preview": "/builder/previews/ticker-accent.png" },
+    { "id": "light", "label": "Light strip", "preview": "/builder/previews/ticker-light.png" }
+  ],
+  "props": [
+    {
+      "key": "items",
+      "type": "repeater",
+      "label": "Messages",
+      "group": "Content",
+      "min": 1,
+      "max": 12,
+      "itemLabel": "{{text}}",
+      "addLabel": "Add message",
+      "fields": [
+        {
+          "key": "text",
+          "type": "text",
+          "label": "Message",
+          "required": true,
+          "maxLength": 160,
+          "placeholder": "Free shipping on all cord sets"
+        },
+        {
+          "key": "icon",
+          "type": "icon",
+          "label": "Icon before the text"
+        }
+      ]
+    },
+    {
+      "key": "speed",
+      "type": "select",
+      "label": "Speed",
+      "group": "Motion",
+      "default": "normal",
+      "options": [
+        { "value": "slow", "label": "Slow" },
+        { "value": "normal", "label": "Normal" },
+        { "value": "fast", "label": "Fast" }
+      ]
+    },
+    {
+      "key": "direction",
+      "type": "select",
+      "label": "Direction",
+      "group": "Motion",
+      "default": "left",
+      "options": [
+        { "value": "left", "label": "Right to left" },
+        { "value": "right", "label": "Left to right" }
+      ]
+    },
+    {
+      "key": "pauseOnHover",
+      "type": "toggle",
+      "label": "Pause when the pointer is over it",
+      "group": "Motion",
+      "default": true
+    },
+    {
+      "key": "separator",
+      "type": "text",
+      "label": "Separator between messages",
+      "group": "Content",
+      "maxLength": 8,
+      "default": "•"
+    }
+  ]
+}
