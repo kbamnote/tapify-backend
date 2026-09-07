@@ -41,6 +41,10 @@
         "pageId": "western"
       },
       {
+        "label": "Shirts",
+        "pageId": "shirts"
+      },
+      {
         "label": "Denim",
         "pageId": "denim"
       },
@@ -138,6 +142,10 @@
                 "href": "/western"
               },
               {
+                "text": "Shirts",
+                "href": "/shirts"
+              },
+              {
                 "text": "Denim",
                 "href": "/denim"
               },
@@ -163,7 +171,7 @@
           "variant": "left"
         },
         {
-          "id": "hero-3",
+          "id": "hero-2",
           "type": "hero",
           "visible": true,
           "props": {
@@ -191,7 +199,7 @@
           }
         },
         {
-          "id": "about-4",
+          "id": "about-3",
           "type": "about",
           "visible": true,
           "props": {
@@ -218,7 +226,7 @@
           "variant": "image-right"
         },
         {
-          "id": "products-5",
+          "id": "products-4",
           "type": "products",
           "visible": true,
           "props": {
@@ -329,7 +337,7 @@
           "variant": "carousel"
         },
         {
-          "id": "products-6",
+          "id": "products-5",
           "type": "products",
           "visible": true,
           "props": {
@@ -440,7 +448,7 @@
           "variant": "carousel"
         },
         {
-          "id": "products-7",
+          "id": "products-6",
           "type": "products",
           "visible": true,
           "props": {
@@ -551,7 +559,7 @@
           "variant": "marquee"
         },
         {
-          "id": "embed-8",
+          "id": "embed-7",
           "type": "embed",
           "visible": true,
           "props": {
@@ -570,7 +578,7 @@
           "variant": "grid-2"
         },
         {
-          "id": "gallery-9",
+          "id": "gallery-8",
           "type": "gallery",
           "visible": true,
           "props": {
@@ -632,7 +640,7 @@
           "variant": "marquee"
         },
         {
-          "id": "cta-10",
+          "id": "cta-9",
           "type": "cta",
           "visible": true,
           "props": {
@@ -649,7 +657,7 @@
           "variant": "banner"
         },
         {
-          "id": "contact-11",
+          "id": "contact-10",
           "type": "contact",
           "visible": true,
           "props": {
@@ -668,7 +676,7 @@
           "variant": "form-map"
         },
         {
-          "id": "footer-2",
+          "id": "footer-11",
           "type": "footer",
           "visible": true,
           "props": {
@@ -699,8 +707,8 @@
                     "href": "/western"
                   },
                   {
-                    "text": "Denim",
-                    "href": "/denim"
+                    "text": "Shirts",
+                    "href": "/shirts"
                   },
                   {
                     "text": "Ethnic",
@@ -749,7 +757,7 @@
       },
       "sections": [
         {
-          "id": "header-1",
+          "id": "header-12",
           "type": "header",
           "visible": true,
           "props": {
@@ -769,6 +777,10 @@
               {
                 "text": "Western",
                 "href": "/western"
+              },
+              {
+                "text": "Shirts",
+                "href": "/shirts"
               },
               {
                 "text": "Denim",
@@ -796,7 +808,7 @@
           "variant": "left"
         },
         {
-          "id": "hero-12",
+          "id": "hero-13",
           "type": "hero",
           "visible": true,
           "props": {
@@ -818,7 +830,7 @@
           }
         },
         {
-          "id": "products-13",
+          "id": "products-14",
           "type": "products",
           "visible": true,
           "props": {
@@ -1073,7 +1085,7 @@
           "variant": "carousel"
         },
         {
-          "id": "products-14",
+          "id": "products-15",
           "type": "products",
           "visible": true,
           "props": {
@@ -1244,7 +1256,7 @@
           "variant": "cards-3"
         },
         {
-          "id": "cta-15",
+          "id": "cta-16",
           "type": "cta",
           "visible": true,
           "props": {
@@ -1261,7 +1273,7 @@
           "variant": "banner"
         },
         {
-          "id": "footer-2",
+          "id": "footer-17",
           "type": "footer",
           "visible": true,
           "props": {
@@ -1292,8 +1304,8 @@
                     "href": "/western"
                   },
                   {
-                    "text": "Denim",
-                    "href": "/denim"
+                    "text": "Shirts",
+                    "href": "/shirts"
                   },
                   {
                     "text": "Ethnic",
@@ -1336,13 +1348,13 @@
       "slug": "/western",
       "title": "Western",
       "seo": {
-        "title": "Printed Tees, Knit Shirts & Embroidered Shirts | Western NX Nagpur",
-        "description": "Printed and embroidered tees, knit and crochet camp-collar shirts, and back-embroidered linen shirts. Sizes M to XXL. Jaripatka, Nagpur.",
+        "title": "Printed & Embroidered Tees | Western NX Nagpur",
+        "description": "Embroidered and printed cotton tees — cats, butterflies, bears and florals. Sizes M to XXL. Jaripatka Main Market, Nagpur.",
         "robots": "index,follow"
       },
       "sections": [
         {
-          "id": "header-1",
+          "id": "header-18",
           "type": "header",
           "visible": true,
           "props": {
@@ -1362,6 +1374,10 @@
               {
                 "text": "Western",
                 "href": "/western"
+              },
+              {
+                "text": "Shirts",
+                "href": "/shirts"
               },
               {
                 "text": "Denim",
@@ -1389,13 +1405,13 @@
           "variant": "left"
         },
         {
-          "id": "products-16",
+          "id": "products-19",
           "type": "products",
           "visible": true,
           "props": {
             "label": "Shop",
-            "heading": "Printed Tees",
-            "sub": "Embroidered and printed tees — cats, butterflies, bears and florals on soft cotton. Everyday pieces that go with jeans or a skirt. 26 designs in stock.",
+            "heading": "Printed Tees (1–24)",
+            "sub": "Embroidered and printed tees — cats, butterflies, bears and florals on soft cotton. Everyday pieces that go with jeans or a skirt.",
             "items": [
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_600,c_limit/v1788767373/western-nx/wnx-037.jpg",
@@ -1684,7 +1700,22 @@
                   "href": "https://wa.me/919372033659",
                   "style": "link"
                 }
-              },
+              }
+            ],
+            "orderVia": "whatsapp",
+            "orderLabel": "Enquire on WhatsApp"
+          },
+          "variant": "carousel"
+        },
+        {
+          "id": "products-20",
+          "type": "products",
+          "visible": true,
+          "props": {
+            "label": "Shop",
+            "heading": "Printed Tees (25–26)",
+            "sub": "Embroidered and printed tees — cats, butterflies, bears and florals on soft cotton. Everyday pieces that go with jeans or a skirt.",
+            "items": [
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_600,c_limit/v1788767591/western-nx/wnx-142.jpg",
                 "title": "Printed Tees — Design 25",
@@ -1713,14 +1744,163 @@
             "orderVia": "whatsapp",
             "orderLabel": "Enquire on WhatsApp"
           },
-          "variant": "carousel"
+          "variant": "cards-3"
         },
         {
-          "id": "products-17",
+          "id": "cta-21",
+          "type": "cta",
+          "visible": true,
+          "props": {
+            "heading": "Ask for today's stock and rates",
+            "sub": "New designs land every week. Message us on WhatsApp for what is in right now.",
+            "ctaPrimary": {
+              "text": "WhatsApp +91 93720 33659",
+              "href": "https://wa.me/919372033659",
+              "style": "primary"
+            },
+            "showWhatsapp": true,
+            "showCall": true
+          },
+          "variant": "banner"
+        },
+        {
+          "id": "footer-22",
+          "type": "footer",
+          "visible": true,
+          "props": {
+            "blurb": "Western NX — imported women's fashion at Jaripatka Main Market, Nagpur. Night suits, cord sets, denim, ethnic and party wear. Retail and wholesale. Fashion that fits your vibe and budget.",
+            "showSocial": true,
+            "socialIcons": [
+              {
+                "href": "https://www.instagram.com/western_nx_womens/",
+                "label": "Instagram"
+              },
+              {
+                "href": "https://www.facebook.com/share/1AFZsE1AC5/?mibextid=wwXIfr",
+                "label": "Facebook"
+              }
+            ],
+            "showContact": true,
+            "showHours": true,
+            "columns": [
+              {
+                "title": "Shop",
+                "links": [
+                  {
+                    "text": "Nightwear",
+                    "href": "/nightwear"
+                  },
+                  {
+                    "text": "Western",
+                    "href": "/western"
+                  },
+                  {
+                    "text": "Shirts",
+                    "href": "/shirts"
+                  },
+                  {
+                    "text": "Ethnic",
+                    "href": "/ethnic"
+                  }
+                ]
+              },
+              {
+                "title": "Reach Us",
+                "links": [
+                  {
+                    "text": "+91 93720 33659",
+                    "href": "tel:+919372033659"
+                  },
+                  {
+                    "text": "WhatsApp",
+                    "href": "https://wa.me/919372033659"
+                  },
+                  {
+                    "text": "Instagram",
+                    "href": "https://www.instagram.com/western_nx_womens/"
+                  },
+                  {
+                    "text": "Wholesale enquiry",
+                    "href": "/wholesale"
+                  }
+                ]
+              }
+            ],
+            "copyright": "© Western NX, Nagpur",
+            "showBranding": true,
+            "showLegal": false
+          },
+          "variant": "columns"
+        }
+      ]
+    },
+    {
+      "id": "shirts",
+      "slug": "/shirts",
+      "title": "Shirts",
+      "seo": {
+        "title": "Knit, Crochet & Embroidered Shirts | Western NX Nagpur",
+        "description": "Short-sleeve knit and crochet camp-collar shirts and back-embroidered linen shirts. Sizes M to XXL. Retail and wholesale in Nagpur.",
+        "robots": "index,follow"
+      },
+      "sections": [
+        {
+          "id": "header-23",
+          "type": "header",
+          "visible": true,
+          "props": {
+            "logoSize": "medium",
+            "sticky": true,
+            "showCart": false,
+            "showAccount": false,
+            "links": [
+              {
+                "text": "Home",
+                "href": "/"
+              },
+              {
+                "text": "Nightwear",
+                "href": "/nightwear"
+              },
+              {
+                "text": "Western",
+                "href": "/western"
+              },
+              {
+                "text": "Shirts",
+                "href": "/shirts"
+              },
+              {
+                "text": "Denim",
+                "href": "/denim"
+              },
+              {
+                "text": "Ethnic",
+                "href": "/ethnic"
+              },
+              {
+                "text": "Wholesale",
+                "href": "/wholesale"
+              },
+              {
+                "text": "Contact",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "text": "WhatsApp Us",
+              "href": "https://wa.me/919372033659",
+              "style": "primary"
+            }
+          },
+          "variant": "left"
+        },
+        {
+          "id": "products-24",
           "type": "products",
           "visible": true,
           "props": {
-            "label": "Also in store",
+            "label": "Shop",
             "heading": "Knit & Crochet Shirts",
             "sub": "Short-sleeve knit and crochet shirts with a camp collar. Light enough for Nagpur summers, smart enough for work. 19 designs in stock.",
             "items": [
@@ -1956,10 +2136,10 @@
             "orderVia": "whatsapp",
             "orderLabel": "Enquire on WhatsApp"
           },
-          "variant": "cards-3"
+          "variant": "carousel"
         },
         {
-          "id": "products-18",
+          "id": "products-25",
           "type": "products",
           "visible": true,
           "props": {
@@ -2070,7 +2250,7 @@
           "variant": "cards-3"
         },
         {
-          "id": "cta-19",
+          "id": "cta-26",
           "type": "cta",
           "visible": true,
           "props": {
@@ -2087,7 +2267,7 @@
           "variant": "banner"
         },
         {
-          "id": "footer-2",
+          "id": "footer-27",
           "type": "footer",
           "visible": true,
           "props": {
@@ -2118,8 +2298,8 @@
                     "href": "/western"
                   },
                   {
-                    "text": "Denim",
-                    "href": "/denim"
+                    "text": "Shirts",
+                    "href": "/shirts"
                   },
                   {
                     "text": "Ethnic",
@@ -2168,7 +2348,7 @@
       },
       "sections": [
         {
-          "id": "header-1",
+          "id": "header-28",
           "type": "header",
           "visible": true,
           "props": {
@@ -2188,6 +2368,10 @@
               {
                 "text": "Western",
                 "href": "/western"
+              },
+              {
+                "text": "Shirts",
+                "href": "/shirts"
               },
               {
                 "text": "Denim",
@@ -2215,7 +2399,7 @@
           "variant": "left"
         },
         {
-          "id": "products-20",
+          "id": "products-29",
           "type": "products",
           "visible": true,
           "props": {
@@ -2434,7 +2618,7 @@
           "variant": "carousel"
         },
         {
-          "id": "products-21",
+          "id": "products-30",
           "type": "products",
           "visible": true,
           "props": {
@@ -2521,7 +2705,7 @@
           "variant": "cards-3"
         },
         {
-          "id": "products-22",
+          "id": "products-31",
           "type": "products",
           "visible": true,
           "props": {
@@ -2632,7 +2816,7 @@
           "variant": "cards-3"
         },
         {
-          "id": "cta-23",
+          "id": "cta-32",
           "type": "cta",
           "visible": true,
           "props": {
@@ -2649,7 +2833,7 @@
           "variant": "banner"
         },
         {
-          "id": "footer-2",
+          "id": "footer-33",
           "type": "footer",
           "visible": true,
           "props": {
@@ -2680,8 +2864,8 @@
                     "href": "/western"
                   },
                   {
-                    "text": "Denim",
-                    "href": "/denim"
+                    "text": "Shirts",
+                    "href": "/shirts"
                   },
                   {
                     "text": "Ethnic",
@@ -2730,7 +2914,7 @@
       },
       "sections": [
         {
-          "id": "header-1",
+          "id": "header-34",
           "type": "header",
           "visible": true,
           "props": {
@@ -2750,6 +2934,10 @@
               {
                 "text": "Western",
                 "href": "/western"
+              },
+              {
+                "text": "Shirts",
+                "href": "/shirts"
               },
               {
                 "text": "Denim",
@@ -2777,7 +2965,7 @@
           "variant": "left"
         },
         {
-          "id": "products-24",
+          "id": "products-35",
           "type": "products",
           "visible": true,
           "props": {
@@ -2912,7 +3100,7 @@
           "variant": "carousel"
         },
         {
-          "id": "products-25",
+          "id": "products-36",
           "type": "products",
           "visible": true,
           "props": {
@@ -3047,18 +3235,42 @@
           "variant": "cards-3"
         },
         {
-          "id": "products-26",
+          "id": "products-37",
           "type": "products",
           "visible": true,
           "props": {
             "label": "Also in store",
             "heading": "Party & Indo-Western",
-            "sub": "Draped gowns, corset jumpsuits and shararas — for weddings, receptions and the evenings that matter. 4 designs in stock.",
+            "sub": "Draped gowns, corset jumpsuits, shararas and hand-beaded blouses — for weddings, receptions and the evenings that matter. 6 designs in stock.",
             "items": [
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_600,c_limit/v1788767308/western-nx/wnx-012.jpg",
                 "title": "Party & Indo-Western — Design 01",
-                "desc": "Draped gowns, corset jumpsuits and shararas — for weddings, receptions and the evenings that matter.",
+                "desc": "Draped gowns, corset jumpsuits, shararas and hand-beaded blouses — for weddings, receptions and the evenings that matter.",
+                "meta": "Size M to XXL · On request",
+                "price": "On request",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919372033659",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_600,c_limit/v1788767311/western-nx/wnx-013.jpg",
+                "title": "Party & Indo-Western — Design 02",
+                "desc": "Draped gowns, corset jumpsuits, shararas and hand-beaded blouses — for weddings, receptions and the evenings that matter.",
+                "meta": "Size M to XXL · On request",
+                "price": "On request",
+                "cta": {
+                  "text": "Enquire on WhatsApp",
+                  "href": "https://wa.me/919372033659",
+                  "style": "link"
+                }
+              },
+              {
+                "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_600,c_limit/v1788767313/western-nx/wnx-014.jpg",
+                "title": "Party & Indo-Western — Design 03",
+                "desc": "Draped gowns, corset jumpsuits, shararas and hand-beaded blouses — for weddings, receptions and the evenings that matter.",
                 "meta": "Size M to XXL · On request",
                 "price": "On request",
                 "cta": {
@@ -3069,8 +3281,8 @@
               },
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_600,c_limit/v1788767315/western-nx/wnx-015.jpg",
-                "title": "Party & Indo-Western — Design 02",
-                "desc": "Draped gowns, corset jumpsuits and shararas — for weddings, receptions and the evenings that matter.",
+                "title": "Party & Indo-Western — Design 04",
+                "desc": "Draped gowns, corset jumpsuits, shararas and hand-beaded blouses — for weddings, receptions and the evenings that matter.",
                 "meta": "Size M to XXL · On request",
                 "price": "On request",
                 "cta": {
@@ -3081,8 +3293,8 @@
               },
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_600,c_limit/v1788767317/western-nx/wnx-016.jpg",
-                "title": "Party & Indo-Western — Design 03",
-                "desc": "Draped gowns, corset jumpsuits and shararas — for weddings, receptions and the evenings that matter.",
+                "title": "Party & Indo-Western — Design 05",
+                "desc": "Draped gowns, corset jumpsuits, shararas and hand-beaded blouses — for weddings, receptions and the evenings that matter.",
                 "meta": "Size M to XXL · On request",
                 "price": "On request",
                 "cta": {
@@ -3093,8 +3305,8 @@
               },
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_600,c_limit/v1788767320/western-nx/wnx-017.jpg",
-                "title": "Party & Indo-Western — Design 04",
-                "desc": "Draped gowns, corset jumpsuits and shararas — for weddings, receptions and the evenings that matter.",
+                "title": "Party & Indo-Western — Design 06",
+                "desc": "Draped gowns, corset jumpsuits, shararas and hand-beaded blouses — for weddings, receptions and the evenings that matter.",
                 "meta": "Size M to XXL · On request",
                 "price": "On request",
                 "cta": {
@@ -3110,7 +3322,7 @@
           "variant": "cards-3"
         },
         {
-          "id": "cta-27",
+          "id": "cta-38",
           "type": "cta",
           "visible": true,
           "props": {
@@ -3127,7 +3339,7 @@
           "variant": "banner"
         },
         {
-          "id": "footer-2",
+          "id": "footer-39",
           "type": "footer",
           "visible": true,
           "props": {
@@ -3158,8 +3370,8 @@
                     "href": "/western"
                   },
                   {
-                    "text": "Denim",
-                    "href": "/denim"
+                    "text": "Shirts",
+                    "href": "/shirts"
                   },
                   {
                     "text": "Ethnic",
@@ -3208,7 +3420,7 @@
       },
       "sections": [
         {
-          "id": "header-1",
+          "id": "header-40",
           "type": "header",
           "visible": true,
           "props": {
@@ -3228,6 +3440,10 @@
               {
                 "text": "Western",
                 "href": "/western"
+              },
+              {
+                "text": "Shirts",
+                "href": "/shirts"
               },
               {
                 "text": "Denim",
@@ -3255,7 +3471,7 @@
           "variant": "left"
         },
         {
-          "id": "hero-28",
+          "id": "hero-41",
           "type": "hero",
           "visible": true,
           "props": {
@@ -3277,7 +3493,7 @@
           }
         },
         {
-          "id": "services-29",
+          "id": "services-42",
           "type": "services",
           "visible": true,
           "props": {
@@ -3311,7 +3527,7 @@
           "variant": "cards-2"
         },
         {
-          "id": "faq-30",
+          "id": "faq-43",
           "type": "faq",
           "visible": true,
           "props": {
@@ -3344,7 +3560,7 @@
           "variant": "accordion"
         },
         {
-          "id": "cta-31",
+          "id": "cta-44",
           "type": "cta",
           "visible": true,
           "props": {
@@ -3361,7 +3577,7 @@
           "variant": "banner"
         },
         {
-          "id": "footer-2",
+          "id": "footer-45",
           "type": "footer",
           "visible": true,
           "props": {
@@ -3392,8 +3608,8 @@
                     "href": "/western"
                   },
                   {
-                    "text": "Denim",
-                    "href": "/denim"
+                    "text": "Shirts",
+                    "href": "/shirts"
                   },
                   {
                     "text": "Ethnic",
@@ -3442,7 +3658,7 @@
       },
       "sections": [
         {
-          "id": "header-1",
+          "id": "header-46",
           "type": "header",
           "visible": true,
           "props": {
@@ -3462,6 +3678,10 @@
               {
                 "text": "Western",
                 "href": "/western"
+              },
+              {
+                "text": "Shirts",
+                "href": "/shirts"
               },
               {
                 "text": "Denim",
@@ -3489,7 +3709,7 @@
           "variant": "left"
         },
         {
-          "id": "contact-32",
+          "id": "contact-47",
           "type": "contact",
           "visible": true,
           "props": {
@@ -3508,7 +3728,7 @@
           "variant": "form-map"
         },
         {
-          "id": "hours-33",
+          "id": "hours-48",
           "type": "hours",
           "visible": true,
           "props": {
@@ -3520,7 +3740,7 @@
           "variant": "list"
         },
         {
-          "id": "cta-34",
+          "id": "cta-49",
           "type": "cta",
           "visible": true,
           "props": {
@@ -3542,7 +3762,7 @@
           "variant": "card"
         },
         {
-          "id": "footer-2",
+          "id": "footer-50",
           "type": "footer",
           "visible": true,
           "props": {
@@ -3573,8 +3793,8 @@
                     "href": "/western"
                   },
                   {
-                    "text": "Denim",
-                    "href": "/denim"
+                    "text": "Shirts",
+                    "href": "/shirts"
                   },
                   {
                     "text": "Ethnic",
