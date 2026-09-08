@@ -1,0 +1,295 @@
+{
+  "_note": "MERGE patch for westernnx.tapify.co.in. Applied by patch-site-content.php, which edits the CURRENT draft rather than replacing it — the client has edited this site in the builder (hero photo, picture shape), so content-western-nx.json is stale and must NOT be re-loaded.",
+  "footerProps": {
+    "productPolicies": [
+      {
+        "title": "Shipping & delivery charges",
+        "body": "Free shipping on all prepaid orders above ₹1000.\nPrepaid orders below ₹1000 — shipping ₹70.\n\nCash on Delivery — extra charges ₹150 per kg, paid in advance. The final bill amount is paid after you receive the parcel."
+      },
+      {
+        "title": "Exchange & returns",
+        "body": "Exchanges are accepted within 3 days of receiving the parcel, in exactly the condition it arrived in — unused, unwashed and with all tags intact.\n\nAn item can also be exchanged for a different design.\n\nShipping costs for a return or exchange are borne by the customer."
+      },
+      {
+        "title": "Need help with an order?",
+        "body": "Message us on WhatsApp at +91 93720 33659 and we will help you with sizing, exchanges or delivery. We reply during shop hours, 11:30 AM to 10:30 PM."
+      }
+    ],
+    "showLegal": true,
+    "privacyBody": "Western NX respects your privacy. This policy explains what we collect when you shop with us and what we do with it.\n\nWHAT WE COLLECT\nWhen you place an order or send an enquiry we collect the details you give us: your name, contact number, email address if you provide one, and the delivery address needed to send your parcel. If you order over WhatsApp, we hold that conversation in the same way.\n\nHOW WE USE IT\nWe use your details only to process and deliver your order, to contact you about that order, and to help you with exchanges. If you have asked us to, we may also message you about new arrivals. You can tell us to stop at any time and we will.\n\nWHO WE SHARE IT WITH\nWe share your name, address and phone number with the courier company delivering your parcel, because there is no way to deliver it otherwise. We do not sell your information, and we do not share it with anyone else for marketing.\n\nPAYMENTS\nWe do not collect or store card numbers, UPI PINs or bank passwords. Prepaid payments are handled by the payment provider directly.\n\nYOUR CHOICES\nYou can ask us what information we hold about you, ask us to correct it, or ask us to delete it. Write to us on WhatsApp at +91 93720 33659 or visit the shop and we will act on it.\n\nCONTACT\nWestern NX, Shop No. 442, Opp. Govind Gallery, Jaripatka Main Market, Nagpur, Maharashtra 440014. WhatsApp +91 93720 33659.",
+    "termsBody": "These terms apply when you buy from Western NX, whether through this website, over WhatsApp or in the shop at Jaripatka, Nagpur.\n\nPRODUCTS AND SIZING\nWe describe every item as accurately as we can and photograph it as it is. Screens vary, so a colour may look slightly different in person. If you are unsure about a size, message us before ordering and we will help you choose.\n\nPRICES\nPrices are in Indian Rupees. We may change prices at any time, but a change never affects an order we have already confirmed.\n\nSHIPPING CHARGES\nPrepaid orders above ₹1000 ship free. Prepaid orders below ₹1000 carry a shipping charge of ₹70. Cash on Delivery orders carry an extra charge of ₹150 per kg, which is paid in advance; the final bill amount is paid when you receive the parcel.\n\nDELIVERY\nWe dispatch as quickly as we can. Delivery time depends on the courier and your location, and delays caused by the courier, the weather or a public holiday are outside our control.\n\nEXCHANGES AND RETURNS\nExchanges are accepted within 3 days of you receiving the parcel, provided the item is in exactly the condition it arrived in — unused, unwashed, undamaged, and with all tags intact. An item may be exchanged for a different design. Shipping costs for a return or exchange are borne by the customer. Items damaged after delivery, or sent back after 3 days, cannot be exchanged.\n\nORDERS WE CANNOT ACCEPT\nOccasionally an item sells out between your order and our dispatch. If that happens we will contact you and either exchange it for something you like or refund what you have paid.\n\nOUR PHOTOGRAPHS\nThe photographs and descriptions on this site are ours. Please do not copy them for another shop.\n\nCONTACT\nWestern NX, Shop No. 442, Opp. Govind Gallery, Jaripatka Main Market, Nagpur, Maharashtra 440014. WhatsApp +91 93720 33659."
+  },
+  "addSections": [
+    {
+      "pageSlug": "/",
+      "beforeSectionId": "cta-12",
+      "section": {
+        "id": "testimonials-wnx1",
+        "type": "testimonials",
+        "variant": "slider",
+        "visible": true,
+        "props": {
+          "label": "What our customers say",
+          "heading": "Loved by women across India",
+          "sub": "Reviews from our Google page — in our customers' own words.",
+          "autoplay": true,
+          "items": [
+            {
+              "quote": "Received the parcel and I'm very happy with the material and quality 😍🤩 Thank you… The purchase will continue with you.",
+              "name": "Renu Khond",
+              "role": "Google review",
+              "rating": 5
+            },
+            {
+              "quote": "The kurti is beautiful and exactly same as shown in the picture. The fabric is soft and comfortable to wear. The fitting is perfect, it is worth the price and I am very satisfied with the purchase. 👌🏻",
+              "name": "Shital Kolte",
+              "role": "Google review",
+              "rating": 5
+            },
+            {
+              "quote": "Mai to hamesha Western NX se shopping karne wali hu. Itna amazing collection h iska, maza aa gaya really 🥰😍",
+              "name": "Jasneet Kour Randhawa",
+              "role": "Google review",
+              "rating": 5
+            },
+            {
+              "quote": "I bought a 1 piece plus size gown, was very happy with product. Price was also reasonable.",
+              "name": "Jancy Rani",
+              "role": "Google review",
+              "rating": 5
+            },
+            {
+              "quote": "Bhot he ache dress and good quality wise dress milte yaha. Plus size ke liye bhi bhot options available hai.",
+              "name": "Naziya Tawar",
+              "role": "Google review",
+              "rating": 5
+            },
+            {
+              "quote": "I'm so impressed! The quality is fantastic, the size is just right, and it's a perfect match to the picture.",
+              "name": "Jinisha Narwani",
+              "role": "Google review",
+              "rating": 5
+            },
+            {
+              "quote": "These are very good clothes and they were delivered very quickly. Thank you very much Western Nx.",
+              "name": "Bhawna Kuldeep",
+              "role": "Google review",
+              "rating": 5
+            },
+            {
+              "quote": "For the price, this is a great buy. The fit is good, the fabric is lightweight yet durable, and it looks just like the pictures. A perfect choice for those who want something affordable without sacrificing comfort.",
+              "name": "Manisha Hembrom",
+              "role": "Google review",
+              "rating": 5
+            },
+            {
+              "quote": "Amazing variety with superb quality 👌❤️ Worth the price… best service too. I always look for plus size outfits and they have the same for plus size women also. Must order from them ✨",
+              "name": "Simran Kaur",
+              "role": "Google review",
+              "rating": 5
+            },
+            {
+              "quote": "For plus size females, best shop of western dresses in budget.",
+              "name": "Nirmala S.",
+              "role": "Google review",
+              "rating": 5
+            },
+            {
+              "quote": "I'm really happy with the purchase. Guys, do check their page for most reasonable and amazing products ☺️ It was my first purchase and it was great 😃",
+              "name": "Tanya Bhirani",
+              "role": "Google review",
+              "rating": 5
+            },
+            {
+              "quote": "Such a beautiful collection in this shop. Amazing cord set — fabric quality is superb 👌",
+              "name": "Sarika Tekwani",
+              "role": "Google review",
+              "rating": 5
+            },
+            {
+              "quote": "Beautiful design with soft fabric. I recommend to shop from here 😊",
+              "name": "Jayanshu Vaishnava",
+              "role": "Google review",
+              "rating": 5
+            },
+            {
+              "quote": "Amazing outfits and good quality ❤️🫶🏻",
+              "name": "Hansa Ramrakhyani",
+              "role": "Google review",
+              "rating": 5
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "itemPrices": {
+    "Anarkali Sets": "₹1,499",
+    "Anarkali Sets — Design 01": "₹1,799",
+    "Anarkali Sets — Design 02": "₹1,949",
+    "Anarkali Sets — Design 03": "₹1,749",
+    "Cord Set Indian Look": "₹1,449",
+    "Cord Set Indian Look — Design 01": "₹1,299",
+    "Cord Set Indian Look — Design 02": "₹1,549",
+    "Cord Set Indian Look — Design 03": "₹1,399",
+    "Cord Set Indian Look — Design 04": "₹1,399",
+    "Designer Peplum Tops": "₹799",
+    "Designer Peplum Tops — Design 01": "₹699",
+    "Designer Peplum Tops — Design 02": "₹699",
+    "Designer Peplum Tops — Design 03": "₹899",
+    "Designer Peplum Tops — Design 04": "₹849",
+    "Designer Peplum Tops — Design 05": "₹849",
+    "Designer Peplum Tops — Design 06": "₹849",
+    "Embroidered Shirts": "₹849",
+    "Embroidered Shirts — Design 01": "₹949",
+    "Embroidered Shirts — Design 02": "₹1,099",
+    "Embroidered Shirts — Design 03": "₹1,099",
+    "Embroidered Shirts — Design 04": "₹999",
+    "Embroidered Shirts — Design 05": "₹899",
+    "Embroidered Shirts — Design 06": "₹899",
+    "Embroidered Shirts — Design 07": "₹999",
+    "Embroidered Shirts — Design 08": "₹999",
+    "Indo-Western Design": "₹1,699",
+    "Indo-Western Design — Design 01": "₹1,399",
+    "Indo-Western Design — Design 02": "₹1,349",
+    "Indo-Western Design — Design 03": "₹1,299",
+    "Indo-Western Design — Design 04": "₹1,449",
+    "Indo-Western Design — Design 05": "₹1,349",
+    "Indo-Western Design — Design 06": "₹1,449",
+    "Jeggings": "₹749",
+    "Jeggings — Design 01": "₹649",
+    "Jeggings — Design 02": "₹599",
+    "Jeggings — Design 03": "₹649",
+    "Knit & Crochet Shirts": "₹949",
+    "Knit & Crochet Shirts — Design 01": "₹799",
+    "Knit & Crochet Shirts — Design 02": "₹949",
+    "Knit & Crochet Shirts — Design 03": "₹749",
+    "Knit & Crochet Shirts — Design 04": "₹749",
+    "Knit & Crochet Shirts — Design 05": "₹849",
+    "Knit & Crochet Shirts — Design 06": "₹899",
+    "Knit & Crochet Shirts — Design 07": "₹699",
+    "Knit & Crochet Shirts — Design 08": "₹749",
+    "Knit & Crochet Shirts — Design 09": "₹849",
+    "Knit & Crochet Shirts — Design 10": "₹799",
+    "Knit & Crochet Shirts — Design 11": "₹699",
+    "Knit & Crochet Shirts — Design 12": "₹699",
+    "Knit & Crochet Shirts — Design 13": "₹799",
+    "Knit & Crochet Shirts — Design 14": "₹949",
+    "Knit & Crochet Shirts — Design 15": "₹949",
+    "Knit & Crochet Shirts — Design 16": "₹949",
+    "Knit & Crochet Shirts — Design 17": "₹749",
+    "Knit & Crochet Shirts — Design 18": "₹899",
+    "Knit & Crochet Shirts — Design 19": "₹899",
+    "Korean Trousers & Pants": "₹1,049",
+    "Korean Trousers & Pants — Design 01": "₹799",
+    "Korean Trousers & Pants — Design 02": "₹999",
+    "Korean Trousers & Pants — Design 03": "₹849",
+    "Korean Trousers & Pants — Design 04": "₹849",
+    "Korean Trousers & Pants — Design 05": "₹899",
+    "Korean Trousers & Pants — Design 06": "₹949",
+    "Korean Trousers & Pants — Design 07": "₹849",
+    "Korean Trousers & Pants — Design 08": "₹999",
+    "Kurti Pant Dupatta Sets": "₹1,449",
+    "Kurti Pant Dupatta Sets — Design 01": "₹1,299",
+    "Kurti Pant Dupatta Sets — Design 02": "₹1,349",
+    "Kurti Pant Dupatta Sets — Design 03": "₹1,299",
+    "Long Dresses / Maxi Dresses": "₹1,299",
+    "Long Dresses / Maxi Dresses — Design 01": "₹1,099",
+    "Long Dresses / Maxi Dresses — Design 02": "₹1,299",
+    "Long Dresses / Maxi Dresses — Design 03": "₹1,199",
+    "Long Dresses / Maxi Dresses — Design 04": "₹1,449",
+    "Long Dresses / Maxi Dresses — Design 05": "₹1,149",
+    "One-Piece Dresses": "₹1,249",
+    "One-Piece Dresses — Design 01": "₹1,099",
+    "One-Piece Dresses — Design 02": "₹1,149",
+    "One-Piece Dresses — Design 03": "₹949",
+    "One-Piece Dresses — Design 04": "₹949",
+    "One-Piece Dresses — Design 05": "₹1,099",
+    "One-Piece Dresses — Design 06": "₹1,049",
+    "One-Piece Dresses — Design 07": "₹899",
+    "One-Piece Dresses — Design 08": "₹899",
+    "One-Piece Dresses — Design 09": "₹1,149",
+    "Printed Tees": "₹549",
+    "Printed Tees — Design 01": "₹599",
+    "Printed Tees — Design 02": "₹449",
+    "Printed Tees — Design 03": "₹449",
+    "Printed Tees — Design 04": "₹499",
+    "Printed Tees — Design 05": "₹549",
+    "Printed Tees — Design 06": "₹599",
+    "Printed Tees — Design 07": "₹449",
+    "Printed Tees — Design 08": "₹599",
+    "Printed Tees — Design 09": "₹499",
+    "Printed Tees — Design 10": "₹599",
+    "Printed Tees — Design 11": "₹599",
+    "Printed Tees — Design 12": "₹449",
+    "Printed Tees — Design 13": "₹599",
+    "Printed Tees — Design 14": "₹399",
+    "Printed Tees — Design 15": "₹399",
+    "Printed Tees — Design 16": "₹499",
+    "Printed Tees — Design 17": "₹449",
+    "Printed Tees — Design 18": "₹399",
+    "Printed Tees — Design 19": "₹499",
+    "Printed Tees — Design 20": "₹449",
+    "Printed Tees — Design 21": "₹449",
+    "Printed Tees — Design 22": "₹449",
+    "Printed Tees — Design 23": "₹499",
+    "Printed Tees — Design 24": "₹549",
+    "Printed Tees — Design 25": "₹599",
+    "Printed Tees — Design 26": "₹549",
+    "Straight Fit Jeans": "₹1,099",
+    "Straight Fit Jeans — Design 01": "₹949",
+    "Straight Fit Jeans — Design 02": "₹949",
+    "Straight Fit Jeans — Design 03": "₹899",
+    "Wide Leg Jeans": "₹1,049",
+    "Wide Leg Jeans — Design 01": "₹1,249",
+    "Wide Leg Jeans — Design 02": "₹999",
+    "Wide Leg Jeans — Design 03": "₹1,049",
+    "Wide Leg Jeans — Design 04": "₹1,149",
+    "Wide Leg Jeans — Design 05": "₹999",
+    "Wide Leg Jeans — Design 06": "₹1,149",
+    "Wide Leg Jeans — Design 07": "₹1,199"
+  },
+  "_itemPricesNote": "PROVISIONAL placeholder prices, generated, not supplied by the client. Applied only to items still showing \"On request\" or no price — a price the client has already set is never overwritten. Confirm with the shop before publishing.",
+  "businessHours": [
+    {
+      "day": "mon",
+      "open": "11:30 AM",
+      "close": "10:30 PM"
+    },
+    {
+      "day": "tue",
+      "open": "11:30 AM",
+      "close": "10:30 PM"
+    },
+    {
+      "day": "wed",
+      "open": "11:30 AM",
+      "close": "10:30 PM"
+    },
+    {
+      "day": "thu",
+      "open": "11:30 AM",
+      "close": "10:30 PM"
+    },
+    {
+      "day": "fri",
+      "open": "11:30 AM",
+      "close": "10:30 PM"
+    },
+    {
+      "day": "sat",
+      "open": "11:30 AM",
+      "close": "10:30 PM"
+    },
+    {
+      "day": "sun",
+      "open": "11:30 AM",
+      "close": "10:30 PM"
+    }
+  ],
+  "textReplacements": {
+    "12 PM to 9 PM": "11:30 AM to 10:30 PM",
+    "12:00 PM to 9:00 PM": "11:30 AM to 10:30 PM"
+  },
+  "_hoursNote": "Client wrote \"11:30pm - 10:30pm\"; 11:30 PM to 10:30 PM is a 23-hour day, so this is read as 11:30 AM to 10:30 PM. Confirm with the shop."
+}

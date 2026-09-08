@@ -82,6 +82,19 @@ Customers choose *which* blocks, in *what order*, and edit what's *inside* them.
 | `help` | hint text under the field |
 | `placeholder`, `maxLength`, `min`, `max` | validation / UX |
 | `showIf` | conditional visibility, e.g. `{ "variant": ["split"] }` |
+| `picker` | upgrades the *control* without changing the stored shape (see below) |
+
+### `picker`
+
+A picker is a nicer way to write a value the field already stores. It is
+deliberately **not** a field type: `itemRefs` is declared `"type": "list"` and
+validated as a list of strings, so an editor that has never heard of pickers
+still renders an editable list of ids instead of an "unsupported field type"
+warning. Editors that recognise the picker swap in the richer control.
+
+| `picker` | Control | Field type it upgrades |
+|---|---|---|
+| `catalog` | choose products from `doc.catalog.products` by title and photo, and order them | `list` |
 
 ---
 

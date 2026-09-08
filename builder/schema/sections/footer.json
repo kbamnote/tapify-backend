@@ -171,6 +171,33 @@
       "group": "Legal"
     },
     {
+      "key": "productPolicies",
+      "type": "repeater",
+      "group": "Product page policies",
+      "label": "Shown on every product page",
+      "max": 6,
+      "itemLabel": "{{title}}",
+      "addLabel": "Add a policy",
+      "help": "Shipping charges, exchange and return rules. Written ONCE here and shown on every product and service page automatically - you never have to repeat it per product.",
+      "fields": [
+        {
+          "key": "title",
+          "type": "text",
+          "label": "Heading",
+          "required": true,
+          "maxLength": 60,
+          "placeholder": "e.g. Shipping & delivery charges"
+        },
+        {
+          "key": "body",
+          "type": "textarea",
+          "label": "Details",
+          "maxLength": 2000,
+          "help": "One point per line. Line breaks are kept exactly as you type them."
+        }
+      ]
+    },
+    {
       "key": "showLegal",
       "type": "toggle",
       "label": "Show Privacy Policy & Terms links",

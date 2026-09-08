@@ -590,6 +590,49 @@ class SiteRenderer
         }
     }
 
+    /** The shared catalogue, keyed by product id. */
+    private static function catalog(array $doc): array
+    {
+        static $memo = null, $forDoc = null;
+        $key = spl_object_hash((object)['p' => $doc['catalog']['products'] ?? []]);
+        if ($memo !== null && $forDoc === $key) return $memo;
+        $out = [];
+        foreach (($doc['catalog']['products'] ?? []) as $it) {
+            if (is_array($it) && !empty($it['id'])) $out[(string)$it['id']] = $it;
+        }
+        $memo = $out; $forDoc = $key;
+        return $out;
+    }
+
+    /**
+     * The items a section should render.
+     *
+     * `itemRefs` points into the shared catalogue, so a product edited once
+     * changes everywhere it appears — the home page row and its category page
+     * are the same product, not two copies that drift apart.
+     *
+     * `items` still works and takes precedence when both are present, so every
+     * document written before the catalogue existed renders unchanged. A ref
+     * that does not resolve is dropped rather than rendered blank; the
+     * validator rejects those at save time, so it only happens to a document
+     * edited by hand.
+     */
+    private static function resolveItems(array $p, array $doc): array
+    {
+        $inline = (array)($p['items'] ?? []);
+        $refs   = (array)($p['itemRefs'] ?? []);
+        if (!$refs) return $inline;
+
+        $cat = self::catalog($doc);
+        $out = [];
+        foreach ($refs as $ref) {
+            if (is_string($ref) && isset($cat[$ref])) $out[] = $cat[$ref];
+        }
+        // Inline items sit after referenced ones, so a section can pull the
+        // catalogue in and still add a one-off piece of its own.
+        return array_merge($out, $inline);
+    }
+
     /** A colour we are willing to drop straight into a style attribute. */
     private static function isColor($v): bool
     {
@@ -824,8 +867,46 @@ class SiteRenderer
                 $items[] = ['text' => $pg['title'] ?? '', 'href' => $pg['slug'] ?? '/'];
             }
         }
-        $links = '';
-        foreach ($items as $l) $links .= '<a href="' . self::esc($l['href']) . '">' . self::esc($l['text']) . '</a>';
+        /**
+         * Nav links, with an optional dropdown under any of them.
+         *
+         * A shop with sixteen categories cannot fit them in a bar capped at
+         * eight links, so a link may carry `children`. The parent stays a real
+         * link — it still navigates on tap, which matters on a phone where
+         * there is no hover — and the children appear beneath it: on hover or
+         * keyboard focus on a desktop, and always expanded inside the burger
+         * menu, where a hover-only dropdown would be unreachable.
+         */
+        $navLinks = function (bool $mobile) use ($items) {
+            $out = '';
+            foreach ($items as $l) {
+                $kids = array_values(array_filter(
+                    (array)($l['children'] ?? []),
+                    fn($c) => trim((string)($c['text'] ?? '')) !== '' && trim((string)($c['href'] ?? '')) !== ''
+                ));
+                $a = '<a href="' . self::esc($l['href'] ?? '#') . '">' . self::esc($l['text'] ?? '') . '</a>';
+                if (!$kids) { $out .= $a; continue; }
+
+                $sub = '';
+                foreach ($kids as $c) {
+                    $sub .= '<a href="' . self::esc($c['href']) . '">' . self::esc($c['text']) . '</a>';
+                }
+                if ($mobile) {
+                    // Always open in the burger: nothing to hover on a phone.
+                    $out .= '<div class="tf-mdrop">' . $a
+                          . '<div class="tf-mdrop-list">' . $sub . '</div></div>';
+                } else {
+                    $out .= '<div class="tf-drop">'
+                          . '<a href="' . self::esc($l['href'] ?? '#') . '" aria-haspopup="true">'
+                          . self::esc($l['text'] ?? '')
+                          . '<span class="tf-drop-caret" aria-hidden="true">&#9662;</span></a>'
+                          . '<div class="tf-drop-menu">' . $sub . '</div></div>';
+                }
+            }
+            return $out;
+        };
+        $links  = $navLinks(false);
+        $mlinks = $navLinks(true);
 
         $cta = self::btn($p['cta'] ?? null, $dark);
         $toggleId = 'nav-' . self::esc($s['id'] ?? 'h');
@@ -892,7 +973,7 @@ class SiteRenderer
                  . '</div>';
         }
 
-        $mnav = '<nav class="tf-nav tf-mnav">' . $links . ($cta ? '<div style="margin-top:8px">' . $cta . '</div>' : '') . '</nav>';
+        $mnav = '<nav class="tf-nav tf-mnav">' . $mlinks . ($cta ? '<div style="margin-top:8px">' . $cta . '</div>' : '') . '</nav>';
 
         // Show the cart/account vs the login button based on the customer token.
         $authJs = !empty($p['showAccount'])
@@ -933,6 +1014,29 @@ class SiteRenderer
             // The backdrop is dark, so force light-on-dark treatment.
             $s['style'] = array_merge($s['style'] ?? [], ['bg' => 'dark']);
         }
+
+        // Does anything get written OVER the picture? This decides the treatment
+        // for the uncropped hero below, and it has to be settled HERE because
+        // $onDark is what styles the buttons a few lines down.
+        $heroCopy = trim((string)($p['heading'] ?? '')) !== ''
+                 || trim((string)($p['sub'] ?? '')) !== ''
+                 || trim((string)($p['badge'] ?? '')) !== ''
+                 || !empty($p['ctaPrimary']['text']) || !empty($p['ctaSecondary']['text'])
+                 || (!empty($p['showWhatsapp']) && !empty($biz['whatsapp']))
+                 || (!empty($p['showCall']) && !empty($biz['phone']));
+        $hr0 = (string)($p['imageRatio'] ?? '');
+        // A hero with no copy at all IS the picture — there is nothing the crop
+        // could be protecting, so cropping it is never what was wanted. Left on
+        // the default shape, such a hero shows the whole picture. An explicit
+        // choice is still obeyed: someone who picked Square meant Square.
+        $autoShape = ($variant === 'centered-bg' && !$hasVid && $img
+                      && ($hr0 === 'auto' || (!$heroCopy && ($hr0 === '' || $hr0 === 'default'))));
+        if ($autoShape && $heroCopy) {
+            // Copy sits on the photo, so it needs the same light-on-dark
+            // treatment the background path gets.
+            $s['style'] = array_merge($s['style'] ?? [], ['bg' => 'dark']);
+        }
+
         $onDark = self::isDarkBg($s);
         // Full-viewport hero, like a landing page. A CLASS, not an inline style,
         // so the mobile breakpoint can shorten it (see .tf-full in baseCss).
@@ -990,21 +1094,46 @@ class SiteRenderer
                       . $media
                       . '<div style="position:absolute;inset:0;background:rgba(2,6,23,' . $ov . ')"></div></div>';
         } elseif ($variant === 'centered-bg' && !empty($p['image'])) {
-            $s['style'] = array_merge($s['style'] ?? [], [
-                'bg'      => 'image',
-                'bgMedia' => $p['image'],
-                'bgFit'   => $p['imageFit'] ?? null,
-                'overlay' => $s['style']['overlay'] ?? 0.55,
-            ]);
             // A PORTRAIT hero photo is the common case for clothing, and it is
             // the worst fit for a full-height hero on a phone: background-size
             // cover crops whatever does not match the box, so a tall photo in a
             // tall-but-narrower box loses its sides and the garment goes with
             // them. `imageRatio` lets the hero take the picture's own shape on
             // small screens instead of a fixed slice of the viewport.
-            $hr = (string)($p['imageRatio'] ?? '');
-            if ($hr !== '' && $hr !== 'default') {
-                $fh = trim($fh . ' tf-hero-r-' . preg_replace('/[^a-z]/', '', $hr));
+            $hr = $hr0;
+
+            if ($autoShape) {
+                // "Show the whole picture." Every other shape still crops —
+                // they only change WHAT gets cropped — because a CSS background
+                // can cover its box or letterbox inside it, and it cannot make
+                // the box match a picture whose size the server does not know.
+                //
+                // So `auto` is not a background at all: the photo is a real
+                // <img> in the flow, and the section is a one-cell GRID with the
+                // copy stacked in the same cell. The row is as tall as the
+                // taller of the two, which means the picture is never cropped at
+                // any width AND the copy can never overflow it. This is the one
+                // shape a client can safely pick for a ready-made banner or
+                // poster with text baked into it.
+                // A bare poster is shown clean — tinting it would dull artwork
+                // nobody is reading text off. A hero that does carry a headline
+                // keeps the dark scrim, or the copy lands on whatever colour the
+                // photo happens to be underneath it.
+                $ov = $heroCopy ? (isset($s['style']['overlay']) ? (float)$s['style']['overlay'] : 0.45) : 0.0;
+
+                $backdrop = '<img class="tf-hero-img" src="' . self::esc($img) . '" alt="' . self::esc($p['heading'] ?? '') . '">'
+                          . ($ov > 0 ? '<div aria-hidden="true" class="tf-hero-scrim" style="background:rgba(2,6,23,' . $ov . ')"></div>' : '');
+                $fh = trim($fh . ' tf-hero-auto');
+            } else {
+                $s['style'] = array_merge($s['style'] ?? [], [
+                    'bg'      => 'image',
+                    'bgMedia' => $p['image'],
+                    'bgFit'   => $p['imageFit'] ?? null,
+                    'overlay' => $s['style']['overlay'] ?? 0.55,
+                ]);
+                if ($hr !== '' && $hr !== 'default') {
+                    $fh = trim($fh . ' tf-hero-r-' . preg_replace('/[^a-z]/', '', $hr));
+                }
             }
         }
         return self::shell($s, '<div class="tf-hero-wrap">' . $body . '</div>', $fh, $backdrop);
@@ -1039,7 +1168,7 @@ class SiteRenderer
     private static function secServices(array $s, array $doc): string
     {
         $p = $s['props'] ?? [];
-        $items = $p['items'] ?? [];
+        $items = self::resolveItems($p, $doc);
         if (!$items) return '';
         // WhatsApp-order mode: no detail pages, the card links straight to a chat.
         $waOrder = self::isWhatsappOrder($p);
@@ -1095,7 +1224,7 @@ class SiteRenderer
     private static function secProducts(array $s, array $doc): string
     {
         $p = $s['props'] ?? [];
-        $items = $p['items'] ?? [];
+        $items = self::resolveItems($p, $doc);
         if (!$items) return '';
         // WhatsApp-order mode: no detail pages, the card links straight to a chat.
         $waOrder = self::isWhatsappOrder($p);
@@ -1905,7 +2034,7 @@ class SiteRenderer
                 // them would leave the URL reachable with nothing linking to it,
                 // and Google would still find and rank it.
                 if (self::isWhatsappOrder($s['props'] ?? [])) continue;
-                foreach (($s['props']['items'] ?? []) as $item) {
+                foreach (self::resolveItems($s['props'] ?? [], $doc) as $item) {
                     if (!self::hasDetailPage($item)) continue;
                     $slug = self::itemSlug($item, 'service');
                     if (!isset($out[$slug])) $out[$slug] = $item;
@@ -1926,7 +2055,9 @@ class SiteRenderer
                 // them would leave the URL reachable with nothing linking to it,
                 // and Google would still find and rank it.
                 if (self::isWhatsappOrder($s['props'] ?? [])) continue;
-                foreach (($s['props']['items'] ?? []) as $item) {
+                // Resolve refs too, or a section drawing from the shared
+                // catalogue would show cards with no detail page behind them.
+                foreach (self::resolveItems($s['props'] ?? [], $doc) as $item) {
                     if (!self::hasDetailPage($item)) continue;
                     $slug = self::itemSlug($item, 'product');
                     if (!isset($out[$slug])) $out[$slug] = $item;
@@ -2143,29 +2274,123 @@ class SiteRenderer
      * for a product page — buyers want to see at a glance how many photos there
      * are and jump straight to the one they care about.
      */
+    /**
+     * The product's photos.
+     *
+     * The main image is a horizontal scroll-snap TRACK holding every photo, not
+     * one <img> whose src gets swapped. That is what makes it swipeable: on a
+     * phone the whole gesture is the browser's own inertial scrolling, which no
+     * touch-event handler reproduces convincingly, and it keeps working with
+     * JavaScript disabled. The thumbnails and dots just scroll the track.
+     */
     private static function productGallery(array $photos, string $uid): string
     {
         if (!$photos) return '';
-        $main = '<div class="tf-pmain"><img id="' . $uid . '-main" src="' . self::esc($photos[0]['src']) . '" alt="'
-              . self::esc($photos[0]['alt']) . '"></div>';
 
-        if (count($photos) < 2) return '<div class="tf-pgal">' . $main . '</div>';
-
-        $thumbs = '';
+        $slides = '';
         foreach ($photos as $i => $ph) {
-            $thumbs .= '<button type="button" class="tf-pthumb' . ($i === 0 ? ' is-active' : '') . '"'
-                     . ' data-src="' . self::esc($ph['src']) . '" aria-label="Photo ' . ($i + 1) . '">'
-                     . '<img src="' . self::esc($ph['src']) . '" alt="" loading="lazy"></button>';
+            // Slide 0 keeps the "-main" id: picking a variant colour swaps THAT
+            // photo (see the order script), and it is the slide the track starts on.
+            $slides .= '<div class="tf-pslide"><img' . ($i ? '' : ' id="' . $uid . '-main"')
+                     . ' src="' . self::esc($ph['src']) . '" alt="'
+                     . self::esc($ph['alt']) . '"' . ($i ? ' loading="lazy"' : '') . '></div>';
+        }
+        $track = '<div class="tf-pmain" id="' . $uid . '-track">' . $slides . '</div>';
+
+        if (count($photos) < 2) {
+            return '<div class="tf-pgal"><div class="tf-pstage">' . $track . '</div></div>';
         }
 
-        $script = '<script>(function(){var g=document.getElementById(' . json_encode($uid . '-gal') . ');if(!g)return;'
-                . 'var m=document.getElementById(' . json_encode($uid . '-main') . ');'
-                . 'g.addEventListener("click",function(e){var b=e.target.closest?e.target.closest(".tf-pthumb"):null;if(!b)return;'
-                . 'm.src=b.getAttribute("data-src");'
-                . 'Array.prototype.forEach.call(g.querySelectorAll(".tf-pthumb"),function(t){t.classList.remove("is-active");});'
-                . 'b.classList.add("is-active");});})();</script>';
+        $thumbs = $dots = '';
+        foreach ($photos as $i => $ph) {
+            $n = $i + 1;
+            $thumbs .= '<button type="button" class="tf-pthumb' . ($i === 0 ? ' is-active' : '') . '"'
+                     . ' data-i="' . $i . '" aria-label="Photo ' . $n . '">'
+                     . '<img src="' . self::esc($ph['src']) . '" alt="" loading="lazy"></button>';
+            $dots   .= '<button type="button" class="tf-pdot' . ($i === 0 ? ' is-active' : '') . '"'
+                     . ' data-i="' . $i . '" aria-label="Photo ' . $n . '"></button>';
+        }
 
-        return '<div class="tf-pgal" id="' . $uid . '-gal"><div class="tf-pthumbs">' . $thumbs . '</div>' . $main . '</div>' . $script;
+        // Clicking a thumb scrolls the track; scrolling the track (by swipe,
+        // trackpad or keyboard) drives the active thumb and dot back. One
+        // listener on the wrapper, so the two directions cannot drift apart.
+        $script = '<script>(function(){'
+                . 'var g=document.getElementById(' . json_encode($uid . '-gal') . ');'
+                . 'var t=document.getElementById(' . json_encode($uid . '-track') . ');if(!g||!t)return;'
+                . 'var marks=g.querySelectorAll(".tf-pthumb,.tf-pdot");'
+                . 'g.addEventListener("click",function(e){var b=e.target.closest?e.target.closest("[data-i]"):null;if(!b)return;'
+                . 't.scrollTo({left:t.clientWidth*(+b.getAttribute("data-i")),behavior:"smooth"});});'
+                . 'var raf=0;t.addEventListener("scroll",function(){if(raf)return;raf=requestAnimationFrame(function(){raf=0;'
+                . 'var i=Math.round(t.scrollLeft/(t.clientWidth||1));'
+                . 'Array.prototype.forEach.call(marks,function(m){'
+                . 'var on=(+m.getAttribute("data-i"))===i;m.classList.toggle("is-active",on);'
+                . 'if(on&&m.className.indexOf("tf-pthumb")===0&&m.scrollIntoView)m.scrollIntoView({block:"nearest",inline:"nearest"});});'
+                . '});},{passive:true});})();</script>';
+
+        return '<div class="tf-pgal" id="' . $uid . '-gal">'
+             . '<div class="tf-pthumbs">' . $thumbs . '</div>'
+             . '<div class="tf-pstage">' . $track . '<div class="tf-pdots">' . $dots . '</div></div>'
+             . '</div>' . $script;
+    }
+
+    /**
+     * Shipping / exchange / returns, shown on EVERY product and service page.
+     *
+     * Written once on the Footer section, not per product: a shop with 200
+     * products cannot maintain the same shipping table 200 times, and the moment
+     * one copy is missed the site contradicts itself. The footer is where the
+     * other policy text (Privacy, Terms) already lives, and footer edits are
+     * already copied to every page by the editor, so this is site-wide for free.
+     *
+     * <details> rather than a JS accordion — it collapses natively, it is
+     * searchable by the browser's find-in-page, and it prints.
+     */
+    private static function productPolicies(array $doc): string
+    {
+        $rows = null;
+        foreach (($doc['pages'] ?? []) as $pg) {
+            foreach (($pg['sections'] ?? []) as $sec) {
+                if (($sec['type'] ?? '') === 'footer') { $rows = $sec['props']['productPolicies'] ?? []; break 2; }
+            }
+        }
+        if (!$rows) return '';
+
+        $blocks = '';
+        foreach ((array)$rows as $i => $r) {
+            $t = trim((string)($r['title'] ?? ''));
+            $b = trim((string)($r['body'] ?? ''));
+            if ($t === '' && $b === '') continue;
+            // First one open, so the shipping cost is visible without a tap —
+            // it is the question that stops the sale.
+            $blocks .= '<details' . ($blocks === '' ? ' open' : '') . ' style="border-top:1px solid var(--color-border)">'
+                     . '<summary style="padding:12px 0;font-size:14px;font-weight:700;cursor:pointer;list-style:revert">' . self::esc($t ?: 'Policy') . '</summary>'
+                     . ($b !== '' ? '<p style="margin:0 0 14px;font-size:14px;line-height:1.7;white-space:pre-line;color:var(--tf-text,var(--color-muted))">' . self::esc($b) . '</p>' : '')
+                     . '</details>';
+        }
+        if ($blocks === '') return '';
+
+        return '<section style="margin-top:24px;padding-top:10px;border-bottom:1px solid var(--color-border)">' . $blocks . '</section>';
+    }
+
+    /**
+     * The product's own Instagram post or reel, embedded on its detail page.
+     *
+     * Only a POST/REEL permalink works — Instagram's embed renders nothing at
+     * all for a profile URL, so that is rejected here rather than shipping a
+     * blank gap the shop owner cannot diagnose.
+     */
+    private static function productInstagram(array $item): string
+    {
+        $url = trim((string)($item['instagram'] ?? ''));
+        if ($url === '' || !preg_match('#^https?://(www\.)?instagram\.com/(p|reel|reels|tv)/#i', $url)) return '';
+
+        return '<div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--color-border)">'
+             . '<p style="margin:0 0 12px;font-size:13px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--tf-text,var(--color-muted))">See it on Instagram</p>'
+             . '<blockquote class="instagram-media" data-instgrm-permalink="' . self::esc($url) . '" data-instgrm-version="14"'
+             . ' style="background:#fff;border:0;border-radius:3px;box-shadow:0 0 1px rgba(0,0,0,.5),0 1px 10px rgba(0,0,0,.15);margin:0;max-width:540px;min-width:0;width:100%;padding:0"></blockquote>'
+             . '<script async src="//www.instagram.com/embed.js"></script>'
+             . '<script>if(window.instgrm&&window.instgrm.Embeds)window.instgrm.Embeds.process();</script>'
+             . '</div>';
     }
 
     /** The optional "Product Information" spec table. */
@@ -2205,7 +2430,11 @@ class SiteRenderer
         foreach (($doc['pages'] ?? []) as $pg) {
             foreach (($pg['sections'] ?? []) as $sec) {
                 if (($sec['type'] ?? '') !== $sectionType) continue;
-                foreach (($sec['props']['items'] ?? []) as $it) {
+                // resolveItems, not props.items: a product drawn from the shared
+                // catalogue is not stored on the section, so reading items
+                // directly never matched it and this fell through to whichever
+                // section happened to come first — taking ITS settings.
+                foreach (self::resolveItems($sec['props'] ?? [], $doc) as $it) {
                     if (self::itemSlug($it, $kind) === $slug) { $cfg = $sec['props']; break 3; }
                 }
                 if ($cfg === null) $cfg = $sec['props'] ?? [];   // fall back to the first one
@@ -2383,6 +2612,8 @@ class SiteRenderer
                 ? '<div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--color-border);font-size:16px;line-height:1.75">'
                   . self::articleBody($item['body']) . '</div>'
                 : '')
+            . self::productPolicies($doc)
+            . self::productInstagram($item)
             . '</div></div>'
             . $reviewsHtml
             . self::relatedProducts($doc, $item, $backPath)
@@ -2519,7 +2750,13 @@ class SiteRenderer
             . 'if(mrpEl){mrpEl.textContent=sm;mrpEl.style.display=sm?"":"none";}'
             . 'if(offEl){offEl.textContent=off;offEl.style.display=off?"":"none";}'
             . 'var img=(matched&&matched.image)||lastImg||D.image;'
-            . 'var mainImg=document.getElementById(PU+"-main");if(mainImg&&img)mainImg.src=img;'
+            // The variant photo replaces the first slide. Scroll back to it so
+            // the swap is actually seen — but only when it CHANGED, or every
+            // resolve() (including the one on load) would yank the gallery back
+            // to slide 1 while the customer is swiping.
+            . 'var mainImg=document.getElementById(PU+"-main");'
+            . 'if(mainImg&&img&&mainImg.getAttribute("src")!==img){mainImg.src=img;'
+            . 'var trk=document.getElementById(PU+"-track");if(trk&&trk.scrollTo)trk.scrollTo({left:0,behavior:"smooth"});}'
             . 'var blocked=false,msg="";'
             . 'if(D.attrCount>0&&!allPicked){msg="Select "+D.attrNames.filter(function(nm,i){return !vals[i];}).join(", ");blocked=true;}'
             . 'else if(D.attrCount>0&&D.variants.length&&allPicked&&!matched){msg="This combination is not available.";blocked=true;}'
@@ -2632,6 +2869,8 @@ class SiteRenderer
                 ? '<div style="margin-top:24px;padding-top:24px;border-top:1px solid var(--color-border);font-size:16px;line-height:1.75">'
                   . self::articleBody($item['body']) . '</div>'
                 : '')
+            . self::productPolicies($doc)
+            . self::productInstagram($item)
             . '</div></div>'
             . $reviewsHtml
             . self::relatedProducts($doc, $item, $backPath, 'product')
@@ -3454,14 +3693,12 @@ img{max-width:100%;display:block}
   /* A hero given an image shape takes THAT shape on a phone rather than a
      slice of the viewport, so a portrait photo is not cropped to its middle.
      min-height wins over aspect-ratio, so it has to be cleared. */
-  .tf-hero-r-tall,.tf-hero-r-portrait,.tf-hero-r-square,.tf-hero-r-wide,.tf-hero-r-landscape,.tf-hero-r-auto{min-height:0}
+  .tf-hero-r-tall,.tf-hero-r-portrait,.tf-hero-r-square,.tf-hero-r-wide,.tf-hero-r-landscape{min-height:0}
   .tf-hero-r-tall{aspect-ratio:2/3}
   .tf-hero-r-portrait{aspect-ratio:3/4}
   .tf-hero-r-square{aspect-ratio:1/1}
   .tf-hero-r-wide{aspect-ratio:3/2}
   .tf-hero-r-landscape{aspect-ratio:16/9}
-  /* 'auto' keeps the copy readable rather than collapsing to nothing. */
-  .tf-hero-r-auto{aspect-ratio:auto;min-height:60svh}
   .tf-hero-wrap{max-width:100%}
   /* Full-width stacked buttons: side-by-side CTAs get squeezed to a few
      characters at 360px. */
@@ -3469,6 +3706,16 @@ img{max-width:100%;display:block}
   .tf-btns>.tf-btn:not(.tf-btn-link){flex:1 1 100%}
   .tf-two{gap:24px}
 }
+/* Hero "show the whole picture": a one-cell grid holding the photo and the copy
+   in the SAME cell, so the section is as tall as whichever is taller and the
+   photo is never cropped at any width. Declared after the media query above on
+   purpose — it ties .tf-full on specificity, so source order is what lets it
+   clear the min-height that would otherwise stretch the box past the picture. */
+.tf-hero-auto{display:grid;min-height:0;padding-top:0;padding-bottom:0}
+.tf-hero-auto>*{grid-area:1/1;min-width:0}
+.tf-hero-auto>.tf-hero-img{display:block;width:100%;height:auto;z-index:0}
+.tf-hero-auto>.tf-hero-scrim{z-index:1}
+.tf-hero-auto>.tf-container{z-index:2;align-self:center;padding-top:28px;padding-bottom:28px}
 .tf-rel{position:relative;z-index:1}
 .tf-bgimg{position:absolute;inset:0;background-size:cover;background-position:center}
 .tf-overlay{position:absolute;inset:0}
@@ -3513,6 +3760,28 @@ a{color:inherit}
 .tf-header{position:sticky;top:0;z-index:40;border-bottom:1px solid rgba(120,120,120,.18)}
 .tf-header-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}
 .tf-nav{display:flex;align-items:center;gap:24px}
+/* Dropdown nav. Opens on hover AND on keyboard focus — focus-within is what
+   makes it usable without a mouse, and it costs one selector. The parent stays
+   a real link so a tap still navigates on touch, where there is no hover. */
+.tf-drop{position:relative;display:inline-flex;align-items:center}
+.tf-drop>a{display:inline-flex;align-items:center;gap:5px}
+.tf-drop-caret{font-size:.7em;line-height:1;opacity:.7;transition:transform .18s}
+.tf-drop:hover .tf-drop-caret,.tf-drop:focus-within .tf-drop-caret{transform:rotate(180deg)}
+.tf-drop-menu{position:absolute;top:100%;left:0;z-index:60;min-width:230px;padding:8px;
+  display:flex;flex-direction:column;gap:2px;background:var(--color-surface);
+  border:1px solid var(--color-border);border-radius:var(--radius);
+  box-shadow:0 12px 32px rgba(16,24,40,.14);opacity:0;visibility:hidden;
+  transform:translateY(6px);transition:opacity .16s,transform .16s,visibility .16s}
+.tf-drop:hover .tf-drop-menu,.tf-drop:focus-within .tf-drop-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.tf-drop-menu a{display:block;padding:8px 10px;border-radius:8px;font-size:.86rem;
+  white-space:nowrap;color:var(--color-text);text-decoration:none}
+.tf-drop-menu a:hover,.tf-drop-menu a:focus-visible{background:var(--color-bg)}
+/* In the burger menu the children are simply always open — a hover dropdown
+   inside a touch menu is a dead end. */
+.tf-mdrop-list{display:flex;flex-direction:column;padding-left:14px;
+  border-left:2px solid var(--color-border);margin:2px 0 6px}
+.tf-mdrop-list a{font-size:.86rem;opacity:.85}
+@media(prefers-reduced-motion:reduce){.tf-drop-menu,.tf-drop-caret{transition:none}}
 .tf-nav a{font-size:14px;font-weight:500;opacity:.85;text-decoration:none}
 .tf-nav a:hover{opacity:1}
 .tf-burger{display:none;font-size:22px;line-height:1;cursor:pointer;padding:4px 8px;border:1px solid currentColor;border-radius:8px}
@@ -3571,9 +3840,24 @@ iframe{max-width:100%}
 .tf-pthumb{padding:0;width:78px;height:78px;border:2px solid var(--color-border);border-radius:8px;background:var(--color-surface);cursor:pointer;overflow:hidden;flex-shrink:0}
 .tf-pthumb.is-active{border-color:var(--color-primary)}
 .tf-pthumb img{width:100%;height:100%;object-fit:cover;display:block}
-.tf-pmain{flex:1;min-width:0;display:flex;align-items:center;justify-content:center;height:520px;background:var(--color-surface);border-radius:var(--radius);overflow:hidden}
-.tf-pmain img{max-width:100%;max-height:100%;object-fit:contain}
-@media(max-width:640px){.tf-pgal{flex-direction:column-reverse}.tf-pthumbs{flex-direction:row;width:auto;max-height:none;overflow-x:auto}.tf-pmain{height:340px}}
+.tf-pstage{flex:1;min-width:0}
+/* Swipe track. scroll-snap does the whole gesture natively — no touch handlers,
+   and it still works with JavaScript off (you just lose the dots updating). */
+.tf-pmain{width:100%;height:520px;background:var(--color-surface);border-radius:var(--radius);display:flex;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.tf-pmain::-webkit-scrollbar{display:none}
+.tf-pslide{flex:0 0 100%;width:100%;height:100%;display:flex;align-items:center;justify-content:center;scroll-snap-align:center;scroll-snap-stop:always}
+.tf-pslide img{max-width:100%;max-height:100%;object-fit:contain}
+.tf-pdots{display:none;gap:6px;justify-content:center;margin-top:12px}
+.tf-pdot{width:7px;height:7px;padding:0;border:0;border-radius:999px;background:var(--color-border);cursor:pointer;transition:width .2s,background .2s}
+.tf-pdot.is-active{width:20px;background:var(--color-primary)}
+@media(max-width:640px){
+  .tf-pgal{flex-direction:column-reverse}
+  .tf-pthumbs{flex-direction:row;width:auto;max-height:none;overflow-x:auto}
+  .tf-pmain{height:340px}
+  /* The thumbnail row sits below the photo on a phone, so the dots are what
+     actually say "there are more, swipe". */
+  .tf-pdots{display:flex}
+}
 .tf-bsgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:34px;text-align:left}
 @media(min-width:640px){.tf-bsgrid{grid-template-columns:repeat(3,1fr)}}
 @media(min-width:1024px){.tf-bsgrid{grid-template-columns:repeat(4,1fr)}}

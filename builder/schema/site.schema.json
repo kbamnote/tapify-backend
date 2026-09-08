@@ -124,6 +124,31 @@
       "items": { "$ref": "#/definitions/form" }
     },
 
+    "catalog": {
+      "description": "The shared product catalogue. A product used to be embedded in whichever section displayed it, so the same piece on the home page and on its category page were two independent copies — the shop owner edited one, missed the other, and the site disagreed with itself. Here each product is stored ONCE and sections point at it by id through `props.itemRefs`, so one edit reaches every place it appears. A section's own `props.items` still works untouched, which is what keeps every site built before this rendering exactly as it did.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "products": {
+          "type": "array",
+          "maxItems": 500,
+          "items": {
+            "description": "One product. Beyond `id` the shape is the products/services manifest's item shape (title, image, price, body, gallery, variants…), which is validated against that manifest wherever the product is rendered — so a new product field needs no change here.",
+            "type": "object",
+            "required": ["id", "title"],
+            "properties": {
+              "id": {
+                "description": "Stable reference used by props.itemRefs. Never reused: renaming a product keeps its id so every section still points at it.",
+                "type": "string",
+                "pattern": "^[a-zA-Z0-9_-]{1,60}$"
+              },
+              "title": { "type": "string", "minLength": 1, "maxLength": 80 }
+            }
+          }
+        }
+      }
+    },
+
     "settings": {
       "description": "Site-wide feature toggles and configuration.",
       "type": "object",

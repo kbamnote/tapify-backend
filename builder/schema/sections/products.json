@@ -65,11 +65,19 @@
       "group": "Heading"
     },
     {
+      "key": "itemRefs",
+      "type": "list",
+      "label": "Products from your catalogue",
+      "group": "Items",
+      "help": "Pick from the shared Catalogue. The same product can appear on any number of pages, and editing it in Catalogue updates all of them. Anything added directly below is shown after these, and belongs to this section alone.",
+      "picker": "catalog"
+    },
+    {
       "key": "items",
       "type": "repeater",
       "label": "Products",
       "group": "Items",
-      "min": 1,
+      "min": 0,
       "max": 24,
       "itemLabel": "{{title}}",
       "addLabel": "Add product",
@@ -138,6 +146,14 @@
               "maxLength": 120
             }
           ]
+        },
+        {
+          "key": "instagram",
+          "type": "text",
+          "label": "Instagram post or reel link",
+          "maxLength": 300,
+          "placeholder": "https://www.instagram.com/reel/...",
+          "help": "Shows the actual Instagram post on this item's page. Paste the link to a single POST or REEL - a link to your profile will not work. Open the post, tap Share, Copy link."
         },
         {
           "key": "productInfoTitle",

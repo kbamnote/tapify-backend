@@ -111,7 +111,80 @@ class SiteValidator
             }
         }
 
+        // --- catalog ---
+        $this->validateCatalog($doc);
+
         return $this->errors;
+    }
+
+    // -------------------------------------------------------------- catalog
+
+    /** Ceiling on the shared catalogue. Generous, but not unbounded. */
+    private const MAX_CATALOG = 500;
+
+    /**
+     * The shared product catalogue.
+     *
+     * A product used to be embedded in whichever section showed it, so the same
+     * piece on the home page and on its category page were two independent
+     * copies — the shop owner edited one, missed the other, and the site
+     * disagreed with itself. The catalogue holds each product ONCE; sections
+     * point at it with `itemRefs`, and one edit reaches every place it appears.
+     *
+     * `items` still works and is untouched, so every site built before this
+     * keeps rendering exactly as it did.
+     */
+    private function validateCatalog(array $doc): void
+    {
+        $cat = $doc['catalog'] ?? null;
+        $ids = [];
+
+        if ($cat !== null) {
+            if (!is_array($cat)) { $this->err('catalog', 'must be an object'); return; }
+            $products = $cat['products'] ?? [];
+            if (!$this->isList($products)) {
+                $this->err('catalog.products', 'must be an array');
+                return;
+            }
+            if (count($products) > self::MAX_CATALOG) {
+                $this->err('catalog.products', 'too many products (max ' . self::MAX_CATALOG . ')');
+            }
+            foreach ($products as $i => $it) {
+                $p = "catalog.products[$i]";
+                if (!is_array($it)) { $this->err($p, 'must be an object'); continue; }
+                $id = $it['id'] ?? null;
+                if (!is_string($id) || !preg_match('/^[a-zA-Z0-9_-]{1,60}$/', $id)) {
+                    $this->err("$p.id", 'is required: letters, digits, dash or underscore, up to 60');
+                    continue;
+                }
+                if (isset($ids[$id])) {
+                    $this->err("$p.id", "duplicate product id \"$id\"");
+                    continue;
+                }
+                $ids[$id] = true;
+                if (trim((string)($it['title'] ?? '')) === '') {
+                    $this->err("$p.title", 'is required');
+                }
+            }
+        }
+
+        // Every reference must resolve, or the section silently renders short —
+        // which looks like missing stock rather than a broken link.
+        foreach (($doc['pages'] ?? []) as $pi => $pg) {
+            foreach (($pg['sections'] ?? []) as $si => $s) {
+                $refs = $s['props']['itemRefs'] ?? null;
+                if ($refs === null) continue;
+                $where = "pages[$pi].sections[$si].props.itemRefs";
+                if (!$this->isList($refs)) { $this->err($where, 'must be an array of product ids'); continue; }
+                foreach ($refs as $ri => $ref) {
+                    if (!is_string($ref) || $ref === '') {
+                        $this->err("$where[$ri]", 'must be a product id');
+                    } elseif (!isset($ids[$ref])) {
+                        $this->err("$where[$ri]", "no product with id \"$ref\" in catalog.products");
+                    }
+                }
+            }
+        }
     }
 
     // ---------------------------------------------------------------- theme
