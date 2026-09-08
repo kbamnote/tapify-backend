@@ -291,5 +291,99 @@
     "12 PM to 9 PM": "11:30 AM to 10:30 PM",
     "12:00 PM to 9:00 PM": "11:30 AM to 10:30 PM"
   },
-  "_hoursNote": "Client wrote \"11:30pm - 10:30pm\"; 11:30 PM to 10:30 PM is a 23-hour day, so this is read as 11:30 AM to 10:30 PM. Confirm with the shop."
+  "_hoursNote": "Client wrote \"11:30pm - 10:30pm\"; 11:30 PM to 10:30 PM is a 23-hour day, so this is read as 11:30 AM to 10:30 PM. Confirm with the shop.",
+  "headerProps": {
+    "links": [
+      {
+        "text": "Home",
+        "href": "/"
+      },
+      {
+        "text": "Latest Collection",
+        "href": "/#products-5",
+        "children": [
+          {
+            "text": "Straight Fit Jeans",
+            "href": "/straight-fit-jeans"
+          },
+          {
+            "text": "Wide Leg Jeans",
+            "href": "/wide-leg-jeans"
+          },
+          {
+            "text": "Jeggings",
+            "href": "/jeggings"
+          },
+          {
+            "text": "Korean Trousers & Pants",
+            "href": "/korean-trousers"
+          }
+        ]
+      },
+      {
+        "text": "Plus Size Collection",
+        "href": "/#products-4",
+        "children": [
+          {
+            "text": "Korean Nighty",
+            "href": "/korean-nighty"
+          },
+          {
+            "text": "Cord Set Western Look",
+            "href": "/cord-set-western"
+          },
+          {
+            "text": "Cord Set Indian Look",
+            "href": "/cord-set-indian"
+          },
+          {
+            "text": "Indo-Western Design",
+            "href": "/indowestern"
+          },
+          {
+            "text": "Kurti Pant Dupatta Sets",
+            "href": "/kurti-sets"
+          },
+          {
+            "text": "Anarkali Sets",
+            "href": "/anarkali"
+          },
+          {
+            "text": "Printed Tees",
+            "href": "/printed-tees"
+          },
+          {
+            "text": "Knit & Crochet Shirts",
+            "href": "/knit-shirts"
+          },
+          {
+            "text": "Embroidered Shirts",
+            "href": "/embroidered-shirts"
+          },
+          {
+            "text": "Designer Peplum Tops",
+            "href": "/peplum-tops"
+          },
+          {
+            "text": "One-Piece Dresses",
+            "href": "/one-piece-dresses"
+          },
+          {
+            "text": "Long Dresses / Maxi Dresses",
+            "href": "/maxi-dresses"
+          }
+        ]
+      },
+      {
+        "text": "Contact",
+        "href": "/contact"
+      }
+    ],
+    "cta": {
+      "text": "WhatsApp Us",
+      "href": "https://wa.me/919372033659",
+      "style": "primary"
+    }
+  },
+  "_headerNote": "Client asked for Home / Latest Collection (dropdown) / Plus Size Collection (dropdown) / Contact / WhatsApp Us. Per their message: Plus Size gets the garment categories, Latest Collection gets the four bottoms. They said 11 plus-size categories; the site has 12 non-bottoms categories, so all 12 are listed - tell me which to drop if they meant a specific 11. Parent links jump to that group on the home page (#products-4 = Specially Plus Size, #products-5 = Latest Collection) as there is no landing page for either."
 }

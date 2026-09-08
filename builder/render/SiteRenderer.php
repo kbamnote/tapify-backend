@@ -3749,6 +3749,13 @@ a{color:inherit}
 @media(min-width:640px){.tf-c2{grid-template-columns:1fr 1fr}.tf-c3{grid-template-columns:1fr 1fr}}
 @media(min-width:1024px){.tf-c3{grid-template-columns:repeat(3,1fr)}.tf-c4{grid-template-columns:repeat(4,1fr)}}
 .tf-two{display:grid;gap:40px;grid-template-columns:1fr;align-items:center}
+/* A grid item's min-width defaults to AUTO, i.e. "never narrower than my
+   content". One unshrinkable child — the product page's thumbnail strip, a wide
+   table, a long unbroken word — therefore pushes the whole column past its
+   track and the PAGE scrolls sideways, which on iOS makes Safari zoom out and
+   leaves a blank band beside the header. min-width:0 lets the track win; any
+   child that needs to scroll does it internally with its own overflow. */
+.tf-two>*{min-width:0}
 @media(min-width:1024px){.tf-two{grid-template-columns:1fr 1fr}}
 .tf-gal{display:grid;gap:16px;grid-template-columns:1fr 1fr}
 @media(min-width:768px){.tf-gal.g3{grid-template-columns:repeat(3,1fr)}.tf-gal.g4{grid-template-columns:repeat(4,1fr)}}
@@ -3851,8 +3858,12 @@ iframe{max-width:100%}
 .tf-pdot{width:7px;height:7px;padding:0;border:0;border-radius:999px;background:var(--color-border);cursor:pointer;transition:width .2s,background .2s}
 .tf-pdot.is-active{width:20px;background:var(--color-primary)}
 @media(max-width:640px){
-  .tf-pgal{flex-direction:column-reverse}
-  .tf-pthumbs{flex-direction:row;width:auto;max-height:none;overflow-x:auto}
+  /* align-items:flex-start (the desktop rule) would size the thumbnail row to
+     its CONTENT once it is stacked, so a product with eight photos makes a
+     694px-wide strip. stretch + min-width:0 keeps it to the column and lets its
+     own overflow-x do the scrolling. */
+  .tf-pgal{flex-direction:column-reverse;align-items:stretch}
+  .tf-pthumbs{flex-direction:row;width:auto;min-width:0;max-height:none;overflow-x:auto}
   .tf-pmain{height:340px}
   /* The thumbnail row sits below the photo on a phone, so the dots are what
      actually say "there are more, swipe". */

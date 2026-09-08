@@ -92,6 +92,23 @@ try {
         else $changes[] = 'set ' . implode(', ', array_keys($fp)) . ' on ' . $touched . ' footer section(s)';
     }
 
+    // --- header props: written to EVERY header, like the footer --------------
+    $hp = $patch['headerProps'] ?? [];
+    if ($hp) {
+        $touched = 0;
+        foreach ($doc['pages'] as &$pg) {
+            foreach ($pg['sections'] as &$sec) {
+                if (($sec['type'] ?? '') !== 'header') continue;
+                foreach ($hp as $k => $v) $sec['props'][$k] = $v;
+                $touched++;
+            }
+            unset($sec);
+        }
+        unset($pg);
+        if ($touched === 0) $bad('No header section found.');
+        else $changes[] = 'set ' . implode(', ', array_keys($hp)) . ' on ' . $touched . ' header section(s)';
+    }
+
     // --- opening hours -------------------------------------------------------
     // The structured array behind the Business Hours section and the footer.
     if (!empty($patch['businessHours'])) {
