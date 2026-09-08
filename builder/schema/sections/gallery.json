@@ -99,6 +99,43 @@
       "label": "Open full size on click",
       "default": true,
       "group": "Behaviour"
+    },
+    {
+      "key": "imageRatio",
+      "type": "select",
+      "label": "Image shape",
+      "group": "Media",
+      "default": "default",
+      "options": [
+        {
+          "value": "default",
+          "label": "Standard (short banner)"
+        },
+        {
+          "value": "tall",
+          "label": "Tall portrait 2:3 — best for clothing"
+        },
+        {
+          "value": "portrait",
+          "label": "Portrait 3:4"
+        },
+        {
+          "value": "square",
+          "label": "Square 1:1"
+        },
+        {
+          "value": "wide",
+          "label": "Wide 3:2"
+        },
+        {
+          "value": "landscape",
+          "label": "Landscape 16:9"
+        },
+        {
+          "value": "auto",
+          "label": "Full image, never cropped"
+        }
+      ]
     }
   ],
   "style": {

@@ -566,6 +566,30 @@ class SiteRenderer
         return $css;
     }
 
+    /**
+     * The shape of a card's image box.
+     *
+     * Cards used to be a fixed `height:176px`, which letterboxes anything tall —
+     * and clothing photography is almost always portrait, so a garment shot
+     * lost its top and bottom and showed a band of midriff. This lets the
+     * section choose a shape that suits its pictures.
+     *
+     * 'auto' sets no box at all: the image keeps its own proportions and
+     * nothing is ever cropped, at the cost of cards ending at different heights.
+     */
+    private static function ratioCss($r, string $fallback = 'height:176px;'): string
+    {
+        switch ((string)$r) {
+            case 'auto':      return 'height:auto;';
+            case 'square':    return 'aspect-ratio:1/1;height:auto;';
+            case 'portrait':  return 'aspect-ratio:3/4;height:auto;';
+            case 'tall':      return 'aspect-ratio:2/3;height:auto;';
+            case 'wide':      return 'aspect-ratio:3/2;height:auto;';
+            case 'landscape': return 'aspect-ratio:16/9;height:auto;';
+            default:          return $fallback;
+        }
+    }
+
     /** A colour we are willing to drop straight into a style attribute. */
     private static function isColor($v): bool
     {
@@ -972,6 +996,16 @@ class SiteRenderer
                 'bgFit'   => $p['imageFit'] ?? null,
                 'overlay' => $s['style']['overlay'] ?? 0.55,
             ]);
+            // A PORTRAIT hero photo is the common case for clothing, and it is
+            // the worst fit for a full-height hero on a phone: background-size
+            // cover crops whatever does not match the box, so a tall photo in a
+            // tall-but-narrower box loses its sides and the garment goes with
+            // them. `imageRatio` lets the hero take the picture's own shape on
+            // small screens instead of a fixed slice of the viewport.
+            $hr = (string)($p['imageRatio'] ?? '');
+            if ($hr !== '' && $hr !== 'default') {
+                $fh = trim($fh . ' tf-hero-r-' . preg_replace('/[^a-z]/', '', $hr));
+            }
         }
         return self::shell($s, '<div class="tf-hero-wrap">' . $body . '</div>', $fh, $backdrop);
     }
@@ -1028,7 +1062,7 @@ class SiteRenderer
 
             $c = '<div class="tf-card">';
             if ($showImages && $img) {
-                $c .= $open . '<img src="' . self::esc($img) . '" alt="' . self::esc($it['title'] ?? '') . '" loading="lazy" style="height:176px;width:100%;' . self::imgFit($p['imageFit'] ?? null) . '">' . $shut;
+                $c .= $open . '<img src="' . self::esc($img) . '" alt="' . self::esc($it['title'] ?? '') . '" loading="lazy" style="width:100%;' . self::ratioCss($p['imageRatio'] ?? null) . self::imgFit($p['imageFit'] ?? null) . '">' . $shut;
             }
             $c .= '<div style="padding:20px">';
             $c .= $open . '<h3 style="font-family:var(--font-heading);font-size:18px;font-weight:600">' . self::esc($it['title'] ?? '') . '</h3>' . $shut;
@@ -1081,7 +1115,7 @@ class SiteRenderer
 
             $c = '<div class="tf-card">';
             if ($showImages && $img) {
-                $c .= $open . '<img src="' . self::esc($img) . '" alt="' . self::esc($it['title'] ?? '') . '" loading="lazy" style="height:176px;width:100%;' . self::imgFit($p['imageFit'] ?? null) . '">' . $shut;
+                $c .= $open . '<img src="' . self::esc($img) . '" alt="' . self::esc($it['title'] ?? '') . '" loading="lazy" style="width:100%;' . self::ratioCss($p['imageRatio'] ?? null) . self::imgFit($p['imageFit'] ?? null) . '">' . $shut;
             }
             $c .= '<div style="padding:20px">';
             $c .= $open . '<h3 style="font-family:var(--font-heading);font-size:18px;font-weight:600">' . self::esc($it['title'] ?? '') . '</h3>' . $shut;
@@ -1123,7 +1157,7 @@ class SiteRenderer
         $slides = [];
         foreach ($imgs as $im) {
             $src = self::media($im['image']);
-            $fig = '<figure class="tf-galfig"><img src="' . self::esc($src) . '" alt="' . self::esc($im['alt'] ?? '') . '" loading="lazy" style="' . self::imgFit($im['fit'] ?? ($p['imageFit'] ?? null)) . '">'
+            $fig = '<figure class="tf-galfig"><img src="' . self::esc($src) . '" alt="' . self::esc($im['alt'] ?? '') . '" loading="lazy" style="width:100%;' . self::ratioCss($p['imageRatio'] ?? null, 'height:208px;') . self::imgFit($im['fit'] ?? ($p['imageFit'] ?? null)) . '">'
                  . (!empty($im['alt']) ? '<figcaption>' . self::esc($im['alt']) . '</figcaption>' : '') . '</figure>';
             $slides[] = $lightbox ? '<a href="' . self::esc($src) . '" target="_blank" rel="noopener noreferrer">' . $fig . '</a>' : $fig;
         }
@@ -1178,7 +1212,7 @@ class SiteRenderer
             $img = self::media($pr['photo'] ?? null);
             $c = '<div class="tf-card" style="padding:24px;text-align:center">';
             if ($img) {
-                $st = ($round ? 'margin:0 auto;height:112px;width:112px;border-radius:999px;' : 'margin:0 auto;height:160px;width:100%;border-radius:var(--radius);') . self::imgFit($p['imageFit'] ?? null, $round ? '999px' : 'var(--radius)');
+                $st = ($round ? 'margin:0 auto;height:112px;width:112px;border-radius:999px;' : 'margin:0 auto;width:100%;border-radius:var(--radius);' . self::ratioCss($p['imageRatio'] ?? null, 'height:160px;')) . self::imgFit($p['imageFit'] ?? null, $round ? '999px' : 'var(--radius)');
                 $c .= '<img src="' . self::esc($img) . '" alt="' . self::esc($pr['name'] ?? '') . '" loading="lazy" style="' . $st . '">';
             } else {
                 $initial = function_exists('mb_substr') ? mb_substr($pr['name'] ?? '?', 0, 1, 'UTF-8') : substr($pr['name'] ?? '?', 0, 1);
@@ -3417,6 +3451,17 @@ img{max-width:100%;display:block}
      so the subject is lost. A shorter hero keeps the box closer to the video's
      own shape and much more of the frame stays visible. */
   .tf-full{min-height:78vh;min-height:78svh}
+  /* A hero given an image shape takes THAT shape on a phone rather than a
+     slice of the viewport, so a portrait photo is not cropped to its middle.
+     min-height wins over aspect-ratio, so it has to be cleared. */
+  .tf-hero-r-tall,.tf-hero-r-portrait,.tf-hero-r-square,.tf-hero-r-wide,.tf-hero-r-landscape,.tf-hero-r-auto{min-height:0}
+  .tf-hero-r-tall{aspect-ratio:2/3}
+  .tf-hero-r-portrait{aspect-ratio:3/4}
+  .tf-hero-r-square{aspect-ratio:1/1}
+  .tf-hero-r-wide{aspect-ratio:3/2}
+  .tf-hero-r-landscape{aspect-ratio:16/9}
+  /* 'auto' keeps the copy readable rather than collapsing to nothing. */
+  .tf-hero-r-auto{aspect-ratio:auto;min-height:60svh}
   .tf-hero-wrap{max-width:100%}
   /* Full-width stacked buttons: side-by-side CTAs get squeezed to a few
      characters at 360px. */
@@ -3461,7 +3506,9 @@ a{color:inherit}
 .tf-gal{display:grid;gap:16px;grid-template-columns:1fr 1fr}
 @media(min-width:768px){.tf-gal.g3{grid-template-columns:repeat(3,1fr)}.tf-gal.g4{grid-template-columns:repeat(4,1fr)}}
 .tf-galfig{position:relative;margin:0;overflow:hidden;border-radius:var(--radius)}
-.tf-galfig img{height:208px;width:100%;object-fit:cover}
+/* Height/ratio comes from the inline style so the section can pick a
+   shape; a fixed height here would win over an aspect-ratio. */
+.tf-galfig img{width:100%;object-fit:cover}
 .tf-galfig figcaption{position:absolute;left:0;right:0;bottom:0;padding:12px;font-size:12px;color:#fff;text-align:left;background:linear-gradient(to top,rgba(0,0,0,.7),transparent)}
 .tf-header{position:sticky;top:0;z-index:40;border-bottom:1px solid rgba(120,120,120,.18)}
 .tf-header-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0}

@@ -179,6 +179,7 @@
             "heading": "Fashion that fits your vibe and budget",
             "sub": "Imported Korean nighty, cord sets, tops, dresses and denim — new designs every week, sizes M to 3XL. Message us on WhatsApp for today's stock.",
             "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1600,c_limit/v1788767289/western-nx/wnx-004.jpg",
+            "imageRatio": "tall",
             "fullHeight": true,
             "ctaPrimary": {
               "text": "Shop Korean Nighty",
@@ -683,6 +684,7 @@
                 }
               }
             ],
+            "imageRatio": "tall",
             "orderVia": "page",
             "orderLabel": "View range",
             "showRelated": false
@@ -1582,6 +1584,7 @@
                 }
               }
             ],
+            "imageRatio": "tall",
             "orderVia": "page",
             "orderLabel": "View range",
             "showRelated": false
@@ -2160,6 +2163,7 @@
                 }
               }
             ],
+            "imageRatio": "tall",
             "orderVia": "page",
             "orderLabel": "View range",
             "showRelated": false
@@ -2692,6 +2696,7 @@
                 }
               }
             ],
+            "imageRatio": "tall",
             "orderVia": "page",
             "orderLabel": "View details",
             "showRelated": true,
@@ -3225,6 +3230,7 @@
                 }
               }
             ],
+            "imageRatio": "tall",
             "orderVia": "page",
             "orderLabel": "View details",
             "showRelated": true,
@@ -3629,6 +3635,7 @@
                 }
               }
             ],
+            "imageRatio": "tall",
             "orderVia": "page",
             "orderLabel": "View details",
             "showRelated": true,
@@ -3662,6 +3669,7 @@
           "props": {
             "label": "In Store",
             "heading": "A look at the racks",
+            "imageRatio": "tall",
             "images": [
               {
                 "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_600,c_limit/v1788767284/western-nx/wnx-002.jpg",
@@ -3901,6 +3909,7 @@
             "heading": "Cord Set Western Look",
             "sub": "Imported Korean fabric cord sets — matching top and bottom, ready to wear. Shipping free on cord sets.",
             "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1600,c_limit/v1788767281/western-nx/wnx-001.jpg",
+            "imageRatio": "tall",
             "ctaPrimary": {
               "text": "Enquire on WhatsApp",
               "href": "https://wa.me/919372033659",
@@ -4486,6 +4495,7 @@
             "orderVia": "page",
             "orderLabel": "View details",
             "showRelated": true,
+            "imageRatio": "tall",
             "relatedHeading": "You may also like"
           },
           "variant": "carousel"
@@ -4656,6 +4666,7 @@
             "heading": "Cord Set Indian Look",
             "sub": "Three-piece Farshi salwar sets and Indian-cut co-ords — printed kurta with matching bottom and dupatta.",
             "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1600,c_limit/v1788767298/western-nx/wnx-008.jpg",
+            "imageRatio": "tall",
             "ctaPrimary": {
               "text": "Enquire on WhatsApp",
               "href": "https://wa.me/919372033659",
@@ -4854,6 +4865,7 @@
             "orderVia": "page",
             "orderLabel": "View details",
             "showRelated": true,
+            "imageRatio": "tall",
             "relatedHeading": "You may also like"
           },
           "variant": "carousel"
@@ -5024,6 +5036,7 @@
             "heading": "Indo-Western Design",
             "sub": "Draped gowns, corset jumpsuits, shararas and hand-beaded blouses — the pieces for weddings and receptions.",
             "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1600,c_limit/v1788767308/western-nx/wnx-012.jpg",
+            "imageRatio": "tall",
             "ctaPrimary": {
               "text": "Enquire on WhatsApp",
               "href": "https://wa.me/919372033659",
@@ -5308,6 +5321,7 @@
             "orderVia": "page",
             "orderLabel": "View details",
             "showRelated": true,
+            "imageRatio": "tall",
             "relatedHeading": "You may also like"
           },
           "variant": "carousel"
@@ -5478,6 +5492,7 @@
             "heading": "Kurti Pant Dupatta Sets",
             "sub": "Complete three-piece sets — kurti, pant and dupatta, matched and ready.",
             "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1600,c_limit/v1788767556/western-nx/wnx-124.jpg",
+            "imageRatio": "tall",
             "ctaPrimary": {
               "text": "Enquire on WhatsApp",
               "href": "https://wa.me/919372033659",
@@ -5633,6 +5648,7 @@
             "orderVia": "page",
             "orderLabel": "View details",
             "showRelated": true,
+            "imageRatio": "tall",
             "relatedHeading": "You may also like"
           },
           "variant": "carousel"
@@ -5803,6 +5819,7 @@
             "heading": "Anarkali Sets",
             "sub": "Full-flare Anarkali and kaftan styles with dupatta, in jewel colours.",
             "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1600,c_limit/v1788767564/western-nx/wnx-127.jpg",
+            "imageRatio": "tall",
             "ctaPrimary": {
               "text": "Enquire on WhatsApp",
               "href": "https://wa.me/919372033659",
@@ -5958,6 +5975,7 @@
             "orderVia": "page",
             "orderLabel": "View details",
             "showRelated": true,
+            "imageRatio": "tall",
             "relatedHeading": "You may also like"
           },
           "variant": "carousel"
@@ -6128,6 +6146,7 @@
             "heading": "Printed Tees",
             "sub": "Embroidered and printed cotton tees — cats, butterflies, bears and florals. Everyday pieces that go with jeans or a skirt.",
             "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1600,c_limit/v1788767373/western-nx/wnx-037.jpg",
+            "imageRatio": "tall",
             "ctaPrimary": {
               "text": "Enquire on WhatsApp",
               "href": "https://wa.me/919372033659",
@@ -7186,6 +7205,7 @@
             "orderVia": "page",
             "orderLabel": "View details",
             "showRelated": true,
+            "imageRatio": "tall",
             "relatedHeading": "You may also like"
           },
           "variant": "carousel"
@@ -7289,6 +7309,7 @@
             "orderVia": "page",
             "orderLabel": "View details",
             "showRelated": true,
+            "imageRatio": "tall",
             "relatedHeading": "You may also like"
           },
           "variant": "cards-3"
@@ -7459,6 +7480,7 @@
             "heading": "Knit & Crochet Shirts",
             "sub": "Short-sleeve knit and crochet shirts with a camp collar. Light enough for Nagpur summers, smart enough for work.",
             "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1600,c_limit/v1788767322/western-nx/wnx-018.jpg",
+            "imageRatio": "tall",
             "ctaPrimary": {
               "text": "Enquire on WhatsApp",
               "href": "https://wa.me/919372033659",
@@ -8302,6 +8324,7 @@
             "orderVia": "page",
             "orderLabel": "View details",
             "showRelated": true,
+            "imageRatio": "tall",
             "relatedHeading": "You may also like"
           },
           "variant": "carousel"
@@ -8472,6 +8495,7 @@
             "heading": "Embroidered Shirts",
             "sub": "Linen-blend shirts with embroidery across the back — the detail people notice when you walk away.",
             "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1600,c_limit/v1788767525/western-nx/wnx-109.jpg",
+            "imageRatio": "tall",
             "ctaPrimary": {
               "text": "Enquire on WhatsApp",
               "href": "https://wa.me/919372033659",
@@ -8842,6 +8866,7 @@
             "orderVia": "page",
             "orderLabel": "View details",
             "showRelated": true,
+            "imageRatio": "tall",
             "relatedHeading": "You may also like"
           },
           "variant": "carousel"
@@ -9012,6 +9037,7 @@
             "heading": "Designer Peplum Tops",
             "sub": "Statement peplum tops with denim-effect panels, pearl and bead work. One top, a whole outfit.",
             "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1600,c_limit/v1788767403/western-nx/wnx-050.jpg",
+            "imageRatio": "tall",
             "ctaPrimary": {
               "text": "Enquire on WhatsApp",
               "href": "https://wa.me/919372033659",
@@ -9296,6 +9322,7 @@
             "orderVia": "page",
             "orderLabel": "View details",
             "showRelated": true,
+            "imageRatio": "tall",
             "relatedHeading": "You may also like"
           },
           "variant": "carousel"
@@ -9466,6 +9493,7 @@
             "heading": "One-Piece Dresses",
             "sub": "Polka midis, colour-block dresses and denim daisy pinafores — one piece, whole outfit.",
             "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1600,c_limit/v1788767296/western-nx/wnx-007.jpg",
+            "imageRatio": "tall",
             "ctaPrimary": {
               "text": "Enquire on WhatsApp",
               "href": "https://wa.me/919372033659",
@@ -9879,6 +9907,7 @@
             "orderVia": "page",
             "orderLabel": "View details",
             "showRelated": true,
+            "imageRatio": "tall",
             "relatedHeading": "You may also like"
           },
           "variant": "carousel"
@@ -10049,6 +10078,7 @@
             "heading": "Long Dresses / Maxi Dresses",
             "sub": "Full-length maxis and fringed party dresses, cut to fall properly.",
             "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1600,c_limit/v1788767430/western-nx/wnx-063.jpg",
+            "imageRatio": "tall",
             "ctaPrimary": {
               "text": "Enquire on WhatsApp",
               "href": "https://wa.me/919372033659",
@@ -10290,6 +10320,7 @@
             "orderVia": "page",
             "orderLabel": "View details",
             "showRelated": true,
+            "imageRatio": "tall",
             "relatedHeading": "You may also like"
           },
           "variant": "carousel"
@@ -10460,6 +10491,7 @@
             "heading": "Korean Nighty",
             "sub": "Imported 3-piece night suits — shirt, pant and shorts in one set. Soft cotton in cherry, heart, bow and gingham prints.",
             "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1600,c_limit/v1788767443/western-nx/wnx-069.jpg",
+            "imageRatio": "tall",
             "ctaPrimary": {
               "text": "Enquire on WhatsApp",
               "href": "https://wa.me/919372033659",
@@ -11346,6 +11378,7 @@
             "orderVia": "page",
             "orderLabel": "View details",
             "showRelated": true,
+            "imageRatio": "tall",
             "relatedHeading": "You may also like"
           },
           "variant": "carousel"
@@ -11516,6 +11549,7 @@
             "heading": "Straight Fit Jeans",
             "sub": "Clean straight-leg denim in dark and black washes — the pair that works with everything.",
             "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1600,c_limit/v1788767481/western-nx/wnx-087.jpg",
+            "imageRatio": "tall",
             "ctaPrimary": {
               "text": "Enquire on WhatsApp",
               "href": "https://wa.me/919372033659",
@@ -11671,6 +11705,7 @@
             "orderVia": "page",
             "orderLabel": "View details",
             "showRelated": true,
+            "imageRatio": "tall",
             "relatedHeading": "You may also like"
           },
           "variant": "carousel"
@@ -11841,6 +11876,7 @@
             "heading": "Wide Leg Jeans",
             "sub": "Wide-leg denim with cutwork and embroidery down the leg — statement jeans you will not see on everyone else.",
             "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1600,c_limit/v1788767478/western-nx/wnx-086.jpg",
+            "imageRatio": "tall",
             "ctaPrimary": {
               "text": "Enquire on WhatsApp",
               "href": "https://wa.me/919372033659",
@@ -12168,6 +12204,7 @@
             "orderVia": "page",
             "orderLabel": "View details",
             "showRelated": true,
+            "imageRatio": "tall",
             "relatedHeading": "You may also like"
           },
           "variant": "carousel"
@@ -12338,6 +12375,7 @@
             "heading": "Jeggings",
             "sub": "Stretch jeggings and flared denim that pull on and hold their shape all day.",
             "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1600,c_limit/v1788767293/western-nx/wnx-006.jpg",
+            "imageRatio": "tall",
             "ctaPrimary": {
               "text": "Enquire on WhatsApp",
               "href": "https://wa.me/919372033659",
@@ -12493,6 +12531,7 @@
             "orderVia": "page",
             "orderLabel": "View details",
             "showRelated": true,
+            "imageRatio": "tall",
             "relatedHeading": "You may also like"
           },
           "variant": "carousel"
@@ -12663,6 +12702,7 @@
             "heading": "Korean Trousers & Pants",
             "sub": "Pleated wide-leg trousers with a proper fall, in neutrals that go with everything already in your wardrobe.",
             "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1600,c_limit/v1788767575/western-nx/wnx-133.jpg",
+            "imageRatio": "tall",
             "ctaPrimary": {
               "text": "Enquire on WhatsApp",
               "href": "https://wa.me/919372033659",
@@ -13033,6 +13073,7 @@
             "orderVia": "page",
             "orderLabel": "View details",
             "showRelated": true,
+            "imageRatio": "tall",
             "relatedHeading": "You may also like"
           },
           "variant": "carousel"
@@ -13203,6 +13244,7 @@
             "heading": "Ethnic Wear",
             "sub": "Kurti pant dupatta sets, Anarkali sets and Indian-look cord sets — the full ethnic range in one place.",
             "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1600,c_limit/v1788767556/western-nx/wnx-124.jpg",
+            "imageRatio": "tall",
             "ctaPrimary": {
               "text": "Enquire on WhatsApp",
               "href": "https://wa.me/919372033659",
@@ -13358,6 +13400,7 @@
             "orderVia": "page",
             "orderLabel": "View details",
             "showRelated": true,
+            "imageRatio": "tall",
             "relatedHeading": "You may also like"
           },
           "variant": "carousel"
@@ -13504,6 +13547,7 @@
             "orderVia": "page",
             "orderLabel": "View details",
             "showRelated": true,
+            "imageRatio": "tall",
             "relatedHeading": "You may also like"
           },
           "variant": "cards-3"
@@ -13693,6 +13737,7 @@
             "orderVia": "page",
             "orderLabel": "View details",
             "showRelated": true,
+            "imageRatio": "tall",
             "relatedHeading": "You may also like"
           },
           "variant": "cards-3"
@@ -13863,6 +13908,7 @@
             "heading": "Wholesale from Jaripatka",
             "sub": "We supply boutiques, resellers and online sellers across India. Send us the categories and quantities and we will send rates the same day.",
             "image": "https://res.cloudinary.com/dpawkimbc/image/upload/w_1600,c_limit/v1788767286/western-nx/wnx-003.jpg",
+            "imageRatio": "tall",
             "ctaPrimary": {
               "text": "WhatsApp for rates",
               "href": "https://wa.me/919372033659",
