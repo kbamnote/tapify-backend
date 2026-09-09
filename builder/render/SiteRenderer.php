@@ -892,9 +892,24 @@ class SiteRenderer
                     $sub .= '<a href="' . self::esc($c['href']) . '">' . self::esc($c['text']) . '</a>';
                 }
                 if ($mobile) {
-                    // Always open in the burger: nothing to hover on a phone.
-                    $out .= '<div class="tf-mdrop">' . $a
-                          . '<div class="tf-mdrop-list">' . $sub . '</div></div>';
+                    // Tap to open, and closed until then — twelve categories
+                    // listed under every parent turns the burger into a wall of
+                    // links you have to scroll past to reach Contact.
+                    //
+                    // <details> rather than a checkbox hack or JS: it is a real
+                    // disclosure widget, so it is keyboard- and screen-reader-
+                    // operable for free, and it degrades to "open" if CSS fails.
+                    //
+                    // The parent becomes the toggle, NOT a link. A <summary> that
+                    // also navigates is a coin-flip on touch — you cannot tell
+                    // whether a tap will open the list or leave the page. The
+                    // parent's own destination is kept as the first row instead.
+                    $out .= '<details class="tf-mdrop"><summary>'
+                          . self::esc($l['text'] ?? '')
+                          . '<span class="tf-mdrop-caret" aria-hidden="true">&#9662;</span></summary>'
+                          . '<div class="tf-mdrop-list">'
+                          . '<a href="' . self::esc($l['href'] ?? '#') . '">All ' . self::esc($l['text'] ?? '') . '</a>'
+                          . $sub . '</div></details>';
                 } else {
                     $out .= '<div class="tf-drop">'
                           . '<a href="' . self::esc($l['href'] ?? '#') . '" aria-haspopup="true">'
@@ -3772,7 +3787,10 @@ a{color:inherit}
    a real link so a tap still navigates on touch, where there is no hover. */
 .tf-drop{position:relative;display:inline-flex;align-items:center}
 .tf-drop>a{display:inline-flex;align-items:center;gap:5px}
-.tf-drop-caret{font-size:.7em;line-height:1;opacity:.7;transition:transform .18s}
+/* inline-block is load-bearing: this caret sits inside a plain <a>, so it is an
+   inline box, and transforms do not apply to non-replaced inline elements —
+   the rotate below was silently doing nothing. */
+.tf-drop-caret{display:inline-block;font-size:.7em;line-height:1;opacity:.7;transition:transform .18s}
 .tf-drop:hover .tf-drop-caret,.tf-drop:focus-within .tf-drop-caret{transform:rotate(180deg)}
 .tf-drop-menu{position:absolute;top:100%;left:0;z-index:60;min-width:230px;padding:8px;
   display:flex;flex-direction:column;gap:2px;background:var(--color-surface);
@@ -3783,11 +3801,19 @@ a{color:inherit}
 .tf-drop-menu a{display:block;padding:8px 10px;border-radius:8px;font-size:.86rem;
   white-space:nowrap;color:var(--color-text);text-decoration:none}
 .tf-drop-menu a:hover,.tf-drop-menu a:focus-visible{background:var(--color-bg)}
-/* In the burger menu the children are simply always open — a hover dropdown
-   inside a touch menu is a dead end. */
+/* In the burger menu a parent is a <details>: closed until tapped, so a menu
+   with twelve categories under it opens as four rows, not forty. */
+.tf-mdrop{border:0}
+.tf-mdrop>summary{display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:2px 0;font-size:14px;font-weight:500;opacity:.85;cursor:pointer;list-style:none}
+.tf-mdrop>summary::-webkit-details-marker{display:none}
+.tf-mdrop>summary:hover{opacity:1}
+.tf-mdrop-caret{display:inline-block;font-size:.7em;transition:transform .16s}
+.tf-mdrop[open]>summary .tf-mdrop-caret{transform:rotate(180deg)}
 .tf-mdrop-list{display:flex;flex-direction:column;padding-left:14px;
   border-left:2px solid var(--color-border);margin:2px 0 6px}
 .tf-mdrop-list a{font-size:.86rem;opacity:.85}
+@media(prefers-reduced-motion:reduce){.tf-mdrop-caret{transition:none}}
 @media(prefers-reduced-motion:reduce){.tf-drop-menu,.tf-drop-caret{transition:none}}
 .tf-nav a{font-size:14px;font-weight:500;opacity:.85;text-decoration:none}
 .tf-nav a:hover{opacity:1}
