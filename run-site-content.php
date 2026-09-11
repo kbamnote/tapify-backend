@@ -76,6 +76,12 @@ $SITES = [
     // karandejewellers.tapify.co.in probed live before adding: 404, no vCard to
     // shadow, so the natural slug is safe.
     'karandejewellers' => ['file' => 'content-karande-jewellers.json', 'label' => 'Karande Jewellers'],
+    // Existing client: protein-basket.tapify.co.in is a LIVE vCard (probed
+    // 2026-09-11 — it still carries restaurant-template filler), so the builder
+    // site takes a DIFFERENT slug. index.php resolves a published builder site
+    // before vcards.url_alias and would otherwise swallow the card. The hyphen is
+    // the only thing keeping them apart — do not "fix" it. proteinbasket probed: 404.
+    'proteinbasket' => ['file' => 'content-protein-basket.json', 'label' => 'Protein Basket'],
 ];
 
 require_once __DIR__ . '/config/database.php';
