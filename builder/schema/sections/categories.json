@@ -1,0 +1,61 @@
+{
+  "type": "categories",
+  "label": "Shop by Category",
+  "category": "commerce",
+  "icon": "layout-grid",
+  "description": "Picture tiles that send shoppers straight into a collection — rounded tiles in a swipeable row, circles, tall photo cards, or simple pill buttons.",
+  "industries": ["*"],
+  "singleton": false,
+  "variants": [
+    { "id": "tiles", "label": "Rounded tiles in a row", "preview": "/builder/previews/gallery-slider.png" },
+    { "id": "circles", "label": "Circles", "preview": "/builder/previews/team-grid.png" },
+    { "id": "cards", "label": "Tall photo cards", "preview": "/builder/previews/services-cards-4.png" },
+    { "id": "pills", "label": "Pill buttons (no pictures)", "preview": "/builder/previews/ticker-light.png" }
+  ],
+  "props": [
+    { "key": "label", "type": "text", "label": "Eyebrow label", "maxLength": 40, "group": "Heading" },
+    { "key": "heading", "type": "text", "label": "Heading", "maxLength": 120, "group": "Heading" },
+    { "key": "sub", "type": "textarea", "label": "Text under the heading", "maxLength": 300, "group": "Heading" },
+    {
+      "key": "items",
+      "type": "repeater",
+      "label": "Categories",
+      "group": "Categories",
+      "min": 1,
+      "max": 24,
+      "itemLabel": "{{title}}",
+      "addLabel": "Add category",
+      "fields": [
+        { "key": "image", "type": "media", "label": "Picture", "accept": ["image"] },
+        { "key": "title", "type": "text", "label": "Name", "required": true, "maxLength": 60 },
+        { "key": "note", "type": "text", "label": "Small note (e.g. 59 designs)", "maxLength": 60 },
+        { "key": "href", "type": "text", "label": "Link", "maxLength": 600, "placeholder": "/gold-jewellery or /gold-jewellery#thushi" }
+      ]
+    },
+    {
+      "key": "columns",
+      "type": "select",
+      "label": "Per row on a computer",
+      "group": "Layout",
+      "default": "6",
+      "options": ["3", "4", "5", "6", "8"],
+      "help": "Tiles and circles scroll sideways on a phone; cards drop to two per row."
+    }
+  ],
+  "style": {
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "radius", "animation", "headingColor", "textColor"],
+    "defaults": { "paddingY": "md", "align": "center", "bg": "default" }
+  },
+  "defaults": {
+    "variant": "tiles",
+    "props": {
+      "heading": "Shop by Category",
+      "columns": "6",
+      "items": [
+        { "title": "Rings", "href": "/" },
+        { "title": "Earrings", "href": "/" },
+        { "title": "Necklaces", "href": "/" }
+      ]
+    }
+  }
+}

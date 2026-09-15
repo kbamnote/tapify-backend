@@ -1,0 +1,66 @@
+{
+  "type": "features",
+  "label": "Trust Badges",
+  "category": "social-proof",
+  "icon": "badge-check",
+  "description": "A row of small icon badges — custom orders, store pickup, quick replies on WhatsApp — the reassurance strip online stores show above the footer.",
+  "industries": ["*"],
+  "singleton": false,
+  "variants": [
+    { "id": "strip", "label": "Icon strip", "preview": "/builder/previews/stats-bar.png" },
+    { "id": "cards", "label": "Icon cards", "preview": "/builder/previews/stats-cards.png" }
+  ],
+  "props": [
+    { "key": "label", "type": "text", "label": "Eyebrow label", "maxLength": 40, "group": "Heading" },
+    { "key": "heading", "type": "text", "label": "Heading", "maxLength": 120, "group": "Heading" },
+    { "key": "sub", "type": "textarea", "label": "Text under the heading", "maxLength": 300, "group": "Heading" },
+    {
+      "key": "items",
+      "type": "repeater",
+      "label": "Badges",
+      "group": "Badges",
+      "min": 1,
+      "max": 8,
+      "itemLabel": "{{title}}",
+      "addLabel": "Add badge",
+      "fields": [
+        {
+          "key": "icon",
+          "type": "select",
+          "label": "Icon",
+          "default": "gem",
+          "options": [
+            { "value": "gem", "label": "Gem" },
+            { "value": "shield", "label": "Shield / certified" },
+            { "value": "truck", "label": "Delivery" },
+            { "value": "gift", "label": "Gift" },
+            { "value": "refresh", "label": "Exchange / return" },
+            { "value": "sparkle", "label": "Sparkle" },
+            { "value": "store", "label": "Store" },
+            { "value": "chat", "label": "Chat / WhatsApp" },
+            { "value": "ruler", "label": "Sizes / made to measure" },
+            { "value": "hand", "label": "Handcrafted" },
+            { "value": "star", "label": "Star" },
+            { "value": "lock", "label": "Secure" }
+          ]
+        },
+        { "key": "title", "type": "text", "label": "Title", "required": true, "maxLength": 60 },
+        { "key": "text", "type": "text", "label": "Text", "maxLength": 160 }
+      ]
+    }
+  ],
+  "style": {
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "radius", "animation", "headingColor", "textColor"],
+    "defaults": { "paddingY": "md", "align": "center", "bg": "surface" }
+  },
+  "defaults": {
+    "variant": "strip",
+    "props": {
+      "items": [
+        { "icon": "gem", "title": "Crafted with care" },
+        { "icon": "store", "title": "Visit our store" },
+        { "icon": "chat", "title": "Quick replies on WhatsApp" }
+      ]
+    }
+  }
+}

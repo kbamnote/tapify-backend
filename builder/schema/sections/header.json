@@ -154,6 +154,22 @@
       "help": "Where the Login / Signup button goes. Add a \"Login / Signup\" section on that page (e.g. /account) and edit it there."
     },
     {
+      "key": "showSearch",
+      "type": "toggle",
+      "label": "Show product search box",
+      "default": false,
+      "group": "Search",
+      "help": "A search box in the bar (a search icon on phones). It searches every product on the site and opens the results at /search."
+    },
+    {
+      "key": "searchPlaceholder",
+      "type": "text",
+      "label": "Search box hint",
+      "maxLength": 60,
+      "default": "Search products",
+      "group": "Search"
+    },
+    {
       "key": "sticky",
       "type": "toggle",
       "label": "Stick to top when scrolling",

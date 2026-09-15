@@ -35,6 +35,8 @@ $SITES = [
     // vCard lives at raavee-kitchen-and-interiors — same reasoning as above.
     'raaveekitchen' => ['file' => 'content-raavee-kitchen.json', 'label' => 'Raavee Kitchen and Interior'],
     'aestheticclinic' => ['file' => 'content-aesthetic-clinic.json', 'label' => 'Aesthetic Dental & Skin Clinic'],
+    // bafnajewellers probed: 404 (free). Create the site with this slug first.
+    'bafnajewellers' => ['file' => 'content-bafna-jewellers.json', 'label' => 'Bafna Jewellers'],
     'shrikrushnamotors' => ['file' => 'content-shrikrushna-motors.json', 'label' => 'Shri Krushna Motors'],
     'indrashobha' => ['file' => 'content-indrashobha-cosmetics.json', 'label' => 'Indrashobha Cosmetics'],
     // NOTE the spelling: the subdomain is dhanlakshmijewellers, the business is

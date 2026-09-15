@@ -214,6 +214,12 @@ class SiteRenderer
             echo self::renderOrdersPage($doc);
             return true;
         }
+        // Built-in product search — where the header's search box submits.
+        if (!$page && $norm === '/search') {
+            header('Content-Type: text/html; charset=utf-8');
+            echo self::renderSearchPage($doc, is_string($_GET['q'] ?? null) ? $_GET['q'] : '');
+            return true;
+        }
 
         if (!$page || ($page['visible'] ?? true) === false) { self::notFound(); return true; }
 
@@ -834,6 +840,10 @@ class SiteRenderer
             case 'embed':        return self::secEmbed($s, $doc);
             case 'share':        return self::secShare($s, $doc);
             case 'account':      return self::secAccount($s, $doc);
+            case 'slideshow':    return self::secSlideshow($s, $doc);
+            case 'categories':   return self::secCategories($s, $doc);
+            case 'banners':      return self::secBanners($s, $doc);
+            case 'features':     return self::secFeatures($s, $doc);
             default:             return '';
         }
     }
@@ -952,28 +962,49 @@ class SiteRenderer
         $navDesk   = '<div class="tf-nav tf-nav-desktop">' . $links . '</div>';
         $ctaEl     = $cta ?: '';
 
+        // Product search (optional). A real form submitting to the built-in /search
+        // page, so it works with JavaScript off. The full box needs the "left"
+        // layout, which moves the menu onto a row of its own to make room — the
+        // online-store arrangement. In the other layouts, and on every phone, it
+        // is an icon that opens /search; the burger menu carries a box too.
+        $searchBox = $searchIcon = $searchM = '';
+        if (!empty($p['showSearch'])) {
+            $ph  = self::esc(trim((string)($p['searchPlaceholder'] ?? '')) ?: 'Search products');
+            $ico = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>';
+            $field = '<input type="search" name="q" placeholder="' . $ph . '" aria-label="' . $ph . '"><button type="submit" aria-label="Search">' . $ico . '</button>';
+            $searchBox  = $variant === 'left' ? '<form class="tf-hsearch" action="/search" method="get" role="search">' . $field . '</form>' : '';
+            $searchM    = '<form class="tf-msearch" action="/search" method="get" role="search">' . $field . '</form>';
+            $searchIcon = '<a class="tf-hsearch-ic' . ($variant === 'left' ? '' : ' tf-always') . '" href="/search" aria-label="Search">' . $ico . '</a>';
+        }
+
         if ($variant === 'nav-center') {
             // Logo left · menu centered · button/cart right.
             $bar = '<div class="tf-header-bar" style="justify-content:space-between">'
                  . '<div style="flex-shrink:0">' . $brand . '</div>'
                  . '<div class="tf-nav tf-nav-desktop" style="flex:1;justify-content:center">' . $links . '</div>'
-                 . '<div style="display:flex;align-items:center;gap:12px">' . $ctaEl . $cart . $burger . '</div>'
+                 . '<div style="display:flex;align-items:center;gap:12px">' . $ctaEl . $cart . $searchIcon . $burger . '</div>'
                  . '</div>';
         } elseif ($variant === 'center') {
             // Logo centered on top · menu centered below.
             $bar = '<div class="tf-header-bar" style="flex-direction:column;gap:8px">'
                  . '<div class="tf-center-top">' . $brand
-                 .   '<div class="tf-mobile-only" style="align-items:center;gap:12px">' . $cart . $burger . '</div>'
+                 .   '<div class="tf-mobile-only" style="align-items:center;gap:12px">' . $searchIcon . $cart . $burger . '</div>'
                  . '</div>'
-                 . '<div class="tf-nav tf-nav-desktop" style="width:100%;justify-content:center">' . $links . $ctaEl . $cart . '</div>'
+                 . '<div class="tf-nav tf-nav-desktop" style="width:100%;justify-content:center">' . $links . $ctaEl . $cart . $searchIcon . '</div>'
                  . '</div>';
         } elseif ($variant === 'split') {
             // Menu left · logo centered · button/cart right.
             $bar = '<div class="tf-header-bar" style="justify-content:space-between;position:relative">'
                  . '<div style="display:flex;align-items:center;gap:16px">' . $navDesk . $burger . '</div>'
                  . '<div class="tf-brand-center">' . $brand . '</div>'
-                 . '<div style="display:flex;align-items:center;gap:12px">' . $ctaEl . $cart . '</div>'
+                 . '<div style="display:flex;align-items:center;gap:12px">' . $ctaEl . $cart . $searchIcon . '</div>'
                  . '</div>';
+        } elseif ($searchBox !== '') {
+            // "left" with search: logo · search box · button/cart, menu row below.
+            $bar = '<div class="tf-header-bar">' . $brand . $searchBox
+                 . '<div style="display:flex;align-items:center;gap:14px">' . $ctaEl . $cart . $searchIcon . $burger . '</div>'
+                 . '</div>'
+                 . '<div class="tf-hnav-row">' . $navDesk . '</div>';
         } else {
             // "left" (default): logo left · menu + button right.
             $bar = '<div class="tf-header-bar">' . $brand
@@ -981,7 +1012,7 @@ class SiteRenderer
                  . '</div>';
         }
 
-        $mnav = '<nav class="tf-nav tf-mnav">' . $mlinks . ($cta ? '<div style="margin-top:8px">' . $cta . '</div>' : '') . '</nav>';
+        $mnav = '<nav class="tf-nav tf-mnav">' . $searchM . $mlinks . ($cta ? '<div style="margin-top:8px">' . $cta . '</div>' : '') . '</nav>';
 
         // Show the cart/account vs the login button based on the customer token.
         $authJs = !empty($p['showAccount'])
@@ -1245,6 +1276,7 @@ class SiteRenderer
         $onDark  = self::isDarkBg($s);
         $variant = $s['variant'] ?? 'cards-3';
         $showImages = $variant !== 'list';
+        $shop = ($p['cardStyle'] ?? 'default') === 'shop';
 
         $cards = [];
         foreach ($items as $it) {
@@ -1254,6 +1286,10 @@ class SiteRenderer
                 : '';
             $open = $href !== '' ? '<a href="' . self::esc($href) . '" style="color:inherit;text-decoration:none;display:block">' : '';
             $shut = $href !== '' ? '</a>' : '';
+            if ($shop) {
+                $cards[] = self::shopCard($it, $href, $p, $biz, $waOrder);
+                continue;
+            }
 
             $c = '<div class="tf-card">';
             if ($showImages && $img) {
@@ -1280,9 +1316,19 @@ class SiteRenderer
             $c .= '</div></div>';
             $cards[] = $c;
         }
-        $body = $variant === 'marquee' ? self::marquee($cards)
-            : ($variant === 'carousel' ? self::carousel($cards)
-            : '<div class="' . self::gridClass($variant) . '" style="text-align:left">' . implode('', $cards) . '</div>');
+        if ($shop) {
+            $ratio = ['square' => '1/1', 'tall' => '2/3', 'wide' => '3/2', 'landscape' => '16/9'][$p['imageRatio'] ?? ''] ?? '3/4';
+            $auto  = ($p['imageRatio'] ?? '') === 'auto' ? ' tf-shop-auto' : '';
+            $cols  = ['cards-2' => 2, 'cards-3' => 3, 'list' => 2][$variant] ?? 4;
+            $body  = $variant === 'marquee' ? self::marquee($cards)
+                : ($variant === 'carousel' ? '<div class="tf-shoprow">' . self::carousel($cards, 0) . '</div>'
+                : '<div class="tf-shopgrid tf-shop-c' . $cols . '">' . implode('', $cards) . '</div>');
+            $body  = '<div class="tf-shopwrap' . $auto . '" style="--shop-ratio:' . $ratio . '">' . $body . '</div>';
+        } else {
+            $body = $variant === 'marquee' ? self::marquee($cards)
+                : ($variant === 'carousel' ? self::carousel($cards)
+                : '<div class="' . self::gridClass($variant) . '" style="text-align:left">' . implode('', $cards) . '</div>');
+        }
         $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null) . $body;
         return self::shell($s, $inner);
     }
@@ -1308,6 +1354,225 @@ class SiteRenderer
             : '<div class="tf-gal ' . $g . '">' . implode('', $slides) . '</div>');
         $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null) . $body;
         return self::shell($s, $inner);
+    }
+
+    /* ------------------------------------------------ storefront sections */
+
+    /** Stroke icons for the Trust Badges section (24px grid). Keep in step with Features.tsx. */
+    private const FEATURE_ICONS = [
+        'gem'     => '<path d="M6 3h12l4 6-10 12L2 9z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/>',
+        'shield'  => '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>',
+        'truck'   => '<path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/>',
+        'gift'    => '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13"/><path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C10 3 12 8 12 8s2-5 4.5-5a2.5 2.5 0 0 1 0 5"/>',
+        'refresh' => '<path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/>',
+        'sparkle' => '<path d="M12 3l1.9 5.8L20 11l-6.1 2.2L12 19l-1.9-5.8L4 11l6.1-2.2z"/><path d="M19 3v4"/><path d="M21 5h-4"/>',
+        'store'   => '<path d="M3 9l1.5-5h15L21 9"/><path d="M3 9h18v2a3 3 0 0 1-6 0 3 3 0 0 1-6 0 3 3 0 0 1-6 0z"/><path d="M5 13v8h14v-8"/><path d="M10 21v-5h4v5"/>',
+        'chat'    => '<path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.4L3 21l2.1-5.6A8.4 8.4 0 1 1 21 11.5z"/>',
+        'ruler'   => '<path d="M21.3 15.3a2.4 2.4 0 0 1 0 3.4l-2.6 2.6a2.4 2.4 0 0 1-3.4 0L2.7 8.7a2.4 2.4 0 0 1 0-3.4l2.6-2.6a2.4 2.4 0 0 1 3.4 0z"/><path d="m14.5 12.5 2-2"/><path d="m11.5 9.5 2-2"/><path d="m8.5 6.5 2-2"/><path d="m17.5 15.5 2-2"/>',
+        'hand'    => '<path d="M18 11V6a2 2 0 0 0-4 0v5"/><path d="M14 10V4a2 2 0 0 0-4 0v6"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>',
+        'star'    => '<path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/>',
+        'lock'    => '<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
+    ];
+
+    /**
+     * Banner slideshow — the rotating promo strip at the top of an online store.
+     *
+     * Built on carousel(), so arrows, dots, swipe and autoplay come from the one
+     * carousel script every page already loads; this only makes each slide the
+     * full width and lays the controls over the picture. It runs edge to edge:
+     * the tf-ss-sec class lifts the container's max-width for this section only.
+     */
+    private static function secSlideshow(array $s, array $doc): string
+    {
+        $p = $s['props'] ?? [];
+        $variant = in_array($s['variant'] ?? '', ['split', 'full', 'banner'], true) ? $s['variant'] : 'split';
+        $slides = array_values(array_filter((array)($p['slides'] ?? []), fn($sl) => is_array($sl) && self::media($sl['image'] ?? null)));
+        if (!$slides) return '';
+        $height = ['short' => 'tf-ss-short', 'tall' => 'tf-ss-tall'][$p['height'] ?? 'medium'] ?? 'tf-ss-medium';
+
+        $out = [];
+        foreach ($slides as $i => $sl) {
+            $img = self::media($sl['image']);
+            $mob = self::media($sl['mobileImage'] ?? null);
+            $alt = self::esc(trim((string)($sl['heading'] ?? '')) ?: ($doc['site']['name'] ?? ''));
+            // Only the first slide is on screen at load; the rest can wait.
+            $load = $i === 0 ? ' fetchpriority="high"' : ' loading="lazy"';
+            $pic = '<picture>' . ($mob ? '<source media="(max-width:640px)" srcset="' . self::esc($mob) . '">' : '')
+                 . '<img class="tf-ss-img" src="' . self::esc($img) . '" alt="' . $alt . '"' . $load
+                 . ' style="' . self::imgFit($sl['imageFit'] ?? null) . '"></picture>';
+            $href = trim((string)($sl['href'] ?? ''));
+            if ($href !== '') $pic = '<a class="tf-ss-link" href="' . self::esc($href) . '" aria-label="' . $alt . '">' . $pic . '</a>';
+
+            $copy = '';
+            if (trim((string)($sl['badge'] ?? '')) !== '')   $copy .= '<p class="tf-ss-badge">' . self::esc($sl['badge']) . '</p>';
+            if (trim((string)($sl['heading'] ?? '')) !== '') $copy .= '<h2 class="tf-ss-h">' . self::esc($sl['heading']) . '</h2>';
+            if (trim((string)($sl['sub'] ?? '')) !== '')     $copy .= '<p class="tf-ss-sub">' . self::esc($sl['sub']) . '</p>';
+            $b = self::btn($sl['cta'] ?? null, $variant === 'full');
+            if ($b !== '') $copy .= '<div class="tf-ss-cta">' . $b . '</div>';
+
+            if ($variant === 'banner' || $copy === '') {
+                $out[] = '<div class="tf-ss-slide tf-ss-banner">' . $pic . '</div>';
+            } elseif ($variant === 'full') {
+                $out[] = '<div class="tf-ss-slide tf-ss-full">' . $pic . '<div class="tf-ss-shade" aria-hidden="true"></div>'
+                       . '<div class="tf-ss-copy">' . $copy . '</div></div>';
+            } else {
+                $panel = self::isColor($sl['panelColor'] ?? null) ? $sl['panelColor'] : '';
+                $ps = $panel !== '' ? ' style="background:' . $panel . ';color:' . self::readableOn($panel) . '"' : '';
+                $out[] = '<div class="tf-ss-slide tf-ss-split"><div class="tf-ss-panel"' . $ps . '><div class="tf-ss-copy">' . $copy . '</div></div>'
+                       . '<div class="tf-ss-media">' . $pic . '</div></div>';
+            }
+        }
+        $every = max(0, (int)($p['autoplay'] ?? 5));
+        return self::shell($s, '<div class="tf-slideshow ' . $height . '">' . self::carousel($out, $every * 1000) . '</div>', 'tf-ss-sec');
+    }
+
+    /**
+     * Shop by Category — picture tiles that lead into a collection.
+     *
+     * Tiles and circles become one swipeable row on a phone rather than a tall
+     * stack: a shopper expects to flick through categories sideways, and a grid
+     * of twelve would push everything else a full screen down.
+     */
+    private static function secCategories(array $s, array $doc): string
+    {
+        $p = $s['props'] ?? [];
+        $variant = in_array($s['variant'] ?? '', ['tiles', 'circles', 'cards', 'pills'], true) ? $s['variant'] : 'tiles';
+        $items = array_values(array_filter((array)($p['items'] ?? []), fn($it) => is_array($it) && trim((string)($it['title'] ?? '')) !== ''));
+        if (!$items) return '';
+        $cols = in_array((string)($p['columns'] ?? ''), ['3', '4', '5', '6', '8'], true) ? (string)$p['columns'] : '6';
+
+        $cells = '';
+        foreach ($items as $it) {
+            $href = trim((string)($it['href'] ?? ''));
+            $wrap = fn(string $cls, string $inner) => $href !== ''
+                ? '<a href="' . self::esc($href) . '" class="' . $cls . '">' . $inner . '</a>'
+                : '<div class="' . $cls . '">' . $inner . '</div>';
+            $title = self::esc($it['title']);
+            $note  = trim((string)($it['note'] ?? '')) !== '' ? '<span class="tf-cat-note">' . self::esc($it['note']) . '</span>' : '';
+            if ($variant === 'pills') {
+                $cells .= $wrap('tf-cat-pill', $title);
+                continue;
+            }
+            $img = self::media($it['image'] ?? null);
+            $pic = $img
+                ? '<img src="' . self::esc($img) . '" alt="' . $title . '" loading="lazy">'
+                : '<span class="tf-cat-ph" aria-hidden="true">' . self::esc(mb_substr((string)$it['title'], 0, 1)) . '</span>';
+            $cells .= $variant === 'cards'
+                ? $wrap('tf-cat-card', $pic . '<span class="tf-cat-cap"><span class="tf-cat-title">' . $title . '</span>' . $note . '</span>')
+                : $wrap('tf-cat-tile', '<span class="tf-cat-media">' . $pic . '</span><span class="tf-cat-title">' . $title . '</span>' . $note);
+        }
+        $body = '<div class="tf-cats tf-cats-' . $variant . '" style="--cat-cols:' . $cols . '">' . $cells . '</div>';
+        return self::shell($s, self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null) . $body);
+    }
+
+    /** Promo banners — clickable pictures side by side, copy laid over a soft shade. */
+    private static function secBanners(array $s, array $doc): string
+    {
+        $p = $s['props'] ?? [];
+        $variant = in_array($s['variant'] ?? '', ['grid-2', 'grid-3', 'single'], true) ? $s['variant'] : 'grid-2';
+        $items = array_values(array_filter((array)($p['items'] ?? []), fn($it) => is_array($it) && self::media($it['image'] ?? null)));
+        if (!$items) return '';
+        $cols  = $variant === 'single' ? 1 : ($variant === 'grid-3' ? 3 : 2);
+        $shape = (string)($p['shape'] ?? 'wide');
+        $ratio = ['landscape' => '16/9', 'square' => '1/1', 'portrait' => '3/4'][$shape] ?? '3/2';
+        // One banner across the whole row at 3:2 would be taller than the screen.
+        if ($variant === 'single' && $shape === 'wide') $ratio = '3/1';
+
+        $cells = '';
+        foreach ($items as $it) {
+            $head = trim((string)($it['heading'] ?? ''));
+            $href = trim((string)($it['href'] ?? '')) ?: trim((string)($it['cta']['href'] ?? ''));
+            $copy = '';
+            if (trim((string)($it['eyebrow'] ?? '')) !== '') $copy .= '<p class="tf-bn-eyebrow">' . self::esc($it['eyebrow']) . '</p>';
+            if ($head !== '')                                  $copy .= '<h3 class="tf-bn-h">' . self::esc($head) . '</h3>';
+            if (trim((string)($it['sub'] ?? '')) !== '')     $copy .= '<p class="tf-bn-sub">' . self::esc($it['sub']) . '</p>';
+            $b = self::btn($it['cta'] ?? null, true);
+            if ($b !== '') $copy .= '<div class="tf-bn-cta">' . $b . '</div>';
+            $cells .= '<div class="tf-bn">'
+                . '<img src="' . self::esc(self::media($it['image'])) . '" alt="' . self::esc($head !== '' ? $head : ($p['heading'] ?? '')) . '" loading="lazy" style="' . self::imgFit($it['imageFit'] ?? null) . '">'
+                // The whole banner is clickable through an overlay link, not a
+                // wrapping <a> — that would nest the button's own link inside it.
+                . ($href !== '' ? '<a class="tf-bn-hit" href="' . self::esc($href) . '" aria-label="' . self::esc($head !== '' ? $head : 'Open') . '"></a>' : '')
+                . ($copy !== '' ? '<div class="tf-bn-copy">' . $copy . '</div>' : '')
+                . '</div>';
+        }
+        $body = '<div class="tf-bns" style="--bn-cols:' . $cols . ';--bn-ratio:' . $ratio . '">' . $cells . '</div>';
+        return self::shell($s, self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null) . $body);
+    }
+
+    /** Trust badges — a row of small icon promises above the footer. */
+    private static function secFeatures(array $s, array $doc): string
+    {
+        $p = $s['props'] ?? [];
+        $variant = ($s['variant'] ?? 'strip') === 'cards' ? 'cards' : 'strip';
+        $items = array_values(array_filter((array)($p['items'] ?? []), fn($it) => is_array($it) && trim((string)($it['title'] ?? '')) !== ''));
+        if (!$items) return '';
+        $cells = '';
+        foreach ($items as $it) {
+            $path = self::FEATURE_ICONS[(string)($it['icon'] ?? '')] ?? self::FEATURE_ICONS['gem'];
+            $cells .= '<div class="tf-feat">'
+                . '<span class="tf-feat-ic" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' . $path . '</svg></span>'
+                . '<p class="tf-feat-t">' . self::esc($it['title']) . '</p>'
+                . (trim((string)($it['text'] ?? '')) !== '' ? '<p class="tf-feat-x">' . self::esc($it['text']) . '</p>' : '')
+                . '</div>';
+        }
+        $body = '<div class="tf-feats tf-feats-' . $variant . '" style="--feat-n:' . min(count($items), 6) . '">' . $cells . '</div>';
+        return self::shell($s, self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null) . $body);
+    }
+
+    /** wa.me link pre-filled with the item's name and price; '' when the site has no number. */
+    private static function waOrderHref(array $item, array $biz): string
+    {
+        $num = preg_replace('/\D/', '', (string)($biz['whatsapp'] ?? $biz['phone'] ?? ''));
+        if ($num === '') return '';
+        $title = trim((string)($item['title'] ?? ''));
+        $price = trim((string)($item['price'] ?? ''));
+        $msg = 'Hi, I am interested in *' . ($title !== '' ? $title : 'this item') . '*'
+             . ($price !== '' ? ' (' . $price . ')' : '') . '. Is it available?';
+        return 'https://wa.me/' . $num . '?text=' . rawurlencode($msg);
+    }
+
+    /**
+     * A storefront product card (products cardStyle "shop"): tall photo with an
+     * optional ribbon badge, the price above a two-line name, and a full-width
+     * soft button — the card the big online jewellery and fashion stores use.
+     * The top of the card links to the product page; the button repeats that
+     * link, or opens WhatsApp in WhatsApp-order mode.
+     */
+    private static function shopCard(array $it, string $href, array $p, array $biz, bool $waOrder): string
+    {
+        $img   = self::media($it['image'] ?? null);
+        $title = self::esc($it['title'] ?? '');
+        [$sell, $mrp, $off] = self::priceBits($it);
+
+        $top = '<span class="tf-shop-media">'
+             . ($img ? '<img src="' . self::esc($img) . '" alt="' . $title . '" loading="lazy" style="' . self::imgFit($p['imageFit'] ?? null) . '">' : '')
+             . (trim((string)($it['badge'] ?? '')) !== '' ? '<span class="tf-shop-badge">' . self::esc($it['badge']) . '</span>' : '')
+             . '</span><span class="tf-shop-body">'
+             . ($sell !== '' || $mrp !== ''
+                 ? '<span class="tf-shop-price">' . ($sell !== '' ? '<b>' . self::esc($sell) . '</b>' : '')
+                   . ($mrp !== '' ? '<s>' . self::esc($mrp) . '</s>' : '') . ($off !== '' ? '<em>' . $off . '</em>' : '') . '</span>'
+                 : '')
+             . '<span class="tf-shop-title">' . $title . '</span>'
+             . (trim((string)($it['meta'] ?? '')) !== '' ? '<span class="tf-shop-meta">' . self::esc($it['meta']) . '</span>' : '')
+             . '</span>';
+        $c = '<div class="tf-shop">' . ($href !== ''
+            ? '<a class="tf-shop-a" href="' . self::esc($href) . '">' . $top . '</a>'
+            : '<div class="tf-shop-a">' . $top . '</div>');
+
+        if ($waOrder) {
+            $wa = self::waOrderHref($it, $biz);
+            if ($wa !== '') {
+                $c .= '<a class="tf-shop-btn" href="' . self::esc($wa) . '" target="_blank" rel="noopener noreferrer">'
+                    . self::esc(trim((string)($p['orderLabel'] ?? '')) ?: 'Order on WhatsApp') . '</a>';
+            }
+        } elseif ($href !== '') {
+            $c .= '<a class="tf-shop-btn" href="' . self::esc($href) . '">' . self::esc(trim((string)($p['cardButton'] ?? '')) ?: 'View details') . '</a>';
+        } elseif (!empty($it['cta']['text']) && !empty($it['cta']['href'])) {
+            $nt = !empty($it['cta']['newTab']) ? ' target="_blank" rel="noopener noreferrer"' : '';
+            $c .= '<a class="tf-shop-btn" href="' . self::esc($it['cta']['href']) . '"' . $nt . '>' . self::esc($it['cta']['text']) . '</a>';
+        }
+        return $c . '</div>';
     }
 
     private static function secStats(array $s, array $doc): string
@@ -2011,18 +2276,13 @@ class SiteRenderer
      */
     private static function waOrderButton(array $item, array $biz, array $props, bool $onDark): string
     {
-        $num = preg_replace('/\D/', '', (string)($biz['whatsapp'] ?? $biz['phone'] ?? ''));
-        if ($num === '') return '';       // nothing to link to; show no button
-
-        $title = trim((string)($item['title'] ?? ''));
-        $price = trim((string)($item['price'] ?? ''));
-        $msg = 'Hi, I am interested in *' . ($title !== '' ? $title : 'this item') . '*'
-             . ($price !== '' ? ' (' . $price . ')' : '') . '. Is it available?';
+        $href = self::waOrderHref($item, $biz);
+        if ($href === '') return '';      // nothing to link to; show no button
 
         $label = trim((string)($props['orderLabel'] ?? '')) ?: 'Order on WhatsApp';
         return '<div style="margin-top:16px">' . self::btn([
             'text'    => $label,
-            'href'    => 'https://wa.me/' . $num . '?text=' . rawurlencode($msg),
+            'href'    => $href,
             'newTab'  => true,
             'style'   => 'primary',
         ], $onDark) . '</div>';
@@ -2888,6 +3148,80 @@ class SiteRenderer
             . $reviewsHtml
             . self::relatedProducts($doc, $item, $backPath, 'product')
             . '</article>';
+
+        return "<!DOCTYPE html><html lang=\"" . self::esc($doc['site']['locale'] ?? 'en') . "\"><head>"
+             . self::head($doc, $pseudo, $fonts)
+             . "<style>.tf-site{" . $vars . "}" . self::baseCss() . "</style>"
+             . "</head><body>"
+             . "<main class=\"tf-site\">" . self::chromeSection($doc, 'header') . $article . self::chromeSection($doc, 'footer') . "</main>"
+             . self::carouselScript() . self::cartScript() . self::animScript()
+             . "</body></html>";
+    }
+
+    /**
+     * Product search at /search?q=… — what the header's search box submits to.
+     *
+     * Server-side, so no product index is shipped to every visitor and each
+     * result is a real link. Every word typed must appear in the name, meta
+     * line, short description or badge: "silver ganesh" should not return every
+     * silver item on the site.
+     */
+    private static function renderSearchPage(array $doc, string $q): string
+    {
+        $vars  = self::themeVars($doc['theme'] ?? []);
+        $fonts = self::googleFonts($doc['theme'] ?? []);
+        $name  = $doc['site']['name'] ?? '';
+        $q     = trim(mb_substr((string)preg_replace('/\s+/u', ' ', $q), 0, 80));
+
+        $pseudo = [
+            'slug'  => '/search',
+            'title' => 'Search',
+            'seo'   => [
+                'title'       => trim(($q !== '' ? $q . ' · ' : '') . 'Search | ' . $name, ' |'),
+                'description' => '',
+                'robots'      => 'noindex,follow',
+            ],
+        ];
+
+        $terms = $q === '' ? [] : array_values(array_filter(explode(' ', mb_strtolower($q)), fn($t) => $t !== ''));
+        $biz   = $doc['business'] ?? [];
+        $seen  = [];
+        $hits  = [];
+        foreach ($terms ? ($doc['pages'] ?? []) : [] as $pg) {
+            if (($pg['visible'] ?? true) === false) continue;
+            foreach (($pg['sections'] ?? []) as $s) {
+                if (($s['type'] ?? '') !== 'products' || ($s['visible'] ?? true) === false) continue;
+                $sp = $s['props'] ?? [];
+                $wa = self::isWhatsappOrder($sp);
+                foreach (self::resolveItems($sp, $doc) as $it) {
+                    $slug = self::itemSlug($it, 'product');
+                    if (isset($seen[$slug])) continue;
+                    $hay = mb_strtolower(implode(' ', [$it['title'] ?? '', $it['meta'] ?? '', $it['desc'] ?? '', $it['badge'] ?? '']));
+                    foreach ($terms as $t) {
+                        if (mb_strpos($hay, $t) === false) continue 2;
+                    }
+                    $seen[$slug] = true;
+                    $href = (!$wa && self::hasDetailPage($it)) ? '/product/' . $slug : '';
+                    $hits[] = self::shopCard($it, $href, ['orderLabel' => $sp['orderLabel'] ?? '', 'cardButton' => $sp['cardButton'] ?? ''], $biz, $wa);
+                    if (count($hits) >= 120) break 3;
+                }
+            }
+        }
+
+        $n = count($hits);
+        $status = $q === ''
+            ? 'Type the name of what you are looking for.'
+            : ($n ? $n . ' result' . ($n === 1 ? '' : 's') . ' for “' . self::esc($q) . '”'
+                  : 'Nothing matched “' . self::esc($q) . '”. Try a shorter or different word.');
+        $form = '<form action="/search" method="get" role="search" class="tf-search-big">'
+              . '<input type="search" name="q" value="' . self::esc($q) . '" placeholder="Search products" aria-label="Search products"' . ($q === '' ? ' autofocus' : '') . '>'
+              . '<button type="submit" class="tf-btn" style="background:var(--color-primary);color:var(--color-primary-fg);border-radius:var(--radius)">Search</button></form>';
+        $article = '<section class="tf-container" style="padding-top:calc(48px*var(--space-scale));padding-bottom:calc(64px*var(--space-scale));text-align:left">'
+            . '<h1 style="margin:0 0 18px;font-family:var(--font-heading);font-size:32px;line-height:1.2;font-weight:700">Search</h1>'
+            . $form
+            . '<p style="margin:16px 0 28px;color:var(--color-muted)">' . $status . '</p>'
+            . ($hits ? '<div class="tf-shopwrap" style="--shop-ratio:3/4"><div class="tf-shopgrid tf-shop-c4">' . implode('', $hits) . '</div></div>' : '')
+            . '</section>';
 
         return "<!DOCTYPE html><html lang=\"" . self::esc($doc['site']['locale'] ?? 'en') . "\"><head>"
              . self::head($doc, $pseudo, $fonts)
@@ -3898,6 +4232,129 @@ iframe{max-width:100%}
 .tf-tkstatic{padding:8px 0}
 .tf-tkstatic .tf-tkset{flex-wrap:wrap;justify-content:center;white-space:normal;gap:8px 16px;padding:0 16px}
 .tf-tkstatic .tf-tksep{display:none}
+/* ---- header search ---- */
+.tf-hsearch,.tf-msearch{display:flex;align-items:center;border:1px solid var(--color-border);border-radius:6px;background:var(--color-bg);overflow:hidden}
+.tf-hsearch{flex:1;max-width:480px;margin:0 24px}
+.tf-msearch{margin:4px 0 8px}
+.tf-hsearch input,.tf-msearch input{flex:1;min-width:0;border:0;background:transparent;padding:11px 14px;font:inherit;font-size:15px;color:var(--color-text);outline:none}
+.tf-hsearch button,.tf-msearch button{display:inline-flex;align-items:center;justify-content:center;width:44px;height:42px;border:0;background:transparent;color:var(--color-text);cursor:pointer}
+.tf-hsearch:focus-within,.tf-msearch:focus-within{border-color:var(--color-primary)}
+.tf-hsearch-ic{display:none;align-items:center;justify-content:center;padding:6px;color:inherit}
+.tf-hsearch-ic.tf-always{display:inline-flex}
+.tf-hnav-row{display:flex;justify-content:center;padding:0 0 10px}
+.tf-hnav-row .tf-nav{flex-wrap:wrap;justify-content:center}
+@media(max-width:768px){.tf-hsearch,.tf-hnav-row{display:none}.tf-hsearch-ic{display:inline-flex}}
+.tf-search-big{display:flex;gap:10px;max-width:640px}
+.tf-search-big input{flex:1;min-width:0;padding:13px 16px;font:inherit;font-size:16px;border:1px solid var(--color-border);border-radius:var(--radius);background:var(--color-bg);color:var(--color-text)}
+/* ---- banner slideshow ---- */
+.tf-ss-sec>.tf-container{max-width:none;padding:0}
+.tf-slideshow{position:relative;--ss-h:440px}
+.tf-ss-short{--ss-h:300px}.tf-ss-tall{--ss-h:600px}
+.tf-slideshow .tf-ctrack{gap:0}
+.tf-slideshow .tf-cslide{flex:0 0 100%;max-width:100%}
+.tf-slideshow .tf-cprev{left:14px}.tf-slideshow .tf-cnext{right:14px}
+.tf-slideshow .tf-cdots{position:absolute;left:0;right:0;bottom:14px;margin:0;z-index:2}
+.tf-slideshow .tf-cdots button{background:rgba(255,255,255,.75);box-shadow:0 0 0 1px rgba(0,0,0,.12)}
+.tf-slideshow .tf-cdots button.active{background:var(--color-primary)}
+.tf-ss-slide{position:relative;height:var(--ss-h);overflow:hidden;text-align:left}
+.tf-ss-slide picture,.tf-ss-link{display:block;height:100%}
+.tf-ss-img{width:100%;height:100%;object-fit:cover}
+.tf-ss-banner{height:auto}
+.tf-ss-banner .tf-ss-img{height:auto}
+.tf-ss-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.6),rgba(0,0,0,.08) 72%);pointer-events:none}
+.tf-ss-full .tf-ss-copy{position:absolute;top:0;bottom:0;left:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;max-width:720px;padding:0 8%;color:#fff}
+.tf-ss-full .tf-ss-h{color:#fff}
+.tf-ss-split{display:grid;grid-template-columns:5fr 7fr;background:var(--color-surface)}
+/* The left padding clears the carousel's "previous" arrow, which sits over this panel. */
+.tf-ss-panel{display:flex;align-items:center;padding:32px 6% 32px max(8%,72px);background:var(--color-surface);color:var(--color-text)}
+.tf-ss-media{position:relative;min-width:0;height:100%;overflow:hidden}
+.tf-ss-badge{display:inline-block;margin:0 0 14px;padding:5px 14px;border-radius:40px;background:var(--color-secondary);color:#121212;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.tf-ss-h{margin:0;font-family:var(--font-heading);font-size:clamp(28px,3.6vw,50px);line-height:1.12;font-weight:400;color:inherit}
+.tf-ss-sub{margin:14px 0 0;font-size:clamp(15px,1.3vw,18px);line-height:1.55;opacity:.85;max-width:470px}
+.tf-ss-cta{margin-top:24px}
+@media(max-width:640px){
+  .tf-slideshow{--ss-h:400px}
+  .tf-ss-split{grid-template-columns:1fr;height:auto;min-height:100%}
+  .tf-ss-split .tf-ss-media{order:-1;height:250px}
+  .tf-ss-panel{padding:22px 20px 46px}
+  .tf-slideshow .tf-cprev,.tf-slideshow .tf-cnext{display:none}
+}
+/* ---- shop by category ---- */
+.tf-cats{display:grid;grid-template-columns:repeat(var(--cat-cols,6),minmax(0,1fr));gap:22px}
+.tf-cats a{color:inherit;text-decoration:none}
+.tf-cat-tile{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center}
+.tf-cat-media{display:block;width:100%;aspect-ratio:1/1;border-radius:18px;overflow:hidden;background:var(--color-surface)}
+.tf-cats-circles .tf-cat-media{border-radius:999px}
+.tf-cat-media img,.tf-cat-card img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.tf-cat-tile:hover img,.tf-cat-card:hover img{transform:scale(1.06)}
+.tf-cat-title{font-size:17px;line-height:1.3;font-weight:400;color:var(--tf-heading,inherit)}
+.tf-cat-note{font-size:12px;color:var(--tf-text,var(--color-muted))}
+.tf-cat-ph{display:flex;width:100%;height:100%;align-items:center;justify-content:center;font-size:34px;font-family:var(--font-heading);color:var(--color-primary)}
+.tf-cat-card{position:relative;display:block;aspect-ratio:3/4;border-radius:var(--radius);overflow:hidden;background:var(--color-surface)}
+.tf-cat-cap{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;gap:2px;padding:48px 16px 16px;text-align:left;color:#fff;background:linear-gradient(to top,rgba(0,0,0,.72),transparent)}
+.tf-cat-card .tf-cat-title{font-size:19px;color:#fff}
+.tf-cat-card .tf-cat-note{color:rgba(255,255,255,.88)}
+.tf-cats-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.tf-al-left .tf-cats-pills{justify-content:flex-start}
+.tf-cat-pill{display:inline-flex;align-items:center;padding:9px 20px;border-radius:999px;border:1px solid var(--color-border);background:var(--color-bg);color:var(--color-text);font-size:14px;transition:background .2s,border-color .2s}
+.tf-cat-pill:hover{background:var(--color-secondary);border-color:var(--color-secondary);color:#121212}
+@media(max-width:900px){
+  .tf-cats-tiles,.tf-cats-circles{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:96px;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;scrollbar-width:none}
+  .tf-cats-tiles::-webkit-scrollbar,.tf-cats-circles::-webkit-scrollbar{display:none}
+  .tf-cats-tiles>*,.tf-cats-circles>*{scroll-snap-align:start}
+  .tf-cats-tiles .tf-cat-title,.tf-cats-circles .tf-cat-title{font-size:14px}
+  .tf-cats-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+}
+/* ---- promo banners ---- */
+.tf-bns{display:grid;grid-template-columns:repeat(var(--bn-cols,2),minmax(0,1fr));gap:20px}
+.tf-bn{position:relative;overflow:hidden;border-radius:var(--radius);background:var(--color-surface);aspect-ratio:var(--bn-ratio,3/2)}
+.tf-bn img{position:absolute;inset:0;width:100%;height:100%;transition:transform .5s}
+.tf-bn:hover img{transform:scale(1.04)}
+.tf-bn-hit{position:absolute;inset:0;z-index:1}
+.tf-bn-copy{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:64px 24px 22px;text-align:left;color:#fff;background:linear-gradient(to top,rgba(0,0,0,.68),transparent);pointer-events:none}
+.tf-bn-copy .tf-btn{pointer-events:auto}
+.tf-bn-eyebrow{margin:0 0 6px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;opacity:.92}
+.tf-bn-h{margin:0;font-family:var(--font-heading);font-size:clamp(20px,2.2vw,28px);line-height:1.2;font-weight:400;color:#fff}
+.tf-bn-sub{margin:6px 0 0;font-size:14px;line-height:1.5;opacity:.92}
+.tf-bn-cta{margin-top:14px}
+@media(max-width:760px){.tf-bns{grid-template-columns:1fr;gap:14px}.tf-bns[style*="--bn-ratio:3/1"] .tf-bn{aspect-ratio:3/2}}
+/* ---- trust badges ---- */
+.tf-feats{display:grid;grid-template-columns:repeat(var(--feat-n,4),minmax(0,1fr));gap:24px}
+.tf-feat{display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center}
+.tf-al-left .tf-feat{align-items:flex-start;text-align:left}
+.tf-feat-ic{display:inline-flex;width:58px;height:58px;margin-bottom:4px;border-radius:999px;align-items:center;justify-content:center;background:var(--color-bg);color:var(--color-primary);box-shadow:0 0 0 1px var(--color-border)}
+.tf-feats-cards .tf-feat{padding:26px 18px;border-radius:var(--radius);background:var(--color-bg);border:1px solid var(--color-border)}
+.tf-feat-t{margin:0;font-size:16px;font-weight:700;line-height:1.3;color:var(--tf-heading,inherit)}
+.tf-feat-x{margin:0;font-size:14px;line-height:1.5;color:var(--tf-text,var(--color-muted))}
+@media(max-width:900px){.tf-feats{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 14px}}
+/* ---- storefront product cards ---- */
+.tf-shopgrid{display:grid;gap:30px 20px;text-align:left}
+.tf-shop-c2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tf-shop-c3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.tf-shop-c4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:1023px){.tf-shop-c4{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.tf-shopgrid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 12px}}
+.tf-shop{display:flex;flex-direction:column;height:100%;text-align:left;color:var(--color-text);--tf-heading:initial;--tf-text:initial}
+.tf-shop-a{display:flex;flex-direction:column;flex:1;color:inherit;text-decoration:none}
+.tf-shop-media{position:relative;display:block;aspect-ratio:var(--shop-ratio,3/4);overflow:hidden;border-radius:var(--radius);background:var(--color-surface)}
+.tf-shop-media img{width:100%;height:100%;transition:transform .45s}
+.tf-shop:hover .tf-shop-media img{transform:scale(1.05)}
+.tf-shop-auto .tf-shop-media{aspect-ratio:auto}
+.tf-shop-auto .tf-shop-media img{height:auto}
+.tf-shop-badge{position:absolute;top:10px;left:0;padding:4px 12px 4px 10px;border-radius:0 40px 40px 0;background:#E9718B;color:#121212;font-size:11px;font-weight:700;letter-spacing:.03em}
+.tf-shop-body{display:flex;flex-direction:column;gap:3px;padding:12px 2px;flex:1}
+.tf-shop-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px}
+.tf-shop-price b{font-size:18px;font-weight:600;color:var(--color-text)}
+.tf-shop-price s{font-size:14px;color:var(--color-muted)}
+.tf-shop-price em{font-style:normal;font-size:12px;font-weight:700;color:#15803d}
+.tf-shop-title{font-size:15px;line-height:1.4;color:var(--color-text);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.tf-shop-meta{font-size:12.5px;color:var(--color-muted)}
+.tf-shop-btn{display:flex;align-items:center;justify-content:center;min-height:40px;padding:8px 12px;border-radius:7px;background:linear-gradient(92deg,var(--color-secondary) 12%,color-mix(in srgb,var(--color-secondary) 30%,#fff) 99%);color:#121212;font-size:15px;letter-spacing:.02em;text-align:center;text-decoration:none;transition:filter .2s}
+.tf-shop-btn:hover{filter:brightness(.96)}
+.tf-shoprow .tf-cslide{flex:0 0 46%;max-width:46%}
+@media(min-width:700px){.tf-shoprow .tf-cslide{flex:0 0 31%;max-width:31%}}
+@media(min-width:1024px){.tf-shoprow .tf-cslide{flex:0 0 23.5%;max-width:23.5%}}
+.tf-shoprow .tf-ctrack{gap:2%}
 .tf-tkstatic .tf-tklink{display:inline-block;border:1px solid currentColor;border-radius:4px;padding:3px 12px}
 .tf-tkstatic .tf-tklink:hover{text-decoration:none;background:rgba(255,255,255,.12)}
 .tf-pgal{display:flex;gap:14px;align-items:flex-start}
@@ -3927,9 +4384,11 @@ iframe{max-width:100%}
      actually say "there are more, swipe". */
   .tf-pdots{display:flex}
 }
-.tf-bsgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:34px;text-align:left}
-@media(min-width:640px){.tf-bsgrid{grid-template-columns:repeat(3,1fr)}}
-@media(min-width:1024px){.tf-bsgrid{grid-template-columns:repeat(4,1fr)}}
+/* minmax(0,1fr), not 1fr: a column's minimum is otherwise its min-content, and the
+   one-line (nowrap) titles made the strip 614px wide on a 375px phone. */
+.tf-bsgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;margin-top:34px;text-align:left}
+@media(min-width:640px){.tf-bsgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(min-width:1024px){.tf-bsgrid{grid-template-columns:repeat(4,minmax(0,1fr))}}
 .tf-bscard{display:block;color:inherit;text-decoration:none}
 .tf-bscard img{width:100%;height:230px;object-fit:cover;border-radius:6px}
 .tf-bstitle{margin:14px 0 0;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.01em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}

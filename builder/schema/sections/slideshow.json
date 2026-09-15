@@ -1,0 +1,76 @@
+{
+  "type": "slideshow",
+  "label": "Banner Slideshow",
+  "category": "media",
+  "icon": "gallery-horizontal",
+  "description": "Rotating full-width banners with arrows, dots and swipe — the big promo strip at the top of an online store. Each slide can carry its own heading and button.",
+  "industries": ["*"],
+  "singleton": false,
+  "variants": [
+    { "id": "split", "label": "Text panel beside the photo", "preview": "/builder/previews/hero-split.png" },
+    { "id": "full", "label": "Text over the photo", "preview": "/builder/previews/hero-centered-bg.png" },
+    { "id": "banner", "label": "Picture only (designed banners)", "preview": "/builder/previews/gallery-slider.png" }
+  ],
+  "props": [
+    {
+      "key": "slides",
+      "type": "repeater",
+      "label": "Slides",
+      "group": "Slides",
+      "min": 1,
+      "max": 8,
+      "itemLabel": "{{heading}}",
+      "addLabel": "Add slide",
+      "fields": [
+        { "key": "image", "type": "media", "label": "Picture", "accept": ["image"], "required": true },
+        { "key": "mobileImage", "type": "media", "label": "Phone picture (optional)", "accept": ["image"], "help": "A taller picture for phones. Leave empty to use the main picture." },
+        { "key": "badge", "type": "text", "label": "Small label", "maxLength": 40 },
+        { "key": "heading", "type": "text", "label": "Heading", "maxLength": 120 },
+        { "key": "sub", "type": "textarea", "label": "Text", "maxLength": 300 },
+        { "key": "cta", "type": "link", "label": "Button" },
+        { "key": "href", "type": "text", "label": "Whole-slide link (optional)", "maxLength": 600, "help": "Makes the picture itself clickable — useful for picture-only banners." },
+        { "key": "panelColor", "type": "color", "label": "Panel colour (split layout)" },
+        { "key": "imageFit", "type": "crop", "label": "Crop / position" }
+      ]
+    },
+    {
+      "key": "height",
+      "type": "select",
+      "label": "Height",
+      "group": "Layout",
+      "default": "medium",
+      "options": [
+        { "value": "short", "label": "Short" },
+        { "value": "medium", "label": "Medium" },
+        { "value": "tall", "label": "Tall" }
+      ]
+    },
+    {
+      "key": "autoplay",
+      "type": "select",
+      "label": "Change slide every",
+      "group": "Motion",
+      "default": "5",
+      "options": [
+        { "value": "0", "label": "Never (manual only)" },
+        { "value": "3", "label": "3 seconds" },
+        { "value": "5", "label": "5 seconds" },
+        { "value": "7", "label": "7 seconds" }
+      ]
+    }
+  ],
+  "style": {
+    "supports": ["paddingY", "bg", "radius", "animation"],
+    "defaults": { "paddingY": "none", "bg": "default" }
+  },
+  "defaults": {
+    "variant": "split",
+    "props": {
+      "height": "medium",
+      "autoplay": "5",
+      "slides": [
+        { "badge": "New collection", "heading": "Crafted to be cherished", "sub": "Explore our latest designs.", "cta": { "text": "Shop now", "href": "/", "style": "primary" } }
+      ]
+    }
+  }
+}

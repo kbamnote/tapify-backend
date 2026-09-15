@@ -1,0 +1,65 @@
+{
+  "type": "banners",
+  "label": "Promo Banners",
+  "category": "media",
+  "icon": "rectangle-horizontal",
+  "description": "Clickable picture banners side by side — a festive offer, a gifting edit, a new collection — each with an optional heading and button laid over the photo.",
+  "industries": ["*"],
+  "singleton": false,
+  "variants": [
+    { "id": "grid-2", "label": "Two side by side", "preview": "/builder/previews/services-cards-2.png" },
+    { "id": "grid-3", "label": "Three side by side", "preview": "/builder/previews/services-cards-3.png" },
+    { "id": "single", "label": "One wide banner", "preview": "/builder/previews/cta-banner.png" }
+  ],
+  "props": [
+    { "key": "label", "type": "text", "label": "Eyebrow label", "maxLength": 40, "group": "Heading" },
+    { "key": "heading", "type": "text", "label": "Heading", "maxLength": 120, "group": "Heading" },
+    { "key": "sub", "type": "textarea", "label": "Text under the heading", "maxLength": 300, "group": "Heading" },
+    {
+      "key": "items",
+      "type": "repeater",
+      "label": "Banners",
+      "group": "Banners",
+      "min": 1,
+      "max": 6,
+      "itemLabel": "{{heading}}",
+      "addLabel": "Add banner",
+      "fields": [
+        { "key": "image", "type": "media", "label": "Picture", "accept": ["image"], "required": true },
+        { "key": "eyebrow", "type": "text", "label": "Small label", "maxLength": 40 },
+        { "key": "heading", "type": "text", "label": "Heading", "maxLength": 80 },
+        { "key": "sub", "type": "text", "label": "Text", "maxLength": 140 },
+        { "key": "cta", "type": "link", "label": "Button" },
+        { "key": "href", "type": "text", "label": "Whole-banner link", "maxLength": 600 },
+        { "key": "imageFit", "type": "crop", "label": "Crop / position" }
+      ]
+    },
+    {
+      "key": "shape",
+      "type": "select",
+      "label": "Banner shape",
+      "group": "Layout",
+      "default": "wide",
+      "options": [
+        { "value": "wide", "label": "Wide (3:2)" },
+        { "value": "landscape", "label": "Very wide (16:9)" },
+        { "value": "square", "label": "Square" },
+        { "value": "portrait", "label": "Tall (3:4)" }
+      ]
+    }
+  ],
+  "style": {
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "radius", "animation", "headingColor", "textColor"],
+    "defaults": { "paddingY": "md", "align": "center", "bg": "default" }
+  },
+  "defaults": {
+    "variant": "grid-2",
+    "props": {
+      "shape": "wide",
+      "items": [
+        { "heading": "Festive edit", "cta": { "text": "Explore", "href": "/", "style": "primary" } },
+        { "heading": "Gifts they will love", "cta": { "text": "Explore", "href": "/", "style": "primary" } }
+      ]
+    }
+  }
+}

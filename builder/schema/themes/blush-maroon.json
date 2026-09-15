@@ -1,0 +1,35 @@
+{
+  "preset": "blush-maroon",
+  "label": "Blush Maroon",
+  "description": "A modern fine-jewellery storefront: crisp white page, blush-pink panels and badges, and a deep maroon for buttons and prices. Lato throughout, like the big online jewellery brands.",
+  "industries": [
+    "jewellery",
+    "jewelry",
+    "silver",
+    "gold",
+    "boutique",
+    "gifting"
+  ],
+  "tokens": {
+    "mode": "light",
+    "color": {
+      "primary": "#832729",
+      "secondary": "#FFB9C7",
+      "accent": "#B0304F",
+      "bg": "#FFFFFF",
+      "surface": "#FFF1F4",
+      "text": "#121212",
+      "muted": "#6B6363",
+      "border": "#F2D7DE"
+    },
+    "font": {
+      "heading": "Lato",
+      "body": "Lato"
+    },
+    "radius": "sm",
+    "spacing": "comfortable",
+    "container": "wide"
+  },
+  "notes": "Modelled on the GIVA storefront (giva.co): Lato for headings and body at regular weight, near-black #121212 text, blush #FFB9C7 to #FFE5EA gradient buttons and pink badges, a maroon #832729 accent, 6-7px corners. Pairs with the slideshow, categories, banners and features sections.",
+  "_contrastNote": "Measured: text 18.73:1 on bg; primary 9.18:1 on bg and 8.37:1 on surface (white on primary 9.18:1); accent 6.21:1 / 5.66:1; muted 5.85:1 / 5.33:1; text on the blush secondary 11.61:1. All clear WCAG AA."
+}

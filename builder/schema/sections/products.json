@@ -111,6 +111,14 @@
           "placeholder": "e.g. Handmade · Cotton"
         },
         {
+          "key": "badge",
+          "type": "text",
+          "label": "Badge on the photo",
+          "maxLength": 24,
+          "placeholder": "e.g. Bestseller",
+          "help": "A small ribbon on the product photo. Shown on the Storefront card style."
+        },
+        {
           "key": "cta",
           "type": "link",
           "label": "Button (only used if there is no full description below)"
@@ -432,6 +440,26 @@
       "label": "Crop / position",
       "group": "Media",
       "help": "Drag the photo to choose what stays in frame, and zoom in to crop closer."
+    },
+    {
+      "key": "cardStyle",
+      "type": "select",
+      "label": "Card style",
+      "group": "Media",
+      "default": "default",
+      "options": [
+        { "value": "default", "label": "Classic card" },
+        { "value": "shop", "label": "Storefront — tall photo, badge, price, soft button" }
+      ],
+      "help": "Storefront is the online-store look: two cards per row on a phone, photo on top, price above the name and a full-width button."
+    },
+    {
+      "key": "cardButton",
+      "type": "text",
+      "label": "Storefront button text",
+      "group": "Media",
+      "maxLength": 30,
+      "default": "View details"
     }
   ],
   "style": {
