@@ -451,37 +451,6 @@ class SiteRenderer
         return null;
     }
 
-    /**
-     * Fetch an image URL and return a base64 data URI suitable for embedding
-     * in a vCard PHOTO field. Returns null when the image cannot be fetched
-     * or is not a recognised image type (callers fall back to the plain URL).
-     */
-    private static function imageToDataUri(string $url): ?string
-    {
-        if (!preg_match('#^https?://#i', $url)) return null;
-        $ch = @curl_init($url);
-        if ($ch === false) return null;
-        curl_setopt_array($ch, [
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_TIMEOUT        => 5,
-            CURLOPT_CONNECTTIMEOUT => 3,
-            CURLOPT_MAXREDIRS      => 2,
-            // Cap at 512 KB — a logo larger than that would bloat the vCard anyway.
-            CURLOPT_BUFFERSIZE     => 524288,
-        ]);
-        $data     = @curl_exec($ch);
-        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        $mime     = curl_getinfo($ch, CURLINFO_CONTENT_TYPE);
-        curl_close($ch);
-
-        if ($httpCode !== 200 || empty($data) || !is_string($mime)) return null;
-        // Only accept image MIME types.
-        if (!preg_match('#^image/#i', $mime)) return null;
-
-        return 'data:' . $mime . ';base64,' . base64_encode($data);
-    }
-
     private static function isDarkBg(array $s): bool
     {
         $bg = $s['style']['bg'] ?? 'default';
@@ -3568,22 +3537,20 @@ JS;
         $waPhone = preg_replace('/\D+/', '', $biz['whatsapp'] ?? '');
 
         // Find logo from the first header or footer section that has one.
-        // Fetch the image and embed as raw base64 in the vCard so phone
-        // contacts apps (iOS, Android) can display the photo — most ignore
-        // a URL or data-URI in PHOTO;VALUE=URI.
+        // Phone contacts apps (iOS, Android) only show a PHOTO embedded as raw
+        // base64 — most ignore PHOTO;VALUE=URI. The picture is NOT inlined into
+        // the page any more: a 1 MB logo became ~1.4 MB of base64 on every page
+        // of the site. The button carries a small thumbnail URL instead and the
+        // script fetches and encodes it when "Add to Contacts" is tapped.
         $logoUrl = '';
-        $logoB64 = '';
-        $logoMime = '';
         foreach (($doc['pages'] ?? []) as $pg) {
             foreach (($pg['sections'] ?? []) as $s) {
                 if (in_array($s['type'] ?? '', ['header', 'footer'], true) && !empty($s['props']['logo'])) {
                     $logoUrl = self::media($s['props']['logo']) ?? '';
-                    if ($logoUrl) {
-                        $dataUri = self::imageToDataUri($logoUrl);
-                        if ($dataUri !== null && preg_match('/^data:(image\/\w+);base64,(.+)$/', $dataUri, $m)) {
-                            $logoMime = $m[1];
-                            $logoB64  = $m[2];
-                        }
+                    // A contact photo is shown at ~100px, so ask Cloudinary for a
+                    // 256px JPEG rather than the full-size upload.
+                    if (preg_match('#^https://res\.cloudinary\.com/[^/]+/image/upload/#', $logoUrl)) {
+                        $logoUrl = preg_replace('#/image/upload/#', '/image/upload/w_256,h_256,c_limit,f_jpg,q_80/', $logoUrl, 1);
                     }
                     break 2;
                 }
@@ -3625,7 +3592,7 @@ JS;
                 . ' data-org="' . $name . '"'
                 . ' data-whatsapp="' . $waPhone . '"'
                 . ' data-address="' . self::esc($address) . '"'
-                . ($logoB64 ? ' data-logo-b64="' . $logoB64 . '" data-logo-mime="' . $logoMime . '"' : ($logoUrl ? ' data-logo="' . self::esc($logoUrl) . '"' : ''))
+                . ($logoUrl ? ' data-logo="' . self::esc($logoUrl) . '"' : '')
                 . ($biz['mapUrl'] ?? '' ? ' data-mapurl="' . self::esc($biz['mapUrl']) . '"' : '')
                 . ($socialIg ? ' data-social-ig="' . $socialIg . '"' : '')
                 . ($socialFb ? ' data-social-fb="' . $socialFb . '"' : '')
@@ -3663,18 +3630,28 @@ JS;
         return <<<'JS'
 <script>(function(){var b=document.querySelector('.tf-mobile-bar[data-bar="1"]');if(!b)return;
 var _defer=null;window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();_defer=e;});
-b.addEventListener('click',function(e){
- var t=e.target.closest('[data-action]');if(!t)return;e.preventDefault();
- var a=t.getAttribute.bind(t);
- if(t.getAttribute('data-action')==='vcard'){
+// The contact photo: fetched and base64-encoded in the background shortly after
+// load (a ~20 KB thumbnail), so the vCard can embed it without the page carrying
+// it. Contacts apps ignore PHOTO;VALUE=URI, hence the encoding.
+var _logo=null,_logoBtn=b.querySelector('[data-action="vcard"][data-logo]');
+function _loadLogo(){
+ if(_logo||!_logoBtn||!window.fetch||!window.FileReader)return _logo;
+ _logo=fetch(_logoBtn.getAttribute('data-logo'),{mode:'cors'}).then(function(r){
+  if(!r.ok)throw 0;return r.blob()}).then(function(bl){
+  if(!/^image\//.test(bl.type))throw 0;
+  return new Promise(function(ok){var fr=new FileReader();fr.onload=function(){
+   var m=/^data:(image\/\w+);base64,(.+)$/.exec(fr.result||'');ok(m?{mime:m[1],b64:m[2]}:null)};
+   fr.onerror=function(){ok(null)};fr.readAsDataURL(bl)})})['catch'](function(){return null});
+ _logo.then(function(v){_logo.v=v});return _logo}
+if(_logoBtn)setTimeout(_loadLogo,2500);
+function _vcard(t,lo){
+  var a=t.getAttribute.bind(t);
   var n=a('data-name')||'Contact',p=a('data-phone')||'',em=a('data-email')||'',u=a('data-url')||'',
    o=a('data-org')||'',w=a('data-whatsapp')||'',ad=a('data-address')||'',mu=a('data-mapurl')||'',
-   ig=a('data-social-ig')||'',fb=a('data-social-fb')||'',no=a('data-note')||'',
-   loB64=a('data-logo-b64')||'',loMime=a('data-logo-mime')||'',loUrl=a('data-logo')||'',
-   // Use ENCODING=BASE64 (raw inline data) for maximum contacts-app
-   // compatibility — VALUE=URI with a URL or data-URI is ignored by
-   // many iPhone and Android contacts apps.
-   ph=loB64&&loMime?'\nPHOTO;ENCODING=BASE64;TYPE='+loMime.replace('image/','').toUpperCase()+':'+loB64
+   ig=a('data-social-ig')||'',fb=a('data-social-fb')||'',no=a('data-note')||'',loUrl=a('data-logo')||'',
+   // ENCODING=BASE64 (raw inline data) for maximum contacts-app compatibility;
+   // the URI form is only a fallback when the photo could not be fetched.
+   ph=lo?'\nPHOTO;ENCODING=BASE64;TYPE='+lo.mime.replace('image/','').toUpperCase()+':'+lo.b64
       :(loUrl?'\nPHOTO;VALUE=URI:'+loUrl:''),
    v='BEGIN:VCARD\nVERSION:3.0\nFN:'+n
    +(o?'\nORG:'+o:'')
@@ -3693,6 +3670,15 @@ b.addEventListener('click',function(e){
   lk.href=URL.createObjectURL(b2);lk.download=n.replace(/\s+/g,'_')+'.vcf';
   document.body.appendChild(lk);lk.click();document.body.removeChild(lk);
   setTimeout(function(){URL.revokeObjectURL(lk.href)},5e3)}
+b.addEventListener('click',function(e){
+ var t=e.target.closest('[data-action]');if(!t)return;e.preventDefault();
+ var a=t.getAttribute.bind(t);
+ if(t.getAttribute('data-action')==='vcard'){
+  var pr=_loadLogo();
+  if(!pr||pr.v!==undefined){_vcard(t,pr?pr.v:null)}
+  else{ // still loading: wait briefly, never hold the download hostage to the photo
+   var done=false,go=function(v){if(done)return;done=true;_vcard(t,v)};
+   pr.then(go);setTimeout(function(){go(null)},2500)}}
  if(t.getAttribute('data-action')==='share'){
   var u=a('data-url')||location.href,ti=a('data-title')||document.title;
   if(navigator.share){navigator.share({title:ti,url:u})['catch'](function(){})}else{
@@ -3849,7 +3835,10 @@ a{color:inherit}
 .tf-mdrop-list a{font-size:.86rem;opacity:.85}
 @media(prefers-reduced-motion:reduce){.tf-mdrop-caret{transition:none}}
 @media(prefers-reduced-motion:reduce){.tf-drop-menu,.tf-drop-caret{transition:none}}
-.tf-nav a{font-size:14px;font-weight:500;opacity:.85;text-decoration:none}
+/* nowrap: a two-word label ("About Doctor") otherwise breaks onto two lines once
+   a menu gets crowded, which reads as broken rather than tight. */
+.tf-nav a{font-size:14px;font-weight:500;opacity:.85;text-decoration:none;white-space:nowrap}
+@media(min-width:769px) and (max-width:1100px){.tf-nav{gap:16px}.tf-nav a{font-size:13.5px}}
 .tf-nav a:hover{opacity:1}
 .tf-burger{display:none;font-size:22px;line-height:1;cursor:pointer;padding:4px 8px;border:1px solid currentColor;border-radius:8px}
 .tf-mnav{display:none}

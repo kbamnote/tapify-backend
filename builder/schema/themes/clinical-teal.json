@@ -2,28 +2,35 @@
   "preset": "clinical-teal",
   "label": "Clinical Teal",
   "description": "Calm medical blue with a fresh teal accent on a cool white page. Reads clean and reassuring — suits hospitals, clinics, dental, diagnostics and pathology labs.",
-  "industries": ["hospital", "clinic", "doctor", "dental", "diagnostics", "pathology", "physiotherapy"],
-
+  "industries": [
+    "hospital",
+    "clinic",
+    "doctor",
+    "dental",
+    "diagnostics",
+    "pathology",
+    "physiotherapy"
+  ],
   "tokens": {
     "mode": "light",
     "color": {
-      "primary":   "#0B5C74",
-      "secondary": "#127B96",
-      "accent":    "#17A398",
-      "bg":        "#FFFFFF",
-      "surface":   "#EFF7F9",
-      "text":      "#10232B",
-      "muted":     "#5E7580",
-      "border":    "#D8E7EC"
+      "primary": "#0B5C74",
+      "secondary": "#127A94",
+      "accent": "#127D75",
+      "bg": "#FFFFFF",
+      "surface": "#EFF7F9",
+      "text": "#10232B",
+      "muted": "#5D747F",
+      "border": "#D8E7EC"
     },
     "font": {
       "heading": "Source Sans 3",
-      "body":    "Source Sans 3"
+      "body": "Source Sans 3"
     },
-    "radius":    "md",
-    "spacing":   "comfortable",
+    "radius": "md",
+    "spacing": "comfortable",
     "container": "normal"
   },
-
-  "notes": "Tokens only — sections never hardcode colours, they read these as CSS variables. Deliberately low-saturation: healthcare pages are read by people who are worried, and a loud palette works against that. A single humanist sans across headings and body keeps it legible rather than styled."
+  "notes": "Tokens only — sections never hardcode colours, they read these as CSS variables. Deliberately low-saturation: healthcare pages are read by people who are worried, and a loud palette works against that. A single humanist sans across headings and body keeps it legible rather than styled.",
+  "_contrastNote": "secondary/accent/muted walked down their own hue until each clears WCAG AA 4.5:1 on both bg and surface (were secondary 4.50, accent 3.12/2.87, muted 4.46 on surface). Fixed at source so every site on this theme — including Aayas Dental — reads properly."
 }
