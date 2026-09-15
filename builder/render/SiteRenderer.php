@@ -790,9 +790,18 @@ class SiteRenderer
         $one = '';
         foreach ($items as $it) {
             $ico = trim((string)($it['icon'] ?? ''));
+            $txt = self::esc($it['text']);
+            // An item may link somewhere — "WhatsApp us", "Book now". External
+            // links open in a new tab; a /path stays on the site.
+            $href = trim((string)($it['href'] ?? ''));
+            if ($href !== '') {
+                $ext = preg_match('#^(https?:)?//#i', $href);
+                $txt = '<a class="tf-tklink" href="' . self::esc($href) . '"'
+                     . ($ext ? ' target="_blank" rel="noopener noreferrer"' : '') . '>' . $txt . '</a>';
+            }
             $one .= '<span class="tf-tkitem">'
                   . ($ico !== '' ? '<span class="tf-tkicon">' . self::esc($ico) . '</span>' : '')
-                  . self::esc($it['text'])
+                  . $txt
                   . '<span class="tf-tksep" aria-hidden="true">' . self::esc($sep) . '</span>'
                   . '</span>';
         }
@@ -803,6 +812,21 @@ class SiteRenderer
             $variant === 'accent' ? ($doc['theme']['color']['accent'] ?? '#000000')
                                   : ($doc['theme']['color']['primary'] ?? '#000000')
         );
+        // A bar in a colour the theme does not have — a green booking strip on a
+        // plum site — without repainting every accent on the page to get it.
+        $custom = trim((string)($p['bgColor'] ?? ''));
+        if (preg_match('/^#[0-9a-fA-F]{6}$/', $custom)) {
+            $bg = $custom;
+            $fg = self::readableOn($custom);
+        }
+        // Static: a fixed announcement bar ("Book your appointment now · WhatsApp")
+        // rather than a scrolling strip. One set, no duplicate, no animation —
+        // and nothing for a screen reader to hear twice.
+        if (($p['speed'] ?? 'normal') === 'static') {
+            return '<section class="tf-ticker tf-tkstatic" style="background:' . $bg . ';color:' . $fg . '">'
+                 . '<div class="tf-tkset">' . $one . '</div></section>';
+        }
+
         $rev = ($p['direction'] ?? 'left') === 'right' ? ' tf-tkrev' : '';
         $hov = ($p['pauseOnHover'] ?? true) !== false ? ' tf-tkpause' : '';
 
@@ -1059,7 +1083,12 @@ class SiteRenderer
 
         $body = '';
         if (!empty($p['badge'])) $body .= '<span class="tf-badge">' . self::esc($p['badge']) . '</span>';
-        $body .= '<h1 class="tf-h1">' . self::esc($p['heading'] ?? '') . '</h1>';
+        // No heading, no <h1>. A picture-only hero (a ready-made banner that already
+        // carries the name) used to ship an EMPTY h1 — a page whose only top-level
+        // heading is blank, which screen readers announce and search engines read.
+        if (trim((string)($p['heading'] ?? '')) !== '') {
+            $body .= '<h1 class="tf-h1">' . self::esc($p['heading']) . '</h1>';
+        }
         if (!empty($p['sub'])) $body .= '<p class="tf-lead">' . self::esc($p['sub']) . '</p>';
 
         $btns = self::btn($p['ctaPrimary'] ?? null, $onDark) . self::btn($p['ctaSecondary'] ?? null, $onDark, 'ghost');
@@ -3868,6 +3897,15 @@ iframe{max-width:100%}
 /* A strip of text sliding past forever is exactly what this setting is for:
    stop it, and let the notices be scrolled by hand instead. */
 @media(prefers-reduced-motion:reduce){.tf-tktrack{animation:none}.tf-ticker{overflow-x:auto}.tf-tkset+.tf-tkset{display:none}}
+.tf-tklink{color:inherit;text-decoration:none}
+.tf-tklink:hover{text-decoration:underline}
+/* Static bar: centred, wraps on narrow screens instead of overflowing, and the
+   separators give way to spacing since nothing is scrolling past. */
+.tf-tkstatic{padding:8px 0}
+.tf-tkstatic .tf-tkset{flex-wrap:wrap;justify-content:center;white-space:normal;gap:8px 16px;padding:0 16px}
+.tf-tkstatic .tf-tksep{display:none}
+.tf-tkstatic .tf-tklink{display:inline-block;border:1px solid currentColor;border-radius:4px;padding:3px 12px}
+.tf-tkstatic .tf-tklink:hover{text-decoration:none;background:rgba(255,255,255,.12)}
 .tf-pgal{display:flex;gap:14px;align-items:flex-start}
 .tf-pthumbs{display:flex;flex-direction:column;gap:10px;width:78px;flex-shrink:0;max-height:520px;overflow-y:auto;scrollbar-width:thin}
 .tf-pthumb{padding:0;width:78px;height:78px;border:2px solid var(--color-border);border-radius:8px;background:var(--color-surface);cursor:pointer;overflow:hidden;flex-shrink:0}

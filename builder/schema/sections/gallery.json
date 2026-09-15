@@ -8,7 +8,6 @@
     "*"
   ],
   "singleton": false,
-  "maxPerPage": 3,
   "variants": [
     {
       "id": "grid-3",

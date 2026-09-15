@@ -4,12 +4,26 @@
   "category": "content",
   "icon": "megaphone",
   "description": "A thin strip of text that scrolls sideways — for offers, delivery notices or a safety warning. Sits well directly under the hero.",
-  "industries": ["*"],
+  "industries": [
+    "*"
+  ],
   "singleton": false,
   "variants": [
-    { "id": "dark", "label": "Dark strip", "preview": "/builder/previews/ticker-dark.png" },
-    { "id": "accent", "label": "Accent strip", "preview": "/builder/previews/ticker-accent.png" },
-    { "id": "light", "label": "Light strip", "preview": "/builder/previews/ticker-light.png" }
+    {
+      "id": "dark",
+      "label": "Dark strip",
+      "preview": "/builder/previews/ticker-dark.png"
+    },
+    {
+      "id": "accent",
+      "label": "Accent strip",
+      "preview": "/builder/previews/ticker-accent.png"
+    },
+    {
+      "id": "light",
+      "label": "Light strip",
+      "preview": "/builder/previews/ticker-light.png"
+    }
   ],
   "props": [
     {
@@ -34,6 +48,14 @@
           "key": "icon",
           "type": "icon",
           "label": "Icon before the text"
+        },
+        {
+          "key": "href",
+          "type": "text",
+          "label": "Link (optional)",
+          "maxLength": 600,
+          "placeholder": "https://wa.me/91… or /contact",
+          "help": "Makes this item clickable. On a static bar a linked item shows as a small button."
         }
       ]
     },
@@ -44,10 +66,21 @@
       "group": "Motion",
       "default": "normal",
       "options": [
-        { "value": "slow", "label": "Slow" },
-        { "value": "normal", "label": "Normal" },
-        { "value": "fast", "label": "Fast" }
-      ]
+        {
+          "value": "slow",
+          "label": "Slow"
+        },
+        {
+          "value": "normal",
+          "label": "Normal"
+        },
+        {
+          "value": "fast",
+          "label": "Fast"
+        },
+        "static"
+      ],
+      "help": "\"static\" turns it into a fixed announcement bar — no movement, items centred and wrapping onto a second line on narrow screens."
     },
     {
       "key": "direction",
@@ -56,8 +89,14 @@
       "group": "Motion",
       "default": "left",
       "options": [
-        { "value": "left", "label": "Right to left" },
-        { "value": "right", "label": "Left to right" }
+        {
+          "value": "left",
+          "label": "Right to left"
+        },
+        {
+          "value": "right",
+          "label": "Left to right"
+        }
       ]
     },
     {
@@ -74,6 +113,12 @@
       "group": "Content",
       "maxLength": 8,
       "default": "•"
+    },
+    {
+      "key": "bgColor",
+      "type": "color",
+      "label": "Bar colour (optional)",
+      "help": "Paint this bar a colour the theme does not have — a green booking strip on a plum site — without changing the theme's accent for the whole page. Text colour is picked automatically for contrast."
     }
   ]
 }

@@ -112,7 +112,7 @@
           "key": "desc",
           "type": "textarea",
           "label": "Description",
-          "maxLength": 300
+          "maxLength": 400
         },
         {
           "key": "meta",
