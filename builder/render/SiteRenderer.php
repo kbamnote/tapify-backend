@@ -3786,7 +3786,12 @@ a{color:inherit}
 .tf-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 24px;font-size:14px;font-weight:600;text-decoration:none;border:0;cursor:pointer;transition:transform .2s}
 .tf-btn:hover{transform:translateY(-2px)}
 .tf-btn-link:hover{transform:none}
-.tf-card{height:100%;background:var(--color-bg);border:1px solid var(--color-border);border-radius:var(--radius);overflow:hidden;box-shadow:0 1px 2px rgba(16,24,40,.04),0 8px 24px rgba(16,24,40,.06)}
+/* A card paints its OWN light background, so it must set its own text colour too.
+   It used to inherit the section's: on a primary/dark/image section that is white,
+   and card titles went white-on-white — invisible. The --tf-* overrides are reset
+   for the same reason: a section's "white text" setting is for text on the section,
+   not inside a white card ("initial" makes var() fall back to the theme colour). */
+.tf-card{height:100%;background:var(--color-bg);color:var(--color-text);--tf-heading:initial;--tf-text:initial;border:1px solid var(--color-border);border-radius:var(--radius);overflow:hidden;box-shadow:0 1px 2px rgba(16,24,40,.04),0 8px 24px rgba(16,24,40,.06)}
 .tf-grid{display:grid;gap:24px}
 .tf-c2,.tf-c3{grid-template-columns:1fr}
 .tf-c4{grid-template-columns:1fr 1fr}
