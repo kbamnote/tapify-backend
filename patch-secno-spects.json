@@ -1,0 +1,49 @@
+{
+  "_what": "Secno Spects: replace the optical recipe's demo business (Lensora Opticals, 22 FC Road, Shivajinagar, Pune) with the real contact details, hours and logo from their vCard at senco-spects.tapify.co.in. Everything else on the site is left exactly as it is.",
+  "business": {
+    "phone": "+91 95457 08333",
+    "whatsapp": "+91 95457 08333",
+    "email": "secno2019@gmail.com",
+    "address": "Akshay Heights - 1, Shop No. T-02, Besa Road, Omkar Nagar, Nagpur, Maharashtra 440027",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Secno%20Spects%2C%20Akshay%20Heights%201%2C%20Besa%20Road%2C%20Omkar%20Nagar%2C%20Nagpur%20440027",
+    "social": {
+      "instagram": "https://www.instagram.com/secnos_01"
+    }
+  },
+  "businessHours": [
+    { "day": "mon", "open": "11:00 AM", "close": "9:00 PM" },
+    { "day": "tue", "open": "11:00 AM", "close": "9:00 PM" },
+    { "day": "wed", "open": "11:00 AM", "close": "9:00 PM" },
+    { "day": "thu", "open": "11:00 AM", "close": "9:00 PM" },
+    { "day": "fri", "open": "11:00 AM", "close": "9:00 PM" },
+    { "day": "sat", "open": "11:00 AM", "close": "9:00 PM" },
+    { "day": "sun", "open": "11:00 AM", "close": "9:00 PM" }
+  ],
+  "site": {
+    "favicon": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789547060/secno-spects/secno-spects-logo.png"
+  },
+  "headerProps": {
+    "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789547060/secno-spects/secno-spects-logo.png",
+    "logoSize": "extra-large"
+  },
+  "footerProps": {
+    "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789547060/secno-spects/secno-spects-logo.png"
+  },
+  "sectionProps": {
+    "contact": { "mapUrl": "" }
+  },
+  "textReplacements": {
+    "22 FC Road, Shivajinagar, Pune, Maharashtra 411005": "Akshay Heights - 1, Shop No. T-02, Besa Road, Omkar Nagar, Nagpur, Maharashtra 440027",
+    "hello@lensoraopticals.in": "secno2019@gmail.com",
+    "+91 90210 44567": "+91 95457 08333",
+    "919021044567": "919545708333",
+    "90210 44567": "95457 08333",
+    "Lensora Opticals, Pune": "Secno Spects, Nagpur",
+    "Lensora Opticals": "Secno Spects",
+    "Lensora": "Secno Spects",
+    "FC Road, Shivajinagar, Pune": "Besa Road, Omkar Nagar, Nagpur",
+    "on FC Road, Pune": "on Besa Road, Nagpur",
+    "Free Eye Tests in Pune": "Free Eye Tests in Nagpur",
+    "Walk-ins welcome all week. Tell us roughly when you would like an eye test and we will confirm the slot.": "Walk-ins welcome all week. Tell us roughly when you would like an eye test and we will confirm the slot. You can also call +91 95617 60704."
+  }
+}

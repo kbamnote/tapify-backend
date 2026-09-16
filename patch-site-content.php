@@ -31,6 +31,9 @@ require_once __DIR__ . '/builder/lib/SiteValidator.php';
 // never choose which file is read off disk.
 $PATCHES = [
     'westernnx' => ['file' => 'patch-western-nx.json', 'label' => 'Western NX — policies, legal pages, reviews'],
+    // Replaces the optical recipe's demo business (Lensora Opticals, FC Road, Pune)
+    // with the real contact details, hours and logo from their vCard.
+    'secnospects' => ['file' => 'patch-secno-spects.json', 'label' => 'Secno Spects — real contact details, location and logo'],
 ];
 
 header('Content-Type: text/html; charset=utf-8');
@@ -109,6 +112,48 @@ try {
         else $changes[] = 'set ' . implode(', ', array_keys($hp)) . ' on ' . $touched . ' header section(s)';
     }
 
+    // --- props on EVERY section of a type (e.g. every contact section) --------
+    foreach (($patch['sectionProps'] ?? []) as $type => $props) {
+        if (!is_array($props) || !$props) continue;
+        $touched = 0;
+        foreach ($doc['pages'] as &$pg) {
+            foreach ($pg['sections'] as &$sec) {
+                if (($sec['type'] ?? '') !== $type) continue;
+                foreach ($props as $k => $v) {
+                    // An empty string CLEARS the prop, so the section falls back to
+                    // the site-wide business details instead of a stale override.
+                    if ($v === '') unset($sec['props'][$k]); else $sec['props'][$k] = $v;
+                }
+                $touched++;
+            }
+            unset($sec);
+        }
+        unset($pg);
+        $changes[] = $touched
+            ? 'set ' . implode(', ', array_keys($props)) . ' on ' . $touched . ' ' . $type . ' section(s)'
+            : 'no ' . $type . ' section on the site — ' . implode(', ', array_keys($props)) . ' not needed';
+    }
+
+    // --- site-wide business details (phone, email, address, map, social) ------
+    // Top-level keys are REPLACED, not deep-merged: a patch that sets `social`
+    // means "these are the profiles", so leftover placeholder links go.
+    if (!empty($patch['business']) && is_array($patch['business'])) {
+        $doc['business'] = $doc['business'] ?? [];
+        $diff = [];
+        foreach ($patch['business'] as $k => $v) {
+            if (json_encode($doc['business'][$k] ?? null) !== json_encode($v)) $diff[] = $k;
+            $doc['business'][$k] = $v;
+        }
+        $changes[] = $diff ? 'set business ' . implode(', ', $diff) : 'business details already correct';
+    }
+
+    // --- site identity (favicon, name) ---------------------------------------
+    if (!empty($patch['site']) && is_array($patch['site'])) {
+        $doc['site'] = $doc['site'] ?? [];
+        foreach ($patch['site'] as $k => $v) $doc['site'][$k] = $v;
+        $changes[] = 'set site ' . implode(', ', array_keys($patch['site']));
+    }
+
     // --- opening hours -------------------------------------------------------
     // The structured array behind the Business Hours section and the footer.
     if (!empty($patch['businessHours'])) {
@@ -142,7 +187,7 @@ try {
             }
         };
         $walk($doc);
-        $changes[] = $hits ? ('rewrote ' . $hits . ' text mention(s) of the old hours') : 'no old hours text left to rewrite';
+        $changes[] = $hits ? ('rewrote ' . $hits . ' text mention(s)') : 'no old text left to rewrite';
     }
 
     // --- item prices, matched by TITLE --------------------------------------
