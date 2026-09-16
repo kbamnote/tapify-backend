@@ -323,11 +323,21 @@ if ($corsTrusted) {
     header('Access-Control-Allow-Origin: *');
 }
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
-header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
+header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With, X-Tapify-Client');
 
 // Handle preflight OPTIONS requests
 if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
     exit;
+}
+
+// Customer activity tracking for the Sales CRM's Customer Manager dashboard.
+// Wrapped so that nothing in it — not even a syntax error in the included file,
+// which PHP 7+ throws as a catchable ParseError — can take down a request.
+try {
+    require_once __DIR__ . '/../includes/activity/ActivityTracker.php';
+    ActivityTracker::boot();
+} catch (Throwable $e) {
+    error_log('ActivityTracker disabled: ' . $e->getMessage());
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {

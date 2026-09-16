@@ -44,6 +44,12 @@ function emitJson(array $payload, $statusCode = 200) {
     http_response_code($statusCode);
     header('Content-Type: application/json; charset=utf-8');
 
+    // Lets the activity tracker tell a real success from a 200 carrying
+    // { success: false } (see includes/activity/ActivityTracker.php).
+    if (array_key_exists('success', $payload)) {
+        $GLOBALS['__tapify_json_success'] = (bool)$payload['success'];
+    }
+
     // INVALID_UTF8_SUBSTITUTE + PARTIAL_OUTPUT_ON_ERROR: encoding must never
     // return false here. A false would echo nothing at all — an empty body,
     // which the client reports as "Save failed (<status>)" while the write
