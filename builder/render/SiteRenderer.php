@@ -346,11 +346,316 @@ class SiteRenderer
             $h .= '<meta name="twitter:card" content="summary">';
         }
 
+        $h .= self::jsonLd($doc, $page);
+
         if ($fonts) $h .= '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="' . self::esc($fonts) . '">';
         return $h;
     }
 
     /* --------------------------------------------------------- theme */
+
+    /* ------------------------------------------------- structured data */
+
+    /**
+     * LocalBusiness + WebSite structured data (JSON-LD), on every page.
+     *
+     * Everything here is already in `doc.business`, which the customer edits in
+     * one place — this states it in the form search engines actually read. The
+     * point is the NAP triple: this name, at this address, on this telephone
+     * number, published on the business's own domain. That is the strongest
+     * signal a site can give that a phone number belongs to a place, and it is
+     * what ties the site to the right listing when the two disagree.
+     *
+     * Nothing is invented: every field is emitted only when the customer has
+     * filled it in, so a half-filled business block produces a smaller node
+     * rather than a wrong one.
+     */
+    private static function jsonLd(array $doc, array $page): string
+    {
+        $site = $doc['site'] ?? [];
+        $biz  = $doc['business'] ?? [];
+        $name = trim((string)($site['name'] ?? ''));
+        if ($name === '') return '';
+
+        $home    = 'https://' . self::publicHost();
+        $locale  = (string)($site['locale'] ?? 'en-IN');
+        $country = preg_match('/-([A-Z]{2})$/i', $locale, $m) ? strtoupper($m[1]) : 'IN';
+
+        $types = self::schemaTypes((string)($site['industry'] ?? ''));
+        $node  = [
+            '@type' => count($types) === 1 ? $types[0] : $types,
+            '@id'   => $home . '/#business',
+            'name'  => $name,
+            'url'   => $home,
+        ];
+
+        $phone = self::e164((string)($biz['phone'] ?? ''), $country);
+        if ($phone !== '') $node['telephone'] = $phone;
+        if (trim((string)($biz['email'] ?? '')) !== '') $node['email'] = trim((string)$biz['email']);
+
+        $addr = self::postalAddress((string)($biz['address'] ?? ''), $country);
+        if ($addr) $node['address'] = $addr;
+
+        $map = trim((string)($biz['mapUrl'] ?? ''));
+        if ($map !== '') $node['hasMap'] = $map;
+        $geo = self::geoFromMapUrl($map);
+        if ($geo) $node['geo'] = $geo;
+
+        // The home page's own description doubles as the business description.
+        foreach (($doc['pages'] ?? []) as $pg) {
+            if (($pg['slug'] ?? '') === '/' && trim((string)($pg['seo']['description'] ?? '')) !== '') {
+                $node['description'] = trim((string)$pg['seo']['description']);
+                break;
+            }
+        }
+
+        $logo = self::absUrl(self::siteLogo($doc), $home);
+        $img  = $logo !== '' ? $logo : self::absUrl((string)(self::media($site['favicon'] ?? null) ?? ''), $home);
+        if ($logo !== '') $node['logo'] = $logo;
+        if ($img !== '')  $node['image'] = $img;
+
+        $sameAs = [];
+        foreach (($biz['social'] ?? []) as $url) {
+            $url = trim((string)$url);
+            if (preg_match('#^https?://#i', $url)) $sameAs[] = $url;
+        }
+        if ($sameAs) $node['sameAs'] = array_values(array_unique($sameAs));
+
+        $hours = self::openingHours($biz);
+        if ($hours) $node['openingHoursSpecification'] = $hours;
+
+        // WhatsApp, when it is a different number from the one above.
+        $wa = self::e164((string)($biz['whatsapp'] ?? ''), $country);
+        if ($wa !== '' && $wa !== $phone) {
+            $node['contactPoint'] = [
+                '@type'       => 'ContactPoint',
+                'contactType' => 'customer support',
+                'telephone'   => $wa,
+            ];
+        }
+
+        // A LocalBusiness node with neither a phone number nor an address claims
+        // nothing — and the whole point here is the claim. When the customer has
+        // not filled in the Business tab, say only what is true: the site exists.
+        $hasNap = isset($node['telephone']) || isset($node['address']);
+
+        $web = [
+            '@type' => 'WebSite',
+            '@id'   => $home . '/#website',
+            'url'   => $home,
+            'name'  => $name,
+        ];
+        if ($hasNap) $web['publisher'] = ['@id' => $home . '/#business'];
+        // Sitelinks search box — only claimed when the site really has search.
+        if (self::hasSearch($doc)) {
+            $web['potentialAction'] = [
+                '@type'       => 'SearchAction',
+                'target'      => ['@type' => 'EntryPoint', 'urlTemplate' => $home . '/search?q={search_term_string}'],
+                'query-input' => 'required name=search_term_string',
+            ];
+        }
+
+        $json = json_encode(
+            ['@context' => 'https://schema.org', '@graph' => $hasNap ? [$node, $web] : [$web]],
+            JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_INVALID_UTF8_SUBSTITUTE
+        );
+        return $json === false ? '' : '<script type="application/ld+json">' . $json . '</script>';
+    }
+
+    /** True when any header has the product search box switched on. */
+    private static function hasSearch(array $doc): bool
+    {
+        foreach (($doc['pages'] ?? []) as $pg) {
+            foreach (($pg['sections'] ?? []) as $s) {
+                if (($s['type'] ?? '') === 'header' && !empty($s['props']['showSearch'])) return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * schema.org type(s) for an industry.
+     *
+     * Every entry is a LocalBusiness subtype, or is paired with LocalBusiness,
+     * so the node always says "a real place you can phone and visit" — which is
+     * the claim that matters here. Unknown industries fall back to the generic
+     * LocalBusiness rather than guessing something more specific and wrong.
+     */
+    private static function schemaTypes(string $industry): array
+    {
+        $map = [
+            'jewellery' => ['JewelryStore'], 'jewelry' => ['JewelryStore'],
+            'hospital' => ['MedicalClinic'], 'clinic' => ['MedicalClinic'],
+            'dental' => ['Dentist'], 'dentist' => ['Dentist'], 'doctor' => ['Physician'],
+            'restaurant' => ['Restaurant'], 'cafe' => ['CafeOrCoffeeShop'], 'bakery' => ['Bakery'],
+            'salon' => ['BeautySalon'], 'spa' => ['DaySpa'],
+            'gym' => ['ExerciseGym'], 'fitness' => ['ExerciseGym'],
+            'optical' => ['Optician'],
+            'automotive' => ['AutomotiveBusiness'],
+            'solar' => ['HomeAndConstructionBusiness'], 'architecture' => ['HomeAndConstructionBusiness'],
+            'real-estate' => ['RealEstateAgent'],
+            'travel' => ['TravelAgency'],
+            'finance' => ['FinancialService'],
+            'pet-shop' => ['PetStore'],
+            'boutique' => ['ClothingStore'], 'clothing' => ['ClothingStore'],
+            'flower-decoration' => ['Florist'], 'florist' => ['Florist'],
+            'grocery' => ['GroceryStore'], 'store' => ['Store'], 'shop' => ['Store'],
+            'coaching' => ['LocalBusiness', 'EducationalOrganization'],
+            'music-band' => ['LocalBusiness', 'MusicGroup'],
+            'portfolio' => ['ProfessionalService'], 'sales-portfolio' => ['ProfessionalService'],
+        ];
+        return $map[strtolower(trim($industry))] ?? ['LocalBusiness'];
+    }
+
+    /** A relative /path becomes absolute; anything already absolute is left alone. */
+    private static function absUrl(string $url, string $home): string
+    {
+        if ($url === '') return '';
+        if (preg_match('#^https?://#i', $url)) return $url;
+        return $home . '/' . ltrim($url, '/');
+    }
+
+    /**
+     * A phone number in the form search engines prefer (+<country><number>).
+     *
+     * The customer types it however they like — "086686 81115", "+91 86686
+     * 81115" — and the displayed number on the page is untouched; this is only
+     * for the structured data, where one canonical form is the whole point.
+     */
+    private static function e164(string $raw, string $country): string
+    {
+        $raw = trim($raw);
+        if ($raw === '') return '';
+        $digits = preg_replace('/\D+/', '', $raw);
+        if ($digits === '') return '';
+        if (strncmp($raw, '+', 1) === 0) return '+' . $digits;
+        if ($country === 'IN') {
+            $digits = ltrim($digits, '0');
+            if (strlen($digits) === 10) return '+91' . $digits;
+            if (strlen($digits) === 12 && strncmp($digits, '91', 2) === 0) return '+' . $digits;
+        }
+        return $raw;                       // leave anything unusual exactly as typed
+    }
+
+    /**
+     * Split a one-line address into a PostalAddress.
+     *
+     * Deliberately conservative: it only lifts out a 6-digit PIN code and a
+     * state it recognises, then treats the last remaining comma-separated piece
+     * as the town. Whatever it cannot place stays in streetAddress, so a
+     * misparse loses nothing — the full address is still there.
+     */
+    private static function postalAddress(string $raw, string $country): ?array
+    {
+        $raw = trim((string)preg_replace('/\s+/u', ' ', $raw));
+        if ($raw === '') return null;
+
+        $parts = array_values(array_filter(array_map('trim', explode(',', $raw)), fn($p) => $p !== ''));
+        $states = ['Maharashtra', 'Madhya Pradesh', 'Gujarat', 'Karnataka', 'Telangana', 'Andhra Pradesh',
+                   'Tamil Nadu', 'Kerala', 'Goa', 'Rajasthan', 'Punjab', 'Haryana', 'Delhi', 'Uttar Pradesh',
+                   'Uttarakhand', 'Bihar', 'Jharkhand', 'West Bengal', 'Odisha', 'Chhattisgarh', 'Assam',
+                   'Himachal Pradesh', 'Jammu and Kashmir', 'Chandigarh', 'Puducherry'];
+
+        // A trailing "India" is the country, not the town — without this it became
+        // addressLocality and the real city was buried in streetAddress.
+        $countries = ['india' => 'IN', 'bharat' => 'IN'];
+        foreach ($parts as $i => $p) {
+            $key = strtolower(trim($p, " .,"));
+            if (isset($countries[$key])) { $country = $countries[$key]; unset($parts[$i]); }
+        }
+        $parts = array_values($parts);
+
+        $pin = '';
+        foreach ($parts as $i => $p) {
+            if ($pin === '' && preg_match('/\b(\d{6})\b/', $p, $m)) {
+                $pin = $m[1];
+                $parts[$i] = trim(str_replace($m[1], '', $p), " ,-");
+            }
+        }
+        $region = '';
+        foreach ($parts as $i => $p) {
+            foreach ($states as $st) {
+                if ($p !== '' && strcasecmp($p, $st) === 0) { $region = $st; unset($parts[$i]); break 2; }
+            }
+        }
+        $parts = array_values(array_filter(array_map('trim', $parts), fn($p) => $p !== ''));
+
+        $locality = $parts ? array_pop($parts) : '';
+        $street   = implode(', ', $parts);
+
+        $addr = ['@type' => 'PostalAddress'];
+        if ($street !== '')   $addr['streetAddress'] = $street;
+        if ($locality !== '') $addr['addressLocality'] = $locality;
+        if ($region !== '')   $addr['addressRegion'] = $region;
+        if ($pin !== '')      $addr['postalCode'] = $pin;
+        // A one-line address with no commas ("Shop 4, Main Road") is a street, so
+        // demote it — but only when nothing else was recognised. With a state or a
+        // PIN alongside it, the leftover piece is the town ("Nagpur, Maharashtra").
+        if (!isset($addr['streetAddress']) && isset($addr['addressLocality'])
+            && !isset($addr['addressRegion']) && !isset($addr['postalCode'])) {
+            $addr['streetAddress'] = $addr['addressLocality'];
+            unset($addr['addressLocality']);
+        }
+        if (count($addr) === 1) return null;
+        $addr['addressCountry'] = $country;
+        return $addr;
+    }
+
+    /** Coordinates out of a Google Maps link, when it carries any. */
+    private static function geoFromMapUrl(string $url): ?array
+    {
+        if ($url === '') return null;
+        $u = rawurldecode($url);
+        foreach (['/[?&](?:q|ll|sll|center|daddr)=(-?\d{1,3}\.\d+)\s*,\s*(-?\d{1,3}\.\d+)/',
+                  '/@(-?\d{1,3}\.\d+),(-?\d{1,3}\.\d+)/',
+                  '/!3d(-?\d{1,3}\.\d+)!4d(-?\d{1,3}\.\d+)/'] as $re) {
+            if (preg_match($re, $u, $m)) {
+                $lat = (float)$m[1]; $lng = (float)$m[2];
+                if (abs($lat) <= 90 && abs($lng) <= 180 && ($lat !== 0.0 || $lng !== 0.0)) {
+                    return ['@type' => 'GeoCoordinates', 'latitude' => $lat, 'longitude' => $lng];
+                }
+            }
+        }
+        return null;   // a short maps.app.goo.gl link has no coordinates in it
+    }
+
+    /** doc.business.hours -> openingHoursSpecification. */
+    private static function openingHours(array $biz): array
+    {
+        $days = ['mon' => 'Monday', 'tue' => 'Tuesday', 'wed' => 'Wednesday', 'thu' => 'Thursday',
+                 'fri' => 'Friday', 'sat' => 'Saturday', 'sun' => 'Sunday'];
+        $out = [];
+        foreach (($biz['hours'] ?? []) as $h) {
+            if (!is_array($h)) continue;
+            $day = $days[strtolower(trim((string)($h['day'] ?? '')))] ?? null;
+            if ($day === null) continue;
+            $dow = 'https://schema.org/' . $day;
+            // Google reads opens == closes == 00:00 as "closed all day".
+            if (!empty($h['closed'])) {
+                $out[] = ['@type' => 'OpeningHoursSpecification', 'dayOfWeek' => $dow, 'opens' => '00:00', 'closes' => '00:00'];
+                continue;
+            }
+            $o = self::time24((string)($h['open'] ?? ''));
+            $c = self::time24((string)($h['close'] ?? ''));
+            if ($o === null || $c === null) continue;
+            $out[] = ['@type' => 'OpeningHoursSpecification', 'dayOfWeek' => $dow, 'opens' => $o, 'closes' => $c];
+        }
+        return $out;
+    }
+
+    /** "11:00 AM" / "8 PM" / "18:30" -> "11:00" / "20:00" / "18:30". */
+    private static function time24(string $t): ?string
+    {
+        $t = trim($t);
+        if ($t === '' || !preg_match('/^(\d{1,2})(?::(\d{2}))?\s*(am|pm)?\.?$/i', $t, $m)) return null;
+        $h   = (int)$m[1];
+        $min = $m[2] ?? '00';
+        $ap  = strtolower($m[3] ?? '');
+        if ($ap === 'pm' && $h < 12) $h += 12;
+        if ($ap === 'am' && $h === 12) $h = 0;
+        if ($h > 23 || (int)$min > 59) return null;
+        return sprintf('%02d:%s', $h, $min);
+    }
 
     private static function themeVars(array $t): string
     {
@@ -461,6 +766,19 @@ class SiteRenderer
     {
         $bg = $s['style']['bg'] ?? 'default';
         return in_array($bg, ['primary', 'dark', 'image'], true);
+    }
+
+    /** The site's logo, from the first header or footer that carries one. */
+    private static function siteLogo(array $doc): string
+    {
+        foreach (($doc['pages'] ?? []) as $pg) {
+            foreach (($pg['sections'] ?? []) as $s) {
+                if (in_array($s['type'] ?? '', ['header', 'footer'], true) && !empty($s['props']['logo'])) {
+                    return self::media($s['props']['logo']) ?? '';
+                }
+            }
+        }
+        return '';
     }
 
     /** Background css [background, color] for a section bg token. */
@@ -3876,19 +4194,11 @@ JS;
         // the page any more: a 1 MB logo became ~1.4 MB of base64 on every page
         // of the site. The button carries a small thumbnail URL instead and the
         // script fetches and encodes it when "Add to Contacts" is tapped.
-        $logoUrl = '';
-        foreach (($doc['pages'] ?? []) as $pg) {
-            foreach (($pg['sections'] ?? []) as $s) {
-                if (in_array($s['type'] ?? '', ['header', 'footer'], true) && !empty($s['props']['logo'])) {
-                    $logoUrl = self::media($s['props']['logo']) ?? '';
-                    // A contact photo is shown at ~100px, so ask Cloudinary for a
-                    // 256px JPEG rather than the full-size upload.
-                    if (preg_match('#^https://res\.cloudinary\.com/[^/]+/image/upload/#', $logoUrl)) {
-                        $logoUrl = preg_replace('#/image/upload/#', '/image/upload/w_256,h_256,c_limit,f_jpg,q_80/', $logoUrl, 1);
-                    }
-                    break 2;
-                }
-            }
+        $logoUrl = self::siteLogo($doc);
+        // A contact photo is shown at ~100px, so ask Cloudinary for a 256px JPEG
+        // rather than the full-size upload.
+        if (preg_match('#^https://res\.cloudinary\.com/[^/]+/image/upload/#', $logoUrl)) {
+            $logoUrl = preg_replace('#/image/upload/#', '/image/upload/w_256,h_256,c_limit,f_jpg,q_80/', $logoUrl, 1);
         }
 
         // Social links for vCard (Instagram, Facebook).
