@@ -1,0 +1,96 @@
+{
+  "type": "videos",
+  "label": "Videos",
+  "category": "media",
+  "icon": "clapperboard",
+  "description": "Show your videos — upload a clip or paste a YouTube, YouTube Shorts, Vimeo or Instagram reel link. Two or three per row, one large video, or a swipeable row.",
+  "industries": ["*"],
+  "singleton": false,
+  "variants": [
+    { "id": "grid-2", "label": "Two per row", "preview": "/builder/previews/gallery-grid-3.png" },
+    { "id": "grid-3", "label": "Three per row", "preview": "/builder/previews/gallery-grid-3.png" },
+    { "id": "single", "label": "One large video", "preview": "/builder/previews/hero-split.png" },
+    { "id": "carousel", "label": "Swipeable row", "preview": "/builder/previews/gallery-slider.png" }
+  ],
+  "props": [
+    { "key": "label", "type": "text", "label": "Eyebrow label", "maxLength": 40, "group": "Heading" },
+    { "key": "heading", "type": "text", "label": "Heading", "maxLength": 120, "group": "Heading" },
+    { "key": "sub", "type": "textarea", "label": "Text under the heading", "maxLength": 300, "group": "Heading" },
+    {
+      "key": "items",
+      "type": "repeater",
+      "label": "Videos",
+      "group": "Videos",
+      "min": 1,
+      "max": 12,
+      "itemLabel": "{{title}}",
+      "addLabel": "Add video",
+      "fields": [
+        {
+          "key": "video",
+          "type": "media",
+          "label": "Upload a video",
+          "accept": ["video"],
+          "help": "MP4, WebM or MOV, up to 60 MB. Or leave this empty and paste a link below."
+        },
+        {
+          "key": "url",
+          "type": "text",
+          "label": "or Video link",
+          "maxLength": 600,
+          "placeholder": "https://www.youtube.com/watch?v=…",
+          "help": "A YouTube, YouTube Shorts, Vimeo or Instagram reel link, or a direct .mp4 link."
+        },
+        {
+          "key": "poster",
+          "type": "media",
+          "label": "Cover picture (optional)",
+          "accept": ["image"],
+          "help": "Shown before the video plays. YouTube videos use their own thumbnail if you leave this empty."
+        },
+        { "key": "title", "type": "text", "label": "Title", "maxLength": 80 },
+        { "key": "caption", "type": "textarea", "label": "Caption", "maxLength": 300 }
+      ]
+    },
+    {
+      "key": "shape",
+      "type": "select",
+      "label": "Video shape",
+      "group": "Layout",
+      "default": "landscape",
+      "options": [
+        { "value": "landscape", "label": "Widescreen 16:9" },
+        { "value": "portrait", "label": "Vertical 9:16 — Reels & Shorts" },
+        { "value": "square", "label": "Square 1:1" }
+      ],
+      "help": "YouTube Shorts and Instagram reels are always shown vertical."
+    },
+    {
+      "key": "playback",
+      "type": "select",
+      "label": "Playback",
+      "group": "Layout",
+      "default": "click",
+      "options": [
+        { "value": "click", "label": "Play when tapped, with sound" },
+        { "value": "muted-loop", "label": "Play silently on a loop, like a showreel" }
+      ]
+    }
+  ],
+  "style": {
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "radius", "animation", "headingColor", "textColor"],
+    "defaults": { "paddingY": "lg", "align": "center", "bg": "default" }
+  },
+  "defaults": {
+    "variant": "grid-2",
+    "props": {
+      "label": "Videos",
+      "heading": "Watch us at work",
+      "shape": "landscape",
+      "playback": "click",
+      "items": [
+        { "title": "Our story", "caption": "Upload a video or paste a YouTube link." }
+      ]
+    }
+  }
+}

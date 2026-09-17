@@ -1162,6 +1162,7 @@ class SiteRenderer
             case 'categories':   return self::secCategories($s, $doc);
             case 'banners':      return self::secBanners($s, $doc);
             case 'features':     return self::secFeatures($s, $doc);
+            case 'videos':       return self::secVideos($s, $doc);
             default:             return '';
         }
     }
@@ -1672,6 +1673,135 @@ class SiteRenderer
             : '<div class="tf-gal ' . $g . '">' . implode('', $slides) . '</div>');
         $inner = self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null) . $body;
         return self::shell($s, $inner);
+    }
+
+    /* ------------------------------------------------------------ videos */
+
+    /**
+     * Where an item's video comes from: an upload, or a YouTube / Vimeo /
+     * Instagram / direct-file link. null when there is nothing playable, so a
+     * half-filled item renders nothing rather than an empty black box.
+     */
+    private static function videoSource(array $it): ?array
+    {
+        $file = self::media($it['video'] ?? null);
+        if ($file) return ['kind' => 'file', 'src' => $file];
+
+        $url = trim((string)($it['url'] ?? ''));
+        if ($url === '') return null;
+        if (preg_match('#(?:youtube\.com/(?:watch\?(?:[^\s]*&)?v=|embed/|shorts/|live/)|youtu\.be/)([\w-]{11})#i', $url, $m)) {
+            return ['kind' => 'youtube', 'id' => $m[1], 'vertical' => stripos($url, '/shorts/') !== false];
+        }
+        if (preg_match('#vimeo\.com/(?:video/)?(\d+)#i', $url, $m)) {
+            return ['kind' => 'vimeo', 'id' => $m[1]];
+        }
+        if (preg_match('#instagram\.com/(?:reels?|p|tv)/([\w-]+)#i', $url, $m)) {
+            return ['kind' => 'instagram', 'id' => $m[1]];
+        }
+        if (preg_match('#^https?://\S+\.(?:mp4|webm|mov)(?:\?\S*)?$#i', $url)) {
+            return ['kind' => 'file', 'src' => $url];
+        }
+        return null;
+    }
+
+    /**
+     * Videos — uploaded clips and YouTube / Vimeo / Instagram reel links, in a
+     * grid, one large player, or a swipeable row.
+     *
+     * YouTube (and Vimeo, when a cover picture is set) load as a still picture
+     * with a play button and only swap in the real player when tapped. One
+     * YouTube iframe pulls in around a megabyte of script before anyone presses
+     * play; a grid of six would make the page crawl on a phone.
+     */
+    private static function secVideos(array $s, array $doc): string
+    {
+        $p = $s['props'] ?? [];
+        $variant = in_array($s['variant'] ?? '', ['grid-2', 'grid-3', 'single', 'carousel'], true) ? $s['variant'] : 'grid-2';
+        $shape = ['portrait' => '9/16', 'square' => '1/1'][$p['shape'] ?? ''] ?? '16/9';
+        $loop  = ($p['playback'] ?? 'click') === 'muted-loop';
+        $play  = '<span class="tf-vid-btn" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11.24-6.86a1 1 0 0 0 0-1.72L9.5 4.28A1 1 0 0 0 8 5.14z"/></svg></span>';
+
+        $cards = [];
+        foreach ((array)($p['items'] ?? []) as $it) {
+            if (!is_array($it)) continue;
+            $v = self::videoSource($it);
+            if (!$v) continue;
+
+            $title  = trim((string)($it['title'] ?? ''));
+            $label  = self::esc($title !== '' ? $title : 'Video');
+            $poster = self::media($it['poster'] ?? null);
+            $ratio  = $shape;
+            $cover  = '';
+            $iframe = fn(string $src) => '<iframe class="tf-vid-if" src="' . self::esc($src) . '" title="' . $label . '" loading="lazy" '
+                . 'allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+            $facade = fn(string $embed, string $thumb) => '<button type="button" class="tf-vid-play" data-embed="' . self::esc($embed) . '" aria-label="Play: ' . $label . '">'
+                . '<img src="' . self::esc($thumb) . '" alt="" loading="lazy">' . $play . '</button>';
+
+            switch ($v['kind']) {
+                case 'file':
+                    if ($loop) $cover = ' tf-vid-cover';
+                    // No cover picture: "#t=0.1" makes the browser paint the first
+                    // frame instead of an empty black box until someone presses play.
+                    $vsrc = (!$poster && !$loop && strpos($v['src'], '#') === false) ? $v['src'] . '#t=0.1' : $v['src'];
+                    $player = '<video src="' . self::esc($vsrc) . '"' . ($poster ? ' poster="' . self::esc($poster) . '"' : '')
+                        . ($loop ? ' autoplay muted loop playsinline' : ' controls playsinline preload="metadata"')
+                        . ' aria-label="' . $label . '"></video>';
+                    break;
+                case 'youtube':
+                    if ($v['vertical']) $ratio = '9/16';
+                    $id = $v['id'];
+                    if ($loop) {
+                        $player = $iframe('https://www.youtube-nocookie.com/embed/' . $id . '?autoplay=1&mute=1&loop=1&playlist=' . $id . '&controls=0&playsinline=1&rel=0');
+                    } else {
+                        $player = $facade('https://www.youtube-nocookie.com/embed/' . $id . '?autoplay=1&playsinline=1&rel=0',
+                                          $poster ?: 'https://i.ytimg.com/vi/' . $id . '/hqdefault.jpg');
+                    }
+                    break;
+                case 'vimeo':
+                    $base = 'https://player.vimeo.com/video/' . $v['id'] . '?dnt=1';
+                    if ($loop) {
+                        $player = $iframe($base . '&autoplay=1&muted=1&loop=1&background=1');
+                    } elseif ($poster) {
+                        $player = $facade($base . '&autoplay=1', $poster);
+                    } else {
+                        // Vimeo thumbnails need their API, so without a cover picture
+                        // the player itself is the cover (still lazy-loaded).
+                        $player = $iframe($base);
+                    }
+                    break;
+                default:   // instagram — reels are vertical, with Instagram's own header and footer
+                    $ratio  = '9/16';
+                    $player = $iframe('https://www.instagram.com/p/' . $v['id'] . '/embed/');
+            }
+
+            $cap = '';
+            if ($title !== '') $cap .= '<p class="tf-vid-t">' . self::esc($title) . '</p>';
+            if (trim((string)($it['caption'] ?? '')) !== '') $cap .= '<p class="tf-vid-x">' . self::esc($it['caption']) . '</p>';
+
+            $cards[] = '<figure class="tf-vid tf-vid-' . $v['kind'] . '">'
+                . '<div class="tf-vid-frame' . $cover . '" style="aspect-ratio:' . $ratio . '">' . $player . '</div>'
+                . ($cap !== '' ? '<figcaption class="tf-vid-cap">' . $cap . '</figcaption>' : '')
+                . '</figure>';
+        }
+        if (!$cards) return '';
+
+        $cols = ['single' => 1, 'grid-3' => 3][$variant] ?? 2;
+        $body = $variant === 'carousel'
+            ? '<div class="tf-vidrow">' . self::carousel($cards, 0) . '</div>'
+            : '<div class="tf-vids tf-vids-' . $cols . '">' . implode('', $cards) . '</div>';
+
+        // One small script for every Videos section on the page: swap the cover
+        // for the real player on tap, and pause other videos when one starts.
+        $script = '<script>(function(){if(window.tfVid)return;window.tfVid=1;'
+            . 'document.addEventListener("click",function(e){var b=e.target.closest&&e.target.closest(".tf-vid-play");if(!b)return;'
+            . 'var f=document.createElement("iframe");f.className="tf-vid-if";f.src=b.getAttribute("data-embed");'
+            . 'f.title=(b.getAttribute("aria-label")||"Video").replace(/^Play: /,"");'
+            . 'f.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";f.setAttribute("allowfullscreen","");b.replaceWith(f);});'
+            . 'document.addEventListener("play",function(e){var v=e.target;if(!v.closest||!v.closest(".tf-vid")||v.muted)return;'
+            . 'document.querySelectorAll(".tf-vid video").forEach(function(o){if(o!==v&&!o.muted&&!o.paused)o.pause();});},true);'
+            . '})();</script>';
+
+        return self::shell($s, self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null) . $body . $script);
     }
 
     /* ------------------------------------------------ storefront sections */
@@ -4665,6 +4795,31 @@ iframe{max-width:100%}
 @media(min-width:700px){.tf-shoprow .tf-cslide{flex:0 0 31%;max-width:31%}}
 @media(min-width:1024px){.tf-shoprow .tf-cslide{flex:0 0 23.5%;max-width:23.5%}}
 .tf-shoprow .tf-ctrack{gap:2%}
+/* ---- videos ---- */
+.tf-vids{display:grid;gap:28px 24px;text-align:left}
+.tf-vids-1{grid-template-columns:minmax(0,1fr);max-width:960px;margin:0 auto}
+.tf-vids-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tf-vids-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:900px){.tf-vids-3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.tf-vids-2,.tf-vids-3{grid-template-columns:minmax(0,1fr)}}
+.tf-vid{margin:0;min-width:0}
+.tf-vid-frame{position:relative;width:100%;max-height:80vh;overflow:hidden;border-radius:var(--radius);background:#0b0b0f;box-shadow:0 8px 28px rgba(16,24,40,.12)}
+.tf-vid-frame video,.tf-vid-if{position:absolute;inset:0;width:100%;height:100%;border:0;object-fit:contain;background:#000}
+.tf-vid-cover video{object-fit:cover}
+/* A vertical reel or Short in a wide single-video layout: keep it phone-sized, centred. */
+.tf-vids-1 .tf-vid-frame[style*="9/16"]{max-width:420px;margin:0 auto}
+.tf-vid-play{position:absolute;inset:0;display:block;width:100%;height:100%;padding:0;border:0;cursor:pointer;background:#000}
+.tf-vid-play img{width:100%;height:100%;object-fit:cover;opacity:.9;transition:opacity .25s,transform .45s}
+.tf-vid-play:hover img{opacity:1;transform:scale(1.03)}
+.tf-vid-btn{position:absolute;left:50%;top:50%;display:flex;width:70px;height:70px;margin:-35px 0 0 -35px;align-items:center;justify-content:center;border-radius:999px;background:rgba(0,0,0,.6);box-shadow:0 6px 24px rgba(0,0,0,.35);transition:background .2s,transform .2s}
+.tf-vid-btn svg{margin-left:4px}
+.tf-vid-play:hover .tf-vid-btn,.tf-vid-play:focus-visible .tf-vid-btn{background:var(--color-primary);transform:scale(1.07)}
+.tf-vid-play:focus-visible{outline:3px solid var(--color-primary);outline-offset:3px}
+.tf-vid-cap{margin-top:12px}
+.tf-vid-t{margin:0;font-family:var(--font-heading);font-size:17px;font-weight:600;line-height:1.35;color:var(--tf-heading,inherit)}
+.tf-vid-x{margin:4px 0 0;font-size:14px;line-height:1.55;color:var(--tf-text,var(--color-muted))}
+.tf-al-center .tf-vids-1 .tf-vid-cap{text-align:center}
+@media(prefers-reduced-motion:reduce){.tf-vid-play img,.tf-vid-btn{transition:none}}
 .tf-tkstatic .tf-tklink{display:inline-block;border:1px solid currentColor;border-radius:4px;padding:3px 12px}
 .tf-tkstatic .tf-tklink:hover{text-decoration:none;background:rgba(255,255,255,.12)}
 .tf-pgal{display:flex;gap:14px;align-items:flex-start}
