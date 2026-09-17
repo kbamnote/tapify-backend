@@ -1,0 +1,67 @@
+{
+  "type": "social",
+  "label": "Connect / Social",
+  "category": "social-proof",
+  "icon": "share-2",
+  "description": "Big, branded cards for your Instagram, YouTube, Facebook, WhatsApp community and channel, Google review link and more — so visitors follow, subscribe and review in one tap.",
+  "industries": ["*"],
+  "singleton": false,
+  "variants": [
+    { "id": "cards", "label": "Cards", "preview": "/builder/previews/services-cards-3.png" },
+    { "id": "pills", "label": "Compact buttons", "preview": "/builder/previews/ticker-light.png" }
+  ],
+  "props": [
+    { "key": "label", "type": "text", "label": "Eyebrow label", "maxLength": 40, "group": "Heading" },
+    { "key": "heading", "type": "text", "label": "Heading", "maxLength": 140, "group": "Heading" },
+    { "key": "sub", "type": "textarea", "label": "Text under the heading", "maxLength": 300, "group": "Heading" },
+    {
+      "key": "items",
+      "type": "repeater",
+      "label": "Links",
+      "group": "Links",
+      "min": 1,
+      "max": 10,
+      "itemLabel": "{{title}}",
+      "addLabel": "Add link",
+      "fields": [
+        {
+          "key": "network",
+          "type": "select",
+          "label": "Platform",
+          "required": true,
+          "default": "instagram",
+          "options": [
+            { "value": "instagram", "label": "Instagram" },
+            { "value": "youtube", "label": "YouTube" },
+            { "value": "facebook", "label": "Facebook" },
+            { "value": "whatsapp", "label": "WhatsApp (chat / community)" },
+            { "value": "whatsapp-channel", "label": "WhatsApp Channel" },
+            { "value": "google-review", "label": "Google Review" },
+            { "value": "linkedin", "label": "LinkedIn" },
+            { "value": "x", "label": "X (Twitter)" },
+            { "value": "telegram", "label": "Telegram" },
+            { "value": "website", "label": "Website / other" }
+          ]
+        },
+        { "key": "href", "type": "text", "label": "Link", "required": true, "maxLength": 600 },
+        { "key": "title", "type": "text", "label": "Title", "maxLength": 60, "placeholder": "Instagram" },
+        { "key": "text", "type": "text", "label": "Short text", "maxLength": 120 },
+        { "key": "action", "type": "text", "label": "Action word", "maxLength": 30, "placeholder": "Follow" }
+      ]
+    }
+  ],
+  "style": {
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "radius", "animation", "headingColor", "textColor"],
+    "defaults": { "paddingY": "lg", "align": "center", "bg": "default" }
+  },
+  "defaults": {
+    "variant": "cards",
+    "props": {
+      "heading": "Stay connected",
+      "items": [
+        { "network": "instagram", "href": "https://www.instagram.com/", "title": "Instagram", "action": "Follow" },
+        { "network": "youtube", "href": "https://www.youtube.com/", "title": "YouTube", "action": "Subscribe" }
+      ]
+    }
+  }
+}

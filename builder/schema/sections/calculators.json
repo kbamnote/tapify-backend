@@ -1,0 +1,78 @@
+{
+  "type": "calculators",
+  "label": "Financial Calculators",
+  "category": "content",
+  "icon": "calculator",
+  "description": "Interactive calculators with sliders, live results and a chart — SIP, lumpsum, goal planner (education / marriage), retirement corpus, term insurance cover and loan EMI. Visitors can send their result to you on WhatsApp.",
+  "industries": ["*"],
+  "singleton": false,
+  "variants": [
+    { "id": "tabs", "label": "Tabs — one calculator at a time", "preview": "/builder/previews/faq-accordion.png" },
+    { "id": "stacked", "label": "All calculators one below another", "preview": "/builder/previews/about-text-only.png" }
+  ],
+  "props": [
+    { "key": "label", "type": "text", "label": "Eyebrow label", "maxLength": 40, "group": "Heading" },
+    { "key": "heading", "type": "text", "label": "Heading", "maxLength": 120, "group": "Heading" },
+    { "key": "sub", "type": "textarea", "label": "Text under the heading", "maxLength": 300, "group": "Heading" },
+    {
+      "key": "items",
+      "type": "repeater",
+      "label": "Calculators",
+      "group": "Calculators",
+      "min": 1,
+      "max": 6,
+      "itemLabel": "{{title}}",
+      "addLabel": "Add calculator",
+      "fields": [
+        {
+          "key": "type",
+          "type": "select",
+          "label": "Calculator",
+          "required": true,
+          "default": "sip",
+          "options": [
+            { "value": "sip", "label": "SIP (monthly investment)" },
+            { "value": "lumpsum", "label": "Lumpsum (one-time investment)" },
+            { "value": "goal", "label": "Goal planner — child education, marriage, any goal" },
+            { "value": "retirement", "label": "Retirement corpus planner" },
+            { "value": "term", "label": "Term insurance cover needed" },
+            { "value": "emi", "label": "Loan EMI" }
+          ]
+        },
+        { "key": "title", "type": "text", "label": "Tab title", "maxLength": 50, "placeholder": "SIP Calculator" },
+        { "key": "tag", "type": "text", "label": "Small label above the title", "maxLength": 40, "placeholder": "e.g. आकाश · Wealth" },
+        { "key": "note", "type": "textarea", "label": "Short explanation", "maxLength": 300 },
+        { "key": "returnRate", "type": "number", "label": "Default expected return %", "min": 1, "max": 30, "help": "Where the calculator asks for a rate of return, start the slider here." },
+        { "key": "color", "type": "color", "label": "Accent colour (optional)" }
+      ]
+    },
+    { "key": "showWhatsapp", "type": "toggle", "label": "Show \"send my result on WhatsApp\" button", "default": true, "group": "Result" },
+    { "key": "ctaText", "type": "text", "label": "WhatsApp button text", "maxLength": 50, "default": "Discuss this plan on WhatsApp", "group": "Result" },
+    {
+      "key": "disclaimer",
+      "type": "textarea",
+      "label": "Disclaimer under the calculators",
+      "maxLength": 600,
+      "group": "Result",
+      "default": "These calculations are illustrations based on the assumptions you enter. They are not a guarantee of returns. Mutual fund investments are subject to market risks; read all scheme-related documents carefully."
+    }
+  ],
+  "style": {
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "radius", "animation", "headingColor", "textColor"],
+    "defaults": { "paddingY": "lg", "align": "center", "bg": "surface" }
+  },
+  "defaults": {
+    "variant": "tabs",
+    "props": {
+      "label": "Plan with numbers",
+      "heading": "Financial calculators",
+      "showWhatsapp": true,
+      "items": [
+        { "type": "sip", "title": "SIP Calculator" },
+        { "type": "lumpsum", "title": "Lumpsum" },
+        { "type": "retirement", "title": "Retirement" },
+        { "type": "term", "title": "Term Cover" }
+      ]
+    }
+  }
+}

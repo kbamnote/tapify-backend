@@ -164,6 +164,14 @@
       "help": "Leave blank to auto-generate from the site name and current year."
     },
     {
+      "key": "disclaimer",
+      "type": "textarea",
+      "label": "Disclaimer / registration details",
+      "maxLength": 3000,
+      "group": "Legal",
+      "help": "Small print shown across the bottom of every page — e.g. \"AMFI Registered Mutual Fund Distributor | ARN-12345\" and risk disclaimers. A blank line starts a new paragraph."
+    },
+    {
       "key": "showBranding",
       "type": "toggle",
       "label": "Show \"Powered by Tapify\"",

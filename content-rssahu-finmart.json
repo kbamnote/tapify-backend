@@ -1,0 +1,4028 @@
+{
+ "schemaVersion": 1,
+ "site": {
+  "name": "RSSAHU FINMART INDIA PVT LTD",
+  "industry": "finance",
+  "locale": "hi-IN",
+  "favicon": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648740/rssahu-finmart/rssahu-logo.png"
+ },
+ "theme": {
+  "preset": "guardian-green",
+  "mode": "light",
+  "color": {
+   "primary": "#0B4D35",
+   "secondary": "#D4A017",
+   "accent": "#8A6100",
+   "bg": "#FFFFFF",
+   "surface": "#F3F8F4",
+   "text": "#0F241A",
+   "muted": "#4E6157",
+   "border": "#DCE8E0"
+  },
+  "font": {
+   "heading": "Poppins",
+   "body": "Mukta"
+  },
+  "radius": "lg",
+  "spacing": "comfortable",
+  "container": "normal"
+ },
+ "business": {
+  "phone": "+91 80550 73251",
+  "whatsapp": "+91 80550 73251",
+  "social": {
+   "instagram": "https://www.instagram.com/rssahufinmartindiapvtltd/",
+   "youtube": "https://www.youtube.com/@RSSAHUFINAMRTINDIAPVTLTD",
+   "facebook": "https://www.facebook.com/share/1DNXB5W3Eb/"
+  },
+  "hours": [
+   {
+    "day": "mon",
+    "open": "10:00 AM",
+    "close": "7:00 PM"
+   },
+   {
+    "day": "tue",
+    "open": "10:00 AM",
+    "close": "7:00 PM"
+   },
+   {
+    "day": "wed",
+    "open": "10:00 AM",
+    "close": "7:00 PM"
+   },
+   {
+    "day": "thu",
+    "open": "10:00 AM",
+    "close": "7:00 PM"
+   },
+   {
+    "day": "fri",
+    "open": "10:00 AM",
+    "close": "7:00 PM"
+   },
+   {
+    "day": "sat",
+    "open": "10:00 AM",
+    "close": "7:00 PM"
+   },
+   {
+    "day": "sun",
+    "closed": true
+   }
+  ]
+ },
+ "settings": {
+  "showMobileActionBar": true
+ },
+ "pages": [
+  {
+   "id": "home",
+   "slug": "/",
+   "title": "Home",
+   "visible": true,
+   "seo": {
+    "title": "RSSAHU FINMART | Financial Guardian Ramesh S. Sahu — Insurance & Finan",
+    "description": "Health, Life & Term Insurance, Mutual Funds, Child Education, Retirement & Wealth planning based on Panch Tattva of Financial Security. Free consultation: 80550",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "home-1",
+     "type": "ticker",
+     "visible": true,
+     "props": {
+      "speed": "static",
+      "items": [
+       {
+        "text": "AMFI Registered Mutual Fund Distributor · ARN-265309"
+       },
+       {
+        "text": "Mission 10,000 Families by 2030"
+       },
+       {
+        "text": "Call / WhatsApp 80550 73251",
+        "href": "tel:+918055073251"
+       }
+      ]
+     },
+     "variant": "dark"
+    },
+    {
+     "id": "home-2",
+     "type": "header",
+     "visible": true,
+     "props": {
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648740/rssahu-finmart/rssahu-logo.png",
+      "logoSize": "large",
+      "sticky": true,
+      "links": [
+       {
+        "text": "Home",
+        "href": "/"
+       },
+       {
+        "text": "Panch Tattva",
+        "href": "/panch-tattva"
+       },
+       {
+        "text": "Services",
+        "href": "/services"
+       },
+       {
+        "text": "Calculators",
+        "href": "/calculators"
+       },
+       {
+        "text": "Health Check-up",
+        "href": "/financial-health-checkup"
+       },
+       {
+        "text": "About",
+        "href": "/about"
+       },
+       {
+        "text": "Blog",
+        "href": "/blog"
+       },
+       {
+        "text": "Contact",
+        "href": "/contact"
+       }
+      ],
+      "cta": {
+       "text": "Free Consultation",
+       "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+       "style": "primary",
+       "newTab": true
+      }
+     },
+     "variant": "left",
+     "style": {
+      "bg": "default"
+     }
+    },
+    {
+     "id": "home-3",
+     "type": "hero",
+     "visible": true,
+     "props": {
+      "badge": "Financial Doctor | Financial Guardian",
+      "heading": "हम Insurance नहीं बेचते, हम परिवार की Financial Security की Planning करते हैं।",
+      "sub": "Welcome To The World Of Financial Freedom — RSSAHU FINMART INDIA PVT LTD. “आज की सोच, कल का सुरक्षित परिवार” • हर परिवार सुरक्षित • हर घर सुरक्षित",
+      "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648738/rssahu-finmart/rssahu-p02.jpg",
+      "imageRatio": "portrait",
+      "ctaPrimary": {
+       "text": "Get Free Financial Consultation",
+       "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+       "style": "primary",
+       "newTab": true
+      },
+      "ctaSecondary": {
+       "text": "Book Financial Health Check-up",
+       "href": "/financial-health-checkup",
+       "style": "ghost"
+      }
+     },
+     "variant": "split",
+     "style": {
+      "paddingY": "lg",
+      "align": "left",
+      "bg": "surface"
+     }
+    },
+    {
+     "id": "home-4",
+     "type": "stats",
+     "visible": true,
+     "props": {
+      "label": "Our Trust Numbers",
+      "heading": "आपका विश्वास • हमारी जिम्मेदारी",
+      "items": [
+       {
+        "value": 16,
+        "suffix": "+",
+        "label": "Years Experience"
+       },
+       {
+        "value": 407,
+        "suffix": "+",
+        "label": "Claims Settled / Claim Assistance"
+       },
+       {
+        "value": 695,
+        "suffix": "+",
+        "label": "Happy Customers"
+       },
+       {
+        "value": 10000,
+        "suffix": "",
+        "label": "Families — Mission 2030"
+       }
+      ],
+      "countUp": true
+     },
+     "variant": "bar",
+     "style": {
+      "paddingY": "md",
+      "align": "center",
+      "bg": "primary"
+     }
+    },
+    {
+     "id": "panch-tattva",
+     "type": "pillars",
+     "visible": true,
+     "props": {
+      "label": "Panch Tattva of Financial Security",
+      "heading": "पंच तत्व — परिवार की Financial Security के 5 स्तंभ",
+      "sub": "जैसे सृष्टि 5 तत्वों से बनी है, वैसे ही एक परिवार की Financial Security भी 5 महत्वपूर्ण स्तंभों पर आधारित है।",
+      "items": [
+       {
+        "symbol": "🌳",
+        "name": "पृथ्वी · Earth",
+        "title": "Family Protection",
+        "subtitle": "Health Insurance",
+        "tagline": "स्वस्थ परिवार ही सुखी परिवार की मजबूत नींव है।",
+        "text": "बढ़ते medical expenses के बीच अपने और अपने परिवार के लिए उचित Health Insurance Protection को समझना और plan करना।",
+        "focus": [
+         "Family Health Insurance",
+         "Individual Health Insurance",
+         "Senior Citizen",
+         "Super Top-Up"
+        ],
+        "image": "https://images.pexels.com/photos/14013575/pexels-photo-14013575.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "color": "#2E7D32",
+        "cta": {
+         "text": "Protect My Family",
+         "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%88%E0%A4%82%20%E0%A4%85%E0%A4%AA%E0%A4%A8%E0%A5%87%20%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%B5%E0%A4%BE%E0%A4%B0%20%E0%A4%95%E0%A5%87%20Health%20Insurance%20%28Family%20Protection%29%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%A8%E0%A4%BE%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%A4%E0%A4%BE/%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A5%82%E0%A4%81%E0%A5%A4",
+         "style": "primary",
+         "newTab": true
+        }
+       },
+       {
+        "symbol": "💧",
+        "name": "जल · Water",
+        "title": "Child Education Fund",
+        "subtitle": "Child Education Planning",
+        "tagline": "शिक्षा के बिना सपने अधूरे, सही planning से भविष्य मजबूत।",
+        "text": "आज से planning करके बच्चों की Higher Education के लिए dedicated fund बनाने की दिशा में काम करना।",
+        "focus": [
+         "Child Education Goal",
+         "Higher Education",
+         "Long-Term Investment Planning"
+        ],
+        "image": "https://images.pexels.com/photos/10615852/pexels-photo-10615852.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "color": "#1565C0",
+        "cta": {
+         "text": "Plan My Child's Future",
+         "href": "/calculators?calc=goal#calculators",
+         "style": "primary"
+        }
+       },
+       {
+        "symbol": "🔥",
+        "name": "अग्नि · Fire",
+        "title": "Income Protection",
+        "subtitle": "Term / Life Insurance",
+        "tagline": "आपकी Income ही आपके परिवार की आर्थिक ऊर्जा है। इसे सुरक्षित रखना जरूरी है।",
+        "text": "Life Insurance और Term Insurance के माध्यम से परिवार के financial future को protection देने की planning।",
+        "focus": [
+         "Income Protection",
+         "Term Insurance",
+         "Life Protection"
+        ],
+        "image": "https://images.pexels.com/photos/10182772/pexels-photo-10182772.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "color": "#C2410C",
+        "cta": {
+         "text": "Protect My Income",
+         "href": "/calculators?calc=term#calculators",
+         "style": "primary"
+        }
+       },
+       {
+        "symbol": "🌬️",
+        "name": "वायु · Air",
+        "title": "Retirement Fund",
+        "subtitle": "Retirement Planning",
+        "tagline": "Retirement के बाद भी Financial Independence और सम्मानजनक जीवन।",
+        "text": "Working years में disciplined planning करके retirement corpus और post-retirement income की तैयारी।",
+        "focus": [
+         "Retirement Corpus",
+         "Pension Planning",
+         "Retirement Income"
+        ],
+        "image": "https://images.pexels.com/photos/216686/pexels-photo-216686.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "color": "#0E7490",
+        "cta": {
+         "text": "Plan My Retirement",
+         "href": "/calculators?calc=retirement#calculators",
+         "style": "primary"
+        }
+       },
+       {
+        "symbol": "🌌",
+        "name": "आकाश · Space",
+        "title": "Wealth & Child Marriage",
+        "subtitle": "Wealth Creation & Child Marriage Planning",
+        "tagline": "बड़े लक्ष्य, बड़ी जिम्मेदारियाँ और समृद्ध भविष्य के लिए Long-Term Planning।",
+        "text": "Child Marriage, wealth creation और अन्य long-term financial goals के लिए goal-based investment planning।",
+        "focus": [
+         "Wealth Creation",
+         "Child Marriage Fund",
+         "Goal-Based Planning",
+         "Long-Term Investment"
+        ],
+        "image": "https://images.pexels.com/photos/4996846/pexels-photo-4996846.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "color": "#4338CA",
+        "cta": {
+         "text": "Plan My Wealth",
+         "href": "/calculators?calc=sip#calculators",
+         "style": "primary"
+        }
+       }
+      ]
+     },
+     "variant": "tabs",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "default"
+     }
+    },
+    {
+     "id": "calc",
+     "type": "calculators",
+     "visible": true,
+     "props": {
+      "label": "Financial Calculators",
+      "heading": "अपने Goals को Numbers में देखें",
+      "sub": "Slider खिसकाएँ, result तुरंत देखें — और एक click में WhatsApp पर Ramesh Ji से अपना plan discuss करें।",
+      "items": [
+       {
+        "type": "sip",
+        "title": "SIP Calculator",
+        "tag": "आकाश · Wealth",
+        "color": "#4338CA",
+        "returnRate": 12,
+        "note": "हर महीने की छोटी SIP लंबे समय में कितनी बड़ी बन सकती है — slider बदलकर देखें।"
+       },
+       {
+        "type": "goal",
+        "title": "Child Education Goal",
+        "tag": "जल · Education",
+        "color": "#1565C0",
+        "returnRate": 12,
+        "note": "आज की education cost, inflation के साथ भविष्य में कितनी होगी — और उसके लिए कितनी monthly SIP चाहिए।"
+       },
+       {
+        "type": "term",
+        "title": "Term Cover",
+        "tag": "अग्नि · Income",
+        "color": "#C2410C",
+        "note": "Income replacement के आधार पर यह एक simple estimate है कि परिवार की सुरक्षा के लिए कितना life cover सोचना चाहिए।"
+       },
+       {
+        "type": "retirement",
+        "title": "Retirement Planner",
+        "tag": "वायु · Retirement",
+        "color": "#0E7490",
+        "returnRate": 12,
+        "note": "Retirement के बाद आज जैसी lifestyle के लिए कितना corpus चाहिए और उसके लिए कितनी SIP।"
+       },
+       {
+        "type": "lumpsum",
+        "title": "Lumpsum",
+        "tag": "Investment",
+        "color": "#2E7D32",
+        "returnRate": 12,
+        "note": "एक बार के investment का long-term में अनुमानित value।"
+       }
+      ],
+      "showWhatsapp": true,
+      "ctaText": "WhatsApp पर यह plan discuss करें",
+      "disclaimer": "ये calculations आपकी दी गई assumptions पर आधारित illustration हैं, returns की guarantee नहीं। Mutual Fund investments are subject to market risks; read all scheme-related documents carefully. Insurance cover की सही राशि आपकी individual जरूरतों और insurer के underwriting पर निर्भर करती है।"
+     },
+     "variant": "tabs",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "surface"
+     }
+    },
+    {
+     "id": "home-7",
+     "type": "steps",
+     "visible": true,
+     "props": {
+      "label": "Your Financial Journey",
+      "heading": "Protection से Wealth Creation तक — सही क्रम में",
+      "sub": "हमारे Financial Health Check-up में इन प्रमुख areas पर discussion किया जाता है।",
+      "items": [
+       {
+        "symbol": "🛡️",
+        "title": "Protection",
+        "text": "Health और Life Protection से परिवार की नींव मजबूत।",
+        "color": "#2E7D32"
+       },
+       {
+        "symbol": "📈",
+        "title": "Investment",
+        "text": "Goals और time horizon के अनुसार disciplined investment।",
+        "color": "#1565C0"
+       },
+       {
+        "symbol": "🎓",
+        "title": "Child Future",
+        "text": "Higher education और marriage goals की planning।",
+        "color": "#C2410C"
+       },
+       {
+        "symbol": "🌅",
+        "title": "Retirement",
+        "text": "Retirement के बाद भी financial independence।",
+        "color": "#0E7490"
+       },
+       {
+        "symbol": "💎",
+        "title": "Wealth Creation",
+        "text": "Long-term goal-based wealth creation।",
+        "color": "#4338CA"
+       }
+      ],
+      "cta": {
+       "text": "Check My Financial Health",
+       "href": "/financial-health-checkup",
+       "style": "primary"
+      }
+     },
+     "variant": "horizontal",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "default"
+     }
+    },
+    {
+     "id": "home-8",
+     "type": "about",
+     "visible": true,
+     "props": {
+      "label": "About Founder",
+      "heading": "Ramesh S. Sahu — Financial Guardian | Founder & CMD",
+      "body": "Ramesh S. Sahu is the Founder & CMD of RSSAHU FINMART INDIA PVT LTD and works with the vision of becoming a trusted financial guardian for families.\n\nउनका focus है कि हर परिवार अपनी financial situation को समझे और Health Protection, Life Protection, Child Future, Retirement और Wealth Creation जैसे महत्वपूर्ण financial goals के लिए समय पर planning करे।\n\nउनका विश्वास: “हमारे लिए पैसे कमाना जरूरी है, लेकिन उससे भी ज्यादा जरूरी है परिवार को सुरक्षित बनाना।”",
+      "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648740/rssahu-finmart/rssahu-p06.jpg",
+      "showPillars": true,
+      "pillars": [
+       {
+        "title": "16+ Years",
+        "text": "Experience"
+       },
+       {
+        "title": "Star Elite Advisor 2025",
+        "text": "Recognition"
+       },
+       {
+        "title": "Child Education Expert",
+        "text": "Level 2 Certified"
+       }
+      ]
+     },
+     "variant": "image-left",
+     "style": {
+      "paddingY": "lg",
+      "align": "left",
+      "bg": "default"
+     }
+    },
+    {
+     "id": "services",
+     "type": "features",
+     "visible": true,
+     "props": {
+      "label": "Our Services",
+      "heading": "हमारी Services",
+      "sub": "Protection, investment और planning — परिवार की हर financial जरूरत एक जगह।",
+      "items": [
+       {
+        "icon": "heart",
+        "title": "Health Insurance",
+        "text": "Family और individual health protection solutions."
+       },
+       {
+        "icon": "umbrella",
+        "title": "Life Insurance",
+        "text": "परिवार के financial future के लिए life protection."
+       },
+       {
+        "icon": "shield",
+        "title": "Term Insurance",
+        "text": "Income replacement और family financial protection की planning."
+       },
+       {
+        "icon": "trending",
+        "title": "Mutual Funds",
+        "text": "Long-term wealth creation के लिए systematic investment solutions."
+       },
+       {
+        "icon": "target",
+        "title": "Investment Planning",
+        "text": "आपके goals और time horizon के अनुसार goal-based planning."
+       },
+       {
+        "icon": "clock",
+        "title": "Retirement Planning",
+        "text": "Retirement corpus और post-retirement financial independence की planning."
+       },
+       {
+        "icon": "graduation",
+        "title": "Child Future Planning",
+        "text": "बच्चों की higher education और future goals के लिए planning."
+       },
+       {
+        "icon": "rings",
+        "title": "Child Marriage Planning",
+        "text": "बच्चों के marriage goal के लिए long-term financial planning."
+       },
+       {
+        "icon": "stethoscope",
+        "title": "Financial Health Check-up",
+        "text": "आपकी current financial स्थिति, protection और goals का review."
+       },
+       {
+        "icon": "calculator",
+        "title": "Goal-Based Financial Planning",
+        "text": "Education, marriage, retirement और wealth creation जैसे goals के लिए structured planning."
+       },
+       {
+        "icon": "receipt",
+        "title": "GST & Income Tax Services",
+        "text": "GST और Income Tax related professional services."
+       }
+      ]
+     },
+     "variant": "cards",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "surface"
+     }
+    },
+    {
+     "id": "health-checkup",
+     "type": "quiz",
+     "visible": true,
+     "props": {
+      "label": "Financial Health Check-up",
+      "heading": "आपकी Financial Health कैसी है?",
+      "sub": "हर परिवार को खुद से ये 6 सवाल पूछने चाहिए। जवाब चुनें — 1 मिनट में अपना score देखें।",
+      "image": "https://images.pexels.com/photos/8068654/pexels-photo-8068654.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "questions": [
+       {
+        "q": "अगर मुझे कुछ हो गया तो परिवार का खर्च कौन उठाएगा — क्या इसकी planning है?",
+        "tip": "Term / Life Insurance से Income Protection की planning करें।"
+       },
+       {
+        "q": "Medical emergency का खर्च कौन उठाएगा — क्या पर्याप्त Health Insurance है?",
+        "tip": "Family Health Insurance और Super Top-Up पर विचार करें।"
+       },
+       {
+        "q": "बच्चों की education कैसे fund होगी — क्या इसकी planning है?",
+        "tip": "Child Education Fund के लिए goal-based planning शुरू करें।"
+       },
+       {
+        "q": "बच्चों की शादी के लिए कितना चाहिए — क्या इसका fund बन रहा है?",
+        "tip": "Child Marriage Fund के लिए long-term planning करें।"
+       },
+       {
+        "q": "Retirement के बाद income कहाँ से आएगी — क्या इसकी planning है?",
+        "tip": "Retirement corpus और pension planning की शुरुआत करें।"
+       },
+       {
+        "q": "क्या मेरी current investment मेरे goals के लिए पर्याप्त है?",
+        "tip": "अपने existing investments का goal-based review करवाएँ।"
+       }
+      ],
+      "yesLabel": "हाँ, planning है",
+      "noLabel": "नहीं",
+      "unsureLabel": "पता नहीं",
+      "goodTitle": "आपकी Financial Health अच्छी दिख रही है",
+      "goodText": "ज्यादातर जरूरी areas cover हैं। साल में एक बार review से plan सही track पर रहता है।",
+      "midTitle": "अच्छी शुरुआत — कुछ gaps बाकी हैं",
+      "midText": "कुछ महत्वपूर्ण areas पर ध्यान देने की जरूरत है। एक छोटी सी बातचीत से सही शुरुआत समझ सकते हैं।",
+      "lowTitle": "अभी planning शुरू करने का सही समय है",
+      "lowText": "कई जरूरी areas की planning बाकी है। जितनी जल्दी शुरुआत, उतना आसान रास्ता।",
+      "ctaText": "WhatsApp पर मेरा result discuss करें"
+     },
+     "variant": "split",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "default"
+     }
+    },
+    {
+     "id": "home-11",
+     "type": "banners",
+     "visible": true,
+     "props": {
+      "shape": "wide",
+      "items": [
+       {
+        "image": "https://images.pexels.com/photos/14124346/pexels-photo-14124346.jpeg?auto=compress&cs=tinysrgb&w=1400",
+        "eyebrow": "Mission Dil Se Dil Tak",
+        "heading": "Mission 10,000 Families",
+        "sub": "2030 तक 10,000 परिवारों को Financially Secure और Strong बनाने का संकल्प",
+        "cta": {
+         "text": "Our Mission",
+         "href": "/about#mission",
+         "style": "secondary"
+        }
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648748/rssahu-finmart/rssahu-p23.jpg",
+        "eyebrow": "407+ Claims",
+        "heading": "Claim Assistance — जब सबसे ज्यादा जरूरत हो",
+        "sub": "Claim के समय सही जानकारी और साथ",
+        "cta": {
+         "text": "Talk to Ramesh Ji",
+         "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+         "style": "secondary",
+         "newTab": true
+        }
+       }
+      ]
+     },
+     "variant": "grid-2",
+     "style": {
+      "paddingY": "md",
+      "align": "center",
+      "bg": "surface"
+     }
+    },
+    {
+     "id": "home-12",
+     "type": "videos",
+     "visible": true,
+     "props": {
+      "label": "Watch",
+      "heading": "Health Insurance का वो सच, जो पॉलिसी लेते समय कोई नहीं बताता",
+      "sub": "Ramesh S. Sahu का interview — Hospital में admit होते समय और insurance claim में किन बातों का ध्यान रखें।",
+      "shape": "landscape",
+      "playback": "click",
+      "items": [
+       {
+        "url": "https://youtu.be/6mpVQKEMDjU",
+        "title": "Interview — Ramesh S. Sahu",
+        "caption": "सही जानकारी = आसान Claim Process. वीडियो पूरा देखें और परिवार के साथ share करें।"
+       }
+      ]
+     },
+     "variant": "single",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "default"
+     }
+    },
+    {
+     "id": "home-13",
+     "type": "gallery",
+     "visible": true,
+     "props": {
+      "label": "Moments",
+      "heading": "Claim Assistance, Awareness & Family Protection Moments",
+      "lightbox": true,
+      "imageRatio": "square",
+      "images": [
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648743/rssahu-finmart/rssahu-p14.jpg",
+        "alt": "Family protection moment"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648743/rssahu-finmart/rssahu-p13.jpg",
+        "alt": "Certificate handover"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648745/rssahu-finmart/rssahu-p18.jpg",
+        "alt": "With a client family"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648748/rssahu-finmart/rssahu-p23.jpg",
+        "alt": "Claim assistance moment"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648744/rssahu-finmart/rssahu-p17.jpg",
+        "alt": "Document handover"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648745/rssahu-finmart/rssahu-p16.jpg",
+        "alt": "Team and clients"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648739/rssahu-finmart/rssahu-p05.jpg",
+        "alt": "Financial awareness event"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648748/rssahu-finmart/rssahu-p22.jpg",
+        "alt": "Client meeting"
+       }
+      ]
+     },
+     "variant": "grid-4",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "surface"
+     }
+    },
+    {
+     "id": "connect",
+     "type": "social",
+     "visible": true,
+     "props": {
+      "label": "Connect With Us",
+      "heading": "मेरी Social Media Family से जुड़ें ❤️",
+      "sub": "Follow करें | Subscribe करें | Share करें — आपका एक Follow + Subscribe + Share हमारी journey को और मजबूत बनाता है। 🙏",
+      "items": [
+       {
+        "network": "instagram",
+        "href": "https://www.instagram.com/rssahufinmartindiapvtltd/",
+        "title": "Instagram",
+        "text": "Financial awareness tips और updates",
+        "action": "Follow करें"
+       },
+       {
+        "network": "youtube",
+        "href": "https://www.youtube.com/@RSSAHUFINAMRTINDIAPVTLTD",
+        "title": "YouTube",
+        "text": "Insurance और planning पर videos",
+        "action": "Subscribe करें"
+       },
+       {
+        "network": "facebook",
+        "href": "https://www.facebook.com/share/1DNXB5W3Eb/",
+        "title": "Facebook",
+        "text": "Mission Dil Se Dil Tak की activities",
+        "action": "Follow करें"
+       },
+       {
+        "network": "whatsapp",
+        "href": "https://chat.whatsapp.com/L9CI9dLEAsBF2KHKjyWgXv",
+        "title": "WhatsApp Community",
+        "text": "Awareness community से जुड़ें",
+        "action": "Join करें"
+       },
+       {
+        "network": "whatsapp-channel",
+        "href": "https://whatsapp.com/channel/0029Vb6p7FZISTkS5l3dPN03",
+        "title": "WhatsApp Channel",
+        "text": "Regular updates सीधे WhatsApp पर",
+        "action": "Follow करें"
+       },
+       {
+        "network": "google-review",
+        "href": "https://g.page/r/CcnKPg0n-_KREAE/review",
+        "title": "Google Review",
+        "text": "अपना अनुभव Google पर share करें",
+        "action": "Feedback दें"
+       }
+      ]
+     },
+     "variant": "cards",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "default"
+     }
+    },
+    {
+     "id": "blog",
+     "type": "blog",
+     "visible": true,
+     "props": {
+      "label": "Blog",
+      "heading": "Financial Awareness Blog",
+      "sub": "Health, protection, education, retirement और wealth creation पर आसान भाषा में जानकारी।",
+      "posts": [
+       {
+        "slug": "health-insurance-mein-deri-kyon-nahi",
+        "image": "https://images.pexels.com/photos/6129681/pexels-photo-6129681.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Health Insurance लेने में देरी क्यों नहीं करनी चाहिए?",
+        "excerpt": "Health Insurance तब सबसे आसानी से मिलता है जब उसकी जरूरत सबसे कम लगती है। जानिए देरी क्यों महंगी पड़ सकती है।",
+        "body": "अक्सर लोग सोचते हैं कि \"अभी तो सब ठीक है, बाद में ले लेंगे।\" लेकिन Health Insurance के मामले में यही सोच सबसे बड़ी गलती बन सकती है।\n\nउम्र के साथ premium बढ़ता है: कम उम्र में policy लेने पर premium आम तौर पर कम होता है, और आगे की उम्र में वही cover महंगा हो सकता है।\n\nWaiting period पहले से शुरू हो जाता है: ज्यादातर policies में कुछ बीमारियों और pre-existing conditions के लिए waiting period होता है। जितनी जल्दी policy शुरू होगी, उतनी जल्दी यह अवधि पूरी होगी।\n\nबीमारी के बाद policy मिलना मुश्किल हो सकता है: किसी diagnosis के बाद कई बार policy में exclusions लग जाते हैं या acceptance मुश्किल हो जाती है।\n\nMedical emergency बता कर नहीं आती: एक hospitalisation परिवार की सालों की बचत पर असर डाल सकता है। सही समय पर लिया गया cover उस financial risk को manage करने में मदद करता है।\n\nक्या करें: अपनी family size, उम्र, शहर और मौजूदा cover को ध्यान में रखकर अपनी जरूरत समझें, फिर policy चुनें। Policy के terms, exclusions और waiting period ध्यान से पढ़ें।\n\nDisclaimer: Insurance products are subject to the terms, conditions, exclusions and underwriting guidelines of the respective insurance company. यह लेख general awareness के लिए है।",
+        "linkText": "पूरा पढ़ें"
+       },
+       {
+        "slug": "5-lakh-ya-10-lakh-health-cover",
+        "image": "https://images.pexels.com/photos/6129444/pexels-photo-6129444.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "क्या ₹5 लाख या ₹10 लाख Health Cover आज के समय में पर्याप्त है?",
+        "excerpt": "सही Health Cover की राशि हर परिवार के लिए अलग होती है। इन बातों से अपनी जरूरत समझें।",
+        "body": "Health Cover कितना होना चाहिए — इसका कोई एक जवाब नहीं है। यह आपके परिवार, शहर और मौजूदा सुविधाओं पर निर्भर करता है।\n\nFamily size: Family Floater में एक ही cover पूरे परिवार के लिए होता है। सदस्य जितने ज्यादा, cover उतना सोच-समझकर तय करें।\n\nशहर और hospital: Metro और बड़े शहरों में इलाज का खर्च अक्सर ज्यादा होता है। जिस hospital में इलाज करवाना चाहेंगे, वहाँ के खर्च का अंदाजा रखें।\n\nMedical inflation: इलाज का खर्च समय के साथ बढ़ता है। आज पर्याप्त लगने वाला cover कुछ सालों बाद कम पड़ सकता है।\n\nSuper Top-Up एक विकल्प: Base policy के साथ Super Top-Up लेकर cover बढ़ाने का विकल्प भी होता है, जिसकी planning जरूरत के अनुसार की जा सकती है।\n\nEmployer cover पर पूरी निर्भरता नहीं: Job बदलने या retirement के बाद company का cover साथ नहीं रहता, इसलिए personal cover भी जरूरी है।\n\nअपनी सही Health Cover राशि जानने के लिए Financial Health Check-up करवाएँ।\n\nDisclaimer: Insurance products are subject to the terms, conditions, exclusions and underwriting guidelines of the respective insurance company.",
+        "linkText": "पूरा पढ़ें"
+       },
+       {
+        "slug": "child-higher-education-planning-kab-shuru-karein",
+        "image": "https://images.pexels.com/photos/35558791/pexels-photo-35558791.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "बच्चे की Higher Education के लिए Financial Planning कब शुरू करें?",
+        "excerpt": "शिक्षा के बिना सपने अधूरे, सही planning से भविष्य मजबूत। Education goal की planning जितनी जल्दी, उतनी आसान।",
+        "body": "बच्चे की Higher Education आज परिवार के सबसे बड़े financial goals में से एक है — और इसकी तारीख लगभग तय होती है।\n\nजितनी जल्दी, उतना आसान: Goal से पहले जितने ज्यादा साल होंगे, उतनी छोटी monthly investment से लक्ष्य की ओर बढ़ा जा सकता है, क्योंकि compounding को ज्यादा समय मिलता है।\n\nEducation cost बढ़ती है: आज किसी course की जो fees है, वह 10–15 साल बाद काफी ज्यादा हो सकती है। Planning करते समय future cost का अंदाजा लगाएँ।\n\nGoal-based approach: Education के लिए अलग, dedicated fund रखें ताकि यह पैसा दूसरी जरूरतों में खर्च न हो।\n\nProtection भी जरूरी: अगर कमाने वाले सदस्य को कुछ हो जाए तो बच्चे की पढ़ाई न रुके — इसके लिए life / term cover की planning education planning का हिस्सा है।\n\nहमारा Child Education Goal Calculator इस्तेमाल करके देखें कि आपके लक्ष्य के लिए कितनी monthly SIP की जरूरत हो सकती है।\n\nDisclaimer: Mutual Fund investments are subject to market risks. Read all scheme-related documents carefully.",
+        "linkText": "पूरा पढ़ें"
+       }
+      ]
+     },
+     "variant": "grid-3",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "surface"
+     }
+    },
+    {
+     "id": "faq",
+     "type": "faq",
+     "visible": true,
+     "props": {
+      "label": "FAQ",
+      "heading": "अक्सर पूछे जाने वाले सवाल",
+      "items": [
+       {
+        "q": "क्या Financial Planning केवल high-income लोगों के लिए है?",
+        "a": "नहीं। हर income group के लिए financial planning उपयोगी हो सकती है। Planning को income, goals और affordability के अनुसार बनाया जाता है।"
+       },
+       {
+        "q": "Health Insurance क्यों जरूरी है?",
+        "a": "Medical emergencies परिवार की finances पर बड़ा असर डाल सकती हैं। Health Insurance उस financial risk को manage करने में मदद कर सकता है।"
+       },
+       {
+        "q": "Retirement Planning कब शुरू करनी चाहिए?",
+        "a": "जितनी जल्दी goal-based retirement planning शुरू होती है, उतना अधिक समय disciplined investment और compounding के लिए मिल सकता है।"
+       },
+       {
+        "q": "SIP क्या है?",
+        "a": "SIP एक systematic investment method है जिसमें निर्धारित अंतराल पर Mutual Fund में निवेश किया जाता है।"
+       },
+       {
+        "q": "क्या आप मेरे existing insurance/investments का review करते हैं?",
+        "a": "हाँ, customer की आवश्यकता के अनुसार Financial Health Check-up और existing financial protection/investment review किया जा सकता है।"
+       },
+       {
+        "q": "Consultation कैसे लें?",
+        "a": "Website के WhatsApp, Call या Consultation Form से संपर्क करें।"
+       }
+      ],
+      "openFirst": true
+     },
+     "variant": "accordion",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "default"
+     }
+    },
+    {
+     "id": "home-17",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Let's Plan Your Financial Future Together",
+      "sub": "“हम Insurance नहीं बेचते, हम परिवार की Financial Security की Planning करते हैं।” — Free Financial Consultation के लिए आज ही संपर्क करें।",
+      "ctaPrimary": {
+       "text": "📲 WhatsApp Now",
+       "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+       "style": "secondary",
+       "newTab": true
+      },
+      "ctaSecondary": {
+       "text": "📞 Call Now",
+       "href": "tel:+918055073251",
+       "style": "ghost"
+      }
+     },
+     "variant": "banner",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "primary"
+     }
+    },
+    {
+     "id": "contact",
+     "type": "contact",
+     "visible": true,
+     "props": {
+      "label": "Contact Us",
+      "heading": "Book Your Financial Health Check-up",
+      "sub": "Form भरें — Ramesh Ji आपसे जल्द संपर्क करेंगे। या सीधे Call / WhatsApp करें: 80550 73251",
+      "showPhone": true,
+      "showWhatsapp": true,
+      "showEmail": false,
+      "showAddress": false,
+      "showHours": true,
+      "showMap": false,
+      "submitText": "Book My Check-up"
+     },
+     "variant": "form-only",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "default"
+     }
+    },
+    {
+     "id": "home-19",
+     "type": "footer",
+     "visible": true,
+     "props": {
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648740/rssahu-finmart/rssahu-logo.png",
+      "blurb": "Financial Doctor | Financial Guardian. “आपका विश्वास… हमारी जिम्मेदारी…” 🙏 Health Protection | Life Protection | Wealth Creation | Child Future | Retirement Planning.",
+      "showSocial": true,
+      "showContact": true,
+      "showHours": true,
+      "columns": [
+       {
+        "title": "Explore",
+        "links": [
+         {
+          "text": "Panch Tattva",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "Services",
+          "href": "/services"
+         },
+         {
+          "text": "Calculators",
+          "href": "/calculators"
+         },
+         {
+          "text": "Health Check-up",
+          "href": "/financial-health-checkup"
+         },
+         {
+          "text": "About",
+          "href": "/about"
+         },
+         {
+          "text": "Blog",
+          "href": "/blog"
+         },
+         {
+          "text": "Contact",
+          "href": "/contact"
+         }
+        ]
+       },
+       {
+        "title": "Panch Tattva",
+        "links": [
+         {
+          "text": "🌳 Health Protection",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "💧 Child Education",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "🔥 Income Protection",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "🌬️ Retirement",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "🌌 Wealth & Child Marriage",
+          "href": "/panch-tattva"
+         }
+        ]
+       },
+       {
+        "title": "Ramesh S. Sahu",
+        "links": [
+         {
+          "text": "Founder & CMD",
+          "href": "/about"
+         },
+         {
+          "text": "WhatsApp 80550 73251",
+          "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4"
+         },
+         {
+          "text": "Mission Dil Se Dil Tak",
+          "href": "/about#mission"
+         },
+         {
+          "text": "Give Feedback on Google",
+          "href": "https://g.page/r/CcnKPg0n-_KREAE/review"
+         }
+        ]
+       }
+      ],
+      "disclaimer": "AMFI Registered Mutual Fund Distributor | ARN-265309\n\nInsurance: Insurance products are subject to the terms, conditions, exclusions and underwriting guidelines of the respective insurance company.\n\nMutual Funds: Mutual Fund investments are subject to market risks. Read all scheme-related documents carefully before investing.\n\nWebsite पर दी गई जानकारी general awareness और educational purposes के लिए है; final recommendation customer की individual requirements और applicable product/provider terms पर आधारित होगी।",
+      "copyright": "© 2026 RSSAHU FINMART INDIA PVT LTD · Mission Dil Se Dil Tak · Mission 10,000 Families",
+      "showBranding": true,
+      "showLegal": true,
+      "privacyBody": "RSSAHU FINMART INDIA PVT LTD आपकी privacy का सम्मान करता है।\n\nहम कौन-सी जानकारी लेते हैं: जब आप website के form, WhatsApp या call के माध्यम से संपर्क करते हैं, तो आपकी दी गई जानकारी जैसे Name, Mobile Number, Email और आपका message।\n\nउपयोग: इस जानकारी का उपयोग केवल आपसे संपर्क करने, आपकी financial planning / insurance / investment संबंधी query का जवाब देने और requested services प्रदान करने के लिए किया जाता है।\n\nSharing: आपकी जानकारी बेची नहीं जाती। आपकी request पर service देने के लिए आवश्यक होने पर इसे संबंधित insurance company / AMC / service provider के साथ share किया जा सकता है, या कानून द्वारा आवश्यक होने पर।\n\nSecurity और आपके अधिकार: जानकारी को सुरक्षित रखने के उचित उपाय किए जाते हैं। अपनी जानकारी देखने, सुधारने या हटाने के लिए 80550 73251 पर संपर्क करें।\n\nCustomer द्वारा website पर दी गई personal information को privacy और applicable laws के अनुसार handle किया जाएगा।",
+      "termsBody": "Website पर उपलब्ध information general information के लिए है।\n\nProduct terms, conditions, eligibility, underwriting, exclusions, taxation और returns संबंधित provider/product documents के अनुसार होंगे।\n\nWebsite के calculators illustration के लिए हैं; ये किसी return या cover की guarantee नहीं देते।\n\nInsurance products are subject to the terms, conditions, exclusions and underwriting guidelines of the respective insurance company. Mutual Fund investments are subject to market risks. Read all scheme-related documents carefully before investing.\n\nRSSAHU FINMART INDIA PVT LTD — AMFI Registered Mutual Fund Distributor, ARN-265309."
+     },
+     "variant": "columns",
+     "style": {
+      "bg": "surface",
+      "paddingY": "lg"
+     }
+    }
+   ]
+  },
+  {
+   "id": "panch-tattva",
+   "slug": "/panch-tattva",
+   "title": "Panch Tattva",
+   "visible": true,
+   "seo": {
+    "title": "Panch Tattva of Financial Security | RSSAHU FINMART",
+    "description": "पृथ्वी — Health, जल — Child Education, अग्नि — Income Protection, वायु — Retirement, आकाश — Wealth & Child Marriage planning.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "tattva-1",
+     "type": "ticker",
+     "visible": true,
+     "props": {
+      "speed": "static",
+      "items": [
+       {
+        "text": "AMFI Registered Mutual Fund Distributor · ARN-265309"
+       },
+       {
+        "text": "Mission 10,000 Families by 2030"
+       },
+       {
+        "text": "Call / WhatsApp 80550 73251",
+        "href": "tel:+918055073251"
+       }
+      ]
+     },
+     "variant": "dark"
+    },
+    {
+     "id": "tattva-2",
+     "type": "header",
+     "visible": true,
+     "props": {
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648740/rssahu-finmart/rssahu-logo.png",
+      "logoSize": "large",
+      "sticky": true,
+      "links": [
+       {
+        "text": "Home",
+        "href": "/"
+       },
+       {
+        "text": "Panch Tattva",
+        "href": "/panch-tattva"
+       },
+       {
+        "text": "Services",
+        "href": "/services"
+       },
+       {
+        "text": "Calculators",
+        "href": "/calculators"
+       },
+       {
+        "text": "Health Check-up",
+        "href": "/financial-health-checkup"
+       },
+       {
+        "text": "About",
+        "href": "/about"
+       },
+       {
+        "text": "Blog",
+        "href": "/blog"
+       },
+       {
+        "text": "Contact",
+        "href": "/contact"
+       }
+      ],
+      "cta": {
+       "text": "Free Consultation",
+       "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+       "style": "primary",
+       "newTab": true
+      }
+     },
+     "variant": "left",
+     "style": {
+      "bg": "default"
+     }
+    },
+    {
+     "id": "tattva-3",
+     "type": "hero",
+     "visible": true,
+     "props": {
+      "badge": "Panch Tattva of Financial Security",
+      "heading": "पृथ्वी • जल • अग्नि • वायु • आकाश",
+      "sub": "जैसे सृष्टि 5 तत्वों से बनी है, वैसे ही एक परिवार की Financial Security भी 5 महत्वपूर्ण स्तंभों पर आधारित है।",
+      "image": "https://images.pexels.com/photos/4996846/pexels-photo-4996846.jpeg?auto=compress&cs=tinysrgb&w=1920",
+      "ctaPrimary": {
+       "text": "Check My Financial Health",
+       "href": "/financial-health-checkup",
+       "style": "primary"
+      },
+      "ctaSecondary": {
+       "text": "Free Consultation",
+       "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+       "style": "ghost",
+       "newTab": true
+      }
+     },
+     "variant": "centered-bg",
+     "style": {
+      "paddingY": "xl",
+      "align": "center",
+      "overlay": 0.55
+     }
+    },
+    {
+     "id": "tattva-panch-tattva",
+     "type": "pillars",
+     "visible": true,
+     "props": {
+      "label": "Panch Tattva of Financial Security",
+      "heading": "पंच तत्व — परिवार की Financial Security के 5 स्तंभ",
+      "sub": "जैसे सृष्टि 5 तत्वों से बनी है, वैसे ही एक परिवार की Financial Security भी 5 महत्वपूर्ण स्तंभों पर आधारित है।",
+      "items": [
+       {
+        "symbol": "🌳",
+        "name": "पृथ्वी · Earth",
+        "title": "Family Protection",
+        "subtitle": "Health Insurance",
+        "tagline": "स्वस्थ परिवार ही सुखी परिवार की मजबूत नींव है।",
+        "text": "बढ़ते medical expenses के बीच अपने और अपने परिवार के लिए उचित Health Insurance Protection को समझना और plan करना।",
+        "focus": [
+         "Family Health Insurance",
+         "Individual Health Insurance",
+         "Senior Citizen",
+         "Super Top-Up"
+        ],
+        "image": "https://images.pexels.com/photos/14013575/pexels-photo-14013575.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "color": "#2E7D32",
+        "cta": {
+         "text": "Protect My Family",
+         "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%88%E0%A4%82%20%E0%A4%85%E0%A4%AA%E0%A4%A8%E0%A5%87%20%E0%A4%AA%E0%A4%B0%E0%A4%BF%E0%A4%B5%E0%A4%BE%E0%A4%B0%20%E0%A4%95%E0%A5%87%20Health%20Insurance%20%28Family%20Protection%29%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%A8%E0%A4%BE%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%A4%E0%A4%BE/%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A5%82%E0%A4%81%E0%A5%A4",
+         "style": "primary",
+         "newTab": true
+        }
+       },
+       {
+        "symbol": "💧",
+        "name": "जल · Water",
+        "title": "Child Education Fund",
+        "subtitle": "Child Education Planning",
+        "tagline": "शिक्षा के बिना सपने अधूरे, सही planning से भविष्य मजबूत।",
+        "text": "आज से planning करके बच्चों की Higher Education के लिए dedicated fund बनाने की दिशा में काम करना।",
+        "focus": [
+         "Child Education Goal",
+         "Higher Education",
+         "Long-Term Investment Planning"
+        ],
+        "image": "https://images.pexels.com/photos/10615852/pexels-photo-10615852.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "color": "#1565C0",
+        "cta": {
+         "text": "Plan My Child's Future",
+         "href": "/calculators?calc=goal#calculators",
+         "style": "primary"
+        }
+       },
+       {
+        "symbol": "🔥",
+        "name": "अग्नि · Fire",
+        "title": "Income Protection",
+        "subtitle": "Term / Life Insurance",
+        "tagline": "आपकी Income ही आपके परिवार की आर्थिक ऊर्जा है। इसे सुरक्षित रखना जरूरी है।",
+        "text": "Life Insurance और Term Insurance के माध्यम से परिवार के financial future को protection देने की planning।",
+        "focus": [
+         "Income Protection",
+         "Term Insurance",
+         "Life Protection"
+        ],
+        "image": "https://images.pexels.com/photos/10182772/pexels-photo-10182772.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "color": "#C2410C",
+        "cta": {
+         "text": "Protect My Income",
+         "href": "/calculators?calc=term#calculators",
+         "style": "primary"
+        }
+       },
+       {
+        "symbol": "🌬️",
+        "name": "वायु · Air",
+        "title": "Retirement Fund",
+        "subtitle": "Retirement Planning",
+        "tagline": "Retirement के बाद भी Financial Independence और सम्मानजनक जीवन।",
+        "text": "Working years में disciplined planning करके retirement corpus और post-retirement income की तैयारी।",
+        "focus": [
+         "Retirement Corpus",
+         "Pension Planning",
+         "Retirement Income"
+        ],
+        "image": "https://images.pexels.com/photos/216686/pexels-photo-216686.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "color": "#0E7490",
+        "cta": {
+         "text": "Plan My Retirement",
+         "href": "/calculators?calc=retirement#calculators",
+         "style": "primary"
+        }
+       },
+       {
+        "symbol": "🌌",
+        "name": "आकाश · Space",
+        "title": "Wealth & Child Marriage",
+        "subtitle": "Wealth Creation & Child Marriage Planning",
+        "tagline": "बड़े लक्ष्य, बड़ी जिम्मेदारियाँ और समृद्ध भविष्य के लिए Long-Term Planning।",
+        "text": "Child Marriage, wealth creation और अन्य long-term financial goals के लिए goal-based investment planning।",
+        "focus": [
+         "Wealth Creation",
+         "Child Marriage Fund",
+         "Goal-Based Planning",
+         "Long-Term Investment"
+        ],
+        "image": "https://images.pexels.com/photos/4996846/pexels-photo-4996846.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        "color": "#4338CA",
+        "cta": {
+         "text": "Plan My Wealth",
+         "href": "/calculators?calc=sip#calculators",
+         "style": "primary"
+        }
+       }
+      ]
+     },
+     "variant": "cards",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "default"
+     }
+    },
+    {
+     "id": "tattva-5",
+     "type": "steps",
+     "visible": true,
+     "props": {
+      "label": "Your Financial Journey",
+      "heading": "Protection से Wealth Creation तक — सही क्रम में",
+      "sub": "हमारे Financial Health Check-up में इन प्रमुख areas पर discussion किया जाता है।",
+      "items": [
+       {
+        "symbol": "🛡️",
+        "title": "Protection",
+        "text": "Health और Life Protection से परिवार की नींव मजबूत।",
+        "color": "#2E7D32"
+       },
+       {
+        "symbol": "📈",
+        "title": "Investment",
+        "text": "Goals और time horizon के अनुसार disciplined investment।",
+        "color": "#1565C0"
+       },
+       {
+        "symbol": "🎓",
+        "title": "Child Future",
+        "text": "Higher education और marriage goals की planning।",
+        "color": "#C2410C"
+       },
+       {
+        "symbol": "🌅",
+        "title": "Retirement",
+        "text": "Retirement के बाद भी financial independence।",
+        "color": "#0E7490"
+       },
+       {
+        "symbol": "💎",
+        "title": "Wealth Creation",
+        "text": "Long-term goal-based wealth creation।",
+        "color": "#4338CA"
+       }
+      ],
+      "cta": {
+       "text": "Check My Financial Health",
+       "href": "/financial-health-checkup",
+       "style": "primary"
+      }
+     },
+     "variant": "horizontal",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "surface"
+     }
+    },
+    {
+     "id": "tattva-calc",
+     "type": "calculators",
+     "visible": true,
+     "props": {
+      "label": "Financial Calculators",
+      "heading": "अपने Goals को Numbers में देखें",
+      "sub": "Slider खिसकाएँ, result तुरंत देखें — और एक click में WhatsApp पर Ramesh Ji से अपना plan discuss करें।",
+      "items": [
+       {
+        "type": "sip",
+        "title": "SIP Calculator",
+        "tag": "आकाश · Wealth",
+        "color": "#4338CA",
+        "returnRate": 12,
+        "note": "हर महीने की छोटी SIP लंबे समय में कितनी बड़ी बन सकती है — slider बदलकर देखें।"
+       },
+       {
+        "type": "goal",
+        "title": "Child Education Goal",
+        "tag": "जल · Education",
+        "color": "#1565C0",
+        "returnRate": 12,
+        "note": "आज की education cost, inflation के साथ भविष्य में कितनी होगी — और उसके लिए कितनी monthly SIP चाहिए।"
+       },
+       {
+        "type": "term",
+        "title": "Term Cover",
+        "tag": "अग्नि · Income",
+        "color": "#C2410C",
+        "note": "Income replacement के आधार पर यह एक simple estimate है कि परिवार की सुरक्षा के लिए कितना life cover सोचना चाहिए।"
+       },
+       {
+        "type": "retirement",
+        "title": "Retirement Planner",
+        "tag": "वायु · Retirement",
+        "color": "#0E7490",
+        "returnRate": 12,
+        "note": "Retirement के बाद आज जैसी lifestyle के लिए कितना corpus चाहिए और उसके लिए कितनी SIP।"
+       },
+       {
+        "type": "lumpsum",
+        "title": "Lumpsum",
+        "tag": "Investment",
+        "color": "#2E7D32",
+        "returnRate": 12,
+        "note": "एक बार के investment का long-term में अनुमानित value।"
+       }
+      ],
+      "showWhatsapp": true,
+      "ctaText": "WhatsApp पर यह plan discuss करें",
+      "disclaimer": "ये calculations आपकी दी गई assumptions पर आधारित illustration हैं, returns की guarantee नहीं। Mutual Fund investments are subject to market risks; read all scheme-related documents carefully. Insurance cover की सही राशि आपकी individual जरूरतों और insurer के underwriting पर निर्भर करती है।"
+     },
+     "variant": "tabs",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "default"
+     }
+    },
+    {
+     "id": "tattva-7",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Let's Plan Your Financial Future Together",
+      "sub": "“हम Insurance नहीं बेचते, हम परिवार की Financial Security की Planning करते हैं।” — Free Financial Consultation के लिए आज ही संपर्क करें।",
+      "ctaPrimary": {
+       "text": "📲 WhatsApp Now",
+       "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+       "style": "secondary",
+       "newTab": true
+      },
+      "ctaSecondary": {
+       "text": "📞 Call Now",
+       "href": "tel:+918055073251",
+       "style": "ghost"
+      }
+     },
+     "variant": "banner",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "primary"
+     }
+    },
+    {
+     "id": "tattva-8",
+     "type": "footer",
+     "visible": true,
+     "props": {
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648740/rssahu-finmart/rssahu-logo.png",
+      "blurb": "Financial Doctor | Financial Guardian. “आपका विश्वास… हमारी जिम्मेदारी…” 🙏 Health Protection | Life Protection | Wealth Creation | Child Future | Retirement Planning.",
+      "showSocial": true,
+      "showContact": true,
+      "showHours": true,
+      "columns": [
+       {
+        "title": "Explore",
+        "links": [
+         {
+          "text": "Panch Tattva",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "Services",
+          "href": "/services"
+         },
+         {
+          "text": "Calculators",
+          "href": "/calculators"
+         },
+         {
+          "text": "Health Check-up",
+          "href": "/financial-health-checkup"
+         },
+         {
+          "text": "About",
+          "href": "/about"
+         },
+         {
+          "text": "Blog",
+          "href": "/blog"
+         },
+         {
+          "text": "Contact",
+          "href": "/contact"
+         }
+        ]
+       },
+       {
+        "title": "Panch Tattva",
+        "links": [
+         {
+          "text": "🌳 Health Protection",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "💧 Child Education",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "🔥 Income Protection",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "🌬️ Retirement",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "🌌 Wealth & Child Marriage",
+          "href": "/panch-tattva"
+         }
+        ]
+       },
+       {
+        "title": "Ramesh S. Sahu",
+        "links": [
+         {
+          "text": "Founder & CMD",
+          "href": "/about"
+         },
+         {
+          "text": "WhatsApp 80550 73251",
+          "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4"
+         },
+         {
+          "text": "Mission Dil Se Dil Tak",
+          "href": "/about#mission"
+         },
+         {
+          "text": "Give Feedback on Google",
+          "href": "https://g.page/r/CcnKPg0n-_KREAE/review"
+         }
+        ]
+       }
+      ],
+      "disclaimer": "AMFI Registered Mutual Fund Distributor | ARN-265309\n\nInsurance: Insurance products are subject to the terms, conditions, exclusions and underwriting guidelines of the respective insurance company.\n\nMutual Funds: Mutual Fund investments are subject to market risks. Read all scheme-related documents carefully before investing.\n\nWebsite पर दी गई जानकारी general awareness और educational purposes के लिए है; final recommendation customer की individual requirements और applicable product/provider terms पर आधारित होगी।",
+      "copyright": "© 2026 RSSAHU FINMART INDIA PVT LTD · Mission Dil Se Dil Tak · Mission 10,000 Families",
+      "showBranding": true,
+      "showLegal": true,
+      "privacyBody": "RSSAHU FINMART INDIA PVT LTD आपकी privacy का सम्मान करता है।\n\nहम कौन-सी जानकारी लेते हैं: जब आप website के form, WhatsApp या call के माध्यम से संपर्क करते हैं, तो आपकी दी गई जानकारी जैसे Name, Mobile Number, Email और आपका message।\n\nउपयोग: इस जानकारी का उपयोग केवल आपसे संपर्क करने, आपकी financial planning / insurance / investment संबंधी query का जवाब देने और requested services प्रदान करने के लिए किया जाता है।\n\nSharing: आपकी जानकारी बेची नहीं जाती। आपकी request पर service देने के लिए आवश्यक होने पर इसे संबंधित insurance company / AMC / service provider के साथ share किया जा सकता है, या कानून द्वारा आवश्यक होने पर।\n\nSecurity और आपके अधिकार: जानकारी को सुरक्षित रखने के उचित उपाय किए जाते हैं। अपनी जानकारी देखने, सुधारने या हटाने के लिए 80550 73251 पर संपर्क करें।\n\nCustomer द्वारा website पर दी गई personal information को privacy और applicable laws के अनुसार handle किया जाएगा।",
+      "termsBody": "Website पर उपलब्ध information general information के लिए है।\n\nProduct terms, conditions, eligibility, underwriting, exclusions, taxation और returns संबंधित provider/product documents के अनुसार होंगे।\n\nWebsite के calculators illustration के लिए हैं; ये किसी return या cover की guarantee नहीं देते।\n\nInsurance products are subject to the terms, conditions, exclusions and underwriting guidelines of the respective insurance company. Mutual Fund investments are subject to market risks. Read all scheme-related documents carefully before investing.\n\nRSSAHU FINMART INDIA PVT LTD — AMFI Registered Mutual Fund Distributor, ARN-265309."
+     },
+     "variant": "columns",
+     "style": {
+      "bg": "surface",
+      "paddingY": "lg"
+     }
+    }
+   ]
+  },
+  {
+   "id": "services",
+   "slug": "/services",
+   "title": "Services",
+   "visible": true,
+   "seo": {
+    "title": "Services — Health, Life, Term Insurance, Mutual Funds & Planning | RSS",
+    "description": "20 financial solutions: health insurance, term & life insurance, mutual fund SIP, child education & marriage planning, retirement and GST & Income Tax services.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "services-1",
+     "type": "ticker",
+     "visible": true,
+     "props": {
+      "speed": "static",
+      "items": [
+       {
+        "text": "AMFI Registered Mutual Fund Distributor · ARN-265309"
+       },
+       {
+        "text": "Mission 10,000 Families by 2030"
+       },
+       {
+        "text": "Call / WhatsApp 80550 73251",
+        "href": "tel:+918055073251"
+       }
+      ]
+     },
+     "variant": "dark"
+    },
+    {
+     "id": "services-2",
+     "type": "header",
+     "visible": true,
+     "props": {
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648740/rssahu-finmart/rssahu-logo.png",
+      "logoSize": "large",
+      "sticky": true,
+      "links": [
+       {
+        "text": "Home",
+        "href": "/"
+       },
+       {
+        "text": "Panch Tattva",
+        "href": "/panch-tattva"
+       },
+       {
+        "text": "Services",
+        "href": "/services"
+       },
+       {
+        "text": "Calculators",
+        "href": "/calculators"
+       },
+       {
+        "text": "Health Check-up",
+        "href": "/financial-health-checkup"
+       },
+       {
+        "text": "About",
+        "href": "/about"
+       },
+       {
+        "text": "Blog",
+        "href": "/blog"
+       },
+       {
+        "text": "Contact",
+        "href": "/contact"
+       }
+      ],
+      "cta": {
+       "text": "Free Consultation",
+       "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+       "style": "primary",
+       "newTab": true
+      }
+     },
+     "variant": "left",
+     "style": {
+      "bg": "default"
+     }
+    },
+    {
+     "id": "services-3",
+     "type": "hero",
+     "visible": true,
+     "props": {
+      "badge": "Our Services",
+      "heading": "Protection, Investment और Planning — एक भरोसेमंद साथी",
+      "sub": "Health Insurance, Life & Term Insurance, Mutual Funds, Child Education, Child Marriage, Retirement और Wealth Creation — आपकी जरूरत के अनुसार guidance।",
+      "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648741/rssahu-finmart/rssahu-p08.jpg",
+      "imageRatio": "portrait",
+      "ctaPrimary": {
+       "text": "Get Free Consultation",
+       "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+       "style": "primary",
+       "newTab": true
+      }
+     },
+     "variant": "split",
+     "style": {
+      "paddingY": "lg",
+      "align": "left",
+      "bg": "surface"
+     }
+    },
+    {
+     "id": "services-services",
+     "type": "features",
+     "visible": true,
+     "props": {
+      "label": "Our Services",
+      "heading": "हमारी Services",
+      "sub": "Protection, investment और planning — परिवार की हर financial जरूरत एक जगह।",
+      "items": [
+       {
+        "icon": "heart",
+        "title": "Health Insurance",
+        "text": "Family और individual health protection solutions."
+       },
+       {
+        "icon": "umbrella",
+        "title": "Life Insurance",
+        "text": "परिवार के financial future के लिए life protection."
+       },
+       {
+        "icon": "shield",
+        "title": "Term Insurance",
+        "text": "Income replacement और family financial protection की planning."
+       },
+       {
+        "icon": "trending",
+        "title": "Mutual Funds",
+        "text": "Long-term wealth creation के लिए systematic investment solutions."
+       },
+       {
+        "icon": "target",
+        "title": "Investment Planning",
+        "text": "आपके goals और time horizon के अनुसार goal-based planning."
+       },
+       {
+        "icon": "clock",
+        "title": "Retirement Planning",
+        "text": "Retirement corpus और post-retirement financial independence की planning."
+       },
+       {
+        "icon": "graduation",
+        "title": "Child Future Planning",
+        "text": "बच्चों की higher education और future goals के लिए planning."
+       },
+       {
+        "icon": "rings",
+        "title": "Child Marriage Planning",
+        "text": "बच्चों के marriage goal के लिए long-term financial planning."
+       },
+       {
+        "icon": "stethoscope",
+        "title": "Financial Health Check-up",
+        "text": "आपकी current financial स्थिति, protection और goals का review."
+       },
+       {
+        "icon": "calculator",
+        "title": "Goal-Based Financial Planning",
+        "text": "Education, marriage, retirement और wealth creation जैसे goals के लिए structured planning."
+       },
+       {
+        "icon": "receipt",
+        "title": "GST & Income Tax Services",
+        "text": "GST और Income Tax related professional services."
+       }
+      ]
+     },
+     "variant": "cards",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "default"
+     }
+    },
+    {
+     "id": "solutions",
+     "type": "services",
+     "visible": true,
+     "props": {
+      "label": "Financial Solutions",
+      "heading": "Don't Buy First. Understand Your Need First.",
+      "sub": "पहले आपकी जरूरत समझते हैं, फिर सही solution बताते हैं। किसी भी solution के बारे में WhatsApp पर जानें।",
+      "items": [
+       {
+        "title": "01. Family Health Insurance",
+        "cta": {
+         "text": "जानकारी लें →",
+         "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%22Family%20Health%20Insurance%22%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+         "style": "link",
+         "newTab": true
+        }
+       },
+       {
+        "title": "02. Individual Health Insurance",
+        "cta": {
+         "text": "जानकारी लें →",
+         "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%22Individual%20Health%20Insurance%22%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+         "style": "link",
+         "newTab": true
+        }
+       },
+       {
+        "title": "03. Senior Citizen Health Insurance",
+        "cta": {
+         "text": "जानकारी लें →",
+         "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%22Senior%20Citizen%20Health%20Insurance%22%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+         "style": "link",
+         "newTab": true
+        }
+       },
+       {
+        "title": "04. Super Top-Up Health Insurance",
+        "cta": {
+         "text": "जानकारी लें →",
+         "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%22Super%20Top-Up%20Health%20Insurance%22%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+         "style": "link",
+         "newTab": true
+        }
+       },
+       {
+        "title": "05. Personal Accident Protection",
+        "cta": {
+         "text": "जानकारी लें →",
+         "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%22Personal%20Accident%20Protection%22%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+         "style": "link",
+         "newTab": true
+        }
+       },
+       {
+        "title": "06. Critical Illness Protection",
+        "cta": {
+         "text": "जानकारी लें →",
+         "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%22Critical%20Illness%20Protection%22%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+         "style": "link",
+         "newTab": true
+        }
+       },
+       {
+        "title": "07. Term Insurance",
+        "cta": {
+         "text": "जानकारी लें →",
+         "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%22Term%20Insurance%22%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+         "style": "link",
+         "newTab": true
+        }
+       },
+       {
+        "title": "08. Life Insurance",
+        "cta": {
+         "text": "जानकारी लें →",
+         "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%22Life%20Insurance%22%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+         "style": "link",
+         "newTab": true
+        }
+       },
+       {
+        "title": "09. Child Education Fund Planning",
+        "cta": {
+         "text": "जानकारी लें →",
+         "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%22Child%20Education%20Fund%20Planning%22%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+         "style": "link",
+         "newTab": true
+        }
+       },
+       {
+        "title": "10. Child Future Planning",
+        "cta": {
+         "text": "जानकारी लें →",
+         "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%22Child%20Future%20Planning%22%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+         "style": "link",
+         "newTab": true
+        }
+       },
+       {
+        "title": "11. Child Marriage Fund Planning",
+        "cta": {
+         "text": "जानकारी लें →",
+         "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%22Child%20Marriage%20Fund%20Planning%22%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+         "style": "link",
+         "newTab": true
+        }
+       },
+       {
+        "title": "12. Retirement Fund Planning",
+        "cta": {
+         "text": "जानकारी लें →",
+         "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%22Retirement%20Fund%20Planning%22%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+         "style": "link",
+         "newTab": true
+        }
+       },
+       {
+        "title": "13. Pension Planning",
+        "cta": {
+         "text": "जानकारी लें →",
+         "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%22Pension%20Planning%22%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+         "style": "link",
+         "newTab": true
+        }
+       },
+       {
+        "title": "14. Mutual Fund SIP",
+        "cta": {
+         "text": "जानकारी लें →",
+         "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%22Mutual%20Fund%20SIP%22%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+         "style": "link",
+         "newTab": true
+        }
+       },
+       {
+        "title": "15. Lumpsum Investment Planning",
+        "cta": {
+         "text": "जानकारी लें →",
+         "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%22Lumpsum%20Investment%20Planning%22%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+         "style": "link",
+         "newTab": true
+        }
+       },
+       {
+        "title": "16. Wealth Creation Planning",
+        "cta": {
+         "text": "जानकारी लें →",
+         "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%22Wealth%20Creation%20Planning%22%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+         "style": "link",
+         "newTab": true
+        }
+       },
+       {
+        "title": "17. Goal-Based Investment Planning",
+        "cta": {
+         "text": "जानकारी लें →",
+         "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%22Goal-Based%20Investment%20Planning%22%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+         "style": "link",
+         "newTab": true
+        }
+       },
+       {
+        "title": "18. Financial Health Check-up",
+        "cta": {
+         "text": "जानकारी लें →",
+         "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%22Financial%20Health%20Check-up%22%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+         "style": "link",
+         "newTab": true
+        }
+       },
+       {
+        "title": "19. Retirement Readiness Check-up",
+        "cta": {
+         "text": "जानकारी लें →",
+         "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%22Retirement%20Readiness%20Check-up%22%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+         "style": "link",
+         "newTab": true
+        }
+       },
+       {
+        "title": "20. Complete Family Financial Protection Planning",
+        "cta": {
+         "text": "जानकारी लें →",
+         "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20%22Complete%20Family%20Financial%20Protection%20Planning%22%20%E0%A4%95%E0%A5%87%20%E0%A4%AC%E0%A4%BE%E0%A4%B0%E0%A5%87%20%E0%A4%AE%E0%A5%87%E0%A4%82%20%E0%A4%9C%E0%A4%BE%E0%A4%A8%E0%A4%95%E0%A4%BE%E0%A4%B0%E0%A5%80%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+         "style": "link",
+         "newTab": true
+        }
+       }
+      ]
+     },
+     "variant": "cards-4",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "surface"
+     }
+    },
+    {
+     "id": "services-calc",
+     "type": "calculators",
+     "visible": true,
+     "props": {
+      "label": "Financial Calculators",
+      "heading": "Calculators से अपनी जरूरत समझें",
+      "sub": "Slider खिसकाएँ, result तुरंत देखें — और एक click में WhatsApp पर Ramesh Ji से अपना plan discuss करें।",
+      "items": [
+       {
+        "type": "sip",
+        "title": "SIP Calculator",
+        "tag": "आकाश · Wealth",
+        "color": "#4338CA",
+        "returnRate": 12,
+        "note": "हर महीने की छोटी SIP लंबे समय में कितनी बड़ी बन सकती है — slider बदलकर देखें।"
+       },
+       {
+        "type": "goal",
+        "title": "Child Education Goal",
+        "tag": "जल · Education",
+        "color": "#1565C0",
+        "returnRate": 12,
+        "note": "आज की education cost, inflation के साथ भविष्य में कितनी होगी — और उसके लिए कितनी monthly SIP चाहिए।"
+       },
+       {
+        "type": "term",
+        "title": "Term Cover",
+        "tag": "अग्नि · Income",
+        "color": "#C2410C",
+        "note": "Income replacement के आधार पर यह एक simple estimate है कि परिवार की सुरक्षा के लिए कितना life cover सोचना चाहिए।"
+       },
+       {
+        "type": "retirement",
+        "title": "Retirement Planner",
+        "tag": "वायु · Retirement",
+        "color": "#0E7490",
+        "returnRate": 12,
+        "note": "Retirement के बाद आज जैसी lifestyle के लिए कितना corpus चाहिए और उसके लिए कितनी SIP।"
+       },
+       {
+        "type": "lumpsum",
+        "title": "Lumpsum",
+        "tag": "Investment",
+        "color": "#2E7D32",
+        "returnRate": 12,
+        "note": "एक बार के investment का long-term में अनुमानित value।"
+       }
+      ],
+      "showWhatsapp": true,
+      "ctaText": "WhatsApp पर यह plan discuss करें",
+      "disclaimer": "ये calculations आपकी दी गई assumptions पर आधारित illustration हैं, returns की guarantee नहीं। Mutual Fund investments are subject to market risks; read all scheme-related documents carefully. Insurance cover की सही राशि आपकी individual जरूरतों और insurer के underwriting पर निर्भर करती है।"
+     },
+     "variant": "tabs",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "default"
+     }
+    },
+    {
+     "id": "services-7",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Let's Plan Your Financial Future Together",
+      "sub": "“हम Insurance नहीं बेचते, हम परिवार की Financial Security की Planning करते हैं।” — Free Financial Consultation के लिए आज ही संपर्क करें।",
+      "ctaPrimary": {
+       "text": "📲 WhatsApp Now",
+       "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+       "style": "secondary",
+       "newTab": true
+      },
+      "ctaSecondary": {
+       "text": "📞 Call Now",
+       "href": "tel:+918055073251",
+       "style": "ghost"
+      }
+     },
+     "variant": "banner",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "primary"
+     }
+    },
+    {
+     "id": "services-8",
+     "type": "footer",
+     "visible": true,
+     "props": {
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648740/rssahu-finmart/rssahu-logo.png",
+      "blurb": "Financial Doctor | Financial Guardian. “आपका विश्वास… हमारी जिम्मेदारी…” 🙏 Health Protection | Life Protection | Wealth Creation | Child Future | Retirement Planning.",
+      "showSocial": true,
+      "showContact": true,
+      "showHours": true,
+      "columns": [
+       {
+        "title": "Explore",
+        "links": [
+         {
+          "text": "Panch Tattva",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "Services",
+          "href": "/services"
+         },
+         {
+          "text": "Calculators",
+          "href": "/calculators"
+         },
+         {
+          "text": "Health Check-up",
+          "href": "/financial-health-checkup"
+         },
+         {
+          "text": "About",
+          "href": "/about"
+         },
+         {
+          "text": "Blog",
+          "href": "/blog"
+         },
+         {
+          "text": "Contact",
+          "href": "/contact"
+         }
+        ]
+       },
+       {
+        "title": "Panch Tattva",
+        "links": [
+         {
+          "text": "🌳 Health Protection",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "💧 Child Education",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "🔥 Income Protection",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "🌬️ Retirement",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "🌌 Wealth & Child Marriage",
+          "href": "/panch-tattva"
+         }
+        ]
+       },
+       {
+        "title": "Ramesh S. Sahu",
+        "links": [
+         {
+          "text": "Founder & CMD",
+          "href": "/about"
+         },
+         {
+          "text": "WhatsApp 80550 73251",
+          "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4"
+         },
+         {
+          "text": "Mission Dil Se Dil Tak",
+          "href": "/about#mission"
+         },
+         {
+          "text": "Give Feedback on Google",
+          "href": "https://g.page/r/CcnKPg0n-_KREAE/review"
+         }
+        ]
+       }
+      ],
+      "disclaimer": "AMFI Registered Mutual Fund Distributor | ARN-265309\n\nInsurance: Insurance products are subject to the terms, conditions, exclusions and underwriting guidelines of the respective insurance company.\n\nMutual Funds: Mutual Fund investments are subject to market risks. Read all scheme-related documents carefully before investing.\n\nWebsite पर दी गई जानकारी general awareness और educational purposes के लिए है; final recommendation customer की individual requirements और applicable product/provider terms पर आधारित होगी।",
+      "copyright": "© 2026 RSSAHU FINMART INDIA PVT LTD · Mission Dil Se Dil Tak · Mission 10,000 Families",
+      "showBranding": true,
+      "showLegal": true,
+      "privacyBody": "RSSAHU FINMART INDIA PVT LTD आपकी privacy का सम्मान करता है।\n\nहम कौन-सी जानकारी लेते हैं: जब आप website के form, WhatsApp या call के माध्यम से संपर्क करते हैं, तो आपकी दी गई जानकारी जैसे Name, Mobile Number, Email और आपका message।\n\nउपयोग: इस जानकारी का उपयोग केवल आपसे संपर्क करने, आपकी financial planning / insurance / investment संबंधी query का जवाब देने और requested services प्रदान करने के लिए किया जाता है।\n\nSharing: आपकी जानकारी बेची नहीं जाती। आपकी request पर service देने के लिए आवश्यक होने पर इसे संबंधित insurance company / AMC / service provider के साथ share किया जा सकता है, या कानून द्वारा आवश्यक होने पर।\n\nSecurity और आपके अधिकार: जानकारी को सुरक्षित रखने के उचित उपाय किए जाते हैं। अपनी जानकारी देखने, सुधारने या हटाने के लिए 80550 73251 पर संपर्क करें।\n\nCustomer द्वारा website पर दी गई personal information को privacy और applicable laws के अनुसार handle किया जाएगा।",
+      "termsBody": "Website पर उपलब्ध information general information के लिए है।\n\nProduct terms, conditions, eligibility, underwriting, exclusions, taxation और returns संबंधित provider/product documents के अनुसार होंगे।\n\nWebsite के calculators illustration के लिए हैं; ये किसी return या cover की guarantee नहीं देते।\n\nInsurance products are subject to the terms, conditions, exclusions and underwriting guidelines of the respective insurance company. Mutual Fund investments are subject to market risks. Read all scheme-related documents carefully before investing.\n\nRSSAHU FINMART INDIA PVT LTD — AMFI Registered Mutual Fund Distributor, ARN-265309."
+     },
+     "variant": "columns",
+     "style": {
+      "bg": "surface",
+      "paddingY": "lg"
+     }
+    }
+   ]
+  },
+  {
+   "id": "calculators",
+   "slug": "/calculators",
+   "title": "Calculators",
+   "visible": true,
+   "seo": {
+    "title": "SIP, Retirement, Child Education & Term Cover Calculators | RSSAHU FIN",
+    "description": "Free SIP, lumpsum, child education goal, child marriage goal, retirement corpus and term insurance cover calculators.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "calc-1",
+     "type": "ticker",
+     "visible": true,
+     "props": {
+      "speed": "static",
+      "items": [
+       {
+        "text": "AMFI Registered Mutual Fund Distributor · ARN-265309"
+       },
+       {
+        "text": "Mission 10,000 Families by 2030"
+       },
+       {
+        "text": "Call / WhatsApp 80550 73251",
+        "href": "tel:+918055073251"
+       }
+      ]
+     },
+     "variant": "dark"
+    },
+    {
+     "id": "calc-2",
+     "type": "header",
+     "visible": true,
+     "props": {
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648740/rssahu-finmart/rssahu-logo.png",
+      "logoSize": "large",
+      "sticky": true,
+      "links": [
+       {
+        "text": "Home",
+        "href": "/"
+       },
+       {
+        "text": "Panch Tattva",
+        "href": "/panch-tattva"
+       },
+       {
+        "text": "Services",
+        "href": "/services"
+       },
+       {
+        "text": "Calculators",
+        "href": "/calculators"
+       },
+       {
+        "text": "Health Check-up",
+        "href": "/financial-health-checkup"
+       },
+       {
+        "text": "About",
+        "href": "/about"
+       },
+       {
+        "text": "Blog",
+        "href": "/blog"
+       },
+       {
+        "text": "Contact",
+        "href": "/contact"
+       }
+      ],
+      "cta": {
+       "text": "Free Consultation",
+       "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+       "style": "primary",
+       "newTab": true
+      }
+     },
+     "variant": "left",
+     "style": {
+      "bg": "default"
+     }
+    },
+    {
+     "id": "calculators",
+     "type": "calculators",
+     "visible": true,
+     "props": {
+      "label": "Financial Calculators",
+      "heading": "Financial Calculators",
+      "sub": "Slider खिसकाएँ, result तुरंत देखें — और एक click में WhatsApp पर Ramesh Ji से अपना plan discuss करें।",
+      "items": [
+       {
+        "type": "sip",
+        "title": "SIP Calculator",
+        "tag": "आकाश · Wealth",
+        "color": "#4338CA",
+        "returnRate": 12,
+        "note": "हर महीने की छोटी SIP लंबे समय में कितनी बड़ी बन सकती है — slider बदलकर देखें।"
+       },
+       {
+        "type": "goal",
+        "title": "Child Education Goal",
+        "tag": "जल · Education",
+        "color": "#1565C0",
+        "returnRate": 12,
+        "note": "आज की education cost, inflation के साथ भविष्य में कितनी होगी — और उसके लिए कितनी monthly SIP चाहिए।"
+       },
+       {
+        "type": "term",
+        "title": "Term Cover",
+        "tag": "अग्नि · Income",
+        "color": "#C2410C",
+        "note": "Income replacement के आधार पर यह एक simple estimate है कि परिवार की सुरक्षा के लिए कितना life cover सोचना चाहिए।"
+       },
+       {
+        "type": "retirement",
+        "title": "Retirement Planner",
+        "tag": "वायु · Retirement",
+        "color": "#0E7490",
+        "returnRate": 12,
+        "note": "Retirement के बाद आज जैसी lifestyle के लिए कितना corpus चाहिए और उसके लिए कितनी SIP।"
+       },
+       {
+        "type": "lumpsum",
+        "title": "Lumpsum",
+        "tag": "Investment",
+        "color": "#2E7D32",
+        "returnRate": 12,
+        "note": "एक बार के investment का long-term में अनुमानित value।"
+       },
+       {
+        "type": "goal",
+        "title": "Child Marriage Goal",
+        "tag": "आकाश · Marriage",
+        "color": "#7C3AED",
+        "returnRate": 12,
+        "note": "बेटी / बेटे की शादी के लक्ष्य के लिए आज से planning — inflation के साथ future cost और monthly SIP।"
+       }
+      ],
+      "showWhatsapp": true,
+      "ctaText": "WhatsApp पर यह plan discuss करें",
+      "disclaimer": "ये calculations आपकी दी गई assumptions पर आधारित illustration हैं, returns की guarantee नहीं। Mutual Fund investments are subject to market risks; read all scheme-related documents carefully. Insurance cover की सही राशि आपकी individual जरूरतों और insurer के underwriting पर निर्भर करती है।"
+     },
+     "variant": "tabs",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "surface"
+     }
+    },
+    {
+     "id": "calc-4",
+     "type": "steps",
+     "visible": true,
+     "props": {
+      "label": "Your Financial Journey",
+      "heading": "Protection से Wealth Creation तक — सही क्रम में",
+      "sub": "हमारे Financial Health Check-up में इन प्रमुख areas पर discussion किया जाता है।",
+      "items": [
+       {
+        "symbol": "🛡️",
+        "title": "Protection",
+        "text": "Health और Life Protection से परिवार की नींव मजबूत।",
+        "color": "#2E7D32"
+       },
+       {
+        "symbol": "📈",
+        "title": "Investment",
+        "text": "Goals और time horizon के अनुसार disciplined investment।",
+        "color": "#1565C0"
+       },
+       {
+        "symbol": "🎓",
+        "title": "Child Future",
+        "text": "Higher education और marriage goals की planning।",
+        "color": "#C2410C"
+       },
+       {
+        "symbol": "🌅",
+        "title": "Retirement",
+        "text": "Retirement के बाद भी financial independence।",
+        "color": "#0E7490"
+       },
+       {
+        "symbol": "💎",
+        "title": "Wealth Creation",
+        "text": "Long-term goal-based wealth creation।",
+        "color": "#4338CA"
+       }
+      ],
+      "cta": {
+       "text": "Check My Financial Health",
+       "href": "/financial-health-checkup",
+       "style": "primary"
+      }
+     },
+     "variant": "horizontal",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "default"
+     }
+    },
+    {
+     "id": "calc-5",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Let's Plan Your Financial Future Together",
+      "sub": "“हम Insurance नहीं बेचते, हम परिवार की Financial Security की Planning करते हैं।” — Free Financial Consultation के लिए आज ही संपर्क करें।",
+      "ctaPrimary": {
+       "text": "📲 WhatsApp Now",
+       "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+       "style": "secondary",
+       "newTab": true
+      },
+      "ctaSecondary": {
+       "text": "📞 Call Now",
+       "href": "tel:+918055073251",
+       "style": "ghost"
+      }
+     },
+     "variant": "banner",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "primary"
+     }
+    },
+    {
+     "id": "calc-6",
+     "type": "footer",
+     "visible": true,
+     "props": {
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648740/rssahu-finmart/rssahu-logo.png",
+      "blurb": "Financial Doctor | Financial Guardian. “आपका विश्वास… हमारी जिम्मेदारी…” 🙏 Health Protection | Life Protection | Wealth Creation | Child Future | Retirement Planning.",
+      "showSocial": true,
+      "showContact": true,
+      "showHours": true,
+      "columns": [
+       {
+        "title": "Explore",
+        "links": [
+         {
+          "text": "Panch Tattva",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "Services",
+          "href": "/services"
+         },
+         {
+          "text": "Calculators",
+          "href": "/calculators"
+         },
+         {
+          "text": "Health Check-up",
+          "href": "/financial-health-checkup"
+         },
+         {
+          "text": "About",
+          "href": "/about"
+         },
+         {
+          "text": "Blog",
+          "href": "/blog"
+         },
+         {
+          "text": "Contact",
+          "href": "/contact"
+         }
+        ]
+       },
+       {
+        "title": "Panch Tattva",
+        "links": [
+         {
+          "text": "🌳 Health Protection",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "💧 Child Education",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "🔥 Income Protection",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "🌬️ Retirement",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "🌌 Wealth & Child Marriage",
+          "href": "/panch-tattva"
+         }
+        ]
+       },
+       {
+        "title": "Ramesh S. Sahu",
+        "links": [
+         {
+          "text": "Founder & CMD",
+          "href": "/about"
+         },
+         {
+          "text": "WhatsApp 80550 73251",
+          "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4"
+         },
+         {
+          "text": "Mission Dil Se Dil Tak",
+          "href": "/about#mission"
+         },
+         {
+          "text": "Give Feedback on Google",
+          "href": "https://g.page/r/CcnKPg0n-_KREAE/review"
+         }
+        ]
+       }
+      ],
+      "disclaimer": "AMFI Registered Mutual Fund Distributor | ARN-265309\n\nInsurance: Insurance products are subject to the terms, conditions, exclusions and underwriting guidelines of the respective insurance company.\n\nMutual Funds: Mutual Fund investments are subject to market risks. Read all scheme-related documents carefully before investing.\n\nWebsite पर दी गई जानकारी general awareness और educational purposes के लिए है; final recommendation customer की individual requirements और applicable product/provider terms पर आधारित होगी।",
+      "copyright": "© 2026 RSSAHU FINMART INDIA PVT LTD · Mission Dil Se Dil Tak · Mission 10,000 Families",
+      "showBranding": true,
+      "showLegal": true,
+      "privacyBody": "RSSAHU FINMART INDIA PVT LTD आपकी privacy का सम्मान करता है।\n\nहम कौन-सी जानकारी लेते हैं: जब आप website के form, WhatsApp या call के माध्यम से संपर्क करते हैं, तो आपकी दी गई जानकारी जैसे Name, Mobile Number, Email और आपका message।\n\nउपयोग: इस जानकारी का उपयोग केवल आपसे संपर्क करने, आपकी financial planning / insurance / investment संबंधी query का जवाब देने और requested services प्रदान करने के लिए किया जाता है।\n\nSharing: आपकी जानकारी बेची नहीं जाती। आपकी request पर service देने के लिए आवश्यक होने पर इसे संबंधित insurance company / AMC / service provider के साथ share किया जा सकता है, या कानून द्वारा आवश्यक होने पर।\n\nSecurity और आपके अधिकार: जानकारी को सुरक्षित रखने के उचित उपाय किए जाते हैं। अपनी जानकारी देखने, सुधारने या हटाने के लिए 80550 73251 पर संपर्क करें।\n\nCustomer द्वारा website पर दी गई personal information को privacy और applicable laws के अनुसार handle किया जाएगा।",
+      "termsBody": "Website पर उपलब्ध information general information के लिए है।\n\nProduct terms, conditions, eligibility, underwriting, exclusions, taxation और returns संबंधित provider/product documents के अनुसार होंगे।\n\nWebsite के calculators illustration के लिए हैं; ये किसी return या cover की guarantee नहीं देते।\n\nInsurance products are subject to the terms, conditions, exclusions and underwriting guidelines of the respective insurance company. Mutual Fund investments are subject to market risks. Read all scheme-related documents carefully before investing.\n\nRSSAHU FINMART INDIA PVT LTD — AMFI Registered Mutual Fund Distributor, ARN-265309."
+     },
+     "variant": "columns",
+     "style": {
+      "bg": "surface",
+      "paddingY": "lg"
+     }
+    }
+   ]
+  },
+  {
+   "id": "financial-health-checkup",
+   "slug": "/financial-health-checkup",
+   "title": "Health Check-up",
+   "visible": true,
+   "seo": {
+    "title": "Free Financial Health Check-up | RSSAHU FINMART",
+    "description": "Answer 6 questions and see your financial health score — protection, child future, retirement and wealth creation.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "checkup-1",
+     "type": "ticker",
+     "visible": true,
+     "props": {
+      "speed": "static",
+      "items": [
+       {
+        "text": "AMFI Registered Mutual Fund Distributor · ARN-265309"
+       },
+       {
+        "text": "Mission 10,000 Families by 2030"
+       },
+       {
+        "text": "Call / WhatsApp 80550 73251",
+        "href": "tel:+918055073251"
+       }
+      ]
+     },
+     "variant": "dark"
+    },
+    {
+     "id": "checkup-2",
+     "type": "header",
+     "visible": true,
+     "props": {
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648740/rssahu-finmart/rssahu-logo.png",
+      "logoSize": "large",
+      "sticky": true,
+      "links": [
+       {
+        "text": "Home",
+        "href": "/"
+       },
+       {
+        "text": "Panch Tattva",
+        "href": "/panch-tattva"
+       },
+       {
+        "text": "Services",
+        "href": "/services"
+       },
+       {
+        "text": "Calculators",
+        "href": "/calculators"
+       },
+       {
+        "text": "Health Check-up",
+        "href": "/financial-health-checkup"
+       },
+       {
+        "text": "About",
+        "href": "/about"
+       },
+       {
+        "text": "Blog",
+        "href": "/blog"
+       },
+       {
+        "text": "Contact",
+        "href": "/contact"
+       }
+      ],
+      "cta": {
+       "text": "Free Consultation",
+       "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+       "style": "primary",
+       "newTab": true
+      }
+     },
+     "variant": "left",
+     "style": {
+      "bg": "default"
+     }
+    },
+    {
+     "id": "checkup-health-checkup",
+     "type": "quiz",
+     "visible": true,
+     "props": {
+      "label": "Financial Health Check-up",
+      "heading": "आपकी Financial Health कैसी है?",
+      "sub": "हर परिवार को खुद से ये 6 सवाल पूछने चाहिए। जवाब चुनें — 1 मिनट में अपना score देखें।",
+      "image": "https://images.pexels.com/photos/8068654/pexels-photo-8068654.jpeg?auto=compress&cs=tinysrgb&w=1200",
+      "questions": [
+       {
+        "q": "अगर मुझे कुछ हो गया तो परिवार का खर्च कौन उठाएगा — क्या इसकी planning है?",
+        "tip": "Term / Life Insurance से Income Protection की planning करें।"
+       },
+       {
+        "q": "Medical emergency का खर्च कौन उठाएगा — क्या पर्याप्त Health Insurance है?",
+        "tip": "Family Health Insurance और Super Top-Up पर विचार करें।"
+       },
+       {
+        "q": "बच्चों की education कैसे fund होगी — क्या इसकी planning है?",
+        "tip": "Child Education Fund के लिए goal-based planning शुरू करें।"
+       },
+       {
+        "q": "बच्चों की शादी के लिए कितना चाहिए — क्या इसका fund बन रहा है?",
+        "tip": "Child Marriage Fund के लिए long-term planning करें।"
+       },
+       {
+        "q": "Retirement के बाद income कहाँ से आएगी — क्या इसकी planning है?",
+        "tip": "Retirement corpus और pension planning की शुरुआत करें।"
+       },
+       {
+        "q": "क्या मेरी current investment मेरे goals के लिए पर्याप्त है?",
+        "tip": "अपने existing investments का goal-based review करवाएँ।"
+       }
+      ],
+      "yesLabel": "हाँ, planning है",
+      "noLabel": "नहीं",
+      "unsureLabel": "पता नहीं",
+      "goodTitle": "आपकी Financial Health अच्छी दिख रही है",
+      "goodText": "ज्यादातर जरूरी areas cover हैं। साल में एक बार review से plan सही track पर रहता है।",
+      "midTitle": "अच्छी शुरुआत — कुछ gaps बाकी हैं",
+      "midText": "कुछ महत्वपूर्ण areas पर ध्यान देने की जरूरत है। एक छोटी सी बातचीत से सही शुरुआत समझ सकते हैं।",
+      "lowTitle": "अभी planning शुरू करने का सही समय है",
+      "lowText": "कई जरूरी areas की planning बाकी है। जितनी जल्दी शुरुआत, उतना आसान रास्ता।",
+      "ctaText": "WhatsApp पर मेरा result discuss करें"
+     },
+     "variant": "split",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "surface"
+     }
+    },
+    {
+     "id": "checkup-4",
+     "type": "steps",
+     "visible": true,
+     "props": {
+      "label": "Your Financial Journey",
+      "heading": "Protection से Wealth Creation तक — सही क्रम में",
+      "sub": "हमारे Financial Health Check-up में इन प्रमुख areas पर discussion किया जाता है।",
+      "items": [
+       {
+        "symbol": "🛡️",
+        "title": "Protection",
+        "text": "Health और Life Protection से परिवार की नींव मजबूत।",
+        "color": "#2E7D32"
+       },
+       {
+        "symbol": "📈",
+        "title": "Investment",
+        "text": "Goals और time horizon के अनुसार disciplined investment।",
+        "color": "#1565C0"
+       },
+       {
+        "symbol": "🎓",
+        "title": "Child Future",
+        "text": "Higher education और marriage goals की planning।",
+        "color": "#C2410C"
+       },
+       {
+        "symbol": "🌅",
+        "title": "Retirement",
+        "text": "Retirement के बाद भी financial independence।",
+        "color": "#0E7490"
+       },
+       {
+        "symbol": "💎",
+        "title": "Wealth Creation",
+        "text": "Long-term goal-based wealth creation।",
+        "color": "#4338CA"
+       }
+      ],
+      "cta": {
+       "text": "Check My Financial Health",
+       "href": "/financial-health-checkup",
+       "style": "primary"
+      }
+     },
+     "variant": "horizontal",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "default"
+     }
+    },
+    {
+     "id": "checkup-5",
+     "type": "about",
+     "visible": true,
+     "props": {
+      "label": "Financial Health Check-up",
+      "heading": "Check-up में क्या होता है?",
+      "body": "आपकी current financial स्थिति, protection और goals का review।\n\nProtection → Investment → Child Future → Retirement → Wealth Creation — इन प्रमुख areas पर discussion किया जाता है, ताकि आपको साफ पता चले कि आपकी planning कहाँ मजबूत है और कहाँ ध्यान देने की जरूरत है।\n\nहमारा मानना है: “पहले Customer की जरूरत समझिए, उसके बाद सही Solution दीजिए।”",
+      "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648743/rssahu-finmart/rssahu-p13.jpg"
+     },
+     "variant": "image-right",
+     "style": {
+      "paddingY": "lg",
+      "align": "left",
+      "bg": "surface"
+     }
+    },
+    {
+     "id": "checkup-contact",
+     "type": "contact",
+     "visible": true,
+     "props": {
+      "label": "Contact Us",
+      "heading": "Book Your Financial Health Check-up",
+      "sub": "Form भरें — Ramesh Ji आपसे जल्द संपर्क करेंगे। या सीधे Call / WhatsApp करें: 80550 73251",
+      "showPhone": true,
+      "showWhatsapp": true,
+      "showEmail": false,
+      "showAddress": false,
+      "showHours": true,
+      "showMap": false,
+      "submitText": "Book My Check-up"
+     },
+     "variant": "form-only",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "default"
+     }
+    },
+    {
+     "id": "checkup-7",
+     "type": "footer",
+     "visible": true,
+     "props": {
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648740/rssahu-finmart/rssahu-logo.png",
+      "blurb": "Financial Doctor | Financial Guardian. “आपका विश्वास… हमारी जिम्मेदारी…” 🙏 Health Protection | Life Protection | Wealth Creation | Child Future | Retirement Planning.",
+      "showSocial": true,
+      "showContact": true,
+      "showHours": true,
+      "columns": [
+       {
+        "title": "Explore",
+        "links": [
+         {
+          "text": "Panch Tattva",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "Services",
+          "href": "/services"
+         },
+         {
+          "text": "Calculators",
+          "href": "/calculators"
+         },
+         {
+          "text": "Health Check-up",
+          "href": "/financial-health-checkup"
+         },
+         {
+          "text": "About",
+          "href": "/about"
+         },
+         {
+          "text": "Blog",
+          "href": "/blog"
+         },
+         {
+          "text": "Contact",
+          "href": "/contact"
+         }
+        ]
+       },
+       {
+        "title": "Panch Tattva",
+        "links": [
+         {
+          "text": "🌳 Health Protection",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "💧 Child Education",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "🔥 Income Protection",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "🌬️ Retirement",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "🌌 Wealth & Child Marriage",
+          "href": "/panch-tattva"
+         }
+        ]
+       },
+       {
+        "title": "Ramesh S. Sahu",
+        "links": [
+         {
+          "text": "Founder & CMD",
+          "href": "/about"
+         },
+         {
+          "text": "WhatsApp 80550 73251",
+          "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4"
+         },
+         {
+          "text": "Mission Dil Se Dil Tak",
+          "href": "/about#mission"
+         },
+         {
+          "text": "Give Feedback on Google",
+          "href": "https://g.page/r/CcnKPg0n-_KREAE/review"
+         }
+        ]
+       }
+      ],
+      "disclaimer": "AMFI Registered Mutual Fund Distributor | ARN-265309\n\nInsurance: Insurance products are subject to the terms, conditions, exclusions and underwriting guidelines of the respective insurance company.\n\nMutual Funds: Mutual Fund investments are subject to market risks. Read all scheme-related documents carefully before investing.\n\nWebsite पर दी गई जानकारी general awareness और educational purposes के लिए है; final recommendation customer की individual requirements और applicable product/provider terms पर आधारित होगी।",
+      "copyright": "© 2026 RSSAHU FINMART INDIA PVT LTD · Mission Dil Se Dil Tak · Mission 10,000 Families",
+      "showBranding": true,
+      "showLegal": true,
+      "privacyBody": "RSSAHU FINMART INDIA PVT LTD आपकी privacy का सम्मान करता है।\n\nहम कौन-सी जानकारी लेते हैं: जब आप website के form, WhatsApp या call के माध्यम से संपर्क करते हैं, तो आपकी दी गई जानकारी जैसे Name, Mobile Number, Email और आपका message।\n\nउपयोग: इस जानकारी का उपयोग केवल आपसे संपर्क करने, आपकी financial planning / insurance / investment संबंधी query का जवाब देने और requested services प्रदान करने के लिए किया जाता है।\n\nSharing: आपकी जानकारी बेची नहीं जाती। आपकी request पर service देने के लिए आवश्यक होने पर इसे संबंधित insurance company / AMC / service provider के साथ share किया जा सकता है, या कानून द्वारा आवश्यक होने पर।\n\nSecurity और आपके अधिकार: जानकारी को सुरक्षित रखने के उचित उपाय किए जाते हैं। अपनी जानकारी देखने, सुधारने या हटाने के लिए 80550 73251 पर संपर्क करें।\n\nCustomer द्वारा website पर दी गई personal information को privacy और applicable laws के अनुसार handle किया जाएगा।",
+      "termsBody": "Website पर उपलब्ध information general information के लिए है।\n\nProduct terms, conditions, eligibility, underwriting, exclusions, taxation और returns संबंधित provider/product documents के अनुसार होंगे।\n\nWebsite के calculators illustration के लिए हैं; ये किसी return या cover की guarantee नहीं देते।\n\nInsurance products are subject to the terms, conditions, exclusions and underwriting guidelines of the respective insurance company. Mutual Fund investments are subject to market risks. Read all scheme-related documents carefully before investing.\n\nRSSAHU FINMART INDIA PVT LTD — AMFI Registered Mutual Fund Distributor, ARN-265309."
+     },
+     "variant": "columns",
+     "style": {
+      "bg": "surface",
+      "paddingY": "lg"
+     }
+    }
+   ]
+  },
+  {
+   "id": "about",
+   "slug": "/about",
+   "title": "About",
+   "visible": true,
+   "seo": {
+    "title": "About RSSAHU FINMART & Founder Ramesh S. Sahu | Mission 10,000 Familie",
+    "description": "Financial protection and planning advisory led by Ramesh S. Sahu — 16+ years, 407+ claims assisted, 695+ happy customers. Mission Dil Se Dil Tak.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "about-1",
+     "type": "ticker",
+     "visible": true,
+     "props": {
+      "speed": "static",
+      "items": [
+       {
+        "text": "AMFI Registered Mutual Fund Distributor · ARN-265309"
+       },
+       {
+        "text": "Mission 10,000 Families by 2030"
+       },
+       {
+        "text": "Call / WhatsApp 80550 73251",
+        "href": "tel:+918055073251"
+       }
+      ]
+     },
+     "variant": "dark"
+    },
+    {
+     "id": "about-2",
+     "type": "header",
+     "visible": true,
+     "props": {
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648740/rssahu-finmart/rssahu-logo.png",
+      "logoSize": "large",
+      "sticky": true,
+      "links": [
+       {
+        "text": "Home",
+        "href": "/"
+       },
+       {
+        "text": "Panch Tattva",
+        "href": "/panch-tattva"
+       },
+       {
+        "text": "Services",
+        "href": "/services"
+       },
+       {
+        "text": "Calculators",
+        "href": "/calculators"
+       },
+       {
+        "text": "Health Check-up",
+        "href": "/financial-health-checkup"
+       },
+       {
+        "text": "About",
+        "href": "/about"
+       },
+       {
+        "text": "Blog",
+        "href": "/blog"
+       },
+       {
+        "text": "Contact",
+        "href": "/contact"
+       }
+      ],
+      "cta": {
+       "text": "Free Consultation",
+       "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+       "style": "primary",
+       "newTab": true
+      }
+     },
+     "variant": "left",
+     "style": {
+      "bg": "default"
+     }
+    },
+    {
+     "id": "about-3",
+     "type": "about",
+     "visible": true,
+     "props": {
+      "label": "About Us",
+      "heading": "RSSAHU FINMART INDIA PVT LTD",
+      "body": "RSSAHU FINMART INDIA PVT LTD एक financial protection and planning advisory business है, जिसका उद्देश्य families को उनके financial goals और protection needs को समझने में सहायता करना है।\n\nहम Health Insurance, Life Insurance, Term Insurance, Mutual Funds, Child Education Planning, Child Marriage Planning, Retirement Planning और Wealth Creation जैसे क्षेत्रों में solutions और guidance प्रदान करते हैं।\n\nहमारा मानना है: “पहले Customer की जरूरत समझिए, उसके बाद सही Solution दीजिए।”\n\nहमारे लिए Financial Planning केवल product selling नहीं है। यह एक परिवार की आज की सुरक्षा और कल के सपनों को समझने की प्रक्रिया है।",
+      "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648748/rssahu-finmart/rssahu-p22.jpg"
+     },
+     "variant": "image-right",
+     "style": {
+      "paddingY": "lg",
+      "align": "left",
+      "bg": "default"
+     }
+    },
+    {
+     "id": "about-4",
+     "type": "about",
+     "visible": true,
+     "props": {
+      "label": "About Founder",
+      "heading": "Ramesh S. Sahu — Financial Guardian | Founder & CMD",
+      "body": "Ramesh S. Sahu is the Founder & CMD of RSSAHU FINMART INDIA PVT LTD and works with the vision of becoming a trusted financial guardian for families.\n\nउनका focus है कि हर परिवार अपनी financial situation को समझे और Health Protection, Life Protection, Child Future, Retirement और Wealth Creation जैसे महत्वपूर्ण financial goals के लिए समय पर planning करे।\n\nउनका विश्वास: “हमारे लिए पैसे कमाना जरूरी है, लेकिन उससे भी ज्यादा जरूरी है परिवार को सुरक्षित बनाना।”",
+      "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648738/rssahu-finmart/rssahu-p02.jpg",
+      "imageFit": {
+       "fit": "cover",
+       "x": 50,
+       "y": 30
+      }
+     },
+     "variant": "image-left",
+     "style": {
+      "paddingY": "lg",
+      "align": "left",
+      "bg": "surface"
+     }
+    },
+    {
+     "id": "about-5",
+     "type": "stats",
+     "visible": true,
+     "props": {
+      "label": "Our Trust Numbers",
+      "heading": "आपका विश्वास • हमारी जिम्मेदारी",
+      "items": [
+       {
+        "value": 16,
+        "suffix": "+",
+        "label": "Years Experience"
+       },
+       {
+        "value": 407,
+        "suffix": "+",
+        "label": "Claims Settled / Claim Assistance"
+       },
+       {
+        "value": 695,
+        "suffix": "+",
+        "label": "Happy Customers"
+       },
+       {
+        "value": 10000,
+        "suffix": "",
+        "label": "Families — Mission 2030"
+       }
+      ],
+      "countUp": true
+     },
+     "variant": "bar",
+     "style": {
+      "paddingY": "md",
+      "align": "center",
+      "bg": "primary"
+     }
+    },
+    {
+     "id": "mission",
+     "type": "features",
+     "visible": true,
+     "props": {
+      "label": "Our Vision",
+      "heading": "एक ऐसा समाज जहाँ हर परिवार के पास उचित Financial Roadmap हो",
+      "sub": "MISSION DIL SE DIL TAK — Mission 10,000 Families: 2030 तक 10,000 परिवारों को Financially Secure और Financially Strong बनाने का संकल्प। हमारा सपना है कि ज्यादा से ज्यादा परिवारों तक financial awareness और सही planning की सोच पहुँचे।",
+      "items": [
+       {
+        "icon": "heart",
+        "title": "Health Protection"
+       },
+       {
+        "icon": "shield",
+        "title": "Income Protection"
+       },
+       {
+        "icon": "graduation",
+        "title": "Child Education Planning"
+       },
+       {
+        "icon": "clock",
+        "title": "Retirement Planning"
+       },
+       {
+        "icon": "trending",
+        "title": "Wealth Creation Planning"
+       }
+      ]
+     },
+     "variant": "cards",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "default"
+     }
+    },
+    {
+     "id": "about-7",
+     "type": "gallery",
+     "visible": true,
+     "props": {
+      "label": "Awards & Recognition",
+      "heading": "सम्मान और उपलब्धियाँ",
+      "lightbox": true,
+      "imageRatio": "square",
+      "images": [
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648748/rssahu-finmart/rssahu-p24.jpg",
+        "alt": "Star Elite Advisor of 2025",
+        "fit": {
+         "fit": "contain"
+        }
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648749/rssahu-finmart/rssahu-p25.jpg",
+        "alt": "Certificate of Appreciation",
+        "fit": {
+         "fit": "contain"
+        }
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648738/rssahu-finmart/rssahu-p01.jpg",
+        "alt": "Child Education Expert — Level 2",
+        "fit": {
+         "fit": "contain"
+        }
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648748/rssahu-finmart/rssahu-p21.jpg",
+        "alt": "Club Qualifier recognition"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648746/rssahu-finmart/rssahu-p20.jpg",
+        "alt": "Award ceremony"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648750/rssahu-finmart/rssahu-p26.jpg",
+        "alt": "Recognition"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648746/rssahu-finmart/rssahu-p19.jpg",
+        "alt": "Felicitation"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648741/rssahu-finmart/rssahu-p09.jpg",
+        "alt": "Awareness programme"
+       }
+      ]
+     },
+     "variant": "grid-4",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "surface"
+     }
+    },
+    {
+     "id": "about-8",
+     "type": "videos",
+     "visible": true,
+     "props": {
+      "label": "Videos",
+      "heading": "Interview & Award Moments",
+      "shape": "portrait",
+      "playback": "click",
+      "items": [
+       {
+        "url": "https://youtu.be/6mpVQKEMDjU",
+        "title": "Health Insurance का वो सच — Interview"
+       },
+       {
+        "video": "https://res.cloudinary.com/dpawkimbc/video/upload/v1789648777/rssahu-finmart/rssahu-video-1.mp4",
+        "title": "Award ceremony"
+       },
+       {
+        "video": "https://res.cloudinary.com/dpawkimbc/video/upload/v1789648770/rssahu-finmart/rssahu-video-2.mp4",
+        "title": "Club Qualifier recognition"
+       },
+       {
+        "video": "https://res.cloudinary.com/dpawkimbc/video/upload/v1789648776/rssahu-finmart/rssahu-video-3.mp4",
+        "title": "Felicitation on stage"
+       }
+      ]
+     },
+     "variant": "carousel",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "default"
+     }
+    },
+    {
+     "id": "about-9",
+     "type": "gallery",
+     "visible": true,
+     "props": {
+      "label": "Gallery",
+      "heading": "Customer Meetings, Awareness Sessions & Team",
+      "lightbox": true,
+      "imageRatio": "square",
+      "images": [
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648743/rssahu-finmart/rssahu-p14.jpg",
+        "alt": "RSSAHU FINMART"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648745/rssahu-finmart/rssahu-p18.jpg",
+        "alt": "RSSAHU FINMART"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648748/rssahu-finmart/rssahu-p23.jpg",
+        "alt": "RSSAHU FINMART"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648744/rssahu-finmart/rssahu-p17.jpg",
+        "alt": "RSSAHU FINMART"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648743/rssahu-finmart/rssahu-p13.jpg",
+        "alt": "RSSAHU FINMART"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648745/rssahu-finmart/rssahu-p16.jpg",
+        "alt": "RSSAHU FINMART"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648741/rssahu-finmart/rssahu-p08.jpg",
+        "alt": "RSSAHU FINMART"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648739/rssahu-finmart/rssahu-p05.jpg",
+        "alt": "RSSAHU FINMART"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648740/rssahu-finmart/rssahu-p07.jpg",
+        "alt": "RSSAHU FINMART"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648742/rssahu-finmart/rssahu-p10.jpg",
+        "alt": "RSSAHU FINMART"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648743/rssahu-finmart/rssahu-p12.jpg",
+        "alt": "RSSAHU FINMART"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648745/rssahu-finmart/rssahu-p15.jpg",
+        "alt": "RSSAHU FINMART"
+       }
+      ]
+     },
+     "variant": "grid-4",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "surface"
+     }
+    },
+    {
+     "id": "about-connect",
+     "type": "social",
+     "visible": true,
+     "props": {
+      "label": "Connect With Us",
+      "heading": "मेरी Social Media Family से जुड़ें ❤️",
+      "sub": "Follow करें | Subscribe करें | Share करें — आपका एक Follow + Subscribe + Share हमारी journey को और मजबूत बनाता है। 🙏",
+      "items": [
+       {
+        "network": "instagram",
+        "href": "https://www.instagram.com/rssahufinmartindiapvtltd/",
+        "title": "Instagram",
+        "text": "Financial awareness tips और updates",
+        "action": "Follow करें"
+       },
+       {
+        "network": "youtube",
+        "href": "https://www.youtube.com/@RSSAHUFINAMRTINDIAPVTLTD",
+        "title": "YouTube",
+        "text": "Insurance और planning पर videos",
+        "action": "Subscribe करें"
+       },
+       {
+        "network": "facebook",
+        "href": "https://www.facebook.com/share/1DNXB5W3Eb/",
+        "title": "Facebook",
+        "text": "Mission Dil Se Dil Tak की activities",
+        "action": "Follow करें"
+       },
+       {
+        "network": "whatsapp",
+        "href": "https://chat.whatsapp.com/L9CI9dLEAsBF2KHKjyWgXv",
+        "title": "WhatsApp Community",
+        "text": "Awareness community से जुड़ें",
+        "action": "Join करें"
+       },
+       {
+        "network": "whatsapp-channel",
+        "href": "https://whatsapp.com/channel/0029Vb6p7FZISTkS5l3dPN03",
+        "title": "WhatsApp Channel",
+        "text": "Regular updates सीधे WhatsApp पर",
+        "action": "Follow करें"
+       },
+       {
+        "network": "google-review",
+        "href": "https://g.page/r/CcnKPg0n-_KREAE/review",
+        "title": "Google Review",
+        "text": "अपना अनुभव Google पर share करें",
+        "action": "Feedback दें"
+       }
+      ]
+     },
+     "variant": "cards",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "default"
+     }
+    },
+    {
+     "id": "about-11",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Let's Plan Your Financial Future Together",
+      "sub": "“हम Insurance नहीं बेचते, हम परिवार की Financial Security की Planning करते हैं।” — Free Financial Consultation के लिए आज ही संपर्क करें।",
+      "ctaPrimary": {
+       "text": "📲 WhatsApp Now",
+       "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+       "style": "secondary",
+       "newTab": true
+      },
+      "ctaSecondary": {
+       "text": "📞 Call Now",
+       "href": "tel:+918055073251",
+       "style": "ghost"
+      }
+     },
+     "variant": "banner",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "primary"
+     }
+    },
+    {
+     "id": "about-12",
+     "type": "footer",
+     "visible": true,
+     "props": {
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648740/rssahu-finmart/rssahu-logo.png",
+      "blurb": "Financial Doctor | Financial Guardian. “आपका विश्वास… हमारी जिम्मेदारी…” 🙏 Health Protection | Life Protection | Wealth Creation | Child Future | Retirement Planning.",
+      "showSocial": true,
+      "showContact": true,
+      "showHours": true,
+      "columns": [
+       {
+        "title": "Explore",
+        "links": [
+         {
+          "text": "Panch Tattva",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "Services",
+          "href": "/services"
+         },
+         {
+          "text": "Calculators",
+          "href": "/calculators"
+         },
+         {
+          "text": "Health Check-up",
+          "href": "/financial-health-checkup"
+         },
+         {
+          "text": "About",
+          "href": "/about"
+         },
+         {
+          "text": "Blog",
+          "href": "/blog"
+         },
+         {
+          "text": "Contact",
+          "href": "/contact"
+         }
+        ]
+       },
+       {
+        "title": "Panch Tattva",
+        "links": [
+         {
+          "text": "🌳 Health Protection",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "💧 Child Education",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "🔥 Income Protection",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "🌬️ Retirement",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "🌌 Wealth & Child Marriage",
+          "href": "/panch-tattva"
+         }
+        ]
+       },
+       {
+        "title": "Ramesh S. Sahu",
+        "links": [
+         {
+          "text": "Founder & CMD",
+          "href": "/about"
+         },
+         {
+          "text": "WhatsApp 80550 73251",
+          "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4"
+         },
+         {
+          "text": "Mission Dil Se Dil Tak",
+          "href": "/about#mission"
+         },
+         {
+          "text": "Give Feedback on Google",
+          "href": "https://g.page/r/CcnKPg0n-_KREAE/review"
+         }
+        ]
+       }
+      ],
+      "disclaimer": "AMFI Registered Mutual Fund Distributor | ARN-265309\n\nInsurance: Insurance products are subject to the terms, conditions, exclusions and underwriting guidelines of the respective insurance company.\n\nMutual Funds: Mutual Fund investments are subject to market risks. Read all scheme-related documents carefully before investing.\n\nWebsite पर दी गई जानकारी general awareness और educational purposes के लिए है; final recommendation customer की individual requirements और applicable product/provider terms पर आधारित होगी।",
+      "copyright": "© 2026 RSSAHU FINMART INDIA PVT LTD · Mission Dil Se Dil Tak · Mission 10,000 Families",
+      "showBranding": true,
+      "showLegal": true,
+      "privacyBody": "RSSAHU FINMART INDIA PVT LTD आपकी privacy का सम्मान करता है।\n\nहम कौन-सी जानकारी लेते हैं: जब आप website के form, WhatsApp या call के माध्यम से संपर्क करते हैं, तो आपकी दी गई जानकारी जैसे Name, Mobile Number, Email और आपका message।\n\nउपयोग: इस जानकारी का उपयोग केवल आपसे संपर्क करने, आपकी financial planning / insurance / investment संबंधी query का जवाब देने और requested services प्रदान करने के लिए किया जाता है।\n\nSharing: आपकी जानकारी बेची नहीं जाती। आपकी request पर service देने के लिए आवश्यक होने पर इसे संबंधित insurance company / AMC / service provider के साथ share किया जा सकता है, या कानून द्वारा आवश्यक होने पर।\n\nSecurity और आपके अधिकार: जानकारी को सुरक्षित रखने के उचित उपाय किए जाते हैं। अपनी जानकारी देखने, सुधारने या हटाने के लिए 80550 73251 पर संपर्क करें।\n\nCustomer द्वारा website पर दी गई personal information को privacy और applicable laws के अनुसार handle किया जाएगा।",
+      "termsBody": "Website पर उपलब्ध information general information के लिए है।\n\nProduct terms, conditions, eligibility, underwriting, exclusions, taxation और returns संबंधित provider/product documents के अनुसार होंगे।\n\nWebsite के calculators illustration के लिए हैं; ये किसी return या cover की guarantee नहीं देते।\n\nInsurance products are subject to the terms, conditions, exclusions and underwriting guidelines of the respective insurance company. Mutual Fund investments are subject to market risks. Read all scheme-related documents carefully before investing.\n\nRSSAHU FINMART INDIA PVT LTD — AMFI Registered Mutual Fund Distributor, ARN-265309."
+     },
+     "variant": "columns",
+     "style": {
+      "bg": "surface",
+      "paddingY": "lg"
+     }
+    }
+   ]
+  },
+  {
+   "id": "blog",
+   "slug": "/blog",
+   "title": "Blog",
+   "visible": true,
+   "seo": {
+    "title": "Financial Awareness Blog — Insurance, SIP, Retirement | RSSAHU FINMART",
+    "description": "Health insurance, term insurance, SIP, child education and retirement planning explained in simple language.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "blog-1",
+     "type": "ticker",
+     "visible": true,
+     "props": {
+      "speed": "static",
+      "items": [
+       {
+        "text": "AMFI Registered Mutual Fund Distributor · ARN-265309"
+       },
+       {
+        "text": "Mission 10,000 Families by 2030"
+       },
+       {
+        "text": "Call / WhatsApp 80550 73251",
+        "href": "tel:+918055073251"
+       }
+      ]
+     },
+     "variant": "dark"
+    },
+    {
+     "id": "blog-2",
+     "type": "header",
+     "visible": true,
+     "props": {
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648740/rssahu-finmart/rssahu-logo.png",
+      "logoSize": "large",
+      "sticky": true,
+      "links": [
+       {
+        "text": "Home",
+        "href": "/"
+       },
+       {
+        "text": "Panch Tattva",
+        "href": "/panch-tattva"
+       },
+       {
+        "text": "Services",
+        "href": "/services"
+       },
+       {
+        "text": "Calculators",
+        "href": "/calculators"
+       },
+       {
+        "text": "Health Check-up",
+        "href": "/financial-health-checkup"
+       },
+       {
+        "text": "About",
+        "href": "/about"
+       },
+       {
+        "text": "Blog",
+        "href": "/blog"
+       },
+       {
+        "text": "Contact",
+        "href": "/contact"
+       }
+      ],
+      "cta": {
+       "text": "Free Consultation",
+       "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+       "style": "primary",
+       "newTab": true
+      }
+     },
+     "variant": "left",
+     "style": {
+      "bg": "default"
+     }
+    },
+    {
+     "id": "blog-blog",
+     "type": "blog",
+     "visible": true,
+     "props": {
+      "label": "Blog",
+      "heading": "Financial Awareness Blog",
+      "sub": "Health, protection, education, retirement और wealth creation पर आसान भाषा में जानकारी।",
+      "posts": [
+       {
+        "slug": "health-insurance-mein-deri-kyon-nahi",
+        "image": "https://images.pexels.com/photos/6129681/pexels-photo-6129681.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Health Insurance लेने में देरी क्यों नहीं करनी चाहिए?",
+        "excerpt": "Health Insurance तब सबसे आसानी से मिलता है जब उसकी जरूरत सबसे कम लगती है। जानिए देरी क्यों महंगी पड़ सकती है।",
+        "body": "अक्सर लोग सोचते हैं कि \"अभी तो सब ठीक है, बाद में ले लेंगे।\" लेकिन Health Insurance के मामले में यही सोच सबसे बड़ी गलती बन सकती है।\n\nउम्र के साथ premium बढ़ता है: कम उम्र में policy लेने पर premium आम तौर पर कम होता है, और आगे की उम्र में वही cover महंगा हो सकता है।\n\nWaiting period पहले से शुरू हो जाता है: ज्यादातर policies में कुछ बीमारियों और pre-existing conditions के लिए waiting period होता है। जितनी जल्दी policy शुरू होगी, उतनी जल्दी यह अवधि पूरी होगी।\n\nबीमारी के बाद policy मिलना मुश्किल हो सकता है: किसी diagnosis के बाद कई बार policy में exclusions लग जाते हैं या acceptance मुश्किल हो जाती है।\n\nMedical emergency बता कर नहीं आती: एक hospitalisation परिवार की सालों की बचत पर असर डाल सकता है। सही समय पर लिया गया cover उस financial risk को manage करने में मदद करता है।\n\nक्या करें: अपनी family size, उम्र, शहर और मौजूदा cover को ध्यान में रखकर अपनी जरूरत समझें, फिर policy चुनें। Policy के terms, exclusions और waiting period ध्यान से पढ़ें।\n\nDisclaimer: Insurance products are subject to the terms, conditions, exclusions and underwriting guidelines of the respective insurance company. यह लेख general awareness के लिए है।",
+        "linkText": "पूरा पढ़ें"
+       },
+       {
+        "slug": "5-lakh-ya-10-lakh-health-cover",
+        "image": "https://images.pexels.com/photos/6129444/pexels-photo-6129444.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "क्या ₹5 लाख या ₹10 लाख Health Cover आज के समय में पर्याप्त है?",
+        "excerpt": "सही Health Cover की राशि हर परिवार के लिए अलग होती है। इन बातों से अपनी जरूरत समझें।",
+        "body": "Health Cover कितना होना चाहिए — इसका कोई एक जवाब नहीं है। यह आपके परिवार, शहर और मौजूदा सुविधाओं पर निर्भर करता है।\n\nFamily size: Family Floater में एक ही cover पूरे परिवार के लिए होता है। सदस्य जितने ज्यादा, cover उतना सोच-समझकर तय करें।\n\nशहर और hospital: Metro और बड़े शहरों में इलाज का खर्च अक्सर ज्यादा होता है। जिस hospital में इलाज करवाना चाहेंगे, वहाँ के खर्च का अंदाजा रखें।\n\nMedical inflation: इलाज का खर्च समय के साथ बढ़ता है। आज पर्याप्त लगने वाला cover कुछ सालों बाद कम पड़ सकता है।\n\nSuper Top-Up एक विकल्प: Base policy के साथ Super Top-Up लेकर cover बढ़ाने का विकल्प भी होता है, जिसकी planning जरूरत के अनुसार की जा सकती है।\n\nEmployer cover पर पूरी निर्भरता नहीं: Job बदलने या retirement के बाद company का cover साथ नहीं रहता, इसलिए personal cover भी जरूरी है।\n\nअपनी सही Health Cover राशि जानने के लिए Financial Health Check-up करवाएँ।\n\nDisclaimer: Insurance products are subject to the terms, conditions, exclusions and underwriting guidelines of the respective insurance company.",
+        "linkText": "पूरा पढ़ें"
+       },
+       {
+        "slug": "child-higher-education-planning-kab-shuru-karein",
+        "image": "https://images.pexels.com/photos/35558791/pexels-photo-35558791.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "बच्चे की Higher Education के लिए Financial Planning कब शुरू करें?",
+        "excerpt": "शिक्षा के बिना सपने अधूरे, सही planning से भविष्य मजबूत। Education goal की planning जितनी जल्दी, उतनी आसान।",
+        "body": "बच्चे की Higher Education आज परिवार के सबसे बड़े financial goals में से एक है — और इसकी तारीख लगभग तय होती है।\n\nजितनी जल्दी, उतना आसान: Goal से पहले जितने ज्यादा साल होंगे, उतनी छोटी monthly investment से लक्ष्य की ओर बढ़ा जा सकता है, क्योंकि compounding को ज्यादा समय मिलता है।\n\nEducation cost बढ़ती है: आज किसी course की जो fees है, वह 10–15 साल बाद काफी ज्यादा हो सकती है। Planning करते समय future cost का अंदाजा लगाएँ।\n\nGoal-based approach: Education के लिए अलग, dedicated fund रखें ताकि यह पैसा दूसरी जरूरतों में खर्च न हो।\n\nProtection भी जरूरी: अगर कमाने वाले सदस्य को कुछ हो जाए तो बच्चे की पढ़ाई न रुके — इसके लिए life / term cover की planning education planning का हिस्सा है।\n\nहमारा Child Education Goal Calculator इस्तेमाल करके देखें कि आपके लक्ष्य के लिए कितनी monthly SIP की जरूरत हो सकती है।\n\nDisclaimer: Mutual Fund investments are subject to market risks. Read all scheme-related documents carefully.",
+        "linkText": "पूरा पढ़ें"
+       },
+       {
+        "slug": "retirement-planning-choti-shuruat",
+        "image": "https://images.pexels.com/photos/19811308/pexels-photo-19811308.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Retirement Planning: आज की छोटी शुरुआत कल की बड़ी Financial Freedom कैसे बन सकती है?",
+        "excerpt": "Retirement के बाद भी Financial Independence और सम्मानजनक जीवन — इसकी नींव working years में रखी जाती है।",
+        "body": "Retirement के बाद salary बंद हो जाती है, लेकिन खर्च चलते रहते हैं — और स्वास्थ्य से जुड़े खर्च अक्सर बढ़ जाते हैं।\n\nCompounding को समय दें: 25–30 की उम्र में शुरू की गई छोटी investment को बढ़ने के लिए बहुत ज्यादा समय मिलता है, जबकि देर से शुरू करने पर कहीं बड़ी monthly राशि की जरूरत पड़ सकती है।\n\nInflation को नजरअंदाज न करें: आज के monthly खर्च retirement तक कई गुना हो सकते हैं। Corpus का अनुमान future expenses के आधार पर लगाएँ।\n\nCorpus कितने साल चलेगा: Retirement के बाद का जीवन 20–25 साल या उससे ज्यादा भी हो सकता है। Planning इसी अवधि को ध्यान में रखकर करें।\n\nDisciplined approach: Regular investment, समय-समय पर review और goal के अनुसार बदलाव — यही retirement planning की कुंजी है।\n\nहमारे Retirement Planner में अपनी उम्र और खर्च डालकर देखें कि आपको कितने corpus की जरूरत हो सकती है।\n\nDisclaimer: Mutual Fund investments are subject to market risks. Read all scheme-related documents carefully.",
+        "linkText": "पूरा पढ़ें"
+       },
+       {
+        "slug": "sip-kya-hai-wealth-creation",
+        "image": "https://images.pexels.com/photos/9755390/pexels-photo-9755390.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "SIP क्या है और Long-Term Wealth Creation में इसका क्या महत्व है?",
+        "excerpt": "SIP यानी Systematic Investment Plan — नियमित, disciplined निवेश का एक आसान तरीका।",
+        "body": "SIP (Systematic Investment Plan) एक systematic investment method है जिसमें निर्धारित अंतराल पर — आम तौर पर हर महीने — Mutual Fund में निवेश किया जाता है।\n\nDiscipline: हर महीने तय राशि अपने आप निवेश होती है, जिससे saving की आदत बनती है।\n\nछोटी राशि से शुरुआत: SIP छोटी राशि से भी शुरू की जा सकती है और income बढ़ने के साथ बढ़ाई जा सकती है।\n\nRupee cost averaging: हर महीने निवेश होने से market के ऊपर-नीचे होने पर अलग-अलग कीमत पर units खरीदे जाते हैं।\n\nCompounding: Long term में returns पर भी returns मिलते हैं — इसलिए SIP जितने लंबे समय तक चलती है, उसका असर उतना बड़ा हो सकता है।\n\nGoal से जोड़ें: हर SIP को किसी goal — education, marriage, retirement — से जोड़ें, ताकि निवेश का उद्देश्य साफ रहे।\n\nहमारे SIP Calculator में देखें कि आपकी monthly SIP लंबे समय में कितनी हो सकती है।\n\nDisclaimer: Mutual Fund investments are subject to market risks. Read all scheme-related documents carefully. Past performance does not guarantee future returns.",
+        "linkText": "पूरा पढ़ें"
+       },
+       {
+        "slug": "term-insurance-aur-investment-mein-antar",
+        "image": "https://images.pexels.com/photos/6289100/pexels-photo-6289100.jpeg?auto=compress&cs=tinysrgb&w=1200",
+        "title": "Term Insurance और Investment में क्या अंतर है?",
+        "excerpt": "Insurance का काम protection है, investment का काम wealth creation। दोनों को अलग-अलग समझना क्यों जरूरी है।",
+        "body": "कई लोग insurance को investment की तरह और investment को insurance की तरह देखते हैं। दोनों का उद्देश्य अलग है।\n\nTerm Insurance — Protection: Term Insurance एक pure protection plan है। Policy term के दौरान policyholder को कुछ होने पर nominee को sum assured मिलता है। इसका उद्देश्य परिवार की income को protect करना है।\n\nInvestment — Wealth Creation: Investment का उद्देश्य समय के साथ पैसा बढ़ाना है — जैसे Mutual Funds के माध्यम से education, retirement या wealth goals के लिए।\n\nदोनों को अलग रखने का फायदा: Protection के लिए पर्याप्त cover और goals के लिए अलग investment — इससे दोनों जरूरतें साफ-साफ पूरी करने की planning होती है।\n\nकितना cover: Cover की राशि income, जिम्मेदारियों, loans और मौजूदा savings पर निर्भर करती है। हमारा Term Cover Calculator एक शुरुआती अनुमान देता है।\n\n\"पहले Customer की जरूरत समझिए, उसके बाद सही Solution दीजिए।\"\n\nDisclaimer: Insurance products are subject to the terms, conditions, exclusions and underwriting guidelines of the respective insurance company. Mutual Fund investments are subject to market risks.",
+        "linkText": "पूरा पढ़ें"
+       }
+      ]
+     },
+     "variant": "grid-3",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "surface"
+     }
+    },
+    {
+     "id": "blog-connect",
+     "type": "social",
+     "visible": true,
+     "props": {
+      "label": "Connect With Us",
+      "heading": "मेरी Social Media Family से जुड़ें ❤️",
+      "sub": "Follow करें | Subscribe करें | Share करें — आपका एक Follow + Subscribe + Share हमारी journey को और मजबूत बनाता है। 🙏",
+      "items": [
+       {
+        "network": "instagram",
+        "href": "https://www.instagram.com/rssahufinmartindiapvtltd/",
+        "title": "Instagram",
+        "text": "Financial awareness tips और updates",
+        "action": "Follow करें"
+       },
+       {
+        "network": "youtube",
+        "href": "https://www.youtube.com/@RSSAHUFINAMRTINDIAPVTLTD",
+        "title": "YouTube",
+        "text": "Insurance और planning पर videos",
+        "action": "Subscribe करें"
+       },
+       {
+        "network": "facebook",
+        "href": "https://www.facebook.com/share/1DNXB5W3Eb/",
+        "title": "Facebook",
+        "text": "Mission Dil Se Dil Tak की activities",
+        "action": "Follow करें"
+       },
+       {
+        "network": "whatsapp",
+        "href": "https://chat.whatsapp.com/L9CI9dLEAsBF2KHKjyWgXv",
+        "title": "WhatsApp Community",
+        "text": "Awareness community से जुड़ें",
+        "action": "Join करें"
+       },
+       {
+        "network": "whatsapp-channel",
+        "href": "https://whatsapp.com/channel/0029Vb6p7FZISTkS5l3dPN03",
+        "title": "WhatsApp Channel",
+        "text": "Regular updates सीधे WhatsApp पर",
+        "action": "Follow करें"
+       },
+       {
+        "network": "google-review",
+        "href": "https://g.page/r/CcnKPg0n-_KREAE/review",
+        "title": "Google Review",
+        "text": "अपना अनुभव Google पर share करें",
+        "action": "Feedback दें"
+       }
+      ]
+     },
+     "variant": "cards",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "default"
+     }
+    },
+    {
+     "id": "blog-5",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Let's Plan Your Financial Future Together",
+      "sub": "“हम Insurance नहीं बेचते, हम परिवार की Financial Security की Planning करते हैं।” — Free Financial Consultation के लिए आज ही संपर्क करें।",
+      "ctaPrimary": {
+       "text": "📲 WhatsApp Now",
+       "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+       "style": "secondary",
+       "newTab": true
+      },
+      "ctaSecondary": {
+       "text": "📞 Call Now",
+       "href": "tel:+918055073251",
+       "style": "ghost"
+      }
+     },
+     "variant": "banner",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "primary"
+     }
+    },
+    {
+     "id": "blog-6",
+     "type": "footer",
+     "visible": true,
+     "props": {
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648740/rssahu-finmart/rssahu-logo.png",
+      "blurb": "Financial Doctor | Financial Guardian. “आपका विश्वास… हमारी जिम्मेदारी…” 🙏 Health Protection | Life Protection | Wealth Creation | Child Future | Retirement Planning.",
+      "showSocial": true,
+      "showContact": true,
+      "showHours": true,
+      "columns": [
+       {
+        "title": "Explore",
+        "links": [
+         {
+          "text": "Panch Tattva",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "Services",
+          "href": "/services"
+         },
+         {
+          "text": "Calculators",
+          "href": "/calculators"
+         },
+         {
+          "text": "Health Check-up",
+          "href": "/financial-health-checkup"
+         },
+         {
+          "text": "About",
+          "href": "/about"
+         },
+         {
+          "text": "Blog",
+          "href": "/blog"
+         },
+         {
+          "text": "Contact",
+          "href": "/contact"
+         }
+        ]
+       },
+       {
+        "title": "Panch Tattva",
+        "links": [
+         {
+          "text": "🌳 Health Protection",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "💧 Child Education",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "🔥 Income Protection",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "🌬️ Retirement",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "🌌 Wealth & Child Marriage",
+          "href": "/panch-tattva"
+         }
+        ]
+       },
+       {
+        "title": "Ramesh S. Sahu",
+        "links": [
+         {
+          "text": "Founder & CMD",
+          "href": "/about"
+         },
+         {
+          "text": "WhatsApp 80550 73251",
+          "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4"
+         },
+         {
+          "text": "Mission Dil Se Dil Tak",
+          "href": "/about#mission"
+         },
+         {
+          "text": "Give Feedback on Google",
+          "href": "https://g.page/r/CcnKPg0n-_KREAE/review"
+         }
+        ]
+       }
+      ],
+      "disclaimer": "AMFI Registered Mutual Fund Distributor | ARN-265309\n\nInsurance: Insurance products are subject to the terms, conditions, exclusions and underwriting guidelines of the respective insurance company.\n\nMutual Funds: Mutual Fund investments are subject to market risks. Read all scheme-related documents carefully before investing.\n\nWebsite पर दी गई जानकारी general awareness और educational purposes के लिए है; final recommendation customer की individual requirements और applicable product/provider terms पर आधारित होगी।",
+      "copyright": "© 2026 RSSAHU FINMART INDIA PVT LTD · Mission Dil Se Dil Tak · Mission 10,000 Families",
+      "showBranding": true,
+      "showLegal": true,
+      "privacyBody": "RSSAHU FINMART INDIA PVT LTD आपकी privacy का सम्मान करता है।\n\nहम कौन-सी जानकारी लेते हैं: जब आप website के form, WhatsApp या call के माध्यम से संपर्क करते हैं, तो आपकी दी गई जानकारी जैसे Name, Mobile Number, Email और आपका message।\n\nउपयोग: इस जानकारी का उपयोग केवल आपसे संपर्क करने, आपकी financial planning / insurance / investment संबंधी query का जवाब देने और requested services प्रदान करने के लिए किया जाता है।\n\nSharing: आपकी जानकारी बेची नहीं जाती। आपकी request पर service देने के लिए आवश्यक होने पर इसे संबंधित insurance company / AMC / service provider के साथ share किया जा सकता है, या कानून द्वारा आवश्यक होने पर।\n\nSecurity और आपके अधिकार: जानकारी को सुरक्षित रखने के उचित उपाय किए जाते हैं। अपनी जानकारी देखने, सुधारने या हटाने के लिए 80550 73251 पर संपर्क करें।\n\nCustomer द्वारा website पर दी गई personal information को privacy और applicable laws के अनुसार handle किया जाएगा।",
+      "termsBody": "Website पर उपलब्ध information general information के लिए है।\n\nProduct terms, conditions, eligibility, underwriting, exclusions, taxation और returns संबंधित provider/product documents के अनुसार होंगे।\n\nWebsite के calculators illustration के लिए हैं; ये किसी return या cover की guarantee नहीं देते।\n\nInsurance products are subject to the terms, conditions, exclusions and underwriting guidelines of the respective insurance company. Mutual Fund investments are subject to market risks. Read all scheme-related documents carefully before investing.\n\nRSSAHU FINMART INDIA PVT LTD — AMFI Registered Mutual Fund Distributor, ARN-265309."
+     },
+     "variant": "columns",
+     "style": {
+      "bg": "surface",
+      "paddingY": "lg"
+     }
+    }
+   ]
+  },
+  {
+   "id": "contact",
+   "slug": "/contact",
+   "title": "Contact",
+   "visible": true,
+   "seo": {
+    "title": "Contact Ramesh S. Sahu — RSSAHU FINMART | 80550 73251",
+    "description": "Book your Financial Health Check-up. Call or WhatsApp 80550 73251. Monday–Saturday 10 AM – 7 PM, Sunday by appointment.",
+    "robots": "index,follow"
+   },
+   "sections": [
+    {
+     "id": "contact-1",
+     "type": "ticker",
+     "visible": true,
+     "props": {
+      "speed": "static",
+      "items": [
+       {
+        "text": "AMFI Registered Mutual Fund Distributor · ARN-265309"
+       },
+       {
+        "text": "Mission 10,000 Families by 2030"
+       },
+       {
+        "text": "Call / WhatsApp 80550 73251",
+        "href": "tel:+918055073251"
+       }
+      ]
+     },
+     "variant": "dark"
+    },
+    {
+     "id": "contact-2",
+     "type": "header",
+     "visible": true,
+     "props": {
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648740/rssahu-finmart/rssahu-logo.png",
+      "logoSize": "large",
+      "sticky": true,
+      "links": [
+       {
+        "text": "Home",
+        "href": "/"
+       },
+       {
+        "text": "Panch Tattva",
+        "href": "/panch-tattva"
+       },
+       {
+        "text": "Services",
+        "href": "/services"
+       },
+       {
+        "text": "Calculators",
+        "href": "/calculators"
+       },
+       {
+        "text": "Health Check-up",
+        "href": "/financial-health-checkup"
+       },
+       {
+        "text": "About",
+        "href": "/about"
+       },
+       {
+        "text": "Blog",
+        "href": "/blog"
+       },
+       {
+        "text": "Contact",
+        "href": "/contact"
+       }
+      ],
+      "cta": {
+       "text": "Free Consultation",
+       "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+       "style": "primary",
+       "newTab": true
+      }
+     },
+     "variant": "left",
+     "style": {
+      "bg": "default"
+     }
+    },
+    {
+     "id": "contact-contact",
+     "type": "contact",
+     "visible": true,
+     "props": {
+      "label": "Contact Us",
+      "heading": "Book Your Financial Health Check-up",
+      "sub": "Form भरें — Ramesh Ji आपसे जल्द संपर्क करेंगे। या सीधे Call / WhatsApp करें: 80550 73251",
+      "showPhone": true,
+      "showWhatsapp": true,
+      "showEmail": false,
+      "showAddress": false,
+      "showHours": true,
+      "showMap": false,
+      "submitText": "Book My Check-up"
+     },
+     "variant": "form-only",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "surface"
+     }
+    },
+    {
+     "id": "contact-4",
+     "type": "hours",
+     "visible": true,
+     "props": {
+      "label": "Office Hours",
+      "heading": "Monday – Saturday, 10:00 AM – 7:00 PM",
+      "note": "Sunday: By Appointment",
+      "highlightToday": true
+     },
+     "variant": "cards",
+     "style": {
+      "paddingY": "md",
+      "align": "center",
+      "bg": "default"
+     }
+    },
+    {
+     "id": "contact-5",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Ramesh S. Sahu — Financial Guardian",
+      "sub": "Founder & CMD – RSSAHU FINMART INDIA PVT LTD · 📱 80550 73251",
+      "ctaPrimary": {
+       "text": "📲 WhatsApp Now",
+       "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4",
+       "style": "primary",
+       "newTab": true
+      },
+      "ctaSecondary": {
+       "text": "📞 Call Now",
+       "href": "tel:+918055073251",
+       "style": "ghost"
+      }
+     },
+     "variant": "card",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "default"
+     }
+    },
+    {
+     "id": "contact-connect",
+     "type": "social",
+     "visible": true,
+     "props": {
+      "label": "Connect With Us",
+      "heading": "मेरी Social Media Family से जुड़ें ❤️",
+      "sub": "Follow करें | Subscribe करें | Share करें — आपका एक Follow + Subscribe + Share हमारी journey को और मजबूत बनाता है। 🙏",
+      "items": [
+       {
+        "network": "instagram",
+        "href": "https://www.instagram.com/rssahufinmartindiapvtltd/",
+        "title": "Instagram",
+        "text": "Financial awareness tips और updates",
+        "action": "Follow करें"
+       },
+       {
+        "network": "youtube",
+        "href": "https://www.youtube.com/@RSSAHUFINAMRTINDIAPVTLTD",
+        "title": "YouTube",
+        "text": "Insurance और planning पर videos",
+        "action": "Subscribe करें"
+       },
+       {
+        "network": "facebook",
+        "href": "https://www.facebook.com/share/1DNXB5W3Eb/",
+        "title": "Facebook",
+        "text": "Mission Dil Se Dil Tak की activities",
+        "action": "Follow करें"
+       },
+       {
+        "network": "whatsapp",
+        "href": "https://chat.whatsapp.com/L9CI9dLEAsBF2KHKjyWgXv",
+        "title": "WhatsApp Community",
+        "text": "Awareness community से जुड़ें",
+        "action": "Join करें"
+       },
+       {
+        "network": "whatsapp-channel",
+        "href": "https://whatsapp.com/channel/0029Vb6p7FZISTkS5l3dPN03",
+        "title": "WhatsApp Channel",
+        "text": "Regular updates सीधे WhatsApp पर",
+        "action": "Follow करें"
+       },
+       {
+        "network": "google-review",
+        "href": "https://g.page/r/CcnKPg0n-_KREAE/review",
+        "title": "Google Review",
+        "text": "अपना अनुभव Google पर share करें",
+        "action": "Feedback दें"
+       }
+      ]
+     },
+     "variant": "cards",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "surface"
+     }
+    },
+    {
+     "id": "contact-faq",
+     "type": "faq",
+     "visible": true,
+     "props": {
+      "label": "FAQ",
+      "heading": "अक्सर पूछे जाने वाले सवाल",
+      "items": [
+       {
+        "q": "क्या Financial Planning केवल high-income लोगों के लिए है?",
+        "a": "नहीं। हर income group के लिए financial planning उपयोगी हो सकती है। Planning को income, goals और affordability के अनुसार बनाया जाता है।"
+       },
+       {
+        "q": "Health Insurance क्यों जरूरी है?",
+        "a": "Medical emergencies परिवार की finances पर बड़ा असर डाल सकती हैं। Health Insurance उस financial risk को manage करने में मदद कर सकता है।"
+       },
+       {
+        "q": "Retirement Planning कब शुरू करनी चाहिए?",
+        "a": "जितनी जल्दी goal-based retirement planning शुरू होती है, उतना अधिक समय disciplined investment और compounding के लिए मिल सकता है।"
+       },
+       {
+        "q": "SIP क्या है?",
+        "a": "SIP एक systematic investment method है जिसमें निर्धारित अंतराल पर Mutual Fund में निवेश किया जाता है।"
+       },
+       {
+        "q": "क्या आप मेरे existing insurance/investments का review करते हैं?",
+        "a": "हाँ, customer की आवश्यकता के अनुसार Financial Health Check-up और existing financial protection/investment review किया जा सकता है।"
+       },
+       {
+        "q": "Consultation कैसे लें?",
+        "a": "Website के WhatsApp, Call या Consultation Form से संपर्क करें।"
+       }
+      ],
+      "openFirst": true
+     },
+     "variant": "accordion",
+     "style": {
+      "paddingY": "lg",
+      "align": "center",
+      "bg": "default"
+     }
+    },
+    {
+     "id": "contact-8",
+     "type": "footer",
+     "visible": true,
+     "props": {
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789648740/rssahu-finmart/rssahu-logo.png",
+      "blurb": "Financial Doctor | Financial Guardian. “आपका विश्वास… हमारी जिम्मेदारी…” 🙏 Health Protection | Life Protection | Wealth Creation | Child Future | Retirement Planning.",
+      "showSocial": true,
+      "showContact": true,
+      "showHours": true,
+      "columns": [
+       {
+        "title": "Explore",
+        "links": [
+         {
+          "text": "Panch Tattva",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "Services",
+          "href": "/services"
+         },
+         {
+          "text": "Calculators",
+          "href": "/calculators"
+         },
+         {
+          "text": "Health Check-up",
+          "href": "/financial-health-checkup"
+         },
+         {
+          "text": "About",
+          "href": "/about"
+         },
+         {
+          "text": "Blog",
+          "href": "/blog"
+         },
+         {
+          "text": "Contact",
+          "href": "/contact"
+         }
+        ]
+       },
+       {
+        "title": "Panch Tattva",
+        "links": [
+         {
+          "text": "🌳 Health Protection",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "💧 Child Education",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "🔥 Income Protection",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "🌬️ Retirement",
+          "href": "/panch-tattva"
+         },
+         {
+          "text": "🌌 Wealth & Child Marriage",
+          "href": "/panch-tattva"
+         }
+        ]
+       },
+       {
+        "title": "Ramesh S. Sahu",
+        "links": [
+         {
+          "text": "Founder & CMD",
+          "href": "/about"
+         },
+         {
+          "text": "WhatsApp 80550 73251",
+          "href": "https://wa.me/918055073251?text=Namaste%20Ramesh%20Ji%2C%20%E0%A4%AE%E0%A5%81%E0%A4%9D%E0%A5%87%20Free%20Financial%20Consultation%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%BF%E0%A4%8F%E0%A5%A4"
+         },
+         {
+          "text": "Mission Dil Se Dil Tak",
+          "href": "/about#mission"
+         },
+         {
+          "text": "Give Feedback on Google",
+          "href": "https://g.page/r/CcnKPg0n-_KREAE/review"
+         }
+        ]
+       }
+      ],
+      "disclaimer": "AMFI Registered Mutual Fund Distributor | ARN-265309\n\nInsurance: Insurance products are subject to the terms, conditions, exclusions and underwriting guidelines of the respective insurance company.\n\nMutual Funds: Mutual Fund investments are subject to market risks. Read all scheme-related documents carefully before investing.\n\nWebsite पर दी गई जानकारी general awareness और educational purposes के लिए है; final recommendation customer की individual requirements और applicable product/provider terms पर आधारित होगी।",
+      "copyright": "© 2026 RSSAHU FINMART INDIA PVT LTD · Mission Dil Se Dil Tak · Mission 10,000 Families",
+      "showBranding": true,
+      "showLegal": true,
+      "privacyBody": "RSSAHU FINMART INDIA PVT LTD आपकी privacy का सम्मान करता है।\n\nहम कौन-सी जानकारी लेते हैं: जब आप website के form, WhatsApp या call के माध्यम से संपर्क करते हैं, तो आपकी दी गई जानकारी जैसे Name, Mobile Number, Email और आपका message।\n\nउपयोग: इस जानकारी का उपयोग केवल आपसे संपर्क करने, आपकी financial planning / insurance / investment संबंधी query का जवाब देने और requested services प्रदान करने के लिए किया जाता है।\n\nSharing: आपकी जानकारी बेची नहीं जाती। आपकी request पर service देने के लिए आवश्यक होने पर इसे संबंधित insurance company / AMC / service provider के साथ share किया जा सकता है, या कानून द्वारा आवश्यक होने पर।\n\nSecurity और आपके अधिकार: जानकारी को सुरक्षित रखने के उचित उपाय किए जाते हैं। अपनी जानकारी देखने, सुधारने या हटाने के लिए 80550 73251 पर संपर्क करें।\n\nCustomer द्वारा website पर दी गई personal information को privacy और applicable laws के अनुसार handle किया जाएगा।",
+      "termsBody": "Website पर उपलब्ध information general information के लिए है।\n\nProduct terms, conditions, eligibility, underwriting, exclusions, taxation और returns संबंधित provider/product documents के अनुसार होंगे।\n\nWebsite के calculators illustration के लिए हैं; ये किसी return या cover की guarantee नहीं देते।\n\nInsurance products are subject to the terms, conditions, exclusions and underwriting guidelines of the respective insurance company. Mutual Fund investments are subject to market risks. Read all scheme-related documents carefully before investing.\n\nRSSAHU FINMART INDIA PVT LTD — AMFI Registered Mutual Fund Distributor, ARN-265309."
+     },
+     "variant": "columns",
+     "style": {
+      "bg": "surface",
+      "paddingY": "lg"
+     }
+    }
+   ]
+  }
+ ]
+}

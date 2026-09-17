@@ -20,7 +20,7 @@
       "label": "Badges",
       "group": "Badges",
       "min": 1,
-      "max": 8,
+      "max": 12,
       "itemLabel": "{{title}}",
       "addLabel": "Add badge",
       "fields": [
@@ -41,7 +41,23 @@
             { "value": "ruler", "label": "Sizes / made to measure" },
             { "value": "hand", "label": "Handcrafted" },
             { "value": "star", "label": "Star" },
-            { "value": "lock", "label": "Secure" }
+            { "value": "lock", "label": "Secure" },
+            { "value": "heart", "label": "Health / heart" },
+            { "value": "umbrella", "label": "Protection / insurance" },
+            { "value": "trending", "label": "Growth / investment" },
+            { "value": "piggy", "label": "Savings" },
+            { "value": "graduation", "label": "Education" },
+            { "value": "rings", "label": "Marriage" },
+            { "value": "stethoscope", "label": "Medical" },
+            { "value": "receipt", "label": "Tax / bills" },
+            { "value": "family", "label": "Family" },
+            { "value": "calculator", "label": "Calculator" },
+            { "value": "target", "label": "Goal" },
+            { "value": "clipboard", "label": "Check-up / review" },
+            { "value": "rupee", "label": "Rupee / money" },
+            { "value": "award", "label": "Award" },
+            { "value": "clock", "label": "Time / hours" },
+            { "value": "phone", "label": "Phone" }
           ]
         },
         { "key": "title", "type": "text", "label": "Title", "required": true, "maxLength": 60 },

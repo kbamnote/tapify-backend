@@ -1,0 +1,27 @@
+{
+  "preset": "guardian-green",
+  "label": "Guardian Green",
+  "description": "Deep, trustworthy green with warm gold — for financial advisors, insurance and wealth planners. Poppins headings with Mukta body text; both render Hindi (Devanagari) as well as English.",
+  "industries": ["finance", "insurance", "financial-advisor", "wealth", "mutual-funds", "ca", "tax"],
+  "tokens": {
+    "mode": "light",
+    "color": {
+      "primary": "#0B4D35",
+      "secondary": "#D4A017",
+      "accent": "#8A6100",
+      "bg": "#FFFFFF",
+      "surface": "#F3F8F4",
+      "text": "#0F241A",
+      "muted": "#4E6157",
+      "border": "#DCE8E0"
+    },
+    "font": {
+      "heading": "Poppins",
+      "body": "Mukta"
+    },
+    "radius": "lg",
+    "spacing": "comfortable",
+    "container": "normal"
+  },
+  "notes": "Sampled from the RSSAHU FINMART shield logo (deep green + gold). The gold is used for accents and lines only; `accent` is the same gold darkened along its hue so it can carry text. Pairs with the pillars, calculators, quiz, steps and social sections."
+}

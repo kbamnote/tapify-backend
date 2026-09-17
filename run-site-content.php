@@ -37,6 +37,8 @@ $SITES = [
     'aestheticclinic' => ['file' => 'content-aesthetic-clinic.json', 'label' => 'Aesthetic Dental & Skin Clinic'],
     // bafnajewellers probed: 404 (free). Create the site with this slug first.
     'bafnajewellers' => ['file' => 'content-bafna-jewellers.json', 'label' => 'Bafna Jewellers'],
+    // rssahu probed: 404 (free). First custom-domain site — rssahu.com via Cloudflare (see set-domain.php).
+    'rssahu' => ['file' => 'content-rssahu-finmart.json', 'label' => 'RSSAHU FINMART INDIA PVT LTD'],
     'shrikrushnamotors' => ['file' => 'content-shrikrushna-motors.json', 'label' => 'Shri Krushna Motors'],
     'indrashobha' => ['file' => 'content-indrashobha-cosmetics.json', 'label' => 'Indrashobha Cosmetics'],
     // NOTE the spelling: the subdomain is dhanlakshmijewellers, the business is

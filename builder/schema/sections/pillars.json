@@ -1,0 +1,55 @@
+{
+  "type": "pillars",
+  "label": "Pillars / Concept",
+  "category": "content",
+  "icon": "columns-3",
+  "description": "Present a signature idea as pillars — e.g. five elements, core values or a method. Interactive tabs (tap a pillar to open its details) or a row of colourful cards, each with its own colour, symbol, picture, focus points and button.",
+  "industries": ["*"],
+  "singleton": false,
+  "variants": [
+    { "id": "tabs", "label": "Interactive — tap a pillar to open it", "preview": "/builder/previews/about-image-left.png" },
+    { "id": "cards", "label": "Cards side by side", "preview": "/builder/previews/services-cards-3.png" }
+  ],
+  "props": [
+    { "key": "label", "type": "text", "label": "Eyebrow label", "maxLength": 40, "group": "Heading" },
+    { "key": "heading", "type": "text", "label": "Heading", "maxLength": 140, "group": "Heading" },
+    { "key": "sub", "type": "textarea", "label": "Text under the heading", "maxLength": 400, "group": "Heading" },
+    {
+      "key": "items",
+      "type": "repeater",
+      "label": "Pillars",
+      "group": "Pillars",
+      "min": 1,
+      "max": 8,
+      "itemLabel": "{{title}}",
+      "addLabel": "Add pillar",
+      "fields": [
+        { "key": "symbol", "type": "text", "label": "Symbol or emoji", "maxLength": 8, "placeholder": "🌳" },
+        { "key": "name", "type": "text", "label": "Short name", "maxLength": 40, "placeholder": "पृथ्वी · Earth" },
+        { "key": "title", "type": "text", "label": "Title", "required": true, "maxLength": 80 },
+        { "key": "subtitle", "type": "text", "label": "Subtitle", "maxLength": 80 },
+        { "key": "tagline", "type": "text", "label": "Quote / tagline", "maxLength": 200 },
+        { "key": "text", "type": "textarea", "label": "Description", "maxLength": 800 },
+        { "key": "focus", "type": "list", "label": "Focus points", "help": "Short points shown as chips." },
+        { "key": "image", "type": "media", "label": "Picture", "accept": ["image"] },
+        { "key": "color", "type": "color", "label": "Pillar colour" },
+        { "key": "cta", "type": "link", "label": "Button" }
+      ]
+    }
+  ],
+  "style": {
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "radius", "animation", "headingColor", "textColor"],
+    "defaults": { "paddingY": "lg", "align": "center", "bg": "default" }
+  },
+  "defaults": {
+    "variant": "tabs",
+    "props": {
+      "heading": "Our approach",
+      "items": [
+        { "symbol": "1", "name": "Protect", "title": "Protection first", "text": "Cover the risks before building wealth." },
+        { "symbol": "2", "name": "Grow", "title": "Grow steadily", "text": "Invest with discipline towards clear goals." },
+        { "symbol": "3", "name": "Review", "title": "Review every year", "text": "Life changes — so should the plan." }
+      ]
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "type": "steps",
+  "label": "Steps / Journey",
+  "category": "content",
+  "icon": "route",
+  "description": "A numbered journey or process — how you work, or the path a customer follows — as a connected timeline across the page or down it.",
+  "industries": ["*"],
+  "singleton": false,
+  "variants": [
+    { "id": "horizontal", "label": "Across the page", "preview": "/builder/previews/stats-bar.png" },
+    { "id": "vertical", "label": "Down the page", "preview": "/builder/previews/about-text-only.png" }
+  ],
+  "props": [
+    { "key": "label", "type": "text", "label": "Eyebrow label", "maxLength": 40, "group": "Heading" },
+    { "key": "heading", "type": "text", "label": "Heading", "maxLength": 140, "group": "Heading" },
+    { "key": "sub", "type": "textarea", "label": "Text under the heading", "maxLength": 300, "group": "Heading" },
+    {
+      "key": "items",
+      "type": "repeater",
+      "label": "Steps",
+      "group": "Steps",
+      "min": 1,
+      "max": 8,
+      "itemLabel": "{{title}}",
+      "addLabel": "Add step",
+      "fields": [
+        { "key": "symbol", "type": "text", "label": "Number, symbol or emoji", "maxLength": 8, "help": "Leave empty to number the steps automatically." },
+        { "key": "title", "type": "text", "label": "Title", "required": true, "maxLength": 60 },
+        { "key": "text", "type": "textarea", "label": "Text", "maxLength": 240 },
+        { "key": "color", "type": "color", "label": "Colour (optional)" }
+      ]
+    },
+    { "key": "cta", "type": "link", "label": "Button under the steps", "group": "Button" }
+  ],
+  "style": {
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "radius", "animation", "headingColor", "textColor"],
+    "defaults": { "paddingY": "lg", "align": "center", "bg": "default" }
+  },
+  "defaults": {
+    "variant": "horizontal",
+    "props": {
+      "heading": "How it works",
+      "items": [
+        { "title": "Understand", "text": "We listen to your goals." },
+        { "title": "Plan", "text": "A clear plan for each goal." },
+        { "title": "Review", "text": "We stay with you and review." }
+      ]
+    }
+  }
+}

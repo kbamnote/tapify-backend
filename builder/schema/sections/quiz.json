@@ -1,0 +1,56 @@
+{
+  "type": "quiz",
+  "label": "Self Check-up Quiz",
+  "category": "contact",
+  "icon": "clipboard-check",
+  "description": "An interactive check-up: visitors answer Yes / No / Not sure to your questions, see a score with personalised pointers, and can send their result to you on WhatsApp — a warm lead instead of a cold form.",
+  "industries": ["*"],
+  "singleton": false,
+  "variants": [
+    { "id": "card", "label": "Quiz card", "preview": "/builder/previews/faq-accordion.png" },
+    { "id": "split", "label": "Picture beside the quiz", "preview": "/builder/previews/about-image-left.png" }
+  ],
+  "props": [
+    { "key": "label", "type": "text", "label": "Eyebrow label", "maxLength": 40, "group": "Heading" },
+    { "key": "heading", "type": "text", "label": "Heading", "maxLength": 140, "group": "Heading" },
+    { "key": "sub", "type": "textarea", "label": "Text under the heading", "maxLength": 400, "group": "Heading" },
+    { "key": "image", "type": "media", "label": "Picture (split layout)", "accept": ["image"], "group": "Heading" },
+    {
+      "key": "questions",
+      "type": "repeater",
+      "label": "Questions",
+      "group": "Questions",
+      "min": 1,
+      "max": 12,
+      "itemLabel": "{{q}}",
+      "addLabel": "Add question",
+      "fields": [
+        { "key": "q", "type": "text", "label": "Question", "required": true, "maxLength": 200 },
+        { "key": "tip", "type": "text", "label": "Pointer shown if the answer is No / Not sure", "maxLength": 200 }
+      ]
+    },
+    { "key": "yesLabel", "type": "text", "label": "\"Yes\" button", "maxLength": 30, "default": "Yes", "group": "Answers" },
+    { "key": "noLabel", "type": "text", "label": "\"No\" button", "maxLength": 30, "default": "No", "group": "Answers" },
+    { "key": "unsureLabel", "type": "text", "label": "\"Not sure\" button", "maxLength": 30, "default": "Not sure", "group": "Answers" },
+    { "key": "goodTitle", "type": "text", "label": "Result title — score 75% or more", "maxLength": 100, "default": "You are well prepared", "group": "Results" },
+    { "key": "goodText", "type": "textarea", "label": "Result text — score 75% or more", "maxLength": 300, "default": "Most of the important areas are covered. A yearly review keeps the plan on track.", "group": "Results" },
+    { "key": "midTitle", "type": "text", "label": "Result title — 40 to 74%", "maxLength": 100, "default": "A good start, with some gaps", "group": "Results" },
+    { "key": "midText", "type": "textarea", "label": "Result text — 40 to 74%", "maxLength": 300, "default": "Some important areas need attention. A short conversation can show where to begin.", "group": "Results" },
+    { "key": "lowTitle", "type": "text", "label": "Result title — below 40%", "maxLength": 100, "default": "Time to make a plan", "group": "Results" },
+    { "key": "lowText", "type": "textarea", "label": "Result text — below 40%", "maxLength": 300, "default": "Several important areas are not yet planned. The earlier you start, the easier it is.", "group": "Results" },
+    { "key": "ctaText", "type": "text", "label": "WhatsApp button text", "maxLength": 50, "default": "Discuss my result on WhatsApp", "group": "Results" }
+  ],
+  "style": {
+    "supports": ["paddingY", "align", "bg", "bgMedia", "overlay", "radius", "animation", "headingColor", "textColor"],
+    "defaults": { "paddingY": "lg", "align": "center", "bg": "surface" }
+  },
+  "defaults": {
+    "variant": "card",
+    "props": {
+      "heading": "Quick check-up",
+      "questions": [
+        { "q": "Do you have a plan for this?", "tip": "Let us help you make one." }
+      ]
+    }
+  }
+}

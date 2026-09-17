@@ -1163,6 +1163,11 @@ class SiteRenderer
             case 'banners':      return self::secBanners($s, $doc);
             case 'features':     return self::secFeatures($s, $doc);
             case 'videos':       return self::secVideos($s, $doc);
+            case 'calculators':  return self::secCalculators($s, $doc);
+            case 'pillars':      return self::secPillars($s, $doc);
+            case 'quiz':         return self::secQuiz($s, $doc);
+            case 'social':       return self::secSocial($s, $doc);
+            case 'steps':        return self::secSteps($s, $doc);
             default:             return '';
         }
     }
@@ -1396,6 +1401,11 @@ class SiteRenderer
         }
 
         $onDark = self::isDarkBg($s);
+        // A centered-bg hero paints its Image as the background under a dark
+        // overlay, but that is only decided further down — too late for the
+        // buttons, which were styled for a LIGHT page: a ghost button came out as
+        // dark text on the darkened photo, i.e. invisible.
+        if ($variant === 'centered-bg' && !$hasVid && $img && !$autoShape) $onDark = true;
         // Full-viewport hero, like a landing page. A CLASS, not an inline style,
         // so the mobile breakpoint can shorten it (see .tf-full in baseCss).
         $fh = !empty($p['fullHeight']) ? 'tf-full' : '';
@@ -1406,7 +1416,11 @@ class SiteRenderer
         // carries the name) used to ship an EMPTY h1 — a page whose only top-level
         // heading is blank, which screen readers announce and search engines read.
         if (trim((string)($p['heading'] ?? '')) !== '') {
-            $body .= '<h1 class="tf-h1">' . self::esc($p['heading']) . '</h1>';
+            // A sentence-length headline at 60px wraps to five or six lines and pushes
+            // the buttons below the fold, so long headlines step down a size.
+            $len = mb_strlen((string)$p['heading']);
+            $size = $len > 90 ? ' tf-h1-xl' : ($len > 50 ? ' tf-h1-l' : '');
+            $body .= '<h1 class="tf-h1' . $size . '">' . self::esc($p['heading']) . '</h1>';
         }
         if (!empty($p['sub'])) $body .= '<p class="tf-lead">' . self::esc($p['sub']) . '</p>';
 
@@ -1675,6 +1689,367 @@ class SiteRenderer
         return self::shell($s, $inner);
     }
 
+    /* ------------------------------------------------------- calculators */
+
+    private const CALC_TYPES = ['sip', 'lumpsum', 'goal', 'retirement', 'term', 'emi'];
+
+    /** The site's WhatsApp number as wa.me wants it (country code, digits only). */
+    private static function waNumber(array $doc): string
+    {
+        $n = preg_replace('/\D/', '', (string)($doc['business']['whatsapp'] ?? $doc['business']['phone'] ?? ''));
+        return strlen($n) === 10 ? '91' . $n : $n;
+    }
+
+    /**
+     * Financial calculators — SIP, lumpsum, goal planner, retirement corpus, term
+     * cover and EMI, with sliders, live results, a chart and a "send my result on
+     * WhatsApp" button.
+     *
+     * The server lays out the tabs and empty panels; calcScript() builds the
+     * inputs and does the maths in the browser, so moving a slider needs no round
+     * trip. Each panel carries its configuration in data-cx. The maths is kept in
+     * step with Calculators.tsx (the editor canvas).
+     */
+    private static function secCalculators(array $s, array $doc): string
+    {
+        $p = $s['props'] ?? [];
+        $items = [];
+        foreach ((array)($p['items'] ?? []) as $it) {
+            if (is_array($it) && in_array($it['type'] ?? '', self::CALC_TYPES, true)) $items[] = $it;
+        }
+        if (!$items) return '';
+
+        $variant = ($s['variant'] ?? 'tabs') === 'stacked' ? 'stacked' : 'tabs';
+        $uid = 'cx' . substr(md5(($s['id'] ?? '') . 'calc'), 0, 6);
+        $wa  = ($p['showWhatsapp'] ?? true) !== false ? self::waNumber($doc) : '';
+        $names = ['sip' => 'SIP Calculator', 'lumpsum' => 'Lumpsum Calculator', 'goal' => 'Goal Planner',
+                  'retirement' => 'Retirement Planner', 'term' => 'Term Insurance Cover', 'emi' => 'EMI Calculator'];
+        $tabbed = $variant === 'tabs' && count($items) > 1;
+
+        $tabs = $panels = '';
+        foreach ($items as $i => $it) {
+            $type  = $it['type'];
+            $title = trim((string)($it['title'] ?? '')) ?: $names[$type];
+            $tag   = trim((string)($it['tag'] ?? ''));
+            $color = self::isColor($it['color'] ?? null) ? ' style="--cx-c:' . $it['color'] . '"' : '';
+            $cfg   = ['type' => $type, 'title' => $title];
+            if (is_numeric($it['returnRate'] ?? null)) $cfg['rate'] = (float)$it['returnRate'];
+
+            $tabs .= '<button type="button" role="tab" class="tf-cx-tab" id="' . $uid . '-t' . $i . '" data-type="' . $type . '"'
+                   . ' aria-controls="' . $uid . '-p' . $i . '" aria-selected="' . ($i === 0 ? 'true' : 'false') . '"' . $color . '>'
+                   . ($tag !== '' ? '<span class="tf-cx-tag">' . self::esc($tag) . '</span>' : '')
+                   . '<span class="tf-cx-tabt">' . self::esc($title) . '</span></button>';
+
+            $panels .= '<div class="tf-cx-panel"' . ($tabbed ? ' role="tabpanel" aria-labelledby="' . $uid . '-t' . $i . '"' : '')
+                     . ' id="' . $uid . '-p' . $i . '"' . ($tabbed && $i > 0 ? ' hidden' : '') . $color
+                     . ' data-cx="' . self::esc(json_encode($cfg, JSON_UNESCAPED_UNICODE)) . '">'
+                     . (!$tabbed ? ($tag !== '' ? '<p class="tf-cx-tag">' . self::esc($tag) . '</p>' : '') . '<h3 class="tf-cx-h">' . self::esc($title) . '</h3>' : '')
+                     . (trim((string)($it['note'] ?? '')) !== '' ? '<p class="tf-cx-note">' . self::esc($it['note']) . '</p>' : '')
+                     . '<div class="tf-cx-body"><div class="tf-cx-inputs"></div><div class="tf-cx-out" aria-live="polite"></div></div>'
+                     . '<noscript><p class="tf-cx-note">Please turn on JavaScript to use this calculator.</p></noscript>'
+                     . '</div>';
+        }
+
+        $disc = trim((string)($p['disclaimer'] ?? ''));
+        $body = '<div class="tf-cx tf-cx-' . $variant . '" data-wa="' . self::esc($wa) . '"'
+              . ' data-cta="' . self::esc(trim((string)($p['ctaText'] ?? '')) ?: 'Discuss this plan on WhatsApp') . '">'
+              . ($tabbed ? '<div class="tf-cx-tabs" role="tablist">' . $tabs . '</div>' : '')
+              . $panels
+              . ($disc !== '' ? '<p class="tf-cx-disc">' . self::esc($disc) . '</p>' : '')
+              . '</div>';
+
+        return self::shell($s, self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null) . $body . self::calcScript());
+    }
+
+    /** Calculator maths + UI. Guarded, so several calculator sections share one copy. */
+    private static function calcScript(): string
+    {
+        return <<<'JS'
+<script>(function(){if(window.tfCalc)return;window.tfCalc=1;
+function inr(n){return "₹"+Math.round(n).toLocaleString("en-IN")}
+function short(n){var a=Math.abs(n);if(a>=1e7)return "₹"+(n/1e7).toFixed(2).replace(/\.?0+$/,"")+" Cr";if(a>=1e5)return "₹"+(n/1e5).toFixed(2).replace(/\.?0+$/,"")+" L";return inr(n)}
+function esc(t){var d=document.createElement("div");d.textContent=t==null?"":t;return d.innerHTML}
+function fvSip(p,r,m){var i=r/1200;return i?p*((Math.pow(1+i,m)-1)/i)*(1+i):p*m}
+function sipFor(t,r,m){if(m<=0)return t;var i=r/1200;return i?t*i/((Math.pow(1+i,m)-1)*(1+i)):t/m}
+var S={
+sip:{f:[["amt","Monthly investment","₹",500,200000,500,5000],["rate","Expected return (p.a.)","%",1,30,0.5,12],["yrs","Time period","yrs",1,40,1,15]],
+ run:function(v){var m=v.yrs*12,inv=v.amt*m,fv=fvSip(v.amt,v.rate,m);return{big:[["Estimated future value",fv]],rows:[["Total invested",inv],["Estimated returns",fv-inv]],donut:[inv,fv-inv],dl:["Invested","Returns"],msg:"SIP of "+inr(v.amt)+"/month for "+v.yrs+" years at "+v.rate+"% ≈ "+short(fv)}}},
+lumpsum:{f:[["amt","One-time investment","₹",5000,10000000,5000,100000],["rate","Expected return (p.a.)","%",1,30,0.5,12],["yrs","Time period","yrs",1,40,1,10]],
+ run:function(v){var fv=v.amt*Math.pow(1+v.rate/100,v.yrs);return{big:[["Estimated future value",fv]],rows:[["Invested",v.amt],["Estimated returns",fv-v.amt]],donut:[v.amt,fv-v.amt],dl:["Invested","Returns"],msg:"Lumpsum of "+inr(v.amt)+" for "+v.yrs+" years at "+v.rate+"% ≈ "+short(fv)}}},
+goal:{f:[["cost","Goal cost in today's money","₹",10000,10000000,10000,1500000],["yrs","Years to the goal","yrs",1,30,1,12],["infl","Cost inflation (p.a.)","%",0,15,0.5,8],["rate","Expected return (p.a.)","%",1,30,0.5,12]],
+ run:function(v){var fut=v.cost*Math.pow(1+v.infl/100,v.yrs),m=v.yrs*12,sip=sipFor(fut,v.rate,m),lump=fut/Math.pow(1+v.rate/100,v.yrs);return{big:[["Monthly SIP needed",sip]],rows:[["Goal cost after "+v.yrs+" years",fut],["Or one-time investment today",lump],["Total you will invest by SIP",sip*m]],msg:"A goal costing "+inr(v.cost)+" today will need ≈ "+short(fut)+" in "+v.yrs+" years; SIP needed ≈ "+inr(sip)+"/month"}}},
+retirement:{f:[["age","Current age","yrs",18,60,1,30],["ret","Retirement age","yrs",40,75,1,60],["exp","Monthly expenses today","₹",5000,500000,1000,30000],["infl","Inflation (p.a.)","%",0,12,0.5,6],["rate","Return before retirement","%",1,20,0.5,12],["post","Return after retirement","%",1,15,0.5,7],["life","Plan till age","yrs",60,100,1,85]],
+ run:function(v){var n=v.ret-v.age,yr=Math.max(v.life-v.ret,1),exp=v.exp*Math.pow(1+v.infl/100,n),ann=exp*12,real=(1+v.post/100)/(1+v.infl/100)-1,corpus=Math.abs(real)<1e-6?ann*yr:ann*(1-Math.pow(1+real,-yr))/real*(1+real),sip=sipFor(corpus,v.rate,n*12);return{big:[["Retirement corpus needed",corpus],["Monthly SIP to reach it",sip]],rows:[["Monthly expenses at "+v.ret,exp],["Years left to invest",null,n+" years"],["Years the corpus must last",null,yr+" years"]],msg:"Retiring at "+v.ret+" with "+inr(v.exp)+"/month expenses today: corpus ≈ "+short(corpus)+", SIP ≈ "+inr(sip)+"/month"}}},
+term:{f:[["inc","Annual income","₹",100000,10000000,25000,800000],["age","Current age","yrs",18,65,1,32],["loans","Outstanding loans","₹",0,20000000,50000,0],["cover","Existing life cover","₹",0,20000000,50000,0],["sav","Existing savings & investments","₹",0,20000000,50000,0]],
+ run:function(v){var mult=Math.max(5,Math.min(20,60-v.age)),base=v.inc*mult,need=Math.max(base+v.loans-v.cover-v.sav,0);return{big:[["Additional life cover to consider",need]],rows:[["Income replacement ("+mult+"× annual income)",base],["Add: outstanding loans",v.loans],["Less: existing cover and savings",v.cover+v.sav]],msg:"Annual income "+inr(v.inc)+" at age "+v.age+": additional term cover to consider ≈ "+short(need)}}},
+emi:{f:[["amt","Loan amount","₹",10000,50000000,10000,1000000],["rate","Interest rate (p.a.)","%",1,30,0.1,9],["yrs","Tenure","yrs",1,30,1,10]],
+ run:function(v){var i=v.rate/1200,m=v.yrs*12,e=i?v.amt*i*Math.pow(1+i,m)/(Math.pow(1+i,m)-1):v.amt/m,t=e*m;return{big:[["Monthly EMI",e]],rows:[["Principal",v.amt],["Total interest",t-v.amt],["Total payable",t]],donut:[v.amt,t-v.amt],dl:["Principal","Interest"],msg:"Loan of "+inr(v.amt)+" at "+v.rate+"% for "+v.yrs+" years: EMI ≈ "+inr(e)}}}
+};
+function build(panel,root){var cfg;try{cfg=JSON.parse(panel.getAttribute("data-cx"))}catch(e){return}var sp=S[cfg.type];if(!sp)return;
+ var box=panel.querySelector(".tf-cx-inputs"),out=panel.querySelector(".tf-cx-out"),vals={};
+ function calc(){if(cfg.type==="retirement"&&vals.ret<=vals.age){out.innerHTML='<p class="tf-cx-warn">Retirement age should be more than your current age.</p>';return}
+  var r=sp.run(vals),h="";
+  r.big.forEach(function(b){h+='<div class="tf-cx-big"><span>'+b[0]+'</span><strong>'+short(b[1])+'</strong><small>'+inr(b[1])+'</small></div>'});
+  if(r.donut){var a=Math.max(r.donut[0],0),b=Math.max(r.donut[1],0),t=a+b||1,C=2*Math.PI*42,pa=Math.round(a/t*100);
+   h+='<div class="tf-cx-chart"><svg viewBox="0 0 100 100" role="img" aria-label="'+r.dl[0]+' '+pa+'%, '+r.dl[1]+' '+(100-pa)+'%"><circle cx="50" cy="50" r="42" fill="none" stroke="var(--cx-soft)" stroke-width="13"/><circle class="tf-cx-arc" cx="50" cy="50" r="42" fill="none" stroke="var(--cx-c)" stroke-width="13" stroke-dasharray="'+(b/t*C).toFixed(2)+' '+C.toFixed(2)+'" transform="rotate(-90 50 50)"/><text x="50" y="55" text-anchor="middle">'+(100-pa)+'%</text></svg><ul><li><i class="tf-cx-k1"></i>'+r.dl[0]+' · '+pa+'%</li><li><i class="tf-cx-k2"></i>'+r.dl[1]+' · '+(100-pa)+'%</li></ul></div>'}
+  h+='<ul class="tf-cx-rows">';r.rows.forEach(function(x){h+='<li><span>'+x[0]+'</span><b>'+(x[2]!=null?x[2]:inr(x[1]))+'</b></li>'});h+='</ul>';
+  var wa=root.getAttribute("data-wa");if(wa)h+='<a class="tf-cx-cta" target="_blank" rel="noopener noreferrer" href="https://wa.me/'+wa+'?text='+encodeURIComponent("Hi, I used the "+cfg.title+" on your website. "+r.msg+". I would like to discuss a plan.")+'"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.5-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.2-.3-.3-.6-.4zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zm8.4-18.2A11.8 11.8 0 0 0 1.8 17.9L.2 24l6.3-1.6a11.8 11.8 0 0 0 5.5 1.4h.1A11.8 11.8 0 0 0 20.4 3.6z"/></svg>'+esc(root.getAttribute("data-cta"))+'</a>';
+  out.innerHTML=h}
+ sp.f.forEach(function(f){var k=f[0],d=(k==="rate"&&cfg.rate!=null)?cfg.rate:f[6];vals[k]=d;
+  var id=panel.id+"-"+k,w=document.createElement("div"),pct=function(x){return((Math.min(x,f[4])-f[3])/(f[4]-f[3])*100)+"%"};w.className="tf-cx-field";
+  w.innerHTML='<div class="tf-cx-lab"><label for="'+id+'">'+f[1]+'</label><span class="tf-cx-num">'+(f[2]==="₹"?"<b>₹</b>":"")+'<input type="number" inputmode="decimal" id="'+id+'" min="'+f[3]+'" step="'+f[5]+'" value="'+d+'">'+(f[2]!=="₹"?"<em>"+f[2]+"</em>":"")+'</span></div><input type="range" aria-label="'+f[1]+'" min="'+f[3]+'" max="'+f[4]+'" step="'+f[5]+'" value="'+d+'">';
+  var num=w.querySelector('input[type=number]'),rng=w.querySelector('input[type=range]');
+  rng.style.setProperty("--pct",pct(d));
+  function set(x,src){x=parseFloat(x);if(isNaN(x))return;x=Math.max(f[3],Math.min(x,f[4]*10));vals[k]=x;if(src!==num)num.value=x;rng.value=Math.min(x,f[4]);rng.style.setProperty("--pct",pct(x));calc()}
+  rng.addEventListener("input",function(){set(rng.value,rng)});num.addEventListener("input",function(){set(num.value,num)});num.addEventListener("blur",function(){num.value=vals[k]});
+  box.appendChild(w)});
+ calc()}
+function init(root){if(root.getAttribute("data-cxi"))return;root.setAttribute("data-cxi","1");
+ var panels=root.querySelectorAll(".tf-cx-panel"),tabs=root.querySelectorAll(".tf-cx-tab");
+ for(var i=0;i<panels.length;i++)build(panels[i],root);
+ function pick(n){for(var j=0;j<tabs.length;j++){tabs[j].setAttribute("aria-selected",j===n?"true":"false");tabs[j].tabIndex=j===n?0:-1;panels[j].hidden=j!==n}}
+ Array.prototype.forEach.call(tabs,function(t,n){t.addEventListener("click",function(){pick(n)});
+  t.addEventListener("keydown",function(e){var d=e.key==="ArrowRight"?1:e.key==="ArrowLeft"?-1:0;if(!d)return;e.preventDefault();var m=(n+d+tabs.length)%tabs.length;pick(m);tabs[m].focus()});
+  if(n>0)t.tabIndex=-1});
+ // Open a specific calculator from a link: /calculators?calc=retirement (or #retirement).
+ var h=(location.search.match(/[?&]calc=([a-z]+)/)||[])[1]||(location.hash||"").slice(1);
+ for(var n=0;n<tabs.length;n++){if(h&&tabs[n].getAttribute("data-type")===h){pick(n);break}}}
+function boot(){Array.prototype.forEach.call(document.querySelectorAll(".tf-cx"),init)}
+if(document.readyState!=="loading")boot();else document.addEventListener("DOMContentLoaded",boot);
+})();</script>
+JS;
+    }
+
+    /* ----------------------------------------------------------- pillars */
+
+    /**
+     * Pillars — a signature concept presented as colour-coded pillars (five
+     * elements, core values, a method).
+     *
+     * "tabs" is interactive WITHOUT JavaScript: each pillar is a radio button, and
+     * a small per-section stylesheet shows the panel whose radio is checked. So it
+     * works before scripts load, arrow keys move between pillars for free, and a
+     * screen reader announces it as a group of choices.
+     */
+    private static function secPillars(array $s, array $doc): string
+    {
+        $p = $s['props'] ?? [];
+        $variant = ($s['variant'] ?? 'tabs') === 'cards' ? 'cards' : 'tabs';
+        $items = array_values(array_filter((array)($p['items'] ?? []), fn($it) => is_array($it) && trim((string)($it['title'] ?? '')) !== ''));
+        if (!$items) return '';
+        $uid = 'px' . substr(md5(($s['id'] ?? '') . 'pil'), 0, 6);
+
+        $detail = function (array $it): string {
+            $chips = '';
+            foreach ((array)($it['focus'] ?? []) as $f) {
+                if (is_string($f) && trim($f) !== '') $chips .= '<li>' . self::esc(trim($f)) . '</li>';
+            }
+            $cta = (!empty($it['cta']['text']) && !empty($it['cta']['href']))
+                ? '<a class="tf-px-cta" href="' . self::esc($it['cta']['href']) . '"' . (!empty($it['cta']['newTab']) ? ' target="_blank" rel="noopener noreferrer"' : '') . '>'
+                  . self::esc($it['cta']['text']) . ' <span aria-hidden="true">→</span></a>'
+                : '';
+            return (trim((string)($it['subtitle'] ?? '')) !== '' ? '<p class="tf-px-sub">' . self::esc($it['subtitle']) . '</p>' : '')
+                 . '<h3 class="tf-px-title">' . self::esc($it['title']) . '</h3>'
+                 . (trim((string)($it['tagline'] ?? '')) !== '' ? '<p class="tf-px-tagline">' . self::esc($it['tagline']) . '</p>' : '')
+                 . (trim((string)($it['text'] ?? '')) !== '' ? '<p class="tf-px-text">' . nl2br(self::esc(trim((string)$it['text']))) . '</p>' : '')
+                 . ($chips !== '' ? '<ul class="tf-px-chips">' . $chips . '</ul>' : '')
+                 . $cta;
+        };
+
+        if ($variant === 'cards') {
+            $cards = '';
+            foreach ($items as $it) {
+                $c   = self::isColor($it['color'] ?? null) ? $it['color'] : 'var(--color-primary)';
+                $img = self::media($it['image'] ?? null);
+                $badge = '<span class="tf-px-badge"><span aria-hidden="true">' . self::esc($it['symbol'] ?? '') . '</span> ' . self::esc($it['name'] ?? '') . '</span>';
+                $cards .= '<article class="tf-px-card" style="--px-c:' . $c . '">'
+                    . ($img ? '<div class="tf-px-img"><img src="' . self::esc($img) . '" alt="' . self::esc($it['title']) . '" loading="lazy">' . $badge . '</div>'
+                            : '<div class="tf-px-top">' . $badge . '</div>')
+                    . '<div class="tf-px-cbody">' . $detail($it) . '</div></article>';
+            }
+            $body = '<div class="tf-px-cards" style="--px-n:' . min(count($items), 5) . '">' . $cards . '</div>';
+            return self::shell($s, self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null) . $body);
+        }
+
+        $radios = $nav = $panels = $css = '';
+        foreach ($items as $i => $it) {
+            $c   = self::isColor($it['color'] ?? null) ? $it['color'] : 'var(--color-primary)';
+            $rid = $uid . '-' . $i;
+            $img = self::media($it['image'] ?? null);
+            $radios .= '<input type="radio" class="tf-px-radio" name="' . $uid . '" id="' . $rid . '"' . ($i === 0 ? ' checked' : '') . '>';
+            $nav .= '<label for="' . $rid . '" class="tf-px-pick" style="--px-c:' . $c . '">'
+                  . '<span class="tf-px-orb" aria-hidden="true">' . self::esc($it['symbol'] ?? '') . '</span>'
+                  . '<span class="tf-px-pname">' . self::esc($it['name'] ?? '') . '</span>'
+                  . '<span class="tf-px-ptitle">' . self::esc($it['title']) . '</span></label>';
+            $panels .= '<div class="tf-px-panel tf-px-p' . $i . '" style="--px-c:' . $c . '">'
+                  . ($img ? '<div class="tf-px-pimg"><img src="' . self::esc($img) . '" alt="' . self::esc($it['title']) . '" loading="lazy">'
+                           . '<span class="tf-px-bigsym" aria-hidden="true">' . self::esc($it['symbol'] ?? '') . '</span></div>' : '')
+                  . '<div class="tf-px-pbody">'
+                  . (trim((string)($it['name'] ?? '')) !== '' ? '<p class="tf-px-kicker">' . self::esc($it['name']) . '</p>' : '')
+                  . $detail($it) . '</div></div>';
+            $css .= '#' . $rid . ':checked~.tf-px-panels .tf-px-p' . $i . '{display:grid}'
+                  . '#' . $rid . ':checked~.tf-px-nav label[for="' . $rid . '"]{border-color:var(--px-c);background:color-mix(in srgb,var(--px-c) 10%,var(--color-bg));box-shadow:0 10px 28px color-mix(in srgb,var(--px-c) 25%,transparent);transform:translateY(-3px)}'
+                  . '#' . $rid . ':checked~.tf-px-nav label[for="' . $rid . '"] .tf-px-orb{background:var(--px-c);color:#fff}'
+                  . '#' . $rid . ':focus-visible~.tf-px-nav label[for="' . $rid . '"]{outline:3px solid var(--px-c);outline-offset:3px}';
+        }
+        $body = '<style>' . $css . '</style>'
+              . '<div class="tf-px" role="radiogroup" aria-label="' . self::esc($p['heading'] ?? 'Pillars') . '">' . $radios
+              . '<div class="tf-px-nav" style="--px-n:' . count($items) . '">' . $nav . '</div>'
+              . '<div class="tf-px-panels">' . $panels . '</div></div>';
+        return self::shell($s, self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null) . $body);
+    }
+
+    /* -------------------------------------------------------------- quiz */
+
+    /**
+     * Self check-up quiz: Yes / No / Not sure per question, a score with pointers
+     * for the gaps, and the answers sent to the business on WhatsApp.
+     */
+    private static function secQuiz(array $s, array $doc): string
+    {
+        $p  = $s['props'] ?? [];
+        $qs = array_values(array_filter((array)($p['questions'] ?? []), fn($q) => is_array($q) && trim((string)($q['q'] ?? '')) !== ''));
+        if (!$qs) return '';
+        $uid = 'qz' . substr(md5(($s['id'] ?? '') . 'quiz'), 0, 6);
+        $lab = fn(string $k, string $d) => trim((string)($p[$k] ?? '')) ?: $d;
+        $opts = [['2', $lab('yesLabel', 'Yes'), 'yes'], ['0', $lab('noLabel', 'No'), 'no'], ['1', $lab('unsureLabel', 'Not sure'), 'unsure']];
+
+        $list = '';
+        foreach ($qs as $i => $q) {
+            $name = $uid . '-q' . $i;
+            $o = '';
+            foreach ($opts as [$v, $l, $k]) {
+                $o .= '<label class="tf-qz-opt tf-qz-' . $k . '"><input type="radio" name="' . $name . '" value="' . $v . '"><span>' . self::esc($l) . '</span></label>';
+            }
+            $list .= '<li class="tf-qz-q" data-tip="' . self::esc(trim((string)($q['tip'] ?? ''))) . '">'
+                   . '<p class="tf-qz-qt" id="' . $name . '-l"><span class="tf-qz-n">' . ($i + 1) . '</span>' . self::esc($q['q']) . '</p>'
+                   . '<div class="tf-qz-opts" role="radiogroup" aria-labelledby="' . $name . '-l">' . $o . '</div></li>';
+        }
+        $bands = [
+            'good' => [$lab('goodTitle', 'You are well prepared'), $lab('goodText', '')],
+            'mid'  => [$lab('midTitle', 'A good start, with some gaps'), $lab('midText', '')],
+            'low'  => [$lab('lowTitle', 'Time to make a plan'), $lab('lowText', '')],
+        ];
+        $wa = self::waNumber($doc);
+        $quiz = '<div class="tf-qz" data-wa="' . self::esc($wa) . '" data-cta="' . self::esc($lab('ctaText', 'Discuss my result on WhatsApp')) . '"'
+              . ' data-title="' . self::esc($p['heading'] ?? 'Check-up') . '" data-bands="' . self::esc(json_encode($bands, JSON_UNESCAPED_UNICODE)) . '">'
+              . '<div class="tf-qz-bar"><span class="tf-qz-fill"></span><em class="tf-qz-count">0/' . count($qs) . '</em></div>'
+              . '<ol class="tf-qz-list">' . $list . '</ol>'
+              . '<div class="tf-qz-result" hidden aria-live="polite"></div></div>';
+
+        $img = self::media($p['image'] ?? null);
+        $body = (($s['variant'] ?? 'card') === 'split' && $img)
+            ? '<div class="tf-qz-split"><div class="tf-qz-img"><img src="' . self::esc($img) . '" alt="" loading="lazy"></div>' . $quiz . '</div>'
+            : '<div class="tf-qz-wrap">' . $quiz . '</div>';
+        return self::shell($s, self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null) . $body . self::quizScript());
+    }
+
+    private static function quizScript(): string
+    {
+        return <<<'JS'
+<script>(function(){if(window.tfQuiz)return;window.tfQuiz=1;
+function esc(t){var d=document.createElement("div");d.textContent=t==null?"":t;return d.innerHTML}
+function init(q){if(q.getAttribute("data-qzi"))return;q.setAttribute("data-qzi","1");
+ var items=q.querySelectorAll(".tf-qz-q"),n=items.length,res=q.querySelector(".tf-qz-result"),fill=q.querySelector(".tf-qz-fill"),cnt=q.querySelector(".tf-qz-count"),bands={};
+ try{bands=JSON.parse(q.getAttribute("data-bands"))}catch(e){}
+ function update(){var done=0,sum=0,gaps=[],lines=[];
+  Array.prototype.forEach.call(items,function(it,i){var c=it.querySelector("input:checked"),qt=it.querySelector(".tf-qz-qt").textContent.replace(/^\d+/,"").trim();it.classList.toggle("tf-qz-done",!!c);
+   if(c){done++;sum+=+c.value;var lbl=c.parentNode.textContent.trim();lines.push((i+1)+". "+qt+" — "+lbl);if(c.value!=="2"&&it.getAttribute("data-tip"))gaps.push(it.getAttribute("data-tip"))}});
+  fill.style.width=(done/n*100)+"%";cnt.textContent=done+"/"+n;
+  if(done<n){res.hidden=true;return}
+  var pct=Math.round(sum/(2*n)*100),k=pct>=75?"good":pct>=40?"mid":"low",b=bands[k]||["",""],C=2*Math.PI*44;
+  var h='<div class="tf-qz-score tf-qz-'+k+'"><svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" stroke-opacity=".15" stroke-width="10"/><circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" stroke-width="10" stroke-linecap="round" stroke-dasharray="'+(pct/100*C).toFixed(1)+' '+C.toFixed(1)+'" transform="rotate(-90 50 50)"/></svg><strong>'+pct+'%</strong></div>'
+   +'<div class="tf-qz-rtext"><h3>'+esc(b[0])+'</h3>'+(b[1]?'<p>'+esc(b[1])+'</p>':'')
+   +(gaps.length?'<ul class="tf-qz-gaps">'+gaps.map(function(g){return"<li>"+esc(g)+"</li>"}).join("")+'</ul>':'');
+  var wa=q.getAttribute("data-wa");
+  if(wa)h+='<a class="tf-qz-cta" target="_blank" rel="noopener noreferrer" href="https://wa.me/'+wa+'?text='+encodeURIComponent("Hi, I took the "+q.getAttribute("data-title")+" on your website. My score: "+pct+"%.\n\n"+lines.join("\n")+"\n\nPlease guide me.")+'">'+esc(q.getAttribute("data-cta"))+'</a>';
+  h+='<button type="button" class="tf-qz-reset">Start again</button></div>';
+  res.innerHTML=h;res.hidden=false;
+  res.querySelector(".tf-qz-reset").addEventListener("click",function(){Array.prototype.forEach.call(q.querySelectorAll("input:checked"),function(r){r.checked=false});update();items[0].scrollIntoView({behavior:"smooth",block:"center"})});
+  if(!q.getAttribute("data-shown")){q.setAttribute("data-shown","1");res.scrollIntoView({behavior:"smooth",block:"nearest"})}}
+ q.addEventListener("change",update)}
+function boot(){Array.prototype.forEach.call(document.querySelectorAll(".tf-qz"),init)}
+if(document.readyState!=="loading")boot();else document.addEventListener("DOMContentLoaded",boot);
+})();</script>
+JS;
+    }
+
+    /* ------------------------------------------------------------ social */
+
+    /** Brand colour + stroke icon for each platform. Keep in step with Social.tsx. */
+    private const SOCIAL_NETWORKS = [
+        'instagram'        => ['#E1306C', 'Instagram', '<rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.3"/><circle cx="17.6" cy="6.4" r=".9" fill="currentColor"/>'],
+        'youtube'          => ['#FF0000', 'YouTube', '<rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z" fill="currentColor"/>'],
+        'facebook'         => ['#1877F2', 'Facebook', '<path d="M15 3h-2.5A4.5 4.5 0 0 0 8 7.5V10H5.5v3.5H8V21h3.5v-7.5H14l.8-3.5h-3.3V7.8c0-.7.6-1.3 1.3-1.3H15z"/>'],
+        'whatsapp'         => ['#25D366', 'WhatsApp', '<path d="M3.5 20.5l1.3-4.3A8.5 8.5 0 1 1 8 19.3z"/><path d="M9 8.5c0 3.6 2.9 6.5 6.5 6.5l1.1-1.6-2.2-1-1 .9a5.6 5.6 0 0 1-2.6-2.6l.9-1-1-2.2z"/>'],
+        'whatsapp-channel' => ['#25D366', 'WhatsApp Channel', '<path d="M3 10.5v3a1 1 0 0 0 1 1h2.2L11 18V6L6.2 9.5H4a1 1 0 0 0-1 1z"/><path d="M15 9a4.2 4.2 0 0 1 0 6"/><path d="M17.8 6.2a8.2 8.2 0 0 1 0 11.6"/>'],
+        'google-review'    => ['#FBBC04', 'Google Review', '<path d="M12 2.8l2.8 5.8 6.4.9-4.6 4.4 1.1 6.3L12 17.2l-5.7 3 1.1-6.3-4.6-4.4 6.4-.9z"/>'],
+        'linkedin'         => ['#0A66C2', 'LinkedIn', '<rect x="2.5" y="2.5" width="19" height="19" rx="3"/><path d="M7.5 10.5V17M7.5 7.2v.01M11.5 17v-3.8a2.7 2.7 0 0 1 5.3 0V17M11.5 10.5V17"/>'],
+        'x'                => ['#111111', 'X', '<path d="M4 4l6.6 8.8L4.3 20h1.9l5.2-6.1L15.8 20H20l-7-9.3L18.9 4H17l-4.8 5.6L8.2 4z"/>'],
+        'telegram'         => ['#229ED9', 'Telegram', '<path d="M21.5 4 2.5 11.3l6 2 2.2 6.4 3.3-3.9 5 3.7z"/><path d="m8.5 13.3 9-6.3"/>'],
+        'website'          => ['', 'Website', '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/>'],
+    ];
+
+    private static function secSocial(array $s, array $doc): string
+    {
+        $p = $s['props'] ?? [];
+        $variant = ($s['variant'] ?? 'cards') === 'pills' ? 'pills' : 'cards';
+        $cells = '';
+        foreach ((array)($p['items'] ?? []) as $it) {
+            if (!is_array($it)) continue;
+            $href = trim((string)($it['href'] ?? ''));
+            $net  = self::SOCIAL_NETWORKS[(string)($it['network'] ?? '')] ?? null;
+            if ($href === '' || !$net || !preg_match('#^(https?://|/|mailto:|tel:)#i', $href)) continue;
+            [$color, $label, $icon] = $net;
+            $color = $color !== '' ? $color : 'var(--color-primary)';
+            $title = trim((string)($it['title'] ?? '')) ?: $label;
+            $svg = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' . $icon . '</svg>';
+            $ext = preg_match('#^https?://#i', $href) ? ' target="_blank" rel="noopener noreferrer"' : '';
+            if ($variant === 'pills') {
+                $cells .= '<a class="tf-sc-pill" href="' . self::esc($href) . '"' . $ext . ' style="--sc:' . $color . '">'
+                        . '<span class="tf-sc-ic">' . $svg . '</span>' . self::esc($title) . '</a>';
+                continue;
+            }
+            $action = trim((string)($it['action'] ?? ''));
+            $cells .= '<a class="tf-sc" href="' . self::esc($href) . '"' . $ext . ' style="--sc:' . $color . '">'
+                    . '<span class="tf-sc-ic">' . $svg . '</span>'
+                    . '<span class="tf-sc-t">' . self::esc($title) . '</span>'
+                    . (trim((string)($it['text'] ?? '')) !== '' ? '<span class="tf-sc-x">' . self::esc($it['text']) . '</span>' : '')
+                    . ($action !== '' ? '<span class="tf-sc-a">' . self::esc($action) . ' <span aria-hidden="true">→</span></span>' : '')
+                    . '</a>';
+        }
+        if ($cells === '') return '';
+        // Balanced rows: six cards as 3 + 3 rather than 5 + 1.
+        $n = substr_count($cells, $variant === 'pills' ? 'class="tf-sc-pill"' : 'class="tf-sc"');
+        $cols = $n <= 5 ? $n : ($n % 3 === 0 ? 3 : 4);
+        $body = '<div class="' . ($variant === 'pills' ? 'tf-sc-pills' : 'tf-scs') . '" style="--sc-cols:' . max(1, $cols) . '">' . $cells . '</div>';
+        return self::shell($s, self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null) . $body);
+    }
+
+    /* ------------------------------------------------------------- steps */
+
+    private static function secSteps(array $s, array $doc): string
+    {
+        $p = $s['props'] ?? [];
+        $variant = ($s['variant'] ?? 'horizontal') === 'vertical' ? 'vertical' : 'horizontal';
+        $items = array_values(array_filter((array)($p['items'] ?? []), fn($it) => is_array($it) && trim((string)($it['title'] ?? '')) !== ''));
+        if (!$items) return '';
+        $li = '';
+        foreach ($items as $i => $it) {
+            $c   = self::isColor($it['color'] ?? null) ? $it['color'] : 'var(--color-primary)';
+            $sym = trim((string)($it['symbol'] ?? '')) !== '' ? $it['symbol'] : (string)($i + 1);
+            $li .= '<li class="tf-st-i" style="--st-c:' . $c . '">'
+                 . '<span class="tf-st-dot" aria-hidden="true">' . self::esc($sym) . '</span>'
+                 . '<div class="tf-st-b"><h3 class="tf-st-t">' . self::esc($it['title']) . '</h3>'
+                 . (trim((string)($it['text'] ?? '')) !== '' ? '<p class="tf-st-x">' . self::esc($it['text']) . '</p>' : '')
+                 . '</div></li>';
+        }
+        $cta = self::btn($p['cta'] ?? null, self::isDarkBg($s));
+        $body = '<ol class="tf-st tf-st-' . $variant . '" style="--st-n:' . count($items) . '">' . $li . '</ol>'
+              . ($cta !== '' ? '<div class="tf-st-cta">' . $cta . '</div>' : '');
+        return self::shell($s, self::sectionHeader($p['label'] ?? null, $p['heading'] ?? null, $p['sub'] ?? null) . $body);
+    }
+
     /* ------------------------------------------------------------ videos */
 
     /**
@@ -1820,6 +2195,22 @@ class SiteRenderer
         'hand'    => '<path d="M18 11V6a2 2 0 0 0-4 0v5"/><path d="M14 10V4a2 2 0 0 0-4 0v6"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>',
         'star'    => '<path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/>',
         'lock'    => '<rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
+        'heart'       => '<path d="M19.5 12.6 12 20l-7.5-7.4A5 5 0 1 1 12 6a5 5 0 1 1 7.5 6.6z"/><path d="M3.5 12h4l2-3 3 6 2-3h6"/>',
+        'umbrella'    => '<path d="M22 12a10 10 0 0 0-20 0z"/><path d="M12 12v7a2 2 0 0 1-4 0"/><path d="M12 2v1"/>',
+        'trending'    => '<path d="m3 17 6-6 4 4 8-8"/><path d="M14 7h7v7"/>',
+        'piggy'       => '<path d="M19 9.5c.8.3 1.5 1 1.5 2V13H19a7 7 0 0 1-2.5 3.5V19h-3v-1.5h-3V19h-3v-2.6A7 7 0 0 1 11 5h2a7 7 0 0 1 6 4.5z"/><path d="M8 10h.01"/><path d="M11 5V3.5"/>',
+        'graduation'  => '<path d="M22 10 12 5 2 10l10 5z"/><path d="M6 12v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/><path d="M22 10v6"/>',
+        'rings'       => '<circle cx="9" cy="14" r="6"/><circle cx="15" cy="14" r="6"/><path d="m9 3 1.5 2h-3z"/>',
+        'stethoscope' => '<path d="M5 3v6a5 5 0 0 0 10 0V3"/><path d="M10 14v2a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="12" r="2"/>',
+        'receipt'     => '<path d="M5 3h14v18l-3-2-2 2-2-2-2 2-2-2-3 2z"/><path d="M9 8h6M9 12h6M9 16h4"/>',
+        'family'      => '<circle cx="8" cy="6" r="2.5"/><circle cx="16" cy="6" r="2.5"/><circle cx="12" cy="13" r="2"/><path d="M3.5 21v-5a4.5 4.5 0 0 1 8.5-2"/><path d="M12 14a4.5 4.5 0 0 1 8.5 2v5"/>',
+        'calculator'  => '<rect x="5" y="2" width="14" height="20" rx="2"/><path d="M8 6h8"/><path d="M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01M8 19h.01M12 19h.01M16 19h.01"/>',
+        'target'      => '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/>',
+        'clipboard'   => '<rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="m9 13 2 2 4-4"/>',
+        'rupee'       => '<path d="M6 3h12M6 8h12M6 13h3a5 5 0 0 0 0-10"/><path d="m9 13 8 8"/>',
+        'award'       => '<circle cx="12" cy="9" r="6"/><path d="m8.5 14-1.5 7 5-3 5 3-1.5-7"/>',
+        'clock'       => '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+        'phone'       => '<path d="M22 16.9v3a2 2 0 0 1-2.2 2A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.5 3a2 2 0 0 1-.6 1.8L7.6 9.9a16 16 0 0 0 6.5 6.5l1.4-1.4a2 2 0 0 1 1.8-.6l3 .5a2 2 0 0 1 1.7 2z"/>',
     ];
 
     /**
@@ -2607,6 +2998,17 @@ class SiteRenderer
                 $body .= '<div><p style="font-size:14px;font-weight:600;margin:0 0 12px">Contact</p><ul style="list-style:none;padding:0;margin:0;font-size:14px;opacity:.75">' . $ci . '</ul></div>';
             }
             $body .= '</div>';
+        }
+
+        // Registration details and risk disclaimers — small print that must be on
+        // every page for regulated businesses (mutual fund distributors, insurance).
+        $disc = trim((string)($p['disclaimer'] ?? ''));
+        if ($disc !== '') {
+            $paras = '';
+            foreach (preg_split('/\n\s*\n/', $disc) as $para) {
+                if (trim($para) !== '') $paras .= '<p>' . nl2br(self::esc(trim($para))) . '</p>';
+            }
+            $body .= '<div class="tf-foot-disc">' . $paras . '</div>';
         }
 
         $year = date('Y');
@@ -4529,6 +4931,9 @@ a{color:inherit}
 .tf-h1{font-size:34px;font-weight:700;line-height:1.1;color:var(--tf-heading,inherit)}
 @media(min-width:768px){.tf-h1{font-size:48px}}
 @media(min-width:1024px){.tf-h1{font-size:60px}}
+@media(min-width:768px){.tf-h1.tf-h1-l{font-size:42px;line-height:1.15}.tf-h1.tf-h1-xl{font-size:36px;line-height:1.2}}
+@media(min-width:1024px){.tf-h1.tf-h1-l{font-size:48px}.tf-h1.tf-h1-xl{font-size:40px}}
+@media(max-width:767px){.tf-h1.tf-h1-l,.tf-h1.tf-h1-xl{font-size:28px;line-height:1.2}}
 .tf-h2{font-size:30px;font-weight:700;color:var(--tf-heading,inherit)}
 @media(min-width:768px){.tf-h2{font-size:36px}}
 .tf-lead{margin-top:16px;font-size:16px;line-height:1.6;opacity:.9;max-width:640px}
@@ -4820,6 +5225,171 @@ iframe{max-width:100%}
 .tf-vid-x{margin:4px 0 0;font-size:14px;line-height:1.55;color:var(--tf-text,var(--color-muted))}
 .tf-al-center .tf-vids-1 .tf-vid-cap{text-align:center}
 @media(prefers-reduced-motion:reduce){.tf-vid-play img,.tf-vid-btn{transition:none}}
+/* ---- footer disclaimer ---- */
+.tf-foot-disc{margin-top:28px;padding:16px 18px;border-radius:var(--radius);background:rgba(127,127,127,.08);font-size:12.5px;line-height:1.6;text-align:left;opacity:.85}
+.tf-foot-disc p{margin:0}
+.tf-foot-disc p+p{margin-top:8px}
+/* ---- calculators ---- */
+.tf-cx{--cx-c:var(--color-primary);text-align:left}
+.tf-cx-panel,.tf-cx-tab{--cx-soft:color-mix(in srgb,var(--cx-c) 20%,#fff)}
+.tf-cx-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:2px 2px 14px}
+.tf-cx-tab{display:flex;flex-direction:column;align-items:flex-start;gap:1px;padding:10px 18px;border:1.5px solid var(--color-border);border-radius:14px;background:var(--color-bg);color:var(--color-text);font:inherit;cursor:pointer;text-align:left;transition:border-color .2s,box-shadow .2s,transform .2s,background .2s}
+.tf-cx-tab:hover{transform:translateY(-2px)}
+.tf-cx-tab[aria-selected="true"]{border-color:var(--cx-c);background:color-mix(in srgb,var(--cx-c) 8%,var(--color-bg));box-shadow:0 8px 22px color-mix(in srgb,var(--cx-c) 22%,transparent)}
+.tf-cx-tab:focus-visible{outline:3px solid var(--cx-c);outline-offset:2px}
+.tf-cx-tag{margin:0;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--cx-c)}
+.tf-cx-tabt{font-size:15px;font-weight:600}
+.tf-cx-panel{padding:30px;border-radius:calc(var(--radius) + 6px);background:var(--color-bg);color:var(--color-text);border:1px solid var(--color-border);box-shadow:0 14px 44px rgba(16,24,40,.08);animation:tf-cxin .35s ease}
+.tf-cx-panel[hidden]{display:none}
+.tf-cx-stacked .tf-cx-panel+.tf-cx-panel{margin-top:26px}
+@keyframes tf-cxin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.tf-cx-h{margin:2px 0 6px;font-family:var(--font-heading);font-size:22px;line-height:1.3}
+.tf-cx-note{margin:0 0 20px;font-size:14.5px;line-height:1.6;color:var(--color-muted)}
+.tf-cx-body{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:34px;align-items:start}
+.tf-cx-field{margin-bottom:22px}
+.tf-cx-lab{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;font-size:14.5px;font-weight:600}
+.tf-cx-num{display:inline-flex;align-items:center;gap:3px;padding:6px 10px;border-radius:10px;background:color-mix(in srgb,var(--cx-c) 10%,var(--color-bg));color:var(--cx-c);font-weight:700}
+.tf-cx-num b{font-weight:700}
+.tf-cx-num input{width:104px;border:0;background:transparent;font:inherit;color:inherit;text-align:right;outline:none;-moz-appearance:textfield;appearance:textfield}
+.tf-cx-num input::-webkit-outer-spin-button,.tf-cx-num input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.tf-cx-num:focus-within{box-shadow:0 0 0 2px var(--cx-c)}
+.tf-cx-num em{font-style:normal;font-size:13px}
+.tf-cx-field input[type=range]{--pct:50%;width:100%;height:6px;margin:0;border-radius:99px;-webkit-appearance:none;appearance:none;background:linear-gradient(90deg,var(--cx-c) var(--pct),var(--color-border) var(--pct));cursor:pointer}
+.tf-cx-field input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:#fff;border:4px solid var(--cx-c);box-shadow:0 2px 8px rgba(0,0,0,.2)}
+.tf-cx-field input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:#fff;border:4px solid var(--cx-c)}
+.tf-cx-field input[type=range]:focus-visible{outline:3px solid color-mix(in srgb,var(--cx-c) 45%,transparent);outline-offset:6px}
+.tf-cx-out{padding:24px;border-radius:var(--radius);background:color-mix(in srgb,var(--cx-c) 7%,var(--color-surface))}
+.tf-cx-big{display:flex;flex-direction:column;margin-bottom:14px}
+.tf-cx-big span{font-size:13px;font-weight:600;color:var(--color-muted)}
+.tf-cx-big strong{font-family:var(--font-heading);font-size:clamp(28px,3.2vw,38px);line-height:1.15;color:var(--cx-c)}
+.tf-cx-big small{font-size:12.5px;color:var(--color-muted)}
+.tf-cx-chart{display:flex;align-items:center;gap:18px;margin:4px 0 12px}
+.tf-cx-chart svg{width:112px;height:112px;flex:none}
+.tf-cx-chart text{font:700 15px var(--font-heading);fill:var(--color-text)}
+.tf-cx-arc{transition:stroke-dasharray .4s ease}
+.tf-cx-chart ul{list-style:none;margin:0;padding:0;display:grid;gap:7px;font-size:13.5px}
+.tf-cx-chart i{display:inline-block;width:11px;height:11px;margin-right:8px;border-radius:3px;vertical-align:-1px}
+.tf-cx-k1{background:var(--cx-soft)}.tf-cx-k2{background:var(--cx-c)}
+.tf-cx-rows{list-style:none;margin:6px 0 0;padding:0;border-top:1px dashed var(--color-border)}
+.tf-cx-rows li{display:flex;justify-content:space-between;gap:14px;padding:10px 0;border-bottom:1px dashed var(--color-border);font-size:14px}
+.tf-cx-rows b{white-space:nowrap}
+.tf-cx-cta{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:18px;padding:13px 18px;border-radius:var(--radius);background:#11793F;color:#fff;font-weight:700;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.tf-cx-cta:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(17,121,63,.3)}
+.tf-cx-warn{margin:0;font-weight:600;color:#B42318}
+.tf-cx-disc{max-width:860px;margin:20px auto 0;font-size:12.5px;line-height:1.6;text-align:center;color:var(--color-muted)}
+@media(max-width:860px){.tf-cx-body{grid-template-columns:minmax(0,1fr);gap:22px}.tf-cx-panel{padding:20px 16px}.tf-cx-tabs{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;margin:0 -4px;padding-left:4px}.tf-cx-tab{flex:none}}
+@media(prefers-reduced-motion:reduce){.tf-cx-panel{animation:none}.tf-cx-arc{transition:none}}
+/* ---- pillars ---- */
+.tf-px{text-align:left}
+.tf-px-radio{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.tf-px-nav{display:grid;grid-template-columns:repeat(var(--px-n,5),minmax(0,1fr));gap:14px;margin-bottom:22px}
+.tf-px-pick{display:flex;flex-direction:column;align-items:center;gap:6px;padding:18px 10px 16px;border:1.5px solid var(--color-border);border-radius:calc(var(--radius) + 4px);background:var(--color-bg);color:var(--color-text);text-align:center;cursor:pointer;transition:transform .25s,box-shadow .25s,border-color .25s,background .25s}
+.tf-px-pick:hover{transform:translateY(-3px);border-color:var(--px-c)}
+.tf-px-orb{display:flex;width:60px;height:60px;align-items:center;justify-content:center;border-radius:50%;font-size:28px;background:color-mix(in srgb,var(--px-c) 14%,var(--color-bg));color:var(--px-c);transition:background .25s,color .25s}
+.tf-px-pname{font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--px-c)}
+.tf-px-ptitle{font-size:14.5px;font-weight:600;line-height:1.3}
+.tf-px-panel{display:none;grid-template-columns:minmax(0,5fr) minmax(0,7fr);overflow:hidden;border-radius:calc(var(--radius) + 8px);background:var(--color-bg);color:var(--color-text);border:1px solid var(--color-border);box-shadow:0 18px 50px rgba(16,24,40,.10);animation:tf-pxin .45s ease}
+@keyframes tf-pxin{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.tf-px-pimg{position:relative;min-height:320px;background:color-mix(in srgb,var(--px-c) 20%,#000)}
+.tf-px-pimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tf-px-pimg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,color-mix(in srgb,var(--px-c) 70%,#000) 100%)}
+.tf-px-bigsym{position:absolute;left:22px;bottom:18px;z-index:1;font-size:54px;line-height:1;filter:drop-shadow(0 4px 12px rgba(0,0,0,.35))}
+.tf-px-pbody{padding:34px 36px;border-top:5px solid var(--px-c)}
+.tf-px-panel:not(:has(.tf-px-pimg)){grid-template-columns:minmax(0,1fr)}
+.tf-px-kicker{margin:0 0 4px;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--px-c)}
+.tf-px-sub{margin:0 0 4px;font-size:14px;font-weight:600;color:var(--color-muted)}
+.tf-px-title{margin:0;font-family:var(--font-heading);font-size:clamp(22px,2.4vw,30px);line-height:1.25}
+.tf-px-tagline{margin:14px 0 0;padding-left:14px;border-left:3px solid var(--px-c);font-size:17px;font-style:italic;line-height:1.55;color:var(--color-text)}
+.tf-px-text{margin:14px 0 0;font-size:15.5px;line-height:1.7;color:var(--color-muted)}
+.tf-px-chips{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;padding:0;list-style:none}
+.tf-px-chips li{padding:6px 13px;border-radius:99px;font-size:13px;font-weight:600;background:color-mix(in srgb,var(--px-c) 11%,var(--color-bg));color:color-mix(in srgb,var(--px-c) 75%,#000)}
+.tf-px-cta{display:inline-flex;align-items:center;gap:8px;margin-top:22px;padding:12px 22px;border-radius:var(--radius);background:var(--px-c);color:#fff;font-weight:700;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.tf-px-cta:hover{transform:translateY(-2px);box-shadow:0 10px 24px color-mix(in srgb,var(--px-c) 35%,transparent)}
+.tf-px-cards{display:grid;grid-template-columns:repeat(var(--px-n,3),minmax(0,1fr));gap:18px;text-align:left}
+.tf-px-card{display:flex;flex-direction:column;overflow:hidden;border-radius:calc(var(--radius) + 4px);background:var(--color-bg);color:var(--color-text);border:1px solid var(--color-border);border-top:4px solid var(--px-c);box-shadow:0 8px 26px rgba(16,24,40,.07);transition:transform .25s,box-shadow .25s}
+.tf-px-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(16,24,40,.12)}
+.tf-px-img{position:relative;aspect-ratio:4/3}
+.tf-px-img img{width:100%;height:100%;object-fit:cover}
+.tf-px-top{padding:18px 20px 0}
+.tf-px-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:99px;font-size:13px;font-weight:700;background:var(--px-c);color:#fff}
+.tf-px-img .tf-px-badge{position:absolute;left:12px;bottom:12px}
+.tf-px-cbody{display:flex;flex-direction:column;flex:1;padding:18px 20px 22px}
+.tf-px-cbody .tf-px-title{font-size:19px}
+.tf-px-cbody .tf-px-tagline{font-size:14.5px}
+.tf-px-cbody .tf-px-text{font-size:14.5px}
+.tf-px-cbody .tf-px-cta{align-self:flex-start;margin-top:auto;padding-top:12px;padding:10px 16px;margin-top:16px}
+@media(max-width:1024px){.tf-px-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:860px){.tf-px-nav{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 -4px;padding:4px}.tf-px-pick{flex:0 0 118px;scroll-snap-align:start}.tf-px-panel{grid-template-columns:minmax(0,1fr)}.tf-px-pimg{min-height:200px}.tf-px-pbody{padding:22px 18px}}
+@media(max-width:560px){.tf-px-cards{grid-template-columns:minmax(0,1fr)}}
+@media(prefers-reduced-motion:reduce){.tf-px-panel{animation:none}}
+/* ---- quiz ---- */
+.tf-qz-wrap{max-width:860px;margin:0 auto}
+.tf-qz-split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:28px;align-items:start}
+.tf-qz-img{position:sticky;top:96px;overflow:hidden;border-radius:calc(var(--radius) + 6px)}
+.tf-qz-img img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.tf-qz{padding:28px;border-radius:calc(var(--radius) + 6px);background:var(--color-bg);color:var(--color-text);border:1px solid var(--color-border);box-shadow:0 14px 44px rgba(16,24,40,.08);text-align:left}
+.tf-qz-bar{position:relative;height:10px;margin-bottom:22px;border-radius:99px;background:color-mix(in srgb,var(--color-primary) 12%,var(--color-bg))}
+.tf-qz-fill{display:block;width:0;height:100%;border-radius:99px;background:var(--color-primary);transition:width .35s ease}
+.tf-qz-count{position:absolute;right:0;top:14px;font-size:12px;font-style:normal;font-weight:700;color:var(--color-muted)}
+.tf-qz-list{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.tf-qz-q{padding:16px 18px;border-radius:var(--radius);border:1px solid var(--color-border);transition:border-color .2s,background .2s}
+.tf-qz-q.tf-qz-done{border-color:color-mix(in srgb,var(--color-primary) 40%,var(--color-border));background:color-mix(in srgb,var(--color-primary) 4%,var(--color-bg))}
+.tf-qz-qt{display:flex;gap:10px;margin:0 0 12px;font-size:16px;font-weight:600;line-height:1.45}
+.tf-qz-n{flex:none;display:inline-flex;width:26px;height:26px;align-items:center;justify-content:center;border-radius:50%;font-size:13px;background:var(--color-primary);color:var(--color-primary-fg)}
+.tf-qz-opts{display:flex;flex-wrap:wrap;gap:8px;padding-left:36px}
+.tf-qz-opt{position:relative;cursor:pointer}
+.tf-qz-opt input{position:absolute;opacity:0;width:1px;height:1px}
+.tf-qz-opt span{display:inline-block;padding:8px 16px;border-radius:99px;border:1.5px solid var(--color-border);font-size:14px;font-weight:600;transition:all .18s}
+.tf-qz-opt:hover span{border-color:var(--color-primary)}
+.tf-qz-opt input:focus-visible+span{outline:3px solid var(--color-primary);outline-offset:2px}
+.tf-qz-yes input:checked+span{background:#15803D;border-color:#15803D;color:#fff}
+.tf-qz-no input:checked+span{background:#B42318;border-color:#B42318;color:#fff}
+.tf-qz-unsure input:checked+span{background:#B45309;border-color:#B45309;color:#fff}
+.tf-qz-result{display:flex;gap:24px;align-items:flex-start;margin-top:22px;padding:24px;border-radius:var(--radius);background:color-mix(in srgb,var(--color-primary) 7%,var(--color-surface));animation:tf-cxin .4s ease}
+.tf-qz-result[hidden]{display:none}
+.tf-qz-score{position:relative;flex:none;width:120px;height:120px}
+.tf-qz-score svg{width:100%;height:100%}
+.tf-qz-score strong{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-size:28px;color:var(--color-text)}
+.tf-qz-good{color:#15803D}.tf-qz-mid{color:#B45309}.tf-qz-low{color:#B42318}
+.tf-qz-rtext h3{margin:0;font-family:var(--font-heading);font-size:21px}
+.tf-qz-rtext p{margin:8px 0 0;font-size:15px;line-height:1.6;color:var(--color-muted)}
+.tf-qz-gaps{margin:12px 0 0;padding-left:20px;font-size:14.5px;line-height:1.6}
+.tf-qz-cta{display:inline-flex;align-items:center;margin-top:16px;padding:12px 20px;border-radius:var(--radius);background:#11793F;color:#fff;font-weight:700;text-decoration:none}
+.tf-qz-reset{margin:16px 0 0 12px;padding:10px 14px;border:0;background:none;font:inherit;font-weight:600;color:var(--color-muted);text-decoration:underline;cursor:pointer}
+@media(max-width:860px){.tf-qz-split{grid-template-columns:minmax(0,1fr)}.tf-qz-img{position:static}.tf-qz-img img{aspect-ratio:16/10}}
+@media(max-width:560px){.tf-qz{padding:18px 14px}.tf-qz-opts{padding-left:0}.tf-qz-result{flex-direction:column;align-items:center;text-align:center}.tf-qz-gaps{text-align:left}.tf-qz-reset{margin-left:0}}
+/* ---- social ---- */
+.tf-scs{display:grid;grid-template-columns:repeat(var(--sc-cols,3),minmax(0,1fr));gap:16px;text-align:left}
+@media(max-width:900px){.tf-scs{grid-template-columns:repeat(min(var(--sc-cols,3),3),minmax(0,1fr))}}
+.tf-sc{display:flex;flex-direction:column;gap:6px;padding:20px;border-radius:calc(var(--radius) + 4px);border:1.5px solid var(--color-border);background:var(--color-bg);color:var(--color-text);text-decoration:none;transition:transform .25s,box-shadow .25s,border-color .25s}
+.tf-sc:hover,.tf-sc:focus-visible{transform:translateY(-4px);border-color:var(--sc);box-shadow:0 14px 34px color-mix(in srgb,var(--sc) 22%,transparent)}
+.tf-sc-ic{display:inline-flex;width:52px;height:52px;margin-bottom:6px;align-items:center;justify-content:center;border-radius:14px;background:color-mix(in srgb,var(--sc) 13%,var(--color-bg));color:var(--sc);transition:background .25s,color .25s}
+.tf-sc:hover .tf-sc-ic,.tf-sc:focus-visible .tf-sc-ic{background:var(--sc);color:#fff}
+.tf-sc-t{font-family:var(--font-heading);font-size:17px;font-weight:700}
+.tf-sc-x{font-size:14px;line-height:1.5;color:var(--color-muted)}
+.tf-sc-a{margin-top:auto;padding-top:6px;font-size:14px;font-weight:700;color:var(--color-text)}
+.tf-sc-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.tf-sc-pill{display:inline-flex;align-items:center;gap:8px;padding:8px 16px 8px 8px;border-radius:99px;border:1.5px solid var(--color-border);background:var(--color-bg);color:var(--color-text);font-weight:600;text-decoration:none;transition:border-color .2s,transform .2s}
+.tf-sc-pill:hover{border-color:var(--sc);transform:translateY(-2px)}
+.tf-sc-pill .tf-sc-ic{width:34px;height:34px;margin:0;border-radius:50%}
+.tf-sc-pill .tf-sc-ic svg{width:18px;height:18px}
+@media(max-width:560px){.tf-scs{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.tf-sc{padding:16px 14px}}
+/* ---- steps ---- */
+.tf-st{list-style:none;margin:0;padding:0;counter-reset:st}
+.tf-st-horizontal{position:relative;display:grid;grid-template-columns:repeat(var(--st-n,4),minmax(0,1fr));gap:18px}
+.tf-st-horizontal::before{content:"";position:absolute;top:32px;left:calc(50% / var(--st-n,4));right:calc(50% / var(--st-n,4));height:3px;border-radius:3px;background:linear-gradient(90deg,var(--color-primary),var(--color-secondary))}
+.tf-st-i{position:relative}
+.tf-st-horizontal .tf-st-i{display:flex;flex-direction:column;align-items:center;text-align:center}
+.tf-st-dot{position:relative;z-index:1;display:inline-flex;width:66px;height:66px;align-items:center;justify-content:center;border-radius:50%;background:var(--color-bg);border:3px solid var(--st-c);color:var(--st-c);font-family:var(--font-heading);font-size:24px;font-weight:700;box-shadow:0 8px 22px color-mix(in srgb,var(--st-c) 25%,transparent);transition:transform .25s,background .25s,color .25s}
+.tf-st-i:hover .tf-st-dot{transform:scale(1.08);background:var(--st-c);color:#fff}
+.tf-st-t{margin:14px 0 0;font-family:var(--font-heading);font-size:17px;line-height:1.3;color:var(--tf-heading,inherit)}
+.tf-st-x{margin:6px 0 0;font-size:14px;line-height:1.55;color:var(--tf-text,var(--color-muted))}
+.tf-st-vertical{max-width:760px;margin:0 auto;text-align:left}
+.tf-st-vertical .tf-st-i{display:flex;gap:20px;padding-bottom:28px}
+.tf-st-vertical .tf-st-i:not(:last-child)::before{content:"";position:absolute;left:32px;top:66px;bottom:0;width:3px;background:color-mix(in srgb,var(--st-c) 35%,transparent)}
+.tf-st-vertical .tf-st-t{margin-top:8px}
+.tf-st-cta{margin-top:32px;text-align:center}
+@media(max-width:860px){.tf-st-horizontal{grid-template-columns:minmax(0,1fr);max-width:520px;margin:0 auto;text-align:left}.tf-st-horizontal::before{display:none}.tf-st-horizontal .tf-st-i{flex-direction:row;align-items:flex-start;gap:16px;text-align:left}.tf-st-horizontal .tf-st-t{margin-top:8px}.tf-st-dot{flex:none;width:54px;height:54px;font-size:20px}}
 .tf-tkstatic .tf-tklink{display:inline-block;border:1px solid currentColor;border-radius:4px;padding:3px 12px}
 .tf-tkstatic .tf-tklink:hover{text-decoration:none;background:rgba(255,255,255,.12)}
 .tf-pgal{display:flex;gap:14px;align-items:flex-start}
