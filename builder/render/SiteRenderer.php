@@ -1751,7 +1751,11 @@ class SiteRenderer
         }
 
         $disc = trim((string)($p['disclaimer'] ?? ''));
-        $body = '<div class="tf-cx tf-cx-' . $variant . '" data-wa="' . self::esc($wa) . '"'
+        // Variant modifier uses a DOUBLE dash: "tf-cx-tabs" is the tab strip's own
+        // class, and giving the wrapper that name turned the whole calculator into
+        // one non-wrapping flex row on phones (tabs, panel and disclaimer squeezed
+        // side by side into thin columns).
+        $body = '<div class="tf-cx tf-cx--' . $variant . '" data-wa="' . self::esc($wa) . '"'
               . ' data-cta="' . self::esc(trim((string)($p['ctaText'] ?? '')) ?: 'Discuss this plan on WhatsApp') . '">'
               . ($tabbed ? '<div class="tf-cx-tabs" role="tablist">' . $tabs . '</div>' : '')
               . $panels
@@ -5230,7 +5234,10 @@ iframe{max-width:100%}
 .tf-foot-disc p{margin:0}
 .tf-foot-disc p+p{margin-top:8px}
 /* ---- calculators ---- */
-.tf-cx{--cx-c:var(--color-primary);text-align:left}
+/* container-type: the calculator lays itself out by ITS OWN width (below), so it
+   also stacks correctly inside the builder's 390px mobile preview, where a media
+   query would still see the desktop window. */
+.tf-cx{--cx-c:var(--color-primary);text-align:left;container-type:inline-size;container-name:tfcx}
 .tf-cx-panel,.tf-cx-tab{--cx-soft:color-mix(in srgb,var(--cx-c) 20%,#fff)}
 .tf-cx-tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;padding:2px 2px 14px}
 .tf-cx-tab{display:flex;flex-direction:column;align-items:flex-start;gap:1px;padding:10px 18px;border:1.5px solid var(--color-border);border-radius:14px;background:var(--color-bg);color:var(--color-text);font:inherit;cursor:pointer;text-align:left;transition:border-color .2s,box-shadow .2s,transform .2s,background .2s}
@@ -5241,7 +5248,7 @@ iframe{max-width:100%}
 .tf-cx-tabt{font-size:15px;font-weight:600}
 .tf-cx-panel{padding:30px;border-radius:calc(var(--radius) + 6px);background:var(--color-bg);color:var(--color-text);border:1px solid var(--color-border);box-shadow:0 14px 44px rgba(16,24,40,.08);animation:tf-cxin .35s ease}
 .tf-cx-panel[hidden]{display:none}
-.tf-cx-stacked .tf-cx-panel+.tf-cx-panel{margin-top:26px}
+.tf-cx--stacked .tf-cx-panel+.tf-cx-panel{margin-top:26px}
 @keyframes tf-cxin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 .tf-cx-h{margin:2px 0 6px;font-family:var(--font-heading);font-size:22px;line-height:1.3}
 .tf-cx-note{margin:0 0 20px;font-size:14.5px;line-height:1.6;color:var(--color-muted)}
@@ -5277,7 +5284,25 @@ iframe{max-width:100%}
 .tf-cx-cta:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(17,121,63,.3)}
 .tf-cx-warn{margin:0;font-weight:600;color:#B42318}
 .tf-cx-disc{max-width:860px;margin:20px auto 0;font-size:12.5px;line-height:1.6;text-align:center;color:var(--color-muted)}
-@media(max-width:860px){.tf-cx-body{grid-template-columns:minmax(0,1fr);gap:22px}.tf-cx-panel{padding:20px 16px}.tf-cx-tabs{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scrollbar-width:none;margin:0 -4px;padding-left:4px}.tf-cx-tab{flex:none}}
+@container tfcx (max-width:760px){
+  .tf-cx-body{grid-template-columns:minmax(0,1fr);gap:20px}
+  .tf-cx-panel{padding:20px 16px}
+  .tf-cx-tabs{flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scroll-snap-type:x proximity;scrollbar-width:none;margin:0 -2px;padding:4px 2px 14px}
+  .tf-cx-tabs::-webkit-scrollbar{display:none}
+  .tf-cx-tab{flex:none;scroll-snap-align:start;padding:9px 14px}
+  .tf-cx-tabt{font-size:14px;white-space:nowrap}
+}
+@container tfcx (max-width:440px){
+  .tf-cx-lab{flex-wrap:wrap;gap:6px 10px;font-size:14px}
+  .tf-cx-lab label{flex:1 1 auto;min-width:0}
+  .tf-cx-num{margin-left:auto}
+  .tf-cx-num input{width:88px}
+  .tf-cx-out{padding:18px 14px}
+  .tf-cx-chart{gap:14px}
+  .tf-cx-chart svg{width:96px;height:96px}
+  .tf-cx-rows li{font-size:13.5px}
+  .tf-cx-cta{padding:12px 14px;font-size:14.5px}
+}
 @media(prefers-reduced-motion:reduce){.tf-cx-panel{animation:none}.tf-cx-arc{transition:none}}
 /* ---- pillars ---- */
 .tf-px{text-align:left}
