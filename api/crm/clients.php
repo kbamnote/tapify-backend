@@ -35,6 +35,7 @@ try {
     $ids = array_map(fn($u) => (int)$u['id'], $users);
 
     $usage = crm_usage_for($pdo, $ids);
+    $engagement = crm_engagement_for($pdo, $ids);
     $assets = [];
     $inquiries = [];
 
@@ -85,7 +86,7 @@ try {
         }
     }
 
-    $clients = array_map(function ($u) use ($usage, $assets, $inquiries) {
+    $clients = array_map(function ($u) use ($usage, $assets, $inquiries, $engagement) {
         $id = (int)$u['id'];
         $inq = $inquiries[$id] ?? ['total' => 0, 'unread' => 0, 'lastAt' => null];
         return crm_client_base($u) + [
@@ -97,6 +98,13 @@ try {
             ],
             'inquiries' => ['total' => $inq['total'], 'unread' => $inq['unread'], 'lastAt' => crm_iso($inq['lastAt'])],
             'usage' => (object)($usage[$id] ?? []),
+            // What their own audience did: card opens, NFC taps, website visits,
+            // review-card scans, and the taps that followed.
+            'engagement' => $engagement[$id] ?? [
+                'total' => crm_engagement_zero(), 'd7' => crm_engagement_zero(), 'd30' => crm_engagement_zero(),
+                'people30' => 0, 'bySource' => (object)[], 'byEvent' => (object)[], 'byAsset' => (object)[],
+                'lastAt' => null,
+            ],
         ];
     }, $users);
 

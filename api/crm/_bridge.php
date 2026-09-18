@@ -132,6 +132,128 @@ function crm_usage_for(PDO $pdo, array $userIds): array
     return $out;
 }
 
+/**
+ * What each event means to a Customer Manager. The dashboard doesn't want
+ * fifteen counters, it wants five numbers that answer "is this working for
+ * them" — so every event rolls up into one of these groups.
+ */
+const CRM_ENGAGEMENT_GROUPS = [
+    'view'             => 'views',   // card opened, website page visited, store opened
+    'scan'             => 'scans',   // QR code or Google review card scanned
+    'inquiry'          => 'leads',
+    'appointment'      => 'leads',
+    'order'            => 'leads',
+    'redirect_google'  => 'reviews', // sent on to Google to leave a review
+    'review_submitted' => 'reviews',
+];
+
+/** Any tap the visitor made — Call, WhatsApp, Save Contact, directions… */
+function crm_engagement_group(string $event): string
+{
+    if (strncmp($event, 'tap_', 4) === 0) {
+        return 'taps';
+    }
+    return CRM_ENGAGEMENT_GROUPS[$event] ?? 'other';
+}
+
+/** An empty set of the five numbers, so a client with nothing still reports zeros. */
+function crm_engagement_zero(): array
+{
+    return ['views' => 0, 'taps' => 0, 'scans' => 0, 'leads' => 0, 'reviews' => 0, 'other' => 0];
+}
+
+/**
+ * What the customers' OWN audience did, for a set of customers: how many people
+ * opened their card (and whether by NFC tap, QR scan or a shared link), visited
+ * the website they built, scanned their Google review card, and what they
+ * tapped afterwards.
+ *
+ * Read from the daily rollup, so the cost does not grow with traffic.
+ *
+ * @return array<int, array> userId => summary
+ */
+function crm_engagement_for(PDO $pdo, array $userIds): array
+{
+    $out = [];
+    if (!$userIds) {
+        return $out;
+    }
+    $in = crm_placeholders($userIds);
+
+    crm_section(function () use ($pdo, $userIds, $in, &$out) {
+        $st = $pdo->prepare("
+            SELECT user_id, asset_type, event, source,
+                   SUM(hits) AS total,
+                   SUM(IF(day >= UTC_DATE() - INTERVAL 6  DAY, hits, 0)) AS d7,
+                   SUM(IF(day >= UTC_DATE() - INTERVAL 29 DAY, hits, 0)) AS d30,
+                   SUM(IF(day >= UTC_DATE() - INTERVAL 29 DAY, visitors, 0)) AS people30
+              FROM engagement_daily
+             WHERE user_id IN ($in)
+             GROUP BY user_id, asset_type, event, source
+        ");
+        $st->execute($userIds);
+
+        foreach ($st as $r) {
+            $u = (int)$r['user_id'];
+            if (!isset($out[$u])) {
+                $out[$u] = [
+                    'total'    => crm_engagement_zero(),
+                    'd7'       => crm_engagement_zero(),
+                    'd30'      => crm_engagement_zero(),
+                    'people30' => 0,
+                    'bySource' => [],   // how they arrived: nfc, qr, link, whatsapp, social, search, direct
+                    'byEvent'  => [],   // every individual counter, for the detail page
+                    'byAsset'  => [],   // card vs website vs store vs QR vs review card
+                    'lastAt'   => null,
+                ];
+            }
+            $group = crm_engagement_group($r['event']);
+
+            // Card opens and website visits are different questions; keep them apart.
+            $asset = $r['asset_type'];
+            if (!isset($out[$u]['byAsset'][$asset])) {
+                $out[$u]['byAsset'][$asset] = ['total' => crm_engagement_zero(), 'd30' => crm_engagement_zero()];
+            }
+            $out[$u]['byAsset'][$asset]['total'][$group] += (int)$r['total'];
+            $out[$u]['byAsset'][$asset]['d30'][$group] += (int)$r['d30'];
+            foreach (['total', 'd7', 'd30'] as $window) {
+                $out[$u][$window][$group] += (int)$r[$window === 'total' ? 'total' : $window];
+            }
+            $out[$u]['people30'] += (int)$r['people30'];
+
+            $event = $r['event'];
+            $cur = $out[$u]['byEvent'][$event] ?? ['total' => 0, 'd7' => 0, 'd30' => 0];
+            $cur['total'] += (int)$r['total'];
+            $cur['d7']    += (int)$r['d7'];
+            $cur['d30']   += (int)$r['d30'];
+            $out[$u]['byEvent'][$event] = $cur;
+
+            // Source is only meaningful for arriving somewhere, not for taps.
+            if ($group === 'views' || $group === 'scans') {
+                $src = $r['source'];
+                $cur = $out[$u]['bySource'][$src] ?? ['total' => 0, 'd30' => 0];
+                $cur['total'] += (int)$r['total'];
+                $cur['d30']   += (int)$r['d30'];
+                $out[$u]['bySource'][$src] = $cur;
+            }
+        }
+    });
+
+    crm_section(function () use ($pdo, $userIds, $in, &$out) {
+        $st = $pdo->prepare("SELECT user_id, MAX(created_at) last_at FROM engagement_events
+                              WHERE user_id IN ($in) GROUP BY user_id");
+        $st->execute($userIds);
+        foreach ($st as $r) {
+            $u = (int)$r['user_id'];
+            if (isset($out[$u])) {
+                $out[$u]['lastAt'] = crm_iso($r['last_at']);
+            }
+        }
+    });
+
+    return $out;
+}
+
 /** The customer fields shared by the list and the detail endpoint. */
 function crm_client_base(array $u): array
 {

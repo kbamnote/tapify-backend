@@ -45,6 +45,13 @@ try {
     // Increment view count
     $pdo->prepare("UPDATE whatsapp_stores SET view_count = view_count + 1 WHERE id = ?")->execute([$storeId]);
 
+    // Same visit, recorded with source/device/visitor for the Customer Manager.
+    // Skipped for ?preview= — that's the owner looking at their own store.
+    require_once __DIR__ . '/includes/engagement/Engagement.php';
+    if (empty($_GET['preview'])) {
+        Engagement::record((int)$store['user_id'], 'store', (int)$storeId, 'view');
+    }
+
     // Load categories
     $categories = [];
     try {
@@ -108,6 +115,19 @@ if (!empty($_GET['preview'])) {
     $templateId = tapify_resolve_store_template_id($_GET['preview']);
 }
 $templateConfig = tapify_store_template_config($templateId);
+
+// Tap tracking (WhatsApp, call, directions) for whichever template renders
+// below, added to the buffered HTML rather than to each store template.
+require_once __DIR__ . '/includes/engagement/tap-snippet.php';
+$__tapifyTapSnippet = empty($_GET['preview']) ? tapify_tap_snippet('store', (int)$storeId) : '';
+if ($__tapifyTapSnippet !== '') {
+    ob_start(static function ($html) use ($__tapifyTapSnippet) {
+        $pos = strripos($html, '</body>');
+        return $pos === false
+            ? $html . $__tapifyTapSnippet
+            : substr($html, 0, $pos) . $__tapifyTapSnippet . substr($html, $pos);
+    });
+}
 
 if (array_key_exists($templateId, $templateMap)) {
     $templateFile = $templateMap[$templateId];

@@ -61,6 +61,10 @@ try {
     }
     $inquiryId = $pdo->lastInsertId();
 
+    // An inquiry is the card doing its job — the Customer Manager's headline number.
+    require_once __DIR__ . '/includes/engagement/Engagement.php';
+    Engagement::record((int)$vcard['user_id'], 'card', $vcardId, 'inquiry', ['dedupe' => false]);
+
     // === EMAIL NOTIFICATIONS (silent failure) ===
     try {
         if (file_exists(__DIR__ . '/includes/email-helper.php')) {

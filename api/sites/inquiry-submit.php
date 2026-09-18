@@ -60,6 +60,11 @@ try {
         $ip,
     ]);
 
+    // An enquiry from the website the customer built — recorded for the
+    // Customer Manager alongside the visits that led to it.
+    require_once __DIR__ . '/../../includes/engagement/Engagement.php';
+    Engagement::record((int)($site['user_id'] ?? 0), 'site', (int)$site['id'], 'inquiry', ['dedupe' => false]);
+
     sendSuccess('Enquiry sent');
 } catch (Exception $e) {
     error_log('site inquiry-submit: ' . $e->getMessage());

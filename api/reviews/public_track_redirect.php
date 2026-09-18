@@ -29,6 +29,13 @@ try {
     $stmt = $pdo->prepare("INSERT INTO funnel_analytics (funnel_id, event_type, ip_address, user_agent) VALUES (?, 'redirect', ?, ?)");
     $stmt->execute([$funnelId, $ip, $ua]);
 
+    // A 4-5 star rating being sent on to Google is the review card working —
+    // the Customer Manager's best proof it is worth using.
+    require_once __DIR__ . '/../../includes/engagement/Engagement.php';
+    $ownerStmt = $pdo->prepare("SELECT user_id FROM review_funnels WHERE id = ? LIMIT 1");
+    $ownerStmt->execute([$funnelId]);
+    Engagement::record((int)$ownerStmt->fetchColumn(), 'review_card', (int)$funnelId, 'redirect_google', ['dedupe' => false]);
+
     echo json_encode(['success' => true]);
 
 } catch (Exception $e) {

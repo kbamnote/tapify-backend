@@ -133,7 +133,11 @@ class SiteRenderer
         if (!is_array($doc) || empty($doc['pages'])) { self::notFound(); return true; }
 
         // Count this visit for the site's view analytics (best-effort, never blocks).
-        self::trackView((int)$site['id']);
+        self::trackView($site, $path);
+        // …and add the tap-tracking snippet to whatever page is rendered below,
+        // so Call / WhatsApp / directions taps on the customer's website are
+        // counted the same way as on their card.
+        self::injectTaps((int)$site['id']);
 
         $norm = ($path === '' || $path === '/') ? '/' : rtrim($path, '/');
 
@@ -229,11 +233,12 @@ class SiteRenderer
     }
 
     /** Bump today's view counter for a site. Skips bots; never throws. */
-    private static function trackView(int $siteId): void
+    private static function trackView(array $site, string $path = ''): void
     {
+        $siteId = (int)($site['id'] ?? 0);
         $ua = $_SERVER['HTTP_USER_AGENT'] ?? '';
         // Don't count obvious crawlers / link-preview fetchers.
-        if ($ua === '' || preg_match('/bot|crawl|spider|slurp|bingpreview|facebookexternalhit|whatsapp|telegram|preview|monitor|curl|wget|python-requests/i', $ua)) {
+        if ($siteId <= 0 || $ua === '' || preg_match('/bot|crawl|spider|slurp|bingpreview|facebookexternalhit|whatsapp|telegram|preview|monitor|curl|wget|python-requests/i', $ua)) {
             return;
         }
         try {
@@ -244,6 +249,43 @@ class SiteRenderer
         } catch (Throwable $e) {
             // Table not migrated yet, or any DB hiccup — a view count must never
             // break the customer's page.
+        }
+
+        // The same visit, with which page, how they got there and whether they
+        // had been before — for the Customer Manager dashboard.
+        try {
+            require_once __DIR__ . '/../../includes/engagement/Engagement.php';
+            Engagement::record((int)($site['user_id'] ?? 0), 'site', $siteId, 'view', [
+                'label' => $path === '' ? '/' : $path,
+            ]);
+        } catch (Throwable $e) {
+            // Never at the cost of the page.
+        }
+    }
+
+    /**
+     * Buffers the rest of the response and puts the tap-tracking snippet before
+     * </body>. Done here, once, rather than in each of the built-in pages.
+     */
+    private static function injectTaps(int $siteId): void
+    {
+        try {
+            require_once __DIR__ . '/../../includes/engagement/tap-snippet.php';
+            $snippet = tapify_tap_snippet('site', $siteId);
+            if ($snippet === '') {
+                return;
+            }
+            ob_start(static function ($html) use ($snippet) {
+                if (stripos($html, '<body') === false) {
+                    return $html; // not an HTML page (sitemap, robots, a redirect)
+                }
+                $pos = strripos($html, '</body>');
+                return $pos === false
+                    ? $html . $snippet
+                    : substr($html, 0, $pos) . $snippet . substr($html, $pos);
+            });
+        } catch (Throwable $e) {
+            // Tracking is never worth a broken page.
         }
     }
 

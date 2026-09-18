@@ -81,6 +81,10 @@ try {
     ]);
     $appointmentId = $pdo->lastInsertId();
 
+    // Booked from the card — recorded for the Customer Manager.
+    require_once __DIR__ . '/includes/engagement/Engagement.php';
+    Engagement::forAsset($pdo, 'card', $vcardId, 'appointment', ['label' => $serviceName]);
+
     // === EMAIL NOTIFICATIONS ===
     try {
         if (file_exists(__DIR__ . '/includes/email-helper.php')) {

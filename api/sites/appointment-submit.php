@@ -144,6 +144,12 @@ try {
         $ip,
     ]);
 
+    require_once __DIR__ . '/../../includes/engagement/Engagement.php';
+    Engagement::record((int)($site['user_id'] ?? 0), 'site', (int)$site['id'], 'appointment', [
+        'label'  => mb_substr(trim((string)($in['service'] ?? '')), 0, 80),
+        'dedupe' => false,
+    ]);
+
     // === WhatsApp (silent failure) — customer reminder + business alert ===
     // Reuses the approved 'appointment_reminder' and 'new_appointment_alert'
     // templates (same as the vCard appointment flow).

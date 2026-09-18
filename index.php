@@ -142,6 +142,14 @@ try {
                 $logStmt->execute([$qr['id'], $ip, $device, $browser]);
             } catch (Exception $e) {}
 
+            // Same scan in the engagement pipeline, so the Customer Manager sees
+            // QR scans beside card views, website visits and review scans.
+            require_once __DIR__ . '/includes/engagement/Engagement.php';
+            Engagement::record((int)($qr['user_id'] ?? 0), 'qr', (int)$qr['id'], 'scan', [
+                'source' => 'qr',
+                'label'  => substr((string)($qr['title'] ?? $qr['short_url'] ?? ''), 0, 80),
+            ]);
+
             // Redirect
             $dest = $qr['destination_url'];
             if (!preg_match("~^(?:f|ht)tps?://~i", $dest)) {

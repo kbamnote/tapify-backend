@@ -165,6 +165,12 @@ try {
         mb_substr((string)($_SERVER['HTTP_USER_AGENT'] ?? ''), 0, 255),
     ]);
 
+    require_once __DIR__ . '/../../includes/engagement/Engagement.php';
+    Engagement::record((int)($site['user_id'] ?? 0), 'site', (int)$site['id'], 'inquiry', [
+        'label'  => 'form',
+        'dedupe' => false,
+    ]);
+
     // === WhatsApp (silent failure) — customer confirmation + business new-lead alert ===
     // Mirrors the vCard inquiry flow: reuses the approved 'welcome' and
     // 'new_inquiry_alert' templates on the same Tapify number.

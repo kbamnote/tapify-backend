@@ -102,6 +102,11 @@ try {
 
     $orderId = (int)$db->lastInsertId();
 
+    // An order placed on the customer's own website — the strongest signal the
+    // Customer Manager has that the website is earning its keep.
+    require_once __DIR__ . '/../../includes/engagement/Engagement.php';
+    Engagement::record((int)($site['user_id'] ?? 0), 'site', (int)$site['id'], 'order', ['dedupe' => false]);
+
     // === WhatsApp (silent failure) — order confirmation + business alert ===
     // NOTE: these two templates ('order_confirmation', 'new_order_alert') must be
     // created + approved on the WhatsApp Business account. Until then the send

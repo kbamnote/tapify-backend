@@ -56,6 +56,12 @@ try {
         $ip,
     ]);
 
+    require_once __DIR__ . '/../../includes/engagement/Engagement.php';
+    Engagement::record((int)($site['user_id'] ?? 0), 'site', (int)$site['id'], 'review_submitted', [
+        'label'  => $rating . '-star',
+        'dedupe' => false,
+    ]);
+
     sendSuccess('Review posted');
 } catch (Exception $e) {
     error_log('review-submit: ' . $e->getMessage());

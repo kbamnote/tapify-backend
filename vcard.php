@@ -6,6 +6,7 @@
 
 require_once __DIR__ . '/config/database.php';
 require_once __DIR__ . '/includes/seo.php';
+require_once __DIR__ . '/includes/engagement/Engagement.php';
 
 $alias = trim($_GET['alias'] ?? '');
 if (empty($alias)) {
@@ -45,6 +46,14 @@ try {
     }
 
     $pdo->prepare("UPDATE vcards SET view_count = view_count + 1 WHERE id = ?")->execute([$vcardId]);
+
+    // The same view, recorded with who/how/when for the Customer Manager: an
+    // NFC tap (?s=nfc, written into the chip) tells them something a bare
+    // counter never could. Queued now, written after the page is sent.
+    // Skipped for ?preview= — that's the owner looking at their own design.
+    if (empty($_GET['preview'])) {
+        Engagement::record((int)$vcard['user_id'], 'card', (int)$vcardId, 'view');
+    }
 
     $stmt = $pdo->prepare("SELECT * FROM vcard_business_hours WHERE vcard_id = ? ORDER BY FIELD(day_name, 'MONDAY','TUESDAY','WEDNESDAY','THURSDAY','FRIDAY','SATURDAY','SUNDAY')");
     $stmt->execute([$vcardId]);
@@ -276,6 +285,22 @@ if (strpos($tplContent, "'telegram'=>'fa-telegram'") === false && strpos($tplCon
 // Twitter cards, LocalBusiness JSON-LD). This touches ONLY the <head>; the
 // template body/design is passed through unchanged. Legacy templates render
 // exactly as before.
+// The tap-tracking snippet goes in the same way: buffer the rendered page and
+// add one <script> before </body>, so no template has to know about it.
+// Outermost buffer, so it sees the HTML after SEO has finished with it.
+require_once __DIR__ . '/includes/engagement/tap-snippet.php';
+$__tapifyTapSnippet = empty($_GET['preview'])
+    ? tapify_tap_snippet('card', (int)$vcardId)
+    : '';
+if ($__tapifyTapSnippet !== '') {
+    ob_start(static function ($html) use ($__tapifyTapSnippet) {
+        $pos = strripos($html, '</body>');
+        return $pos === false
+            ? $html . $__tapifyTapSnippet
+            : substr($html, 0, $pos) . $__tapifyTapSnippet . substr($html, $pos);
+    });
+}
+
 if (tapify_seo_is_pro_template($templateId)) {
     $GLOBALS['__tapify_seo'] = tapify_seo_build_vcard($vcard, [
         'fullName'          => $fullName,
@@ -289,4 +314,8 @@ if (tapify_seo_is_pro_template($templateId)) {
     ob_end_flush();
 } else {
     include $templatePath;
+}
+
+if ($__tapifyTapSnippet !== '') {
+    ob_end_flush();
 }

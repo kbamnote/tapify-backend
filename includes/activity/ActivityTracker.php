@@ -24,6 +24,7 @@ require_once __DIR__ . '/FeatureCatalog.php';
 final class ActivityTracker
 {
     private const TOUCH_EVERY = 300;         // seconds between last-active writes per session
+    private const OPEN_EVERY = 600;          // seconds between "opened <feature>" per feature per session
     private const RETENTION_MONTHS = 12;
     private const MAX_BATCH = 100;           // app events accepted per request
     private const MAX_EVENT_AGE = 7 * 86400; // older queued app events are dropped
@@ -31,6 +32,7 @@ final class ActivityTracker
 
     private static bool $booted = false;
     private static bool $touchDue = false;
+    private static ?string $openFeature = null; // feature this GET counts as opening
     private static ?PDO $pdo = null;
     private static bool $failed = false;
 
@@ -59,9 +61,45 @@ final class ActivityTracker
                 $_SESSION['_activity_touched_at'] = $now;
                 self::$touchDue = true;
             }
+
+            // Reading a feature's data counts as opening it. Without this, a
+            // customer who only looks — at their inquiries, their reviews, their
+            // website's orders — leaves no trace at all on the web, and the
+            // Customer Manager sees "never used" for a feature they live in.
+            // Decided here, at request start, for the same reason as above:
+            // a $_SESSION write made at shutdown would never be stored.
+            // Only for the website: the app reports the screens it opens itself,
+            // and counting its API reads as well would double every open.
+            if ($method === 'GET' && !self::client()['app']) {
+                $path = self::apiPath();
+                $feature = $path === null ? null : FeatureCatalog::resolveRead($path);
+                if ($feature !== null && self::claimOpen($feature, $_SESSION, $now)) {
+                    self::$openFeature = $feature;
+                }
+            }
         }
 
         register_shutdown_function([self::class, 'onShutdown']);
+    }
+
+    /**
+     * Whether this read counts as opening the feature, remembering it in the
+     * session if so. Opening a screen loads several endpoints, and customers
+     * refresh — without the throttle, one visit to Inquiries would look like
+     * twenty. Pure (the session is passed in) so it can be tested directly.
+     */
+    public static function claimOpen(string $feature, array &$session, int $now): bool
+    {
+        if ($now - (int)($session['_activity_opens'][$feature] ?? 0) < self::OPEN_EVERY) {
+            return false;
+        }
+        $session['_activity_opens'][$feature] = $now;
+        // The map is per session and features are few, but a long-lived session
+        // shouldn't grow forever if the catalogue changes.
+        if (count($session['_activity_opens']) > 60) {
+            $session['_activity_opens'] = [$feature => $now];
+        }
+        return true;
     }
 
     /** Runs after the endpoint has finished and its response has been written. */
@@ -112,7 +150,16 @@ final class ActivityTracker
                 self::recordEvent($userId, $write['feature'], $write['action'], 'use', $client, $path, $at);
                 self::bumpUsage($userId, $write['feature'], 'use', $at, $at, 1);
             }
-            if (self::$touchDue || $write !== null) {
+
+            // A GET that returned successfully: they opened the feature and saw it.
+            $opened = self::$openFeature !== null && self::succeeded();
+            if ($opened) {
+                $at = gmdate('Y-m-d H:i:s');
+                self::recordEvent($userId, self::$openFeature, 'open', 'open', $client, $path, $at);
+                self::bumpUsage($userId, self::$openFeature, 'open', $at, $at, 1);
+            }
+
+            if (self::$touchDue || $write !== null || $opened) {
                 self::touch($userId, $client);
             }
         } catch (Throwable $e) {

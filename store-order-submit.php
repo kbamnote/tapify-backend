@@ -49,6 +49,10 @@ try {
 
     $pdo->prepare("UPDATE whatsapp_stores SET order_count = order_count + 1 WHERE id = ?")->execute([$storeId]);
 
+    // Recorded for the Customer Manager, with the order value.
+    require_once __DIR__ . '/includes/engagement/Engagement.php';
+    Engagement::forAsset($pdo, 'store', $storeId, 'order', ['label' => (string)$totalAmount]);
+
     // === EMAIL NOTIFICATION TO ADMIN ===
     try {
         if (file_exists(__DIR__ . '/includes/email-helper.php')) {

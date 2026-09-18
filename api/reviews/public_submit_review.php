@@ -78,6 +78,15 @@ try {
 
     $stmt = $pdo->prepare("INSERT INTO funnel_reviews (funnel_id, rating, feedback_text, customer_name, customer_phone, media_url) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->execute([$funnelId, $rating, $feedbackText, $customerName, $customerPhone, $mediaUrl]);
+
+    // Recorded for the Customer Manager, with the star rating as the label.
+    require_once __DIR__ . '/../../includes/engagement/Engagement.php';
+    $ownerStmt = $pdo->prepare("SELECT user_id FROM review_funnels WHERE id = ? LIMIT 1");
+    $ownerStmt->execute([$funnelId]);
+    Engagement::record((int)$ownerStmt->fetchColumn(), 'review_card', (int)$funnelId, 'review_submitted', [
+        'label'  => $rating . '-star',
+        'dedupe' => false,
+    ]);
     $reviewId = $pdo->lastInsertId();
 
     // === PUSH NOTIFICATIONS ===

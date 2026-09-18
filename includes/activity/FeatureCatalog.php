@@ -263,6 +263,33 @@ final class FeatureCatalog
         return ['feature' => $feature, 'action' => $action];
     }
 
+    /**
+     * Feature whose data a successful GET to $path returned, or null.
+     *
+     * Reading a feature's list is how customers spend most of their time — they
+     * look far more than they save — so a read counts as OPENING the feature
+     * (ActivityTracker throttles it per session). A write still counts as USING
+     * it; the two are reported separately.
+     */
+    public static function resolveRead(string $path): ?string
+    {
+        foreach (self::IGNORED_PREFIXES as $prefix) {
+            if (strncmp($path, $prefix, strlen($prefix)) === 0) {
+                return null;
+            }
+        }
+        foreach (self::IGNORED_SUBSTRINGS as $needle) {
+            if (strpos($path, $needle) !== false) {
+                return null;
+            }
+        }
+        // The WhatsApp proxy's reads are inbox traffic whichever action they use.
+        if ($path === 'whatsapp/proxy.php') {
+            return 'whatsapp_inbox';
+        }
+        return self::featureForEndpoint($path);
+    }
+
     private static function featureForEndpoint(string $path): ?string
     {
         static $prefixes = null;

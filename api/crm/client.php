@@ -10,6 +10,7 @@
  * (inquiries, appointments, orders).
  */
 require_once __DIR__ . '/_bridge.php';
+require_once __DIR__ . '/../../includes/engagement/Engagement.php';
 crm_bridge_auth();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
@@ -41,6 +42,9 @@ try {
         'name' => $v['vcard_name'],
         'alias' => $v['url_alias'],
         'url' => public_card_url($v['url_alias']),
+        // The URL to write to an NFC chip: same card, tagged so a tap is
+        // recorded as a tap instead of an anonymous link open.
+        'nfcUrl' => Engagement::taggedUrl(public_card_url($v['url_alias']), 'nfc'),
         'active' => (int)$v['status'] === 1,
         'views' => (int)$v['view_count'],
         'createdAt' => crm_iso($v['created_at']),
@@ -132,6 +136,76 @@ try {
     $tally('websiteOrders', "SELECT COUNT(*) total, SUM(o.created_at >= $window) last30d, MAX(o.created_at) last_at
                                FROM site_orders o JOIN sites s ON s.id = o.site_id WHERE s.user_id = ?");
 
+    // ── What their audience did ────────────────────────────────────────────
+    // Summary (the five numbers, by source), then three breakdowns the summary
+    // can't answer: which card/site it was, day by day, and who is arriving.
+    $engagement = crm_engagement_for($pdo, [$userId])[$userId] ?? null;
+
+    $perAsset = crm_section(function () use ($pdo, $userId) {
+        $st = $pdo->prepare("
+            SELECT asset_type, asset_id, event, SUM(hits) total,
+                   SUM(IF(day >= UTC_DATE() - INTERVAL 29 DAY, hits, 0)) d30
+              FROM engagement_daily WHERE user_id = ?
+             GROUP BY asset_type, asset_id, event
+        ");
+        $st->execute([$userId]);
+        $out = [];
+        foreach ($st as $r) {
+            $key = $r['asset_type'] . ':' . (int)$r['asset_id'];
+            $out[$key]['assetType'] = $r['asset_type'];
+            $out[$key]['assetId'] = (int)$r['asset_id'];
+            $out[$key]['events'][$r['event']] = ['total' => (int)$r['total'], 'd30' => (int)$r['d30']];
+        }
+        return array_values($out);
+    }, []);
+
+    // 90 days of daily totals — the trend line on the client's profile.
+    $daily = crm_section(function () use ($pdo, $userId) {
+        $st = $pdo->prepare("
+            SELECT day, event, SUM(hits) hits, SUM(visitors) visitors
+              FROM engagement_daily
+             WHERE user_id = ? AND day >= UTC_DATE() - INTERVAL 89 DAY
+             GROUP BY day, event ORDER BY day
+        ");
+        $st->execute([$userId]);
+        $out = [];
+        foreach ($st as $r) {
+            $day = substr((string)$r['day'], 0, 10);
+            if (!isset($out[$day])) {
+                $out[$day] = ['day' => $day, 'people' => 0] + crm_engagement_zero();
+            }
+            $out[$day][crm_engagement_group($r['event'])] += (int)$r['hits'];
+            $out[$day]['people'] += (int)$r['visitors'];
+        }
+        return array_values($out);
+    }, []);
+
+    // The last few things that happened, in order — the profile's live feed.
+    $recent = crm_section(function () use ($pdo, $userId) {
+        $st = $pdo->prepare("
+            SELECT asset_type, asset_id, event, source, label, device, os, city, is_repeat, referrer, created_at
+              FROM engagement_events WHERE user_id = ? ORDER BY id DESC LIMIT 50
+        ");
+        $st->execute([$userId]);
+        $out = [];
+        foreach ($st as $r) {
+            $out[] = [
+                'assetType' => $r['asset_type'],
+                'assetId'   => (int)$r['asset_id'],
+                'event'     => $r['event'],
+                'source'    => $r['source'],
+                'label'     => $r['label'],
+                'device'    => $r['device'],
+                'os'        => $r['os'],
+                'city'      => $r['city'],
+                'repeat'    => (int)$r['is_repeat'] === 1,
+                'referrer'  => $r['referrer'],
+                'at'        => crm_iso($r['created_at']),
+            ];
+        }
+        return $out;
+    }, []);
+
     sendSuccess('OK', crm_client_base($u) + [
         'vcards' => $vcards,
         'sites' => $sites,
@@ -140,6 +214,11 @@ try {
         'titanium' => $titanium,
         'results' => (object)$results,
         'usage' => (object)(crm_usage_for($pdo, [$userId])[$userId] ?? []),
+        'engagement' => $engagement ? $engagement + [
+            'perAsset' => $perAsset,
+            'daily'    => $daily,
+            'recent'   => $recent,
+        ] : null,
     ]);
 } catch (Throwable $e) {
     error_log('crm/client: ' . $e->getMessage());
