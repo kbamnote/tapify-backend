@@ -47,6 +47,10 @@ export default {
     // domain recorded for that site — so this header cannot be used to hijack
     // another customer's canonical tags.
     const headers = new Headers(request.headers);
+    // Railway's edge overwrites X-Forwarded-Host with the Host it receives — the
+    // subdomain below — so the visitor's real hostname also travels in a header
+    // nothing else touches. SiteRenderer prefers X-Tapify-Host.
+    headers.set('X-Tapify-Host', incoming.host);
     headers.set('X-Forwarded-Host', incoming.host);
     headers.set('X-Forwarded-Proto', 'https');
     // Host must be the origin's, or Railway will not route the request at all.

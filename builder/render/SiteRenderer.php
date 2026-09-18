@@ -52,6 +52,29 @@ class SiteRenderer
         return $_SERVER['HTTP_HOST'] ?? (self::$slug . '.' . PUBLIC_BASE_DOMAIN);
     }
 
+    /**
+     * The hostname the VISITOR typed, as forwarded by Cloudflare.
+     *
+     * X-Forwarded-Host alone is not enough: Railway's own edge sets that header
+     * from the Host it receives — which the Worker has already rewritten to the
+     * tapify subdomain — so PHP would either see the subdomain or a comma list
+     * and never recognise the customer's domain. The Worker therefore also sends
+     * X-Tapify-Host, which nothing between it and PHP touches. Both are still
+     * verified against the site's recorded domain by the caller, so an outsider
+     * forging either header on the public subdomain gains nothing.
+     */
+    private static function forwardedHost(): string
+    {
+        $h = (string)($_SERVER['HTTP_X_TAPIFY_HOST'] ?? '');
+        if (trim($h) === '') $h = (string)($_SERVER['HTTP_X_FORWARDED_HOST'] ?? '');
+        // A chain of proxies appends rather than replaces; the first entry is the
+        // one closest to the visitor.
+        if (strpos($h, ',') !== false) $h = explode(',', $h)[0];
+        $h = strtolower(trim($h));
+        if (($p = strpos($h, ':')) !== false) $h = substr($h, 0, $p);
+        return $h;
+    }
+
     /** Normalise a hostname for comparison: lowercase, no port, no leading www. */
     private static function normHost(string $h): string
     {
@@ -101,13 +124,12 @@ class SiteRenderer
         // site — the header is forgeable by anyone hitting the public subdomain,
         // and an unchecked value would let a stranger rewrite our canonical tags.
         self::$customDomain = '';
-        $claimed = self::normHost((string)($_SERVER['HTTP_X_FORWARDED_HOST'] ?? ''));
+        $seen    = self::forwardedHost();
+        $claimed = self::normHost($seen);
         $owned   = self::normHost((string)($site['domain'] ?? ''));
         if ($claimed !== '' && $owned !== '' && $claimed === $owned) {
             // Keep whatever form the visitor actually used (with or without www)
             // so the canonical matches the address in their address bar.
-            $seen = strtolower(trim((string)$_SERVER['HTTP_X_FORWARDED_HOST']));
-            if (($p = strpos($seen, ':')) !== false) $seen = substr($seen, 0, $p);
             self::$customDomain = $seen;
         }
 
