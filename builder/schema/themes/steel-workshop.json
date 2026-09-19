@@ -1,0 +1,34 @@
+{
+  "preset": "steel-workshop",
+  "label": "Steel Workshop",
+  "description": "Cool off-white with a steel-teal primary, deep gunmetal bands and a burnt-orange accent. Built for fabricators and steel furniture makers, whose photography is bright metal shot under workshop lights — a dark theme swallows it, and plain white makes powder-coated teal and green look accidental.",
+  "industries": [
+    "fabrication",
+    "steel-furniture",
+    "furniture",
+    "manufacturing",
+    "hardware",
+    "interiors"
+  ],
+  "tokens": {
+    "mode": "light",
+    "color": {
+      "primary": "#0E6E6B",
+      "secondary": "#1F3446",
+      "accent": "#A34A07",
+      "bg": "#F6F8F9",
+      "surface": "#FFFFFF",
+      "text": "#14202B",
+      "muted": "#55636F",
+      "border": "#DCE3E8"
+    },
+    "font": {
+      "heading": "Barlow Condensed",
+      "body": "Inter"
+    },
+    "radius": "sm",
+    "spacing": "comfortable",
+    "container": "normal"
+  },
+  "notes": "Primary is taken from the powder-coat teal that recurs across this trade's own work (counters, display cabinets, almirahs) so the site and the products agree instead of competing. Every pairing clears WCAG AA: text/bg 15.51:1, muted/bg 5.80:1, primary/bg 5.70:1, accent/bg 5.57:1, white/primary 6.07:1, white/secondary 12.82:1. Accent was darkened from a natural burnt orange (#B45309, 4.71:1) because SiteRenderer paints 12px meta text in it, which is where a theme normally fails. `secondary` is a dark BAND colour, not a text colour — measure text on it, never it against bg. Small radius on purpose: rounded corners read as soft furnishing, square reads as fabricated steel. Barlow Condensed gives the headings an industrial signage feel while Inter keeps body copy plain."
+}

@@ -1,0 +1,1772 @@
+{
+ "schemaVersion": 1,
+ "site": {
+  "name": "Sonu Steel Furniture",
+  "industry": "architecture",
+  "locale": "en-IN",
+  "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816612/sonu-steel/sonu-p00.jpg",
+  "favicon": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816612/sonu-steel/sonu-p00.jpg"
+ },
+ "theme": {
+  "preset": "steel-workshop",
+  "mode": "light",
+  "color": {
+   "primary": "#0E6E6B",
+   "secondary": "#1F3446",
+   "accent": "#A34A07",
+   "bg": "#F6F8F9",
+   "surface": "#FFFFFF",
+   "text": "#14202B",
+   "muted": "#55636F",
+   "border": "#DCE3E8"
+  },
+  "font": {
+   "heading": "Barlow Condensed",
+   "body": "Inter"
+  },
+  "radius": "sm",
+  "spacing": "comfortable",
+  "container": "normal"
+ },
+ "nav": [
+  {
+   "text": "Home",
+   "href": "/"
+  },
+  {
+   "text": "Products",
+   "href": "/products"
+  },
+  {
+   "text": "Fabrication",
+   "href": "/fabrication"
+  },
+  {
+   "text": "About",
+   "href": "/about"
+  },
+  {
+   "text": "Blog",
+   "href": "/blog"
+  },
+  {
+   "text": "Contact",
+   "href": "/contact"
+  }
+ ],
+ "business": {
+  "phone": "7350620000",
+  "whatsapp": "7350620000",
+  "email": "sonusteelnagpur@gmail.com",
+  "address": "Behind Satpuda Bar, Dighori Road, Aradhana Nagar, Nagpur, Maharashtra",
+  "mapUrl": "https://www.google.com/maps/search/?api=1&query=Sonu+Steel+Furniture+Behind+Satpuda+Bar+Dighori+Road+Aradhana+Nagar+Nagpur",
+  "social": {
+   "instagram": "https://www.instagram.com/furnituresonusteel"
+  },
+  "hours": [
+   {
+    "day": "Mon",
+    "open": "09:00",
+    "close": "20:00",
+    "closed": false
+   },
+   {
+    "day": "Tue",
+    "open": "09:00",
+    "close": "20:00",
+    "closed": false
+   },
+   {
+    "day": "Wed",
+    "open": "09:00",
+    "close": "20:00",
+    "closed": false
+   },
+   {
+    "day": "Thu",
+    "open": "09:00",
+    "close": "20:00",
+    "closed": false
+   },
+   {
+    "day": "Fri",
+    "open": "09:00",
+    "close": "20:00",
+    "closed": false
+   },
+   {
+    "day": "Sat",
+    "open": "09:00",
+    "close": "20:00",
+    "closed": false
+   },
+   {
+    "day": "Sun",
+    "open": "09:00",
+    "close": "20:00",
+    "closed": true
+   }
+  ]
+ },
+ "pages": [
+  {
+   "id": "home",
+   "title": "Home",
+   "slug": "/",
+   "visible": true,
+   "seo": {
+    "title": "Sonu Steel Furniture, Nagpur | Medicine Racks, Pharmacy Counters & Steel Almirahs",
+    "description": "Steel furniture manufacturer and fabricator in Nagpur. Medicine racks, pharmacy counters, steel almirahs, display units, school furniture and custom fabrication — made to your size. Call 7350620000.",
+    "keywords": "steel furniture Nagpur, medicine rack Nagpur, pharmacy counter Nagpur, steel almirah, fabrication Nagpur, auto parts rack, display rack"
+   },
+   "sections": [
+    {
+     "id": "header-1",
+     "type": "header",
+     "visible": true,
+     "props": {
+      "sticky": true,
+      "showCart": false,
+      "showAccount": false,
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816612/sonu-steel/sonu-p00.jpg",
+      "logoSize": "large",
+      "links": [
+       {
+        "text": "Home",
+        "href": "/"
+       },
+       {
+        "text": "Products",
+        "href": "/products"
+       },
+       {
+        "text": "Fabrication",
+        "href": "/fabrication"
+       },
+       {
+        "text": "About",
+        "href": "/about"
+       },
+       {
+        "text": "Blog",
+        "href": "/blog"
+       },
+       {
+        "text": "Contact",
+        "href": "/contact"
+       }
+      ],
+      "cta": {
+       "text": "Get a Quote",
+       "href": "/contact"
+      }
+     }
+    },
+    {
+     "id": "hero-1",
+     "type": "hero",
+     "visible": true,
+     "variant": "split",
+     "props": {
+      "badge": "Steel Furniture & Fabrication · Nagpur",
+      "heading": "Steel furniture built to your size, in our own workshop",
+      "sub": "Medicine racks, pharmacy counters, almirahs, shop display units, school furniture and custom fabrication — measured, welded, powder coated and installed by our own team in Nagpur.",
+      "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816646/sonu-steel/sonu-p16.jpg",
+      "showWhatsapp": true,
+      "showCall": true,
+      "ctaPrimary": {
+       "text": "See Our Products",
+       "href": "/products"
+      }
+     }
+    },
+    {
+     "id": "stats-1",
+     "type": "stats",
+     "visible": true,
+     "props": {
+      "label": "Why Sonu Steel Furniture",
+      "heading": "Made here, not bought in",
+      "countUp": true,
+      "items": [
+       {
+        "icon": "package",
+        "value": 20,
+        "suffix": "+",
+        "label": "Products made to order"
+       },
+       {
+        "icon": "hammer",
+        "value": 8,
+        "suffix": "",
+        "label": "Kinds of work we take on"
+       },
+       {
+        "icon": "ruler",
+        "value": 100,
+        "suffix": "%",
+        "label": "Built to your measurements"
+       },
+       {
+        "icon": "clock",
+        "value": 6,
+        "suffix": " days",
+        "label": "Open Monday to Saturday"
+       }
+      ]
+     }
+    },
+    {
+     "id": "about-1",
+     "type": "about",
+     "visible": true,
+     "props": {
+      "label": "About Us",
+      "heading": "A workshop run by the man who quotes your job",
+      "body": "Sonu Steel Furniture is a steel furniture manufacturing and fabrication workshop in Nagpur, run by Mohammad Arif. We are not a showroom reselling what a factory sent us — the measuring, cutting, welding, powder coating and fitting all happen with our own hands and our own team.\n\nThat is what makes made-to-size normal here rather than an expensive exception. A pharmacy with an awkward corner, a garage that needs a bench at a particular height, a school ordering benches for one age group — all of it is drawn, built and installed to the measurements of the actual space.",
+      "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816614/sonu-steel/sonu-p01.jpg",
+      "imageFit": "contain"
+     }
+    },
+    {
+     "id": "services-1",
+     "type": "services",
+     "visible": true,
+     "props": {
+      "label": "What We Do",
+      "heading": "Furniture and fabrication",
+      "sub": "Eight kinds of work, all made in the same workshop.",
+      "items": [
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816648/sonu-steel/sonu-p17.jpg",
+        "title": "Shop & Pharmacy Furniture",
+        "desc": "Counters, wall units, display cabinets and drawer banks, planned around your shop and installed as one fit-out.",
+        "meta": "Medical stores, retail, clinics",
+        "body": "Most shop furniture is bought piece by piece and never quite lines up. We measure the shop, plan the layout around how customers move through it, and build every unit to that plan."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816636/sonu-steel/sonu-p11.jpg",
+        "title": "Steel Almirahs & Wardrobes",
+        "desc": "Two-door, four-door and wardrobe almirahs with locking rods, adjustable shelves, mirrors and lockers.",
+        "meta": "Homes, hostels, offices",
+        "body": "Made to the height of your room rather than a standard size, in the colour you pick, with the internal layout set to what you store — hanging, folded, files or all three."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816656/sonu-steel/sonu-p22.jpg",
+        "title": "Storage & Display Racks",
+        "desc": "Drawer racks, crate racks, parts racks and open display racks, sized to your stock and your wall.",
+        "meta": "Shops, godowns, workshops",
+        "body": "A rack is only useful if it matches what goes in it. Tell us the crate, the box or the part and we build the grid around it instead of asking you to fit your stock to a standard unit."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816621/sonu-steel/sonu-p04.jpg",
+        "title": "School & Institutional Furniture",
+        "desc": "Desk-bench units, staff tables, storage cupboards and lockers for schools and coaching classes.",
+        "meta": "Schools, colleges, coaching classes",
+        "body": "Institutional furniture is bought once and used hard for years, so it is welded at the joints and finished to be cleaned rather than cared for."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816630/sonu-steel/sonu-p08.jpg",
+        "title": "Workshop & Garage Furniture",
+        "desc": "Workbenches, service counters, tool boards and heavy drawer units for people who work standing up.",
+        "meta": "Garages, service centres, workshops",
+        "body": "Built to working height, with drawers rated for tools and a board that gets the spanners off the bench."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816658/sonu-steel/sonu-p23.jpg",
+        "title": "Custom Steel Fabrication",
+        "desc": "Fabrication work to drawing or to site — structures, enclosures, gates, frames and goods lifts.",
+        "meta": "Commercial and industrial",
+        "body": "Where furniture ends and fabrication begins. Bring a drawing or bring us to the site; we measure, fabricate and install."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816637/sonu-steel/sonu-p12.jpg",
+        "title": "Steel Sofa & Seating",
+        "desc": "Sofa frames, benches and waiting-area seating in powder-coated steel with loose cushions.",
+        "meta": "Homes, offices, waiting rooms",
+        "body": "Seating that survives a public waiting room, with cushions that can be recovered instead of thrown away."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816652/sonu-steel/sonu-p20.jpg",
+        "title": "Repairs, Re-coating & Modification",
+        "desc": "Re-shelving, new drawers, re-welding and fresh powder coating on furniture you already own.",
+        "meta": "Anyone with steel furniture",
+        "body": "Steel furniture rarely needs replacing — it needs a hinge, a shelf or a re-coat. Send a photo on WhatsApp and we will tell you honestly whether it is worth repairing."
+       }
+      ]
+     }
+    },
+    {
+     "id": "products-1",
+     "type": "products",
+     "visible": true,
+     "props": {
+      "label": "Our Products",
+      "heading": "Some of what we build",
+      "sub": "Every piece is made to order. Tap any product to send its details straight to our WhatsApp.",
+      "orderVia": "whatsapp",
+      "orderLabel": "Enquire on WhatsApp",
+      "items": [
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816618/sonu-steel/sonu-p03.jpg",
+        "title": "Medicine Rack",
+        "desc": "Multi-drawer medicine rack in powder-coated steel, built to the depth your strips and boxes actually need.",
+        "meta": "For chemists and clinics",
+        "price": "Made to order",
+        "body": "A medicine rack lives or dies on its drawer depth. Too shallow and strips stand proud of the runner; too deep and the back of the drawer becomes a place stock goes to expire. We build the drawer bank around the sizes you actually stock, on a powder-coated steel body that takes years of being pulled open a hundred times a day."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816621/sonu-steel/sonu-p04.jpg",
+        "title": "School Desk & Bench",
+        "desc": "Two-seater and three-seater desk-bench units with a steel frame and a hardwood top.",
+        "meta": "For schools and coaching classes",
+        "price": "Made to order",
+        "body": "Classroom furniture fails at the joints, not the surface. These are welded at every frame joint rather than bolted, with the writing top fixed so it cannot work loose over a term. Sizes are made to the age group you are seating — a primary bench and a junior-college bench are not the same piece."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816623/sonu-steel/sonu-p05.jpg",
+        "title": "Pharmacy Counter with Wall Unit",
+        "desc": "A matched billing counter and rear wall unit — drawers below, glass display above.",
+        "meta": "For medical stores",
+        "price": "Made to order",
+        "body": "Sold as a pair because they have to line up. The counter carries the billing surface, the cash drawer and closed storage for fast-moving stock; the wall unit behind it puts everything else within one step, in glass so you can see what is running low without opening a door."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816626/sonu-steel/sonu-p06.jpg",
+        "title": "Glass Display Counter",
+        "desc": "Long glass-topped display counter with a steel frame, for goods customers should see before they buy.",
+        "meta": "For retail counters",
+        "price": "Made to order",
+        "body": "A display counter has to hold weight at the top and stay square along its length. Ours run on a welded steel frame with the glass seated rather than resting loose, in whatever length your shop front allows — including L-shapes for a corner."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816628/sonu-steel/sonu-p07.jpg",
+        "title": "Two-Door Steel Almirah",
+        "desc": "Classic two-door almirah with a locking handle, adjustable shelves and an optional mirror.",
+        "meta": "For homes, hostels and offices",
+        "price": "Made to order",
+        "body": "The everyday almirah, made properly: a full-height locking rod rather than a single catch, shelves you can move as what you store changes, and a powder-coated finish that survives being wiped down. Colours are yours to pick."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816630/sonu-steel/sonu-p08.jpg",
+        "title": "Workshop Workbench",
+        "desc": "Heavy workbench with a drawer bank below and a perforated tool board behind.",
+        "meta": "For garages and service centres",
+        "price": "Made to order",
+        "body": "Built for a bench that gets stood on. Thick top, drawers on runners rated for tools rather than paper, and a pegboard back so spanners live on the wall instead of in a pile. Height is set to the people who will use it."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816632/sonu-steel/sonu-p09.jpg",
+        "title": "Service Counter with Tool Board",
+        "desc": "Service-bay counter with a machine mount, drawers and an upright tool panel.",
+        "meta": "For workshops and service bays",
+        "price": "Made to order",
+        "body": "Where the job card gets written and the tools live. The upright panel keeps the bench clear, the drawer bank takes the consumables, and the mount is made for the specific machine you run — tell us which one."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816634/sonu-steel/sonu-p10.jpg",
+        "title": "Glass Display Cabinet",
+        "desc": "Floor-standing glass cabinet with sliding doors and adjustable glass shelves.",
+        "meta": "For showrooms and pharmacies",
+        "price": "Made to order",
+        "body": "Sliding rather than hinged, because a shop aisle rarely has room for a door to swing. Glass shelves are adjustable across the height, and the frame is powder-coated so the cabinet keeps its colour under shop lights."
+       }
+      ]
+     }
+    },
+    {
+     "id": "gallery-1",
+     "type": "gallery",
+     "visible": true,
+     "props": {
+      "label": "Our Work",
+      "heading": "Finished and installed",
+      "lightbox": true,
+      "images": [
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816648/sonu-steel/sonu-p17.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816646/sonu-steel/sonu-p16.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816623/sonu-steel/sonu-p05.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816656/sonu-steel/sonu-p22.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816643/sonu-steel/sonu-p15.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816634/sonu-steel/sonu-p10.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816640/sonu-steel/sonu-p13.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816636/sonu-steel/sonu-p11.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816621/sonu-steel/sonu-p04.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816630/sonu-steel/sonu-p08.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816650/sonu-steel/sonu-p19.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816658/sonu-steel/sonu-p23.jpg"
+       }
+      ]
+     }
+    },
+    {
+     "id": "hours-1",
+     "type": "hours",
+     "visible": true,
+     "variant": "cards",
+     "props": {
+      "label": "Opening Hours",
+      "heading": "When the workshop is open",
+      "highlightToday": true,
+      "note": "Closed on Sunday. Call before visiting on a public holiday."
+     }
+    },
+    {
+     "id": "cta-1",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Tell us the size and we will quote",
+      "sub": "Send measurements or a photo of the space on WhatsApp — Mohammad Arif will reply himself.",
+      "ctaPrimary": {
+       "text": "Send a WhatsApp Enquiry",
+       "href": "https://wa.me/917350620000"
+      },
+      "ctaSecondary": {
+       "text": "Call 7350620000",
+       "href": "tel:+917350620000"
+      }
+     }
+    },
+    {
+     "id": "contact-1",
+     "type": "contact",
+     "visible": true,
+     "props": {
+      "label": "Contact",
+      "heading": "Visit the workshop",
+      "sub": "Behind Satpuda Bar on Dighori Road, Aradhana Nagar.",
+      "showPhone": true,
+      "showWhatsapp": true,
+      "showEmail": true,
+      "showAddress": true,
+      "showHours": true,
+      "showMap": true,
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Sonu+Steel+Furniture+Behind+Satpuda+Bar+Dighori+Road+Aradhana+Nagar+Nagpur",
+      "submitText": "Send enquiry"
+     }
+    },
+    {
+     "id": "footer-1",
+     "type": "footer",
+     "visible": true,
+     "props": {
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816612/sonu-steel/sonu-p00.jpg",
+      "blurb": "Sonu Steel Furniture manufactures steel furniture and takes on fabrication work from its own workshop in Nagpur — medicine racks and pharmacy counters, almirahs, shop display units, school furniture and made-to-measure steel work.",
+      "columns": [
+       {
+        "title": "Products",
+        "links": [
+         {
+          "text": "Medicine Racks",
+          "href": "/products"
+         },
+         {
+          "text": "Pharmacy Counters",
+          "href": "/products"
+         },
+         {
+          "text": "Steel Almirahs",
+          "href": "/products"
+         },
+         {
+          "text": "Shop Display Units",
+          "href": "/products"
+         }
+        ]
+       },
+       {
+        "title": "Company",
+        "links": [
+         {
+          "text": "About Us",
+          "href": "/about"
+         },
+         {
+          "text": "Fabrication Work",
+          "href": "/fabrication"
+         },
+         {
+          "text": "Blog",
+          "href": "/blog"
+         },
+         {
+          "text": "Contact",
+          "href": "/contact"
+         }
+        ]
+       }
+      ],
+      "showSocial": true,
+      "showContact": true,
+      "showHours": true,
+      "copyright": "© Sonu Steel Furniture, Nagpur. All rights reserved.",
+      "showLegal": true,
+      "privacyBody": "Sonu Steel Furniture, Behind Satpuda Bar, Dighori Road, Aradhana Nagar, Nagpur.\n\nWHAT WE COLLECT. If you send an enquiry through this website, we receive the name, phone number and details you type into the form. If you contact us on WhatsApp or by phone, we have your number and whatever you choose to tell us. We do not ask for payment details on this website.\n\nWHY WE HAVE IT. To answer your enquiry, prepare a quotation and carry out work you order from us. Nothing more.\n\nWHO ELSE SEES IT. Nobody. We do not sell, rent or share enquiry details with other businesses. Where a delivery or installation needs someone outside the workshop, they are told only what is needed to complete it.\n\nHOW LONG WE KEEP IT. While we are dealing with you, and afterwards in our own records of work done. Ask us to delete your details and we will.\n\nCOOKIES. This site does not use advertising or tracking cookies.\n\nCONTACT. sonusteelnagpur@gmail.com, or 7350620000.",
+      "termsBody": "These terms cover this website and enquiries made through it. They are not a contract of sale — every order is confirmed separately, in writing or on WhatsApp.\n\nQUOTATIONS. Everything shown here is made to order. Photographs are of work we have completed and are illustrative: the size, steel gauge, fittings and finish of your piece are what we agree in your quotation. No price is published on this site, and a price written on a photograph is not a current quotation.\n\nORDERS. An order begins when we confirm the specification and you accept the quotation. Changes to size, material or finish after that may change the price and the delivery date; we will tell you before going ahead.\n\nDELIVERY AND INSTALLATION. Any timeline we give is an honest estimate based on the work already in the shop. Where delivery or installation is included, it is stated in the quotation.\n\nWORKMANSHIP. We put right manufacturing or welding defects in work we have made. Damage from misuse, overloading, alteration by someone else, or transport arranged by you is not covered.\n\nTHIS WEBSITE. The photographs and text belong to Sonu Steel Furniture. Details change as the range changes — contact us for what is current."
+     }
+    }
+   ]
+  },
+  {
+   "id": "products",
+   "title": "Products",
+   "slug": "/products",
+   "visible": true,
+   "seo": {
+    "title": "Products | Sonu Steel Furniture Nagpur — Medicine Racks, Counters, Almirahs & Racks",
+    "description": "Twenty steel furniture products made to order in Nagpur: medicine racks, pharmacy counters, steel almirahs, display cabinets, auto parts racks, school desks and more.",
+    "keywords": "medicine rack, pharmacy counter, steel almari, auto parts rack, display cabinet Nagpur"
+   },
+   "sections": [
+    {
+     "id": "header-2",
+     "type": "header",
+     "visible": true,
+     "props": {
+      "sticky": true,
+      "showCart": false,
+      "showAccount": false,
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816612/sonu-steel/sonu-p00.jpg",
+      "logoSize": "large",
+      "links": [
+       {
+        "text": "Home",
+        "href": "/"
+       },
+       {
+        "text": "Products",
+        "href": "/products"
+       },
+       {
+        "text": "Fabrication",
+        "href": "/fabrication"
+       },
+       {
+        "text": "About",
+        "href": "/about"
+       },
+       {
+        "text": "Blog",
+        "href": "/blog"
+       },
+       {
+        "text": "Contact",
+        "href": "/contact"
+       }
+      ],
+      "cta": {
+       "text": "Get a Quote",
+       "href": "/contact"
+      }
+     }
+    },
+    {
+     "id": "hero-2",
+     "type": "hero",
+     "visible": true,
+     "variant": "minimal",
+     "props": {
+      "badge": "Products",
+      "heading": "Twenty things we build, all to your size",
+      "sub": "Prices depend on size, steel gauge and finish, so everything here is made to order. Send us the measurements and we will quote.",
+      "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816656/sonu-steel/sonu-p22.jpg",
+      "showWhatsapp": true
+     }
+    },
+    {
+     "id": "products-2",
+     "type": "products",
+     "visible": true,
+     "props": {
+      "label": "Full Range",
+      "heading": "Made to order in Nagpur",
+      "sub": "Tap a product to send its name straight to our WhatsApp with your question.",
+      "orderVia": "whatsapp",
+      "orderLabel": "Enquire on WhatsApp",
+      "items": [
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816618/sonu-steel/sonu-p03.jpg",
+        "title": "Medicine Rack",
+        "desc": "Multi-drawer medicine rack in powder-coated steel, built to the depth your strips and boxes actually need.",
+        "meta": "For chemists and clinics",
+        "price": "Made to order",
+        "body": "A medicine rack lives or dies on its drawer depth. Too shallow and strips stand proud of the runner; too deep and the back of the drawer becomes a place stock goes to expire. We build the drawer bank around the sizes you actually stock, on a powder-coated steel body that takes years of being pulled open a hundred times a day."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816621/sonu-steel/sonu-p04.jpg",
+        "title": "School Desk & Bench",
+        "desc": "Two-seater and three-seater desk-bench units with a steel frame and a hardwood top.",
+        "meta": "For schools and coaching classes",
+        "price": "Made to order",
+        "body": "Classroom furniture fails at the joints, not the surface. These are welded at every frame joint rather than bolted, with the writing top fixed so it cannot work loose over a term. Sizes are made to the age group you are seating — a primary bench and a junior-college bench are not the same piece."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816623/sonu-steel/sonu-p05.jpg",
+        "title": "Pharmacy Counter with Wall Unit",
+        "desc": "A matched billing counter and rear wall unit — drawers below, glass display above.",
+        "meta": "For medical stores",
+        "price": "Made to order",
+        "body": "Sold as a pair because they have to line up. The counter carries the billing surface, the cash drawer and closed storage for fast-moving stock; the wall unit behind it puts everything else within one step, in glass so you can see what is running low without opening a door."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816626/sonu-steel/sonu-p06.jpg",
+        "title": "Glass Display Counter",
+        "desc": "Long glass-topped display counter with a steel frame, for goods customers should see before they buy.",
+        "meta": "For retail counters",
+        "price": "Made to order",
+        "body": "A display counter has to hold weight at the top and stay square along its length. Ours run on a welded steel frame with the glass seated rather than resting loose, in whatever length your shop front allows — including L-shapes for a corner."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816628/sonu-steel/sonu-p07.jpg",
+        "title": "Two-Door Steel Almirah",
+        "desc": "Classic two-door almirah with a locking handle, adjustable shelves and an optional mirror.",
+        "meta": "For homes, hostels and offices",
+        "price": "Made to order",
+        "body": "The everyday almirah, made properly: a full-height locking rod rather than a single catch, shelves you can move as what you store changes, and a powder-coated finish that survives being wiped down. Colours are yours to pick."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816630/sonu-steel/sonu-p08.jpg",
+        "title": "Workshop Workbench",
+        "desc": "Heavy workbench with a drawer bank below and a perforated tool board behind.",
+        "meta": "For garages and service centres",
+        "price": "Made to order",
+        "body": "Built for a bench that gets stood on. Thick top, drawers on runners rated for tools rather than paper, and a pegboard back so spanners live on the wall instead of in a pile. Height is set to the people who will use it."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816632/sonu-steel/sonu-p09.jpg",
+        "title": "Service Counter with Tool Board",
+        "desc": "Service-bay counter with a machine mount, drawers and an upright tool panel.",
+        "meta": "For workshops and service bays",
+        "price": "Made to order",
+        "body": "Where the job card gets written and the tools live. The upright panel keeps the bench clear, the drawer bank takes the consumables, and the mount is made for the specific machine you run — tell us which one."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816634/sonu-steel/sonu-p10.jpg",
+        "title": "Glass Display Cabinet",
+        "desc": "Floor-standing glass cabinet with sliding doors and adjustable glass shelves.",
+        "meta": "For showrooms and pharmacies",
+        "price": "Made to order",
+        "body": "Sliding rather than hinged, because a shop aisle rarely has room for a door to swing. Glass shelves are adjustable across the height, and the frame is powder-coated so the cabinet keeps its colour under shop lights."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816636/sonu-steel/sonu-p11.jpg",
+        "title": "Four-Door Steel Almirah",
+        "desc": "Four-door wardrobe almirah with mirrors, hanging space and a drawer bank.",
+        "meta": "For homes and hostels",
+        "price": "Made to order",
+        "body": "A wardrobe-sized almirah for a family or a shared room: hanging space on one side, shelves on the other, lockable drawers in the middle, and mirrors fitted into the doors so the room does not need a separate one."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816637/sonu-steel/sonu-p12.jpg",
+        "title": "Steel Sofa Frame",
+        "desc": "Powder-coated steel sofa frame with loose cushions — three-seater or made to your length.",
+        "meta": "For homes, offices and waiting areas",
+        "price": "Made to order",
+        "body": "A steel frame outlasts a wooden one in a waiting room, and the cushions can be recovered when they tire instead of replacing the whole sofa. Frame colour and cushion fabric are both your choice."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816640/sonu-steel/sonu-p13.jpg",
+        "title": "Shop Cash Counter",
+        "desc": "Compact cash counter with a lockable drawer, open shelves and a customer-side panel.",
+        "meta": "For any retail shop",
+        "price": "Made to order",
+        "body": "The piece the whole shop works around. Lockable cash drawer, a shelf where the bill book and card machine actually fit, and a closed front so customers see a clean panel rather than your storage."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816641/sonu-steel/sonu-p14.jpg",
+        "title": "Vegetable & Crate Rack",
+        "desc": "Angled multi-tier rack sized for standard crates, for fruit, vegetables and loose stock.",
+        "meta": "For grocery and vegetable shops",
+        "price": "Made to order",
+        "body": "Angled so the crate faces the customer and the stock at the back does not disappear. Sized to standard crates so you are not buying new ones, and light enough for one person to shift when the shop is washed down."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816643/sonu-steel/sonu-p15.jpg",
+        "title": "Medicine Storage Rack (Long Run)",
+        "desc": "Wall-length drawer rack, built as one continuous run rather than separate units pushed together.",
+        "meta": "For larger pharmacies and distributors",
+        "price": "Made to order",
+        "body": "When a wall of drawers is made as separate cupboards, the gaps between them are the first thing to look wrong and the first place dust collects. This is built as one run to the length of your wall, with the drawer grid set out around your fastest-moving stock."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816646/sonu-steel/sonu-p16.jpg",
+        "title": "Chemist Counter with Drawer Bank",
+        "desc": "Billing counter with a deep multi-drawer bank and a raised customer-facing top.",
+        "meta": "For medical stores",
+        "price": "Made to order",
+        "body": "The counter and the medicine drawers in one piece, so the person billing is never more than a turn away from stock. The raised top keeps your working surface out of the customer's view while they wait."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816648/sonu-steel/sonu-p17.jpg",
+        "title": "Pharmacy Interior Fit-out",
+        "desc": "Complete shop interior — counters, wall units, display cabinets and storage, made and installed together.",
+        "meta": "For new medical stores",
+        "price": "Made to order",
+        "body": "For a shop being fitted out from empty. We measure the space, plan the counter position around how customers will queue, and build every unit to that plan so the finished shop reads as one piece of work rather than furniture bought separately."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816650/sonu-steel/sonu-p19.jpg",
+        "title": "Steel Bookshelf Rack",
+        "desc": "Open five-tier rack with a steel frame and wooden shelves.",
+        "meta": "For homes, offices and libraries",
+        "price": "Made to order",
+        "body": "Open on all sides, which makes a small room feel less closed-in than a solid unit. The steel frame carries the weight so the shelves can stay slim, and the height and number of tiers are made to the wall you have."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816652/sonu-steel/sonu-p20.jpg",
+        "title": "Medicine Cabinet with Glass Top",
+        "desc": "Compact cabinet combining a glass-fronted upper section with a lower drawer bank.",
+        "meta": "For clinics and small pharmacies",
+        "price": "Made to order",
+        "body": "Two storage types in one footprint: visible stock behind glass above, everything else in drawers below. Sized for a clinic room or a small shop where a full wall unit would not fit."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816654/sonu-steel/sonu-p21.jpg",
+        "title": "Wardrobe Almirah with Mirror",
+        "desc": "Two-door almirah with a full-length mirror, internal shelves and a locker.",
+        "meta": "For bedrooms and hostels",
+        "price": "Made to order",
+        "body": "The standard bedroom almirah with the details that matter day to day: a mirror on the door, a small locker inside for valuables, and shelves spaced for folded clothes rather than files."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816656/sonu-steel/sonu-p22.jpg",
+        "title": "Auto Parts Drawer Rack",
+        "desc": "Wide multi-drawer rack for small parts, with open shelving at one end for boxed stock.",
+        "meta": "For auto parts and hardware shops",
+        "price": "Made to order",
+        "body": "Small parts need small drawers, and a lot of them. This is built as a grid of shallow drawers with labelling space on each front, plus open shelves at one end for the boxes that will never fit a drawer."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816658/sonu-steel/sonu-p23.jpg",
+        "title": "Goods Lift Fabrication",
+        "desc": "Fabricated goods lift structure and enclosure, made and installed on site.",
+        "meta": "For shops, godowns and workshops",
+        "price": "Made to order",
+        "body": "Fabrication work beyond furniture: the structure, cage and enclosure for a goods lift, measured and welded on site. Site conditions decide most of this, so it starts with a visit rather than a catalogue."
+       }
+      ]
+     }
+    },
+    {
+     "id": "faq-1",
+     "type": "faq",
+     "visible": true,
+     "props": {
+      "label": "Before You Order",
+      "heading": "Questions we are asked most",
+      "items": [
+       {
+        "q": "Do you make furniture to my own size?",
+        "a": "Yes — that is most of our work. Send the measurements, or a photo of the space with rough dimensions, and we will confirm what is possible and quote for it."
+       },
+       {
+        "q": "How do I get a price?",
+        "a": "Send the size, the material and a photo or drawing on WhatsApp and we will quote. Prices depend on the size, the gauge of steel and the finish, so we do not publish fixed rates for made-to-order work."
+       },
+       {
+        "q": "Do you deliver and install?",
+        "a": "Tell us where the piece is going and we will confirm delivery and installation when we quote. Large fit-outs and site fabrication are installed by our own team."
+       },
+       {
+        "q": "What colours can I have?",
+        "a": "Powder coating comes in a wide range of colours — the teal, green, blue and maroon in our photographs are all customer choices. Tell us the shade you want and we will match it as closely as the coating allows."
+       },
+       {
+        "q": "Can you repair or re-coat my old furniture?",
+        "a": "Often, yes, and it is usually cheaper than replacing it. Send a photo on WhatsApp and we will tell you honestly whether it is worth doing."
+       },
+       {
+        "q": "How long does an order take?",
+        "a": "It depends on the piece and what is already in the workshop. Ask when you enquire and we will give you a realistic date rather than an optimistic one."
+       }
+      ]
+     }
+    },
+    {
+     "id": "cta-2",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Not listed? We probably still make it",
+      "sub": "Most of our work is one-off. Describe the piece and we will tell you whether we can build it.",
+      "ctaPrimary": {
+       "text": "Send a WhatsApp Enquiry",
+       "href": "https://wa.me/917350620000"
+      },
+      "ctaSecondary": {
+       "text": "Call 7350620000",
+       "href": "tel:+917350620000"
+      }
+     }
+    },
+    {
+     "id": "footer-2",
+     "type": "footer",
+     "visible": true,
+     "props": {
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816612/sonu-steel/sonu-p00.jpg",
+      "blurb": "Sonu Steel Furniture manufactures steel furniture and takes on fabrication work from its own workshop in Nagpur — medicine racks and pharmacy counters, almirahs, shop display units, school furniture and made-to-measure steel work.",
+      "columns": [
+       {
+        "title": "Products",
+        "links": [
+         {
+          "text": "Medicine Racks",
+          "href": "/products"
+         },
+         {
+          "text": "Pharmacy Counters",
+          "href": "/products"
+         },
+         {
+          "text": "Steel Almirahs",
+          "href": "/products"
+         },
+         {
+          "text": "Shop Display Units",
+          "href": "/products"
+         }
+        ]
+       },
+       {
+        "title": "Company",
+        "links": [
+         {
+          "text": "About Us",
+          "href": "/about"
+         },
+         {
+          "text": "Fabrication Work",
+          "href": "/fabrication"
+         },
+         {
+          "text": "Blog",
+          "href": "/blog"
+         },
+         {
+          "text": "Contact",
+          "href": "/contact"
+         }
+        ]
+       }
+      ],
+      "showSocial": true,
+      "showContact": true,
+      "showHours": true,
+      "copyright": "© Sonu Steel Furniture, Nagpur. All rights reserved.",
+      "showLegal": true,
+      "privacyBody": "Sonu Steel Furniture, Behind Satpuda Bar, Dighori Road, Aradhana Nagar, Nagpur.\n\nWHAT WE COLLECT. If you send an enquiry through this website, we receive the name, phone number and details you type into the form. If you contact us on WhatsApp or by phone, we have your number and whatever you choose to tell us. We do not ask for payment details on this website.\n\nWHY WE HAVE IT. To answer your enquiry, prepare a quotation and carry out work you order from us. Nothing more.\n\nWHO ELSE SEES IT. Nobody. We do not sell, rent or share enquiry details with other businesses. Where a delivery or installation needs someone outside the workshop, they are told only what is needed to complete it.\n\nHOW LONG WE KEEP IT. While we are dealing with you, and afterwards in our own records of work done. Ask us to delete your details and we will.\n\nCOOKIES. This site does not use advertising or tracking cookies.\n\nCONTACT. sonusteelnagpur@gmail.com, or 7350620000.",
+      "termsBody": "These terms cover this website and enquiries made through it. They are not a contract of sale — every order is confirmed separately, in writing or on WhatsApp.\n\nQUOTATIONS. Everything shown here is made to order. Photographs are of work we have completed and are illustrative: the size, steel gauge, fittings and finish of your piece are what we agree in your quotation. No price is published on this site, and a price written on a photograph is not a current quotation.\n\nORDERS. An order begins when we confirm the specification and you accept the quotation. Changes to size, material or finish after that may change the price and the delivery date; we will tell you before going ahead.\n\nDELIVERY AND INSTALLATION. Any timeline we give is an honest estimate based on the work already in the shop. Where delivery or installation is included, it is stated in the quotation.\n\nWORKMANSHIP. We put right manufacturing or welding defects in work we have made. Damage from misuse, overloading, alteration by someone else, or transport arranged by you is not covered.\n\nTHIS WEBSITE. The photographs and text belong to Sonu Steel Furniture. Details change as the range changes — contact us for what is current."
+     }
+    }
+   ]
+  },
+  {
+   "id": "fabrication",
+   "title": "Fabrication",
+   "slug": "/fabrication",
+   "visible": true,
+   "seo": {
+    "title": "Steel Fabrication & Furniture Services in Nagpur | Sonu Steel Furniture",
+    "description": "Shop and pharmacy fit-outs, steel almirahs, storage racks, school furniture, workshop benches, custom fabrication, seating, repairs and re-coating — from a Nagpur workshop.",
+    "keywords": "steel fabrication Nagpur, shop fit-out, pharmacy furniture, workshop bench, steel repairs"
+   },
+   "sections": [
+    {
+     "id": "header-3",
+     "type": "header",
+     "visible": true,
+     "props": {
+      "sticky": true,
+      "showCart": false,
+      "showAccount": false,
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816612/sonu-steel/sonu-p00.jpg",
+      "logoSize": "large",
+      "links": [
+       {
+        "text": "Home",
+        "href": "/"
+       },
+       {
+        "text": "Products",
+        "href": "/products"
+       },
+       {
+        "text": "Fabrication",
+        "href": "/fabrication"
+       },
+       {
+        "text": "About",
+        "href": "/about"
+       },
+       {
+        "text": "Blog",
+        "href": "/blog"
+       },
+       {
+        "text": "Contact",
+        "href": "/contact"
+       }
+      ],
+      "cta": {
+       "text": "Get a Quote",
+       "href": "/contact"
+      }
+     }
+    },
+    {
+     "id": "hero-3",
+     "type": "hero",
+     "visible": true,
+     "variant": "minimal",
+     "props": {
+      "badge": "Fabrication & Furniture",
+      "heading": "From one almirah to a whole shop",
+      "sub": "The same workshop makes a single medicine rack and fits out a complete medical store. Here is the range of work we take on.",
+      "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816630/sonu-steel/sonu-p08.jpg",
+      "showWhatsapp": true
+     }
+    },
+    {
+     "id": "services-2",
+     "type": "services",
+     "visible": true,
+     "props": {
+      "label": "Our Services",
+      "heading": "Eight kinds of work",
+      "items": [
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816648/sonu-steel/sonu-p17.jpg",
+        "title": "Shop & Pharmacy Furniture",
+        "desc": "Counters, wall units, display cabinets and drawer banks, planned around your shop and installed as one fit-out.",
+        "meta": "Medical stores, retail, clinics",
+        "body": "Most shop furniture is bought piece by piece and never quite lines up. We measure the shop, plan the layout around how customers move through it, and build every unit to that plan."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816636/sonu-steel/sonu-p11.jpg",
+        "title": "Steel Almirahs & Wardrobes",
+        "desc": "Two-door, four-door and wardrobe almirahs with locking rods, adjustable shelves, mirrors and lockers.",
+        "meta": "Homes, hostels, offices",
+        "body": "Made to the height of your room rather than a standard size, in the colour you pick, with the internal layout set to what you store — hanging, folded, files or all three."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816656/sonu-steel/sonu-p22.jpg",
+        "title": "Storage & Display Racks",
+        "desc": "Drawer racks, crate racks, parts racks and open display racks, sized to your stock and your wall.",
+        "meta": "Shops, godowns, workshops",
+        "body": "A rack is only useful if it matches what goes in it. Tell us the crate, the box or the part and we build the grid around it instead of asking you to fit your stock to a standard unit."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816621/sonu-steel/sonu-p04.jpg",
+        "title": "School & Institutional Furniture",
+        "desc": "Desk-bench units, staff tables, storage cupboards and lockers for schools and coaching classes.",
+        "meta": "Schools, colleges, coaching classes",
+        "body": "Institutional furniture is bought once and used hard for years, so it is welded at the joints and finished to be cleaned rather than cared for."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816630/sonu-steel/sonu-p08.jpg",
+        "title": "Workshop & Garage Furniture",
+        "desc": "Workbenches, service counters, tool boards and heavy drawer units for people who work standing up.",
+        "meta": "Garages, service centres, workshops",
+        "body": "Built to working height, with drawers rated for tools and a board that gets the spanners off the bench."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816658/sonu-steel/sonu-p23.jpg",
+        "title": "Custom Steel Fabrication",
+        "desc": "Fabrication work to drawing or to site — structures, enclosures, gates, frames and goods lifts.",
+        "meta": "Commercial and industrial",
+        "body": "Where furniture ends and fabrication begins. Bring a drawing or bring us to the site; we measure, fabricate and install."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816637/sonu-steel/sonu-p12.jpg",
+        "title": "Steel Sofa & Seating",
+        "desc": "Sofa frames, benches and waiting-area seating in powder-coated steel with loose cushions.",
+        "meta": "Homes, offices, waiting rooms",
+        "body": "Seating that survives a public waiting room, with cushions that can be recovered instead of thrown away."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816652/sonu-steel/sonu-p20.jpg",
+        "title": "Repairs, Re-coating & Modification",
+        "desc": "Re-shelving, new drawers, re-welding and fresh powder coating on furniture you already own.",
+        "meta": "Anyone with steel furniture",
+        "body": "Steel furniture rarely needs replacing — it needs a hinge, a shelf or a re-coat. Send a photo on WhatsApp and we will tell you honestly whether it is worth repairing."
+       }
+      ]
+     }
+    },
+    {
+     "id": "steps-1",
+     "type": "steps",
+     "visible": true,
+     "props": {
+      "label": "How It Works",
+      "heading": "From your measurements to installed",
+      "items": [
+       {
+        "title": "Tell us what you need",
+        "text": "Send sizes, a photo of the space or a drawing on WhatsApp. If it is a shop fit-out we will come and measure instead."
+       },
+       {
+        "title": "We quote",
+        "text": "A price for the piece as described — size, steel gauge and finish all affect it, which is why we quote rather than publish a rate."
+       },
+       {
+        "title": "We build it",
+        "text": "Cut, welded, finished and powder coated in our own workshop in the colour you chose."
+       },
+       {
+        "title": "Delivered and installed",
+        "text": "Brought to you and fitted. Site fabrication is welded and installed in place."
+       }
+      ]
+     }
+    },
+    {
+     "id": "gallery-2",
+     "type": "gallery",
+     "visible": true,
+     "props": {
+      "label": "Recent Work",
+      "heading": "Out of the workshop",
+      "lightbox": true,
+      "images": [
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816632/sonu-steel/sonu-p09.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816626/sonu-steel/sonu-p06.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816652/sonu-steel/sonu-p20.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816641/sonu-steel/sonu-p14.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816637/sonu-steel/sonu-p12.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816654/sonu-steel/sonu-p21.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816628/sonu-steel/sonu-p07.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816618/sonu-steel/sonu-p03.jpg"
+       }
+      ]
+     }
+    },
+    {
+     "id": "cta-3",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Bring us a drawing or bring us to the site",
+      "sub": "Fabrication work starts with a measurement, not a catalogue.",
+      "ctaPrimary": {
+       "text": "Send a WhatsApp Enquiry",
+       "href": "https://wa.me/917350620000"
+      },
+      "ctaSecondary": {
+       "text": "Call 7350620000",
+       "href": "tel:+917350620000"
+      }
+     }
+    },
+    {
+     "id": "footer-3",
+     "type": "footer",
+     "visible": true,
+     "props": {
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816612/sonu-steel/sonu-p00.jpg",
+      "blurb": "Sonu Steel Furniture manufactures steel furniture and takes on fabrication work from its own workshop in Nagpur — medicine racks and pharmacy counters, almirahs, shop display units, school furniture and made-to-measure steel work.",
+      "columns": [
+       {
+        "title": "Products",
+        "links": [
+         {
+          "text": "Medicine Racks",
+          "href": "/products"
+         },
+         {
+          "text": "Pharmacy Counters",
+          "href": "/products"
+         },
+         {
+          "text": "Steel Almirahs",
+          "href": "/products"
+         },
+         {
+          "text": "Shop Display Units",
+          "href": "/products"
+         }
+        ]
+       },
+       {
+        "title": "Company",
+        "links": [
+         {
+          "text": "About Us",
+          "href": "/about"
+         },
+         {
+          "text": "Fabrication Work",
+          "href": "/fabrication"
+         },
+         {
+          "text": "Blog",
+          "href": "/blog"
+         },
+         {
+          "text": "Contact",
+          "href": "/contact"
+         }
+        ]
+       }
+      ],
+      "showSocial": true,
+      "showContact": true,
+      "showHours": true,
+      "copyright": "© Sonu Steel Furniture, Nagpur. All rights reserved.",
+      "showLegal": true,
+      "privacyBody": "Sonu Steel Furniture, Behind Satpuda Bar, Dighori Road, Aradhana Nagar, Nagpur.\n\nWHAT WE COLLECT. If you send an enquiry through this website, we receive the name, phone number and details you type into the form. If you contact us on WhatsApp or by phone, we have your number and whatever you choose to tell us. We do not ask for payment details on this website.\n\nWHY WE HAVE IT. To answer your enquiry, prepare a quotation and carry out work you order from us. Nothing more.\n\nWHO ELSE SEES IT. Nobody. We do not sell, rent or share enquiry details with other businesses. Where a delivery or installation needs someone outside the workshop, they are told only what is needed to complete it.\n\nHOW LONG WE KEEP IT. While we are dealing with you, and afterwards in our own records of work done. Ask us to delete your details and we will.\n\nCOOKIES. This site does not use advertising or tracking cookies.\n\nCONTACT. sonusteelnagpur@gmail.com, or 7350620000.",
+      "termsBody": "These terms cover this website and enquiries made through it. They are not a contract of sale — every order is confirmed separately, in writing or on WhatsApp.\n\nQUOTATIONS. Everything shown here is made to order. Photographs are of work we have completed and are illustrative: the size, steel gauge, fittings and finish of your piece are what we agree in your quotation. No price is published on this site, and a price written on a photograph is not a current quotation.\n\nORDERS. An order begins when we confirm the specification and you accept the quotation. Changes to size, material or finish after that may change the price and the delivery date; we will tell you before going ahead.\n\nDELIVERY AND INSTALLATION. Any timeline we give is an honest estimate based on the work already in the shop. Where delivery or installation is included, it is stated in the quotation.\n\nWORKMANSHIP. We put right manufacturing or welding defects in work we have made. Damage from misuse, overloading, alteration by someone else, or transport arranged by you is not covered.\n\nTHIS WEBSITE. The photographs and text belong to Sonu Steel Furniture. Details change as the range changes — contact us for what is current."
+     }
+    }
+   ]
+  },
+  {
+   "id": "about",
+   "title": "About",
+   "slug": "/about",
+   "visible": true,
+   "seo": {
+    "title": "About Sonu Steel Furniture, Nagpur | Mohammad Arif",
+    "description": "Sonu Steel Furniture is a steel furniture and fabrication workshop in Aradhana Nagar, Nagpur, run by Mohammad Arif. Made-to-measure steel furniture for shops, homes, schools and workshops.",
+    "keywords": "Sonu Steel Furniture Nagpur, Mohammad Arif, steel furniture manufacturer Nagpur"
+   },
+   "sections": [
+    {
+     "id": "header-4",
+     "type": "header",
+     "visible": true,
+     "props": {
+      "sticky": true,
+      "showCart": false,
+      "showAccount": false,
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816612/sonu-steel/sonu-p00.jpg",
+      "logoSize": "large",
+      "links": [
+       {
+        "text": "Home",
+        "href": "/"
+       },
+       {
+        "text": "Products",
+        "href": "/products"
+       },
+       {
+        "text": "Fabrication",
+        "href": "/fabrication"
+       },
+       {
+        "text": "About",
+        "href": "/about"
+       },
+       {
+        "text": "Blog",
+        "href": "/blog"
+       },
+       {
+        "text": "Contact",
+        "href": "/contact"
+       }
+      ],
+      "cta": {
+       "text": "Get a Quote",
+       "href": "/contact"
+      }
+     }
+    },
+    {
+     "id": "hero-4",
+     "type": "hero",
+     "visible": true,
+     "variant": "minimal",
+     "props": {
+      "badge": "About Us",
+      "heading": "Sonu Steel Furniture, Nagpur",
+      "sub": "A steel furniture workshop on Dighori Road, run by Mohammad Arif.",
+      "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816616/sonu-steel/sonu-p02.jpg",
+      "showCall": true
+     }
+    },
+    {
+     "id": "about-2",
+     "type": "about",
+     "visible": true,
+     "props": {
+      "label": "Our Story",
+      "heading": "We make it, so we can change it",
+      "body": "Sonu Steel Furniture works out of its own unit behind Satpuda Bar on Dighori Road, Aradhana Nagar, Nagpur. Mohammad Arif runs it, quotes the jobs and is on the floor while they are built — which is the reason a customer can ask for a drawer two inches deeper and get it rather than a reason why not.\n\nThe work splits roughly in two. One half is steel furniture: medicine racks and pharmacy counters, almirahs and wardrobes, display cabinets, storage and parts racks, school benches, workshop furniture and steel seating. The other half is fabrication — structures, enclosures, frames and goods lifts, measured and welded on site.\n\nWhat ties them together is that nothing is standard unless standard happens to be right. Every piece is measured for the space it is going into, finished in the colour the customer picked, and installed by the same people who made it.",
+      "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816614/sonu-steel/sonu-p01.jpg",
+      "imageFit": "contain"
+     }
+    },
+    {
+     "id": "team-1",
+     "type": "team",
+     "visible": true,
+     "props": {
+      "label": "Who You Will Deal With",
+      "heading": "The workshop",
+      "items": [
+       {
+        "photo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816614/sonu-steel/sonu-p01.jpg",
+        "name": "Mohammad Arif",
+        "role": "Proprietor",
+        "bio": "Runs Sonu Steel Furniture — takes the measurements, quotes the job and oversees every piece through the workshop. The person you speak to on WhatsApp is the person who will build it."
+       }
+      ]
+     }
+    },
+    {
+     "id": "gallery-3",
+     "type": "gallery",
+     "visible": true,
+     "props": {
+      "label": "Gallery",
+      "heading": "Work we have delivered",
+      "lightbox": true,
+      "images": [
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816646/sonu-steel/sonu-p16.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816648/sonu-steel/sonu-p17.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816623/sonu-steel/sonu-p05.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816634/sonu-steel/sonu-p10.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816643/sonu-steel/sonu-p15.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816656/sonu-steel/sonu-p22.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816640/sonu-steel/sonu-p13.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816636/sonu-steel/sonu-p11.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816621/sonu-steel/sonu-p04.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816650/sonu-steel/sonu-p19.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816641/sonu-steel/sonu-p14.jpg"
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816658/sonu-steel/sonu-p23.jpg"
+       }
+      ]
+     }
+    },
+    {
+     "id": "cta-4",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Come and see the workshop",
+      "sub": "Dighori Road, Aradhana Nagar — open Monday to Saturday, 9 am to 8 pm.",
+      "ctaPrimary": {
+       "text": "Send a WhatsApp Enquiry",
+       "href": "https://wa.me/917350620000"
+      },
+      "ctaSecondary": {
+       "text": "Call 7350620000",
+       "href": "tel:+917350620000"
+      }
+     }
+    },
+    {
+     "id": "footer-4",
+     "type": "footer",
+     "visible": true,
+     "props": {
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816612/sonu-steel/sonu-p00.jpg",
+      "blurb": "Sonu Steel Furniture manufactures steel furniture and takes on fabrication work from its own workshop in Nagpur — medicine racks and pharmacy counters, almirahs, shop display units, school furniture and made-to-measure steel work.",
+      "columns": [
+       {
+        "title": "Products",
+        "links": [
+         {
+          "text": "Medicine Racks",
+          "href": "/products"
+         },
+         {
+          "text": "Pharmacy Counters",
+          "href": "/products"
+         },
+         {
+          "text": "Steel Almirahs",
+          "href": "/products"
+         },
+         {
+          "text": "Shop Display Units",
+          "href": "/products"
+         }
+        ]
+       },
+       {
+        "title": "Company",
+        "links": [
+         {
+          "text": "About Us",
+          "href": "/about"
+         },
+         {
+          "text": "Fabrication Work",
+          "href": "/fabrication"
+         },
+         {
+          "text": "Blog",
+          "href": "/blog"
+         },
+         {
+          "text": "Contact",
+          "href": "/contact"
+         }
+        ]
+       }
+      ],
+      "showSocial": true,
+      "showContact": true,
+      "showHours": true,
+      "copyright": "© Sonu Steel Furniture, Nagpur. All rights reserved.",
+      "showLegal": true,
+      "privacyBody": "Sonu Steel Furniture, Behind Satpuda Bar, Dighori Road, Aradhana Nagar, Nagpur.\n\nWHAT WE COLLECT. If you send an enquiry through this website, we receive the name, phone number and details you type into the form. If you contact us on WhatsApp or by phone, we have your number and whatever you choose to tell us. We do not ask for payment details on this website.\n\nWHY WE HAVE IT. To answer your enquiry, prepare a quotation and carry out work you order from us. Nothing more.\n\nWHO ELSE SEES IT. Nobody. We do not sell, rent or share enquiry details with other businesses. Where a delivery or installation needs someone outside the workshop, they are told only what is needed to complete it.\n\nHOW LONG WE KEEP IT. While we are dealing with you, and afterwards in our own records of work done. Ask us to delete your details and we will.\n\nCOOKIES. This site does not use advertising or tracking cookies.\n\nCONTACT. sonusteelnagpur@gmail.com, or 7350620000.",
+      "termsBody": "These terms cover this website and enquiries made through it. They are not a contract of sale — every order is confirmed separately, in writing or on WhatsApp.\n\nQUOTATIONS. Everything shown here is made to order. Photographs are of work we have completed and are illustrative: the size, steel gauge, fittings and finish of your piece are what we agree in your quotation. No price is published on this site, and a price written on a photograph is not a current quotation.\n\nORDERS. An order begins when we confirm the specification and you accept the quotation. Changes to size, material or finish after that may change the price and the delivery date; we will tell you before going ahead.\n\nDELIVERY AND INSTALLATION. Any timeline we give is an honest estimate based on the work already in the shop. Where delivery or installation is included, it is stated in the quotation.\n\nWORKMANSHIP. We put right manufacturing or welding defects in work we have made. Damage from misuse, overloading, alteration by someone else, or transport arranged by you is not covered.\n\nTHIS WEBSITE. The photographs and text belong to Sonu Steel Furniture. Details change as the range changes — contact us for what is current."
+     }
+    }
+   ]
+  },
+  {
+   "id": "blog",
+   "title": "Blog",
+   "slug": "/blog",
+   "visible": true,
+   "seo": {
+    "title": "Steel Furniture Advice | Sonu Steel Furniture, Nagpur",
+    "description": "Practical guides on choosing and looking after steel furniture: medicine racks, MS vs stainless, powder coating, pharmacy counter layout and made-to-measure work.",
+    "keywords": "medicine rack guide, MS vs stainless steel furniture, powder coating care, pharmacy counter layout"
+   },
+   "sections": [
+    {
+     "id": "header-5",
+     "type": "header",
+     "visible": true,
+     "props": {
+      "sticky": true,
+      "showCart": false,
+      "showAccount": false,
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816612/sonu-steel/sonu-p00.jpg",
+      "logoSize": "large",
+      "links": [
+       {
+        "text": "Home",
+        "href": "/"
+       },
+       {
+        "text": "Products",
+        "href": "/products"
+       },
+       {
+        "text": "Fabrication",
+        "href": "/fabrication"
+       },
+       {
+        "text": "About",
+        "href": "/about"
+       },
+       {
+        "text": "Blog",
+        "href": "/blog"
+       },
+       {
+        "text": "Contact",
+        "href": "/contact"
+       }
+      ],
+      "cta": {
+       "text": "Get a Quote",
+       "href": "/contact"
+      }
+     }
+    },
+    {
+     "id": "hero-5",
+     "type": "hero",
+     "visible": true,
+     "variant": "minimal",
+     "props": {
+      "badge": "Blog",
+      "heading": "What we tell customers before they order",
+      "sub": "Six pieces of practical advice, written from what actually comes back for repair.",
+      "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816643/sonu-steel/sonu-p15.jpg"
+     }
+    },
+    {
+     "id": "blog-1",
+     "type": "blog",
+     "visible": true,
+     "variant": "grid-3",
+     "props": {
+      "label": "Articles",
+      "heading": "Advice from the workshop",
+      "posts": [
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816618/sonu-steel/sonu-p03.jpg",
+        "title": "How to choose a medicine rack for your pharmacy",
+        "excerpt": "Drawer depth, not drawer count, decides whether a medicine rack works. Here is how to measure before you order.",
+        "body": "Start with the stock, not the wall. Lay out the strips, boxes and bottles you turn over fastest and measure the deepest one — that sets your drawer depth. Anything shallower and the drawer will not close on a full box; much deeper and the back becomes a place expiry dates go unnoticed.\n\nThen count how many separate categories you actually reach for in a day. That, not the width of the wall, sets the number of drawers. A wall of forty identical drawers looks impressive and slows you down; a grid built around your own fast movers pays for itself in the first month.\n\nFinally, think about who else uses it. If two people bill at once, the rack needs to be reachable from both sides of the counter, which changes where it can stand."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816636/sonu-steel/sonu-p11.jpg",
+        "title": "MS or stainless: which steel for shop furniture in Nagpur",
+        "excerpt": "Stainless is not automatically the better buy. What each one is actually for, and where the money is better spent.",
+        "body": "Mild steel, powder coated, is what most shop and home furniture is made of and it is the right choice most of the time. It is strong, it takes colour, it welds cleanly, and it costs a fraction of stainless. Its weakness is standing water — where a coating gets chipped and stays wet, rust starts.\n\nStainless earns its price where water is constant or hygiene is inspected: wash areas, kitchens, hospital and laboratory furniture. Paying for stainless on a bedroom almirah buys you nothing you will ever notice.\n\nIn Nagpur's humidity the practical answer for most shops is mild steel with a good powder coat, and stainless only for the parts that meet water. If you are unsure, tell us where the piece will stand and we will say which makes sense — including when the cheaper one is right."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816630/sonu-steel/sonu-p08.jpg",
+        "title": "Powder coating and paint: what actually lasts in a shop",
+        "excerpt": "Why a workshop finish behaves differently from a painted one, and how to keep either looking new.",
+        "body": "Paint sits on the surface. Powder coating is baked on, so it bonds and ends up thicker and harder — which is why it survives keys, crates and trolleys where paint scratches through to bare metal.\n\nIt is not indestructible. A deep chip is still a way in for moisture, so it is worth touching up early rather than after the rust bloom appears. Clean with a damp cloth and a mild detergent; strong solvents and scouring powder take the gloss off and leave a dull patch that never matches again.\n\nAn old piece that has gone chalky can usually be stripped and re-coated for far less than replacing it."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816646/sonu-steel/sonu-p16.jpg",
+        "title": "Planning a pharmacy counter: billing, storage and the queue",
+        "excerpt": "The layout decisions that make a medical store faster to work in, made before anything is fabricated.",
+        "body": "Decide where the customer stands first. Everything else — where billing sits, which side the card machine faces, how far the fastest-moving stock is from the person serving — follows from that one choice.\n\nKeep the billing surface clear. A counter that has to hold the computer, the printer, the bill book and the card machine needs a dedicated shelf for each, or all four end up in the space you needed for the customer's purchase.\n\nPlan for two people at the counter even if you are one today. Walking around each other in a one-person aisle is the thing that slows an evening rush, and widening it afterwards means rebuilding the counter."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816628/sonu-steel/sonu-p07.jpg",
+        "title": "Looking after steel furniture so it lasts",
+        "excerpt": "Five minutes of maintenance a month, and the mistakes that shorten a piece's life.",
+        "body": "Wipe with a damp cloth and dry it. That is most of the job. What does the damage is the water left standing on a horizontal surface overnight, usually after a floor wash.\n\nOil the hinges and the locking rod twice a year. Almirah doors that begin to bind are almost never bent; they are dry. A drop of oil restores them, while forcing them puts the frame out of square.\n\nDo not drag loaded furniture across a floor. It is the fastest way to twist a frame that was perfectly square when it was installed. Empty it, lift it, or ask us — we will shift it for you."
+       },
+       {
+        "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816640/sonu-steel/sonu-p13.jpg",
+        "title": "Made to measure or ready made: when custom is worth it",
+        "excerpt": "Ready-made is cheaper and quicker. Here is where it costs you more in the end.",
+        "body": "For a single almirah in a normal room, ready-made is usually the right call. Nobody should pay a fabrication premium for a standard size that fits.\n\nCustom pays where the space is awkward or the use is specific: a corner, a low ceiling, a wall between two pillars, drawers sized for your stock rather than someone's guess. In a shop it pays almost every time, because a few centimetres of wasted width at the counter costs you every day you trade.\n\nThe honest test is this: if a standard piece fits and works, buy it. If you are already planning to adjust it, cut it or put something under it, you are paying for a custom piece anyway — just a worse one."
+       }
+      ]
+     }
+    },
+    {
+     "id": "cta-5",
+     "type": "cta",
+     "visible": true,
+     "props": {
+      "heading": "Still not sure what you need?",
+      "sub": "Send a photo of the space on WhatsApp and we will tell you what we would build.",
+      "ctaPrimary": {
+       "text": "Send a WhatsApp Enquiry",
+       "href": "https://wa.me/917350620000"
+      },
+      "ctaSecondary": {
+       "text": "Call 7350620000",
+       "href": "tel:+917350620000"
+      }
+     }
+    },
+    {
+     "id": "footer-5",
+     "type": "footer",
+     "visible": true,
+     "props": {
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816612/sonu-steel/sonu-p00.jpg",
+      "blurb": "Sonu Steel Furniture manufactures steel furniture and takes on fabrication work from its own workshop in Nagpur — medicine racks and pharmacy counters, almirahs, shop display units, school furniture and made-to-measure steel work.",
+      "columns": [
+       {
+        "title": "Products",
+        "links": [
+         {
+          "text": "Medicine Racks",
+          "href": "/products"
+         },
+         {
+          "text": "Pharmacy Counters",
+          "href": "/products"
+         },
+         {
+          "text": "Steel Almirahs",
+          "href": "/products"
+         },
+         {
+          "text": "Shop Display Units",
+          "href": "/products"
+         }
+        ]
+       },
+       {
+        "title": "Company",
+        "links": [
+         {
+          "text": "About Us",
+          "href": "/about"
+         },
+         {
+          "text": "Fabrication Work",
+          "href": "/fabrication"
+         },
+         {
+          "text": "Blog",
+          "href": "/blog"
+         },
+         {
+          "text": "Contact",
+          "href": "/contact"
+         }
+        ]
+       }
+      ],
+      "showSocial": true,
+      "showContact": true,
+      "showHours": true,
+      "copyright": "© Sonu Steel Furniture, Nagpur. All rights reserved.",
+      "showLegal": true,
+      "privacyBody": "Sonu Steel Furniture, Behind Satpuda Bar, Dighori Road, Aradhana Nagar, Nagpur.\n\nWHAT WE COLLECT. If you send an enquiry through this website, we receive the name, phone number and details you type into the form. If you contact us on WhatsApp or by phone, we have your number and whatever you choose to tell us. We do not ask for payment details on this website.\n\nWHY WE HAVE IT. To answer your enquiry, prepare a quotation and carry out work you order from us. Nothing more.\n\nWHO ELSE SEES IT. Nobody. We do not sell, rent or share enquiry details with other businesses. Where a delivery or installation needs someone outside the workshop, they are told only what is needed to complete it.\n\nHOW LONG WE KEEP IT. While we are dealing with you, and afterwards in our own records of work done. Ask us to delete your details and we will.\n\nCOOKIES. This site does not use advertising or tracking cookies.\n\nCONTACT. sonusteelnagpur@gmail.com, or 7350620000.",
+      "termsBody": "These terms cover this website and enquiries made through it. They are not a contract of sale — every order is confirmed separately, in writing or on WhatsApp.\n\nQUOTATIONS. Everything shown here is made to order. Photographs are of work we have completed and are illustrative: the size, steel gauge, fittings and finish of your piece are what we agree in your quotation. No price is published on this site, and a price written on a photograph is not a current quotation.\n\nORDERS. An order begins when we confirm the specification and you accept the quotation. Changes to size, material or finish after that may change the price and the delivery date; we will tell you before going ahead.\n\nDELIVERY AND INSTALLATION. Any timeline we give is an honest estimate based on the work already in the shop. Where delivery or installation is included, it is stated in the quotation.\n\nWORKMANSHIP. We put right manufacturing or welding defects in work we have made. Damage from misuse, overloading, alteration by someone else, or transport arranged by you is not covered.\n\nTHIS WEBSITE. The photographs and text belong to Sonu Steel Furniture. Details change as the range changes — contact us for what is current."
+     }
+    }
+   ]
+  },
+  {
+   "id": "contact",
+   "title": "Contact",
+   "slug": "/contact",
+   "visible": true,
+   "seo": {
+    "title": "Contact Sonu Steel Furniture, Nagpur | 7350620000",
+    "description": "Sonu Steel Furniture, Behind Satpuda Bar, Dighori Road, Aradhana Nagar, Nagpur. Call or WhatsApp 7350620000 / 9850332351. Open Monday to Saturday, 9 am to 8 pm.",
+    "keywords": "Sonu Steel Furniture contact, steel furniture Nagpur phone, Dighori Road Nagpur"
+   },
+   "sections": [
+    {
+     "id": "header-6",
+     "type": "header",
+     "visible": true,
+     "props": {
+      "sticky": true,
+      "showCart": false,
+      "showAccount": false,
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816612/sonu-steel/sonu-p00.jpg",
+      "logoSize": "large",
+      "links": [
+       {
+        "text": "Home",
+        "href": "/"
+       },
+       {
+        "text": "Products",
+        "href": "/products"
+       },
+       {
+        "text": "Fabrication",
+        "href": "/fabrication"
+       },
+       {
+        "text": "About",
+        "href": "/about"
+       },
+       {
+        "text": "Blog",
+        "href": "/blog"
+       },
+       {
+        "text": "Contact",
+        "href": "/contact"
+       }
+      ],
+      "cta": {
+       "text": "Get a Quote",
+       "href": "/contact"
+      }
+     }
+    },
+    {
+     "id": "hero-6",
+     "type": "hero",
+     "visible": true,
+     "variant": "minimal",
+     "props": {
+      "badge": "Contact",
+      "heading": "Talk to the workshop directly",
+      "sub": "Call, WhatsApp or come to the unit on Dighori Road.",
+      "image": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816626/sonu-steel/sonu-p06.jpg",
+      "showWhatsapp": true,
+      "showCall": true
+     }
+    },
+    {
+     "id": "contact-2",
+     "type": "contact",
+     "visible": true,
+     "props": {
+      "label": "Get in Touch",
+      "heading": "Send us your sizes",
+      "sub": "The quickest way to a price is a photo of the space and the measurements. Second number: 9850332351.",
+      "showPhone": true,
+      "showWhatsapp": true,
+      "showEmail": true,
+      "showAddress": true,
+      "showHours": true,
+      "showMap": true,
+      "mapUrl": "https://www.google.com/maps/search/?api=1&query=Sonu+Steel+Furniture+Behind+Satpuda+Bar+Dighori+Road+Aradhana+Nagar+Nagpur",
+      "submitText": "Send enquiry"
+     }
+    },
+    {
+     "id": "hours-2",
+     "type": "hours",
+     "visible": true,
+     "variant": "list",
+     "props": {
+      "label": "Opening Hours",
+      "heading": "Monday to Saturday, 9 am to 8 pm",
+      "highlightToday": true,
+      "note": "Closed on Sunday."
+     }
+    },
+    {
+     "id": "faq-2",
+     "type": "faq",
+     "visible": true,
+     "props": {
+      "label": "FAQ",
+      "heading": "Questions we are asked most",
+      "items": [
+       {
+        "q": "Do you make furniture to my own size?",
+        "a": "Yes — that is most of our work. Send the measurements, or a photo of the space with rough dimensions, and we will confirm what is possible and quote for it."
+       },
+       {
+        "q": "How do I get a price?",
+        "a": "Send the size, the material and a photo or drawing on WhatsApp and we will quote. Prices depend on the size, the gauge of steel and the finish, so we do not publish fixed rates for made-to-order work."
+       },
+       {
+        "q": "Do you deliver and install?",
+        "a": "Tell us where the piece is going and we will confirm delivery and installation when we quote. Large fit-outs and site fabrication are installed by our own team."
+       },
+       {
+        "q": "What colours can I have?",
+        "a": "Powder coating comes in a wide range of colours — the teal, green, blue and maroon in our photographs are all customer choices. Tell us the shade you want and we will match it as closely as the coating allows."
+       },
+       {
+        "q": "Can you repair or re-coat my old furniture?",
+        "a": "Often, yes, and it is usually cheaper than replacing it. Send a photo on WhatsApp and we will tell you honestly whether it is worth doing."
+       },
+       {
+        "q": "How long does an order take?",
+        "a": "It depends on the piece and what is already in the workshop. Ask when you enquire and we will give you a realistic date rather than an optimistic one."
+       }
+      ]
+     }
+    },
+    {
+     "id": "footer-6",
+     "type": "footer",
+     "visible": true,
+     "props": {
+      "logo": "https://res.cloudinary.com/dpawkimbc/image/upload/v1789816612/sonu-steel/sonu-p00.jpg",
+      "blurb": "Sonu Steel Furniture manufactures steel furniture and takes on fabrication work from its own workshop in Nagpur — medicine racks and pharmacy counters, almirahs, shop display units, school furniture and made-to-measure steel work.",
+      "columns": [
+       {
+        "title": "Products",
+        "links": [
+         {
+          "text": "Medicine Racks",
+          "href": "/products"
+         },
+         {
+          "text": "Pharmacy Counters",
+          "href": "/products"
+         },
+         {
+          "text": "Steel Almirahs",
+          "href": "/products"
+         },
+         {
+          "text": "Shop Display Units",
+          "href": "/products"
+         }
+        ]
+       },
+       {
+        "title": "Company",
+        "links": [
+         {
+          "text": "About Us",
+          "href": "/about"
+         },
+         {
+          "text": "Fabrication Work",
+          "href": "/fabrication"
+         },
+         {
+          "text": "Blog",
+          "href": "/blog"
+         },
+         {
+          "text": "Contact",
+          "href": "/contact"
+         }
+        ]
+       }
+      ],
+      "showSocial": true,
+      "showContact": true,
+      "showHours": true,
+      "copyright": "© Sonu Steel Furniture, Nagpur. All rights reserved.",
+      "showLegal": true,
+      "privacyBody": "Sonu Steel Furniture, Behind Satpuda Bar, Dighori Road, Aradhana Nagar, Nagpur.\n\nWHAT WE COLLECT. If you send an enquiry through this website, we receive the name, phone number and details you type into the form. If you contact us on WhatsApp or by phone, we have your number and whatever you choose to tell us. We do not ask for payment details on this website.\n\nWHY WE HAVE IT. To answer your enquiry, prepare a quotation and carry out work you order from us. Nothing more.\n\nWHO ELSE SEES IT. Nobody. We do not sell, rent or share enquiry details with other businesses. Where a delivery or installation needs someone outside the workshop, they are told only what is needed to complete it.\n\nHOW LONG WE KEEP IT. While we are dealing with you, and afterwards in our own records of work done. Ask us to delete your details and we will.\n\nCOOKIES. This site does not use advertising or tracking cookies.\n\nCONTACT. sonusteelnagpur@gmail.com, or 7350620000.",
+      "termsBody": "These terms cover this website and enquiries made through it. They are not a contract of sale — every order is confirmed separately, in writing or on WhatsApp.\n\nQUOTATIONS. Everything shown here is made to order. Photographs are of work we have completed and are illustrative: the size, steel gauge, fittings and finish of your piece are what we agree in your quotation. No price is published on this site, and a price written on a photograph is not a current quotation.\n\nORDERS. An order begins when we confirm the specification and you accept the quotation. Changes to size, material or finish after that may change the price and the delivery date; we will tell you before going ahead.\n\nDELIVERY AND INSTALLATION. Any timeline we give is an honest estimate based on the work already in the shop. Where delivery or installation is included, it is stated in the quotation.\n\nWORKMANSHIP. We put right manufacturing or welding defects in work we have made. Damage from misuse, overloading, alteration by someone else, or transport arranged by you is not covered.\n\nTHIS WEBSITE. The photographs and text belong to Sonu Steel Furniture. Details change as the range changes — contact us for what is current."
+     }
+    }
+   ]
+  }
+ ]
+}
