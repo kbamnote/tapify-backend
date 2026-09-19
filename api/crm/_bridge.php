@@ -97,7 +97,14 @@ function crm_usage_for(PDO $pdo, array $userIds): array
                 'useCount'      => (int)$r['use_count'],
                 'firstUsedAt'   => crm_iso($r['first_used_at']),
                 'lastUsedAt'    => crm_iso($r['last_used_at']),
+                // Buttons pressed inside the feature. Added later than the rest,
+                // so a database that hasn't had the migration re-run yet has no
+                // such columns — read defensively rather than 500 the dashboard.
+                'tapCount'      => (int)($r['tap_count'] ?? 0),
+                'firstTappedAt' => crm_iso($r['first_tapped_at'] ?? null),
+                'lastTappedAt'  => crm_iso($r['last_tapped_at'] ?? null),
                 'opens7d' => 0, 'opens30d' => 0, 'uses7d' => 0, 'uses30d' => 0,
+                'taps7d' => 0, 'taps30d' => 0,
             ];
         }
     });
@@ -109,7 +116,9 @@ function crm_usage_for(PDO $pdo, array $userIds): array
                    SUM(is_open AND created_at >= UTC_TIMESTAMP() - INTERVAL 7 DAY) AS opens7,
                    SUM(is_open)                                                    AS opens30,
                    SUM(kind = 'use' AND created_at >= UTC_TIMESTAMP() - INTERVAL 7 DAY) AS uses7,
-                   SUM(kind = 'use')                                               AS uses30
+                   SUM(kind = 'use')                                               AS uses30,
+                   SUM(kind = 'tap' AND created_at >= UTC_TIMESTAMP() - INTERVAL 7 DAY) AS taps7,
+                   SUM(kind = 'tap')                                               AS taps30
               FROM (SELECT user_id, feature, kind, created_at,
                            (kind = 'open' OR (kind = 'session' AND action = 'app_open')) AS is_open
                       FROM user_activity_events
@@ -126,6 +135,8 @@ function crm_usage_for(PDO $pdo, array $userIds): array
             $out[$u][$r['feature']]['opens30d'] = (int)$r['opens30'];
             $out[$u][$r['feature']]['uses7d']   = (int)$r['uses7'];
             $out[$u][$r['feature']]['uses30d']  = (int)$r['uses30'];
+            $out[$u][$r['feature']]['taps7d']   = (int)$r['taps7'];
+            $out[$u][$r['feature']]['taps30d']  = (int)$r['taps30'];
         }
     });
 

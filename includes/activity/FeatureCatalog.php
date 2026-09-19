@@ -164,7 +164,19 @@ final class FeatureCatalog
             'label' => 'Profile & Settings', 'group' => 'Account',
             'screens' => ['profile', 'settings'], 'endpoints' => ['profile/'],
         ],
+        // Anything the app reports that isn't mapped above — a screen added
+        // since this file was last updated, or a button pressed on one. It is
+        // recorded rather than dropped: the screen's real name is kept in the
+        // event's detail, so nothing a customer does is ever lost, and a busy
+        // "Other" here is the signal that this catalogue needs a new entry.
+        self::OTHER => [
+            'label' => 'Other screens', 'group' => 'Account',
+            'screens' => [], 'endpoints' => [],
+        ],
     ];
+
+    /** Feature used when a screen name isn't in the catalogue. */
+    public const OTHER = 'other';
 
     /**
      * WhatsApp's inbox, broadcasts and auto-replies all go through one proxy

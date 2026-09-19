@@ -228,8 +228,10 @@ final class ActivityTracker
                 }
                 $result['accepted']++;
 
-                // Sessions roll up as opens of the pseudo-feature "app".
-                $usageKind = $kind === 'use' ? 'use' : 'open';
+                // Sessions roll up as opens of the pseudo-feature "app"; taps
+                // are counted separately, so "opened it" and "pressed something
+                // in it" stay distinguishable on the dashboard.
+                $usageKind = in_array($kind, ['use', 'tap'], true) ? $kind : 'open';
                 $key = "$feature|$usageKind";
                 if (!isset($totals[$key])) {
                     $totals[$key] = [$at, $at, 0];
@@ -281,8 +283,31 @@ final class ActivityTracker
 
         if ($type === 'screen') {
             $screen = (string)($ev['screen'] ?? '');
-            $feature = FeatureCatalog::featureForScreen($screen);
-            return $feature === null ? null : [$feature, 'open', 'open', substr($screen, 0, 120), $at, $clientId];
+            if ($screen === '') {
+                return null;
+            }
+            // A screen the catalogue doesn't know is still something the
+            // customer opened. Dropping it was how a new screen could go
+            // missing for months without anyone noticing — it is recorded
+            // against "Other screens" with its own name kept in detail.
+            $feature = FeatureCatalog::featureForScreen($screen) ?? FeatureCatalog::OTHER;
+            return [$feature, 'open', 'open', substr($screen, 0, 120), $at, $clientId];
+        }
+        if ($type === 'tap') {
+            $screen = (string)($ev['screen'] ?? '');
+            $label = trim((string)($ev['label'] ?? ''));
+            if ($label === '') {
+                return null;
+            }
+            $feature = ($screen !== '' ? FeatureCatalog::featureForScreen($screen) : null) ?? FeatureCatalog::OTHER;
+            $action = FeatureCatalog::slug($label);
+            if ($action === '') {
+                $action = 'tap';
+            }
+            // The label is kept verbatim in detail — "Save changes" reads better
+            // on a timeline than "save_changes" — while action stays a slug so
+            // taps on the same button group together.
+            return [$feature, $action, 'tap', substr($label, 0, 120), $at, $clientId];
         }
         if ($type === 'action') {
             $feature = (string)($ev['feature'] ?? '');
@@ -327,9 +352,12 @@ final class ActivityTracker
         if ($pdo === null || $count < 1) {
             return;
         }
-        [$f, $l, $c] = $kind === 'use'
-            ? ['first_used_at', 'last_used_at', 'use_count']
-            : ['first_opened_at', 'last_opened_at', 'open_count'];
+        $columns = [
+            'use'  => ['first_used_at', 'last_used_at', 'use_count'],
+            'tap'  => ['first_tapped_at', 'last_tapped_at', 'tap_count'],
+            'open' => ['first_opened_at', 'last_opened_at', 'open_count'],
+        ];
+        [$f, $l, $c] = $columns[$kind] ?? $columns['open'];
 
         $pdo->prepare(
             "INSERT INTO user_feature_usage (user_id, feature, $f, $l, $c)
