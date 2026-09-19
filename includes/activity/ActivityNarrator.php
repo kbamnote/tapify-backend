@@ -101,6 +101,7 @@ final class ActivityNarrator
         $did = [];         // "feature|action" => times
         $pressed = [];     // button caption => times
         $platforms = [];
+        $entries = [];     // the day in order, one line per thing they did
         $first = null; $last = null; $prev = null; $engaged = 0;
 
         foreach ($items as $it) {
@@ -118,9 +119,15 @@ final class ActivityNarrator
             if ($platform !== '' && $platform !== 'unknown') $platforms[$platform] = true;
 
             $feature = (string)$r['feature'];
+            $text = null;
             switch ((string)$r['kind']) {
                 case 'session':
-                    if (($r['action'] ?? '') === 'app_open') $sessions++;
+                    if (($r['action'] ?? '') === 'app_open') {
+                        $sessions++;
+                        $text = 'Opened the app';
+                    } elseif (($r['action'] ?? '') === 'login') {
+                        $text = 'Signed in';
+                    }
                     break;
                 case 'open':
                     $label = $catalog[$feature]['label'] ?? $feature;
@@ -130,6 +137,7 @@ final class ActivityNarrator
                         $label = self::humanScreen((string)$r['detail']);
                     }
                     $opened[$label] = ($opened[$label] ?? 0) + 1;
+                    $text = 'Opened ' . $label;
                     break;
                 case 'use':
                     // Keyed by the thing itself, so saving two different designs
@@ -137,13 +145,22 @@ final class ActivityNarrator
                     $subject = self::subjectOf((string)($r['detail'] ?? ''));
                     $k = $feature . '|' . (string)$r['action'] . '|' . $subject;
                     $did[$k] = ($did[$k] ?? 0) + 1;
+                    $text = self::describeAction($feature, (string)$r['action'], $subject, 1, $catalog);
                     break;
                 case 'tap':
                     $caption = trim((string)($r['detail'] ?? ''));
-                    if ($caption !== '') $pressed[$caption] = ($pressed[$caption] ?? 0) + 1;
+                    if ($caption !== '') {
+                        $pressed[$caption] = ($pressed[$caption] ?? 0) + 1;
+                        $text = 'Pressed “' . $caption . '”';
+                    }
                     break;
             }
+            if ($text !== null) {
+                $entries[] = ['at' => $at->format('g:i a'), 'ts' => $at->getTimestamp(), 'text' => $text, 'kind' => (string)$r['kind']];
+            }
         }
+
+        $entries = self::tidyEntries($entries);
 
         $lines = [];
 
@@ -190,6 +207,10 @@ final class ActivityNarrator
             'date'     => $key,
             'label'    => self::dayLabel($key, $todayKey, $date),
             'headline' => $headline,
+            // Two readings of the same day: `entries` is what happened, in
+            // order, with the time against each; `lines` is the short version.
+            // The manager chooses which one they are looking at.
+            'entries'  => $entries,
             'lines'    => $lines,
             'from'     => $first ? $first->format('g:i a') : null,
             'to'       => $last ? $last->format('g:i a') : null,
@@ -200,6 +221,64 @@ final class ActivityNarrator
             'taps'     => array_sum($pressed),
             'platform' => isset($platforms['ios']) ? 'iPhone' : (isset($platforms['android']) ? 'Android' : 'Website'),
         ];
+    }
+
+    /** At most this many lines for one day; beyond it the tail is summarised. */
+    private const MAX_ENTRIES = 150;
+
+    /**
+     * The raw sequence is faithful but repetitive: a button press and the
+     * screen it opened are two rows a second apart, and a customer refreshing
+     * a list produces the same line five times. This folds those together so
+     * the day reads like something a person wrote.
+     */
+    private static function tidyEntries(array $entries): array
+    {
+        $out = [];
+        $count = count($entries);
+        for ($i = 0; $i < $count; $i++) {
+            $e = $entries[$i];
+
+            // "Pressed X" immediately followed by the screen it opened is one
+            // action, not two.
+            if ($e['kind'] === 'tap' && isset($entries[$i + 1])) {
+                $next = $entries[$i + 1];
+                if ($next['kind'] === 'open' && $next['ts'] - $e['ts'] <= 3) {
+                    $e = [
+                        'at'   => $e['at'],
+                        'ts'   => $e['ts'],
+                        'kind' => 'tap',
+                        'text' => $e['text'] . ' → ' . lcfirst($next['text']),
+                    ];
+                    $i++; // the open has been folded in
+                }
+            }
+
+            // The same thing again, straight after: count it rather than repeat it.
+            $last = $out ? $out[count($out) - 1] : null;
+            if ($last !== null && $last['text'] === $e['text']) {
+                $out[count($out) - 1]['repeats'] = ($last['repeats'] ?? 1) + 1;
+                $out[count($out) - 1]['until'] = $e['at'];
+                continue;
+            }
+
+            $out[] = ['at' => $e['at'], 'ts' => $e['ts'], 'text' => $e['text']];
+        }
+
+        foreach ($out as &$row) {
+            if (!empty($row['repeats'])) {
+                $row['text'] .= ' (' . $row['repeats'] . ' times, up to ' . $row['until'] . ')';
+            }
+            unset($row['ts'], $row['repeats'], $row['until']);
+        }
+        unset($row);
+
+        if (count($out) > self::MAX_ENTRIES) {
+            $hidden = count($out) - self::MAX_ENTRIES;
+            $out = array_slice($out, 0, self::MAX_ENTRIES);
+            $out[] = ['at' => '', 'text' => '…and ' . $hidden . ' more that day'];
+        }
+        return $out;
     }
 
     /**
@@ -254,8 +333,12 @@ final class ActivityNarrator
         }
 
         $lines = [];
-        $lines[] = 'Used it on ' . $activeDays . ' of the last ' . $windowDays . ' days, '
-                 . self::times($visits) . ' in total';
+        // "1 of the last 1 days" is how a machine counts. For a single day the
+        // count of days is not news — the number of visits is.
+        $lines[] = $windowDays <= 1
+            ? 'Opened it ' . self::times($visits) . ' today'
+            : 'Used it on ' . $activeDays . ' of the last ' . $windowDays . ' days, '
+              . self::times($visits) . ' in total';
         $lines[] = $changes > 0
             ? 'Changed something ' . self::times($changes) . ' — they are actually working in it'
             : 'Only looked around — nothing was created or updated';
@@ -267,9 +350,14 @@ final class ActivityNarrator
         elseif ($gap === 1)  $lines[] = 'Last used it yesterday';
         else                 $lines[] = 'Last used it ' . $gap . ' days ago';
 
-        $headline = $activeDays >= max(1, (int)round($windowDays * 0.5))
-            ? 'Using Tapify regularly'
-            : ($changes > 0 ? 'Using it occasionally' : 'Barely using it');
+        // One day is not a pattern, so don't pronounce on one.
+        if ($windowDays <= 1) {
+            $headline = $changes > 0 ? 'Worked in Tapify today' : 'Looked at Tapify today';
+        } else {
+            $headline = $activeDays >= max(2, (int)round($windowDays * 0.5))
+                ? 'Using Tapify regularly'
+                : ($changes > 0 ? 'Using it occasionally' : 'Barely using it');
+        }
 
         return [
             'headline'   => $headline,
