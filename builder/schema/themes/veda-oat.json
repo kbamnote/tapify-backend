@@ -1,0 +1,34 @@
+{
+  "preset": "veda-oat",
+  "label": "Veda Oat",
+  "description": "Warm oatmeal ground, near-black type, white product cards, deep herbal green and a copper accent. Built for a premium Ayurveda / wellness storefront whose products are copper, brass and steel instruments photographed on white — a coloured page background makes those photographs look pasted on, and pure white makes them disappear.",
+  "industries": [
+    "ayurveda",
+    "wellness",
+    "ecommerce",
+    "clinic-supplies",
+    "herbal",
+    "medical-equipment"
+  ],
+  "tokens": {
+    "mode": "light",
+    "color": {
+      "primary": "#1F4D3A",
+      "secondary": "#212121",
+      "accent": "#8C4B1C",
+      "bg": "#ECE9E2",
+      "surface": "#FFFFFF",
+      "text": "#1A1A1A",
+      "muted": "#575757",
+      "border": "#DCD7CC"
+    },
+    "font": {
+      "heading": "Hanken Grotesk",
+      "body": "Inter"
+    },
+    "radius": "sm",
+    "spacing": "spacious",
+    "container": "wide"
+  },
+  "notes": "The oatmeal (#ECE9E2) and the near-black/grey type pairing are taken from the reference the customer gave (allbirds.com, whose body background is exactly this colour) — it is what makes a catalogue of white-background product shots read as one considered set rather than a grid of cut-outs. The two brand colours come from the products themselves: deep herbal green for the Ayurveda context, copper for tamra shalaka, which most of this catalogue is made of. Contrast, all AA or better: text/bg 14.35:1, muted/bg 5.96:1, primary/bg 7.94:1, accent/bg 5.52:1, white/primary 9.63:1, white/secondary 16.1:1. Accent matters most because SiteRenderer paints 12px meta text with it. `secondary` is the dark BAND colour (Allbirds' #212121 footer), not a text colour. radius sm and spacious spacing on purpose: square-ish corners plus generous whitespace is the whole visual argument of the reference site, and cramped premium does not exist."
+}
