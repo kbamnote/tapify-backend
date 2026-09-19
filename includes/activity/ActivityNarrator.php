@@ -132,7 +132,10 @@ final class ActivityNarrator
                     $opened[$label] = ($opened[$label] ?? 0) + 1;
                     break;
                 case 'use':
-                    $k = $feature . '|' . (string)$r['action'];
+                    // Keyed by the thing itself, so saving two different designs
+                    // reads as two lines rather than "saved changes, twice".
+                    $subject = self::subjectOf((string)($r['detail'] ?? ''));
+                    $k = $feature . '|' . (string)$r['action'] . '|' . $subject;
                     $did[$k] = ($did[$k] ?? 0) + 1;
                     break;
                 case 'tap':
@@ -156,8 +159,8 @@ final class ActivityNarrator
         // What they actually changed — the part that matters most, so it is
         // phrased as a full sentence rather than a count.
         foreach ($did as $k => $count) {
-            [$feature, $action] = explode('|', $k, 2);
-            $lines[] = self::describeAction($feature, $action, $count, $catalog);
+            [$feature, $action, $subject] = array_pad(explode('|', $k, 3), 3, '');
+            $lines[] = self::describeAction($feature, $action, $subject, $count, $catalog);
         }
 
         // Which buttons they pressed. Capped: a manager wants the gist, and a
@@ -199,8 +202,22 @@ final class ActivityNarrator
         ];
     }
 
-    /** "Saved changes in Website Builder, twice" */
-    private static function describeAction(string $feature, string $action, int $count, array $catalog): string
+    /**
+     * A detail is only worth printing if it names the customer's own content.
+     * Older events stored the endpoint that was called ("designs/save.php"),
+     * which would read as nonsense on a report.
+     */
+    private static function subjectOf(string $detail): string
+    {
+        $detail = trim($detail);
+        if ($detail === '' || substr($detail, -4) === '.php' || strpos($detail, '/') !== false) {
+            return '';
+        }
+        return $detail;
+    }
+
+    /** «Saved changes in Designs — "Diwali Offer Poster", twice» */
+    private static function describeAction(string $feature, string $action, string $subject, int $count, array $catalog): string
     {
         $label = $catalog[$feature]['label'] ?? $feature;
         $template = self::ACTION_PHRASES[$action] ?? null;
@@ -211,6 +228,9 @@ final class ActivityNarrator
             $template = ($words === '' ? 'Made a change' : ucfirst($words)) . ' in %s';
         }
         $sentence = sprintf($template, $label);
+        if ($subject !== '') {
+            $sentence .= ' — “' . $subject . '”';
+        }
         return $count > 1 ? $sentence . ', ' . self::times($count) : $sentence;
     }
 

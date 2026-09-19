@@ -238,7 +238,7 @@ final class FeatureCatalog
      * Feature + action for a successful write to $path (relative to /api/, e.g.
      * "designs/save.php"), or null if the request doesn't count as using one.
      *
-     * @return array{feature: string, action: string}|null
+     * @return array{feature: string, action: string, subject: ?string}|null
      */
     public static function resolveWrite(string $path, array $query = [], array $body = []): ?array
     {
@@ -258,7 +258,7 @@ final class FeatureCatalog
         if ($path === 'whatsapp/proxy.php') {
             $proxyAction = (string)($query['action'] ?? '');
             $feature = self::WHATSAPP_PROXY_ACTIONS[$proxyAction] ?? null;
-            return $feature ? ['feature' => $feature, 'action' => self::slug($proxyAction)] : null;
+            return $feature ? ['feature' => $feature, 'action' => self::slug($proxyAction), 'subject' => null] : null;
         }
 
         $feature = self::featureForEndpoint($path);
@@ -272,7 +272,56 @@ final class FeatureCatalog
             $action = self::slug($action . '_' . $body['action']);
         }
 
-        return ['feature' => $feature, 'action' => $action];
+        return [
+            'feature' => $feature,
+            'action'  => $action,
+            'subject' => self::subjectFor($feature, $query, $body),
+        ];
+    }
+
+    /**
+     * WHICH thing they saved — the design's title, the site's name — so the
+     * report can say «Saved changes in Designs — "Diwali Offer Poster"» rather
+     * than leaving a manager to guess.
+     *
+     * Deliberately narrow on BOTH sides. Only features whose content belongs to
+     * the customer themselves are eligible, and only a fixed list of field
+     * names is read. A request body can hold anything — an inquiry's message, a
+     * customer's phone number — and none of that belongs in an analytics table
+     * because a field name happened to look useful.
+     */
+    private const SUBJECT_FEATURES = [
+        'designs', 'digital_card', 'website_builder', 'whatsapp_store',
+        'dynamic_qr', 'social_posting', 'boost_ads',
+    ];
+
+    private const SUBJECT_KEYS = [
+        'title', 'name', 'design_name', 'vcard_name', 'site_name',
+        'store_name', 'product_name', 'label', 'slug',
+    ];
+
+    private static function subjectFor(string $feature, array $query, array $body): ?string
+    {
+        if (!in_array($feature, self::SUBJECT_FEATURES, true)) {
+            return null;
+        }
+        foreach (self::SUBJECT_KEYS as $key) {
+            foreach ([$body, $query] as $source) {
+                $value = $source[$key] ?? null;
+                if (!is_string($value)) {
+                    continue;
+                }
+                // Tidy for a dashboard and a copied report. Whitespace is
+                // collapsed FIRST so a newline becomes a space; stripping
+                // control characters first would run the two words together.
+                $value = preg_replace('/\s+/u', ' ', $value);
+                $value = trim(preg_replace('/[\x00-\x1F\x7F]/u', '', $value));
+                if ($value !== '') {
+                    return mb_substr($value, 0, 100);
+                }
+            }
+        }
+        return null;
     }
 
     /**

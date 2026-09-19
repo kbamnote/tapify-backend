@@ -147,7 +147,11 @@ final class ActivityTracker
             if ($write !== null) {
                 // One timestamp for both, so the event and the running total agree.
                 $at = gmdate('Y-m-d H:i:s');
-                self::recordEvent($userId, $write['feature'], $write['action'], 'use', $client, $path, $at);
+                // Prefer WHAT they saved over WHICH endpoint saved it: a design's
+                // title is what a Customer Manager can talk to the client about,
+                // the path tells them nothing. Falls back to the path.
+                $detail = $write['subject'] ?? $path;
+                self::recordEvent($userId, $write['feature'], $write['action'], 'use', $client, $detail, $at);
                 self::bumpUsage($userId, $write['feature'], 'use', $at, $at, 1);
             }
 
@@ -315,7 +319,11 @@ final class ActivityTracker
             if (!FeatureCatalog::exists($feature) || $action === '') {
                 return null;
             }
-            return [$feature, $action, 'use', null, $at, $clientId];
+            // What it was done to — the design that was shared. Only the app can
+            // know this for something that never reaches the server.
+            $label = trim((string)($ev['label'] ?? ''));
+            $label = $label === '' ? null : mb_substr($label, 0, 100);
+            return [$feature, $action, 'use', $label, $at, $clientId];
         }
         if ($type === 'app_open') {
             return ['app', 'app_open', 'session', null, $at, $clientId];
